@@ -1,0 +1,1452 @@
+// JavaScript Document
+
+$(document).ready(function () {
+  //resize trigger
+  $(window).resize(function () {
+    resizeScreen();
+  });
+
+  //fullscreen
+  $("#fullscreen")
+    .unbind()
+    .bind("click", function () {
+      requestFullscreen();
+    });
+
+  //power
+  $("#power")
+    .unbind()
+    .bind("click", function () {
+      //fullscreen
+      $(this).toggleClass("active");
+    });
+
+  if (getUrlParameter("tm")) {
+    testmode = true;
+  }
+
+  //return
+  $("#return")
+    .unbind()
+    .bind("click", function () {
+      if (uid != null) {
+        let elemName = "mainslider";
+        let script_arr = [elemName + ".js"];
+        let style_arr = [elemName + ".css"];
+        $.getComponent(
+          "./page/" + elemName + ".html",
+          "#main",
+          style_arr,
+          "./css/",
+          script_arr,
+          "./js/"
+        );
+
+        console.log("load and goto Unit selection");
+        //clean widgets
+        $("#widget").empty();
+        //clean canvas
+        $("#canvas-board .canvas").remove();
+        $("#cbg").hide();
+        $("#cba").hide();
+        // pause audio tracker
+        if (currentAudioTrack) {
+          currentAudioTrack.pause();
+        }
+        $(".btn_remove").hide();
+        $("#main").show();
+        if ($("#lines").hasClass("active")) {
+          $("#lines").removeClass("active");
+          $("#lines_board").hide();
+        }
+      } else if (lid != null) {
+        removeUnits();
+        console.log("return to Lesson selection");
+        $("#return").click();
+      } else if (bid != null) {
+        closeBook();
+        console.log("return to Book selection");
+      } else if (sid != null) {
+        console.log("return to Series selection");
+        createSeries();
+        $("#return").hide();
+      } else {
+        console.log("return to Login");
+        createSeries();
+        $("#return").hide();
+      }
+      //resetAudio
+      resetAudio();
+      resetPanel();
+    });
+
+  //painting erasor
+  var pe = new Hammer(document.getElementById("canvas-board"));
+  pe.get("pan").set({ direction: Hammer.DIRECTION_ALL });
+  pe.on("pan", function (ev) {
+    //erasor painting
+    if ($(".pen_tool .eraser").hasClass("active")) {
+      erasorPainting(ev);
+    }
+  });
+
+  $("#backToGEO")
+    .unbind()
+    .bind("click", function () {
+      backToGEO();
+    });
+
+  resizeScreen();
+  Wow.init();
+  //init
+  toLogin();
+
+  //是否支援localstorge
+  if (typeof Storage !== "undefined") {
+    // Code for localStorage/sessionStorage.
+    if (isIE()) {
+      //checkBrowser
+      let alertHint =
+        "您的瀏覽器支援度過於老舊。請下載安裝Chrome或Edge等效能較好的瀏覽器，以獲得完整的使用體驗。";
+      alert(alertHint);
+    } else {
+      //使用get
+      uToken = getUrlParameter("token");
+      //使用localStorage
+      if (!uToken) {
+        console.log("使用localstorge");
+        uToken = window.localStorage.getItem("MemberToken");
+        console.log(uToken);
+      }
+    }
+  } else {
+    // Sorry! No Web Storage support..
+    alert("抱歉，您的瀏覽器不支援此應用程式。");
+  }
+
+  //bg effect
+  setInterval(function () {
+    if (!isPaused) {
+      particles.push(
+        new Particle(
+          data[randomInt(0, data.length - 1)],
+          {
+            x: Math.random() * ($(window).width() / stageRatioReal),
+            y: $(window).height() / stageRatioReal,
+          },
+          1 + Math.random() * 3
+        )
+      );
+    }
+  }, 200);
+  update();
+});
+
+//parameters
+let html2canvasScale = 5;
+let testmode = true;
+let translateCountDown = false; //繁轉簡倒數(勿動)
+let uToken = ""; //user token(勿動)
+let version = new Date().getDate(); //版本(勿動)
+let sid, bid, lid, uid, sectionID;
+let userID = "-";
+let uName = "-";
+let dueDate = "-";
+let seriesXML;
+let contentXML;
+let audioPositionSwitch = false;
+let keepString = [
+  "(n.)",
+  "(v.)",
+  "(adj.)",
+  "(adv.)",
+  "=",
+  "(s)",
+  "(es)",
+  " ",
+  "(",
+  ")",
+];
+let pieceArr = ["red", "green", "blue", "orange", "purple"];
+var currentAudio;
+let countDownDefault = [0, 0, 0, 0];
+
+let getAllXML = function (llid) {
+  if (lid != llid) {
+    uid = null;
+    lid = llid;
+    //create
+    getContent();
+  } else {
+    showUnits();
+  }
+};
+
+let getContent = function () {
+  let ssid = sid;
+  let bbid = bid;
+  let llid = lid;
+  let xpath = "./content.xml";
+
+  $.ajax({
+    type: "GET",
+    url: xpath,
+    cache: false,
+    contentType: "application/json; charset=utf-8",
+    async: false,
+    timeout: 10000,
+    dataType: "xml",
+    success: function (data) {
+      contentXML = data;
+      createUnits();
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log(thrownError);
+      console.log("content:Error");
+    },
+  });
+};
+
+let createUnits = function () {
+  $("#icon-wrapper").empty();
+  //
+  let amount = $(contentXML).find("section").length;
+  $(contentXML)
+    .find("lesson")
+    .each(function (k) {
+      let ssid = $(this).attr("sid");
+      let bbid = $(this).attr("bid");
+      let llid = $(this).attr("lid");
+      if (ssid == sid && bbid == bid && llid == lid) {
+        $(this)
+          .find("section")
+          .each(function (i) {
+            let thumb = $(this).attr("image");
+            let name = $(this).attr("name");
+            let id = i + 1;
+            let section = $(this).attr("section");
+            let iconHTML = `<li onclick="loadContainer(${id},${section})">
+                        <img src="./DATA/${thumb}"/>
+                        <h3>${name}</h3></li>`;
+            $("#icon-wrapper").append(iconHTML);
+            if (amount > 5 && i == Math.ceil(amount / 2) - 1) {
+              $("#icon-wrapper").append("<br />");
+            }
+          });
+      }
+    });
+  //
+  $("#icon-wrapper")
+    .find("li")
+    .unbind()
+    .bind("click", function () {
+      $(this).addClass("visited");
+    });
+  showUnits();
+};
+
+let showUnits = function (checkcheck) {
+  $("#units").addClass("active");
+  if (checkcheck) {
+    doubleCheckin();
+  }
+};
+
+let hideUnits = function () {
+  $("#units").removeClass("active");
+};
+
+let removeUnits = function (reset) {
+  $("#units").removeClass("active");
+  if (reset != 1) {
+    lid = null;
+  }
+};
+
+let toLogin = function () {
+  let elemName = "login";
+  let script_arr = [elemName + ".js"];
+  let style_arr = [elemName + ".css"];
+  $.getComponent(
+    "./page/" + elemName + ".html",
+    "#main",
+    style_arr,
+    "./css/",
+    script_arr,
+    "./js/"
+  );
+};
+
+let loadContainer = function (id, section) {
+  gpObj = {};
+  uid = id;
+  sectionID = section;
+  //
+  let htmlPath;
+  $(contentXML)
+    .find("lesson")
+    .each(function (k) {
+      let ssid = $(this).attr("sid");
+      let bbid = $(this).attr("bid");
+      let llid = $(this).attr("lid");
+      if (ssid == sid && bbid == bid && llid == lid) {
+        htmlPath = $(this)
+          .find("section:eq(" + (uid - 1) + ")")
+          .attr("html");
+        console.log("load:" + htmlPath);
+
+        let script_arr = [
+          /*jsPath*/
+        ];
+        let style_arr = [
+          /*cssPath*/
+        ];
+        $.getComponent(
+          "./DATA/" + htmlPath,
+          "#main",
+          style_arr,
+          "./DATA/",
+          script_arr,
+          "./DATA/"
+        );
+
+        resetAudio();
+        //loadPanel();
+        hideUnits();
+        $("#main").show();
+      }
+    });
+};
+
+let loadPanel = function () {
+  resetPanel();
+  $("#root").append("<div id='panel' class='panel wow slideInUp'></div>");
+
+  let elemName = "panel";
+  let script_arr = [elemName + ".js"];
+  let style_arr = ["panel.css"];
+  $.getComponent(
+    "./page/" + elemName + ".html",
+    "#panel",
+    style_arr,
+    "./css/",
+    script_arr,
+    "./js/",
+    true
+  );
+};
+
+let loadMainSlider = function () {
+  let elemName = "mainslider";
+  let script_arr = [elemName + ".js"];
+  let style_arr = [elemName + ".css"];
+  $.getComponent(
+    "./page/" + elemName + ".html",
+    "#main",
+    style_arr,
+    "./css/",
+    script_arr,
+    "./js/"
+  );
+};
+
+let checkLogin = function () {
+  $(".error").html("login...");
+
+  if (
+    $('input[name="username"]').val() == "" ||
+    $('input[name="password"]').val() == ""
+  ) {
+    $(".error").html("帳號或密碼沒填");
+  } else {
+    //case insensitive
+    let uname = $('input[name="username"]').val().toUpperCase();
+    userID = uname;
+    let upass = $('input[name="password"]').val().toUpperCase();
+    let upassLength = upass.length < 10 ? "0" + upass.length : upass.length;
+    let combo = uname + upass + upassLength;
+    combo = combo.split("");
+    let encodedToken = "";
+    for (let i = 0; i < combo.length; i++) {
+      encodedToken += combo[i];
+      encodedToken += "_";
+    }
+    encodedToken = btoa(encodedToken);
+
+    $.ajax({
+      type: "GET",
+      url: "/ws/ws_get.asmx/MemberLogin",
+      data: { data: encodedToken, source: "C" },
+      async: false,
+      contentType: "application/json; charset=utf-8",
+      timeout: 10000,
+      cache: false,
+      dataType: "xml",
+      success: function (data) {
+        console.log(data);
+        let code = $(data).find("code").first().text();
+        let msg = $(data).find("msg").first().text();
+        if (code == "0" || code == 0) {
+          uToken = $(data).find("token").first().text();
+          dueDate = $(data).find("ServiceEndDate").first().text();
+          uName = $(data).find("name").first().text();
+          getSeriesXML();
+        } else if (code == "2" || code == 2) {
+          $(".error").html("此帳號已在線上");
+          let passwordAgain = confirm("此帳號已在線上，是否要取代原登入者?");
+          // if (passwordAgain && passwordAgain.toUpperCase() == upass) {
+          if (passwordAgain) {
+            reCheckLogin(encodedToken);
+          } else {
+            //alert("密碼錯誤");
+          }
+        } else {
+          $(".error").html(msg);
+        }
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(thrownError);
+        $(".error").html(thrownError);
+      },
+    });
+  }
+};
+
+let reCheckLogin = function (encodedToken) {
+  $.ajax({
+    type: "GET",
+    url: "/ws/ws_get.asmx/MemberReLogin",
+    data: { data: encodedToken, source: "C" },
+    async: false,
+    contentType: "application/json; charset=utf-8",
+    timeout: 10000,
+    cache: false,
+    dataType: "xml",
+    success: function (data) {
+      console.log(data);
+      let code = $(data).find("code").first().text();
+      let msg = $(data).find("msg").first().text();
+      if (code == "0" || code == 0) {
+        uToken = $(data).find("token").first().text();
+        dueDate = $(data).find("ServiceEndDate").first().text();
+        uName = $(data).find("name").first().text();
+        getSeriesXML();
+      } else {
+        $(".error").html(msg);
+      }
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log(thrownError);
+      $(".error").html(thrownError);
+    },
+  });
+};
+
+let doubleCheckin = function () {
+  let xpath = "/ws/ws_get.asmx/Series";
+  $.ajax({
+    type: "GET",
+    url: xpath,
+    data: { token: uToken },
+    cache: false,
+    contentType: "application/json; charset=utf-8",
+    async: false,
+    timeout: 10000,
+    dataType: "xml",
+    success: function (data) {
+      let code = $(data).find("code").first().text();
+      let msg = $(data).find("msg").first().text();
+      if (code == "0" || code == 0) {
+        console.log("pass double");
+      } else {
+        showError(msg);
+        if (code == "12" || code == 12) {
+          window.location.reload();
+        }
+      }
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log(thrownError);
+      console.log("Series:error");
+    },
+  });
+};
+
+let getSeriesXML = function () {
+  let xpath = "./series.xml";
+
+  $.ajax({
+    type: "GET",
+    url: xpath,
+    cache: false,
+    contentType: "application/json; charset=utf-8",
+    async: false,
+    timeout: 10000,
+    dataType: "xml",
+    success: function (data) {
+      console.log("Series:got");
+      seriesXML = data;
+      loadMainSlider();
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log(thrownError);
+      console.log("Series:error");
+    },
+  });
+};
+
+//particle
+class Particle {
+  constructor(svg, coordinates, friction) {
+    this.svg = svg;
+    this.steps = $(window).height() / 2;
+    this.item = null;
+    this.friction = friction;
+    this.coordinates = coordinates;
+    this.position = this.coordinates.y;
+    this.dimensions = this.render();
+    this.rotation = Math.random() > 0.5 ? "-" : "+";
+    this.scale = (0.5 + Math.random()) / 2;
+    this.siner = 200 * Math.random();
+  }
+
+  destroy() {
+    this.item.remove();
+  }
+
+  move() {
+    this.position = this.position - this.friction;
+    let top = this.position;
+    let left =
+      this.coordinates.x +
+      Math.sin((this.position * Math.PI) / this.steps) * this.siner;
+    this.item.css({
+      transform:
+        "translateX(" +
+        left +
+        "px) translateY(" +
+        top +
+        "px) scale(" +
+        this.scale +
+        ") rotate(" +
+        this.rotation +
+        (this.position + this.dimensions.height) +
+        "deg)",
+    });
+
+    if (this.position < -this.dimensions.height) {
+      this.destroy();
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  render() {
+    this.item = $(this.svg, {
+      css: {
+        transform:
+          "translateX(" +
+          this.coordinates.x +
+          "px) translateY(" +
+          this.coordinates.y +
+          "px)",
+      },
+    });
+    $(".bgg").append(this.item);
+    return {
+      width: this.item.width(),
+      height: this.item.height(),
+    };
+  }
+}
+
+const rhombus =
+  '<svg viewBox="0 0 13 14"><path class="rhombus" d="M5.9,1.2L0.7,6.5C0.5,6.7,0.5,7,0.7,7.2l5.2,5.4c0.2,0.2,0.5,0.2,0.7,0l5.2-5.4 C12,7,12,6.7,11.8,6.5L6.6,1.2C6.4,0.9,6.1,0.9,5.9,1.2L5.9,1.2z M3.4,6.5L6,3.9c0.2-0.2,0.5-0.2,0.7,0l2.6,2.6 c0.2,0.2,0.2,0.5,0,0.7L6.6,9.9c-0.2,0.2-0.5,0.2-0.7,0L3.4,7.3C3.2,7.1,3.2,6.8,3.4,6.5L3.4,6.5z" /></svg>';
+
+const pentahedron =
+  '<svg viewBox="0 0 561.8 559.4"><path class="pentahedron" d="M383.4,559.4h-204l-2.6-0.2c-51.3-4.4-94-37-108.8-83l-0.2-0.6L6,276.7l-0.2-0.5c-14.5-50,3.1-102.7,43.7-131.4 L212.1,23C252.4-7.9,310.7-7.9,351,23l163.5,122.5l0.4,0.3c39,30.3,56,82.6,42.2,130.3l-0.3,1.1l-61.5,198 C480.4,525.6,435.5,559.4,383.4,559.4z M185.5,439.4h195.2l61.1-196.8c0-0.5-0.3-1.6-0.7-2.1L281.5,120.9L120.9,241.2 c0,0.3,0.1,0.7,0.2,1.2l60.8,195.8C182.5,438.5,183.7,439.1,185.5,439.4z M441,240.3L441,240.3L441,240.3z"/></svg>';
+const x =
+  '<svg viewBox="0 0 12 12"> <path class="x" d="M10.3,4.3H7.7V1.7C7.7,0.8,7,0,6,0S4.3,0.8,4.3,1.7v2.5H1.7C0.8,4.3,0,5,0,6s0.8,1.7,1.7,1.7h2.5v2.5 C4.3,11.2,5,12,6,12s1.7-0.8,1.7-1.7V7.7h2.5C11.2,7.7,12,7,12,6S11.2,4.3,10.3,4.3z"/></svg>';
+
+const circle =
+  '<svg x="0px" y="0px" viewBox="0 0 13 12"> <path class="circle" d="M6.5,0.1C3.4,0.1,0.8,2.8,0.8,6s2.6,5.9,5.7,5.9s5.7-2.7,5.7-5.9S9.7,0.1,6.5,0.1L6.5,0.1z M6.5,8.8 C5,8.8,3.8,7.6,3.8,6S5,3.2,6.5,3.2S9.2,4.4,9.2,6S8,8.8,6.5,8.8L6.5,8.8z"/> </svg>';
+
+const point =
+  '<svg viewBox="0 0 12 12"> <path class="point" d="M6,7.5L6,7.5C5.1,7.5,4.5,6.9,4.5,6v0c0-0.9,0.7-1.5,1.5-1.5h0c0.9,0,1.5,0.7,1.5,1.5v0C7.5,6.9,6.9,7.5,6,7.5z "/> </svg>';
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+const data = [point, rhombus, pentahedron, circle, x];
+
+let isPaused = false;
+window.onblur = function () {
+  isPaused = true;
+}.bind(this);
+window.onfocus = function () {
+  isPaused = false;
+}.bind(this);
+
+let particles = [];
+
+function update() {
+  particles = particles.filter(function (p) {
+    return p.move();
+  });
+  requestAnimationFrame(update.bind(this));
+}
+
+//common funcs
+let isitEmpty = function (str) {
+  var tempStr = str.replace(/\s+/g, "");
+  return !(tempStr.length > 0);
+};
+// Wow
+let Wow = (function () {
+  "use strict";
+
+  // Handle Wow
+  let handleWow = function () {
+    let wow = new WOW({
+      boxClass: "wow", // animated element css class (default is wow)
+      animateClass: "animated", // default
+      mobile: true, // trigger animations on mobile devices (true is default)
+      tablet: true, // trigger animations on tablet devices (true is default)
+      live: true,
+    });
+    wow.init();
+  };
+
+  return {
+    init: function () {
+      handleWow(); // initial setup for counter
+    },
+  };
+})();
+
+////load component,css,js
+$.getMultiScripts = function (arr, path) {
+  $.each(arr, function (index, scr) {
+    //是否載入過
+    if ($.inArray(scr, js_cache_arr) >= 0) {
+      //console.log(scr+" exists, remove it.");
+      let srcc = (path || "") + scr + "?v=" + version;
+      $("script[src='" + srcc + "']").remove();
+    } else {
+      //cache住
+      js_cache_arr.push(scr);
+    }
+    let sc = document.createElement("script");
+    sc.src = (path || "") + scr + "?v=" + version;
+    $("body").append(sc);
+    //
+    //console.log(scr+" is loaded.");
+  });
+  return {
+    done: function (method) {
+      if (typeof method == "function") {
+        //如果傳入引數為一個方法
+        method();
+      }
+    },
+  };
+};
+
+$.getMultiStyles = function (arr, path) {
+  $.each(arr, function (index, scr) {
+    //是否載入過
+    if ($.inArray(scr, css_cache_arr) >= 0) {
+      //console.log(scr+" exists.");
+    } else {
+      //cache住
+      css_cache_arr.push(scr);
+      //
+      $("head").append("<link>");
+      let css = $("head").children(":last");
+      css.attr({
+        rel: "stylesheet",
+        type: "text/css",
+        href: (path || "") + scr + "?v=" + version,
+      });
+      //console.log(scr+" is loaded.");
+    }
+  });
+};
+
+$.getComponent = function (
+  comp,
+  comp_holder,
+  css_arr,
+  css_path,
+  js_arr,
+  js_path,
+  noloading
+) {
+  let delayTime = 50;
+  let chamount = $(comp_holder).length;
+  if (noloading) {
+  } else {
+    activeLoading();
+  }
+  $(comp_holder)
+    .delay(delayTime)
+    .queue(function () {
+      //先載入樣式
+      if (css_arr != "") {
+        //console.log("-- css --");
+        $.getMultiStyles(css_arr, css_path);
+      }
+
+      //載入元件
+      //console.log("-- component --");
+      $(this).load(comp + "?v=" + version, function () {
+        //console.log(comp+" is loaded.");
+        chamount -= 1;
+        if (chamount == 0) {
+          //完成後載入js
+          if (js_arr != "") {
+            //console.log("-- js --");
+            $.getMultiScripts(js_arr, js_path).done(function () {
+              // all scripts loaded
+              //console.log("Loading Finished.");
+            });
+          } else {
+            //console.log("No js, all loading Finished.");
+          }
+        }
+      });
+      $(this).dequeue();
+    });
+};
+
+let css_cache_arr = [];
+let js_cache_arr = [];
+let stageRatio = 1; //real ratio = stageRatioMain * stageRatioRoot
+let stageRatioReal = 1;
+let stageRatioMain = 1; //放大工具
+let stageRatioRoot = 1; //調整app尺寸fit screen
+let stageRatioMax = 5;
+let clientWidth = function () {
+  return Math.max(window.innerWidth, document.documentElement.clientWidth);
+};
+let clientHeight = function () {
+  return Math.max(window.innerHeight, document.documentElement.clientHeight);
+};
+
+let autofitScreen = function () {
+  let clientW = clientWidth();
+  let clientH = clientHeight();
+  let stageW = 640;
+  let stageH = 360;
+  if (clientW / clientH > stageW / stageH) {
+    stageRatioRoot = clientH / stageH;
+  } else {
+    stageRatioRoot = clientW / stageW;
+  }
+  stageRatioRoot = Math.min(stageRatioRoot, stageRatioMax);
+  stageRatioReal = stageRatioRoot * stageRatioMain;
+  stageRatio = Math.floor(stageRatioReal * 10) / 10;
+
+  $("#root").css("zoom", "1");
+  $("#root").css(
+    "-ms-transform",
+    "translate3d(-50.1%,-50.1%,0) scale(" +
+      stageRatioRoot +
+      "," +
+      stageRatioRoot +
+      ")"
+  );
+  $("#root").css(
+    "-webkit-transform",
+    "translate3d(-50.1%,-50.1%,0) scale(" +
+      stageRatioRoot +
+      "," +
+      stageRatioRoot +
+      ")"
+  );
+  $("#root").css(
+    "transform",
+    "translate3d(-50.1%,-50.1%,0) scale(" +
+      stageRatioRoot +
+      "," +
+      stageRatioRoot +
+      ")"
+  );
+};
+
+let shuffle = function (array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
+let mySort = function (array, tarObj, val) {
+  array.sort(function (a, b) {
+    let aRV = parseInt(tarObj[a][val]);
+    let bRV = parseInt(tarObj[b][val]);
+    if (aRV > bRV) return 1;
+    if (aRV < bRV) return -1;
+    return 0;
+  });
+};
+
+let requestFullscreen = function () {
+  var isInFullScreen =
+    (document.fullscreenElement && document.fullscreenElement !== null) ||
+    (document.webkitFullscreenElement &&
+      document.webkitFullscreenElement !== null) ||
+    (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+    (document.msFullscreenElement && document.msFullscreenElement !== null);
+
+  var docElm = document.documentElement;
+  if (!isInFullScreen) {
+    if (docElm.requestFullscreen) {
+      docElm.requestFullscreen();
+    } else if (docElm.mozRequestFullScreen) {
+      docElm.mozRequestFullScreen();
+    } else if (docElm.webkitRequestFullScreen) {
+      docElm.webkitRequestFullScreen();
+    } else if (docElm.msRequestFullscreen) {
+      docElm.msRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+};
+
+//draggable
+var paintVar;
+var paintPauseDuration = 1500;
+var groupID = new Date().getTime();
+var currentAudioTrack;
+var firstElem = null;
+var click = {
+  x: 0,
+  y: 0,
+};
+let makeDraggable = function (tar, stay, resizeTar) {
+  var audioTrackerDragger = new Hammer(tar.get(0));
+  var isATDrag = false;
+  tar.addClass("dragger");
+  var lastATPosX, lastATPosY, lastRTX, lastRTY;
+  var newRatio = stageRatio;
+  audioTrackerDragger
+    .get("pan")
+    .set({ direction: Hammer.DIRECTION_ALL, threshold: 1 });
+  audioTrackerDragger.get("press").set({ time: 0 });
+  audioTrackerDragger.on("press", function (ev) {
+    console.log("p");
+    firstElem = ev.target;
+    var attr = $(firstElem).attr("mt");
+    if (typeof attr !== "undefined" && attr !== false) {
+      var loop = parseInt(attr);
+      for (var n = 0; n < loop; n++) {
+        firstElem = $(firstElem).parent().get(0);
+      }
+    }
+  });
+  audioTrackerDragger.on("pressup", function (ev) {
+    firstElem = null;
+  });
+  audioTrackerDragger.on("pan", function (ev) {
+    var elem = ev.target;
+    if ($(elem).hasClass("dragger") && firstElem == null) {
+      firstElem = elem;
+      console.log("got dragger");
+    }
+
+    //移動的本體
+    if (
+      firstElem &&
+      $(firstElem).hasClass("dragger") &&
+      !$(firstElem).hasClass("disable")
+    ) {
+      if (
+        $(firstElem).parent().hasClass("widget") ||
+        $(firstElem).parent().hasClass("canvas-board")
+      ) {
+        newRatio = stageRatio / stageRatioMain;
+      } else {
+        newRatio = stageRatio;
+      }
+      if (!isATDrag) {
+        isATDrag = true;
+        lastATPosX = firstElem.offsetLeft;
+        lastATPosY = firstElem.offsetTop;
+      }
+
+      var posX = ev.deltaX / newRatio + lastATPosX;
+      var posY = ev.deltaY / newRatio + lastATPosY;
+      var dx = posX - parseFloat(firstElem.style.left);
+      var dy = posY - parseFloat(firstElem.style.top);
+
+      if (isATDrag) {
+        firstElem.style.left = posX + "px";
+        firstElem.style.top = posY + "px";
+        //move as a group with same gid
+        if ($(firstElem).hasClass("canvas")) {
+          var dPos = [dx, dy];
+          groupMoving($(firstElem), dPos);
+        }
+      }
+    }
+
+    //ending
+    if (ev.isFinal) {
+      //
+      if ($(firstElem).hasClass("canvas")) {
+        groupDeleting($(firstElem));
+      } else {
+        if (
+          posX < 0 - ($(firstElem).width() / stageRatio) * 0.7 ||
+          posX > 640 - ($(firstElem).width() / stageRatio) * 0.3 ||
+          posY < 0 - ($(firstElem).height() / stageRatio) * 0.6 ||
+          posY > 320 - ($(firstElem).height() / stageRatio) * 0.4
+        ) {
+          if (stay || !$(firstElem).hasClass("dragger")) {
+          } else {
+            $(firstElem).remove();
+          }
+        }
+      }
+
+      isATDrag = false;
+      firstElem = null;
+    }
+  });
+
+  tar.removeAttr("id");
+};
+
+//canvas painting erasor
+var pRatio = 4;
+let erasorPainting = function (ev) {
+  var _eraserWidth = 40;
+  if (ev.isFinal) {
+    $("#canvas-board .canvas").each(function (index) {
+      if (isCanvasBlank($(this).find("canvas").get(0))) {
+        $(this).remove();
+      }
+    });
+  } else {
+    $("#canvas-board .canvas").each(function (index) {
+      var canv = $(this).find("canvas").get(0);
+      var newPos = [
+        ev.center.x - parseInt($(this).offset().left),
+        ev.center.y - parseInt($(this).offset().top),
+      ];
+      var ctxx = canv.getContext("2d");
+      var newZoomRatio = stageRatioReal / stageRatioMain;
+      ctxx.clearRect(
+        (newPos[0] * pRatio) / newZoomRatio - _eraserWidth / 2,
+        (newPos[1] * pRatio) / newZoomRatio - _eraserWidth / 2,
+        _eraserWidth,
+        _eraserWidth
+      );
+    });
+  }
+};
+
+let groupMoving = function (tar, arrPos) {
+  var tempGIDArr = tar.attr("gid").split(",");
+  var tempGID = tempGIDArr[tempGIDArr.length - 1];
+  var tarUID = tar.attr("uid");
+  $("#canvas-board .canvas").each(function (index) {
+    var tempGIDArrMe = $(this).attr("gid").split(",");
+    var tempGIDMe = tempGIDArrMe[tempGIDArrMe.length - 1];
+    if (tempGIDMe == tempGID && $(this).attr("uid") != tarUID) {
+      $(this).get(0).style.left =
+        parseFloat($(this).get(0).style.left) + arrPos[0] + "px";
+      $(this).get(0).style.top =
+        parseFloat($(this).get(0).style.top) + arrPos[1] + "px";
+    }
+  });
+};
+
+let groupDeleting = function (tar) {
+  var groupMinX = 640;
+  var groupMaxX = 0;
+  var groupMinY = 320;
+  var groupMaxY = 0;
+  var tempGIDArr = tar.attr("gid").split(",");
+  var tempGID = tempGIDArr[tempGIDArr.length - 1];
+  console.log(tempGID);
+
+  $("#canvas-board .canvas").each(function (index) {
+    var tempGIDArrMe = $(this).attr("gid").split(",");
+    var tempGIDMe = tempGIDArrMe[tempGIDArrMe.length - 1];
+    if (tempGIDMe == tempGID) {
+      var tx = parseInt($(this).get(0).style.left);
+      var ty = parseInt($(this).get(0).style.top);
+      var tw = parseInt($(this).get(0).style.width);
+      var th = parseInt($(this).get(0).style.height);
+      groupMinX = Math.min(tx, groupMinX);
+      groupMaxX = Math.max(tx + tw, groupMaxX);
+      groupMinY = Math.min(ty, groupMinY);
+      groupMaxY = Math.max(ty + th, groupMaxY);
+    }
+  });
+  //
+  var groupW = parseInt(groupMaxX - groupMinX) / pRatio;
+  var groupH = parseInt(groupMaxY - groupMinY) / pRatio;
+
+  if (
+    groupMinX < 0 - groupW * 0.2 ||
+    groupMinX > 640 - groupW * 0.8 ||
+    groupMinY < 0 - groupH * 0.2 ||
+    groupMinY > 320 - groupH * 0.8
+  ) {
+    $("#canvas-board .canvas").each(function (index) {
+      var tempGIDArrMe = $(this).attr("gid").split(",");
+      var tempGIDMe = tempGIDArrMe[tempGIDArrMe.length - 1];
+      if (tempGIDMe == tempGID) {
+        $(this).remove();
+      }
+    });
+    if ($("#canvas-board .canvas.selected").length > 0) {
+      $("#cbg").fadeIn();
+      $("#cba").fadeIn();
+    } else {
+      $("#cbg").hide();
+      $("#cba").hide();
+    }
+  }
+};
+
+let groupSelect = function (tar) {
+  var tempGIDArr = tar.attr("gid").split(",");
+  var tempGID = tempGIDArr[tempGIDArr.length - 1];
+  $("#canvas-board .canvas").each(function (index) {
+    var tempGIDArrMe = $(this).attr("gid").split(",");
+    var tempGIDMe = tempGIDArrMe[tempGIDArrMe.length - 1];
+    if (tempGIDMe == tempGID) {
+      $(this).toggleClass("selected");
+      getHighestDepthCanvas($(this));
+    }
+  });
+
+  if ($("#canvas-board .canvas.selected").length > 0) {
+    $("#cbg").fadeIn();
+    $("#cba").fadeIn();
+  } else {
+    $("#cbg").hide();
+    $("#cba").hide();
+  }
+};
+
+let groupCanvas = function () {
+  var newGid = new Date().getTime();
+  $("#canvas-board .canvas").each(function (index) {
+    if ($(this).hasClass("selected")) {
+      var tempGIDArrMe = $(this).attr("gid").split(",");
+      tempGIDArrMe.push(newGid);
+      $(this).attr("gid", tempGIDArrMe.join(",")).removeClass("selected");
+    }
+  });
+  $("#cbg").hide();
+  $("#cba").hide();
+};
+
+let apartCanvas = function () {
+  $("#canvas-board .canvas").each(function (index) {
+    if ($(this).hasClass("selected")) {
+      var tempGIDArrMe = $(this).attr("gid").split(",");
+      tempGIDArrMe.pop();
+      if (tempGIDArrMe.length < 1) {
+        var newGid = new Date().getTime();
+        $(this)
+          .attr("gid", newGid + index)
+          .removeClass("selected");
+      } else {
+        $(this).attr("gid", tempGIDArrMe.join(",")).removeClass("selected");
+      }
+    }
+  });
+  $("#cbg").hide();
+  $("#cba").hide();
+};
+
+let isCanvasBlank = function (canvas) {
+  var context = canvas.getContext("2d");
+  var pixelBuffer = new Uint32Array(
+    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+  );
+
+  return !pixelBuffer.some((color) => color !== 0);
+};
+
+//共用音效控制
+let $chimes = new Audio("./sfx/chimes.mp3");
+let $tryagain = new Audio("./sfx/tryagain.mp3");
+let $stupid = new Audio("./sfx/stupid.mp3");
+let $show = new Audio("./sfx/show.mp3");
+let $bouncing = new Audio("./sfx/bouncing.mp3");
+let $help = new Audio("./sfx/help.mp3");
+let $pop = new Audio("./sfx/pop.mp3");
+let $click = new Audio("./sfx/click.mp3");
+let $surprise = new Audio("./sfx/surprise.mp3");
+let $water = new Audio("./sfx/water.mp3");
+let $good = new Audio("./sfx/good.mp3");
+
+//combine
+var sfxLowLagged = 0;
+let $SFXAr = [
+  $chimes,
+  $tryagain,
+  $stupid,
+  $show,
+  $bouncing,
+  $help,
+  $pop,
+  $click,
+  $surprise,
+  $water,
+  $good,
+];
+let $SFXNameAr = [
+  "chimes",
+  "tryagain",
+  "stupid",
+  "show",
+  "bouncing",
+  "help",
+  "pop",
+  "click",
+  "surprise",
+  "water",
+  "good",
+];
+for (let k = 0; k < $SFXAr.length; k++) {
+  $SFXAr[k].preload = "auto";
+}
+function lowlagSFX() {
+  for (let k = sfxLowLagged; k < $SFXAr.length; k++) {
+    lowLag.load([$SFXAr[k].src], $SFXNameAr[k]);
+  }
+}
+
+//需用開始紐觸發
+function activeSFX() {
+  if (!isIE()) {
+    for (let k = sfxLowLagged; k < $SFXAr.length; k++) {
+      $SFXAr[k].play();
+      $SFXAr[k].pause();
+      sfxLowLagged += 1;
+    }
+  } else {
+    for (let k = sfxLowLagged; k < $SFXAr.length; k++) {
+      sfxLowLagged += 1;
+    }
+  }
+  console.log("lowlag end at:" + sfxLowLagged);
+}
+
+function rootSoundEffectName($name, $showplayer, st, et) {
+  resetAudio();
+  //
+  var gotAudio = false;
+  for (let k = 0; k < $SFXNameAr.length; k++) {
+    if ($name == $SFXNameAr[k]) {
+      currentAudio = $SFXAr[k];
+      gotAudio = true;
+    }
+  }
+  if (!gotAudio) {
+    console.log("沒有音檔:" + $name);
+  }
+
+  currentAudio.pause();
+  currentAudio.currentTime = 0;
+  if (st) {
+    currentAudio.currentTime = st;
+  }
+  currentAudio.play();
+  console.log("ie");
+
+  if ($showplayer) {
+    loadPlayer();
+    $(currentAudio)
+      .unbind()
+      .on("timeupdate", function () {
+        playerGotoPosition();
+      })
+      .on("ended", function () {
+        playerAudioEnd();
+      });
+  } else {
+    if (et) {
+      $(currentAudio)
+        .unbind()
+        .on("timeupdate", function () {
+          if (currentAudio.currentTime >= et) {
+            currentAudio.pause();
+          }
+        })
+        .on("ended", function () {
+          console.log("force end");
+        });
+    }
+  }
+}
+
+function rootSoundEffect($tar) {
+  for (let k = 0; k < $SFXAr.length; k++) {
+    if ($tar == $SFXAr[k]) {
+      if (isIE()) {
+        $tar.pause();
+        $tar.currentTime = 0;
+        $tar.play();
+        console.log("ie");
+      } else {
+        lowLag.change($SFXNameAr[k], false);
+        lowLag.stop();
+        lowLag.play();
+        console.log("non-ie");
+      }
+    }
+  }
+}
+
+function resetPanel() {
+  $("#masker").remove();
+  $("#panel").remove();
+  $("#zoomSensor").remove();
+  $("#painting").remove();
+}
+
+function resetAudio() {
+  $("#player").remove();
+  lowLag.stop();
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+}
+
+// system funcs
+let isIE = function () {
+  if (!!window.ActiveXObject || "ActiveXObject" in window) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+let is_iPhone_or_iPad = function () {
+  return (
+    navigator.platform.indexOf("iPhone") != -1 ||
+    navigator.platform.indexOf("iPad") != -1
+  );
+};
+
+var isMobile = function () {
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+let getUrlParameter = function getUrlParameter(sParam) {
+  let sPageURL = window.location.search.substring(1),
+    sURLVariables = sPageURL.split("&"),
+    sParameterName,
+    i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+    sParameterName = sURLVariables[i].split("=");
+
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined
+        ? true
+        : decodeURIComponent(sParameterName[1]);
+    }
+  }
+};
+
+let resizeScreen = function () {
+  let keying = false;
+  $("input").each(function (index) {
+    if ($(this).is(":focus")) {
+      keying = true;
+    }
+  });
+
+  if (!keying) {
+    autofitScreen();
+    setTimeout(function () {
+      autofitScreen();
+    }, 500);
+    setTimeout(function () {
+      autofitScreen();
+    }, 1500);
+  }
+
+  //
+  if ($(".btn_brush").hasClass("active")) {
+    $(".btn_brush").click();
+  }
+};
+
+let counter = 20;
+let checkCompLoading = function (elem) {
+  counter -= 1;
+  let total = $(elem).find("> .assetsPreload").find("img").length;
+  let imgGot = 0;
+  console.log(counter);
+  $(elem)
+    .find("> .assetsPreload")
+    .find("img")
+    .each(function (index) {
+      if ($(this).width() * $(this).height() > 0) {
+        imgGot += 1;
+      }
+    });
+
+  if (imgGot / total >= 1 || counter < 0 || total == 0) {
+    counter = 20;
+    $("#loading p").text("Ready");
+
+    //是否有loading effect
+    if ($loadType != "") {
+      $(elem)
+        .delay(1000)
+        .queue(function () {
+          activeLoading();
+          $(elem).dequeue();
+          //
+          $(elem).trigger("compLoaded");
+        });
+    } else {
+      $(elem).trigger("compLoaded");
+    }
+  } else {
+    setTimeout(function () {
+      checkCompLoading(elem);
+    }, 100);
+    $("#loading p").text(Math.ceil((100 * imgGot) / total) + "%");
+  }
+};
+
+//等待載入
+$loadType = "";
+let activeLoading = function () {
+  $("#loading p").text("");
+  let typeString = "spinIn";
+  $("#loading")
+    .removeClass()
+    .addClass("loading " + typeString);
+  $("#loading")
+    .unbind()
+    .bind("dblclick", function () {
+      deactiveLoading();
+    });
+};
+
+let deactiveLoading = function () {
+  $("#loading").dequeue();
+  $("#loading").clearQueue();
+  $("#loading").removeClass().addClass("loading");
+};
+
+let formatIOSDate = function (str) {
+  let iosDate = str.toString();
+  iosDate = iosDate.replace("-", "/");
+  iosDate = iosDate.replace("-", "/");
+  //console.log("xxx:"+iosDate);
+  return iosDate;
+};
+
+let openNewWindow = function (url) {
+  //var a = $('a')[0];
+  let a = $("<a href='" + url + "' target='_blank'>geo</a>").get(0);
+  let e = document.createEvent("MouseEvents");
+  e.initEvent("click", true, true);
+  a.dispatchEvent(e);
+};
+
+let backToGEO = function () {
+  let logoutConfirm = confirm("Log out now？");
+
+  if (logoutConfirm) {
+    $.ajax({
+      type: "GET",
+      url: "/ws/ws_get.asmx/MemberLogout",
+      data: { token: uToken },
+      async: false,
+      contentType: "application/json; charset=utf-8",
+      timeout: 10000,
+      cache: false,
+      dataType: "xml",
+      success: function (data) {
+        console.log(data);
+        let code = $(data).find("code").first().text();
+        let msg = $(data).find("msg").first().text();
+        if (code == "0" || code == 0) {
+          window.location.reload();
+        } else {
+          alert(msg);
+        }
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(thrownError);
+        alert(thrownError);
+      },
+    });
+  }
+};
+
+var getHighestDepthWidget = function (tar) {
+  var nextZIndex = parseInt($("#widget").attr("zindex"));
+  var curZIndex = parseInt(tar.css("z-index"));
+  if (curZIndex != nextZIndex) {
+    nextZIndex += 1;
+    tar.css("z-index", nextZIndex);
+    $("#widget").attr("zindex", nextZIndex);
+    $("#canvas-board").attr("zindex", nextZIndex);
+  }
+};
+
+var getHighestDepthCanvas = function (tar) {
+  var nextZIndex = parseInt($("#canvas-board").attr("zindex"));
+  var curZIndex = parseInt(tar.css("z-index"));
+  if (curZIndex != nextZIndex) {
+    nextZIndex += 1;
+    var tempGIDArr = tar.attr("gid").split(",");
+    var tempGID = tempGIDArr[tempGIDArr.length - 1];
+    $("#canvas-board .canvas").each(function (index) {
+      var tempGIDArrMe = $(this).attr("gid").split(",");
+      var tempGIDMe = tempGIDArrMe[tempGIDArrMe.length - 1];
+      if (tempGIDMe == tempGID) {
+        $(this).css("z-index", nextZIndex);
+      }
+    });
+    $("#canvas-board").attr("zindex", nextZIndex);
+  }
+};
+
+let showError = function (msg) {
+  alert(msg);
+};
+
+//
+window.onload = function () {
+  //
+  if (!isIE()) {
+    lowLag.init();
+    lowlagSFX();
+    activeSFX();
+  }
+  resizeScreen();
+};
