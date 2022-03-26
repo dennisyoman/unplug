@@ -248,10 +248,47 @@ body {
         pointer-events: auto;
         cursor: pointer;
         display: inline-block;
-        width: 100px;
+        width: 85px;
         height: auto;
         text-align: center;
         margin: 15px 3px;
+
+        position: relative;
+
+        &:nth-child(even) {
+          &::before {
+            @include scaleXY(-1, 1);
+          }
+          &::after {
+            background-image: url("../images/common/tap2.png");
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 13px;
+          top: -5px;
+          left: 50%;
+          margin-left: -20px;
+          background: url("../images/common/tap1.png") no-repeat center center;
+          background-size: 100% 100%;
+          @include opacity(0.7);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+          width: 100%;
+          height: 0;
+          padding-top: 100%;
+          background: url("../images/common/unitbg.png") no-repeat center center;
+          background-size: 100% 100%;
+        }
 
         &.visited {
           filter: saturate(0);
@@ -260,14 +297,21 @@ body {
         h3 {
           font-size: 12px;
           color: #fff;
-          line-height: 1.2;
+          line-height: 1.5;
           white-space: normal;
+          span {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+          }
         }
 
         img {
           width: 100%;
           height: auto;
           margin-bottom: 10px;
+          position: relative;
+          z-index: 2;
         }
       }
     }
@@ -339,9 +383,9 @@ body {
       &.power {
         //display:none;
         right: 10px;
-        bottom: 15px;
-        width: 12.5px;
-        height: 12.5px;
+        bottom: 4px;
+        width: 32px;
+        height: 32px;
         background: url("../images/common/btn_power.png") no-repeat center
           center;
         background-size: contain;
@@ -397,22 +441,46 @@ body {
       top: 0;
       left: 0;
       z-index: 1;
-      display: none;
-      background: url("../images/common/spinner_logo.png") center center
-        no-repeat;
-      background-size: 45px 45px;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+      @keyframes loadingSpin {
+        0% {
+          transform: rotate(45deg);
+          border-color: $l1;
+        }
 
-      > span {
+        25% {
+          transform: rotate(135deg);
+          border-color: $l2;
+        }
+
+        50% {
+          transform: rotate(225deg);
+          border-color: $l3;
+        }
+
+        75% {
+          transform: rotate(315deg);
+          border-color: $l4;
+        }
+
+        100% {
+          transform: rotate(405deg);
+          border-color: $l1;
+        }
+      }
+
+      &::before {
+        content: "";
+        @include borderRadius(10px);
         display: inline-block;
-        width: 45px;
-        height: 45px;
-        background: url("../images/common/spinner.png") center center no-repeat;
-        background-size: 100% 100%;
-        animation: selfRotate 3s infinite linear;
-        -webkit-animation: selfRotate 3s infinite linear;
+        width: 40px;
+        height: 40px;
+        border: 5px solid $main;
+        animation: loadingSpin 4s infinite ease;
+        -webkit-animation: loadingSpin 4s infinite ease;
       }
 
       > P {

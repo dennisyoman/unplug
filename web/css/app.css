@@ -10075,10 +10075,49 @@ body {
   pointer-events: auto;
   cursor: pointer;
   display: inline-block;
-  width: 100px;
+  width: 85px;
   height: auto;
   text-align: center;
   margin: 15px 3px;
+  position: relative;
+}
+
+.root > .units .icon-wrapper li:nth-child(even)::before {
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.root > .units .icon-wrapper li:nth-child(even)::after {
+  background-image: url("../images/common/tap2.png");
+}
+
+.root > .units .icon-wrapper li::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 13px;
+  top: -5px;
+  left: 50%;
+  margin-left: -20px;
+  background: url("../images/common/tap1.png") no-repeat center center;
+  background-size: 100% 100%;
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.root > .units .icon-wrapper li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  background: url("../images/common/unitbg.png") no-repeat center center;
+  background-size: 100% 100%;
 }
 
 .root > .units .icon-wrapper li.visited {
@@ -10089,14 +10128,22 @@ body {
 .root > .units .icon-wrapper li h3 {
   font-size: 12px;
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.5;
   white-space: normal;
+}
+
+.root > .units .icon-wrapper li h3 span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .root > .units .icon-wrapper li img {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .root > .units .overlay {
@@ -10167,9 +10214,9 @@ body {
 
 .root .basic-tools span.power {
   right: 10px;
-  bottom: 15px;
-  width: 12.5px;
-  height: 12.5px;
+  bottom: 4px;
+  width: 32px;
+  height: 32px;
   background: url("../images/common/btn_power.png") no-repeat center center;
   background-size: contain;
   cursor: pointer;
@@ -10224,9 +10271,6 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;
-  background: url("../images/common/spinner_logo.png") center center no-repeat;
-  background-size: 45px 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10236,16 +10280,76 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-.root .loading > div.spin > span {
+@-webkit-keyframes loadingSpin {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    border-color: #f9b900;
+  }
+  25% {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    border-color: #80a6d7;
+  }
+  50% {
+    -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+    border-color: #87caab;
+  }
+  75% {
+    -webkit-transform: rotate(315deg);
+            transform: rotate(315deg);
+    border-color: #ea80b0;
+  }
+  100% {
+    -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+    border-color: #f9b900;
+  }
+}
+
+@keyframes loadingSpin {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    border-color: #f9b900;
+  }
+  25% {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    border-color: #80a6d7;
+  }
+  50% {
+    -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+    border-color: #87caab;
+  }
+  75% {
+    -webkit-transform: rotate(315deg);
+            transform: rotate(315deg);
+    border-color: #ea80b0;
+  }
+  100% {
+    -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+    border-color: #f9b900;
+  }
+}
+
+.root .loading > div.spin::before {
+  content: "";
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   display: inline-block;
-  width: 45px;
-  height: 45px;
-  background: url("../images/common/spinner.png") center center no-repeat;
-  background-size: 100% 100%;
-  animation: selfRotate 3s infinite linear;
-  -webkit-animation: selfRotate 3s infinite linear;
+  width: 40px;
+  height: 40px;
+  border: 5px solid #eb6154;
+  animation: loadingSpin 4s infinite ease;
+  -webkit-animation: loadingSpin 4s infinite ease;
 }
 
 .root .loading > div.spin > P {

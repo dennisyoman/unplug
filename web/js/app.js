@@ -223,11 +223,14 @@ let createUnits = function () {
           .each(function (i) {
             let thumb = $(this).attr("image");
             let name = $(this).attr("name");
+            let nameArr = name.split("/");
             let id = i + 1;
             let section = $(this).attr("section");
             let iconHTML = `<li onclick="loadContainer(${id},${section})">
                         <img src="./DATA/${thumb}"/>
-                        <h3>${name}</h3></li>`;
+                        <h3>${nameArr[0]}<span>${
+              nameArr[1] ? nameArr[1] : ""
+            }</span></h3></li>`;
             $("#icon-wrapper").append(iconHTML);
             if (amount > 5 && i == Math.ceil(amount / 2) - 1) {
               $("#icon-wrapper").append("<br />");
