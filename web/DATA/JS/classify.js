@@ -68,6 +68,10 @@ $(document).ready(function () {
 
   //check loading
   checkCompLoading("#module_wrapper");
+  $("#module_wrapper .units-title")
+    .addClass("l" + lid)
+    .text(getLessonName());
+  $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
 var lowlaged = false;

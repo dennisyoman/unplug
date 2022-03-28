@@ -152,7 +152,7 @@ var createLessons = function () {
                       .find("lesson:eq(" + i + ")")
                       .text();
 
-                    LessonHTML += `<div lid="${llid}" onclick="getAllXML('${llid}','${lessonName}')">`;
+                    LessonHTML += `<div lid="${llid}" onclick="getAllXML('${llid}')">`;
 
                     switch (llid) {
                       case "1C":

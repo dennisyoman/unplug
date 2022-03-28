@@ -138,7 +138,6 @@ $(document).ready(function () {
           .each(function (i) {
             if (parseInt($(this).attr("section")) == parseInt(sectionID)) {
               ut = $(this).attr("name");
-              console.log("ffff" + ut);
             }
           });
         let utArr = ut.split("/");

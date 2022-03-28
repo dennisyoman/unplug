@@ -171,8 +171,35 @@ let pieceArr = ["red", "green", "blue", "orange", "purple"];
 var currentAudio;
 let countDownDefault = [0, 0, 0, 0];
 
+let getLessonName = function () {
+  var finalName = "";
+  $(seriesXML)
+    .find("series")
+    .each(function (l) {
+      var ssid = $(this).attr("sid");
+      if (ssid == sid) {
+        $(this)
+          .find("book")
+          .each(function (j) {
+            var bbid = $(this).attr("bid");
+            if (bbid == bid) {
+              $(this)
+                .find("lesson")
+                .each(function (k) {
+                  var llid = $(this).attr("lid");
+
+                  if (llid == lid) {
+                    finalName = $(this).text();
+                  }
+                });
+            }
+          });
+      }
+    });
+  return finalName;
+};
+
 let getAllXML = function (llid, lessonName) {
-  $("#units-title").text(lessonName);
   if (lid != llid) {
     uid = null;
     lid = llid;
@@ -181,6 +208,7 @@ let getAllXML = function (llid, lessonName) {
   } else {
     showUnits();
   }
+  $("#units-title").text(getLessonName());
 };
 
 let getContent = function () {
