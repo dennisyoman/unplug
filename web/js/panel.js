@@ -3,25 +3,13 @@ $(document).ready(function () {
   $("#main-panel")
     .unbind()
     .bind("compLoaded", function () {
-      //
-      if (
-        sid == "GP" ||
-        sid == "WS" ||
-        sid == "Reader" ||
-        (sid == "WRYG" && lid == "T")
-      ) {
-        $(".btn_games > div").find("span").eq(0).addClass("disabled");
-      }
-      if (sid != "GP" && sid != "WLS1") {
-        $(".btn_games > div").find("span").eq(1).addClass("disabled");
-      }
       //btn
-      $(".btn_games")
+      $(".btn_intro")
         .unbind()
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            resetPanelBtns("btn_games");
+            resetPanelBtns("btn_intro");
           }
           clickthen();
         });
@@ -57,29 +45,6 @@ $(document).ready(function () {
           clickthen();
         });
 
-      $(".btn_brush")
-        .unbind()
-        .bind("click", function () {
-          $(this).toggleClass("active");
-          if ($(this).hasClass("active")) {
-            resetPanelBtns("btn_brush");
-            $(".btn_paletton").addClass("active");
-            appendPainting(true);
-          } else {
-            $(".btn_paletton").removeClass("active");
-            appendPainting(false);
-          }
-          clickthen();
-        });
-      $(".btn_board")
-        .unbind()
-        .bind("click", function () {
-          $(this).toggleClass("active");
-          if ($(this).hasClass("active")) {
-            resetPanelBtns("btn_board");
-          }
-          clickthen();
-        });
       $(".btn_zoom")
         .unbind()
         .bind("click", function () {
@@ -88,18 +53,6 @@ $(document).ready(function () {
             resetPanelBtns("btn_zoom");
           }
           createZoomSensor();
-        });
-      $(".btn_bulb")
-        .unbind()
-        .bind("click", function () {
-          $(this).toggleClass("active");
-          if ($(this).hasClass("active")) {
-            $("#main").hide();
-            resetPanelBtns("btn_bulb");
-          } else {
-            $("#main").show();
-          }
-          clickthen();
         });
       $(".btn_focus")
         .unbind()
@@ -113,26 +66,17 @@ $(document).ready(function () {
           }
           clickthen();
         });
-      $(".btn_wb")
+      $(".btn_tag")
         .unbind()
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            resetPanelBtns("btn_wb");
-            appendWBS();
-            $(".btn_remove").addClass("up");
+            resetPanelBtns("btn_tag");
           } else {
-            $(".btn_remove").removeClass("up");
           }
           clickthen();
         });
-      $(".btn_remove")
-        .unbind()
-        .bind("click", function () {
-          $("#widget .wbcard").remove();
-          $(this).hide();
-          clickthen();
-        });
+
       //pen tool
       $(".pen_tool")
         .find("span.colour")
@@ -180,20 +124,29 @@ $(document).ready(function () {
       //deactiveLoading();
     });
   //get unit title
-  let ut = "";
+
   $(contentXML)
-    .find("section")
-    .each(function (i) {
-      if (parseInt($(this).attr("section")) == parseInt(sectionID)) {
-        ut = $(this).attr("name");
+    .find("lesson")
+    .each(function (k) {
+      let ut = "";
+      let ssid = $(this).attr("sid");
+      let bbid = $(this).attr("bid");
+      let llid = $(this).attr("lid");
+      if (ssid == sid && bbid == bid && llid == lid) {
+        $(this)
+          .find("section")
+          .each(function (i) {
+            if (parseInt($(this).attr("section")) == parseInt(sectionID)) {
+              ut = $(this).attr("name");
+              console.log("ffff" + ut);
+            }
+          });
+        let utArr = ut.split("/");
+        $("#unit-title").html(
+          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : "")
+        );
       }
     });
-  if (ut.length > 18) {
-    $("#unit-title").addClass("multiline");
-  } else {
-    $("#unit-title").removeClass("multiline");
-  }
-  $("#unit-title").html(ut);
   //get user info
   $(".user-info .username").html(uName);
   $(".user-info .duedate").html(dueDate);

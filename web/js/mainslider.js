@@ -64,23 +64,18 @@ var createSeries = function () {
 
       slideArray.push(tempElem);
     });
-  coverSwiper.appendSlide(slideArray);
-  //
-  $(".swiper-cover .swiper-slide").each(function (index) {
-    if ($(this).attr("sid") == sid) {
-      sidSeq = index;
-    }
-  });
-  coverSwiper.slideTo(sidSeq, 0);
   if ($(seriesXML).find("series").length <= 1) {
-    //var ssid = $(seriesXML).find("series").eq(0).attr("sid");
-    //openSeries(ssid);
-    $(".swiper-slide-active")
-      .find("img")
-      .delay(500)
-      .queue(function () {
-        $(this).click().dequeue();
-      });
+    sid = $(seriesXML).find("series").eq(0).attr("sid");
+    createBooks();
+  } else {
+    coverSwiper.appendSlide(slideArray);
+    //
+    $(".swiper-cover .swiper-slide").each(function (index) {
+      if ($(this).attr("sid") == sid) {
+        sidSeq = index;
+      }
+    });
+    coverSwiper.slideTo(sidSeq, 0);
   }
 };
 
@@ -120,7 +115,9 @@ var createBooks = function () {
   } else {
     bid = null;
   }
-  $("#return").show();
+  if ($(seriesXML).find("series").length > 1) {
+    $("#return").show();
+  }
 };
 
 var createLessons = function () {
@@ -155,7 +152,7 @@ var createLessons = function () {
                       .find("lesson:eq(" + i + ")")
                       .text();
 
-                    LessonHTML += `<div lid="${llid}" onclick="getAllXML('${llid}')">`;
+                    LessonHTML += `<div lid="${llid}" onclick="getAllXML('${llid}','${lessonName}')">`;
 
                     switch (llid) {
                       case "1C":

@@ -6,15 +6,13 @@
   left: 0;
   bottom: 0;
   z-index: 9;
-  padding: 5px;
-  background: #111;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #333), color-stop(50%, #111));
-  background: linear-gradient(180deg, #333 50%, #111 50%);
+  padding: 4px;
+  background: #eb6154;
 }
 
 .panel .main-panel {
   width: 100%;
-  height: 30px;
+  height: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,11 +21,12 @@
 .panel .main-panel .user-info {
   font-size: 14px;
   line-height: 1.5;
-  color: #f1bb01;
+  color: #ffedbc;
   -webkit-transform-origin: top left;
           transform-origin: top left;
+  text-align: right;
   margin: 0 3px;
-  width: 190px;
+  width: 260px;
   height: 60px;
   overflow: hidden;
   -webkit-box-flex: 0;
@@ -43,26 +42,23 @@
 }
 
 .panel .main-panel .user-info .unitpath {
-  color: #ccc;
+  color: #fff;
 }
 
 .panel .main-panel .unit-title {
   display: inline-block;
   cursor: pointer;
   font-family: Gfont-Bold;
-  width: 140px;
+  width: 180px;
   text-align: center;
-  height: 30px;
-  line-height: 30px;
-  font-size: 14px;
-  color: #d97802;
-  background: #f7f1e4;
-  background: linear-gradient(173deg, #fff9ec 50%, #f7f1e4 50%);
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -webkit-box-shadow: 0 0 0 2px #333;
-          box-shadow: 0 0 0 2px #333;
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+  color: #000;
+  background: #fff;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   margin: 0 3px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -78,9 +74,11 @@
           flex: none;
 }
 
-.panel .main-panel .unit-title.multiline {
-  line-height: 15px;
-  font-size: 12px;
+.panel .main-panel .unit-title span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #eb6154;
+  margin-left: 3px;
 }
 
 .panel .main-panel .btn {
@@ -88,19 +86,19 @@
       -ms-flex: none;
           flex: none;
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  background: #333;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
   margin: 0 3px;
-  -webkit-box-shadow: 0 0 0 2px #333;
-          box-shadow: 0 0 0 2px #333;
-  background-position: top left;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: 60px 30px;
+  background-size: 28px 28px;
   cursor: pointer;
+  border: 3px solid #f58d83;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .panel .main-panel .btn > div {
@@ -109,39 +107,17 @@
 }
 
 .panel .main-panel .btn.active {
-  background-position: top right;
+  border-color: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .panel .main-panel .btn.active > div {
   display: block;
 }
 
-.panel .main-panel .btn.btn_games {
-  background-image: url("../images/common/btn_games.png");
-}
-
-.panel .main-panel .btn.btn_games > div {
-  position: absolute;
-  left: 0;
-  top: -40px;
-  width: 640px;
-  height: 40px;
-  background: url("../images/common/tool_games.png") no-repeat top left;
-  background-size: 100% 100%;
-  padding-left: 149px;
-}
-
-.panel .main-panel .btn.btn_games > div span {
-  width: 42px;
-  height: 35px;
-  float: left;
-  margin-right: 7px;
-  pointer-events: auto;
-}
-
-.panel .main-panel .btn.btn_games > div span.disabled {
-  pointer-events: none;
-  background: rgba(255, 255, 255, 0.7);
+.panel .main-panel .btn.btn_intro {
+  background-image: url("../images/common/btn_intro.png");
 }
 
 .panel .main-panel .btn.btn_widget {
@@ -182,15 +158,11 @@
 }
 
 .panel .main-panel .btn.btn_erasor {
-  background-image: url("../images/common/btn_erasor.png");
+  background-image: url("../images/common/btn_erasorm.png");
 }
 
 .panel .main-panel .btn.btn_paletton {
   background-image: url("../images/common/btn_paletton.png");
-}
-
-.panel .main-panel .btn.btn_brush {
-  background-image: url("../images/common/btn_brush.png");
 }
 
 .panel .main-panel .btn.btn_zoom {
@@ -203,7 +175,7 @@
           transform-origin: center bottom;
   position: absolute;
   left: -20px;
-  bottom: 34px;
+  bottom: 32px;
   width: 70px;
 }
 
@@ -212,142 +184,12 @@
   height: auto;
 }
 
-.panel .main-panel .btn.btn_wb {
-  background-image: url("../images/common/btn_wb.png");
-}
-
-.panel .main-panel .btn.btn_wb > div {
-  position: absolute;
-  left: 0;
-  top: -60px;
-  width: 640px;
-  height: 60px;
-}
-
-.panel .main-panel .btn.btn_wb > div ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.panel .main-panel .btn.btn_wb > div ul li {
-  pointer-events: auto;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-}
-
-.panel .main-panel .btn.btn_wb > div ul.lesson li {
-  height: 20px;
-  background: #fff;
-  border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
-  font-size: 12px;
-  line-height: 20px;
-  color: #333;
-  border: 2px solid #ccc;
-  border-bottom: 0;
-  position: relative;
-  white-space: nowrap;
-}
-
-.panel .main-panel .btn.btn_wb > div ul.lesson li .all {
-  pointer-events: auto;
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  top: 2px;
-  left: 2px;
-  background: url("../images/common/btn_popall.png") no-repeat center center;
-  background-size: 100% 100%;
-  display: none;
-}
-
-.panel .main-panel .btn.btn_wb > div ul.lesson li.selected {
-  background: linear-gradient(155deg, #02d2d2 50%, #02b9b8 50%);
-}
-
-.panel .main-panel .btn.btn_wb > div ul.lesson li.selected .all {
-  display: block;
-}
-
-.panel .main-panel .btn.btn_wb > div ul.word li {
-  position: relative;
-  height: 40px;
-  background: #f8b62d;
-  font-size: 12px;
-  line-height: 40px;
-  color: #fff;
-  font-family: "Gfont-bold";
-  background: linear-gradient(155deg, #ff9900 50%, #f29100 50%);
-  white-space: nowrap;
-}
-
-.panel .main-panel .btn.btn_wb > div ul.word li.small span {
-  -webkit-transform: scale(0.8);
-  transform: scale(0.8);
-}
-
-.panel .main-panel .btn.btn_wb > div ul.word li span {
-  display: block;
-  -webkit-transform: scale(0.95);
-  transform: scale(0.95);
-}
-
-.panel .main-panel .btn.btn_wb > div ul.word li:nth-child(even) {
-  background: linear-gradient(155deg, #ff6600 50%, #f26000 50%);
-}
-
-.panel .main-panel .btn.btn_wb > div ul.word li.lm::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 15px;
-  height: 15px;
-  background: url("../images/common/wb_star.png") no-repeat -14px 0;
-  background-size: 28px 15px;
-  -webkit-transform: scale(0.7);
-  transform: scale(0.7);
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-}
-
-.panel .main-panel .btn.btn_board {
-  background-image: url("../images/common/btn_board.png");
-}
-
-.panel .main-panel .btn.btn_board > div {
-  position: absolute;
-  left: 0;
-  top: -40px;
-  width: 640px;
-  height: 40px;
-  background: url("../images/common/tool_board.png") no-repeat top left;
-  background-size: 100% 100%;
-  padding-left: 405px;
-}
-
-.panel .main-panel .btn.btn_board > div span {
-  width: 35px;
-  height: 35px;
-  float: left;
-  margin-right: 6px;
-  pointer-events: auto;
-}
-
-.panel .main-panel .btn.btn_board > div span.disabled {
-  pointer-events: none;
-  background: rgba(255, 255, 255, 0.7);
+.panel .main-panel .btn.btn_tag {
+  background-image: url("../images/common/btn_tag.png");
 }
 
 .panel .main-panel .btn.btn_focus {
   background-image: url("../images/common/btn_focus.png");
-}
-
-.panel .main-panel .btn.btn_bulb {
-  background-image: url("../images/common/btn_bulb.png");
 }
 
 .panel .main-panel .btn.disabled {
@@ -356,25 +198,6 @@
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   filter: alpha(opacity=50);
-}
-
-.panel .main-panel .btn_remove {
-  position: absolute;
-  top: -35px;
-  left: 5px;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
-  cursor: pointer;
-  background-image: url("../images/common/btn_remove.png");
-  display: none;
-}
-
-.panel .main-panel .btn_remove.up {
-  top: -90px;
 }
 
 .panel .main-panel .pen_tool {
@@ -1069,7 +892,7 @@
   pointer-events: auto;
   font-size: 15px;
   line-height: 1.3;
-  color: #333;
+  color: #000;
   width: 100%;
   height: 100%;
   border: none;
@@ -2346,7 +2169,7 @@
   font-size: 12px;
   text-align: center;
   line-height: 24px;
-  color: #603813;
+  color: #eb6154;
   font-family: Gfont-Bold;
   padding: 0 2px;
 }
@@ -2364,7 +2187,7 @@
   font-size: 12px;
   text-align: center;
   line-height: 24px;
-  color: #603813;
+  color: #eb6154;
   font-family: Gfont-Bold;
   padding: 0 20px;
   margin-top: -25px;

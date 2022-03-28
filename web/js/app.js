@@ -47,18 +47,18 @@ $(document).ready(function () {
         $("#widget").empty();
         //clean canvas
         $("#canvas-board .canvas").remove();
-        $("#cbg").hide();
-        $("#cba").hide();
+
         // pause audio tracker
         if (currentAudioTrack) {
           currentAudioTrack.pause();
         }
         $(".btn_remove").hide();
         $("#main").show();
-        if ($("#lines").hasClass("active")) {
-          $("#lines").removeClass("active");
-          $("#lines_board").hide();
+        if ($(seriesXML).find("series").length <= 1) {
+          $("#return").hide();
         }
+        //start particle animation
+        isPaused = false;
       } else if (lid != null) {
         removeUnits();
         console.log("return to Lesson selection");
@@ -143,7 +143,7 @@ $(document).ready(function () {
 });
 
 //parameters
-let html2canvasScale = 5;
+let html2canvasScale = 4;
 let testmode = true;
 let translateCountDown = false; //繁轉簡倒數(勿動)
 let uToken = ""; //user token(勿動)
@@ -171,7 +171,8 @@ let pieceArr = ["red", "green", "blue", "orange", "purple"];
 var currentAudio;
 let countDownDefault = [0, 0, 0, 0];
 
-let getAllXML = function (llid) {
+let getAllXML = function (llid, lessonName) {
+  $("#units-title").text(lessonName);
   if (lid != llid) {
     uid = null;
     lid = llid;
@@ -210,7 +211,6 @@ let getContent = function () {
 let createUnits = function () {
   $("#icon-wrapper").empty();
   //
-  let amount = $(contentXML).find("section").length;
   $(contentXML)
     .find("lesson")
     .each(function (k) {
@@ -218,6 +218,19 @@ let createUnits = function () {
       let bbid = $(this).attr("bid");
       let llid = $(this).attr("lid");
       if (ssid == sid && bbid == bid && llid == lid) {
+        let amount = $(this).find("section").length;
+
+        //unit title
+        $("#units-title")
+          .removeClass()
+          .addClass("units-title l" + llid);
+        if (amount > 5) {
+          $("#units-title").addClass("upper");
+        } else {
+          $("#units-title").removeClass("upper");
+        }
+        //
+
         $(this)
           .find("section")
           .each(function (i) {
@@ -297,9 +310,13 @@ let loadContainer = function (id, section) {
           .find("section:eq(" + (uid - 1) + ")")
           .attr("html");
         console.log("load:" + htmlPath);
+        jsPath = $(this)
+          .find("section:eq(" + (uid - 1) + ")")
+          .attr("js");
 
         let script_arr = [
           /*jsPath*/
+          jsPath,
         ];
         let style_arr = [
           /*cssPath*/
@@ -314,9 +331,12 @@ let loadContainer = function (id, section) {
         );
 
         resetAudio();
-        //loadPanel();
+        loadPanel();
         hideUnits();
+        $("#return").show();
         $("#main").show();
+        //stop particle animation
+        isPaused = true;
       }
     });
 };
@@ -589,7 +609,7 @@ window.onblur = function () {
   isPaused = true;
 }.bind(this);
 window.onfocus = function () {
-  isPaused = false;
+  //isPaused = false;
 }.bind(this);
 
 let particles = [];
@@ -634,18 +654,19 @@ $.getMultiScripts = function (arr, path) {
   $.each(arr, function (index, scr) {
     //是否載入過
     if ($.inArray(scr, js_cache_arr) >= 0) {
-      //console.log(scr+" exists, remove it.");
+      //console.log(scr + " exists, remove it.");
       let srcc = (path || "") + scr + "?v=" + version;
       $("script[src='" + srcc + "']").remove();
     } else {
       //cache住
       js_cache_arr.push(scr);
+      //console.log(js_cache_arr);
     }
     let sc = document.createElement("script");
     sc.src = (path || "") + scr + "?v=" + version;
     $("body").append(sc);
     //
-    //console.log(scr+" is loaded.");
+    //console.log(scr + " is loaded.");
   });
   return {
     done: function (method) {
@@ -704,12 +725,12 @@ $.getComponent = function (
 
       //載入元件
       //console.log("-- component --");
-      $(this).load(comp + "?v=" + version, function () {
+      $(this).load(comp + "?v=" + version, function (response, status, xhr) {
         //console.log(comp+" is loaded.");
         chamount -= 1;
         if (chamount == 0) {
           //完成後載入js
-          if (js_arr != "") {
+          if (js_arr != "" && status != "error") {
             //console.log("-- js --");
             $.getMultiScripts(js_arr, js_path).done(function () {
               // all scripts loaded
@@ -1307,7 +1328,6 @@ let checkCompLoading = function (elem) {
   counter -= 1;
   let total = $(elem).find("> .assetsPreload").find("img").length;
   let imgGot = 0;
-  console.log(counter);
   $(elem)
     .find("> .assetsPreload")
     .find("img")

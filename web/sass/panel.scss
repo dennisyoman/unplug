@@ -10,22 +10,22 @@
   left: 0;
   bottom: 0;
   z-index: 9;
-  padding: 5px;
-  background: #111;
-  background: linear-gradient(180deg, #333 50%, #111 50%);
+  padding: 4px;
+  background: $main;
 
   .main-panel {
     width: 100%;
-    height: 30px;
+    height: 32px;
     display: flex;
 
     .user-info {
       font-size: 14px;
       line-height: 1.5;
-      color: $second;
+      color: #ffedbc;
       transform-origin: top left;
+      text-align: right;
       margin: 0 3px;
-      width: 190px;
+      width: 260px;
       height: 60px;
       overflow: hidden;
       flex: none;
@@ -37,7 +37,7 @@
       }
 
       .unitpath {
-        color: #ccc;
+        color: #fff;
       }
     }
 
@@ -45,41 +45,41 @@
       display: inline-block;
       cursor: pointer;
       font-family: Gfont-Bold;
-      width: 140px;
+      width: 180px;
       text-align: center;
-      height: 30px;
-      line-height: 30px;
-      font-size: 14px;
-      color: $orange;
-      background: #f7f1e4;
-      background: linear-gradient(173deg, #fff9ec 50%, #f7f1e4 50%);
-      @include borderRadius(4px);
-      box-shadow: 0 0 0 2px #333;
+      height: 32px;
+      line-height: 32px;
+      font-size: 12px;
+      color: $text;
+      background: #fff;
+      @include borderRadius(8px);
       margin: 0 3px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       flex: none;
-
-      &.multiline {
-        line-height: 15px;
-        font-size: 12px;
+      span {
+        font-size: 16px;
+        font-weight: bold;
+        color: $main;
+        margin-left: 3px;
       }
     }
 
     .btn {
       flex: none;
       display: inline-block;
-      width: 30px;
-      height: 30px;
-      background: #333;
-      @include borderRadius(4px);
+      width: 32px;
+      height: 32px;
+      @include borderRadius(16px);
       margin: 0 3px;
-      box-shadow: 0 0 0 2px #333;
-      background-position: top left;
+
+      background-position: center center;
       background-repeat: no-repeat;
-      background-size: 60px 30px;
+      background-size: 28px 28px;
       cursor: pointer;
+      border: 3px solid #f58d83;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
       > div {
         display: none;
@@ -87,37 +87,16 @@
       }
 
       &.active {
-        background-position: top right;
+        border-color: #fff;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
         > div {
           display: block;
         }
       }
-
-      &.btn_games {
-        background-image: url("../images/common/btn_games.png");
-
-        > div {
-          position: absolute;
-          left: 0;
-          top: -40px;
-          width: 640px;
-          height: 40px;
-          background: url("../images/common/tool_games.png") no-repeat top left;
-          background-size: 100% 100%;
-          padding-left: 149px;
-          span {
-            width: 42px;
-            height: 35px;
-            float: left;
-            margin-right: 7px;
-            pointer-events: auto;
-            &.disabled {
-              pointer-events: none;
-              background: rgba(255, 255, 255, 0.7);
-            }
-          }
-        }
+      &.btn_intro {
+        background-image: url("../images/common/btn_intro.png");
       }
+
       &.btn_widget {
         background-image: url("../images/common/btn_widget.png");
 
@@ -152,14 +131,12 @@
         }
       }
       &.btn_erasor {
-        background-image: url("../images/common/btn_erasor.png");
+        background-image: url("../images/common/btn_erasorm.png");
       }
       &.btn_paletton {
         background-image: url("../images/common/btn_paletton.png");
       }
-      &.btn_brush {
-        background-image: url("../images/common/btn_brush.png");
-      }
+
       &.btn_zoom {
         background-image: url("../images/common/btn_zoom.png");
         position: relative;
@@ -167,7 +144,7 @@
           transform-origin: center bottom;
           position: absolute;
           left: -20px;
-          bottom: 34px;
+          bottom: 32px;
           width: 70px;
           img {
             width: 100%;
@@ -175,153 +152,17 @@
           }
         }
       }
-      &.btn_wb {
-        background-image: url("../images/common/btn_wb.png");
-        > div {
-          position: absolute;
-          left: 0;
-          top: -60px;
-          width: 640px;
-          height: 60px;
-
-          ul {
-            display: flex;
-
-            li {
-              pointer-events: auto;
-              cursor: pointer;
-              width: 100%;
-              text-align: center;
-            }
-
-            &.lesson {
-              li {
-                height: 20px;
-                background: #fff;
-                @include borderRadius(5px 5px 0 0);
-                font-size: 12px;
-                line-height: 20px;
-                color: $text;
-                border: 2px solid #ccc;
-                border-bottom: 0;
-                position: relative;
-                white-space: nowrap;
-
-                .all {
-                  pointer-events: auto;
-                  position: absolute;
-                  width: 14px;
-                  height: 14px;
-                  top: 2px;
-                  left: 2px;
-                  background: url("../images/common/btn_popall.png") no-repeat
-                    center center;
-                  background-size: 100% 100%;
-                  display: none;
-                }
-
-                &.selected {
-                  background: linear-gradient(155deg, #02d2d2 50%, #02b9b8 50%);
-                  .all {
-                    display: block;
-                  }
-                }
-              }
-            }
-            &.word {
-              li {
-                position: relative;
-                height: 40px;
-                background: $btn2;
-                font-size: 12px;
-                line-height: 40px;
-                color: #fff;
-                font-family: "Gfont-bold";
-                background: linear-gradient(155deg, #ff9900 50%, #f29100 50%);
-                white-space: nowrap;
-                &.small {
-                  span {
-                    @include scale(0.8);
-                  }
-                }
-                span {
-                  display: block;
-                  @include scale(0.95);
-                }
-                &:nth-child(even) {
-                  background: linear-gradient(155deg, #ff6600 50%, #f26000 50%);
-                }
-                &.lm {
-                  &::before {
-                    content: "";
-                    position: absolute;
-                    top: 2px;
-                    left: 2px;
-                    width: 15px;
-                    height: 15px;
-                    background: url("../images/common/wb_star.png") no-repeat -14px
-                      0;
-                    background-size: 28px 15px;
-                    @include scale(0.7);
-                    transform-origin: top left;
-                  }
-                }
-              }
-            }
-          }
-        }
+      &.btn_tag {
+        background-image: url("../images/common/btn_tag.png");
       }
-      &.btn_board {
-        background-image: url("../images/common/btn_board.png");
-        > div {
-          position: absolute;
-          left: 0;
-          top: -40px;
-          width: 640px;
-          height: 40px;
-          background: url("../images/common/tool_board.png") no-repeat top left;
-          background-size: 100% 100%;
-          padding-left: 405px;
-          span {
-            width: 35px;
-            height: 35px;
-            float: left;
-            margin-right: 6px;
-            pointer-events: auto;
-            &.disabled {
-              pointer-events: none;
-              background: rgba(255, 255, 255, 0.7);
-            }
-          }
-        }
-      }
+
       &.btn_focus {
         background-image: url("../images/common/btn_focus.png");
       }
-      &.btn_bulb {
-        background-image: url("../images/common/btn_bulb.png");
-      }
+
       &.disabled {
         pointer-events: none;
         @include opacity(0.5);
-      }
-    }
-    .btn_remove {
-      position: absolute;
-      top: -35px;
-      left: 5px;
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 30px 30px;
-      cursor: pointer;
-      background-image: url("../images/common/btn_remove.png");
-      display: none;
-
-      &.up {
-        top: -90px;
       }
     }
 
