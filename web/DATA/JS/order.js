@@ -43,6 +43,7 @@ $(document).ready(function () {
       $(".frames > div")
         .unbind()
         .bind("click", function () {
+          resetMen();
           $(this).empty();
           checkOrderStatus();
         });
@@ -100,7 +101,7 @@ var lastRX = 0;
 var lastRZ = 0;
 var isDragging = false;
 var $elem = null;
-
+var fightTimeout;
 var fightStep = 0;
 var fightSpeed = 1000;
 
@@ -186,10 +187,25 @@ var handleDrag = function (ev) {
   }
 
   if (ev.isFinal) {
+    if ($($elem).parent().hasClass("cards")) {
+      var frameElem = $(".contents > div.selected .frames > div");
+      var gotit = false;
+      frameElem.each(function () {
+        if ($(this).hasClass("selected")) {
+          gotit = true;
+        }
+      });
+      //checkCollision true
+      if (gotit) {
+        //check order status
+        checkOrderStatus();
+      } else {
+        $("#cardAvatar").remove();
+      }
+    }
+    //then
     isDragging = false;
     $elem = null;
-    //check order status
-    checkOrderStatus();
   }
 };
 
@@ -219,7 +235,7 @@ var checkOrderStatus = function () {
       $(this).removeClass("selected").empty().append($("#cardAvatar").html());
       rootSoundEffect($pop);
       //user change status
-      $(".btn_answer").removeClass("active");
+      resetMen();
     }
     if ($(this).find(">div").length > 0) {
       count++;
@@ -233,12 +249,13 @@ var checkOrderStatus = function () {
   } else {
     frameCheckBtn.addClass("disable");
     //user change status
-    $(".btn_answer").removeClass("active");
+    resetMen();
   }
 };
 
 var showAnswer = function (boolean) {
   var frameElem = $(".contents > div.selected .frames > div");
+  resetMen();
   if (boolean) {
     frameElem.each(function () {
       $(this).removeClass("selected").empty().append(`
@@ -248,7 +265,8 @@ var showAnswer = function (boolean) {
     <img src="./DATA/IMAGES/common/arrow1.png" />
     </div>`);
     });
-    rootSoundEffect($chimes);
+    rootSoundEffect($help);
+    $(".btn_answer").addClass("active");
   } else {
     frameElem.each(function () {
       $(this).removeClass("selected").empty();
@@ -289,22 +307,18 @@ var fightAnimation = function () {
     case "r":
       xx = parseInt(xx) + 1;
       break;
-    default:
-    // code block
   }
   //確定移動有無障礙
   if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
-    console.log("stocked");
+    moveMan(tempKing, xx, yy);
     showResult("stocked");
   } else {
-    console.log(xx, yy);
+    rootSoundEffect($show);
     moveMan(tempKing, xx, yy);
     fightStep++;
     if (fightStep < frameElem.length) {
-      setTimeout(fightAnimation, fightSpeed);
+      fightTimeout = setTimeout(fightAnimation, fightSpeed);
     } else {
-      //
-      console.log("end");
       if (
         tempKing.attr("curX") == tempGhost.attr("curX") &&
         tempKing.attr("curY") == tempGhost.attr("curY")
@@ -318,20 +332,56 @@ var fightAnimation = function () {
 };
 
 var showResult = function (result) {
+  var tempKing = $(".contents > div.selected .king");
+  var tempGhost = $(".contents > div.selected .ghost");
   switch (result) {
     case "stocked":
       console.log("stocked");
+      rootSoundEffect($stupid);
+      tempKing
+        .addClass("stocked")
+        .delay(1000)
+        .queue(function () {
+          rootSoundEffect($tryagain);
+          tempGhost.addClass("jump");
+          $(this).addClass("cry").dequeue();
+        });
       break;
     case "fail":
       console.log("fail");
+      rootSoundEffect($fail);
+      tempKing
+        .addClass("cry")
+        .delay(800)
+        .queue(function () {
+          rootSoundEffect($tryagain);
+          tempGhost.addClass("proud");
+          $(this).dequeue();
+        });
       break;
     case "success":
       console.log("success");
+      var uniq = new Date().getTime();
+      tempGhost.delay(300).queue(function () {
+        rootSoundEffect($correct);
+        tempKing.addClass("jump");
+        $(this)
+          .dequeue()
+          .addClass("vanish")
+          .append(
+            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+          )
+          .delay(2000)
+          .queue(function () {
+            $(".smoke").remove();
+            $(this).dequeue();
+          });
+      });
+      //
       break;
     default:
     // code block
   }
-  //rootSoundEffect($pop);
 };
 
 var openContent = function (id) {
@@ -352,6 +402,21 @@ var openContent = function (id) {
   }
 };
 
+var resetMen = function () {
+  clearTimeout(fightTimeout);
+  var tempMen = $(".contents > div.selected .man");
+  tempMen.each(function () {
+    $(this).removeAttr("style").removeClass("vanish cry stocked jump proud");
+    var RXX = parseInt($(this).parent().attr("curRX"));
+    $(this).get(0).style.transform = "rotateX(" + -1 * RXX + "deg)";
+    var intX = parseInt($(this).attr("intX"));
+    var intY = parseInt($(this).attr("intY"));
+    moveMan($(this), intX, intY);
+  });
+  $(".btn_answer").removeClass("active");
+  $(".contents > div.selected .frames .selected").removeClass("selected");
+};
+
 var resetElem = function (elem) {
   //stage
   var tempStage = elem.find(".stage");
@@ -359,19 +424,13 @@ var resetElem = function (elem) {
     .removeAttr("style")
     .attr("curRX", tempStage.attr("intRX"))
     .attr("curRZ", tempStage.attr("intRZ"));
-
-  //men
-  var tempMen = elem.find(".man");
   gridsRow = parseInt(tempStage.attr("row"));
   gridsColumn = parseInt(tempStage.attr("col"));
   gridW = parseInt(tempStage.find(".ground > img").attr("width")) / gridsColumn;
   gridH = parseInt(tempStage.find(".ground > img").attr("height")) / gridsRow;
-  tempMen.each(function () {
-    $(this).removeAttr("style");
-    var intX = parseInt($(this).attr("intX"));
-    var intY = parseInt($(this).attr("intY"));
-    moveMan($(this), intX, intY);
-  });
+
+  //men
+  resetMen();
 
   //frame reset
   var tempFrameset = elem.find(".frames");
@@ -380,7 +439,7 @@ var resetElem = function (elem) {
 
   //cards & lights reset
   elem.find(".selected").removeClass("selected");
-  elem.find(".onactive").removeClass("onactive");
+  $(".smoke").remove();
 };
 
 var moveMan = function (tar, x, y) {

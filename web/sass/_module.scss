@@ -94,22 +94,105 @@
           -webkit-transition: top 0.5s, left 0.5s;
           transition: top 0.5s, left 0.5s;
 
-          img {
+          
+
+          >img {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             height: auto;
             margin-left: -50%;
+            -webkit-transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            
           }
-          &.king {
-            //top: 120px;
-            //left: 30px;
+          
+
+          .smoke {
+            position: absolute;
+            bottom:0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            z-index: 99;
+            transform-origin: center center;
+            margin-left: -40px;
+            >img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
           }
-          &.ghost {
-            //top: 0;
-            //left: -90px;
+          
+          &.vanish{
+            >img{
+              @include opacity(0);
+            }
           }
+
+          &.cry{
+            &::after{
+              content:"";
+              position:absolute;
+              z-index:8;
+              width:13px;
+              height:8px;
+              bottom:34px;
+              left:0;
+              margin-left:-8px;
+              background: url("../DATA/IMAGES/common/tear.png")
+                no-repeat top center;
+              background-size: 13px 16px;
+              -webkit-animation-name: crying;
+              animation-name: crying;
+              animation-iteration-count: infinite;
+              animation-duration: .4s;
+              animation-timing-function: linear !important;
+            }
+            @keyframes crying {
+              0%{
+                background-position:top center;
+              }
+            
+              100% {
+                background-position:bottom center;
+              }
+            }
+          }
+
+          &.jump{
+            >img{
+              -webkit-animation-name: bounce !important;
+              animation-name: bounce !important;
+              -webkit-transform-origin: center bottom !important;
+              transform-origin: center bottom !important;
+              animation-iteration-count: infinite !important;
+            }
+          }
+          &.proud{
+            >img{
+              -webkit-animation-name: swing !important;
+              animation-name: swing !important;
+              -webkit-transform-origin: center bottom !important;
+              transform-origin: center bottom !important;
+              animation-iteration-count: infinite !important;
+            }
+          }
+
+          &.stocked{
+           
+            >img{
+              -webkit-animation-name: shake !important;
+              animation-name: shake !important;
+              -webkit-transform-origin: center bottom !important;
+              transform-origin: center bottom !important;
+              animation-iteration-count: 1 !important;
+            }
+          }
+
         }
         .ground {
           pointer-events: auto;
@@ -135,7 +218,7 @@
         z-index: 1;
         position: absolute;
         top: 60px;
-        left: 60px;
+        left: 40px;
         width: 40px;
 
         &.small {
@@ -166,15 +249,10 @@
           z-index:1;
 
           &.selected {
-            filter: drop-shadow(0px 0px 5px $main);
+            filter: drop-shadow(0px 0px 7px $main);
             z-index:5;
           }
 
-          &.onactive{
-            @include scale(1.4);
-            filter: drop-shadow(0px 0px 5px $main);
-            z-index:5;
-          }
 
           &.start {
             &::before {

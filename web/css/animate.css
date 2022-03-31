@@ -429,6 +429,34 @@
   }
 }
 
+@-webkit-keyframes stocked {
+  20% {
+    margin-left:calc(-50% + 10px);
+  }
+
+  40% {
+    margin-left:calc(-50% - 8px);
+  }
+
+  60% {
+    margin-left:calc(-50% + 6px);
+  }
+  70% {
+    margin-left:calc(-50% - 4px);
+  }
+
+  80% {
+    margin-left:calc(-50% + 2px);
+  }
+  90% {
+    margin-left:calc(-50% - 1px);
+  }
+
+  to {
+    margin-left:-50%;
+  }
+}
+
 @keyframes swing {
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 15deg);

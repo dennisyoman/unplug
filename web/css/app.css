@@ -659,13 +659,109 @@
   transition: top 0.5s, left 0.5s;
 }
 
-.module_order .contents .world3D .stage .man img {
+.module_order .contents .world3D .stage .man > img {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: auto;
   margin-left: -50%;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.module_order .contents .world3D .stage .man .smoke {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -40px;
+}
+
+.module_order .contents .world3D .stage .man .smoke > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_order .contents .world3D .stage .man.vanish > img {
+  opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.module_order .contents .world3D .stage .man.cry::after {
+  content: "";
+  position: absolute;
+  z-index: 8;
+  width: 13px;
+  height: 8px;
+  bottom: 34px;
+  left: 0;
+  margin-left: -8px;
+  background: url("../DATA/IMAGES/common/tear.png") no-repeat top center;
+  background-size: 13px 16px;
+  -webkit-animation-name: crying;
+  animation-name: crying;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-timing-function: linear !important;
+          animation-timing-function: linear !important;
+}
+
+@-webkit-keyframes crying {
+  0% {
+    background-position: top center;
+  }
+  100% {
+    background-position: bottom center;
+  }
+}
+
+@keyframes crying {
+  0% {
+    background-position: top center;
+  }
+  100% {
+    background-position: bottom center;
+  }
+}
+
+.module_order .contents .world3D .stage .man.jump > img {
+  -webkit-animation-name: bounce !important;
+  animation-name: bounce !important;
+  -webkit-transform-origin: center bottom !important;
+  transform-origin: center bottom !important;
+  -webkit-animation-iteration-count: infinite !important;
+          animation-iteration-count: infinite !important;
+}
+
+.module_order .contents .world3D .stage .man.proud > img {
+  -webkit-animation-name: swing !important;
+  animation-name: swing !important;
+  -webkit-transform-origin: center bottom !important;
+  transform-origin: center bottom !important;
+  -webkit-animation-iteration-count: infinite !important;
+          animation-iteration-count: infinite !important;
+}
+
+.module_order .contents .world3D .stage .man.stocked > img {
+  -webkit-animation-name: shake !important;
+  animation-name: shake !important;
+  -webkit-transform-origin: center bottom !important;
+  transform-origin: center bottom !important;
+  -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
 }
 
 .module_order .contents .world3D .stage .ground {
@@ -695,7 +791,7 @@
   z-index: 1;
   position: absolute;
   top: 60px;
-  left: 60px;
+  left: 40px;
   width: 40px;
 }
 
@@ -734,16 +830,8 @@
 }
 
 .module_order .contents .world3D .frames > div.selected {
-  -webkit-filter: drop-shadow(0px 0px 5px #eb6154);
-          filter: drop-shadow(0px 0px 5px #eb6154);
-  z-index: 5;
-}
-
-.module_order .contents .world3D .frames > div.onactive {
-  -webkit-transform: scale(1.4);
-  transform: scale(1.4);
-  -webkit-filter: drop-shadow(0px 0px 5px #eb6154);
-          filter: drop-shadow(0px 0px 5px #eb6154);
+  -webkit-filter: drop-shadow(0px 0px 7px #eb6154);
+          filter: drop-shadow(0px 0px 7px #eb6154);
   z-index: 5;
 }
 

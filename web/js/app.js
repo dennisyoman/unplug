@@ -1199,6 +1199,8 @@ let isCanvasBlank = function (canvas) {
 
 //共用音效控制
 let $chimes = new Audio("./sfx/chimes.mp3");
+let $correct = new Audio("./sfx/correct.mp3");
+let $fail = new Audio("./sfx/fail.mp3");
 let $tryagain = new Audio("./sfx/tryagain.mp3");
 let $stupid = new Audio("./sfx/stupid.mp3");
 let $show = new Audio("./sfx/show.mp3");
@@ -1214,6 +1216,8 @@ let $good = new Audio("./sfx/good.mp3");
 var sfxLowLagged = 0;
 let $SFXAr = [
   $chimes,
+  $correct,
+  $fail,
   $tryagain,
   $stupid,
   $show,
@@ -1227,6 +1231,8 @@ let $SFXAr = [
 ];
 let $SFXNameAr = [
   "chimes",
+  "correct",
+  "fail",
   "tryagain",
   "stupid",
   "show",
