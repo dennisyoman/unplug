@@ -39,18 +39,33 @@ $(document).ready(function () {
         $(".tabs").hide();
       }
 
+      //frames
+      $(".frames > div")
+        .unbind()
+        .bind("click", function () {
+          $(this).empty();
+          checkOrderStatus();
+        });
+
       //sidetool
       $(".sideTool > div.btn_answer")
         .unbind()
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            /*rootSoundEffectName(
-              $(".contents > div.selected").find("audio").attr("src"),
-              true
-            );*/
+            showAnswer(true);
           } else {
-            /*closePlayer();*/
+            showAnswer(false);
+          }
+        });
+      $(".sideTool > div.btn_playorder")
+        .unbind()
+        .bind("click", function () {
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            //
+          } else {
+            //
           }
         });
 
@@ -86,6 +101,9 @@ var lastRZ = 0;
 var isDragging = false;
 var $elem = null;
 
+var fightStep = 0;
+var fightSpeed = 1000;
+
 var trigHammer = function () {
   //hammer
   var myElement = document.getElementById("contents");
@@ -118,6 +136,12 @@ var handleDrag = function (ev) {
       lastPosX = $elem.offsetLeft;
       lastPosY = $elem.offsetTop;
     }
+    if ($($elem).parent().hasClass("cards")) {
+      $("#module_wrapper").append(
+        '<div id="cardAvatar" class="cardAvatar"></div>'
+      );
+      $($elem).clone().appendTo("#cardAvatar");
+    }
   }
 
   if (isDragging && $elem) {
@@ -141,12 +165,173 @@ var handleDrag = function (ev) {
       $elem.style.top = posY + "px";
       $elem.style.position = "absolute";
     }
+    //drag clon card
+    if ($($elem).parent().hasClass("cards")) {
+      var deltaContainerX = $("#module_wrapper").offset().left;
+      var deltaContainerY = $("#module_wrapper").offset().top;
+      $("#cardAvatar").get(0).style.top =
+        Math.round(
+          ev.center.y / stageRatioReal -
+            deltaContainerY / stageRatioReal -
+            $("#cardAvatar").height() / stageRatioReal / 2
+        ) + "px";
+      $("#cardAvatar").get(0).style.left =
+        Math.round(
+          ev.center.x / stageRatioReal -
+            deltaContainerX / stageRatioReal -
+            $("#cardAvatar").width() / stageRatioReal / 2
+        ) + "px";
+      checkCollision(ev);
+    }
   }
 
   if (ev.isFinal) {
     isDragging = false;
     $elem = null;
+    //check order status
+    checkOrderStatus();
   }
+};
+
+var checkCollision = function (ev) {
+  var lastX = ev.center.x;
+  var lastY = ev.center.y;
+  var frameElem = $(".contents > div.selected .frames > div");
+  frameElem.each(function () {
+    var oriX = $(this).offset().left;
+    var oriW = oriX + $(this).width();
+    var oriY = $(this).offset().top;
+    var oriH = oriY + $(this).height();
+    if (lastX >= oriX && lastX <= oriW && lastY >= oriY && lastY <= oriH) {
+      $(this).addClass("selected");
+    } else {
+      $(this).removeClass("selected");
+    }
+  });
+};
+var checkOrderStatus = function () {
+  //fill frame with clone card
+  var count = 0;
+  var frameElem = $(".contents > div.selected .frames > div");
+  var frameCheckBtn = $(".contents > div.selected .frames > .cta");
+  frameElem.each(function () {
+    if ($(this).hasClass("selected")) {
+      $(this).removeClass("selected").empty().append($("#cardAvatar").html());
+      rootSoundEffect($pop);
+      //user change status
+      $(".btn_answer").removeClass("active");
+    }
+    if ($(this).find(">div").length > 0) {
+      count++;
+    }
+  });
+  //remove clone card
+  $("#cardAvatar").remove();
+  //check status
+  if (frameElem.length == count) {
+    frameCheckBtn.removeClass("disable");
+  } else {
+    frameCheckBtn.addClass("disable");
+    //user change status
+    $(".btn_answer").removeClass("active");
+  }
+};
+
+var showAnswer = function (boolean) {
+  var frameElem = $(".contents > div.selected .frames > div");
+  if (boolean) {
+    frameElem.each(function () {
+      $(this).removeClass("selected").empty().append(`
+    <div class="${$(this).attr(
+      "ans"
+    )} wow bounceIn" ans="${$(this).attr("ans")}">
+    <img src="./DATA/IMAGES/common/arrow1.png" />
+    </div>`);
+    });
+    rootSoundEffect($chimes);
+  } else {
+    frameElem.each(function () {
+      $(this).removeClass("selected").empty();
+    });
+  }
+  //
+  checkOrderStatus();
+};
+
+var goFight = function () {
+  fightStep = 0;
+  fightAnimation();
+  var frameCheckBtn = $(".contents > div.selected .frames > .cta");
+  frameCheckBtn.addClass("disable");
+};
+
+var fightAnimation = function () {
+  var frameElem = $(".contents > div.selected .frames > div");
+  var tempKing = $(".contents > div.selected .king");
+  var tempGhost = $(".contents > div.selected .ghost");
+  var xx = tempKing.attr("curX");
+  var yy = tempKing.attr("curY");
+  frameElem
+    .eq(fightStep)
+    .addClass("selected")
+    .siblings(".selected")
+    .removeClass("selected");
+  switch (frameElem.eq(fightStep).find(">div").attr("ans")) {
+    case "u":
+      yy = parseInt(yy) + 1;
+      break;
+    case "d":
+      yy = parseInt(yy) - 1;
+      break;
+    case "l":
+      xx = parseInt(xx) - 1;
+      break;
+    case "r":
+      xx = parseInt(xx) + 1;
+      break;
+    default:
+    // code block
+  }
+  //確定移動有無障礙
+  if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
+    console.log("stocked");
+    showResult("stocked");
+  } else {
+    console.log(xx, yy);
+    moveMan(tempKing, xx, yy);
+    fightStep++;
+    if (fightStep < frameElem.length) {
+      setTimeout(fightAnimation, fightSpeed);
+    } else {
+      //
+      console.log("end");
+      if (
+        tempKing.attr("curX") == tempGhost.attr("curX") &&
+        tempKing.attr("curY") == tempGhost.attr("curY")
+      ) {
+        showResult("success");
+      } else {
+        showResult("fail");
+      }
+    }
+  }
+};
+
+var showResult = function (result) {
+  switch (result) {
+    case "stocked":
+      console.log("stocked");
+      break;
+    case "fail":
+      console.log("fail");
+      break;
+    case "success":
+      console.log("success");
+      break;
+    default:
+    // code block
+  }
+  //rootSoundEffect($pop);
 };
 
 var openContent = function (id) {
@@ -191,11 +376,11 @@ var resetElem = function (elem) {
   //frame reset
   var tempFrameset = elem.find(".frames");
   tempFrameset.find("> div").empty();
-  tempFrameset.find(".cta").addClass("disable");
+  checkOrderStatus();
 
   //cards & lights reset
-  var tempSelected = elem.find(".selected");
-  tempSelected.removeClass("selected");
+  elem.find(".selected").removeClass("selected");
+  elem.find(".onactive").removeClass("onactive");
 };
 
 var moveMan = function (tar, x, y) {
@@ -204,6 +389,10 @@ var moveMan = function (tar, x, y) {
   tar.css({
     top: (y - 1) * gridH * -1 + diffY + "px",
     left: (x - 1) * gridW * 1 - diffX + "px",
+  });
+  tar.attr({
+    curX: x,
+    curY: y,
   });
 };
 
