@@ -37,7 +37,10 @@
         click.y = e.clientY;
       })
       .bind("mouseup", function (e) {
-        if (click.x == e.clientX && click.y == e.clientY) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
           e.stopPropagation();
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
@@ -63,7 +66,10 @@
         click.y = e.clientY;
       })
       .bind("mouseup", function (e) {
-        if (click.x == e.clientX && click.y == e.clientY) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
           e.stopPropagation();
           //default
           $(".countdown .display")
@@ -93,7 +99,10 @@
         click.y = e.clientY;
       })
       .bind("mouseup", function (e) {
-        if (click.x == e.clientX && click.y == e.clientY) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
           var rangee = 20;
           var ott = parseInt($(this).offset().top / stageRatio);
           var ctt = parseInt(e.clientY / stageRatio);

@@ -170,7 +170,12 @@
                 getHighestDepthCanvas($(this));
               })
               .bind("mouseup", function (e) {
-                if (click.x == e.clientX && click.y == e.clientY) {
+                if (
+                  Math.abs(click.x - e.clientX) <
+                    click.threshold * stageRatioReal &&
+                  Math.abs(click.y - e.clientY) <
+                    click.threshold * stageRatioReal
+                ) {
                   groupSelect($(this));
                 }
               });

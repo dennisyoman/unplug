@@ -17,7 +17,10 @@
         click.y = e.clientY;
       })
       .bind("mouseup", function (e) {
-        if (click.x == e.clientX && click.y == e.clientY) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
           e.stopPropagation();
           rootSoundEffect($click);
           for (i = 0; i < pieceArr.length; i++) {
@@ -45,7 +48,11 @@
         click.y = e.clientY;
       })
       .bind("mouseup", function (e) {
-        if (click.x == e.clientX && click.y == e.clientY) {
+        console.log(Math.abs(click.x - e.clientX));
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
           e.stopPropagation();
           var rangee = 40;
           var ott = parseInt($(this).offset().top / stageRatio);
@@ -74,7 +81,10 @@
         click.y = e.clientY;
       })
       .bind("mouseup", function (e) {
-        if (click.x == e.clientX && click.y == e.clientY) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
           //
         }
         getHighestDepthWidget($(this));

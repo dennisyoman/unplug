@@ -268,7 +268,9 @@ let createUnits = function () {
             let id = i + 1;
             let section = $(this).attr("section");
             let iconHTML = `<li onclick="loadContainer(${id},${section})">
-                        <img src="./DATA/${thumb}"/>
+                        <img class="wow bounceIn" data-wow-delay="${
+                          i * 0.1
+                        }s" src="./DATA/${thumb}"/>
                         <h3>${nameArr[0]}<span>${
               nameArr[1] ? nameArr[1] : ""
             }</span></h3></li>`;
@@ -878,14 +880,35 @@ let requestFullscreen = function () {
 };
 
 //draggable
+let defineElem = function (ev) {
+  firstElem = ev.target;
+  var attr = $(firstElem).attr("mt");
+  if (typeof attr !== "undefined" && attr !== false) {
+    var loop = parseInt(attr);
+    for (var n = 0; n < loop; n++) {
+      firstElem = $(firstElem).parent().get(0);
+    }
+    console.log("got firstelem");
+  }
+};
+let define$Elem = function (ev) {
+  $elem = ev.target;
+  var attr = $($elem).attr("mt");
+  if (typeof attr !== "undefined" && attr !== false) {
+    var loop = parseInt(attr);
+    for (var n = 0; n < loop; n++) {
+      $elem = $($elem).parent().get(0);
+    }
+  }
+};
 var paintVar;
 var paintPauseDuration = 1500;
 var groupID = new Date().getTime();
-var currentAudioTrack;
 var firstElem = null;
 var click = {
   x: 0,
   y: 0,
+  threshold: 8,
 };
 let makeDraggable = function (tar, stay, resizeTar) {
   var audioTrackerDragger = new Hammer(tar.get(0));
@@ -896,26 +919,21 @@ let makeDraggable = function (tar, stay, resizeTar) {
   audioTrackerDragger
     .get("pan")
     .set({ direction: Hammer.DIRECTION_ALL, threshold: 1 });
-  audioTrackerDragger.get("press").set({ time: 0 });
+  audioTrackerDragger.get("press").set({ time: 1 });
   audioTrackerDragger.on("press", function (ev) {
-    console.log("p");
-    firstElem = ev.target;
-    var attr = $(firstElem).attr("mt");
-    if (typeof attr !== "undefined" && attr !== false) {
-      var loop = parseInt(attr);
-      for (var n = 0; n < loop; n++) {
-        firstElem = $(firstElem).parent().get(0);
-      }
-    }
+    defineElem(ev);
   });
   audioTrackerDragger.on("pressup", function (ev) {
     firstElem = null;
   });
   audioTrackerDragger.on("pan", function (ev) {
+    if (firstElem == null) {
+      console.log("no elem");
+      defineElem(ev);
+    }
     var elem = ev.target;
     if ($(elem).hasClass("dragger") && firstElem == null) {
       firstElem = elem;
-      console.log("got dragger");
     }
 
     //移動的本體
@@ -953,9 +971,43 @@ let makeDraggable = function (tar, stay, resizeTar) {
         }
       }
     }
+    //resizer
+    if ($(firstElem).hasClass("resizer")) {
+      if (!isATDrag) {
+        newRatio = stageRatio / stageRatioMain;
 
+        isATDrag = true;
+        lastRTX = resizeTar.get(0).offsetLeft;
+        lastRTY = resizeTar.get(0).offsetTop;
+        lastRTW = resizeTar.width() / newRatio;
+        lastRTH = resizeTar.height() / newRatio;
+      }
+
+      if (isATDrag) {
+        if ($(firstElem).hasClass("rb")) {
+          var ww = lastRTW + ev.deltaX / newRatio;
+          var hh = lastRTH + ev.deltaY / newRatio;
+        } else if ($(firstElem).hasClass("rt")) {
+          var ww = lastRTW + ev.deltaX / newRatio;
+          var hh = lastRTH - ev.deltaY / newRatio;
+          resizeTar.css("top", lastRTY + ev.deltaY / newRatio);
+        } else if ($(firstElem).hasClass("lb")) {
+          var ww = lastRTW - ev.deltaX / newRatio;
+          var hh = lastRTH + ev.deltaY / newRatio;
+          resizeTar.css("left", lastRTX + ev.deltaX / newRatio);
+        } else if ($(firstElem).hasClass("lt")) {
+          var ww = lastRTW - ev.deltaX / newRatio;
+          var hh = lastRTH - ev.deltaY / newRatio;
+          resizeTar.css("left", lastRTX + ev.deltaX / newRatio);
+          resizeTar.css("top", lastRTY + ev.deltaY / newRatio);
+        }
+        resizeTar.width(ww + "px");
+        resizeTar.height(hh + "px");
+      }
+    }
     //ending
     if (ev.isFinal) {
+      $(".resizer").removeAttr("style");
       //
       if ($(firstElem).hasClass("canvas")) {
         groupDeleting($(firstElem));
@@ -968,6 +1020,14 @@ let makeDraggable = function (tar, stay, resizeTar) {
         ) {
           if (stay || !$(firstElem).hasClass("dragger")) {
           } else {
+            if (
+              $(firstElem).hasClass("audioTrack") &&
+              $(firstElem).hasClass("active")
+            ) {
+              if (currentAudioTrack) {
+                currentAudioTrack.pause();
+              }
+            }
             $(firstElem).remove();
           }
         }
@@ -1109,7 +1169,6 @@ let groupCanvas = function () {
   $("#cbg").hide();
   $("#cba").hide();
 };
-
 let apartCanvas = function () {
   $("#canvas-board .canvas").each(function (index) {
     if ($(this).hasClass("selected")) {

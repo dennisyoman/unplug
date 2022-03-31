@@ -94,11 +94,16 @@
         }
       }
       &.btn_intro {
-        background-image: url("../images/common/btn_intro.png");
+        background-image: url("../DATA/IMAGES/common/btn_intro.png");
+        @include borderRadius(8px);
+        &.active {
+          border-color: #f58d83;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
       }
 
       &.btn_widget {
-        background-image: url("../images/common/btn_widget.png");
+        background-image: url("../DATA/IMAGES/common/btn_widget.png");
 
         > div {
           position: absolute;
@@ -106,7 +111,8 @@
           top: -40px;
           width: 640px;
           height: 40px;
-          background: url("../images/common/tool_ga.png") no-repeat top left;
+          background: url("../DATA/IMAGES/common/tool_ga.png") no-repeat top
+            left;
           background-size: 100% 100%;
           padding: 5px;
           padding-left: 124px;
@@ -131,14 +137,14 @@
         }
       }
       &.btn_erasor {
-        background-image: url("../images/common/btn_erasorm.png");
+        background-image: url("../DATA/IMAGES/common/btn_erasorm.png");
       }
       &.btn_paletton {
-        background-image: url("../images/common/btn_paletton.png");
+        background-image: url("../DATA/IMAGES/common/btn_paletton.png");
       }
 
       &.btn_zoom {
-        background-image: url("../images/common/btn_zoom.png");
+        background-image: url("../DATA/IMAGES/common/btn_zoom.png");
         position: relative;
         > div {
           transform-origin: center bottom;
@@ -153,11 +159,11 @@
         }
       }
       &.btn_tag {
-        background-image: url("../images/common/btn_tag.png");
+        background-image: url("../DATA/IMAGES/common/btn_tag.png");
       }
 
       &.btn_focus {
-        background-image: url("../images/common/btn_focus.png");
+        background-image: url("../DATA/IMAGES/common/btn_focus.png");
       }
 
       &.disabled {
@@ -219,8 +225,8 @@
           width: 13px;
           height: 13px;
           margin-top: -1px;
-          background: url("../images/common/icon_erasor.png") no-repeat center
-            center;
+          background: url("../DATA/IMAGES/common/icon_erasor.png") no-repeat
+            center center;
           background-size: contain;
           filter: brightness(0.3);
           &.active {
@@ -258,7 +264,8 @@
       flex: 0 0 auto;
       width: 15px;
       height: 30px;
-      background: url("../images/common/player_man.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/player_man.png") no-repeat center
+        center;
       background-size: 100% 100%;
       cursor: pointer;
     }
@@ -324,21 +331,21 @@
         &.play {
           width: 30px;
           height: 30px;
-          background-image: url("../images/common/player_pause.png");
+          background-image: url("../DATA/IMAGES/common/player_pause.png");
 
           &.active {
-            background-image: url("../images/common/player_play.png");
+            background-image: url("../DATA/IMAGES/common/player_play.png");
           }
         }
         &.stop {
           width: 25px;
           height: 30px;
-          background-image: url("../images/common/player_stop.png");
+          background-image: url("../DATA/IMAGES/common/player_stop.png");
         }
         &.repeat {
           width: 25px;
           height: 30px;
-          background-image: url("../images/common/player_repeat.png");
+          background-image: url("../DATA/IMAGES/common/player_repeat.png");
           @include opacity(0.5);
           pointer-events: none;
           &.active {
@@ -349,7 +356,7 @@
         &.loop {
           width: 25px;
           height: 30px;
-          background-image: url("../images/common/player_loop.png");
+          background-image: url("../DATA/IMAGES/common/player_loop.png");
           @include opacity(0.5);
 
           &.active {
@@ -359,7 +366,7 @@
         &.close {
           width: 25px;
           height: 30px;
-          background-image: url("../images/common/player_close.png");
+          background-image: url("../DATA/IMAGES/common/player_close.png");
         }
       }
     }
@@ -481,7 +488,7 @@
       display: inline-block;
       width: 11px;
       height: 12.5px;
-      background: url("../images/common/player_speaker.png") no-repeat left
+      background: url("../DATA/IMAGES/common/player_speaker.png") no-repeat left
         center;
       background-size: 14px 12.5px;
       top: -1px;
@@ -523,7 +530,7 @@
     &.red {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_red.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_red.jpg");
         }
       }
     }
@@ -531,7 +538,7 @@
     &.green {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_green.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_green.jpg");
         }
       }
     }
@@ -539,7 +546,7 @@
     &.purple {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_purple.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_purple.jpg");
         }
       }
     }
@@ -547,7 +554,7 @@
     &.yellow {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_yellow.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_yellow.jpg");
         }
       }
     }
@@ -555,7 +562,7 @@
     &.blue {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_blue.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_blue.jpg");
         }
       }
     }
@@ -563,14 +570,14 @@
     &.pink {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_pink.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_pink.jpg");
         }
       }
     }
     &.aan {
       .dice_wrapper {
         .side {
-          background-image: url("../images/common/dice_aan.jpg");
+          background-image: url("../DATA/IMAGES/common/dice_aan.jpg");
         }
       }
     }
@@ -691,7 +698,7 @@
       position: relative;
       width: 212px;
       height: 154px;
-      background: url("../images/common/board.png") no-repeat left top;
+      background: url("../DATA/IMAGES/common/board.png") no-repeat left top;
       background-size: 100% 100%;
 
       .drawer {
@@ -798,7 +805,7 @@
       position: relative;
       width: 550px;
       height: 100px;
-      background: url("../images/common/board.png") no-repeat left top;
+      background: url("../DATA/IMAGES/common/board.png") no-repeat left top;
       background-size: 100% 100%;
       &::after {
         content: "";
@@ -828,7 +835,7 @@
       height: 20px;
       top: -5px;
       left: -26px;
-      background: url("../images/common/btn_brush.png") no-repeat left top;
+      background: url("../DATA/IMAGES/common/btn_brush.png") no-repeat left top;
       background-size: 40px 20px;
       pointer-events: auto;
       cursor: pointer;
@@ -844,7 +851,7 @@
       height: 20px;
       top: 16px;
       left: -26px;
-      background: url("../images/common/btn_erasor.png") no-repeat left top;
+      background: url("../DATA/IMAGES/common/btn_erasor.png") no-repeat left top;
       background-size: 40px 20px;
       pointer-events: auto;
       cursor: pointer;
@@ -860,7 +867,8 @@
       height: 20px;
       top: 37px;
       left: -26px;
-      background: url("../images/common/btn_erasor_all.png") no-repeat left top;
+      background: url("../DATA/IMAGES/common/btn_erasor_all.png") no-repeat left
+        top;
       background-size: 40px 20px;
       pointer-events: auto;
       cursor: pointer;
@@ -1013,8 +1021,6 @@
       top: calc(45% - 50px);
       left: calc(50% - 50px);
       pointer-events: auto;
-      background: url("./images/common/masker_square.svg") no-repeat left center;
-      background-size: 100% 100%;
       .hint {
         width: 150px;
         text-align: center;
@@ -1154,8 +1160,8 @@
       height: 33px;
       top: 0;
       left: 0;
-      background: #f28080 url("../images/common/piece.png") no-repeat center
-        center;
+      background: #f28080 url("../DATA/IMAGES/common/piece.png") no-repeat
+        center center;
       background-size: 16px 18px;
       border: 2px solid #e40101;
       @include borderRadius(100%);
@@ -1268,8 +1274,8 @@
         width: 100%;
         height: 100%;
 
-        background: url("../images/common/roulette_bg.jpg") no-repeat center
-          center;
+        background: url("../DATA/IMAGES/common/roulette_bg.jpg") no-repeat
+          center center;
         background-size: 100% 100%;
 
         border-radius: 50%;
@@ -1332,7 +1338,8 @@
       height: 100%;
       position: relative;
       top: 4px;
-      background: url("../images/common/finger.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/finger.png") no-repeat center
+        center;
       background-size: 98% 98%;
     }
   }
@@ -1367,7 +1374,7 @@
         span {
           width: 13px;
           height: 13px;
-          background: rgba(0, 0, 0, 0.2) url("../images/common/piece.png")
+          background: rgba(0, 0, 0, 0.2) url("../DATA/IMAGES/common/piece.png")
             no-repeat center center;
           background-size: 7px 8px;
           margin: 1px 3px;
@@ -1393,7 +1400,8 @@
           position: relative;
           font-family: "Gfont-bold";
           pointer-events: auto;
-          background: url("../images/common/updown.png") no-repeat center center;
+          background: url("../DATA/IMAGES/common/updown.png") no-repeat center
+            center;
           background-size: auto 90%;
           @include boxShadow(0 1px 3px rgba(0, 0, 0, 0.3));
           &::after {
@@ -1576,7 +1584,8 @@
       width: 100%;
       height: 100%;
       position: relative;
-      background: url("../images/common/countdown.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/countdown.png") no-repeat center
+        center;
       background-size: 100% 100%;
       padding-top: 18px;
       .trigs {
@@ -1600,7 +1609,8 @@
           height: 100%;
           background: transparent;
           pointer-events: auto;
-          background: url("../images/common/updown.png") no-repeat center center;
+          background: url("../DATA/IMAGES/common/updown.png") no-repeat center
+            center;
           background-size: auto 90%;
           &:nth-child(2) {
             margin-right: 11px;
@@ -1679,7 +1689,8 @@
       padding: 0.1px 0;
       width: 100%;
       height: 100%;
-      background: url("../images/common/wb_orange.jpg") no-repeat center center;
+      background: url("../DATA/IMAGES/common/wb_orange.jpg") no-repeat center
+        center;
       background-size: 100% 100%;
       transform-origin: center center;
 
@@ -1764,7 +1775,8 @@
       top: 5px;
       width: 16px;
       height: 18px;
-      background: url("../images/common/wb_star.png") no-repeat right center;
+      background: url("../DATA/IMAGES/common/wb_star.png") no-repeat right
+        center;
       background-size: 32px 18px;
       @include scale(0.7);
     }
@@ -1776,7 +1788,8 @@
       bottom: 5px;
       width: 18px;
       height: 18px;
-      background: url("../images/common/wb_eye.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/wb_eye.png") no-repeat center
+        center;
       background-size: 18px 18px;
       cursor: pointer;
       pointer-events: auto;
@@ -1788,7 +1801,8 @@
       right: 4px;
       width: 20px;
       height: 20px;
-      background: url("../images/common/btn_define.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/btn_define.png") no-repeat center
+        center;
       background-size: 100% 100%;
       cursor: pointer;
       pointer-events: auto;
@@ -1835,7 +1849,8 @@
       height: 282px;
       top: 20px;
       position: relative;
-      background: url("../images/common/monopoly.jpg") no-repeat center center;
+      background: url("../DATA/IMAGES/common/monopoly.jpg") no-repeat center
+        center;
       background-size: 100% 100%;
       @include opacity(0);
 
@@ -1863,7 +1878,8 @@
         position: absolute;
         width: 88px;
         height: 88px;
-        background: url("../images/common/monopoly_Card.jpg") no-repeat left top;
+        background: url("../DATA/IMAGES/common/monopoly_Card.jpg") no-repeat
+          left top;
         background-size: 352px 88px;
         pointer-events: auto;
         transform-origin: center center;
@@ -1967,7 +1983,7 @@
             height: 15px;
             top: 2px;
             left: 2px;
-            background: #f28080 url("../images/common/piece.png") no-repeat
+            background: #f28080 url("../DATA/IMAGES/common/piece.png") no-repeat
               center center;
             background-size: 8px 9px;
             pointer-events: auto;
@@ -2040,7 +2056,8 @@
         height: 100%;
         top: 0;
         left: 0;
-        background: url("../images/common/flipcard.png") no-repeat center center;
+        background: url("../DATA/IMAGES/common/flipcard.png") no-repeat center
+          center;
         background-size: 100% 100%;
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -2080,7 +2097,8 @@
         display: inline-block;
         @include borderRadius(100%);
         @include opacity(0.4);
-        background: url("../images/common/wb_read.png") no-repeat center center;
+        background: url("../DATA/IMAGES/common/wb_read.png") no-repeat center
+          center;
         background-size: 100% 100%;
 
         &.active {
@@ -2089,7 +2107,7 @@
         }
 
         &.wb_read {
-          background-image: url("../images/common/wb_read.png");
+          background-image: url("../DATA/IMAGES/common/wb_read.png");
           &.sub {
             display: block !important;
             &::after {
@@ -2099,14 +2117,14 @@
               left: -33px;
               width: 33.5px;
               height: 30px;
-              background: url("../images/common/wb_read_speaker.png") no-repeat
-                center center;
+              background: url("../DATA/IMAGES/common/wb_read_speaker.png")
+                no-repeat center center;
               background-size: 100% 100%;
             }
           }
         }
         &.wb_write {
-          background-image: url("../images/common/wb_write.png");
+          background-image: url("../DATA/IMAGES/common/wb_write.png");
           &.sub {
             display: block !important;
             &::after {
@@ -2116,8 +2134,8 @@
               left: -33px;
               width: 33.5px;
               height: 30px;
-              background: url("../images/common/wb_write_speaker.png") no-repeat
-                center center;
+              background: url("../DATA/IMAGES/common/wb_write_speaker.png")
+                no-repeat center center;
               background-size: 100% 100%;
             }
           }
@@ -2134,7 +2152,7 @@
       pointer-events: auto;
       cursor: pointer;
       z-index: 4;
-      background: url("../images/common/flipcardbar.png") no-repeat center
+      background: url("../DATA/IMAGES/common/flipcardbar.png") no-repeat center
         center;
       background-size: 100% 100%;
       @include transition(all, 0.6s);
@@ -2228,7 +2246,7 @@
       left: -20px;
       width: 98px;
       height: 40px;
-      background: url("../images/common/fishing_poor.png") no-repeat center
+      background: url("../DATA/IMAGES/common/fishing_poor.png") no-repeat center
         center;
       background-size: 100% 100%;
       z-index: 0;
@@ -2237,7 +2255,7 @@
     .fishman {
       width: 120px;
       height: 128px;
-      background: url("../images/common/fishing.png") no-repeat center top;
+      background: url("../DATA/IMAGES/common/fishing.png") no-repeat center top;
       background-size: 600px 128px;
       position: relative;
       z-index: 2;

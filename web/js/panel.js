@@ -7,10 +7,8 @@ $(document).ready(function () {
       $(".btn_intro")
         .unbind()
         .bind("click", function () {
-          $(this).toggleClass("active");
-          if ($(this).hasClass("active")) {
-            resetPanelBtns("btn_intro");
-          }
+          resetPanelBtns("btn_intro");
+          switchIntro();
           clickthen();
         });
       $(".btn_widget")

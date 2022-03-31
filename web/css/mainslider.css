@@ -243,7 +243,7 @@
   pointer-events: auto;
   width: 30px;
   height: 30px;
-  background-image: url("../images/common/btn_prev2.png");
+  background-image: url("../DATA/IMAGES/common/btn_prev2.png");
   background-size: 100% 100%;
   top: auto;
   bottom: 0;
@@ -251,7 +251,7 @@
 }
 
 .ms_wrapper .lessons > .swiper-button-next {
-  background-image: url("../images/common/btn_next2.png");
+  background-image: url("../DATA/IMAGES/common/btn_next2.png");
   left: auto;
   right: 70px;
 }
@@ -332,10 +332,10 @@
 .ms_wrapper .slider .swiper-button-next {
   width: 40px;
   height: 40px;
-  background-image: url("../images/common/btn_prev.png");
+  background-image: url("../DATA/IMAGES/common/btn_prev.png");
   background-size: 100% 100%;
 }
 
 .ms_wrapper .slider > .swiper-button-next {
-  background-image: url("../images/common/btn_next.png");
+  background-image: url("../DATA/IMAGES/common/btn_next.png");
 }

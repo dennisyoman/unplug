@@ -1,44 +1,44 @@
 <root>
   <lesson sid="PT" bid="1" lid="1">
-    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-1-1.html" js="JS/warmup.js" image="UNITS/warmup.png" skin=""/>
-    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-1-2.html" js="JS/creativity.js" image="UNITS/creativity.png" skin="">
+    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-1-1.html" js="JS/warmup.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-1-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 序列" html="PT/BOOK1/HTML/PT-1-1-3.html" js="JS/order.js" image="UNITS/order.png" skin="">
+    <section section="3" name="一起玩遊戲 / 序列" html="PT/BOOK1/HTML/PT-1-1-3.html" js="JS/order.js" image="IMAGES/UNITS/order.png" skin="">
     </section>
-    <section section="4" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-1-4.html" js="JS/calculus.js" image="UNITS/calculus.png" skin="">
+    <section section="4" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-1-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="1" lid="2">
-    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-2-1.html" js="JS/warmup.js" image="UNITS/warmup.png" skin=""/>
-    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-2-2.html" js="JS/creativity.js" image="UNITS/creativity.png" skin="">
+    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-2-1.html" js="JS/warmup.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 配對" html="PT/BOOK1/HTML/PT-1-2-3.html" js="JS/pairing.js" image="UNITS/pairing.png" skin="">
+    <section section="3" name="一起玩遊戲 / 配對" html="PT/BOOK1/HTML/PT-1-2-3.html" js="JS/pairing.js" image="IMAGES/UNITS/pairing.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲 / 分類" html="PT/BOOK1/HTML/PT-1-2-4.html" js="JS/classify.js" image="UNITS/classify.png" skin="">
+    <section section="4" name="一起玩遊戲 / 分類" html="PT/BOOK1/HTML/PT-1-2-4.html" js="JS/classify.js" image="IMAGES/UNITS/classify.png" skin="">
     </section>
-    <section section="5" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-2-5.html" js="JS/calculus.js" image="UNITS/calculus.png" skin="">
+    <section section="5" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-2-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="1" lid="3">
-    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-3-1.html" js="JS/warmup.js" image="UNITS/warmup.png" skin=""/>
-    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-3-2.html" js="JS/creativity.js" image="UNITS/creativity.png" skin="">
+    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-3-1.html" js="JS/warmup.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 分類" html="PT/BOOK1/HTML/PT-1-3-3.html" js="JS/classify.js" image="UNITS/classify.png" skin="">
+    <section section="3" name="一起玩遊戲 / 分類" html="PT/BOOK1/HTML/PT-1-3-3.html" js="JS/classify.js" image="IMAGES/UNITS/classify.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲 / 排列組合" html="PT/BOOK1/HTML/PT-1-3-4.html" js="JS/organize.js" image="UNITS/organize.png" skin="">
+    <section section="4" name="一起玩遊戲 / 排列組合" html="PT/BOOK1/HTML/PT-1-3-4.html" js="JS/organize.js" image="IMAGES/UNITS/organize.png" skin="">
     </section>
-    <section section="5" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-3-5.html" js="JS/calculus.js" image="UNITS/calculus.png" skin="">
+    <section section="5" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-3-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="1" lid="4">
-    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-4-1.html" js="JS/warmup.js" image="UNITS/warmup.png" skin=""/>
-    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-4-2.html" js="JS/creativity.js" image="UNITS/creativity.png" skin="">
+    <section section="1" name="熱身活動" html="PT/BOOK1/HTML/PT-1-4-1.html" js="JS/warmup.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK1/HTML/PT-1-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 資訊科技" html="PT/BOOK1/HTML/PT-1-4-3.html" js="JS/tech.js" image="UNITS/tech.png" skin="">
+    <section section="3" name="一起玩遊戲 / 資訊科技" html="PT/BOOK1/HTML/PT-1-4-3.html" js="JS/tech.js" image="IMAGES/UNITS/tech.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲 / 身心健康" html="PT/BOOK1/HTML/PT-1-4-4.html" js="JS/health.js" image="UNITS/health.png" skin="">
+    <section section="4" name="一起玩遊戲 / 身心健康" html="PT/BOOK1/HTML/PT-1-4-4.html" js="JS/health.js" image="IMAGES/UNITS/health.png" skin="">
     </section>
-    <section section="5" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-4-5.html" js="JS/calculus.js" image="UNITS/calculus.png" skin="">
+    <section section="5" name="編成時間 / 演算法" html="PT/BOOK1/HTML/PT-1-4-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
 </root>
