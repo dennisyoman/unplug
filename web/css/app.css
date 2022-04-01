@@ -878,6 +878,13 @@
   z-index: 5;
 }
 
+.module_order .contents .world3D .frames > div.selected > div {
+  width: 100%;
+  height: 100%;
+  margin-top: 0%;
+  margin-left: 0%;
+}
+
 .module_order .contents .world3D .frames > div.start::before {
   content: "Start";
   position: absolute;
@@ -951,11 +958,11 @@
 }
 
 .module_order .contents .world3D .frames > div > div {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   pointer-events: auto;
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-top: 10%;
+  margin-left: 10%;
   cursor: pointer;
   -webkit-animation-delay: 0s !important;
           animation-delay: 0s !important;
