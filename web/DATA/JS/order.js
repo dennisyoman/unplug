@@ -308,13 +308,14 @@ var fightAnimation = function () {
       xx = parseInt(xx) + 1;
       break;
   }
+  rootSoundEffect($show);
+  moveMan(tempKing, xx, yy);
   //確定移動有無障礙
   if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
-    moveMan(tempKing, xx, yy);
+    showResult("outbound");
+  } else if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
     showResult("stocked");
   } else {
-    rootSoundEffect($show);
-    moveMan(tempKing, xx, yy);
     fightStep++;
     if (fightStep < frameElem.length) {
       fightTimeout = setTimeout(fightAnimation, fightSpeed);
@@ -335,6 +336,22 @@ var showResult = function (result) {
   var tempKing = $(".contents > div.selected .king");
   var tempGhost = $(".contents > div.selected .ghost");
   switch (result) {
+    case "outbound":
+      console.log("outbound");
+      rootSoundEffect($stupid);
+      tempKing
+        .addClass("outbound")
+        .append(
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+        )
+        .delay(1000)
+        .queue(function () {
+          $(".smoke").remove();
+          rootSoundEffect($tryagain);
+          tempGhost.addClass("jump");
+          $(this).dequeue();
+        });
+      break;
     case "stocked":
       console.log("stocked");
       rootSoundEffect($stupid);
@@ -406,7 +423,9 @@ var resetMen = function () {
   clearTimeout(fightTimeout);
   var tempMen = $(".contents > div.selected .man");
   tempMen.each(function () {
-    $(this).removeAttr("style").removeClass("vanish cry stocked jump proud");
+    $(this)
+      .removeAttr("style")
+      .removeClass("vanish cry stocked jump outbound proud");
     var RXX = parseInt($(this).parent().attr("curRX"));
     $(this).get(0).style.transform = "rotateX(" + -1 * RXX + "deg)";
     var intX = parseInt($(this).attr("intX"));

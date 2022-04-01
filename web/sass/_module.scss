@@ -163,6 +163,27 @@
             }
           }
 
+          &.outbound{
+            >img{
+              -webkit-animation-name: outbound !important;
+              animation-name: outbound !important;
+              -webkit-transform-origin: center center !important;
+              transform-origin: center center !important;
+              animation-iteration-count: 1 !important;
+              animation-duration: 1s !important;
+            }
+            @keyframes outbound {
+
+              0%{
+                transform: translateY(0) translateZ(0) rotate(0) ;
+              }
+            
+              100% {
+                transform: translateY(250px) translateZ(0) rotate(600deg) ;
+              }
+            }
+          }
+
           &.jump{
             >img{
               -webkit-animation-name: bounce !important;
