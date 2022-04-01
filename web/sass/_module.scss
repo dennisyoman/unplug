@@ -207,11 +207,12 @@
           &.stocked{
            
             >img{
-              -webkit-animation-name: shake !important;
-              animation-name: shake !important;
+              -webkit-animation-name: headShake !important;
+              animation-name: headShake !important;
               -webkit-transform-origin: center bottom !important;
               transform-origin: center bottom !important;
               animation-iteration-count: 1 !important;
+              animation-duration: .6s !important;
             }
           }
 

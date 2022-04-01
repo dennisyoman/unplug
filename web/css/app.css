@@ -797,12 +797,14 @@
 }
 
 .module_order .contents .world3D .stage .man.stocked > img {
-  -webkit-animation-name: shake !important;
-  animation-name: shake !important;
+  -webkit-animation-name: headShake !important;
+  animation-name: headShake !important;
   -webkit-transform-origin: center bottom !important;
   transform-origin: center bottom !important;
   -webkit-animation-iteration-count: 1 !important;
           animation-iteration-count: 1 !important;
+  -webkit-animation-duration: .6s !important;
+          animation-duration: .6s !important;
 }
 
 .module_order .contents .world3D .stage .ground {
@@ -1527,6 +1529,13 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   outline: none;
+}
+
+img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .wrapper {

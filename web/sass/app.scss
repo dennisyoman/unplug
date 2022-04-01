@@ -61,6 +61,13 @@ body {
   outline: none;
 }
 
+img{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+}
+
 .wrapper {
   width: 100%;
   height: 100%;

@@ -285,6 +285,7 @@ var goFight = function () {
 
 var fightAnimation = function () {
   var frameElem = $(".contents > div.selected .frames > div");
+  var barrierElem = $(".contents > div.selected .barrier > span");
   var tempKing = $(".contents > div.selected .king");
   var tempGhost = $(".contents > div.selected .ghost");
   var xx = tempKing.attr("curX");
@@ -311,9 +312,18 @@ var fightAnimation = function () {
   rootSoundEffect($show);
   moveMan(tempKing, xx, yy);
   //確定移動有無障礙
+  var getStocked = false;
+  barrierElem.each(function () {
+    var pX = $(this).attr("pX");
+    var pY = $(this).attr("pY");
+    if (xx == pX && yy == pY) {
+      getStocked = true;
+    }
+  });
+  //
   if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
     showResult("outbound");
-  } else if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
+  } else if (getStocked) {
     showResult("stocked");
   } else {
     fightStep++;
@@ -357,7 +367,7 @@ var showResult = function (result) {
       rootSoundEffect($stupid);
       tempKing
         .addClass("stocked")
-        .delay(1000)
+        .delay(800)
         .queue(function () {
           rootSoundEffect($tryagain);
           tempGhost.addClass("jump");
