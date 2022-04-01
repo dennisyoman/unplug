@@ -48,6 +48,21 @@ $(document).ready(function () {
           checkOrderStatus();
         });
 
+      //lights
+
+      $(".lights > div")
+        .unbind()
+        .bind("click", function () {
+          resetMen();
+          if ($(".sideTool > div.btn_playorder").hasClass("active")) {
+            $(".sideTool > div.btn_playorder").removeClass("active");
+            $(".contents > div.selected .lights > div").removeClass(
+              "passed wrong right"
+            );
+          }
+          $(this).toggleClass("selected");
+        });
+
       //sidetool
       $(".sideTool > div.btn_answer")
         .unbind()
@@ -65,8 +80,9 @@ $(document).ready(function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
             //
+            goPassing(true);
           } else {
-            //
+            goPassing(false);
           }
         });
 
@@ -276,6 +292,123 @@ var showAnswer = function (boolean) {
   checkOrderStatus();
 };
 
+//passing
+var goPassing = function (boolean) {
+  fightStep = 0;
+  if (boolean) {
+    passingAnimation();
+  } else {
+    resetMen();
+    resetLights();
+  }
+};
+
+var passingAnimation = function () {
+  var frameElem = $(".contents > div.selected .frames > div");
+  var itemsElem = $(".contents > div.selected .items > span");
+  var lightsElem = $(".contents > div.selected .lights > div");
+  var barrierElem = $(".contents > div.selected .barrier > span");
+  var tempKing = $(".contents > div.selected .king");
+  var tempGhost = $(".contents > div.selected .ghost");
+  var xx = tempKing.attr("curX");
+  var yy = tempKing.attr("curY");
+  frameElem
+    .eq(fightStep)
+    .addClass("selected")
+    .siblings(".selected")
+    .removeClass("selected");
+  switch (frameElem.eq(fightStep).attr("ans")) {
+    case "u":
+      yy = parseInt(yy) + 1;
+      break;
+    case "d":
+      yy = parseInt(yy) - 1;
+      break;
+    case "l":
+      xx = parseInt(xx) - 1;
+      break;
+    case "r":
+      xx = parseInt(xx) + 1;
+      break;
+  }
+  rootSoundEffect($show);
+  moveMan(tempKing, xx, yy);
+
+  //確定移動有無障礙
+  var getStocked = false;
+  barrierElem.each(function () {
+    var pX = $(this).attr("pX");
+    var pY = $(this).attr("pY");
+    if (xx == pX && yy == pY) {
+      getStocked = true;
+    }
+  });
+  //移動到哪裡
+  lightsElem.removeClass("passed");
+  itemsElem.each(function () {
+    var pX = $(this).attr("pX");
+    var pY = $(this).attr("pY");
+    var ans = $(this).attr("ans");
+    if (xx == pX && yy == pY) {
+      console.log(ans);
+      for (var k = 0; k < lightsElem.length; k++) {
+        var tempLight = lightsElem.eq(k);
+        if (tempLight.attr("ans") == ans) {
+          tempLight.addClass("passed");
+          if (tempLight.hasClass("selected")) {
+            if (!tempLight.hasClass("right")) {
+              tempLight.addClass("right");
+              rootSoundEffect($chimes);
+              //
+              var uniq = new Date().getTime();
+              tempLight.append(
+                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+              );
+              $(".smoke")
+                .delay(1500)
+                .queue(function () {
+                  $(this).dequeue().remove();
+                });
+            }
+          } else {
+            tempLight.addClass("wrong");
+            rootSoundEffect($stupid);
+          }
+        }
+      }
+    }
+  });
+  //
+  if (yy < 1 || yy > gridsRow || xx < 1 || xx > gridsColumn) {
+    showResult("outbound");
+  } else if (getStocked) {
+    showResult("stocked");
+  } else {
+    fightStep++;
+    if (fightStep < frameElem.length) {
+      fightTimeout = setTimeout(passingAnimation, fightSpeed);
+    } else {
+      //lights
+      for (var k = 0; k < lightsElem.length; k++) {
+        var tempLight = lightsElem.eq(k);
+        if (tempLight.hasClass("selected") && !tempLight.hasClass("right")) {
+          tempLight.addClass("wrong");
+        }
+      }
+      //
+      if (
+        tempKing.attr("curX") == tempGhost.attr("curX") &&
+        tempKing.attr("curY") == tempGhost.attr("curY")
+      ) {
+        showResult("success");
+      } else {
+        showResult("fail");
+      }
+    }
+  }
+};
+
+//fight
 var goFight = function () {
   fightStep = 0;
   fightAnimation();
@@ -348,18 +481,19 @@ var showResult = function (result) {
   switch (result) {
     case "outbound":
       console.log("outbound");
+      var uniq = new Date().getTime();
       rootSoundEffect($stupid);
       tempKing
         .addClass("outbound")
         .append(
           `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
-        )
+        );
+      $(".smoke")
         .delay(1000)
         .queue(function () {
-          $(".smoke").remove();
           rootSoundEffect($tryagain);
           tempGhost.addClass("jump");
-          $(this).dequeue();
+          $(this).dequeue().remove();
         });
       break;
     case "stocked":
@@ -397,11 +531,11 @@ var showResult = function (result) {
           .addClass("vanish")
           .append(
             `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
-          )
-          .delay(2000)
+          );
+        $(".smoke")
+          .delay(1000)
           .queue(function () {
-            $(".smoke").remove();
-            $(this).dequeue();
+            $(this).dequeue().remove();
           });
       });
       //
@@ -427,6 +561,10 @@ var openContent = function (id) {
   if ($(".contents > div.selected").find(".cards").length > 0) {
     $(".sideTool > div.btn_answer").show();
   }
+};
+var resetLights = function () {
+  var tempLights = $(".contents > div.selected .lights > div");
+  tempLights.removeClass("selected passed wrong right");
 };
 
 var resetMen = function () {
@@ -468,6 +606,11 @@ var resetElem = function (elem) {
 
   //cards & lights reset
   elem.find(".selected").removeClass("selected");
+
+  //lights
+  resetLights();
+
+  //smoke effect
   $(".smoke").remove();
 };
 

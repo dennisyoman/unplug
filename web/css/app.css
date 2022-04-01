@@ -819,11 +819,14 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
-.module_order .contents .world3D .stage .ground .barrier {
+.module_order .contents .world3D .stage .ground .barrier, .module_order .contents .world3D .stage .ground .items {
   opacity: 0;
   -moz-opacity: 0;
   -khtml-opacity: 0;
   filter: alpha(opacity=0);
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }
 
 .module_order .contents .world3D .stage .ground img {
@@ -1081,12 +1084,65 @@
   margin: 0 5px;
   pointer-events: auto;
   cursor: pointer;
+  position: relative;
 }
 
-.module_order .contents .world3D .lights > div.selected > img, .module_order .contents .world3D .lights > div:hover > img {
-  border-color: #eb6154;
+.module_order .contents .world3D .lights > div .smoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+.module_order .contents .world3D .lights > div .smoke > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_order .contents .world3D .lights > div.passed {
+  -webkit-transform: scale(1.15) !important;
+          transform: scale(1.15) !important;
+}
+
+.module_order .contents .world3D .lights > div.passed > img {
   -webkit-filter: drop-shadow(0px 0px 5px #eb6154);
           filter: drop-shadow(0px 0px 5px #eb6154);
+}
+
+.module_order .contents .world3D .lights > div.selected > img {
+  border-color: #eb6154;
+}
+
+.module_order .contents .world3D .lights > div.right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../DATA/IMAGES/common/icon_right.png") no-repeat center center;
+  background-size: auto 50%;
+  z-index: 5;
+}
+
+.module_order .contents .world3D .lights > div.wrong::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+  background-size: auto 50%;
+  z-index: 5;
 }
 
 .module_order .contents .world3D .lights > div img {
@@ -1094,7 +1150,7 @@
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid #87caab;
+  border: 1px solid transparent;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
