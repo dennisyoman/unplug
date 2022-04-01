@@ -756,6 +756,10 @@
   100% {
     -webkit-transform: translateY(250px) translateZ(0) rotate(600deg);
             transform: translateY(250px) translateZ(0) rotate(600deg);
+    opacity: 0;
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    filter: alpha(opacity=0);
   }
 }
 
@@ -767,6 +771,10 @@
   100% {
     -webkit-transform: translateY(250px) translateZ(0) rotate(600deg);
             transform: translateY(250px) translateZ(0) rotate(600deg);
+    opacity: 0;
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    filter: alpha(opacity=0);
   }
 }
 

@@ -180,6 +180,7 @@
             
               100% {
                 transform: translateY(250px) translateZ(0) rotate(600deg) ;
+                @include opacity(0);
               }
             }
           }
