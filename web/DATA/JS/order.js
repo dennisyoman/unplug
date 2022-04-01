@@ -57,7 +57,7 @@ $(document).ready(function () {
           if ($(".sideTool > div.btn_playorder").hasClass("active")) {
             $(".sideTool > div.btn_playorder").removeClass("active");
             $(".contents > div.selected .lights > div").removeClass(
-              "passed wrong right"
+              "passed wrong right",
             );
           }
           $(this).toggleClass("selected");
@@ -155,7 +155,7 @@ var handleDrag = function (ev) {
     }
     if ($($elem).parent().hasClass("cards")) {
       $("#module_wrapper").append(
-        '<div id="cardAvatar" class="cardAvatar"></div>'
+        '<div id="cardAvatar" class="cardAvatar"></div>',
       );
       $($elem).clone().appendTo("#cardAvatar");
     }
@@ -190,13 +190,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -276,7 +276,7 @@ var showAnswer = function (boolean) {
     frameElem.each(function () {
       $(this).removeClass("selected").empty().append(`
     <div class="${$(this).attr(
-      "ans"
+      "ans",
     )} wow bounceIn" ans="${$(this).attr("ans")}">
     <img src="./DATA/IMAGES/common/arrow1.png" />
     </div>`);
@@ -331,6 +331,9 @@ var passingAnimation = function () {
       xx = parseInt(xx) + 1;
       break;
   }
+  //add arrow
+  appendArrow(frameElem.eq(fightStep).attr("ans"), xx, yy);
+  //
   rootSoundEffect($show);
   moveMan(tempKing, xx, yy);
 
@@ -362,7 +365,7 @@ var passingAnimation = function () {
               //
               var uniq = new Date().getTime();
               tempLight.append(
-                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
               );
               $(".smoke")
                 .delay(1500)
@@ -409,6 +412,7 @@ var passingAnimation = function () {
 };
 
 //fight
+
 var goFight = function () {
   fightStep = 0;
   fightAnimation();
@@ -442,6 +446,9 @@ var fightAnimation = function () {
       xx = parseInt(xx) + 1;
       break;
   }
+  //add arrow
+  appendArrow(frameElem.eq(fightStep).find(">div").attr("ans"), xx, yy);
+  //
   rootSoundEffect($show);
   moveMan(tempKing, xx, yy);
   //確定移動有無障礙
@@ -486,7 +493,7 @@ var showResult = function (result) {
       tempKing
         .addClass("outbound")
         .append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
         );
       $(".smoke")
         .delay(1000)
@@ -530,7 +537,7 @@ var showResult = function (result) {
           .dequeue()
           .addClass("vanish")
           .append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
           );
         $(".smoke")
           .delay(1000)
@@ -543,6 +550,34 @@ var showResult = function (result) {
     default:
     // code block
   }
+};
+
+var appendArrow = function (direction, xx, yy) {
+  $(".contents > div.selected .stage").append(
+    `<div id="arrow" class="arrow ${direction}" />`,
+  );
+  var diffX = (gridsColumn / 2) * gridW - gridW / 2;
+  var diffY = (gridsRow / 2) * gridH - gridH / 2;
+  switch (direction) {
+    case "u":
+      diffY += gridH / 2;
+      break;
+    case "d":
+      diffY -= gridH / 2;
+      break;
+    case "l":
+      diffX -= gridW / 2;
+      break;
+    case "r":
+      diffX += gridW / 2;
+      break;
+  }
+  $("#arrow")
+    .css({
+      top: (yy - 1) * gridH * -1 + diffY + "px",
+      left: (xx - 1) * gridW * 1 - diffX + "px",
+    })
+    .removeAttr("id");
 };
 
 var openContent = function (id) {
@@ -582,6 +617,7 @@ var resetMen = function () {
   });
   $(".btn_answer").removeClass("active");
   $(".contents > div.selected .frames .selected").removeClass("selected");
+  $(".contents > div.selected .arrow").removeClass();
 };
 
 var resetElem = function (elem) {

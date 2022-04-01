@@ -643,6 +643,94 @@
   -ms-transform-style: preserve-3d;
 }
 
+.module_order .contents .world3D .stage .arrow {
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.module_order .contents .world3D .stage .arrow.u::before {
+  -webkit-transform: translateZ(15px) rotate(-90deg);
+  transform: translateZ(15px) rotate(-90deg);
+}
+
+.module_order .contents .world3D .stage .arrow.u::after {
+  -webkit-transform: translateZ(1px) rotate(-90deg);
+  transform: translateZ(1px) rotate(-90deg);
+}
+
+.module_order .contents .world3D .stage .arrow.r::before {
+  -webkit-transform: translateZ(15px) rotate(0deg);
+  transform: translateZ(15px) rotate(0deg);
+}
+
+.module_order .contents .world3D .stage .arrow.r::after {
+  -webkit-transform: translateZ(1px) rotate(0deg);
+  transform: translateZ(1px) rotate(0deg);
+}
+
+.module_order .contents .world3D .stage .arrow.d::before {
+  -webkit-transform: translateZ(15px) rotate(90deg);
+  transform: translateZ(15px) rotate(90deg);
+}
+
+.module_order .contents .world3D .stage .arrow.d::after {
+  -webkit-transform: translateZ(1px) rotate(90deg);
+  transform: translateZ(1px) rotate(90deg);
+}
+
+.module_order .contents .world3D .stage .arrow.l::before {
+  -webkit-transform: translateZ(15px) rotate(180deg);
+  transform: translateZ(15px) rotate(180deg);
+}
+
+.module_order .contents .world3D .stage .arrow.l::after {
+  -webkit-transform: translateZ(1px) rotate(180deg);
+  transform: translateZ(1px) rotate(180deg);
+}
+
+.module_order .contents .world3D .stage .arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 10px;
+  margin-left: -10px;
+  margin-top: -5px;
+  background: url("../DATA/IMAGES/common/icon_arrow_green.png") no-repeat center center;
+  background-size: 100% 100%;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.module_order .contents .world3D .stage .arrow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 10px;
+  margin-left: -10px;
+  margin-top: -5px;
+  background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center center;
+  background-size: 100% 100%;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
 .module_order .contents .world3D .stage .man {
   position: absolute;
   display: inline-block;
@@ -650,7 +738,7 @@
   height: 0;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  z-index: 1;
+  z-index: 2;
   -webkit-transform: rotateX(-50deg);
   transform: rotateX(-50deg);
   top: 0;
@@ -666,10 +754,6 @@
   width: 100%;
   height: auto;
   margin-left: -50%;
-  -webkit-transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .module_order .contents .world3D .stage .man .smoke {
