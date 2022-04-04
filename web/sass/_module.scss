@@ -50,11 +50,6 @@
   }
 
   .contents {
-    > div {
-      &.selected {
-        display: block;
-      }
-    }
 
     .world3D {
       width: 100%;
@@ -609,6 +604,184 @@
     }
   }
 }
+.module_creativity{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+  .contents{
+    .grid4{
+      width:500px;
+      height:100%;
+      display:flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin:0 auto 0;
+      padding-top:30px;
+      >div{
+        width:200px;
+        height:107px;
+        flex:0 0 200px;
+        position:relative;
+        pointer-events: auto;
+        cursor:pointer;
+        border:2px solid #fff;
+        @include borderRadius(12px);
+
+        img{
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          z-index:3;
+          @include borderRadius(10px);
+          &:nth-child(2){
+            z-index:2;
+          }
+          &:nth-child(3){
+            z-index:1;
+          }
+        }
+
+        &.selected{
+          &::after{
+            background:$l1;
+          }
+        }
+
+        &.s1{
+          &::after{
+            content:"1";
+          }
+        }
+        &.s2{
+          &::after{
+            content:"2";
+          }
+        }
+        &.s3{
+          &::after{
+            content:"3";
+          }
+        }
+        &.s4{
+          &::after{
+            content:"4";
+          }
+        }
+
+        &::after{
+          content:"";
+          position:absolute;
+          width:25px;
+          height:25px;
+          border:2px solid #000;
+          color:#000;
+          font-size:13px;
+          font-family: 'Gfont-bold';
+          text-align: center;
+          line-height: 23px;
+          @include borderRadius(100%);
+          z-index:10;
+          top:-12px;
+          right:10px;
+          background:#fff;
+        }
+      }
+    }
+    .gridSlider{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items: center;
+      gap: 0px;
+      padding-top:30px;
+      display:none;
+
+      .btn{
+        position:absolute;
+        width:25px;
+        height:25px;
+        bottom:15px;
+        left:50%;
+        pointer-events: auto;
+        cursor:pointer;
+        &.prev{
+          background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+          background-size: 100% 100%;
+          margin-left:-35px;
+        }
+        &.next{
+          background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+          background-size: 100% 100%;
+          margin-left:10px;
+        }
+        &.disable{
+          @include opacity(.3);
+          pointer-events: none;
+        }
+      }
+      
+      &.active{
+        display:flex;
+      }
+      .storyline{
+        display:flex;
+        align-items: center;
+        padding-left:50%;
+        position:relative;
+        left:0;
+        @include transition(left,.8s);
+        >div{
+          width:350px;
+          height:187px;
+          flex:0 0 auto;
+          position:relative;
+          cursor:pointer;
+          border:2px solid #fff;
+          @include borderRadius(22px);
+          margin-right:0px;
+          left:-175px;
+          overflow: hidden;
+          @include scale(.8);
+          @include transition(transform,.8s);
+
+          &.selected{
+            @include scale(1);
+            @include boxShadow(3px 10px 10px rgba(0,0,0,.2));
+          }
+
+          img{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:3;
+            @include borderRadius(20px);
+            @include transition(all,.8s);
+            &:nth-child(2){
+              z-index:2;
+            }
+            &:nth-child(3){
+              z-index:1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 .contents {
   pointer-events: none;
@@ -640,12 +813,17 @@
   width: 200%;
   height: 200%;
   z-index: 9999;
-  pointer-events: none;
+  pointer-events: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   transform-origin: top left;
   @include scale(0.5);
+  animation-delay: 1.2s !important;
+
+  &.visited{
+    animation-delay: 0s !important;
+  }
 
   > div {
     width: 800px;
@@ -655,6 +833,7 @@
     text-align: center;
     padding: 40px 140px;
     position: relative;
+    z-index:1;
     filter: drop-shadow(2px 6px 8px rgba(0, 0, 0, 0.2));
 
     &::after {

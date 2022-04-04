@@ -1,16 +1,62 @@
-<div id="module_wrapper" class="">
+<div id="module_wrapper" class="module_creativity">
   <div class="tabs">
     <span>任務1</span>
-    <span>任務2</span>
-    <span>任務3</span>
   </div>
+
   <div class="units-title wow bounceInRight"></div>
 
-  <div id="contents" class="contents"></div>
   <div class="sideTool">
-    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+    <div class="btn_correctslider"></div>
   </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            看圖片排出自己的故事順序，點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_playorder.png"
+              height="30"
+              width="30"
+            />
+            可以將依排好的故事依序播放。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_correctslider.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考順序。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grid4 wow fadeInUp">
+        <div ans="2">
+          <img src="./DATA/PT/BOOK1/IMAGES/PT-1-1-1-1-1.png" />
+        </div>
+        <div ans="3">
+          <img src="./DATA/PT/BOOK1/IMAGES/PT-1-1-1-2-1.png" />
+        </div>
+        <div ans="4">
+          <img src="./DATA/PT/BOOK1/IMAGES/PT-1-1-1-3-1.png" />
+        </div>
+        <div ans="1">
+          <img src="./DATA/PT/BOOK1/IMAGES/PT-1-1-1-4-1.png" />
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+    </div>
+  </div>
+
   <div class="assetsPreload">
-    <img src="./images/common/btn_answer.png" />
+    <img src="./DATA/IMAGES/common/btn_correctslider.png" />
+    <img src="./DATA/IMAGES/common/btn_playorder.png" />
   </div>
 </div>

@@ -14,9 +14,6 @@ $(document).ready(function () {
         });
       }
 
-      //hammer
-      trigHammer();
-
       //tabs
       $(".tabs > span")
         .unbind()
@@ -40,18 +37,33 @@ $(document).ready(function () {
       }
 
       //sidetool
-      $(".sideTool > div.btn_answer")
+      $(".sideTool > div.btn_correctslider")
         .unbind()
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            /*rootSoundEffectName(
-              $(".contents > div.selected").find("audio").attr("src"),
-              true
-            );*/
+            showAnswer(true);
           } else {
-            /*closePlayer();*/
+            showAnswer(false);
           }
+        });
+
+      $(".sideTool > div.btn_playorder")
+        .unbind()
+        .bind("click", function () {
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            showSlider(true);
+          } else {
+            showSlider(false);
+          }
+        });
+
+      //grid4
+      $(".grid4 > div")
+        .unbind()
+        .bind("click", function () {
+          setSequence($(this));
         });
 
       //init
@@ -74,55 +86,124 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
-var lowlaged = false;
-var lastPosX = 0;
-var lastPosY = 0;
-var isDragging = false;
-var $elem = null;
+var setSequence = function (tar) {
+  rootSoundEffect($click);
+  var gridElem = $(".contents > div.selected .grid4");
+  var doneAmount = gridElem.find(">div.selected").length;
+  if (tar.hasClass("selected")) {
+    var targetSeq = parseInt(tar.attr("seq"));
+    tar.removeClass().attr("seq", "");
+    //
+    gridElem.find(">div.selected").each(function () {
+      var tempSeq = parseInt($(this).attr("seq"));
+      if (tempSeq > targetSeq) {
+        $(this).removeClass().addClass("selected");
+        $(this).addClass("s" + (tempSeq - 1));
+        $(this).attr("seq", tempSeq - 1);
+      }
+    });
+  } else {
+    tar.addClass("selected");
+    tar.addClass("s" + (doneAmount + 1));
+    tar.attr("seq", doneAmount + 1);
+  }
+  $(".sideTool > div.btn_correctslider").removeClass("active");
+  checkOrderStatus();
+};
 
-var trigHammer = function () {
-  //hammer
-  var myElement = document.getElementById("contents");
-  var mc = new Hammer(myElement);
-  mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
-  mc.get("press").set({ time: 1 });
-  mc.on("press", function (ev) {
-    define$Elem(ev);
-  });
-  mc.on("pressup", function (ev) {
-    isDragging = false;
-    $elem = null;
-  });
-  mc.on("pan", function (ev) {
-    if ($elem == null) {
-      define$Elem(ev);
+var checkOrderStatus = function () {
+  var gridElem = $(".contents > div.selected .grid4");
+
+  //check status
+  if (gridElem.find("> div").length == gridElem.find("> div.selected").length) {
+    $(".sideTool > div.btn_playorder").show();
+  } else {
+    $(".sideTool > div.btn_playorder").hide();
+  }
+};
+
+var showSlider = function (boolean) {
+  var selectedElem = $(".contents > div.selected");
+  if (boolean) {
+    //create slider
+    playSeq = 0;
+    var sliderArr = [];
+    selectedElem.find(".grid4 > div").each(function () {
+      sliderArr[parseInt($(this).attr("seq"))] = $(this).clone();
+    });
+    for (var i = 1; i <= sliderArr.length; i++) {
+      selectedElem.find(".gridSlider > .storyline").append(sliderArr[i]);
     }
-    handleDrag(ev);
-  });
-};
-
-var handleDrag = function (ev) {
-  var elem = ev.target;
-
-  if (!isDragging && $elem != null) {
-    isDragging = true;
-    lastPosX = $elem.offsetLeft;
-    lastPosY = $elem.offsetTop;
-  }
-
-  var posX = ev.deltaX / stageRatioReal + lastPosX;
-  var posY = ev.deltaY / stageRatioReal + lastPosY;
-
-  if (isDragging && $elem) {
-    $elem.style.left = posX + "px";
-    $elem.style.top = posY + "px";
-  }
-
-  if (ev.isFinal) {
-    isDragging = false;
-    $elem = null;
+    //
+    selectedElem.find(".grid4").hide();
+    selectedElem
+      .find(".gridSlider")
+      .addClass("active")
+      .find(".storyline >div")
+      .removeClass("selected")
+      .eq(playSeq)
+      .addClass("selected");
+    selectedElem.find(".gridSlider > .prev").addClass("disable");
+    selectedElem.find(".gridSlider > .next").removeClass("disable");
+    $(".sideTool > div.btn_correctslider").hide();
+  } else {
+    selectedElem.find(".grid4").show();
+    selectedElem
+      .find(".gridSlider")
+      .removeClass("active")
+      .find(".storyline")
+      .css("left", 0)
+      .empty();
+    $(".sideTool > div.btn_correctslider").show();
   }
 };
+
+var playSeq = 0;
+var slideDistance = 350;
+
+var switchSlider = function (direction) {
+  var selectedElem = $(".contents > div.selected");
+  var storyline = selectedElem.find(".storyline");
+  playSeq = playSeq + direction;
+  selectedElem.find(".btn").removeClass("disable");
+  rootSoundEffect($show);
+  //first
+  if (playSeq <= 0) {
+    playSeq = 0;
+    selectedElem.find(".btn.prev").addClass("disable");
+  }
+  //last
+  if (playSeq >= storyline.find(">div").length - 1) {
+    playSeq = storyline.find(">div").length - 1;
+    selectedElem.find(".btn.next").addClass("disable");
+  }
+
+  storyline
+    .css("left", playSeq * slideDistance * -1 + "px")
+    .find(">div")
+    .eq(playSeq)
+    .addClass("selected")
+    .siblings(".selected")
+    .removeClass("selected");
+};
+
+var showAnswer = function (boolean) {
+  var selectedElem = $(".contents > div.selected");
+  resetElem(selectedElem);
+  if (boolean) {
+    selectedElem.find(".grid4 > div").each(function () {
+      var tempAns = parseInt($(this).attr("ans"));
+      $(this)
+        .addClass("selected")
+        .addClass("s" + tempAns);
+      $(this).attr("seq", tempAns);
+    });
+    rootSoundEffect($help);
+  }
+  checkOrderStatus();
+};
+
+var lowlaged = false;
 
 var openContent = function (id) {
   resetAudio();
@@ -134,20 +215,17 @@ var openContent = function (id) {
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
   //show side tool btn
-  $(".sideTool > div.btn_answer").show();
+  $(".sideTool > div.btn_correctslider").show();
 };
 
 var resetElem = function (elem) {
-  var ft = ($("#root").height() - elem.height()) / 2 / stageRatioReal - 25;
-  if (ft < 50) {
-    ft = 50;
-  }
-  var styles = {
-    transform: "none",
-    top: ft,
-    left: 260,
-  };
-  //elem.css(styles);
+  elem
+    .find(".gridSlider")
+    .removeClass("active")
+    .find(".storyline")
+    .css("left", 0)
+    .empty();
+  elem.find(".grid4").show().find(">div").removeClass().attr("seq", "");
 };
 
 var resetTool = function () {

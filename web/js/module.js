@@ -4,7 +4,7 @@ var switchIntro = function () {
     if (tempIntro.css("display") == "none") {
       tempIntro.css("display", "flex");
     } else {
-      tempIntro.hide();
+      tempIntro.hide().addClass("visited");
     }
   }
 };
