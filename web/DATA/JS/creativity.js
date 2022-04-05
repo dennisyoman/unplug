@@ -140,9 +140,11 @@ var showSlider = function (boolean) {
       .find(".gridSlider")
       .addClass("active")
       .find(".storyline >div")
-      .removeClass("selected")
+      .removeClass("selected prevSlider nextSlider")
       .eq(playSeq)
-      .addClass("selected");
+      .addClass("selected")
+      .next()
+      .addClass("nextSlider");
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_correctslider").hide();
@@ -181,10 +183,17 @@ var switchSlider = function (direction) {
   storyline
     .css("left", playSeq * slideDistance * -1 + "px")
     .find(">div")
+    .removeClass("selected prevSlider nextSlider")
     .eq(playSeq)
-    .addClass("selected")
-    .siblings(".selected")
-    .removeClass("selected");
+    .addClass("selected");
+  storyline
+    .find(">div")
+    .eq(playSeq - 1)
+    .addClass("prevSlider");
+  storyline
+    .find(">div")
+    .eq(playSeq + 1)
+    .addClass("nextSlider");
 };
 
 var showAnswer = function (boolean) {
