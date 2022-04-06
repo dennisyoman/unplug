@@ -1463,6 +1463,11 @@
   box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+.module_creativity .contents .gridSlider .storyline > div.prevSlider img {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l1 {
   left: 0;
 }
@@ -1481,6 +1486,11 @@
 
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l5 {
   left: -20%;
+}
+
+.module_creativity .contents .gridSlider .storyline > div.nextSlider {
+  -webkit-animation: none !important;
+          animation: none !important;
 }
 
 .module_creativity .contents .gridSlider .storyline > div.nextSlider img.l1 {
@@ -1514,6 +1524,7 @@
   transition: all 0.8s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
+  transition-timing-function: ease;
 }
 
 .module_creativity .contents .gridSlider .storyline > div img.l1 {
@@ -1534,6 +1545,24 @@
 
 .module_creativity .contents .gridSlider .storyline > div img.l5 {
   z-index: 5;
+}
+
+.module_creativity .contents .gridSlider .storyline > div .ani_shaking {
+  -webkit-animation: shaking;
+          animation: shaking;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.module_creativity .contents .gridSlider .storyline > div .ani_floating {
+  -webkit-animation: floating;
+          animation: floating;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .module_calculus {
