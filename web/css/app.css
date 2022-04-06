@@ -1473,19 +1473,19 @@
 }
 
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l2 {
-  left: -5%;
-}
-
-.module_creativity .contents .gridSlider .storyline > div.prevSlider img.l3 {
   left: -10%;
 }
 
+.module_creativity .contents .gridSlider .storyline > div.prevSlider img.l3 {
+  left: -20%;
+}
+
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l4 {
-  left: -15%;
+  left: -30%;
 }
 
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l5 {
-  left: -20%;
+  left: -40%;
 }
 
 .module_creativity .contents .gridSlider .storyline > div.nextSlider {
@@ -1498,19 +1498,19 @@
 }
 
 .module_creativity .contents .gridSlider .storyline > div.nextSlider img.l2 {
-  left: 5%;
-}
-
-.module_creativity .contents .gridSlider .storyline > div.nextSlider img.l3 {
   left: 10%;
 }
 
+.module_creativity .contents .gridSlider .storyline > div.nextSlider img.l3 {
+  left: 20%;
+}
+
 .module_creativity .contents .gridSlider .storyline > div.nextSlider img.l4 {
-  left: 15%;
+  left: 30%;
 }
 
 .module_creativity .contents .gridSlider .storyline > div.nextSlider img.l5 {
-  left: 20%;
+  left: 40%;
 }
 
 .module_creativity .contents .gridSlider .storyline > div img {
