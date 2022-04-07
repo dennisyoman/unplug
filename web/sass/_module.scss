@@ -617,6 +617,47 @@
       gap: 20px;
       margin: 0 auto 0;
       padding-top: 30px;
+
+      &.l1 {
+        > div {
+          &.selected {
+            &::after {
+              background: $l1;
+            }
+          }
+        }
+      }
+      &.l2 {
+        > div {
+          &.selected {
+            &::after {
+              background: $l2;
+            }
+          }
+        }
+      }
+      &.l3 {
+        > div {
+          &.selected {
+            &::after {
+              background: $l3;
+            }
+          }
+        }
+      }
+      &.l4 {
+        > div {
+          &.selected {
+            &::after {
+              background: $l4;
+            }
+          }
+        }
+      }
+
+      &::after {
+        background: $l1;
+      }
       > div {
         width: 200px;
         height: 107px;

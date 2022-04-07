@@ -1277,6 +1277,26 @@
   padding-top: 30px;
 }
 
+.module_creativity .contents .grid4.l1 > div.selected::after {
+  background: #f9b900;
+}
+
+.module_creativity .contents .grid4.l2 > div.selected::after {
+  background: #80a6d7;
+}
+
+.module_creativity .contents .grid4.l3 > div.selected::after {
+  background: #87caab;
+}
+
+.module_creativity .contents .grid4.l4 > div.selected::after {
+  background: #ea80b0;
+}
+
+.module_creativity .contents .grid4::after {
+  background: #f9b900;
+}
+
 .module_creativity .contents .grid4 > div {
   width: 200px;
   height: 107px;
