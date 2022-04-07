@@ -1692,8 +1692,8 @@
   margin: 0 auto 0;
 }
 
-.module_calculus .contents .grid6.nohint > div::after, .module_calculus .contents .grid6.nohint > div::before {
-  display: none;
+.module_calculus .contents .grid6.withArrow > div::after, .module_calculus .contents .grid6.withArrow > div::before {
+  display: block;
 }
 
 .module_calculus .contents .grid6 > div {
@@ -1705,6 +1705,10 @@
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   position: relative;
+}
+
+.module_calculus .contents .grid6 > div::after, .module_calculus .contents .grid6 > div::before {
+  display: none;
 }
 
 .module_calculus .contents .grid6 > div.selected {

@@ -962,11 +962,11 @@
       gap: 25px 40px;
       margin: 0 auto 0;
 
-      &.nohint {
+      &.withArrow {
         > div {
           &::after,
           &::before {
-            display: none;
+            display: block;
           }
         }
       }
@@ -978,6 +978,10 @@
         border: 1px dashed $orange;
         @include borderRadius(15px);
         position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
 
         &.selected {
           border-style: solid;
