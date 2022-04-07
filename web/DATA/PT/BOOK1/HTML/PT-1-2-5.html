@@ -1,0 +1,141 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>收拾物品</b>：依照合理的準備流程拖曳圖片來排序，建立演算法！</p>
+          <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grid6 wow fadeInDown">
+        <div>
+          <div class="A l2 cards" ans="A">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="B l2 cards" ans="B">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="C l2 cards" ans="C">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="D l2 cards" ans="D">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="E l2 cards" ans="E">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="F l2 cards" ans="F">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div ans="E"></div>
+        <div ans="B"></div>
+        <div ans="F"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div ans="C"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>物品復原</b>：選取你認為需要復原的物品！</p>
+          <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grid6 wow fadeInDown nohint">
+        <div>
+          <div class="A l2" ans="A" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="B l2" ans="B" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="C l2" ans="C" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="D l2" ans="D" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="E l2" ans="E" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="F l2" ans="F" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="framesMulti wow bounceInUp" ans="A,B,D,E">
+        <span class="cta orange" onClick="checkAnswerMulti()">CHECK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload">
+    <img src="./DATA/IMAGES/common/btn_answer.png" />
+    <img src="./DATA/IMAGES/common/btn_playorder.png" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-A.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-B.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-C.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-D.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-E.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-F.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-1-intro.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-A.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-B.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-C.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-D.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-E.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-F.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-5-2-intro.jpg" />
+  </div>
+</div>

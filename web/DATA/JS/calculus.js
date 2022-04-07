@@ -311,6 +311,22 @@ var updateFrame = function () {
     tempFrame.find(">div").eq(index).text(tempAns);
   });
   resetFrame();
+  //
+  tempFrame.find(".cta").removeClass("disable");
+};
+var updateFrameMulti = function () {
+  var tempFrame = $(".contents > div.selected .framesMulti");
+  var full = true;
+  tempFrame.find(">div").each(function (index) {
+    if (!$(this).attr("ans")) {
+      full = false;
+    }
+  });
+  if (full) {
+    tempFrame.find(".cta").removeClass("disable");
+  } else {
+    tempFrame.find(".cta").addClass("disable");
+  }
 };
 
 var resetFrame = function () {
@@ -319,33 +335,99 @@ var resetFrame = function () {
     .removeClass("wrong selected");
 };
 
+var resetFrameMulti = function () {
+  //依照答案數量分配格子
+  $(".contents > div.selected .framesMulti").find("> div").remove();
+  var ansArr = $(".contents > div.selected .framesMulti")
+    .attr("ans")
+    .split(",");
+  for (var i = 0; i < ansArr.length; i++) {
+    $(".contents > div.selected .framesMulti").prepend("<div />");
+  }
+};
+
+var toggleMe = function (tar) {
+  tar.parent().toggleClass("selected");
+  rootSoundEffect($pop);
+  //
+  var ansArr = $(".contents > div.selected .framesMulti")
+    .attr("ans")
+    .split(",");
+  var count = ansArr.length;
+  $(".contents > div.selected .framesMulti > div").remove();
+  var cta = $(".contents > div.selected .framesMulti").find("> .cta");
+  var selectedGrid = $(".contents > div.selected .grid6 > div.selected");
+  selectedGrid.each(function () {
+    $(
+      `<div ans="${$(this).find(">div").attr("ans")}">${$(this)
+        .find(">div")
+        .attr("ans")}</div>`,
+    ).insertBefore(cta);
+    count--;
+  });
+
+  for (var k = 0; k < count; k++) {
+    $(`<div></div>`).insertBefore(cta);
+  }
+  updateFrameMulti();
+
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
+
 var showAnswer = function (boolean) {
   var selectedElem = $(".contents > div.selected");
+  if (selectedElem.find(".frames").length > 0) {
+    if (boolean) {
+      rootSoundEffect($help);
+      //
+      var originArr = [];
+      selectedElem.find(".frames > div").each(function () {
+        originArr.push($(this).attr("ans"));
+      });
+      var cardsArr = [];
+      selectedElem.find(".grid6 > div").each(function () {
+        cardsArr.push($(this).removeClass("afterward backward").clone());
+      });
 
-  if (boolean) {
-    rootSoundEffect($help);
-    //
-    var originArr = [];
-    selectedElem.find(".frames > div").each(function () {
-      originArr.push($(this).attr("ans"));
-    });
-    var cardsArr = [];
-    selectedElem.find(".grid6 > div").each(function () {
-      cardsArr.push($(this).removeClass("afterward backward").clone());
-    });
-
-    selectedElem.find(".grid6").empty();
-    for (var i = 0; i < originArr.length; i++) {
-      for (var k = 0; k < cardsArr.length; k++) {
-        var tempElem = cardsArr[k];
-        if (originArr[i] == tempElem.find(">div").attr("ans")) {
-          selectedElem.find(".grid6").append(cardsArr[k]);
+      selectedElem.find(".grid6").empty();
+      for (var i = 0; i < originArr.length; i++) {
+        for (var k = 0; k < cardsArr.length; k++) {
+          var tempElem = cardsArr[k];
+          if (originArr[i] == tempElem.find(">div").attr("ans")) {
+            selectedElem.find(".grid6").append(cardsArr[k]);
+          }
         }
       }
+      //
+      updateFrame();
     }
-    //
-    updateFrame();
-  } else {
+  }
+  if (selectedElem.find(".framesMulti").length > 0) {
+    //frames multi
+    if (boolean) {
+      rootSoundEffect($help);
+      //
+      var frame = selectedElem.find(".framesMulti");
+      var ansArr = frame.attr("ans").split(",");
+      frame.find(" > div").remove();
+      var cta = frame.find("> .cta");
+      for (var i = 0; i < ansArr.length; i++) {
+        $(`<div ans="${ansArr[i]}">${ansArr[i]}</div>`).insertBefore(cta);
+      }
+
+      //
+      selectedElem.find(".grid6 > div").each(function () {
+        var tempAns = $(this).find(">div").attr("ans");
+        if (ansArr.indexOf(tempAns) == -1) {
+          $(this).removeClass("selected");
+        } else {
+          $(this).addClass("selected");
+        }
+      });
+      //
+      updateFrameMulti();
+    }
   }
 };
 
@@ -367,6 +449,35 @@ var checkAnswer = function () {
     var uniq = new Date().getTime();
     selectedElem
       .find(".frames")
+      .append(
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+      );
+    $(".smoke")
+      .delay(1500)
+      .queue(function () {
+        $(this).dequeue().remove();
+      });
+  }
+};
+
+var checkAnswerMulti = function () {
+  var selectedElem = $(".contents > div.selected");
+  var frame = selectedElem.find(".framesMulti");
+  var ansArr = frame.attr("ans").split(",");
+  frame.find("> div").each(function (index) {
+    if (ansArr.indexOf($(this).attr("ans")) == -1) {
+      $(this).addClass("wrong");
+    } else {
+      $(this).removeClass("wrong");
+    }
+  });
+  if (frame.find("> div.wrong").length > 0) {
+    rootSoundEffect($stupid);
+  } else {
+    rootSoundEffect($chimes);
+    var uniq = new Date().getTime();
+    selectedElem
+      .find(".framesMulti")
       .append(
         `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
@@ -403,7 +514,7 @@ var resetElem = function (elem) {
   var originArr = ["A", "B", "C", "D", "E", "F"];
   var cardsArr = [];
   elem.find(".grid6 > div").each(function () {
-    cardsArr.push($(this).clone());
+    cardsArr.push($(this).removeClass("selected").clone());
   });
 
   elem.find(".grid6").empty();
@@ -418,7 +529,14 @@ var resetElem = function (elem) {
 
   elem.find(".grid6").show();
   //
-  updateFrame();
+  if (elem.find(".frames").length > 0) {
+    updateFrame();
+  }
+  //
+  if (elem.find(".framesMulti").length > 0) {
+    resetFrameMulti();
+    updateFrameMulti();
+  }
 
   //smoke effect
   $(".smoke").remove();
