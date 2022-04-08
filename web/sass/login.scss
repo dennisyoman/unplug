@@ -33,8 +33,7 @@
       right: 6px;
       width: 16px;
       height: 16px;
-      background: url("../DATA/IMAGES/common/showpw.png") no-repeat center
-        center;
+      background: url("../DATA/IMAGES/common/showpw.png") no-repeat center center;
       background-size: 15px auto;
       z-index: 3;
       cursor: pointer;
@@ -150,7 +149,7 @@
     font-weight: bold;
     z-index: 1;
     text-align: center;
-    @include scale(0.7);
+    @include scale(0.8);
     letter-spacing: 0.02em;
   }
 }
