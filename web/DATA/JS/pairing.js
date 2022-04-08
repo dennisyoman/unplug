@@ -47,10 +47,23 @@ $(document).ready(function () {
             showAnswer(false);
           }
         });
+      $(".sideTool > div.btn_replay")
+        .unbind()
+        .bind("click", function () {
+          resetElem($(".contents > div.selected"));
+          $(".sideTool > div.btn_answer").removeClass("active");
+        });
       //pallette
       $(".palette > div").each(function () {
+        var tempAns = $(this).attr("ans");
         var tempHEX = $(this).attr("col");
-        $(this).append(`<span style="background:#${tempHEX}"></span>`);
+        if (tempAns != "-1") {
+          $(this).append(`<span style="background:#${tempHEX}"></span>`);
+        } else {
+          $(this)
+            .addClass("erasor")
+            .append(`<img src="./DATA/IMAGES/common/icon_erasor.png" />`);
+        }
         $(this)
           .unbind()
           .bind("click", function () {
@@ -74,19 +87,22 @@ $(document).ready(function () {
             var selectedElem = $(".contents > div.selected");
             var paletteElem = selectedElem.find(".palette");
             if (paletteElem.find(">div.selected").length > 0) {
-              $(this).attr(
-                "col",
-                paletteElem.find(">div.selected").attr("ans"),
-              );
-              $(this).css(
-                "background",
-                "#" + paletteElem.find(">div.selected").attr("col"),
-              );
               rootSoundEffect($show);
-            } else {
-              $(this).removeAttr("col");
-              $(this).css("background", "none");
+              if (paletteElem.find(">div.selected.erasor").length > 0) {
+                $(this).removeAttr("col");
+                $(this).css("background", "none");
+              } else {
+                $(this).attr(
+                  "col",
+                  paletteElem.find(">div.selected").attr("ans"),
+                );
+                $(this).css(
+                  "background",
+                  "#" + paletteElem.find(">div.selected").attr("col"),
+                );
+              }
             }
+
             //
             $(".sideTool > div.btn_answer").removeClass("active");
             checkOrderStatus();
@@ -222,6 +238,7 @@ var openContent = function (id) {
   resetElem($(".contents > div.selected"));
   //show side tool btn
   $(".sideTool > div.btn_answer").show();
+  $(".sideTool > div.btn_replay").show();
 };
 
 var resetElem = function (elem) {

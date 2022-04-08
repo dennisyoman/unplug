@@ -1566,6 +1566,7 @@
         top: 50px;
         left: 40px;
         width: 40px;
+
         > div {
           width: 40px;
           height: 40px;
@@ -1573,6 +1574,19 @@
           cursor: pointer;
           pointer-events: auto;
           position: relative;
+          @include scale(0.8);
+          margin-bottom: -3px;
+
+          &.erasor {
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+            &::before {
+              display: none;
+            }
+          }
 
           span {
             margin-left: 6px;
@@ -1621,7 +1635,7 @@
             background: #fff;
             color: $orange;
             @include borderRadius(100%);
-            @include scale(0.5);
+            @include scale(0.7);
             font-family: "Gfont-bold";
             z-index: 1;
           }
@@ -1630,7 +1644,7 @@
             &::before {
               color: #fff;
               background: $orange;
-              @include scale(0.7);
+              @include scale(0.9);
             }
             &::after {
               content: "";
@@ -1959,6 +1973,10 @@
     }
     &.btn_playorder {
       background: url("../DATA/IMAGES/common/btn_playorder.png") no-repeat center center;
+      background-size: 100% 100%;
+    }
+    &.btn_replay {
+      background: url("../DATA/IMAGES/common/btn_replay.png") no-repeat center center;
       background-size: 100% 100%;
     }
   }
