@@ -908,87 +908,167 @@
   .cardAvatar {
     position: absolute;
     width: 110px;
-    height: 86px;
+    height: auto;
     top: 0;
     left: 0;
     z-index: 100;
     pointer-events: none;
+    .cardItem {
+      width: 100% !important;
+    }
+  }
+  .cardItem {
+    width: 110px;
+    height: auto;
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    border: 4px solid $l1;
+    @include borderRadius(12px);
+    background: #fff;
 
-    > div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      pointer-events: auto;
-      cursor: pointer;
-      border: 4px solid $l1;
-      @include borderRadius(12px);
-      background: #fff;
-
-      &.l2 {
-        border-color: $l2;
-        &::after {
-          background: $l2;
-        }
-      }
-
-      &.A {
-        &::after {
-          content: "A";
-        }
-      }
-      &.B {
-        &::after {
-          content: "B";
-        }
-      }
-      &.C {
-        &::after {
-          content: "C";
-        }
-      }
-      &.D {
-        &::after {
-          content: "D";
-        }
-      }
-      &.E {
-        &::after {
-          content: "E";
-        }
-      }
-      &.F {
-        &::after {
-          content: "F";
-        }
-      }
-
+    &.l2 {
+      border-color: $l2;
       &::after {
-        content: "";
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        color: #fff;
-        font-size: 13px;
-        font-family: "Gfont-bold";
-        text-align: center;
-        line-height: 25px;
-        @include borderRadius(100%);
-        z-index: 10;
-        top: -12px;
-        left: -12px;
-        background: $orange;
+        background: $l2;
       }
+    }
 
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        @include borderRadius(10px);
+    &.l3 {
+      border-color: $l3;
+      &::after {
+        background: $l3;
       }
+    }
+
+    &.l4 {
+      border-color: $l4;
+      &::after {
+        background: $l4;
+      }
+    }
+
+    img {
+      position: static;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 1;
+      @include borderRadius(10px);
+    }
+
+    &.cached {
+      @include opacity(0);
+    }
+
+    &.A {
+      &::after {
+        content: "A";
+      }
+    }
+    &.B {
+      &::after {
+        content: "B";
+      }
+    }
+    &.C {
+      &::after {
+        content: "C";
+      }
+    }
+    &.D {
+      &::after {
+        content: "D";
+      }
+    }
+    &.E {
+      &::after {
+        content: "E";
+      }
+    }
+    &.F {
+      &::after {
+        content: "F";
+      }
+    }
+    &.G {
+      &::after {
+        content: "G";
+      }
+    }
+    &.H {
+      &::after {
+        content: "H";
+      }
+    }
+    &.I {
+      &::after {
+        content: "I";
+      }
+    }
+    &.J {
+      &::after {
+        content: "J";
+      }
+    }
+    &.K {
+      &::after {
+        content: "K";
+      }
+    }
+    &.L {
+      &::after {
+        content: "L";
+      }
+    }
+    &.M {
+      &::after {
+        content: "M";
+      }
+    }
+    &.N {
+      &::after {
+        content: "N";
+      }
+    }
+    &.O {
+      &::after {
+        content: "O";
+      }
+    }
+    &.P {
+      &::after {
+        content: "P";
+      }
+    }
+    &.Q {
+      &::after {
+        content: "Q";
+      }
+    }
+    &.R {
+      &::after {
+        content: "R";
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      color: #fff;
+      font-size: 13px;
+      font-family: "Gfont-bold";
+      text-align: center;
+      line-height: 25px;
+      @include borderRadius(100%);
+      z-index: 10;
+      top: -12px;
+      left: -12px;
+      background: $orange;
+      pointer-events: none;
     }
   }
   .contents {
@@ -1013,8 +1093,6 @@
       }
 
       > div {
-        width: 120px;
-        height: 96px;
         padding: 4px;
         border: 1px dashed $orange;
         @include borderRadius(15px);
@@ -1123,85 +1201,325 @@
           }
         }
 
-        > div {
+        .cardItem {
           width: 110px;
-          height: 86px;
-          position: relative;
-          pointer-events: auto;
-          cursor: pointer;
-          border: 4px solid $l1;
-          @include borderRadius(12px);
-          background: #fff;
+        }
+      }
+    }
+    .grid3 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px 20px;
+      margin: 0 auto 0;
 
-          &.l2 {
-            border-color: $l2;
-            &::after {
-              background: $l2;
-            }
-          }
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
 
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            @include borderRadius(10px);
-          }
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
 
-          &.cached {
-            @include opacity(0);
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
           }
-
-          &.A {
-            &::after {
-              content: "A";
-            }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
           }
-          &.B {
-            &::after {
-              content: "B";
-            }
-          }
-          &.C {
-            &::after {
-              content: "C";
-            }
-          }
-          &.D {
-            &::after {
-              content: "D";
-            }
-          }
-          &.E {
-            &::after {
-              content: "E";
-            }
-          }
-          &.F {
-            &::after {
-              content: "F";
-            }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
           }
 
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        &:nth-child(1),
+        &:nth-child(2) {
           &::after {
             content: "";
             position: absolute;
-            width: 25px;
-            height: 25px;
-            color: #fff;
-            font-size: 13px;
-            font-family: "Gfont-bold";
-            text-align: center;
-            line-height: 25px;
-            @include borderRadius(100%);
-            z-index: 10;
-            top: -12px;
-            left: -12px;
-            background: $orange;
-            pointer-events: none;
+            width: 20px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -20px;
           }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -22px;
+          }
+        }
+        &:last-child {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+
+        .cardItem {
+          width: 200px;
+        }
+      }
+    }
+
+    .grid12 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px 25px;
+      margin: 0px auto 0;
+
+      &.shrink {
+        @include scale(0.9);
+      }
+
+      &.withArrow {
+        > div {
+          &::after,
+          &::before {
+            display: block;
+          }
+        }
+      }
+
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
+
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
+
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
+          }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
+          }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(9),
+        &:nth-child(10),
+        &:nth-child(11) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -20px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -22px;
+          }
+        }
+        &:last-child {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+
+        .cardItem {
+          width: 110px;
+        }
+      }
+    }
+    .grid18 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px 15px;
+      margin: 0px auto 0;
+      @include scale(0.9);
+
+      &.withArrow {
+        > div {
+          &::after,
+          &::before {
+            display: block;
+          }
+        }
+      }
+
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
+
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
+
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
+          }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
+          }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9),
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16),
+        &:nth-child(17) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -10px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -13px;
+          }
+        }
+        &:last-child {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+
+        .cardItem {
+          width: 80px;
         }
       }
     }
@@ -1249,86 +1567,23 @@
         top: -10px;
         @include transition(left, 0.8s);
 
-        > div {
+        &.lg {
+          .cardItem {
+            width: 400px;
+            left: -200px;
+          }
+        }
+
+        .cardItem {
           width: 220px;
-          height: 172px;
-          position: relative;
           left: -110px;
-          border: 4px solid $l1;
-          @include borderRadius(20px);
-          background: #fff;
+
           @include scale(0.8);
           @include transition(all, 0.8s);
-
-          &.l2 {
-            border-color: $l2;
-            &::after {
-              background: $l2;
-            }
-          }
 
           &.selected {
             @include scale(1);
             @include boxShadow(3px 10px 10px rgba(0, 0, 0, 0.2));
-          }
-
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            @include borderRadius(16px);
-          }
-
-          &.A {
-            &::after {
-              content: "A";
-            }
-          }
-          &.B {
-            &::after {
-              content: "B";
-            }
-          }
-          &.C {
-            &::after {
-              content: "C";
-            }
-          }
-          &.D {
-            &::after {
-              content: "D";
-            }
-          }
-          &.E {
-            &::after {
-              content: "E";
-            }
-          }
-          &.F {
-            &::after {
-              content: "F";
-            }
-          }
-
-          &::after {
-            content: "";
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            color: #fff;
-            font-size: 13px;
-            font-family: "Gfont-bold";
-            text-align: center;
-            line-height: 25px;
-            @include borderRadius(100%);
-            z-index: 10;
-            top: -12px;
-            left: -12px;
-            background: $orange;
-            @include scale(1.5);
           }
         }
       }
@@ -1377,7 +1632,7 @@
         position: relative;
         background: #fff;
         @include borderRadius(8px);
-        margin: 0 3px;
+        margin: 0 2px;
         z-index: 1;
 
         &.wrong {
@@ -1447,7 +1702,707 @@
         position: relative;
         background: #fff;
         @include borderRadius(8px);
-        margin: 0 3px;
+        margin: 0 2px;
+        z-index: 1;
+
+        &.wrong {
+          color: #eb6154;
+          border-color: #eb6154;
+        }
+
+        &.selected {
+          background: $orange;
+          color: #fff;
+
+          &.wrong {
+            border-color: #eb6154;
+            background: #eb6154;
+            color: #fff;
+          }
+        }
+      }
+      .cta {
+        vertical-align: middle;
+        transform-origin: top center;
+        @include scale(0.8);
+      }
+    }
+  }
+}
+
+.module_showcase {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .cardAvatar {
+    position: absolute;
+    width: 110px;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    .cardItem {
+      width: 100% !important;
+    }
+  }
+  .cardItem {
+    width: 110px;
+    height: auto;
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    border: 4px solid $l1;
+    @include borderRadius(12px);
+    background: #fff;
+
+    &.l2 {
+      border-color: $l2;
+      &::after {
+        background: $l2;
+      }
+    }
+
+    &.l3 {
+      border-color: $l3;
+      &::after {
+        background: $l3;
+      }
+    }
+
+    &.l4 {
+      border-color: $l4;
+      &::after {
+        background: $l4;
+      }
+    }
+
+    img {
+      position: static;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 1;
+      @include borderRadius(10px);
+    }
+
+    &.cached {
+      @include opacity(0);
+    }
+
+    &.A {
+      &::after {
+        content: "1";
+      }
+    }
+    &.B {
+      &::after {
+        content: "2";
+      }
+    }
+    &.C {
+      &::after {
+        content: "3";
+      }
+    }
+    &.D {
+      &::after {
+        content: "4";
+      }
+    }
+    &.E {
+      &::after {
+        content: "5";
+      }
+    }
+    &.F {
+      &::after {
+        content: "6";
+      }
+    }
+    &.G {
+      &::after {
+        content: "7";
+      }
+    }
+    &.H {
+      &::after {
+        content: "8";
+      }
+    }
+    &.I {
+      &::after {
+        content: "9";
+      }
+    }
+    &.J {
+      &::after {
+        content: "10";
+      }
+    }
+    &.K {
+      &::after {
+        content: "11";
+      }
+    }
+    &.L {
+      &::after {
+        content: "12";
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      color: #fff;
+      font-size: 13px;
+      font-family: "Gfont-bold";
+      text-align: center;
+      line-height: 25px;
+      @include borderRadius(100%);
+      z-index: 10;
+      top: -12px;
+      left: -12px;
+      background: $orange;
+      pointer-events: none;
+    }
+  }
+  .contents {
+    .grid3 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px 25px;
+      margin: 0 auto 0;
+
+      &.withArrow {
+        > div {
+          &::after,
+          &::before {
+            display: block;
+          }
+        }
+      }
+
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+
+        &::after,
+        &::before {
+          display: none;
+        }
+
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
+
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
+          }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
+          }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        &:nth-child(1),
+        &:nth-child(2) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -20px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -22px;
+          }
+        }
+        &:last-child {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+
+        .cardItem {
+          width: 200px;
+        }
+      }
+    }
+    .grid6 {
+      width: 500px;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px 40px;
+      margin: 0 auto 0;
+
+      &.withArrow {
+        > div {
+          &::after,
+          &::before {
+            display: block;
+          }
+        }
+      }
+
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
+
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
+
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
+          }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
+          }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(5) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 35px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -35px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -38px;
+          }
+        }
+        &:nth-child(3) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 12px;
+            border-top: 1px dashed $orange;
+            border-left: 1px dashed $orange;
+            bottom: -20px;
+            right: calc(50% + 20px);
+            @include borderRadius(5px 0 0 0);
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 4px 0 4px;
+            border-color: $orange transparent transparent transparent;
+            bottom: -23px;
+            right: 374px;
+          }
+        }
+        &:nth-child(6) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 8px;
+            border-right: 1px dashed $orange;
+            border-bottom: 1px dashed $orange;
+            top: -26px;
+            right: 58px;
+            @include borderRadius(0 0 5px 0);
+          }
+        }
+
+        .cardItem {
+          width: 110px;
+        }
+      }
+    }
+    .grid12 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px 25px;
+      margin: 0px auto 0;
+
+      &.shrink {
+        @include scale(0.9);
+      }
+
+      &.withArrow {
+        > div {
+          &::after,
+          &::before {
+            display: block;
+          }
+        }
+      }
+
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
+
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
+
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
+          }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
+          }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(9),
+        &:nth-child(10),
+        &:nth-child(11) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -20px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -22px;
+          }
+        }
+        &:last-child {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+
+        .cardItem {
+          width: 110px;
+        }
+      }
+    }
+    .gridSlider {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      display: none;
+
+      .btn {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        bottom: 50px;
+        left: 50%;
+        pointer-events: auto;
+        cursor: pointer;
+        &.prev {
+          background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+          background-size: 100% 100%;
+          margin-left: -35px;
+        }
+        &.next {
+          background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+          background-size: 100% 100%;
+          margin-left: 10px;
+        }
+        &.disable {
+          @include opacity(0.3);
+          pointer-events: none;
+        }
+      }
+
+      &.active {
+        display: flex;
+      }
+      .storyline {
+        display: flex;
+        align-items: center;
+        padding-left: 50%;
+        position: relative;
+        left: 0;
+        top: -10px;
+        @include transition(left, 0.8s);
+
+        &.lg {
+          .cardItem {
+            width: 400px;
+            left: -200px;
+          }
+        }
+
+        .cardItem {
+          width: 220px;
+          left: -110px;
+          @include scale(0.8);
+          @include transition(all, 0.8s);
+          &.selected {
+            @include scale(1);
+            @include boxShadow(3px 10px 10px rgba(0, 0, 0, 0.2));
+          }
+        }
+      }
+    }
+    .frames {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+
+      .smoke {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        z-index: 99;
+        transform-origin: center center;
+        margin-left: -30px;
+        margin-top: -30px;
+
+        > img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &::before {
+        content: "我的演算法";
+        font-size: 12px;
+        color: #000;
+        line-height: 25px;
+        margin-right: 5px;
+      }
+      > div {
+        width: 25px;
+        height: 25px;
+        line-height: 22px;
+        font-size: 12px;
+        display: inline-block;
+        border: 3px solid $orange;
+        position: relative;
+        background: #fff;
+        @include borderRadius(8px);
+        margin: 0 2px;
+        z-index: 1;
+
+        &.wrong {
+          color: #eb6154;
+          border-color: #eb6154;
+        }
+
+        &.selected {
+          background: $orange;
+          color: #fff;
+
+          &.wrong {
+            border-color: #eb6154;
+            background: #eb6154;
+            color: #fff;
+          }
+        }
+      }
+      .cta {
+        vertical-align: middle;
+        transform-origin: top center;
+        @include scale(0.8);
+      }
+    }
+    .framesMulti {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+
+      .smoke {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        z-index: 99;
+        transform-origin: center center;
+        margin-left: -30px;
+        margin-top: -30px;
+
+        > img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &::before {
+        content: "我的答案";
+        font-size: 12px;
+        color: #000;
+        line-height: 25px;
+        margin-right: 5px;
+      }
+      > div {
+        width: 25px;
+        height: 25px;
+        line-height: 22px;
+        font-size: 12px;
+        display: inline-block;
+        border: 3px solid $orange;
+        position: relative;
+        background: #fff;
+        @include borderRadius(8px);
+        margin: 0 2px;
         z-index: 1;
 
         &.wrong {
@@ -1688,7 +2643,9 @@
     position: relative;
 
     &.selected {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

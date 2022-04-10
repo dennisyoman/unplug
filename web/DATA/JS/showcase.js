@@ -262,7 +262,6 @@ var showSlider = function (boolean) {
           .append($(this).removeClass("afterward backward").html());
       });
     }
-
     //
     selectedElem.find(".grids").hide();
     selectedElem
@@ -351,6 +350,7 @@ var updateFrame = function () {
   //
   tempFrame.find(".cta").removeClass("disable");
 };
+
 var updateFrameMulti = function () {
   var tempFrame = $(".contents > div.selected .framesMulti");
   var full = true;
@@ -471,35 +471,6 @@ var showAnswer = function (boolean) {
   }
 };
 
-var checkAnswer = function () {
-  var selectedElem = $(".contents > div.selected");
-  selectedElem.find(".frames > div").each(function () {
-    var tempAns = $(this).attr("ans");
-    var tempAns2 = $(this).text();
-    if (tempAns != tempAns2) {
-      $(this).addClass("wrong");
-    } else {
-      $(this).removeClass("wrong");
-    }
-  });
-  if (selectedElem.find(".frames > div.wrong").length > 0) {
-    rootSoundEffect($stupid);
-  } else {
-    rootSoundEffect($chimes);
-    var uniq = new Date().getTime();
-    selectedElem
-      .find(".frames")
-      .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
-      );
-    $(".smoke")
-      .delay(1500)
-      .queue(function () {
-        $(this).dequeue().remove();
-      });
-  }
-};
-
 var checkAnswerMulti = function () {
   var selectedElem = $(".contents > div.selected");
   var frame = selectedElem.find(".framesMulti");
@@ -539,7 +510,9 @@ var openContent = function (id) {
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
   //show side tool btn
-  $(".sideTool > div.btn_answer").show();
+  if ($(".contents > div.selected").find(".framesMulti").length > 0) {
+    $(".sideTool > div.btn_answer").show();
+  }
   $(".sideTool > div.btn_playorder").show();
 };
 
@@ -552,24 +525,18 @@ var resetElem = function (elem) {
     .empty();
   //reset grid to origin
   var originArr = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
   ];
   var cardsArr = [];
   elem.find(".grids > div").each(function () {
@@ -587,10 +554,6 @@ var resetElem = function (elem) {
   }
 
   elem.find(".grids").show();
-  //
-  if (elem.find(".frames").length > 0) {
-    updateFrame();
-  }
   //
   if (elem.find(".framesMulti").length > 0) {
     resetFrameMulti();

@@ -39,7 +39,7 @@ $(document).ready(function () {
           style_arr,
           "./css/",
           script_arr,
-          "./js/"
+          "./js/",
         );
 
         console.log("load and goto Unit selection");
@@ -134,8 +134,8 @@ $(document).ready(function () {
             x: Math.random() * ($(window).width() / stageRatioReal),
             y: $(window).height() / stageRatioReal,
           },
-          1 + Math.random() * 3
-        )
+          1 + Math.random() * 3,
+        ),
       );
     }
   }, 200);
@@ -150,8 +150,8 @@ let uToken = ""; //user token(勿動)
 let version = new Date().getDate(); //版本(勿動)
 let sid, bid, lid, uid, sectionID;
 let userID = "-";
-let uName = "-";
-let dueDate = "-";
+let uName = "DEMO用不插電帳號";
+let dueDate = "2022/12/31";
 let seriesXML;
 let contentXML;
 let audioPositionSwitch = false;
@@ -319,7 +319,7 @@ let toLogin = function () {
     style_arr,
     "./css/",
     script_arr,
-    "./js/"
+    "./js/",
   );
 };
 
@@ -357,7 +357,7 @@ let loadContainer = function (id, section) {
           style_arr,
           "./DATA/",
           script_arr,
-          "./DATA/"
+          "./DATA/",
         );
 
         resetAudio();
@@ -385,7 +385,7 @@ let loadPanel = function () {
     "./css/",
     script_arr,
     "./js/",
-    true
+    true,
   );
 };
 
@@ -399,7 +399,7 @@ let loadMainSlider = function () {
     style_arr,
     "./css/",
     script_arr,
-    "./js/"
+    "./js/",
   );
 };
 
@@ -736,7 +736,7 @@ $.getComponent = function (
   css_path,
   js_arr,
   js_path,
-  noloading
+  noloading,
 ) {
   let delayTime = 50;
   let chamount = $(comp_holder).length;
@@ -810,7 +810,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")"
+      ")",
   );
   $("#root").css(
     "-webkit-transform",
@@ -818,7 +818,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")"
+      ")",
   );
   $("#root").css(
     "transform",
@@ -826,7 +826,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")"
+      ")",
   );
 };
 
@@ -1064,7 +1064,7 @@ let erasorPainting = function (ev) {
         (newPos[0] * pRatio) / newZoomRatio - _eraserWidth / 2,
         (newPos[1] * pRatio) / newZoomRatio - _eraserWidth / 2,
         _eraserWidth,
-        _eraserWidth
+        _eraserWidth,
       );
     });
   }
@@ -1191,7 +1191,7 @@ let apartCanvas = function () {
 let isCanvasBlank = function (canvas) {
   var context = canvas.getContext("2d");
   var pixelBuffer = new Uint32Array(
-    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer,
   );
 
   return !pixelBuffer.some((color) => color !== 0);
