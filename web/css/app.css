@@ -3325,6 +3325,275 @@
   transform: scale(0.8);
 }
 
+.module_box {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.module_box.loaded {
+  opacity: 1;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.module_box .contents .boxes {
+  width: 100%;
+  height: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0px 20px;
+  position: relative;
+}
+
+.module_box .contents .boxes .smoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.module_box .contents .boxes .smoke > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_box .contents .boxes .box {
+  width: 130px;
+  position: relative;
+  z-index: 2;
+}
+
+.module_box .contents .boxes .box.selected {
+  -webkit-filter: drop-shadow(0px 0px 7px #eb6154);
+          filter: drop-shadow(0px 0px 7px #eb6154);
+}
+
+.module_box .contents .boxes .box.small {
+  width: 70px;
+}
+
+.module_box .contents .boxes .box.middle {
+  width: 100px;
+}
+
+.module_box .contents .boxes .box img {
+  width: 100%;
+  height: auto;
+}
+
+.module_box .contents .boxes .shelf {
+  position: absolute;
+  z-index: 1;
+  bottom: -18px;
+  left: 50%;
+  width: 400px;
+  margin-left: -200px;
+}
+
+.module_box .contents .boxes .shelf img {
+  width: 400px;
+  height: 22px;
+}
+
+.module_box .contents .toys {
+  width: 100%;
+  height: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0px 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.module_box .contents .toys .toy {
+  width: 90px;
+  height: 90px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.module_box .contents .toys .toy.disable, .module_box .contents .toys .toy.cached {
+  pointer-events: none;
+  opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.module_box .contents .toys .toy.small {
+  width: 35px;
+  height: 35px;
+}
+
+.module_box .contents .toys .toy.middle {
+  width: 50px;
+  height: 50px;
+}
+
+.module_box .contents .toys .toy img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center bottom;
+     object-position: center bottom;
+}
+
+.module_box .cardAvatar {
+  position: absolute;
+  width: 110px;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.module_box .cardAvatar .toy {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+}
+
+.module_box .cardAvatar .toy img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+.module_box .cardAvatar .toy.flyout {
+  -webkit-animation-name: flyout;
+          animation-name: flyout;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.module_box .cardAvatar .toy.jumpin {
+  -webkit-animation-name: jumpin;
+          animation-name: jumpin;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes flyout {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    top: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    top: -200px;
+  }
+}
+
+@keyframes flyout {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    top: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    top: -200px;
+  }
+}
+
+@-webkit-keyframes jumpin {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -100px;
+    opacity: 1;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  100% {
+    top: -20px;
+    opacity: 0;
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+
+@keyframes jumpin {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -100px;
+    opacity: 1;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  100% {
+    top: -20px;
+    opacity: 0;
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+
 .module_pairing {
   position: relative;
   top: 0;

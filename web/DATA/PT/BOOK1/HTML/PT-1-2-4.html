@@ -1,15 +1,126 @@
-<div id="module_wrapper" class="">
+<div id="module_wrapper" class="module_box">
   <div class="tabs">
     <span>任務1</span>
     <span>任務2</span>
   </div>
+
   <div class="units-title wow bounceInRight"></div>
 
-  <div id="contents" class="contents"></div>
   <div class="sideTool">
-    <div class="btn_answer"></div>
+    <div class="btn_correctslider"></div>
+    <div class="btn_replay"></div>
   </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            一起將玩具分類收納吧！幫忙把玩具收拾到能塞得進去的大小的箱子裡吧。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="boxes wow fadeIn">
+        <div class="box small wow bounceIn" size="1">
+          <img src="./DATA/PT/BOOK1/IMAGES/box_red.png" />
+        </div>
+        <div class="box middle wow bounceIn" data-wow-delay=".1s" size="2">
+          <img src="./DATA/PT/BOOK1/IMAGES/box_orange.png" />
+        </div>
+        <div class="box large wow bounceIn" data-wow-delay=".2s" size="3">
+          <img src="./DATA/PT/BOOK1/IMAGES/box_yellow.png" />
+        </div>
+        <span class="shelf"
+          ><img src="./DATA/PT/BOOK1/IMAGES/shelf.png"
+        /></span>
+      </div>
+      <div class="toys wow slideInRight">
+        <div class="toy large cards" size="3">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy1.png" />
+        </div>
+        <div class="toy middle cards" size="2">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy2.png" />
+        </div>
+        <div class="toy middle cards" size="2">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy3.png" />
+        </div>
+        <div class="toy large cards" size="3">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy4.png" />
+        </div>
+        <div class="toy small cards" size="1">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy5.png" />
+        </div>
+        <div class="toy small cards" size="1">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy6.png" />
+        </div>
+        <div class="toy large cards" size="3">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy7.png" />
+        </div>
+        <div class="toy small cards" size="1">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy8.png" />
+        </div>
+        <div class="toy middle cards" size="2">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy9.png" />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>一起將玩具分類收納吧！點選玩具，將其收納到指定編號的箱子裡面。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="boxes wow fadeIn">
+        <div class="box wow bounceIn" ans="1">
+          <img src="./DATA/PT/BOOK1/IMAGES/box1.png" />
+        </div>
+        <div class="box wow bounceIn" data-wow-delay=".1s" ans="2">
+          <img src="./DATA/PT/BOOK1/IMAGES/box2.png" />
+        </div>
+        <div class="box wow bounceIn" data-wow-delay=".2s" ans="3">
+          <img src="./DATA/PT/BOOK1/IMAGES/box3.png" />
+        </div>
+        <span class="shelf"
+          ><img src="./DATA/PT/BOOK1/IMAGES/shelf.png"
+        /></span>
+      </div>
+      <div class="toys wow slideInRight">
+        <div class="toy large" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy1.png" />
+        </div>
+        <div class="toy middle" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy2.png" />
+        </div>
+        <div class="toy middle" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy3.png" />
+        </div>
+        <div class="toy large" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy4.png" />
+        </div>
+        <div class="toy small" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy5.png" />
+        </div>
+        <div class="toy small" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy6.png" />
+        </div>
+        <div class="toy large" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy7.png" />
+        </div>
+        <div class="toy small" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy8.png" />
+        </div>
+        <div class="toy middle" ans="">
+          <img src="./DATA/PT/BOOK1/IMAGES/toy9.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="assetsPreload">
-    <img src="./DATA/IMAGES/common/btn_answer.png" />
+    <img src="./DATA/IMAGES/common/btn_correctslider.png" />
   </div>
 </div>
