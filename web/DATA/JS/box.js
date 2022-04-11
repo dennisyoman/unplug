@@ -45,9 +45,9 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            showAnswer(true);
+            showAnimation(true);
           } else {
-            showAnswer(false);
+            showAnimation(false);
           }
         });
 
@@ -231,7 +231,32 @@ var checkOrderStatus = function () {
   }
 };
 
-var showAnswer = function (boolean) {
+var toggleMe = function (elem) {
+  rootSoundEffect($click);
+  var range = $(".contents > div.selected > .boxes .box").length;
+  var num = elem.attr("ans");
+  if (num == "") {
+    num = 1;
+  } else {
+    num = parseInt(num) + 1;
+    if (num > range) {
+      num = 1;
+    }
+  }
+  elem.attr("ans", num).find("span").text(num);
+  //check status
+  var gotit = false;
+  $(".contents > div.selected > .toys .toy").each(function () {
+    if ($(this).attr("ans") == "") {
+      gotit = true;
+    }
+  });
+  if (!gotit) {
+    $(".sideTool > div.btn_correctslider").show();
+  }
+};
+
+var showAnimation = function (boolean) {
   var selectedElem = $(".contents > div.selected");
 };
 
@@ -244,10 +269,6 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
-  //show side tool btn
-  if ($(".contents > div.selected").find(".cards").length == 0) {
-    $(".sideTool > div.btn_correctslider").show();
-  }
 };
 
 var resetElem = function (elem) {
@@ -257,6 +278,7 @@ var resetElem = function (elem) {
   //shuffle toy
   var toyArr = [];
   elem.find(".toys > div").each(function () {
+    $(this).attr("ans", "").find("span").text("");
     toyArr.push($(this).clone());
   });
   shuffle(toyArr);
