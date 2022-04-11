@@ -373,6 +373,16 @@ var resetFrame = function () {
 };
 
 var resetFrameMulti = function () {
+  //確定參考答案數量
+  if ($(".contents > div.selected .framesMulti").attr("multiAns")) {
+    var multiAnsArr = $(".contents > div.selected .framesMulti")
+      .attr("multiAns")
+      .split(";");
+    $(".contents > div.selected .framesMulti").attr(
+      "ans",
+      multiAnsArr[Math.floor(Math.random() * multiAnsArr.length)],
+    );
+  }
   //依照答案數量分配格子
   $(".contents > div.selected .framesMulti").find("> div").remove();
   var ansArr = $(".contents > div.selected .framesMulti")
