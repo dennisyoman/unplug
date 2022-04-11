@@ -45,9 +45,9 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            showAnimation(true);
-          } else {
-            showAnimation(false);
+            if ($("#cardAvatar").length < 1) {
+              showAnimation(true);
+            }
           }
         });
 
@@ -192,7 +192,7 @@ var checkOrderStatus = function () {
     rootSoundEffect($chimes);
 
     $("#cardAvatar > div").addClass("jumpin");
-    $("#cardAvatar").attr("id", "cardAvatarDie");
+    $("#cardAvatar").attr("id", "").addClass("cardAvatarDie");
     var uniq = new Date().getTime();
     gridElem
       .find(">div.selected")
@@ -206,7 +206,7 @@ var checkOrderStatus = function () {
       .delay(1000)
       .queue(function () {
         $(".smoke").remove();
-        $("#cardAvatarDie").remove();
+        $(".cardAvatarDie").remove();
         $(this).dequeue();
         $(".sideTool > div.btn_replay").show();
       });
@@ -221,11 +221,11 @@ var checkOrderStatus = function () {
         `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
       );
     $("#cardAvatar > div").addClass("flyout");
-    $("#cardAvatar").attr("id", "cardAvatarDie");
+    $("#cardAvatar").attr("id", "").addClass("cardAvatarDie");
     $(".cached")
       .delay(1000)
       .queue(function () {
-        $("#cardAvatarDie").remove();
+        $(".cardAvatarDie").remove();
         $(this).removeClass("cached").dequeue();
       });
   }
@@ -257,7 +257,99 @@ var toggleMe = function (elem) {
 };
 
 var showAnimation = function (boolean) {
+  if (boolean) {
+    animateBox();
+  }
+};
+
+var animateBox = function () {
   var selectedElem = $(".contents > div.selected");
+  var toys = selectedElem.find(".toys > .toy");
+  var boxes = selectedElem.find(".boxes > .box");
+
+  for (var i = 0; i < toys.length; i++) {
+    var tar = toys.eq(i);
+    var ans = tar.attr("ans");
+    if (!tar.hasClass("disable")) {
+      $("#module_wrapper").append(
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
+      );
+      var tar2 = tar.clone();
+      tar2.find("span").remove();
+      tar2.appendTo("#cardAvatar");
+      tar.addClass("disable");
+      var caWidth = parseInt(tar.css("width")) / stageRatioReal;
+      $("#cardAvatar").css("width", caWidth + "px");
+      $("#cardAvatar").css("height", caWidth + "px");
+      //get box
+      for (var k = 0; k < boxes.length; k++) {
+        if (boxes.eq(k).attr("ans") == ans) {
+          var tarBox = boxes.eq(k);
+        }
+      }
+      //
+      var deltaContainerX = $("#module_wrapper").offset().left;
+      var deltaContainerY = $("#module_wrapper").offset().top;
+      var intX = (tar.offset().left - deltaContainerX) / stageRatioReal;
+      var intY = (tar.offset().top - deltaContainerY) / stageRatioReal;
+      var desX =
+        (tarBox.offset().left +
+          tarBox.width() / 2 -
+          $("#cardAvatar").width() / 2 -
+          deltaContainerX) /
+        stageRatioReal;
+      var desY = (tarBox.offset().top - deltaContainerY) / stageRatioReal;
+      $("#cardAvatar")
+        .css({
+          top: intY,
+          left: intX,
+        })
+        .delay(50)
+        .queue(function () {
+          rootSoundEffect($show);
+          $(this)
+            .addClass("automove")
+            .css({
+              top: desY,
+              left: desX,
+            })
+            .dequeue()
+            .delay(800)
+            .queue(function () {
+              $(this).find(".toy").addClass("jumpin");
+              rootSoundEffect($chimes);
+              var uniq = new Date().getTime();
+              tarBox.append(
+                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+              );
+              $(this)
+                .dequeue()
+                .delay(1000)
+                .queue(function () {
+                  $(".smoke").remove();
+                  $("#cardAvatar").remove();
+                  $(this).dequeue();
+                  //continue?
+                  if (
+                    $(".sideTool > div.btn_correctslider").hasClass("active")
+                  ) {
+                    var doneToy = selectedElem.find(".toys > .toy.disable");
+                    if (toys.length != doneToy.length) {
+                      animateBox();
+                    } else {
+                      $(".sideTool > div.btn_correctslider")
+                        .removeClass("active")
+                        .hide();
+                      $(".sideTool > div.btn_replay").show();
+                    }
+                  }
+                });
+            });
+        });
+
+      break;
+    }
+  }
 };
 
 var openContent = function (id) {
@@ -294,6 +386,7 @@ var resetElem = function (elem) {
     });
   //smoke effect
   $(".smoke").remove();
+  $(".cardAvatarDie").remove();
 };
 
 var resetTool = function () {

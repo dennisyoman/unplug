@@ -3448,8 +3448,8 @@
           flex: none;
   pointer-events: auto;
   cursor: pointer;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   position: relative;
@@ -3513,6 +3513,12 @@
   left: 0;
   z-index: 100;
   pointer-events: none;
+}
+
+.module_box .cardAvatar.automove {
+  -webkit-transition: top 0.5s, left 0.5s;
+  transition: top 0.5s, left 0.5s;
+  -webkit-transition: top 0.8s, left 0.8s ease-in;
 }
 
 .module_box .cardAvatar .toy {
@@ -4178,6 +4184,12 @@
   -moz-opacity: 0.4;
   -khtml-opacity: 0.4;
   filter: alpha(opacity=40);
+  -webkit-animation-name: popIn !important;
+  animation-name: popIn !important;
+  -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
+  -webkit-animation-duration: 0.7s !important;
+          animation-duration: 0.7s !important;
 }
 
 .sideTool > div.active {

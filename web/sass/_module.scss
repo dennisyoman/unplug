@@ -2523,7 +2523,7 @@
         flex: none;
         pointer-events: auto;
         cursor: pointer;
-        @include transition(all, 0.6s);
+        @include transition(all, 0.4s);
         position: relative;
 
         &.disable,
@@ -2576,6 +2576,11 @@
     left: 0;
     z-index: 100;
     pointer-events: none;
+
+    &.automove {
+      transition: top 0.5s, left 0.5s;
+      -webkit-transition: top 0.8s, left 0.8s ease-in;
+    }
     .toy {
       width: 100% !important;
       height: 100% !important;
@@ -3113,6 +3118,10 @@
     @include borderRadius(100%);
 
     @include opacity(0.4);
+    -webkit-animation-name: popIn !important;
+    animation-name: popIn !important;
+    animation-iteration-count: 1 !important;
+    animation-duration: 0.7s !important;
 
     &.active {
       @include opacity(1);
