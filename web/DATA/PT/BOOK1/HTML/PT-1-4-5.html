@@ -16,88 +16,48 @@
       <div class="intro wow fadeIn">
         <div>
           <h3>How to play?</h3>
-          <p><b>做做運動</b>：依照合理的準備流程拖曳圖片來排序，建立演算法！</p>
+          <p><b>做做運動</b>：排出自己的運動順序，建立演算法！</p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="grids grid18 withArrow wow fadeIn">
+      <div class="grids grid12 wow fadeIn">
         <div>
-          <div class="cardItem A l4 cards" ans="A">
+          <div class="cardItem A l4" ans="A" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-A.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem B l4 cards" ans="B">
+          <div class="cardItem B l4" ans="B" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-B.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem C l4 cards" ans="C">
+          <div class="cardItem C l4" ans="C" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-C.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem D l4 cards" ans="D">
+          <div class="cardItem D l4" ans="D" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-D.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem E l4 cards" ans="E">
+          <div class="cardItem E l4" ans="E" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-E.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem F l4 cards" ans="F">
+          <div class="cardItem F l4" ans="F" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-F.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem G l4 cards" ans="G">
+          <div class="cardItem G l4" ans="G" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-E.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem H l4 cards" ans="H">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-F.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem A l4 cards" ans="A">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-A.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem B l4 cards" ans="B">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-B.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem C l4 cards" ans="C">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-C.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem D l4 cards" ans="D">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-D.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem E l4 cards" ans="E">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-E.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem F l4 cards" ans="F">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-F.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem G l4 cards" ans="G">
-            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-E.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem H l4 cards" ans="H">
+          <div class="cardItem H l4" ans="H" onClick="pickMe($(this))">
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-5-1-F.jpg" />
           </div>
         </div>
@@ -107,24 +67,9 @@
         <span class="btn prev" onClick="switchSlider(-1)" />
         <span class="btn next" onClick="switchSlider(1)" />
       </div>
-      <div class="frames wow bounceInUp">
-        <div ans="E"></div>
-        <div ans="B"></div>
-        <div ans="F"></div>
-        <div ans="A"></div>
-        <div ans="D"></div>
-        <div ans="C"></div>
-        <div ans="G"></div>
-        <div ans="H"></div>
-        <div ans="E"></div>
-        <div ans="B"></div>
-        <div ans="F"></div>
-        <div ans="A"></div>
-        <div ans="D"></div>
-        <div ans="C"></div>
-        <div ans="G"></div>
-        <div ans="H"></div>
-        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      
+      <div class="framesMulti repeatAnswer wow bounceInUp" ans="A,C,A,D,A,C,A,D,B,G,B,D,B,E,B,D">
+        <span class="cta" onClick="fixAnswer()">修正</span>
       </div>
     </div>
     <div>
@@ -185,14 +130,14 @@
         <span class="btn next" onClick="switchSlider(1)" />
       </div>
       <div class="frames wow bounceInUp">
+        <div ans="H"></div>
+        <div ans="A"></div>
         <div ans="D"></div>
         <div ans="C"></div>
-        <div ans="A"></div>
         <div ans="E"></div>
         <div ans="G"></div>
         <div ans="F"></div>
         <div ans="B"></div>
-        <div ans="H"></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
       </div>
     </div>

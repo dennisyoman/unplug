@@ -40,7 +40,7 @@ $(document).ready(function () {
       }
 
       //sidetool
-      $(".sideTool > div.btn_correctslider")
+      $(".sideTool > div.btn_playorder")
         .unbind()
         .bind("click", function () {
           $(this).toggleClass("active");
@@ -252,7 +252,7 @@ var toggleMe = function (elem) {
     }
   });
   if (!gotit) {
-    $(".sideTool > div.btn_correctslider").show();
+    $(".sideTool > div.btn_playorder").show();
   }
 };
 
@@ -330,14 +330,12 @@ var animateBox = function () {
                   $("#cardAvatar").remove();
                   $(this).dequeue();
                   //continue?
-                  if (
-                    $(".sideTool > div.btn_correctslider").hasClass("active")
-                  ) {
+                  if ($(".sideTool > div.btn_playorder").hasClass("active")) {
                     var doneToy = selectedElem.find(".toys > .toy.disable");
                     if (toys.length != doneToy.length) {
                       animateBox();
                     } else {
-                      $(".sideTool > div.btn_correctslider")
+                      $(".sideTool > div.btn_playorder")
                         .removeClass("active")
                         .hide();
                       $(".sideTool > div.btn_replay").show();
@@ -346,7 +344,6 @@ var animateBox = function () {
                 });
             });
         });
-
       break;
     }
   }

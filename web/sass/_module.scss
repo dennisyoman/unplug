@@ -1668,6 +1668,12 @@
       display: flex;
       justify-content: center;
 
+      &.repeatAnswer {
+        &::before {
+          content: "我的順序";
+        }
+      }
+
       .smoke {
         position: absolute;
         top: 50%;
@@ -2579,7 +2585,7 @@
 
     &.automove {
       transition: top 0.5s, left 0.5s;
-      -webkit-transition: top 0.8s, left 0.8s ease-in;
+      -webkit-transition: top 0.8s ease-out, left 0.8s ease-in;
     }
     .toy {
       width: 100% !important;

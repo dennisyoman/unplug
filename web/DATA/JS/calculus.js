@@ -249,11 +249,29 @@ var showSlider = function (boolean) {
       });
       selectedElem.find(".frames > div").eq(0).addClass("selected");
     } else if (selectedElem.find(".framesMulti").length > 0) {
-      selectedElem.find(".grids > div.selected").each(function () {
-        selectedElem
-          .find(".gridSlider > .storyline")
-          .append($(this).removeClass("afterward backward").html());
-      });
+      if (selectedElem.find(".framesMulti.repeatAnswer").length == 0) {
+        //單選答案
+        selectedElem.find(".grids > div.selected").each(function () {
+          selectedElem
+            .find(".gridSlider > .storyline")
+            .append($(this).removeClass("afterward backward").html());
+        });
+      } else {
+        //複選答案
+        selectedElem.find(".framesMulti > div").each(function () {
+          var ans = $(this).attr("ans");
+          var grids = selectedElem.find(".grids > div");
+          for (var i = 0; i < grids.length; i++) {
+            var tempAns = grids.eq(i).find(">div").attr("ans");
+            if (ans == tempAns) {
+              selectedElem
+                .find(".gridSlider > .storyline")
+                .append(grids.eq(i).removeClass("afterward backward").html());
+            }
+          }
+        });
+        selectedElem.find(".framesMulti > .cta").hide();
+      }
       selectedElem.find(".framesMulti > div").eq(0).addClass("selected");
     } else {
       selectedElem.find(".grids > div").each(function () {
@@ -289,6 +307,8 @@ var showSlider = function (boolean) {
     $(".contents > div.selected .frames > div").removeClass("selected");
     $(".contents > div.selected .framesMulti > div").removeClass("selected");
     $(".sideTool > div.btn_answer").show();
+    //
+    selectedElem.find(".framesMulti > .cta").show();
   }
 };
 
@@ -457,14 +477,16 @@ var showAnswer = function (boolean) {
       }
 
       //
-      selectedElem.find(".grids > div").each(function () {
-        var tempAns = $(this).find(">div").attr("ans");
-        if (ansArr.indexOf(tempAns) == -1) {
-          $(this).removeClass("selected");
-        } else {
-          $(this).addClass("selected");
-        }
-      });
+      if (selectedElem.find(".framesMulti.repeatAnswer").length == 0) {
+        selectedElem.find(".grids > div").each(function () {
+          var tempAns = $(this).find(">div").attr("ans");
+          if (ansArr.indexOf(tempAns) == -1) {
+            $(this).removeClass("selected");
+          } else {
+            $(this).addClass("selected");
+          }
+        });
+      }
       //
       updateFrameMulti();
     }
@@ -527,6 +549,39 @@ var checkAnswerMulti = function () {
         $(this).dequeue().remove();
       });
   }
+};
+
+var pickMe = function (tar) {
+  var ans = tar.attr("ans");
+  var cta = $(".contents > div.selected .framesMulti").find("> .cta");
+  var selectedFrame = $(".contents > div.selected .framesMulti > div");
+  selectedFrame.each(function () {
+    if (!$(this).attr("ans")) {
+      rootSoundEffect($pop);
+      $(this).attr("ans", ans).text(ans);
+      return false;
+    }
+  });
+  //
+  cta.removeClass("disable");
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
+
+var fixAnswer = function () {
+  var cta = $(".contents > div.selected .framesMulti").find("> .cta");
+  var selectedFrame = $(".contents > div.selected .framesMulti > div");
+  for (var i = selectedFrame.length - 1; i >= 0; i--) {
+    if (selectedFrame.eq(i).attr("ans")) {
+      rootSoundEffect($pop);
+      selectedFrame.eq(i).text("").removeAttr("ans");
+      if (i == 0) {
+        cta.addClass("disable");
+      }
+      break;
+    }
+  }
+
+  $(".sideTool > div.btn_answer").removeClass("active");
 };
 
 var openContent = function (id) {

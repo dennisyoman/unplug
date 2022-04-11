@@ -2467,6 +2467,10 @@
           justify-content: center;
 }
 
+.module_calculus .contents .framesMulti.repeatAnswer::before {
+  content: "我的順序";
+}
+
 .module_calculus .contents .framesMulti .smoke {
   position: absolute;
   top: 50%;
@@ -3518,7 +3522,7 @@
 .module_box .cardAvatar.automove {
   -webkit-transition: top 0.5s, left 0.5s;
   transition: top 0.5s, left 0.5s;
-  -webkit-transition: top 0.8s, left 0.8s ease-in;
+  -webkit-transition: top 0.8s ease-out, left 0.8s ease-in;
 }
 
 .module_box .cardAvatar .toy {
