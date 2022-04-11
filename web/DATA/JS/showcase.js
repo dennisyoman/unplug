@@ -570,6 +570,9 @@ var resetElem = function (elem) {
     updateFrameMulti();
   }
 
+  elem.find(".framesMulti > .cta").show();
+  elem.find(".frames > .cta").show();
+
   //smoke effect
   $(".smoke").remove();
 };

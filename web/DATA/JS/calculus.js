@@ -270,7 +270,6 @@ var showSlider = function (boolean) {
             }
           }
         });
-        selectedElem.find(".framesMulti > .cta").hide();
       }
       selectedElem.find(".framesMulti > div").eq(0).addClass("selected");
     } else {
@@ -296,6 +295,8 @@ var showSlider = function (boolean) {
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_answer").hide();
+    selectedElem.find(".framesMulti > .cta").hide();
+    selectedElem.find(".frames > .cta").hide();
   } else {
     selectedElem.find(".grids").show();
     selectedElem
@@ -309,6 +310,7 @@ var showSlider = function (boolean) {
     $(".sideTool > div.btn_answer").show();
     //
     selectedElem.find(".framesMulti > .cta").show();
+    selectedElem.find(".frames > .cta").show();
   }
 };
 
@@ -661,6 +663,8 @@ var resetElem = function (elem) {
     resetFrameMulti();
     updateFrameMulti();
   }
+  elem.find(".framesMulti > .cta").show();
+  elem.find(".frames > .cta").show();
 
   //smoke effect
   $(".smoke").remove();
