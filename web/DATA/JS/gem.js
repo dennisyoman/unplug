@@ -40,14 +40,14 @@ $(document).ready(function () {
       }
 
       //sidetool
-      $(".sideTool > div.btn_playorder")
+      $(".sideTool > div.btn_answer")
         .unbind()
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
-            if ($("#cardAvatar").length < 1) {
-              showAnimation(true);
-            }
+            showAnswer(true);
+          } else {
+            showAnswer(false);
           }
         });
 
@@ -56,6 +56,40 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).hide();
           resetElem($(".contents > div.selected"));
+        });
+      //gem_container2
+      $(".gem_container2 > div").each(function () {
+        var img = $(this).find(">img");
+        img.unbind().bind("click", function () {
+          rootSoundEffect($pop);
+          $(this).addClass("selected");
+          $(".sideTool > div.btn_replay").show();
+        });
+
+        var piece = $(this).find(">span");
+        piece.unbind().bind("click", function () {
+          if ($(".colours > div.selected").length > 0) {
+            rootSoundEffect($pop);
+            $(this).attr("guess", $(".colours > div.selected").attr("ans"));
+            $(this).css(
+              "background",
+              "#" + $(".colours > div.selected").attr("col"),
+            );
+            $(".sideTool > div.btn_replay").show();
+          } else {
+            rootSoundEffect($show);
+            $(this).attr("guess", "0");
+            $(this).css("background", "transparent");
+          }
+        });
+      });
+      $(".colours > div")
+        .unbind()
+        .bind("click", function () {
+          $(this)
+            .toggleClass("selected")
+            .siblings(".selected")
+            .removeClass("selected");
         });
 
       //init
@@ -108,22 +142,19 @@ var trigHammer = function () {
 var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
     isDragging = true;
-    if ($($elem).hasClass("cards")) {
+    if ($($elem).hasClass("draggable")) {
       $("#module_wrapper").append(
         `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
-      $($elem).clone().appendTo("#cardAvatar");
+      $($elem).find(">img").clone().appendTo("#cardAvatar");
+      $("#cardAvatar").attr("ans", $($elem).attr("ans"));
       $($elem).addClass("cached");
-      var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
-      console.log(caWidth);
-      $("#cardAvatar").css("width", caWidth + "px");
-      $("#cardAvatar").css("height", caWidth + "px");
     }
   }
 
   if (isDragging && $elem) {
     //drag clon card
-    if ($($elem).hasClass("cards")) {
+    if ($($elem).hasClass("draggable")) {
       var deltaContainerX = $("#module_wrapper").offset().left;
       var deltaContainerY = $("#module_wrapper").offset().top;
       $("#cardAvatar").get(0).style.top =
@@ -143,8 +174,8 @@ var handleDrag = function (ev) {
   }
 
   if (ev.isFinal) {
-    if ($($elem).hasClass("cards")) {
-      var frameElem = $(".contents > div.selected .boxes > div");
+    if ($($elem).hasClass("draggable")) {
+      var frameElem = $(".contents > div.selected .gem_container > div");
       var gotit = false;
       frameElem.each(function () {
         if ($(this).hasClass("selected")) {
@@ -169,7 +200,8 @@ var handleDrag = function (ev) {
 var checkCollision = function (ev) {
   var lastX = ev.center.x;
   var lastY = ev.center.y;
-  var frameElem = $(".contents > div.selected .boxes > div");
+  var frameElem = $(".contents > div.selected .gem_container > div");
+  var gotit = false;
   frameElem.each(function () {
     var oriX = $(this).offset().left;
     var oriW = oriX + $(this).width();
@@ -177,38 +209,42 @@ var checkCollision = function (ev) {
     var oriH = oriY + $(this).height();
     if (lastX >= oriX && lastX <= oriW && lastY >= oriY && lastY <= oriH) {
       $(this).addClass("selected");
+      gotit = true;
     } else {
       $(this).removeClass("selected");
     }
   });
+  if (gotit) {
+    $("#cardAvatar").addClass("focus");
+  } else {
+    $("#cardAvatar").removeClass("focus");
+  }
 };
 
 var checkOrderStatus = function () {
-  var gridElem = $(".contents > div.selected .boxes");
-  var tempNum = gridElem.find(">div.selected").attr("size");
-  var tempNumCard = $("#cardAvatar").find(">div").attr("size");
-  if (tempNum >= tempNumCard) {
+  var gridElem = $(".contents > div.selected .gem_container");
+  var tempNum = gridElem.find(">div.selected").attr("ans");
+  var tempNumCard = $("#cardAvatar").attr("ans");
+  if (tempNum == tempNumCard) {
     //right
+    $(".sideTool > div.btn_replay").show();
     rootSoundEffect($chimes);
 
-    $("#cardAvatar > div").addClass("jumpin");
-    $("#cardAvatar").attr("id", "").addClass("cardAvatarDie");
     var uniq = new Date().getTime();
     gridElem
       .find(">div.selected")
       .removeClass("selected")
+      .addClass("bingo")
       .append(
         `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
+    $("#cardAvatar").remove();
     $(".cached")
-      .addClass("disable")
       .removeClass("cached")
-      .delay(1000)
+      .delay(800)
       .queue(function () {
         $(".smoke").remove();
-        $(".cardAvatarDie").remove();
         $(this).dequeue();
-        $(".sideTool > div.btn_replay").show();
       });
   } else {
     //wrong
@@ -220,132 +256,14 @@ var checkOrderStatus = function () {
       .append(
         `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
       );
-    $("#cardAvatar > div").addClass("flyout");
-    $("#cardAvatar").attr("id", "").addClass("cardAvatarDie");
+    $("#cardAvatar").remove();
     $(".cached")
-      .delay(1000)
+      .removeClass("cached")
+      .delay(800)
       .queue(function () {
-        $(".cardAvatarDie").remove();
-        $(this).removeClass("cached").dequeue();
+        $(".smoke").remove();
+        $(this).dequeue();
       });
-  }
-};
-
-var toggleMe = function (elem) {
-  rootSoundEffect($click);
-  var range = $(".contents > div.selected > .boxes .box").length;
-  var num = elem.attr("ans");
-  if (num == "") {
-    num = 1;
-  } else {
-    num = parseInt(num) + 1;
-    if (num > range) {
-      num = 1;
-    }
-  }
-  elem.attr("ans", num).find("span").text(num);
-  //check status
-  var gotit = false;
-  $(".contents > div.selected > .toys .toy").each(function () {
-    if ($(this).attr("ans") == "") {
-      gotit = true;
-    }
-  });
-  if (!gotit) {
-    $(".sideTool > div.btn_playorder").show();
-  }
-};
-
-var showAnimation = function (boolean) {
-  if (boolean) {
-    animateBox();
-  }
-};
-
-var animateBox = function () {
-  var selectedElem = $(".contents > div.selected");
-  var toys = selectedElem.find(".toys > .toy");
-  var boxes = selectedElem.find(".boxes > .box");
-
-  for (var i = 0; i < toys.length; i++) {
-    var tar = toys.eq(i);
-    var ans = tar.attr("ans");
-    if (!tar.hasClass("disable")) {
-      $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`,
-      );
-      var tar2 = tar.clone();
-      tar2.find("span").remove();
-      tar2.appendTo("#cardAvatar");
-      tar.addClass("disable");
-      var caWidth = parseInt(tar.css("width")) / stageRatioReal;
-      $("#cardAvatar").css("width", caWidth + "px");
-      $("#cardAvatar").css("height", caWidth + "px");
-      //get box
-      for (var k = 0; k < boxes.length; k++) {
-        if (boxes.eq(k).attr("ans") == ans) {
-          var tarBox = boxes.eq(k);
-        }
-      }
-      //
-      var deltaContainerX = $("#module_wrapper").offset().left;
-      var deltaContainerY = $("#module_wrapper").offset().top;
-      var intX = (tar.offset().left - deltaContainerX) / stageRatioReal;
-      var intY = (tar.offset().top - deltaContainerY) / stageRatioReal;
-      var desX =
-        (tarBox.offset().left +
-          tarBox.width() / 2 -
-          $("#cardAvatar").width() / 2 -
-          deltaContainerX) /
-        stageRatioReal;
-      var desY = (tarBox.offset().top - deltaContainerY) / stageRatioReal;
-      $("#cardAvatar")
-        .css({
-          top: intY,
-          left: intX,
-        })
-        .delay(50)
-        .queue(function () {
-          rootSoundEffect($show);
-          $(this)
-            .addClass("automove")
-            .css({
-              top: desY,
-              left: desX,
-            })
-            .dequeue()
-            .delay(800)
-            .queue(function () {
-              $(this).find(".toy").addClass("jumpin");
-              rootSoundEffect($chimes);
-              var uniq = new Date().getTime();
-              tarBox.append(
-                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
-              );
-              $(this)
-                .dequeue()
-                .delay(1000)
-                .queue(function () {
-                  $(".smoke").remove();
-                  $("#cardAvatar").remove();
-                  $(this).dequeue();
-                  //continue?
-                  if ($(".sideTool > div.btn_playorder").hasClass("active")) {
-                    var doneToy = selectedElem.find(".toys > .toy.disable");
-                    if (toys.length != doneToy.length) {
-                      animateBox();
-                    } else {
-                      $(".sideTool > div.btn_playorder")
-                        .removeClass("active")
-                        .hide();
-                      $(".sideTool > div.btn_replay").show();
-                    }
-                  }
-                });
-            });
-        });
-      break;
-    }
   }
 };
 
@@ -363,27 +281,13 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".cached").removeClass("cached");
+  elem.find(".bingo").removeClass("bingo");
   elem.find(".disable").removeClass("disable");
-  //shuffle toy
-  var toyArr = [];
-  elem.find(".toys > div").each(function () {
-    $(this).attr("ans", "").find("span").text("");
-    toyArr.push($(this).clone());
-  });
-  shuffle(toyArr);
-  elem.find(".toys").empty().hide();
-  for (var i = 0; i < toyArr.length; i++) {
-    elem.find(".toys").append(toyArr[i].clone());
-  }
-  elem
-    .find(".toys")
-    .delay(100)
-    .queue(function () {
-      $(this).show().dequeue();
-    });
+  elem.find(".gem_container2 > div > span").css("background", "transparent");
+
   //smoke effect
   $(".smoke").remove();
-  $(".cardAvatarDie").remove();
+  $(".cardAvatar").remove();
 };
 
 var resetTool = function () {
