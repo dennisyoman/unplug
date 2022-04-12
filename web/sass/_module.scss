@@ -56,6 +56,17 @@
       perspective: 300px;
       position: relative;
 
+      @keyframes floorrise {
+        0% {
+          -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+        }
+        100% {
+          -webkit-transform: rotateX(50deg);
+          transform: rotateX(50deg);
+        }
+      }
+
       .stage {
         position: absolute;
         left: 50%;
@@ -68,6 +79,7 @@
         -moz-transform-style: preserve-3d;
         -webkit-transform-style: preserve-3d;
         -ms-transform-style: preserve-3d;
+        animation: floorrise 1s 1;
         * {
           transform-style: preserve-3d;
           -moz-transform-style: preserve-3d;
@@ -3024,6 +3036,19 @@
   }
 }
 
+.module_organize {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+}
+
 .contents {
   pointer-events: none;
   position: relative;
@@ -3109,6 +3134,8 @@
     img {
       max-width: 100%;
       margin: 0 auto;
+      display: block;
+      max-height: 260px;
     }
     .cta {
       margin-top: 40px;
