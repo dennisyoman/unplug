@@ -3044,8 +3044,29 @@
   height: 100%;
   @include opacity(0);
 
+  .defaultBlocks {
+    display: none;
+  }
+
   &.loaded {
     @include opacity(1);
+  }
+
+  .smoke {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -25px;
+    margin-top: -25px;
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .cardAvatar {
@@ -3056,11 +3077,21 @@
     left: -100vw;
     z-index: 100;
     pointer-events: none;
+    display: block !important;
 
-    &.focus {
-      > img {
-        filter: drop-shadow(0px 0px 10px $main) drop-shadow(0px 0px 4px $main);
+    &.draggable {
+      pointer-events: auto;
+      cursor: pointer;
+      * {
+        pointer-events: none;
       }
+      > img {
+        filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0));
+      }
+    }
+
+    &.onboard {
+      z-index: 99;
     }
     > img {
       height: 30px;
@@ -3098,6 +3129,7 @@
 
         &.selected {
           background: $main;
+          filter: drop-shadow(0px 0px 10px $main) drop-shadow(0px 0px 4px $main);
         }
 
         &:last-child {

@@ -55,6 +55,18 @@ $(document).ready(function () {
           $(this).append(`<span style="width:${bw}px;height:${bh}px;"/>`);
         }
       });
+      //resize blocks
+      $(".blocks > div").each(function () {
+        var size = $(this).attr("size");
+        for (var i = 0; i < size; i++) {
+          $(this)
+            .find("img")
+            .attr(
+              "style",
+              "width:" + parseInt(size) * bw + "px;height:" + bh + "px",
+            );
+        }
+      });
 
       //init
 
@@ -84,6 +96,8 @@ var $elem = null;
 //
 var bw = 35;
 var bh = 28;
+var buffer = 0;
+var blockCount = 0;
 
 var trigHammer = function () {
   //hammer
@@ -107,15 +121,26 @@ var trigHammer = function () {
 };
 
 var handleDrag = function (ev) {
-  if (!isDragging && $elem != null) {
+  if (!isDragging && $elem != null && $("#cardAvatar").length < 1) {
     isDragging = true;
     if ($($elem).hasClass("draggable")) {
-      $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`,
-      );
+      $("#contents").append(`<div id="cardAvatar" class="cardAvatar"></div>`);
       $($elem).find(">img").clone().appendTo("#cardAvatar");
       $("#cardAvatar").attr("size", $($elem).attr("size"));
-      $($elem).addClass("cached");
+      //移動已放上的方塊
+      if ($($elem).hasClass("onboard")) {
+        //clean linked blocks and remove this
+        var link = $($elem).attr("link");
+        var gridElem = $(
+          ".contents > div.selected .grids > .row > span.disable",
+        );
+        gridElem.each(function () {
+          if (link == $(this).attr("link")) {
+            $(this).removeAttr("link").removeClass("disable selected");
+          }
+        });
+        $($elem).remove();
+      }
     }
   }
 
@@ -142,20 +167,40 @@ var handleDrag = function (ev) {
 
   if (ev.isFinal) {
     if ($($elem).hasClass("draggable")) {
-      var frameElem = $(".contents > div.selected .gem_container > div");
-      var gotit = false;
-      frameElem.each(function () {
-        if ($(this).hasClass("selected")) {
-          gotit = true;
-        }
-      });
+      var gridElem = $(".contents > div.selected .grids");
+      var rowElem = gridElem.find(">.row");
+      var gridSelected = rowElem.find("> span.selected");
+
       //checkCollision true
-      if (gotit) {
+      var tempSize = parseInt($("#cardAvatar").attr("size"));
+      if (
+        gridSelected.length == tempSize &&
+        $(".contents > div.selected .grids > .row > span.selected.disable")
+          .length < 1
+      ) {
         //check order status
         checkOrderStatus();
       } else {
-        $("#cardAvatar").remove();
-        $(".cached").removeClass("cached");
+        //有觸發感應
+        if (gridSelected.length > 0) {
+          rootSoundEffect($surprise);
+        } else {
+          rootSoundEffect($show);
+        }
+
+        //fail place block
+        gridSelected.removeClass("selected");
+
+        var uniq = new Date().getTime();
+        $("#cardAvatar").find("img").css("opacity", 0);
+        $("#cardAvatar").append(
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
+        );
+        $("#cardAvatar")
+          .delay(800)
+          .queue(function () {
+            $(this).remove().dequeue();
+          });
       }
     }
     //then
@@ -168,11 +213,9 @@ var checkCollision = function (ev) {
   var lastW = parseInt($($elem).attr("size")) * bw * stageRatioReal;
   var lastX = ev.center.x - lastW / 2;
   var lastY = ev.center.y;
-  var buffer = 3;
 
-  var frameElem = $(".contents > div.selected .grids > .row > span");
-  var gotit = false;
-  frameElem.each(function () {
+  var gridElem = $(".contents > div.selected .grids > .row > span");
+  gridElem.each(function () {
     var oriX = $(this).offset().left;
     var oriW = $(this).width();
     var oriY = $(this).offset().top;
@@ -184,60 +227,95 @@ var checkCollision = function (ev) {
       lastY <= oriH - buffer
     ) {
       $(this).addClass("selected");
-      gotit = true;
     } else {
       $(this).removeClass("selected");
     }
   });
-  if (gotit) {
-    $("#cardAvatar").addClass("focus");
-  } else {
-    $("#cardAvatar").removeClass("focus");
-  }
 };
 
 var checkOrderStatus = function () {
-  var gridElem = $(".contents > div.selected .gem_container");
-  var tempNum = gridElem.find(">div.selected").attr("ans");
-  var tempNumCard = $("#cardAvatar").attr("ans");
-  if (tempNum == tempNumCard) {
-    //right
+  //place the block
+  blockCount += 1;
+  var gridElem = $(".contents > div.selected .grids");
+  var rowElem = gridElem.find(">.row");
+  var gridSpan = rowElem.find("> span.selected");
+  var intx = "";
+  var inty = "";
+  gridElem.find("p").css("opacity", 0);
+  gridSpan.each(function () {
+    if (intx == "") {
+      intx = $(this).offset().left - $("#module_wrapper").offset().left;
+      inty = $(this).offset().top - $("#module_wrapper").offset().top;
+      $("#cardAvatar").get(0).style.top = inty / stageRatioReal + "px";
+      $("#cardAvatar").get(0).style.left = intx / stageRatioReal + "px";
+    }
+    //
+    $(this)
+      .removeClass("selected")
+      .addClass("disable")
+      .attr("link", blockCount);
+  });
+
+  //有無重複的row
+  var repeatRow = false;
+  var rowComboArr = [];
+  rowElem.each(function (index) {
+    if ($(this).find(">span").length == $(this).find(">span.disable").length) {
+      var currArray = [];
+      for (var i = 0; i < $(this).find(">span").length; i++) {
+        currArray.push($(this).find(">span").eq(i).attr("link"));
+      }
+      var NewArray = currArray.filter(function (element, index, self) {
+        return index === self.indexOf(element);
+      });
+      for (var i = 0; i < currArray.length; i++) {
+        for (var k = 0; k < NewArray.length; k++) {
+          if (currArray[i] == NewArray[k]) {
+            currArray[i] = k;
+          }
+        }
+      }
+      //
+      var exsit = false;
+      for (var i = 0; i < rowComboArr.length; i++) {
+        if (currArray.join("^") == rowComboArr[i].join("^")) {
+          exsit = true;
+        }
+      }
+
+      if (!exsit) {
+        rowComboArr.push(currArray);
+      } else {
+        repeatRow = true;
+      }
+    }
+  });
+
+  //
+  if (!repeatRow) {
+    $("#cardAvatar")
+      .attr("link", blockCount)
+      .removeAttr("id")
+      .addClass("draggable onboard");
+
+    //
+    rootSoundEffect($pop);
     $(".sideTool > div.btn_replay").show();
-    rootSoundEffect($chimes);
+  } else {
+    gridElem.find("p").css("opacity", 1);
+    rootSoundEffect($surprise);
+    //fail place block
+    gridSpan.removeClass("selected disable");
 
     var uniq = new Date().getTime();
-    gridElem
-      .find(">div.selected")
-      .removeClass("selected")
-      .addClass("bingo")
-      .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
-      );
-    $("#cardAvatar").remove();
-    $(".cached")
-      .removeClass("cached")
+    $("#cardAvatar").find("img").css("opacity", 0);
+    $("#cardAvatar").append(
+      `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
+    );
+    $("#cardAvatar")
       .delay(800)
       .queue(function () {
-        $(".smoke").remove();
-        $(this).dequeue();
-      });
-  } else {
-    //wrong
-    rootSoundEffect($fail);
-    var uniq = new Date().getTime();
-    gridElem
-      .find(">div.selected")
-      .removeClass("selected")
-      .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
-      );
-    $("#cardAvatar").remove();
-    $(".cached")
-      .removeClass("cached")
-      .delay(800)
-      .queue(function () {
-        $(".smoke").remove();
-        $(this).dequeue();
+        $(this).remove().dequeue();
       });
   }
 };
@@ -255,11 +333,51 @@ var openContent = function (id) {
 
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
-  elem.find(".cached").removeClass("cached");
+  elem.find(".disable").removeClass("disable");
+  elem.find(".grids > .row > span").removeAttr("link");
+  elem.find("p").css("opacity", 1);
+  blockCount = 0;
 
   //smoke effect
   $(".smoke").remove();
   $(".cardAvatar").remove();
+  //創造預設的方塊
+  if (elem.find(".defaultBlocks").length > 0) {
+    elem
+      .find(".defaultBlocks")
+      .find("span")
+      .each(function () {
+        blockCount += 1;
+        //
+        var dataArr = $(this).attr("buster").split(",");
+        //指定位置
+        var rowElem = elem.find(".grids > .row");
+        var gridSpan = rowElem.find("> span.selected");
+        var intx = "";
+        var inty = "";
+        var sr = parseInt(dataArr[1]) - 1;
+        var sx = parseInt(dataArr[2]) - 1;
+        var ss = parseInt(dataArr[0]);
+        for (var k = sx; k < sx + ss; k++) {
+          var tarSpan = rowElem.eq(sr).find("span").eq(k);
+          tarSpan.addClass("disable").attr("link", blockCount);
+          if (k == sx) {
+            intx = tarSpan.offset().left - $("#module_wrapper").offset().left;
+            inty = tarSpan.offset().top - $("#module_wrapper").offset().top;
+          }
+        }
+
+        var tempBlock = `<div class="cardAvatar draggable onboard" size="${
+          dataArr[0]
+        }" link="${blockCount}" style="top: ${inty / stageRatioReal}px; left: ${
+          intx / stageRatioReal
+        }px;"><img src="./DATA/PT/BOOK1/IMAGES/block${
+          dataArr[0]
+        }.png" style="width:${bw * parseInt(dataArr[0])};height:${bh}"></div>`;
+        //
+        $("#contents").append(tempBlock);
+      });
+  }
 };
 
 var resetTool = function () {

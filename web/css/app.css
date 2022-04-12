@@ -4103,11 +4103,35 @@
   filter: alpha(opacity=0);
 }
 
+.module_organize .defaultBlocks {
+  display: none;
+}
+
 .module_organize.loaded {
   opacity: 1;
   -moz-opacity: 1;
   -khtml-opacity: 1;
   filter: alpha(opacity=100);
+}
+
+.module_organize .smoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+
+.module_organize .smoke > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .module_organize .cardAvatar {
@@ -4118,11 +4142,25 @@
   left: -100vw;
   z-index: 100;
   pointer-events: none;
+  display: block !important;
 }
 
-.module_organize .cardAvatar.focus > img {
-  -webkit-filter: drop-shadow(0px 0px 10px #eb6154) drop-shadow(0px 0px 4px #eb6154);
-          filter: drop-shadow(0px 0px 10px #eb6154) drop-shadow(0px 0px 4px #eb6154);
+.module_organize .cardAvatar.draggable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.module_organize .cardAvatar.draggable * {
+  pointer-events: none;
+}
+
+.module_organize .cardAvatar.draggable > img {
+  -webkit-filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0));
+          filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0));
+}
+
+.module_organize .cardAvatar.onboard {
+  z-index: 99;
 }
 
 .module_organize .cardAvatar > img {
@@ -4175,6 +4213,8 @@
 
 .module_organize .grids .row > span.selected {
   background: #eb6154;
+  -webkit-filter: drop-shadow(0px 0px 10px #eb6154) drop-shadow(0px 0px 4px #eb6154);
+          filter: drop-shadow(0px 0px 10px #eb6154) drop-shadow(0px 0px 4px #eb6154);
 }
 
 .module_organize .grids .row > span:last-child {
