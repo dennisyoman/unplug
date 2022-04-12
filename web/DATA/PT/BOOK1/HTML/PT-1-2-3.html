@@ -1,5 +1,6 @@
 <div id="module_wrapper" class="module_pairing">
   <div class="tabs">
+    <span class="demo">示範</span>
     <span>任務一</span>
     <span>任務二</span>
   </div>
@@ -11,6 +12,85 @@
   </div>
 
   <div id="contents" class="contents">
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            將正確的顏色塗到正確配對的區塊。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="artboard wow fadeInDown">
+        <div class="pieces">
+          <span
+            ans="1"
+            style="
+              clip-path: polygon(2px 60px, 56px 60px, 99px 143px, 2px 128px);
+            "
+          />
+          <span
+            ans="1"
+            style="
+              clip-path: polygon(
+                56px 60px,
+                235px 60px,
+                188px 156px,
+                99px 143px
+              );
+            "
+          />
+          <span
+            ans="2"
+            style="
+              clip-path: polygon(
+                235px 60px,
+                294px 60px,
+                294px 171px,
+                188px 156px
+              );
+            "
+          />
+          <span
+            ans="2"
+            style="
+              clip-path: polygon(2px 126px, 99px 143px, 148px 235px, 2px 235px);
+            "
+          />
+          <span
+            ans="1"
+            style="clip-path: polygon(99px 143px, 148px 235px, 188px 156px)"
+          />
+          <span
+            ans="2"
+            style="
+              clip-path: polygon(
+                188px 156px,
+                148px 235px,
+                294px 235px,
+                294px 171px
+              );
+            "
+          />
+        </div>
+
+        <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-0.png" />
+        <img class="cover" src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-0-cover.png" />
+      </div>
+      <div class="palette wow bounceInLeft">
+        <div ans="1" col="e5002b"></div>
+        <div ans="2" col="0075c2"></div>
+        <div ans="-1" col=""></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+    </div>
     <div>
       <div class="intro wow fadeIn">
         <div>
@@ -208,6 +288,8 @@
   <div class="assetsPreload">
     <img src="./DATA/IMAGES/common/icon_right.png" />
     <img src="./DATA/IMAGES/common/btn_answer.png" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-0.png" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-0-cover.png" />
     <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-1.png" />
     <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-1-cover.png" />
     <img src="./DATA/PT/BOOK1/IMAGES/PT-1-2-3-2.png" />
