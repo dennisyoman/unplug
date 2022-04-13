@@ -1,18 +1,113 @@
-<div id="module_wrapper" class="">
+<div id="module_wrapper" class="module_showcase">
   <div class="tabs">
-    <span>任務一</span>
+    <span>任物一</span>
     <span>任務二</span>
   </div>
+
   <div class="units-title wow bounceInRight"></div>
 
-  <div id="contents" class="contents">
-    <div>熱身</div>
-    <div>熱身</div>
-  </div>
   <div class="sideTool">
     <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
   </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>請圈出你最喜歡的事情(選一個)。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid12 mcq wow fadeInDown">
+        <div>
+          <div class="cardItem A l4" ans="1" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4" ans="2" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4" ans="3" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4" ans="4" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-D.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+    </div>
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>請圈出你不喜歡的事情(可選多個)。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 wow fadeInDown">
+        <div>
+          <div class="cardItem A l4" ans="1" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4" ans="2" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4" ans="3" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4" ans="4" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4" ans="5" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4" ans="6" onClick="toggleMe($(this))">
+            <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+    </div>
+  </div>
+
   <div class="assetsPreload">
     <img src="./DATA/IMAGES/common/btn_answer.png" />
+    <img src="./DATA/IMAGES/common/btn_playorder.png" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-A.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-B.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-C.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-1-D.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-A.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-B.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-C.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-D.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-E.jpg" />
+    <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-1-2-F.jpg" />
   </div>
 </div>

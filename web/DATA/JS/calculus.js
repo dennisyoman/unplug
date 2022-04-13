@@ -416,7 +416,13 @@ var resetFrameMulti = function () {
 };
 
 var toggleMe = function (tar) {
-  tar.parent().toggleClass("selected");
+  if ($(".contents > div.selected .grids").hasClass("mcq")) {
+    //mcq = 單選題
+    tar.parent().siblings(".selected").removeClass("selected");
+    tar.parent().toggleClass("selected");
+  } else {
+    tar.parent().toggleClass("selected");
+  }
   rootSoundEffect($pop);
   //
   var ansArr = $(".contents > div.selected .framesMulti")

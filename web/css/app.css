@@ -1802,6 +1802,11 @@
   pointer-events: none;
 }
 
+.module_calculus .contents .shrink {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
 .module_calculus .contents .grid6 {
   width: 500px;
   height: 100%;
@@ -1977,7 +1982,7 @@
   width: 110px;
 }
 
-.module_calculus .contents .grid3 {
+.module_calculus .contents .grid4 {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -1997,7 +2002,7 @@
   margin: 0 auto 0;
 }
 
-.module_calculus .contents .grid3 > div {
+.module_calculus .contents .grid4 > div {
   padding: 4px;
   border: 1px dashed #ff8426;
   border-radius: 15px;
@@ -2006,24 +2011,24 @@
   position: relative;
 }
 
-.module_calculus .contents .grid3 > div::after, .module_calculus .contents .grid3 > div::before {
+.module_calculus .contents .grid4 > div::after, .module_calculus .contents .grid4 > div::before {
   display: none;
 }
 
-.module_calculus .contents .grid3 > div.selected {
+.module_calculus .contents .grid4 > div.selected {
   border-style: solid;
   -webkit-filter: drop-shadow(0px 0px 7px #eb6154);
           filter: drop-shadow(0px 0px 7px #eb6154);
 }
 
-.module_calculus .contents .grid3 > div.afterward > div {
+.module_calculus .contents .grid4 > div.afterward > div {
   -webkit-animation-name: rtl;
           animation-name: rtl;
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
 }
 
-.module_calculus .contents .grid3 > div.backward > div {
+.module_calculus .contents .grid4 > div.backward > div {
   -webkit-animation-name: ltr;
           animation-name: ltr;
   -webkit-animation-duration: 0.3s;
@@ -2056,7 +2061,7 @@
   }
 }
 
-.module_calculus .contents .grid3 > div:nth-child(1)::after, .module_calculus .contents .grid3 > div:nth-child(2)::after {
+.module_calculus .contents .grid4 > div:nth-child(1)::after, .module_calculus .contents .grid4 > div:nth-child(2)::after {
   content: "";
   position: absolute;
   width: 20px;
@@ -2066,7 +2071,7 @@
   right: -20px;
 }
 
-.module_calculus .contents .grid3 > div:nth-child(1)::before, .module_calculus .contents .grid3 > div:nth-child(2)::before {
+.module_calculus .contents .grid4 > div:nth-child(1)::before, .module_calculus .contents .grid4 > div:nth-child(2)::before {
   content: "";
   position: absolute;
   width: 0;
@@ -2078,11 +2083,11 @@
   right: -22px;
 }
 
-.module_calculus .contents .grid3 > div:last-child::after, .module_calculus .contents .grid3 > div:last-child::before {
+.module_calculus .contents .grid4 > div:last-child::after, .module_calculus .contents .grid4 > div:last-child::before {
   display: none;
 }
 
-.module_calculus .contents .grid3 > div .cardItem {
+.module_calculus .contents .grid4 > div .cardItem {
   width: 200px;
 }
 
@@ -2104,11 +2109,6 @@
       flex-wrap: wrap;
   gap: 5px 25px;
   margin: 0px auto 0;
-}
-
-.module_calculus .contents .grid12.shrink {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
 }
 
 .module_calculus .contents .grid12.withArrow > div::after, .module_calculus .contents .grid12.withArrow > div::before {
@@ -2733,7 +2733,12 @@
   pointer-events: none;
 }
 
-.module_showcase .contents .grid3 {
+.module_showcase .contents .shrink {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+.module_showcase .contents .grid4 {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -2753,11 +2758,11 @@
   margin: 0 auto 0;
 }
 
-.module_showcase .contents .grid3.withArrow > div::after, .module_showcase .contents .grid3.withArrow > div::before {
+.module_showcase .contents .grid4.withArrow > div::after, .module_showcase .contents .grid4.withArrow > div::before {
   display: block;
 }
 
-.module_showcase .contents .grid3 > div {
+.module_showcase .contents .grid4 > div {
   padding: 4px;
   border: 1px dashed #ff8426;
   border-radius: 15px;
@@ -2766,24 +2771,24 @@
   position: relative;
 }
 
-.module_showcase .contents .grid3 > div::after, .module_showcase .contents .grid3 > div::before {
+.module_showcase .contents .grid4 > div::after, .module_showcase .contents .grid4 > div::before {
   display: none;
 }
 
-.module_showcase .contents .grid3 > div.selected {
+.module_showcase .contents .grid4 > div.selected {
   border-style: solid;
   -webkit-filter: drop-shadow(0px 0px 7px #eb6154);
           filter: drop-shadow(0px 0px 7px #eb6154);
 }
 
-.module_showcase .contents .grid3 > div.afterward > div {
+.module_showcase .contents .grid4 > div.afterward > div {
   -webkit-animation-name: rtl;
           animation-name: rtl;
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
 }
 
-.module_showcase .contents .grid3 > div.backward > div {
+.module_showcase .contents .grid4 > div.backward > div {
   -webkit-animation-name: ltr;
           animation-name: ltr;
   -webkit-animation-duration: 0.3s;
@@ -2816,7 +2821,7 @@
   }
 }
 
-.module_showcase .contents .grid3 > div:nth-child(1)::after, .module_showcase .contents .grid3 > div:nth-child(2)::after {
+.module_showcase .contents .grid4 > div:nth-child(1)::after, .module_showcase .contents .grid4 > div:nth-child(2)::after {
   content: "";
   position: absolute;
   width: 20px;
@@ -2826,7 +2831,7 @@
   right: -20px;
 }
 
-.module_showcase .contents .grid3 > div:nth-child(1)::before, .module_showcase .contents .grid3 > div:nth-child(2)::before {
+.module_showcase .contents .grid4 > div:nth-child(1)::before, .module_showcase .contents .grid4 > div:nth-child(2)::before {
   content: "";
   position: absolute;
   width: 0;
@@ -2838,11 +2843,11 @@
   right: -22px;
 }
 
-.module_showcase .contents .grid3 > div:last-child::after, .module_showcase .contents .grid3 > div:last-child::before {
+.module_showcase .contents .grid4 > div:last-child::after, .module_showcase .contents .grid4 > div:last-child::before {
   display: none;
 }
 
-.module_showcase .contents .grid3 > div .cardItem {
+.module_showcase .contents .grid4 > div .cardItem {
   width: 200px;
 }
 
@@ -3013,11 +3018,6 @@
       flex-wrap: wrap;
   gap: 5px 25px;
   margin: 0px auto 0;
-}
-
-.module_showcase .contents .grid12.shrink {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
 }
 
 .module_showcase .contents .grid12.withArrow > div::after, .module_showcase .contents .grid12.withArrow > div::before {
