@@ -406,13 +406,24 @@ var resetFrameMulti = function () {
       multiAnsArr[Math.floor(Math.random() * multiAnsArr.length)],
     );
   }
-  //依照答案數量分配格子
+  //依照參考答案數量分配格子
   $(".contents > div.selected .framesMulti").find("> div").remove();
-  var ansArr = $(".contents > div.selected .framesMulti")
-    .attr("ans")
-    .split(",");
-  for (var i = 0; i < ansArr.length; i++) {
-    $(".contents > div.selected .framesMulti").prepend("<div />");
+  if ($(".contents > div.selected .framesMulti").attr("freeanswer")) {
+    for (
+      var i = 0;
+      i <
+      parseInt($(".contents > div.selected .framesMulti").attr("freeanswer"));
+      i++
+    ) {
+      $(".contents > div.selected .framesMulti").prepend("<div />");
+    }
+  } else {
+    var ansArr = $(".contents > div.selected .framesMulti")
+      .attr("ans")
+      .split(",");
+    for (var i = 0; i < ansArr.length; i++) {
+      $(".contents > div.selected .framesMulti").prepend("<div />");
+    }
   }
 };
 
@@ -427,10 +438,17 @@ var toggleMe = function (tar) {
   }
   rootSoundEffect($pop);
   //
-  var ansArr = $(".contents > div.selected .framesMulti")
-    .attr("ans")
-    .split(",");
-  var count = ansArr.length;
+  if ($(".contents > div.selected .framesMulti").attr("freeanswer")) {
+    var count = parseInt(
+      $(".contents > div.selected .framesMulti").attr("freeanswer"),
+    );
+  } else {
+    var ansArr = $(".contents > div.selected .framesMulti")
+      .attr("ans")
+      .split(",");
+    var count = ansArr.length;
+  }
+
   $(".contents > div.selected .framesMulti > div").remove();
   var cta = $(".contents > div.selected .framesMulti").find("> .cta");
   var selectedGrid = $(".contents > div.selected .grids > div.selected");
@@ -450,6 +468,7 @@ var toggleMe = function (tar) {
 
   //
   $(".sideTool > div.btn_answer").removeClass("active");
+  checkTool();
 };
 
 var showAnswer = function (boolean) {
@@ -511,6 +530,7 @@ var showAnswer = function (boolean) {
       updateFrameMulti();
     }
   }
+  checkTool();
 };
 
 var checkAnswer = function () {
@@ -586,6 +606,7 @@ var pickMe = function (tar) {
   //
   cta.removeClass("disable");
   $(".sideTool > div.btn_answer").removeClass("active");
+  checkTool();
 };
 
 var fixAnswer = function () {
@@ -603,6 +624,7 @@ var fixAnswer = function () {
   }
 
   $(".sideTool > div.btn_answer").removeClass("active");
+  checkTool();
 };
 
 var openContent = function (id) {
@@ -713,7 +735,31 @@ var checkTool = function () {
     $(".sideTool > div.btn_answer").hide();
   }
 
-  $(".sideTool > div.btn_playorder").show();
+  var gotit = false;
+  if ($(".contents > div.selected").find(".frames").length > 0) {
+    var gridDiv = $(".contents > div.selected").find(".frames > div");
+
+    for (var k = 0; k < gridDiv.length; k++) {
+      if (gridDiv.eq(k).attr("ans")) {
+        gotit = true;
+      }
+    }
+  } else if ($(".contents > div.selected").find(".framesMulti").length > 0) {
+    var gridDiv = $(".contents > div.selected").find(".framesMulti > div");
+    var gotit = false;
+    for (var k = 0; k < gridDiv.length; k++) {
+      if (gridDiv.eq(k).attr("ans")) {
+        gotit = true;
+      }
+    }
+  } else {
+    gotit = true;
+  }
+  if (gotit) {
+    $(".sideTool > div.btn_playorder").show();
+  } else {
+    $(".sideTool > div.btn_playorder").hide();
+  }
 };
 
 var resetTool = function () {

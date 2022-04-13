@@ -20,6 +20,8 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
+      <!--  加上 decimal 表示用數字排順序 -->
+      <!--  加上 mcq 表示單選題 -->
       <div class="grids grid12 decimal mcq wow fadeInDown">
         <div>
           <div class="cardItem n1 l4" ans="1" onClick="toggleMe($(this))">
@@ -47,7 +49,9 @@
         <span class="btn prev" onClick="switchSlider(-1)" />
         <span class="btn next" onClick="switchSlider(1)" />
       </div>
-      <div class="framesMulti wow bounceInUp" freeanswer="true" ans="0">
+
+      <!-- freeanswer 表示沒有標準答案,預設格子數 -->
+      <div class="framesMulti wow bounceInUp" freeanswer="1">
         <span class="cta orange hidden" onClick="checkAnswerMulti()"
           >藏好藏滿</span
         >
@@ -61,6 +65,7 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
+      <!--  加上 decimal 表示用數字排順序 -->
       <div class="grids grid6 decimal wow fadeInDown">
         <div>
           <div class="cardItem n1 l4" ans="1" onClick="toggleMe($(this))">
@@ -98,7 +103,8 @@
         <span class="btn prev" onClick="switchSlider(-1)" />
         <span class="btn next" onClick="switchSlider(1)" />
       </div>
-      <div class="framesMulti wow bounceInUp" freeanswer="true" ans="0">
+      <!-- freeanswer 表示沒有標準答案,預設格子數 -->
+      <div class="framesMulti wow bounceInUp" freeanswer="1">
         <span class="cta orange hidden" onClick="checkAnswerMulti()"
           >藏好藏滿</span
         >
