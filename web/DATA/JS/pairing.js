@@ -58,7 +58,9 @@ $(document).ready(function () {
         var tempAns = $(this).attr("ans");
         var tempHEX = $(this).attr("col");
         if (tempAns != "-1") {
-          $(this).append(`<span style="background:#${tempHEX}"></span>`);
+          $(this)
+            .append(`<span style="background:#${tempHEX}"></span>`)
+            .addClass("n" + tempAns);
         } else {
           $(this)
             .addClass("erasor")
@@ -101,6 +103,10 @@ $(document).ready(function () {
                   "#" + paletteElem.find(">div.selected").attr("col"),
                 );
               }
+            } else {
+              rootSoundEffect($show);
+              $(this).removeAttr("col");
+              $(this).css("background", "none");
             }
 
             //

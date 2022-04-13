@@ -317,12 +317,19 @@
       .frames {
         z-index: 1;
         position: absolute;
-        top: 60px;
-        left: 40px;
-        width: 40px;
+        top: 30px;
+        left: 35px;
+        width: 40px !important;
+        height: calc(100% - 30px);
+        display: inline-flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
 
         &.small {
-          top: 40px;
+          //top: 40px;
           > div {
             width: 30px;
             height: 30px;
@@ -464,7 +471,7 @@
           }
         }
         .cta {
-          margin-left: -18px;
+          //margin-left: -18px;
           @include scale(0.8);
 
           &.disable {
@@ -2767,29 +2774,45 @@
             clip-path: url("#clip1");
           }
 
-          &:nth-child(1) {
+          &.n0 {
+            &::before {
+              content: "0";
+            }
+          }
+
+          &.n1 {
             &::before {
               content: "1";
             }
           }
-          &:nth-child(2) {
+          &.n2 {
             &::before {
               content: "2";
             }
           }
-          &:nth-child(3) {
+          &.n3 {
             &::before {
               content: "3";
             }
           }
-          &:nth-child(4) {
+          &.n4 {
             &::before {
               content: "4";
             }
           }
-          &:nth-child(5) {
+          &.n5 {
             &::before {
               content: "5";
+            }
+          }
+          &.n6 {
+            &::before {
+              content: "6";
+            }
+          }
+          &.n7 {
+            &::before {
+              content: "7";
             }
           }
 
