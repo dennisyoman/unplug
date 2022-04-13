@@ -249,11 +249,28 @@ var showSlider = function (boolean) {
       });
       selectedElem.find(".frames > div").eq(0).addClass("selected");
     } else if (selectedElem.find(".framesMulti").length > 0) {
-      selectedElem.find(".grids > div.selected").each(function () {
-        selectedElem
-          .find(".gridSlider > .storyline")
-          .append($(this).removeClass("afterward backward").html());
-      });
+      if (selectedElem.find(".framesMulti.repeatAnswer").length == 0) {
+        //單選答案
+        selectedElem.find(".grids > div.selected").each(function () {
+          selectedElem
+            .find(".gridSlider > .storyline")
+            .append($(this).removeClass("afterward backward").html());
+        });
+      } else {
+        //複選答案
+        selectedElem.find(".framesMulti > div").each(function () {
+          var ans = $(this).attr("ans");
+          var grids = selectedElem.find(".grids > div");
+          for (var i = 0; i < grids.length; i++) {
+            var tempAns = grids.eq(i).find(">div").attr("ans");
+            if (ans == tempAns) {
+              selectedElem
+                .find(".gridSlider > .storyline")
+                .append(grids.eq(i).removeClass("afterward backward").html());
+            }
+          }
+        });
+      }
       selectedElem.find(".framesMulti > div").eq(0).addClass("selected");
     } else {
       selectedElem.find(".grids > div").each(function () {
@@ -277,6 +294,8 @@ var showSlider = function (boolean) {
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_answer").hide();
+    selectedElem.find(".framesMulti > .cta").hide();
+    selectedElem.find(".frames > .cta").hide();
   } else {
     selectedElem.find(".grids").show();
     selectedElem
@@ -287,7 +306,10 @@ var showSlider = function (boolean) {
       .empty();
     $(".contents > div.selected .frames > div").removeClass("selected");
     $(".contents > div.selected .framesMulti > div").removeClass("selected");
-    $(".sideTool > div.btn_answer").show();
+
+    checkTool();
+    selectedElem.find(".framesMulti > .cta").show();
+    selectedElem.find(".frames > .cta").show();
   }
 };
 
@@ -393,6 +415,7 @@ var resetFrameMulti = function () {
   }
 };
 
+//一個答案出現一次用toggleMe, 一個答案可以多次出現用pickMe
 var toggleMe = function (tar) {
   if ($(".contents > div.selected .grids").hasClass("mcq")) {
     //mcq = 單選題
@@ -487,6 +510,35 @@ var showAnswer = function (boolean) {
   }
 };
 
+var checkAnswer = function () {
+  var selectedElem = $(".contents > div.selected");
+  selectedElem.find(".frames > div").each(function () {
+    var tempAns = $(this).attr("ans");
+    var tempAns2 = $(this).text();
+    if (tempAns != tempAns2) {
+      $(this).addClass("wrong");
+    } else {
+      $(this).removeClass("wrong");
+    }
+  });
+  if (selectedElem.find(".frames > div.wrong").length > 0) {
+    rootSoundEffect($stupid);
+  } else {
+    rootSoundEffect($chimes);
+    var uniq = new Date().getTime();
+    selectedElem
+      .find(".frames")
+      .append(
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+      );
+    $(".smoke")
+      .delay(1500)
+      .queue(function () {
+        $(this).dequeue().remove();
+      });
+  }
+};
+
 var checkAnswerMulti = function () {
   var selectedElem = $(".contents > div.selected");
   var frame = selectedElem.find(".framesMulti");
@@ -515,6 +567,39 @@ var checkAnswerMulti = function () {
       });
   }
 };
+//一個答案出現一次用toggleMe, 一個答案可以多次出現用pickMe
+var pickMe = function (tar) {
+  var ans = tar.attr("ans");
+  var cta = $(".contents > div.selected .framesMulti").find("> .cta");
+  var selectedFrame = $(".contents > div.selected .framesMulti > div");
+  selectedFrame.each(function () {
+    if (!$(this).attr("ans")) {
+      rootSoundEffect($pop);
+      $(this).attr("ans", ans).text(ans);
+      return false;
+    }
+  });
+  //
+  cta.removeClass("disable");
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
+
+var fixAnswer = function () {
+  var cta = $(".contents > div.selected .framesMulti").find("> .cta");
+  var selectedFrame = $(".contents > div.selected .framesMulti > div");
+  for (var i = selectedFrame.length - 1; i >= 0; i--) {
+    if (selectedFrame.eq(i).attr("ans")) {
+      rootSoundEffect($pop);
+      selectedFrame.eq(i).text("").removeAttr("ans");
+      if (i == 0) {
+        cta.addClass("disable");
+      }
+      break;
+    }
+  }
+
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
 
 var openContent = function (id) {
   resetAudio();
@@ -526,10 +611,7 @@ var openContent = function (id) {
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
   //show side tool btn
-  if ($(".contents > div.selected").find(".framesMulti").length > 0) {
-    $(".sideTool > div.btn_answer").show();
-  }
-  $(".sideTool > div.btn_playorder").show();
+  checkTool();
 };
 
 var resetElem = function (elem) {
@@ -571,6 +653,10 @@ var resetElem = function (elem) {
 
   elem.find(".grids").show();
   //
+  if (elem.find(".frames").length > 0) {
+    updateFrame();
+  }
+  //
   if (elem.find(".framesMulti").length > 0) {
     resetFrameMulti();
     updateFrameMulti();
@@ -582,7 +668,20 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
 };
+var checkTool = function () {
+  if (
+    !$(".contents > div.selected").find(".framesMulti").attr("freeanswer") &&
+    !$(".contents > div.selected").find(".frames").attr("freeanswer") &&
+    ($(".contents > div.selected").find(".framesMulti").length > 0 ||
+      $(".contents > div.selected").find(".frames").length > 0)
+  ) {
+    $(".sideTool > div.btn_answer").show();
+  } else {
+    $(".sideTool > div.btn_answer").hide();
+  }
 
+  $(".sideTool > div.btn_playorder").show();
+};
 var resetTool = function () {
   $(".sideTool > div").removeClass("active").hide();
 };

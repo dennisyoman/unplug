@@ -2,8 +2,8 @@
   <series name="動手玩思維" sid="PT" img="PT_series.jpg">
     <book name="Book 1" bid="1" img="PT_book1.jpg">
       <lesson lid="1">日常中的程式</lesson>
-      <lesson lid="2">把玩具分類</lesson>
-      <lesson lid="3">啟發邏輯腦</lesson>
+      <lesson lid="2">啟發邏輯腦</lesson>
+      <lesson lid="3">把玩具分類</lesson>
       <lesson lid="4">正確使用數位產品</lesson>
     </book>
     <book name="Book 2" bid="2" img="PT_book2.jpg">

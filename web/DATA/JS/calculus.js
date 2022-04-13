@@ -307,8 +307,9 @@ var showSlider = function (boolean) {
       .empty();
     $(".contents > div.selected .frames > div").removeClass("selected");
     $(".contents > div.selected .framesMulti > div").removeClass("selected");
-    $(".sideTool > div.btn_answer").show();
+
     //
+    checkTool();
     selectedElem.find(".framesMulti > .cta").show();
     selectedElem.find(".frames > .cta").show();
   }
@@ -415,6 +416,7 @@ var resetFrameMulti = function () {
   }
 };
 
+//一個答案出現一次用toggleMe, 一個答案可以多次出現用pickMe
 var toggleMe = function (tar) {
   if ($(".contents > div.selected .grids").hasClass("mcq")) {
     //mcq = 單選題
@@ -569,6 +571,7 @@ var checkAnswerMulti = function () {
   }
 };
 
+//一個答案出現一次用toggleMe, 一個答案可以多次出現用pickMe
 var pickMe = function (tar) {
   var ans = tar.attr("ans");
   var cta = $(".contents > div.selected .framesMulti").find("> .cta");
@@ -612,8 +615,7 @@ var openContent = function (id) {
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
   //show side tool btn
-  $(".sideTool > div.btn_answer").show();
-  $(".sideTool > div.btn_playorder").show();
+  checkTool();
 };
 
 var resetElem = function (elem) {
@@ -674,6 +676,21 @@ var resetElem = function (elem) {
 
   //smoke effect
   $(".smoke").remove();
+};
+
+var checkTool = function () {
+  if (
+    !$(".contents > div.selected").find(".framesMulti").attr("freeanswer") &&
+    !$(".contents > div.selected").find(".frames").attr("freeanswer") &&
+    ($(".contents > div.selected").find(".framesMulti").length > 0 ||
+      $(".contents > div.selected").find(".frames").length > 0)
+  ) {
+    $(".sideTool > div.btn_answer").show();
+  } else {
+    $(".sideTool > div.btn_answer").hide();
+  }
+
+  $(".sideTool > div.btn_playorder").show();
 };
 
 var resetTool = function () {

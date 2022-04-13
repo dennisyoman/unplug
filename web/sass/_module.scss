@@ -816,6 +816,7 @@
           background: #fff;
           @include scale(0.8);
           @include transition(transform, 0.8s);
+          pointer-events: none !important;
 
           &.selected {
             @include scale(1);
@@ -1070,6 +1071,96 @@
     &.R {
       &::after {
         content: "R";
+      }
+    }
+    &.n1 {
+      &::after {
+        content: "1";
+      }
+    }
+    &.n2 {
+      &::after {
+        content: "2";
+      }
+    }
+    &.n3 {
+      &::after {
+        content: "3";
+      }
+    }
+    &.n4 {
+      &::after {
+        content: "4";
+      }
+    }
+    &.n5 {
+      &::after {
+        content: "5";
+      }
+    }
+    &.n6 {
+      &::after {
+        content: "6";
+      }
+    }
+    &.n7 {
+      &::after {
+        content: "7";
+      }
+    }
+    &.n8 {
+      &::after {
+        content: "8";
+      }
+    }
+    &.n9 {
+      &::after {
+        content: "9";
+      }
+    }
+    &.n10 {
+      &::after {
+        content: "10";
+      }
+    }
+    &.n11 {
+      &::after {
+        content: "11";
+      }
+    }
+    &.n12 {
+      &::after {
+        content: "12";
+      }
+    }
+    &.n13 {
+      &::after {
+        content: "13";
+      }
+    }
+    &.n14 {
+      &::after {
+        content: "14";
+      }
+    }
+    &.n15 {
+      &::after {
+        content: "15";
+      }
+    }
+    &.n16 {
+      &::after {
+        content: "16";
+      }
+    }
+    &.n17 {
+      &::after {
+        content: "17";
+      }
+    }
+    &.n18 {
+      &::after {
+        content: "18";
       }
     }
 
@@ -1596,6 +1687,7 @@
         .cardItem {
           width: 220px;
           left: -110px;
+          pointer-events: none !important;
 
           @include scale(0.8);
           @include transition(all, 0.8s);
@@ -1644,7 +1736,7 @@
       > div {
         width: 25px;
         height: 25px;
-        line-height: 22px;
+        line-height: 19px;
         font-size: 12px;
         display: inline-block;
         border: 3px solid $orange;
@@ -1720,10 +1812,10 @@
       > div {
         width: 25px;
         height: 25px;
-        line-height: 22px;
+        line-height: 19px;
         font-size: 12px;
         display: inline-block;
-        border: 3px solid $orange;
+        border: 3px solid $light;
         position: relative;
         background: #fff;
         @include borderRadius(8px);
@@ -1736,7 +1828,7 @@
         }
 
         &.selected {
-          background: $orange;
+          background: $light;
           color: #fff;
 
           &.wrong {
@@ -1826,62 +1918,183 @@
 
     &.A {
       &::after {
-        content: "1";
+        content: "A";
       }
     }
     &.B {
       &::after {
-        content: "2";
+        content: "B";
       }
     }
     &.C {
       &::after {
-        content: "3";
+        content: "C";
       }
     }
     &.D {
       &::after {
-        content: "4";
+        content: "D";
       }
     }
     &.E {
       &::after {
-        content: "5";
+        content: "E";
       }
     }
     &.F {
       &::after {
-        content: "6";
+        content: "F";
       }
     }
     &.G {
       &::after {
-        content: "7";
+        content: "G";
       }
     }
     &.H {
       &::after {
-        content: "8";
+        content: "H";
       }
     }
     &.I {
       &::after {
-        content: "9";
+        content: "I";
       }
     }
     &.J {
       &::after {
-        content: "10";
+        content: "J";
       }
     }
     &.K {
       &::after {
-        content: "11";
+        content: "K";
       }
     }
     &.L {
       &::after {
+        content: "L";
+      }
+    }
+    &.M {
+      &::after {
+        content: "M";
+      }
+    }
+    &.N {
+      &::after {
+        content: "N";
+      }
+    }
+    &.O {
+      &::after {
+        content: "O";
+      }
+    }
+    &.P {
+      &::after {
+        content: "P";
+      }
+    }
+    &.Q {
+      &::after {
+        content: "Q";
+      }
+    }
+    &.R {
+      &::after {
+        content: "R";
+      }
+    }
+
+    &.n1 {
+      &::after {
+        content: "1";
+      }
+    }
+    &.n2 {
+      &::after {
+        content: "2";
+      }
+    }
+    &.n3 {
+      &::after {
+        content: "3";
+      }
+    }
+    &.n4 {
+      &::after {
+        content: "4";
+      }
+    }
+    &.n5 {
+      &::after {
+        content: "5";
+      }
+    }
+    &.n6 {
+      &::after {
+        content: "6";
+      }
+    }
+    &.n7 {
+      &::after {
+        content: "7";
+      }
+    }
+    &.n8 {
+      &::after {
+        content: "8";
+      }
+    }
+    &.n9 {
+      &::after {
+        content: "9";
+      }
+    }
+    &.n10 {
+      &::after {
+        content: "10";
+      }
+    }
+    &.n11 {
+      &::after {
+        content: "11";
+      }
+    }
+    &.n12 {
+      &::after {
         content: "12";
+      }
+    }
+    &.n13 {
+      &::after {
+        content: "13";
+      }
+    }
+    &.n14 {
+      &::after {
+        content: "14";
+      }
+    }
+    &.n15 {
+      &::after {
+        content: "15";
+      }
+    }
+    &.n16 {
+      &::after {
+        content: "16";
+      }
+    }
+    &.n17 {
+      &::after {
+        content: "17";
+      }
+    }
+    &.n18 {
+      &::after {
+        content: "18";
       }
     }
 
@@ -2250,6 +2463,120 @@
         }
       }
     }
+    .grid18 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px 15px;
+      margin: 0px auto 0;
+      @include scale(0.9);
+
+      &.withArrow {
+        > div {
+          &::after,
+          &::before {
+            display: block;
+          }
+        }
+      }
+
+      > div {
+        padding: 4px;
+        border: 1px dashed $orange;
+        @include borderRadius(15px);
+        position: relative;
+        &::after,
+        &::before {
+          display: none;
+        }
+
+        &.selected {
+          border-style: solid;
+          filter: drop-shadow(0px 0px 7px $main);
+        }
+
+        &.afterward {
+          > div {
+            animation-name: rtl;
+            animation-duration: 0.3s;
+          }
+        }
+        &.backward {
+          > div {
+            animation-name: ltr;
+            animation-duration: 0.3s;
+          }
+        }
+        @keyframes rtl {
+          0% {
+            @include translate(100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        @keyframes ltr {
+          0% {
+            @include translate(-100px, 0);
+          }
+
+          100% {
+            @include translate(0, 0);
+          }
+        }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9),
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16),
+        &:nth-child(17) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 0px;
+            border-top: 1px dashed $orange;
+            top: 50%;
+            right: -10px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 6px;
+            border-color: transparent transparent transparent $orange;
+            top: calc(50% - 3px);
+            right: -13px;
+          }
+        }
+        &:last-child {
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
+
+        .cardItem {
+          width: 80px;
+        }
+      }
+    }
     .gridSlider {
       width: 100%;
       height: 100%;
@@ -2306,6 +2633,7 @@
           left: -110px;
           @include scale(0.8);
           @include transition(all, 0.8s);
+          pointer-events: none !important;
           &.selected {
             @include scale(1);
             @include boxShadow(3px 10px 10px rgba(0, 0, 0, 0.2));
@@ -2350,7 +2678,7 @@
       > div {
         width: 25px;
         height: 25px;
-        line-height: 22px;
+        line-height: 19px;
         font-size: 12px;
         display: inline-block;
         border: 3px solid $orange;
@@ -2419,10 +2747,10 @@
       > div {
         width: 25px;
         height: 25px;
-        line-height: 22px;
+        line-height: 19px;
         font-size: 12px;
         display: inline-block;
-        border: 3px solid $orange;
+        border: 3px solid $light;
         position: relative;
         background: #fff;
         @include borderRadius(8px);
@@ -2435,7 +2763,7 @@
         }
 
         &.selected {
-          background: $orange;
+          background: $light;
           color: #fff;
 
           &.wrong {
@@ -3311,6 +3639,9 @@
   &.disable {
     @include opacity(0.5);
     pointer-events: none;
+  }
+  &.hidden {
+    display: none !important;
   }
 }
 .tabs {
