@@ -646,6 +646,29 @@ var resetElem = function (elem) {
     "Q",
     "R",
   ];
+
+  if (elem.find(".grids").hasClass("decimal")) {
+    originArr = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+    ];
+  }
   var cardsArr = [];
   elem.find(".grids > div").each(function () {
     cardsArr.push($(this).removeClass("selected").clone());

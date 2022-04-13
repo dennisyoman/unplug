@@ -1815,7 +1815,7 @@
         line-height: 19px;
         font-size: 12px;
         display: inline-block;
-        border: 3px solid $light;
+        border: 3px solid $l3;
         position: relative;
         background: #fff;
         @include borderRadius(8px);
@@ -1828,7 +1828,7 @@
         }
 
         &.selected {
-          background: $light;
+          background: $l3;
           color: #fff;
 
           &.wrong {
@@ -2750,7 +2750,7 @@
         line-height: 19px;
         font-size: 12px;
         display: inline-block;
-        border: 3px solid $light;
+        border: 3px solid $l3;
         position: relative;
         background: #fff;
         @include borderRadius(8px);
@@ -2763,7 +2763,7 @@
         }
 
         &.selected {
-          background: $light;
+          background: $l3;
           color: #fff;
 
           &.wrong {

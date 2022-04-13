@@ -2616,7 +2616,7 @@
   line-height: 19px;
   font-size: 12px;
   display: inline-block;
-  border: 3px solid #ccb284;
+  border: 3px solid #87caab;
   position: relative;
   background: #fff;
   border-radius: 8px;
@@ -2632,7 +2632,7 @@
 }
 
 .module_calculus .contents .framesMulti > div.selected {
-  background: #ccb284;
+  background: #87caab;
   color: #fff;
 }
 
@@ -3618,7 +3618,7 @@
   line-height: 19px;
   font-size: 12px;
   display: inline-block;
-  border: 3px solid #ccb284;
+  border: 3px solid #87caab;
   position: relative;
   background: #fff;
   border-radius: 8px;
@@ -3634,7 +3634,7 @@
 }
 
 .module_showcase .contents .framesMulti > div.selected {
-  background: #ccb284;
+  background: #87caab;
   color: #fff;
 }
 
