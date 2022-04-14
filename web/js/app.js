@@ -169,6 +169,7 @@ let keepString = [
 ];
 let pieceArr = ["red", "green", "blue", "orange", "purple"];
 var currentAudio;
+var currentAudioTrack;
 let countDownDefault = [0, 0, 0, 0];
 
 let getLessonName = function () {

@@ -67,11 +67,9 @@ $(document).ready(function () {
       $(".btn_tag")
         .unbind()
         .bind("click", function () {
-          $(this).toggleClass("active");
-          if ($(this).hasClass("active")) {
-            resetPanelBtns("btn_tag");
-          } else {
-          }
+          resetPanelBtns("btn_tag");
+          appendTag(true);
+
           clickthen();
         });
 
@@ -140,7 +138,7 @@ $(document).ready(function () {
           });
         let utArr = ut.split("/");
         $("#unit-title").html(
-          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : "")
+          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : ""),
         );
       }
     });
@@ -183,7 +181,7 @@ var appendBoardSmall = function (e) {
     "",
     "",
     "",
-    true
+    true,
   );
 };
 var appendBoardLarge = function (e) {
@@ -197,7 +195,7 @@ var appendBoardLarge = function (e) {
     "",
     "",
     "",
-    true
+    true,
   );
 };
 
@@ -215,7 +213,7 @@ var appendPiece = function (e) {
     pieceArr[$("#widget").children(".piece").length % pieceArr.length];
   //
   $("#widget").append(
-    `<div id="piece" class="wow bounceIn piece ${pieceClass}"/>`
+    `<div id="piece" class="wow bounceIn piece ${pieceClass}"/>`,
   );
   rootSoundEffect($pop);
   $("#piece")
@@ -245,7 +243,7 @@ var appendScorer = function (e) {
     "",
     "",
     "",
-    true
+    true,
   );
   //
 };
@@ -262,7 +260,7 @@ var appendRoulette = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -278,7 +276,7 @@ var appendFisher = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -294,7 +292,7 @@ var appendFinger = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -310,7 +308,7 @@ var appendCountdown = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -326,7 +324,7 @@ var appendCounter = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -345,7 +343,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       } else if ($("#widget").children(".dice.green").length == 0) {
         $("#widget").append(`<div id="dice" class="dice green"/>`);
@@ -356,7 +354,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       }
       break;
@@ -370,7 +368,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       } else if ($("#widget").children(".dice.yellow").length == 0) {
         $("#widget").append(`<div id="dice" class="dice yellow"/>`);
@@ -381,7 +379,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       }
       break;
@@ -395,7 +393,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       } else if ($("#widget").children(".dice.pink").length == 0) {
         $("#widget").append(`<div id="dice" class="dice pink"/>`);
@@ -406,7 +404,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       }
     case 4:
@@ -419,7 +417,7 @@ var appendDice = function (e, type) {
           "",
           "",
           "",
-          true
+          true,
         );
       }
       break;
@@ -522,7 +520,7 @@ var handleZoomDrag = function (ev) {
         scrollX: 0,
         scrollY: 0,
         scale: html2canvasScale,
-      }
+      },
     ).then(function (canvas) {
       var ctx = canvas.getContext("2d");
 
@@ -615,7 +613,7 @@ var makeDrawable = function (tar) {
               ((event.clientY - tar.offset().top) * html2canvasScale) / th -
                 _eraserWidth / 2,
               _eraserWidth,
-              _eraserWidth
+              _eraserWidth,
             );
           } else {
             ctx.clearRect(
@@ -628,7 +626,7 @@ var makeDrawable = function (tar) {
                 th -
                 _eraserWidth / 2,
               _eraserWidth,
-              _eraserWidth
+              _eraserWidth,
             );
           }
         } else {
@@ -637,7 +635,7 @@ var makeDrawable = function (tar) {
               startX,
               startY,
               ((event.clientX - tar.offset().left) * html2canvasScale) / tw,
-              ((event.clientY - tar.offset().top) * html2canvasScale) / th
+              ((event.clientY - tar.offset().top) * html2canvasScale) / th,
             );
           } else {
             drawLine(
@@ -648,7 +646,7 @@ var makeDrawable = function (tar) {
                 tw,
               ((event.touches[0].clientY - tar.offset().top) *
                 html2canvasScale) /
-                th
+                th,
             );
           }
         }
@@ -685,7 +683,7 @@ var appendZoomer = function () {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -705,7 +703,7 @@ var appendPainting = function (active) {
         "",
         "",
         "",
-        true
+        true,
       );
     }
   } else {
@@ -726,11 +724,46 @@ var appendMasker = function (active) {
         "",
         "",
         "",
-        true
+        true,
       );
     }
   } else {
     $("#masker").remove();
+  }
+};
+
+var appendTag = function (active) {
+  if (active) {
+    if ($("#widget").children("#tag").length == 0) {
+      $("#widget").append(`<div id="tag" class="tag"/>`);
+      $.getComponent(
+        "./DATA/HTML/WIDGET/tag.html",
+        "#tag",
+        "",
+        "",
+        "",
+        "",
+        true,
+      );
+    }
+  }
+};
+var appendTagPicker = function (active) {
+  if (active) {
+    if ($("#widget").children("#tagPicker").length == 0) {
+      $("#widget").append(`<div id="tagPicker" class="tagPicker"/>`);
+      $.getComponent(
+        "./DATA/HTML/WIDGET/tagPicker.html",
+        "#tagPicker",
+        "",
+        "",
+        "",
+        "",
+        true,
+      );
+    }
+  } else {
+    $("#tagPicker").remove();
   }
 };
 

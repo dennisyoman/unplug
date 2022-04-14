@@ -679,15 +679,117 @@
       }
     }
   }
-  > .smallboard {
+
+  > .tag {
     position: absolute;
     pointer-events: auto;
-    top: calc(50% - 75px);
-    left: calc(50% - 106px);
+    top: calc(50% - 18px);
+    left: calc(50% - 75px);
     * {
       pointer-events: none;
     }
-    .smallboard_wrapper {
+    .tag_wrapper {
+      position: relative;
+      min-width: 150px;
+      height: 36px;
+      background: $main url("../DATA/IMAGES/common/updown.png") no-repeat bottom 14px right 4px;
+      background-size: 8px 40px;
+      padding: 3px 15px 3px 3px;
+      display: flex;
+      @include borderRadius(2px);
+      filter: drop-shadow(1px 3px 4px rgba(0, 0, 0, 0.3));
+
+      &.c1 {
+        background-color: $main;
+
+        &::after {
+          border-color: transparent $main transparent transparent;
+        }
+      }
+      &.c2 {
+        background-color: $second;
+
+        &::after {
+          border-color: transparent $second transparent transparent;
+        }
+      }
+      &.c3 {
+        background-color: $third;
+
+        &::after {
+          border-color: transparent $third transparent transparent;
+        }
+      }
+      &.c4 {
+        background-color: $orange;
+
+        &::after {
+          border-color: transparent $orange transparent transparent;
+        }
+      }
+      &.c5 {
+        background-color: $l1;
+
+        &::after {
+          border-color: transparent $l1 transparent transparent;
+        }
+      }
+      .drawer {
+        flex: none;
+        width: 60px;
+        border-bottom: 1px dashed $text;
+        pointer-events: auto;
+      }
+      .type {
+        font-size: 12px;
+        line-height: 30px;
+        color: #fff;
+        font-weight: bold;
+        pointer-events: auto;
+        margin-left: 10px;
+        white-space: nowrap;
+        margin-right: auto;
+      }
+      .colour {
+        position: absolute;
+        top: 13px;
+        left: -13px;
+        width: 10px;
+        height: 10px;
+        z-index: 2;
+        pointer-events: auto;
+        background: url("../DATA/IMAGES/common/icon_paletton.png") no-repeat center center;
+        background-size: contain;
+        cursor: pointer;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -23px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 18px 24px 18px 0;
+        border-color: transparent $main transparent transparent;
+      }
+    }
+  }
+
+  > .tagPicker {
+    position: absolute;
+    pointer-events: auto;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    * {
+      pointer-events: none;
+    }
+    .tagpicker_wrapper {
       position: relative;
       width: 212px;
       height: 154px;
@@ -786,31 +888,7 @@
       }
     }
   }
-  > .largeboard {
-    position: absolute;
-    pointer-events: auto;
-    top: calc(50% - 50px);
-    left: calc(50% - 275px);
-    * {
-      pointer-events: none;
-    }
-    .largeboard_wrapper {
-      position: relative;
-      width: 550px;
-      height: 100px;
-      background: url("../DATA/IMAGES/common/board.png") no-repeat left top;
-      background-size: 100% 100%;
-      &::after {
-        content: "";
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        background: #ffffff;
-        width: 543px;
-        height: 90px;
-      }
-    }
-  }
+
   > .zoomer {
     width: 10px;
     height: 10px;

@@ -1,0 +1,99 @@
+<div class="tag_wrapper wow bounceIn">
+  <div class="colour" mt="2"></div>
+  <div class="drawer" mt="2"><canvas width="60" height="30"></canvas></div>
+  <div class="type" mt="2">正在說故事</div>
+</div>
+<div class="assetsPreload"></div>
+
+<script>
+  $(document).ready(function () {
+    var tagColours = ["c1", "c2", "c3", "c4", "c5"];
+    var types = ["正在說故事", "正在分析演算法", "正在打醬油"];
+    $("#tag")
+      .unbind()
+      .bind("mousedown", function (e) {
+        getHighestDepthWidget($(this));
+      })
+      .bind("touchstart", function (e) {
+        getHighestDepthWidget($(this));
+      });
+    getHighestDepthWidget($("#tag"));
+
+    $("#tag .colour")
+      .unbind()
+      .bind("mousedown", function (e) {
+        click.x = e.clientX;
+        click.y = e.clientY;
+      })
+      .bind("mouseup", function (e) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
+          //console.log("換顏色");
+          var curr = 0;
+          for (var i = 0; i < tagColours.length; i++) {
+            if ($(this).parent().hasClass(tagColours[i])) {
+              $(this).parent().removeClass(tagColours[i]);
+              curr = i;
+            }
+          }
+          curr = curr + 1;
+          if (curr >= tagColours.length) {
+            curr = 0;
+          }
+          $(this).parent().addClass(tagColours[curr]);
+        }
+      });
+
+    $("#tag .type")
+      .unbind()
+      .bind("mousedown", function (e) {
+        click.x = e.clientX;
+        click.y = e.clientY;
+      })
+      .bind("mouseup", function (e) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
+          //console.log("換type");
+          var curr = 0;
+          for (var i = 0; i < types.length; i++) {
+            if ($(this).text() == types[i]) {
+              curr = i;
+            }
+          }
+          curr = curr + 1;
+          if (curr >= types.length) {
+            curr = 0;
+          }
+          $(this).text(types[curr]);
+        }
+      });
+    $("#tag .drawer")
+      .unbind()
+      .bind("mousedown", function (e) {
+        click.x = e.clientX;
+        click.y = e.clientY;
+      })
+      .bind("mouseup", function (e) {
+        if (
+          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
+          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
+        ) {
+          //console.log("換名字");
+          appendTagPicker(true);
+        }
+      });
+
+    //
+    $("#tag")
+      .attr("id", "")
+      .delay(80)
+      .queue(function () {
+        $(this).dequeue();
+        makeDraggable($(this), false, $(this));
+      });
+  });
+</script>

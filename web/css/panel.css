@@ -846,18 +846,136 @@
   background-position: -300px 0;
 }
 
-.widget > .smallboard {
+.widget > .tag {
   position: absolute;
   pointer-events: auto;
-  top: calc(50% - 75px);
-  left: calc(50% - 106px);
+  top: calc(50% - 18px);
+  left: calc(50% - 75px);
 }
 
-.widget > .smallboard * {
+.widget > .tag * {
   pointer-events: none;
 }
 
-.widget > .smallboard .smallboard_wrapper {
+.widget > .tag .tag_wrapper {
+  position: relative;
+  min-width: 150px;
+  height: 36px;
+  background: #eb6154 url("../DATA/IMAGES/common/updown.png") no-repeat bottom 14px right 4px;
+  background-size: 8px 40px;
+  padding: 3px 15px 3px 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -webkit-filter: drop-shadow(1px 3px 4px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(1px 3px 4px rgba(0, 0, 0, 0.3));
+}
+
+.widget > .tag .tag_wrapper.c1 {
+  background-color: #eb6154;
+}
+
+.widget > .tag .tag_wrapper.c1::after {
+  border-color: transparent #eb6154 transparent transparent;
+}
+
+.widget > .tag .tag_wrapper.c2 {
+  background-color: #1c9b64;
+}
+
+.widget > .tag .tag_wrapper.c2::after {
+  border-color: transparent #1c9b64 transparent transparent;
+}
+
+.widget > .tag .tag_wrapper.c3 {
+  background-color: #294197;
+}
+
+.widget > .tag .tag_wrapper.c3::after {
+  border-color: transparent #294197 transparent transparent;
+}
+
+.widget > .tag .tag_wrapper.c4 {
+  background-color: #ff8426;
+}
+
+.widget > .tag .tag_wrapper.c4::after {
+  border-color: transparent #ff8426 transparent transparent;
+}
+
+.widget > .tag .tag_wrapper.c5 {
+  background-color: #f9b900;
+}
+
+.widget > .tag .tag_wrapper.c5::after {
+  border-color: transparent #f9b900 transparent transparent;
+}
+
+.widget > .tag .tag_wrapper .drawer {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 60px;
+  border-bottom: 1px dashed #000;
+  pointer-events: auto;
+}
+
+.widget > .tag .tag_wrapper .type {
+  font-size: 12px;
+  line-height: 30px;
+  color: #fff;
+  font-weight: bold;
+  pointer-events: auto;
+  margin-left: 10px;
+  white-space: nowrap;
+  margin-right: auto;
+}
+
+.widget > .tag .tag_wrapper .colour {
+  position: absolute;
+  top: 13px;
+  left: -13px;
+  width: 10px;
+  height: 10px;
+  z-index: 2;
+  pointer-events: auto;
+  background: url("../DATA/IMAGES/common/icon_paletton.png") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.widget > .tag .tag_wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -23px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 18px 24px 18px 0;
+  border-color: transparent #eb6154 transparent transparent;
+}
+
+.widget > .tagPicker {
+  position: absolute;
+  pointer-events: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.widget > .tagPicker * {
+  pointer-events: none;
+}
+
+.widget > .tagPicker .tagpicker_wrapper {
   position: relative;
   width: 212px;
   height: 154px;
@@ -865,7 +983,7 @@
   background-size: 100% 100%;
 }
 
-.widget > .smallboard .smallboard_wrapper .drawer {
+.widget > .tagPicker .tagpicker_wrapper .drawer {
   position: absolute;
   z-index: 1;
   top: 7px;
@@ -874,11 +992,11 @@
   height: 108px;
 }
 
-.widget > .smallboard .smallboard_wrapper .drawer canvas {
+.widget > .tagPicker .tagpicker_wrapper .drawer canvas {
   pointer-events: auto;
 }
 
-.widget > .smallboard .smallboard_wrapper .keyer {
+.widget > .tagPicker .tagpicker_wrapper .keyer {
   position: absolute;
   z-index: 1;
   top: 7px;
@@ -889,11 +1007,11 @@
   display: none;
 }
 
-.widget > .smallboard .smallboard_wrapper .keyer input {
+.widget > .tagPicker .tagpicker_wrapper .keyer input {
   pointer-events: auto;
 }
 
-.widget > .smallboard .smallboard_wrapper .keyer textarea {
+.widget > .tagPicker .tagpicker_wrapper .keyer textarea {
   pointer-events: auto;
   font-size: 15px;
   line-height: 1.3;
@@ -909,7 +1027,7 @@
   text-align: center;
 }
 
-.widget > .smallboard .smallboard_wrapper .edit {
+.widget > .tagPicker .tagpicker_wrapper .edit {
   position: absolute;
   z-index: 2;
   bottom: 7px;
@@ -922,19 +1040,19 @@
   filter: alpha(opacity=30);
 }
 
-.widget > .smallboard .smallboard_wrapper .edit.active {
+.widget > .tagPicker .tagpicker_wrapper .edit.active {
   opacity: 1;
   -moz-opacity: 1;
   -khtml-opacity: 1;
   filter: alpha(opacity=100);
 }
 
-.widget > .smallboard .smallboard_wrapper .edit img {
+.widget > .tagPicker .tagpicker_wrapper .edit img {
   width: 67px;
   height: auto;
 }
 
-.widget > .smallboard .smallboard_wrapper .keyboard {
+.widget > .tagPicker .tagpicker_wrapper .keyboard {
   position: absolute;
   z-index: 2;
   bottom: 7px;
@@ -947,19 +1065,19 @@
   filter: alpha(opacity=30);
 }
 
-.widget > .smallboard .smallboard_wrapper .keyboard.active {
+.widget > .tagPicker .tagpicker_wrapper .keyboard.active {
   opacity: 1;
   -moz-opacity: 1;
   -khtml-opacity: 1;
   filter: alpha(opacity=100);
 }
 
-.widget > .smallboard .smallboard_wrapper .keyboard img {
+.widget > .tagPicker .tagpicker_wrapper .keyboard img {
   width: 68px;
   height: auto;
 }
 
-.widget > .smallboard .smallboard_wrapper .eraseAll {
+.widget > .tagPicker .tagpicker_wrapper .eraseAll {
   position: absolute;
   z-index: 2;
   bottom: 7px;
@@ -968,38 +1086,9 @@
   cursor: pointer;
 }
 
-.widget > .smallboard .smallboard_wrapper .eraseAll img {
+.widget > .tagPicker .tagpicker_wrapper .eraseAll img {
   width: 55px;
   height: auto;
-}
-
-.widget > .largeboard {
-  position: absolute;
-  pointer-events: auto;
-  top: calc(50% - 50px);
-  left: calc(50% - 275px);
-}
-
-.widget > .largeboard * {
-  pointer-events: none;
-}
-
-.widget > .largeboard .largeboard_wrapper {
-  position: relative;
-  width: 550px;
-  height: 100px;
-  background: url("../DATA/IMAGES/common/board.png") no-repeat left top;
-  background-size: 100% 100%;
-}
-
-.widget > .largeboard .largeboard_wrapper::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  background: #ffffff;
-  width: 543px;
-  height: 90px;
 }
 
 .widget > .zoomer {
