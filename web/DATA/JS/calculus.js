@@ -49,6 +49,8 @@ $(document).ready(function () {
           } else {
             showAnswer(false);
           }
+          //
+          $(".alert").remove();
         });
 
       $(".sideTool > div.btn_playorder")
@@ -60,6 +62,8 @@ $(document).ready(function () {
           } else {
             showSlider(false);
           }
+          //
+          $(".alert").remove();
         });
 
       //init
@@ -535,15 +539,80 @@ var showAnswer = function (boolean) {
 
 var checkAnswer = function () {
   var selectedElem = $(".contents > div.selected");
-  selectedElem.find(".frames > div").each(function () {
-    var tempAns = $(this).attr("ans");
-    var tempAns2 = $(this).text();
-    if (tempAns != tempAns2) {
-      $(this).addClass("wrong");
-    } else {
-      $(this).removeClass("wrong");
+  $(".alert").remove();
+  var alert = "";
+  //condition?
+  if (selectedElem.find(".condition").length > 0) {
+    var conditions = selectedElem.find(".condition > span");
+
+    for (var i = 0; i < conditions.length; i++) {
+      var cond = conditions.eq(i).text();
+      console.log(cond);
+      if (cond.indexOf("=") != -1) {
+        //固定位置 match[0]的要等於ans[1]
+        var ans = cond.split("=");
+        cond = "=";
+      } else if (cond.indexOf("-") != -1) {
+        //前後順序 match[0] 的位置要小於 match[1]
+        var ans = cond.split("-");
+        cond = "-";
+      }
+
+      //開始判斷
+      var targets = [];
+      var match = [-1, -1];
+      selectedElem.find(".frames > div").each(function (index) {
+        var tempAns = $(this).text();
+        if (ans[0] == tempAns) {
+          match[0] = index + 1;
+          targets[0] = $(this);
+        }
+        if (ans[1] == tempAns) {
+          match[1] = index + 1;
+          targets[1] = $(this);
+        }
+      });
+      switch (cond) {
+        case "=":
+          //固定位置
+          if (match[0] != ans[1]) {
+            targets[0].addClass("wrong");
+            alert += `<p><b>${targets[0].text()}</b>必須在第<b>${
+              ans[1]
+            }</b>格<p>`;
+          }
+          break;
+        case "-":
+          //前後順序
+          if (match[0] >= match[1]) {
+            targets[0].addClass("wrong");
+            targets[1].addClass("wrong");
+            alert += `<p><b>${targets[0].text()}</b>必須在<b>${targets[1].text()}</b>之前<p>`;
+          }
+          break;
+        default:
+        // code block
+      }
     }
-  });
+    //show alert
+
+    if (alert != "") {
+      selectedElem.append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`,
+      );
+    }
+  } else {
+    selectedElem.find(".frames > div").each(function () {
+      var tempAns = $(this).attr("ans");
+      var tempAns2 = $(this).text();
+      if (tempAns != tempAns2) {
+        $(this).addClass("wrong");
+      } else {
+        $(this).removeClass("wrong");
+      }
+    });
+  }
+  //present result
   if (selectedElem.find(".frames > div.wrong").length > 0) {
     rootSoundEffect($stupid);
   } else {
@@ -641,6 +710,7 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  $(".alert").remove();
   elem
     .find(".gridSlider")
     .removeClass("active")

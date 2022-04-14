@@ -1634,6 +1634,49 @@
   filter: alpha(opacity=0);
 }
 
+.module_calculus .alert {
+  position: absolute;
+  z-index: 10;
+  background: #eb6154;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  left: 50%;
+  bottom: 30px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+  pointer-events: auto;
+  padding: 10px 20px;
+}
+
+.module_calculus .alert p {
+  margin-bottom: 5px;
+}
+
+.module_calculus .alert p b {
+  margin: 0 3px;
+  display: inline-block;
+}
+
+.module_calculus .alert::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 5px 0 5px;
+  border-color: #eb6154 transparent transparent transparent;
+}
+
+.module_calculus .condition {
+  display: none;
+}
+
 .module_calculus.loaded {
   opacity: 1;
   -moz-opacity: 1;
