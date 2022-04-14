@@ -143,7 +143,7 @@ $(document).ready(function () {
 });
 
 //parameters
-let html2canvasScale = 4;
+let html2canvasScale = 5;
 let testmode = true;
 let translateCountDown = false; //繁轉簡倒數(勿動)
 let uToken = ""; //user token(勿動)
@@ -173,6 +173,7 @@ var currentAudioTrack;
 let countDownDefault = [0, 0, 0, 0];
 //標籤
 var tags = [];
+//
 
 let getLessonName = function () {
   var finalName = "";
@@ -904,6 +905,7 @@ let define$Elem = function (ev) {
     }
   }
 };
+
 var paintVar;
 var paintPauseDuration = 1500;
 var groupID = new Date().getTime();
@@ -1200,6 +1202,148 @@ let isCanvasBlank = function (canvas) {
   return !pixelBuffer.some((color) => color !== 0);
 };
 
+//sizer
+var firstSizerElem = null;
+let adjustSizer = function () {
+  var sizerElement = new Hammer($("#root").get(0));
+  var isMainDrag = false;
+  var lastMainPosX, lastMainPosY, lastWidgetPosX, lastWidgetPosY;
+  sizerElement
+    .get("pan")
+    .set({ direction: Hammer.DIRECTION_ALL, threshold: 1 });
+  sizerElement.get("press").set({ time: 2 });
+  sizerElement.on("press", function (ev) {
+    firstSizerElem = ev.target;
+  });
+  sizerElement.on("pressup", function (ev) {
+    firstSizerElem = null;
+  });
+
+  sizerElement.on("pan", function (ev) {
+    var elem;
+    //移動的本體
+
+    if (
+      ($(firstSizerElem).parent().hasClass("main") ||
+        $(firstSizerElem).parent().parent().hasClass("main") ||
+        $(firstSizerElem).hasClass("main") ||
+        $(firstSizerElem).hasClass("root")) &&
+      !$("#sizer").hasClass("lock")
+    ) {
+      elem = $("#main").get(0);
+      if (!isMainDrag) {
+        isMainDrag = true;
+        lastMainPosX = elem.offsetLeft;
+        lastMainPosY = elem.offsetTop;
+      }
+      var posX = (ev.deltaX / stageRatio) * stageRatioMain + lastMainPosX;
+      var posY = (ev.deltaY / stageRatio) * stageRatioMain + lastMainPosY;
+      var rangeX = Math.abs((640 * (stageRatioMain - 1)) / 2);
+      var rangeY = Math.abs((360 * (stageRatioMain - 1)) / 2);
+      if (posX > rangeX) {
+        posX = rangeX;
+      } else if (posX < rangeX * -1) {
+        posX = rangeX * -1;
+      }
+      if (posY > rangeY) {
+        posY = rangeY;
+      } else if (posY < rangeY * -1) {
+        posY = rangeY * -1;
+      }
+
+      elem.style.left = posX + "px";
+      elem.style.top = posY + "px";
+    } else if ($(firstSizerElem).hasClass("sizer_dragger")) {
+      if (!isMainDrag) {
+        isMainDrag = true;
+        lastMainPosY = firstSizerElem.offsetTop;
+        $("#sizer").removeClass("lock");
+      }
+      var posY = (ev.deltaY / stageRatio) * stageRatioMain + lastMainPosY;
+      posY = Math.min(40, posY);
+      posY = Math.max(0, posY);
+      firstSizerElem.style.top = posY + "px";
+      //sizing
+      stageRatioMain = 1 * (posY / 40) + 1;
+      stageRatioReal = stageRatioRoot * stageRatioMain;
+      stageRatio = Math.floor(stageRatioReal * 10) / 10;
+
+      $("#sizer_dragger").text("x " + Math.round(stageRatioMain * 10) / 10);
+
+      //
+      $("#main").css(
+        "-ms-transform",
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
+      );
+      $("#main").css(
+        "-webkit-transform",
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
+      );
+      $("#main").css(
+        "transform",
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
+      );
+
+      var rangeX = Math.abs((640 * (stageRatioMain - 1)) / 2);
+      var rangeY = Math.abs((360 * (stageRatioMain - 1)) / 2);
+      var sX = parseInt($("#main").get(0).style.left);
+      var sY = parseInt($("#main").get(0).style.top);
+      if (sX > rangeX) {
+        $("#main").get(0).style.left = rangeX + "px";
+      } else if (sX < rangeX * -1) {
+        $("#main").get(0).style.left = rangeX * -1 + "px";
+      }
+      if (sY > rangeY) {
+        $("#main").get(0).style.top = rangeY + "px";
+      } else if (sY < rangeY * -1) {
+        $("#main").get(0).style.top = rangeY * -1 + "px";
+      }
+    }
+
+    //ending
+    if (ev.isFinal) {
+      isMainDrag = false;
+      firstSizerElem = null;
+      if (
+        $("#sizer_dragger").text() == "x 1" &&
+        !$("#sizer").hasClass("lock")
+      ) {
+        defaultSizer();
+      }
+    }
+  });
+};
+
+let defaultSizer = function () {
+  //reset sizer
+  $("#sizer").show().addClass("lock");
+  $("#sizer_dragger").text("x 1");
+  $("#sizer_dragger").get(0).style.top = 0;
+  stageRatioMain = 1;
+  stageRatioReal = stageRatioRoot * stageRatioMain;
+  stageRatio = Math.floor(stageRatioReal * 10) / 10;
+  $("#main")
+    .addClass("autoMoving")
+    .css("-ms-transform", "scale(1,1)")
+    .css("top", 0)
+    .css("left", 0);
+  $("#main")
+    .addClass("autoMoving")
+    .css("-webkit-transform", "scale(1,1)")
+    .css("top", 0)
+    .css("left", 0);
+  $("#main")
+    .addClass("autoMoving")
+    .css("transform", "scale(1,1)")
+    .css("top", 0)
+    .css("left", 0);
+  $("#main")
+    .delay(600)
+    .queue(function () {
+      $(this).removeClass("autoMoving").dequeue();
+    });
+};
+
 //共用音效控制
 let $chimes = new Audio("./sfx/chimes.mp3");
 let $correct = new Audio("./sfx/correct.mp3");
@@ -1473,6 +1617,18 @@ let activeLoading = function () {
     });
 };
 
+let removeBR = function (str) {
+  console.log(str);
+  var arr = str.split(/<br\s*\/?>/);
+  if (isitEmpty(arr[0])) {
+    res = arr[0] + arr.slice(1).join("<br>");
+  } else {
+    res = str;
+  }
+
+  return res;
+};
+
 let deactiveLoading = function () {
   $("#loading").dequeue();
   $("#loading").clearQueue();
@@ -1499,6 +1655,8 @@ let backToGEO = function () {
   let logoutConfirm = confirm("Log out now？");
 
   if (logoutConfirm) {
+    window.location.reload();
+    /*
     $.ajax({
       type: "GET",
       url: "/ws/ws_get.asmx/MemberLogout",
@@ -1523,6 +1681,7 @@ let backToGEO = function () {
         alert(thrownError);
       },
     });
+    */
   }
 };
 

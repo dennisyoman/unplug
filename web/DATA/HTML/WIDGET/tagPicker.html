@@ -85,6 +85,7 @@
     var newZoomRatio = stageRatioReal / stageRatioMain;
     var ol = 41;
     var ot = 31;
+    var intPoint = [0, 0];
 
     // Mouse Down Event
     ["mousedown", "touchstart"].forEach(function (e) {
@@ -107,6 +108,8 @@
               newZoomRatio -
             ot;
         }
+        intPoint = [startX, startY];
+        console.log("1");
       });
     });
 
@@ -135,11 +138,26 @@
                 ot,
             );
           }
+          console.log("2");
         }
       });
     });
 
-    ["mouseup", "mouseleave", "touchend"].forEach(function (e) {
+    ["mouseup", "touchend"].forEach(function (e) {
+      can.addEventListener(e, function (event) {
+        //first dot
+        if (intPoint[0] == startX && intPoint[1] == startY) {
+          ctx.arc(startX, startY, ctx.lineWidth / 2, 0, 2 * Math.PI, false);
+          ctx.fillStyle = ctx.strokeStyle;
+          ctx.fill();
+          ctx.closePath();
+          console.log("3");
+        }
+        isDraw = false;
+      });
+    });
+
+    ["mouseleave"].forEach(function (e) {
       can.addEventListener(e, function (event) {
         isDraw = false;
       });

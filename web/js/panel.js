@@ -64,6 +64,7 @@ $(document).ready(function () {
           }
           clickthen();
         });
+
       $(".btn_tag")
         .unbind()
         .bind("click", function () {
@@ -151,100 +152,28 @@ $(document).ready(function () {
   checkCompLoading("#main-panel");
 });
 
-//games
-var appendMonopoly = function (e) {
-  //e.stopPropagation();
-
-  if ($("#widget").children(".monopoly").length < 1) {
-    $("#widget").append(`<div id="monopoly" class="monopoly"/>`);
-    $.getComponent("./DATA/HTML/GAME/monopoly.html", "#monopoly");
-  }
-};
-var appendFlipcard = function (e) {
-  //e.stopPropagation();
-
-  if ($("#widget").children(".flipcard").length < 1) {
-    $("#widget").append(`<div id="flipcard" class="flipcard"/>`);
-    $.getComponent("./DATA/HTML/GAME/flipcard.html", "#flipcard");
-  }
-};
-
-//board
-var appendBoardSmall = function (e) {
-  $("#widget .smallboard").remove();
-
-  $("#widget").append(`<div id="smallboard" class="smallboard"/>`);
-  $.getComponent(
-    "./DATA/HTML/WIDGET/smallboard.html",
-    "#smallboard",
-    "",
-    "",
-    "",
-    "",
-    true,
-  );
-};
-var appendBoardLarge = function (e) {
-  $("#widget .largeboard").remove();
-
-  $("#widget").append(`<div id="largeboard" class="largeboard"/>`);
-  $.getComponent(
-    "./DATA/HTML/WIDGET/largeboard.html",
-    "#largeboard",
-    "",
-    "",
-    "",
-    "",
-    true,
-  );
-};
-
 //widget
-var appendPiece = function (e) {
-  e.stopPropagation();
-  //pieceArr
-  var pieceClass = "";
-  //for (i = 0; i < pieceArr.length; i++) {
-  //if (
-  //$("#widget").children(".piece." + pieceArr[i]).length < 1 &&
-  //pieceClass == ""
-  //) {
-  pieceClass =
-    pieceArr[$("#widget").children(".piece").length % pieceArr.length];
-  //
-  $("#widget").append(
-    `<div id="piece" class="wow bounceIn piece ${pieceClass}"/>`,
-  );
-  rootSoundEffect($pop);
-  $("#piece")
-    .unbind()
-    .bind("mousedown", function (ev) {
-      getHighestDepthWidget($(this));
-    });
-  getHighestDepthWidget($("#piece"));
-  makeDraggable($("#piece"), false);
-  //
-  //break;
-  //}
-  //}
-};
+
 var appendScorer = function (e) {
   e.stopPropagation();
   //pieceArr
   var pieceClass =
     pieceArr[$("#widget").children(".scorer").length % pieceArr.length];
   //
-  //
-  $("#widget").append(`<div id="scorer" class="scorer ${pieceClass}"/>`);
-  $.getComponent(
-    "./DATA/HTML/WIDGET/scorer.html",
-    "#scorer",
-    "",
-    "",
-    "",
-    "",
-    true,
-  );
+  if ($("#scorer").length < 1) {
+    $("#widget").append(`<div id="scorer" class="scorer ${pieceClass}"/>`);
+    $.getComponent(
+      "./DATA/HTML/WIDGET/scorer.html",
+      "#scorer",
+      "",
+      "",
+      "",
+      "",
+      true,
+    );
+  } else {
+    console.log("點太快了`,急甚麼?");
+  }
   //
 };
 
@@ -264,22 +193,7 @@ var appendRoulette = function (e) {
     );
   }
 };
-var appendFisher = function (e) {
-  //e.stopPropagation();
 
-  if ($("#widget").children(".fisher").length < 1) {
-    $("#widget").append(`<div id="fisher" class="fisher"/>`);
-    $.getComponent(
-      "./DATA/HTML/WIDGET/fisher.html",
-      "#fisher",
-      "",
-      "",
-      "",
-      "",
-      true,
-    );
-  }
-};
 var appendFinger = function (e) {
   e.stopPropagation();
 
@@ -332,102 +246,107 @@ var appendDice = function (e, type) {
   if (e != "") {
     e.stopPropagation();
   }
-  switch (type) {
-    case 1:
-      if ($("#widget").children(".dice.red").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice red"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      } else if ($("#widget").children(".dice.green").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice green"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      }
-      break;
-    case 2:
-      if ($("#widget").children(".dice.purple").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice purple"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      } else if ($("#widget").children(".dice.yellow").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice yellow"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      }
-      break;
-    case 3:
-      if ($("#widget").children(".dice.blue").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice blue"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      } else if ($("#widget").children(".dice.pink").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice pink"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      }
-    case 4:
-      if ($("#widget").children(".dice.aan").length == 0) {
-        $("#widget").append(`<div id="dice" class="dice aan"/>`);
-        $.getComponent(
-          "./DATA/HTML/WIDGET/dice.html",
-          "#dice",
-          "",
-          "",
-          "",
-          "",
-          true,
-        );
-      }
-      break;
+  if ($("#dice").length < 1) {
+    switch (type) {
+      case 1:
+        if ($("#widget").children(".dice.red").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice red"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        } else if ($("#widget").children(".dice.green").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice green"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        }
+        break;
+      case 2:
+        if ($("#widget").children(".dice.purple").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice purple"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        } else if ($("#widget").children(".dice.yellow").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice yellow"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        }
+        break;
+      case 3:
+        if ($("#widget").children(".dice.blue").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice blue"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        } else if ($("#widget").children(".dice.pink").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice pink"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        }
+      case 4:
+        if ($("#widget").children(".dice.aan").length == 0) {
+          $("#widget").append(`<div id="dice" class="dice aan"/>`);
+          $.getComponent(
+            "./DATA/HTML/WIDGET/dice.html",
+            "#dice",
+            "",
+            "",
+            "",
+            "",
+            true,
+          );
+        }
+        break;
+    }
+    $("#widget #dice").hide();
+  } else {
+    console.log("too fast");
   }
-  $("#widget #dice").hide();
 };
 
 var createZoomSensor = function () {
-  if ($("#widget").children("#zoomSensor").length == 0) {
+  if ($("#widget").children("#zoomSensor").length < 1) {
     $("#widget").append(`<div id="zoomSensor" class="zoomSensor"/>`);
+
     trigZoomHammer();
   } else {
     $("#zoomSensor").remove();
@@ -463,7 +382,7 @@ var handleZoomDrag = function (ev) {
     appendZoomer();
 
     //pre setup
-    $(".voc,.visible,.sideTool > *,.tabs").each(function () {
+    $(".world3D > .stage,.voc,.visible,.sideTool > *").each(function () {
       if ($(this).css("display") != "none") {
         $(this).hide().addClass("bi");
       }
@@ -490,6 +409,7 @@ var handleZoomDrag = function (ev) {
 
   if (ev.isFinal) {
     isZoomDragging = false;
+    $("#zoomSensor").css("pointer-events", "none");
     //pre setup
     $(".wow.animated")
       .removeClass("wow")
@@ -576,6 +496,7 @@ var makeDrawable = function (tar) {
   ctx.lineJoin = "round";
   var startX, startY;
   var _eraserWidth = 100;
+  var intPoint = [0, 0];
 
   // Mouse Down Event
   ["mousedown", "touchstart"].forEach(function (e) {
@@ -595,6 +516,7 @@ var makeDrawable = function (tar) {
           ((event.touches[0].clientY - tar.offset().top) * html2canvasScale) /
           th;
       }
+      intPoint = [startX, startY];
     });
   });
 
@@ -654,7 +576,19 @@ var makeDrawable = function (tar) {
     });
   });
 
-  ["mouseup", "mouseleave", "touchend"].forEach(function (e) {
+  ["mouseup", "touchend"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      //first dot
+      if (intPoint[0] == startX && intPoint[1] == startY) {
+        ctx.arc(startX, startY, ctx.lineWidth / 2, 0, 2 * Math.PI, false);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
+        ctx.closePath();
+      }
+      isDraw = false;
+    });
+  });
+  ["mouseleave"].forEach(function (e) {
     can.addEventListener(e, function (event) {
       isDraw = false;
     });
@@ -672,19 +606,71 @@ var makeDrawable = function (tar) {
 };
 
 var appendZoomer = function () {
-  if ($("#widget").children("#zoomer").length == 0) {
+  if ($("#widget").children("#zoomer").length < 1) {
     $("#widget").append(`<div id="zoomer" class="zoomer"/>`);
     $("#zoomer").css("top", downCord[1] + "px");
     $("#zoomer").css("left", downCord[0] + "px");
-    $.getComponent(
-      "./DATA/HTML/WIDGET/zoomer.html",
-      "#zoomer",
-      "",
-      "",
-      "",
-      "",
-      true,
-    );
+    var zoomerHTML = `<div class="zoomer_wrapper">
+            <span class="edit"></span>
+            <span class="erase"></span>
+            <span class="eraseAll"></span>
+            <div class="drawer"></div>
+            <div class="canvas"></div>
+            <div class="overlay"></div>
+            <span class="resizer lt" />
+            <span class="resizer rt" />
+            <span class="resizer lb" />
+            <span class="resizer rb" />
+          </div>`;
+    $("#zoomer").html(zoomerHTML);
+    //js
+    $("#zoomer")
+      .unbind()
+      .bind("mousedown", function (e) {
+        getHighestDepthWidget($(this));
+      })
+      .bind("touchstart", function (e) {
+        getHighestDepthWidget($(this));
+      });
+    getHighestDepthWidget($("#zoomer"));
+
+    $("#zoomer .edit")
+      .unbind()
+      .bind("click", function (e) {
+        $(this).toggleClass("active").siblings(".erase").removeClass("active");
+
+        if ($(this).hasClass("active")) {
+          $(this).siblings(".eraseAll").addClass("active");
+          $(this).siblings(".drawer").addClass("editable");
+        } else {
+          $(this).siblings(".eraseAll").removeClass("active");
+          $(this).siblings(".drawer").removeClass("editable");
+        }
+      });
+    $("#zoomer .erase")
+      .unbind()
+      .bind("click", function (e) {
+        $(this).toggleClass("active").siblings(".edit").removeClass("active");
+        if ($(this).hasClass("active")) {
+          $(this).siblings(".drawer").addClass("editable");
+          $(this).siblings(".eraseAll").addClass("active");
+        } else {
+          $(this).siblings(".eraseAll").removeClass("active");
+          $(this).siblings(".drawer").removeClass("editable");
+        }
+      });
+    $("#zoomer .eraseAll")
+      .unbind()
+      .bind("click", function (e) {
+        $(this).removeClass("active");
+        $(this).siblings(".edit").removeClass("active");
+        $(this).siblings(".erase").removeClass("active");
+        $(this).siblings(".drawer").removeClass("editable");
+        //
+        var clearTar = $(this).siblings(".drawer").find("canvas");
+        var cctx = clearTar.get(0).getContext("2d");
+        cctx.clearRect(0, 0, clearTar.attr("width"), clearTar.attr("height"));
+      });
   }
 };
 
@@ -767,293 +753,6 @@ var appendTagPicker = function (active) {
   }
 };
 
-//wb
-var WRYGLessonID = ["1C", "1R", "2C", "2R", "3C", "3R", "T"];
-var widgetWB = [];
-var getWBS = function () {
-  widgetWB = [];
-  if (sid != "WRYG") {
-    $(wbXML)
-      .find("item")
-      .each(function (i) {
-        var ssid = $(this).find("sid").text();
-        var bbid = $(this).find("bid").text();
-        var llid = parseInt($(this).find("lid").text());
-        var word = $(this).find("word").text();
-        var img = $(this).find("img").text();
-        var sfx = $(this).find("sfx").text();
-        var pos = $(this).find("pos").text();
-        var ExampleSentence = $(this).find("ExampleSentence").text();
-        if (sid == "GLD" || sid == "WRYG") {
-          word = $(this).find("Content").text();
-        }
-        if (ssid == sid && bbid == bid) {
-          if (widgetWB[llid]) {
-            widgetWB[llid].push([word, img, sfx, pos, ExampleSentence]);
-          } else {
-            widgetWB[llid] = new Array();
-            widgetWB[llid].push([word, img, sfx, pos, ExampleSentence]);
-          }
-        }
-      });
-  } else {
-    $(wbXML)
-      .find("lesson")
-      .each(function (i) {
-        var ssid = $(this).attr("sid");
-        var bbid = $(this).attr("bid");
-        var llid = WRYGLessonID.indexOf($(this).attr("lid"));
-        $(this)
-          .find("section")
-          .each(function (j) {
-            var name = $(this).attr("name");
-            if (name == "Vocabulary") {
-              $(this)
-                .find("item")
-                .each(function (k) {
-                  var context = $(this).text();
-                  contextArr = context.split("|");
-                  if (ssid == sid && bbid == bid) {
-                    if (widgetWB[llid]) {
-                      widgetWB[llid].push([
-                        contextArr[0],
-                        "",
-                        contextArr[2],
-                        contextArr[1],
-                        contextArr[5],
-                      ]);
-                    } else {
-                      widgetWB[llid] = new Array();
-                      widgetWB[llid].push([
-                        contextArr[0],
-                        "",
-                        contextArr[2],
-                        contextArr[1],
-                        contextArr[5],
-                      ]);
-                    }
-                  }
-                });
-            }
-          });
-      });
-  }
-};
-var appendWBS = function () {
-  getWBS();
-
-  var wbs = "<div>";
-  wbs += '<ul class="lesson">';
-  for (var k = 0; k < widgetWB.length; k++) {
-    if (widgetWB[k]) {
-      var LessonName = k;
-      if (sid == "WRYG") {
-        LessonName = WRYGLessonID[k];
-      }
-      wbs +=
-        "<li ind='" +
-        k +
-        "' ><span class='all wow bounceIn'></span>Lesson " +
-        LessonName +
-        "</li>";
-    }
-  }
-  wbs += "</ul>";
-  wbs += '<ul class="word">';
-  wbs += "</ul></div>";
-  $(".btn_wb").html(wbs);
-  //
-  $(".btn_wb")
-    .find("ul.lesson > li")
-    .unbind()
-    .bind("click", function (e) {
-      e.stopPropagation();
-      $(this)
-        .addClass("selected")
-        .siblings(".selected")
-        .removeClass("selected");
-      //
-      var wbs = "";
-      var tempID = parseInt($(this).attr("ind"));
-      var smallClass = widgetWB[tempID].length > 9 ? "small" : "";
-      for (var k = 0; k < widgetWB[tempID].length; k++) {
-        var wordArr = widgetWB[tempID][k][0].split("^");
-        if (wordArr[1]) {
-          wbs +=
-            "<li class='lm " +
-            smallClass +
-            "' ind='" +
-            k +
-            "'><span>" +
-            wordArr[0] +
-            "</span></li>";
-        } else {
-          wbs +=
-            "<li class='" +
-            smallClass +
-            "' ind='" +
-            k +
-            "'><span>" +
-            wordArr[0] +
-            "</span></li>";
-        }
-      }
-      $(".btn_wb").find("ul.word").attr("ind", tempID).html(wbs);
-      //
-      $(".btn_wb")
-        .find("ul.word > li")
-        .unbind()
-        .bind("click", function (e) {
-          e.stopPropagation();
-          appendWB([widgetWB[$("ul.word").attr("ind")][$(this).attr("ind")]]);
-        });
-    })
-    .eq(0)
-    .click();
-  $(".btn_wb")
-    .find("ul.lesson > li span.all")
-    .unbind()
-    .bind("click", function (e) {
-      e.stopPropagation();
-      var tempID = parseInt($(this).parent().attr("ind"));
-      //console.log(widgetWB[tempID]);
-      appendWB(widgetWB[tempID]);
-    });
-};
-
-var appendWB = function (data) {
-  if ($("#widget").children("#wbcard").length == 0) {
-    for (var i = 0; i < data.length; i++) {
-      var word = data[i][0].split("^");
-      let itemHTML = `<div id='wbcard' class='wbcard noImg autoMoving' voc='${word[0]}'><div><span class="img"></span>`;
-      if (!isitEmpty(data[i][1])) {
-        itemHTML = `<div id='wbcard' class='wbcard autoMoving' voc='${word[0]}'><div><span class="img"><img src="./DATA/${sid}/BOOK${bid}/IMAGES/${data[i][1]}" /></span>`;
-      }
-
-      //define part
-      if (sid == "GLD" || sid == "WRYG") {
-        itemHTML += `<span class="definition"><span>${data[i][4]}</span></span>`;
-      }
-
-      if (word[0].length < 12) {
-        itemHTML += `<p>${word[0]}</p>`;
-      } else {
-        itemHTML += `<p class="multi small">${word[0]}</p>`;
-      }
-
-      //type part
-      if (sid == "WRYG") {
-        itemHTML += `<h3>${data[i][3]}</h3>`;
-      }
-
-      itemHTML += `<audio preload="auto" src="./DATA/${sid}/BOOK${bid}/AUDIO/${data[i][2]}" />`;
-
-      if (word[1]) {
-        itemHTML += `<span class="lm"></span>`;
-      }
-
-      itemHTML += `<span class="voc"></span>`;
-
-      //define part
-      if (sid == "GLD" || sid == "WRYG") {
-        itemHTML += `<span class="def"></span>`;
-      }
-      itemHTML += "</div></div>";
-
-      $("#widget").append(itemHTML);
-
-      //lowlag audios
-      var tempSound = $("#widget").find("audio");
-      if (tempSound.length > 0) {
-        tempSound.each(function () {
-          if ($SFXNameAr.indexOf($(this).attr("src")) == -1) {
-            $SFXNameAr.push($(this).attr("src"));
-            $SFXAr.push(new Audio($(this).attr("src")));
-          }
-        });
-      }
-
-      //card
-      $("#wbcard")
-        .unbind()
-        .bind("mousedown", function (ev) {
-          click.x = ev.clientX;
-          click.y = ev.clientY;
-          getHighestDepthWidget($(this));
-        })
-        .bind("mouseup", function (ev) {
-          if (click.x == ev.clientX && click.y == ev.clientY) {
-            if ($(ev.target).hasClass("voc")) {
-              $(this).toggleClass("voced");
-              updateVOC2($(this));
-            } else if ($(ev.target).hasClass("def")) {
-              $(ev.target).toggleClass("active");
-              $(this).toggleClass("definition");
-            } else {
-              playWBAudio2($(this));
-              rootSoundEffect($chimes);
-            }
-          }
-        })
-        .delay(30)
-        .queue(function () {
-          $(this)
-            .css({
-              top: 10 + Math.floor(Math.random() * 80),
-              left: 10 + Math.floor(Math.random() * 490),
-            })
-            .dequeue()
-            .delay(1000)
-            .queue(function () {
-              $(this).removeClass("autoMoving").dequeue();
-            });
-        });
-      makeDraggable($("#wbcard"));
-      //
-      $(".btn_remove").show();
-    }
-  }
-  //add remove btn
-  if ($("#wbcard").length == 0) {
-  }
-};
-
-var updateVOC2 = function (tar) {
-  var voc = tar.attr("voc");
-  if (tar.hasClass("voced")) {
-    var keepAy = new Array();
-    var swapAy = new Array();
-    //紀錄要留下的
-    for (var i = 0; i < keepString.length; i++) {
-      var counter = 0;
-      var tempA = voc.split(keepString[i]);
-      for (var k = 0; k < tempA.length - 1; k++) {
-        counter += tempA[k].length;
-        keepAy.push([counter, keepString[i]]);
-        counter += keepString[i].length;
-      }
-    }
-    //替換
-    var finalStr = "";
-    for (var i = 0; i < voc.length; i++) {
-      finalStr += "_";
-    }
-    for (var i = 0; i < keepAy.length; i++) {
-      finalStr =
-        finalStr.substring(0, keepAy[i][0]) +
-        keepAy[i][1] +
-        finalStr.substring(keepAy[i][0] + keepAy[i][1].length, finalStr.length);
-    }
-    tar.find("p").text(finalStr);
-  } else {
-    tar.find("p").text(voc);
-  }
-};
-var playWBAudio2 = function (tar) {
-  lowlagSFX();
-  activeSFX();
-  rootSoundEffectName(tar.find("audio").attr("src"));
-};
 //common
 
 var resetPanelBtns = function (classname) {
