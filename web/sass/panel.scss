@@ -1451,14 +1451,13 @@
         background: #000;
 
         span {
-          width: 13px;
-          height: 13px;
-          background: rgba(0, 0, 0, 0.2) url("../DATA/IMAGES/common/piece.png") no-repeat center center;
-          background-size: 7px 8px;
-          margin: 1px 3px;
+          width: 10px;
+          height: 10px;
+          background: url("../DATA/IMAGES/common/icon_paletton.png") no-repeat center center;
+          background-size: contain;
+          margin: 2px 3px;
           display: inline-block;
           pointer-events: auto;
-          @include borderRadius(3px);
         }
       }
       .trigs {

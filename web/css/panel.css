@@ -1767,16 +1767,13 @@
 }
 
 .widget > .scorer .scorer_wrapper .header span {
-  width: 13px;
-  height: 13px;
-  background: rgba(0, 0, 0, 0.2) url("../DATA/IMAGES/common/piece.png") no-repeat center center;
-  background-size: 7px 8px;
-  margin: 1px 3px;
+  width: 10px;
+  height: 10px;
+  background: url("../DATA/IMAGES/common/icon_paletton.png") no-repeat center center;
+  background-size: contain;
+  margin: 2px 3px;
   display: inline-block;
   pointer-events: auto;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
 }
 
 .widget > .scorer .scorer_wrapper .trigs {
