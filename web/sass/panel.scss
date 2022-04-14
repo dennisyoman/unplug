@@ -692,8 +692,7 @@
       position: relative;
       min-width: 150px;
       height: 36px;
-      background: $main url("../DATA/IMAGES/common/updown.png") no-repeat bottom 14px right 4px;
-      background-size: 8px 40px;
+      background-color: $main;
       padding: 3px 15px 3px 3px;
       display: flex;
       @include borderRadius(2px);
@@ -772,6 +771,18 @@
         border-style: solid;
         border-width: 18px 24px 18px 0;
         border-color: transparent $main transparent transparent;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 16px;
+        right: 5px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4px 3px 0 3px;
+        border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
       }
     }
   }
