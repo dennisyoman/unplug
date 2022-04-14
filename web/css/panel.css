@@ -890,11 +890,11 @@
 }
 
 .widget > .tag .tag_wrapper.c3 {
-  background-color: #294197;
+  background-color: #80a6d7;
 }
 
 .widget > .tag .tag_wrapper.c3::after {
-  border-color: transparent #294197 transparent transparent;
+  border-color: transparent #80a6d7 transparent transparent;
 }
 
 .widget > .tag .tag_wrapper.c4 {
