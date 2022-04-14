@@ -171,6 +171,8 @@ let pieceArr = ["red", "green", "blue", "orange", "purple"];
 var currentAudio;
 var currentAudioTrack;
 let countDownDefault = [0, 0, 0, 0];
+//標籤
+var tags = [];
 
 let getLessonName = function () {
   var finalName = "";

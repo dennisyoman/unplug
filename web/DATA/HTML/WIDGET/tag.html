@@ -1,6 +1,6 @@
 <div class="tag_wrapper wow rotateInUpLeft">
   <div class="colour" mt="2"></div>
-  <div class="drawer" mt="2"><canvas width="60" height="30"></canvas></div>
+  <div class="drawer" mt="2"><canvas width="300" height="150"></canvas></div>
   <div class="type" mt="2">正在說故事</div>
 </div>
 <div class="assetsPreload"></div>
@@ -83,7 +83,9 @@
           Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
         ) {
           //console.log("換名字");
-          //appendTagPicker(true);
+          $("#tag_focus").removeAttr("id");
+          $(this).parent().parent().attr("id", "tag_focus");
+          appendTagPicker(true);
         }
       });
     //init

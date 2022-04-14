@@ -1,108 +1,90 @@
 <div class="tagpicker_wrapper wow slideInUp">
-  <span class="edit active" mt="2"
-    ><img src="./DATA/IMAGES/common/board_draw.png"
+  <span class="cancel"><img src="./DATA/IMAGES/common/btn_close.png" /></span>
+  <span class="done"><img src="./DATA/IMAGES/common/btn_answer.png" /></span>
+  <span class="eraseAll"
+    ><img src="./DATA/IMAGES/common/icon_erasor.png"
   /></span>
-  <span class="eraseAll" mt="2"
-    ><img src="./DATA/IMAGES/common/board_clear.png"
-  /></span>
-  <div class="drawer"><canvas width="197" height="108"></canvas></div>
-  <div class="keyer">
-    <textarea spellcheck="false" id="mytext"></textarea>
-  </div>
+  <div class="drawer"><canvas width="300" height="150"></canvas></div>
+  <div id="tagList" class="tagList"></div>
+  <span class="eraseStorge">Clear All</span>
 </div>
-<div class="assetsPreload">
-  <img src="./DATA/IMAGES/common/board.png" />
-  <img src="./DATA/IMAGES/common/board_draw.png" />
-  <img src="./DATA/IMAGES/common/board_keyboard.png" />
-  <img src="./DATA/IMAGES/common/board_clear.png" />
-</div>
+<div class="assetsPreload"></div>
 
 <script>
   $(document).ready(function () {
-    //$("#keyboard").remove();
-    //$("#mytext").keyboard();
-    //
-    $("#tagPicker")
+    $("#tagPicker .eraseStorge")
       .unbind()
-      .bind("mousedown", function (e) {
-        getHighestDepthWidget($(this));
-      })
-      .bind("touchstart", function (e) {
-        getHighestDepthWidget($(this));
-      });
-    getHighestDepthWidget($("#tagPicker"));
-
-    $("#tagPicker .edit")
-      .unbind()
-      .bind("mousedown", function (e) {
-        click.x = e.clientX;
-        click.y = e.clientY;
-      })
-      .bind("mouseup", function (e) {
-        if (
-          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
-          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
-        ) {
-          $(this).siblings(".drawer").show();
-          $(this).siblings(".keyer").hide();
-          $(this).addClass("active").siblings(".active").removeClass("active");
-          //
-          $("#mytext").val("");
-        }
-      });
-    $("#tagPicker .keyboard")
-      .unbind()
-      .bind("mousedown", function (e) {
-        click.x = e.clientX;
-        click.y = e.clientY;
-      })
-      .bind("mouseup", function (e) {
-        if (
-          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
-          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
-        ) {
-          $(this).siblings(".drawer").hide();
-          $(this).siblings(".keyer").show();
-          $(this).addClass("active").siblings(".active").removeClass("active");
-          //
-          var clearTar = $(this).siblings(".drawer").find("canvas");
-          var cctx = clearTar.get(0).getContext("2d");
-          cctx.clearRect(0, 0, clearTar.attr("width"), clearTar.attr("height"));
-          $("input[name='username']").keyboard();
-          $("#password").keyboard();
-        }
+      .bind("click", function (e) {
+        $("#tagList").empty();
+        tags = [];
+        window.localStorage.removeItem("tagsStrings");
       });
     $("#tagPicker .eraseAll")
       .unbind()
-      .bind("mousedown", function (e) {
-        click.x = e.clientX;
-        click.y = e.clientY;
-      })
-      .bind("mouseup", function (e) {
-        if (
-          Math.abs(click.x - e.clientX) < click.threshold * stageRatioReal &&
-          Math.abs(click.y - e.clientY) < click.threshold * stageRatioReal
-        ) {
-          var clearTar = $(this).siblings(".drawer").find("canvas");
-          var cctx = clearTar.get(0).getContext("2d");
-          cctx.clearRect(0, 0, clearTar.attr("width"), clearTar.attr("height"));
-          //
-          $("#mytext").val("");
+      .bind("click", function (e) {
+        var clearTar = $(this).siblings(".drawer").find("canvas");
+        var cctx = clearTar.get(0).getContext("2d");
+        cctx.clearRect(0, 0, clearTar.attr("width"), clearTar.attr("height"));
+      });
+    $("#tagPicker .done")
+      .unbind()
+      .bind("click", function (e) {
+        //clone canvas
+        var tarCanvas = $("#tag_focus").find("canvas");
+        var cctx = tarCanvas.get(0).getContext("2d");
+        if (!isCanvasBlank(can)) {
+          cctx.clearRect(
+            0,
+            0,
+            tarCanvas.attr("width"),
+            tarCanvas.attr("height"),
+          );
+          cctx.drawImage(
+            can,
+            0,
+            0,
+            tarCanvas.attr("width"),
+            tarCanvas.attr("height"),
+          );
+          //localStorage
+          var tempString = "";
+          if (tags.length > 0) {
+            tempString = tags.join("^");
+            tempString += "^";
+          }
+          tempString += tarCanvas.get(0).toDataURL();
+          window.localStorage.setItem("tagsStrings", tempString);
+        } else {
+          cctx.clearRect(
+            0,
+            0,
+            tarCanvas.attr("width"),
+            tarCanvas.attr("height"),
+          );
         }
+        //
+        $("#tag_focus").removeAttr("id");
+        $("#tagPicker").remove();
+      });
+    $("#tagPicker .cancel")
+      .unbind()
+      .bind("click", function (e) {
+        $("#tag_focus").removeAttr("id");
+        $("#tagPicker").remove();
       });
     //
     var can = $("#tagPicker").find(".drawer > canvas").get(0);
     var ctx = can.getContext("2d");
     var isDraw = false;
-    ctx.strokeStyle = "#66ccff";
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#333333";
+    ctx.lineWidth = 5;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     var startX, startY;
     var _eraserWidth = 100;
     var newZoomRatio = stageRatioReal / stageRatioMain;
-    var ol = 8;
-    var ot = 7;
+    var ol = 41;
+    var ot = 31;
 
     // Mouse Down Event
     ["mousedown", "touchstart"].forEach(function (e) {
@@ -172,13 +154,79 @@
       startX = stopX;
       startY = stopY;
     }
+    //貼上原圖
+    var tarCanvas = $("#tag_focus").find("canvas");
+    ctx.drawImage(
+      tarCanvas.get(0),
+      0,
+      0,
+      $(can).attr("width"),
+      $(can).attr("height"),
+    );
+
+    //localstorge get tags signatures
+    var dataURL = window.localStorage.getItem("tagsStrings");
+    var counterr = 0;
+    if (dataURL && dataURL.length > 0) {
+      //簽名列表
+      tags = dataURL.split("^");
+      for (var k = 0; k < tags.length; k++) {
+        $("#tagList").append(
+          `<div><span onClick="removeMe($(this))"></span><canvas onClick="cloneMe($(this))" width="300" height="150"></canvas></div>`,
+        );
+      }
+      outputCanvas();
+    }
+
+    function outputCanvas() {
+      var tempCanvas = $("#tagList").find(">div").eq(counterr).find("canvas");
+      var tempCTX = tempCanvas.get(0).getContext("2d");
+      var img = new Image();
+      img.src = tags[counterr];
+      img.onload = function () {
+        tempCTX.drawImage(
+          img,
+          0,
+          0,
+          tempCanvas.attr("width"),
+          tempCanvas.attr("height"),
+        );
+        //
+        counterr += 1;
+        if (counterr < tags.length) {
+          outputCanvas();
+        }
+      };
+    }
     //
-    $("#tagPicker")
-      .attr("id", "")
-      .delay(80)
-      .queue(function () {
-        $(this).dequeue();
-        //makeDraggable($(this), false, $(this));
-      });
+    getHighestDepthWidget($("#tagPicker"));
   });
+
+  function cloneMe(tar) {
+    var tarCanvas = $("#tag_focus").find("canvas");
+    var cctx = tarCanvas.get(0).getContext("2d");
+    cctx.clearRect(0, 0, tarCanvas.attr("width"), tarCanvas.attr("height"));
+    cctx.drawImage(
+      tar.get(0),
+      0,
+      0,
+      tarCanvas.attr("width"),
+      tarCanvas.attr("height"),
+    );
+
+    //
+    $("#tag_focus").removeAttr("id");
+    $("#tagPicker").remove();
+  }
+
+  function removeMe(tar) {
+    tags.splice(tar.parent().index(), 1);
+    tar.parent().remove();
+    //localstorge save
+    var tempString = "";
+    if (tags.length > 0) {
+      tempString = tags.join("^");
+    }
+    window.localStorage.setItem("tagsStrings", tempString);
+  }
 </script>
