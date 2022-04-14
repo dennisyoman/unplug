@@ -86,7 +86,10 @@
           //appendTagPicker(true);
         }
       });
-
+    //init
+    $("#tag > .tag_wrapper").addClass(
+      tagColours[Math.floor(Math.random() * tagColours.length)],
+    );
     //
     $("#tag")
       .attr("id", "")
