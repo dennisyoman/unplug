@@ -141,7 +141,13 @@ $(document).ready(function () {
         );
     }
   }
-
+  //assetsPreload img
+  $("#module_wrapper")
+    .find("img")
+    .each(function () {
+      var src = $(this).attr("src");
+      $("#module_wrapper > .assetsPreload").append(`<img src="${src}" />`);
+    });
   //check loading
   checkCompLoading("#module_wrapper");
 

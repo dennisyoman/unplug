@@ -382,7 +382,7 @@ var handleZoomDrag = function (ev) {
     appendZoomer();
 
     //pre setup
-    $(".world3D > .stage,.voc,.visible,.sideTool > *").each(function () {
+    $(".world3D > .stage2,.voc,.visible,.sideTool > *").each(function () {
       if ($(this).css("display") != "none") {
         $(this).hide().addClass("bi");
       }

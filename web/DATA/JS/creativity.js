@@ -77,7 +77,13 @@ $(document).ready(function () {
         });
       deactiveLoading();
     });
-
+  //assetsPreload img
+  $("#module_wrapper")
+    .find("img")
+    .each(function () {
+      var src = $(this).attr("src");
+      $("#module_wrapper > .assetsPreload").append(`<img src="${src}" />`);
+    });
   //check loading
   checkCompLoading("#module_wrapper");
   $("#module_wrapper .units-title")
@@ -148,6 +154,14 @@ var showSlider = function (boolean) {
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_correctslider").hide();
+    //
+    if (selectedElem.find(".gridSlider > .storyline > div").length <= 1) {
+      selectedElem.find(".gridSlider > .prev").hide();
+      selectedElem.find(".gridSlider > .next").hide();
+    } else {
+      selectedElem.find(".gridSlider > .prev").show();
+      selectedElem.find(".gridSlider > .next").show();
+    }
   } else {
     selectedElem.find(".grid4").show();
     selectedElem

@@ -1558,8 +1558,8 @@ let resizeScreen = function () {
   }
 
   //
-  if ($(".btn_brush").hasClass("active")) {
-    $(".btn_brush").click();
+  if ($(".btn_paletton").hasClass("active")) {
+    $(".btn_paletton").click();
   }
 };
 

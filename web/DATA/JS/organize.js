@@ -79,7 +79,13 @@ $(document).ready(function () {
         });
       deactiveLoading();
     });
-
+  //assetsPreload img
+  $("#module_wrapper")
+    .find("img")
+    .each(function () {
+      var src = $(this).attr("src");
+      $("#module_wrapper > .assetsPreload").append(`<img src="${src}" />`);
+    });
   //check loading
   checkCompLoading("#module_wrapper");
   $("#module_wrapper .units-title")
@@ -241,7 +247,8 @@ var checkOrderStatus = function () {
   var gridSpan = rowElem.find("> span.selected");
   var intx = "";
   var inty = "";
-  gridElem.find("p").css("opacity", 0);
+  //gridElem.find("p").css("opacity", 0);
+  $(".alert").remove();
   gridSpan.each(function () {
     if (intx == "") {
       intx = $(this).offset().left - $("#module_wrapper").offset().left;
@@ -302,7 +309,11 @@ var checkOrderStatus = function () {
     rootSoundEffect($pop);
     $(".sideTool > div.btn_replay").show();
   } else {
-    gridElem.find("p").css("opacity", 1);
+    //gridElem.find("p").css("opacity", 1);
+    var alert = `<p>兩列<b>不可以</b>使用一樣的組合方式<p>`;
+    $(".contents > div.selected").append(
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`,
+    );
     rootSoundEffect($surprise);
     //fail place block
     gridSpan.removeClass("selected disable");
@@ -335,7 +346,9 @@ var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".disable").removeClass("disable");
   elem.find(".grids > .row > span").removeAttr("link");
-  elem.find("p").css("opacity", 1);
+  //elem.find("p").css("opacity", 1);
+  $(".alert").remove();
+
   blockCount = 0;
 
   //smoke effect
