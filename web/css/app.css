@@ -4094,7 +4094,7 @@ option,
 .modal,
 input,
 textarea {
-  font-family: "Gfont", "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica;
+  font-family: "Gfont", "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -4665,7 +4665,7 @@ img {
 .root .loading > div.spin > P {
   position: absolute;
   font-size: 12px;
-  color: #333;
+  color: #ccc;
   line-height: 20px;
   text-align: center;
   pointer-events: none;
