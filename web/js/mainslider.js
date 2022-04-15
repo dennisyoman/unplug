@@ -6,11 +6,17 @@ $(document).ready(function () {
       //init
       $(this)
         .addClass("loaded")
-        .delay(2000)
+        .delay(500)
         .queue(function () {});
       deactiveLoading();
-
-      initSwiper();
+    });
+  initSwiper();
+  //assetsPreload img
+  $("#ms_wrapper")
+    .find("img")
+    .each(function () {
+      var src = $(this).attr("src");
+      $("#ms_wrapper > .assetsPreload").append(`<img src="${src}" />`);
     });
 
   //check loading
