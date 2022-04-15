@@ -499,7 +499,7 @@ var showResult = function (result) {
       tempKing
         .addClass("outbound")
         .append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`,
         );
       $(".smoke")
         .delay(1000)
@@ -543,7 +543,7 @@ var showResult = function (result) {
           .dequeue()
           .addClass("vanish")
           .append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
+            `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`,
           );
         $(".smoke")
           .delay(1000)

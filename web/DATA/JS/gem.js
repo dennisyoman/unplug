@@ -260,7 +260,7 @@ var checkOrderStatus = function () {
       .find(">div.selected")
       .removeClass("selected")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
+        `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`,
       );
     $("#cardAvatar").remove();
     $(".cached")

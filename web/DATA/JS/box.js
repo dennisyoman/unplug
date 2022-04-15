@@ -224,13 +224,14 @@ var checkOrderStatus = function () {
       .find(">div.selected")
       .removeClass("selected")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
+        `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`,
       );
     $("#cardAvatar > div").addClass("flyout");
     $("#cardAvatar").attr("id", "").addClass("cardAvatarDie");
     $(".cached")
       .delay(1000)
       .queue(function () {
+        $(".smoke").remove();
         $(".cardAvatarDie").remove();
         $(this).removeClass("cached").dequeue();
       });
