@@ -54,13 +54,14 @@ $(document).ready(function () {
         .unbind()
         .bind("click", function () {
           resetMen();
-          if ($(".sideTool > div.btn_playorder").hasClass("active")) {
-            $(".sideTool > div.btn_playorder").removeClass("active");
-            $(".contents > div.selected .lights > div").removeClass(
-              "passed wrong right",
-            );
-          }
+          //if ($(".sideTool > div.btn_playorder").hasClass("active")) {
+          //$(".sideTool > div.btn_playorder").removeClass("active");
+          $(".contents > div.selected .lights > div").removeClass(
+            "passed wrong right",
+          );
+          //}
           $(this).toggleClass("selected");
+          $(".lights > .cta").show();
         });
 
       //sidetool
@@ -84,6 +85,12 @@ $(document).ready(function () {
           } else {
             goPassing(false);
           }
+        });
+      $(".lights > .cta")
+        .unbind()
+        .bind("click", function () {
+          goPassing(true);
+          $(this).hide();
         });
 
       //init
@@ -598,6 +605,7 @@ var openContent = function (id) {
   //show side tool btn
   if ($(".contents > div.selected").find(".lights").length > 0) {
     $(".sideTool > div.btn_playorder").show();
+    $(".lights > .cta").show();
   }
   if ($(".contents > div.selected").find(".cards").length > 0) {
     $(".sideTool > div.btn_answer").show();

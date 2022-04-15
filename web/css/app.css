@@ -1270,6 +1270,11 @@
   -webkit-border-radius: 8px;
 }
 
+.module_order .contents .world3D .lights .cta {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
 .module_creativity {
   position: relative;
   top: 0;

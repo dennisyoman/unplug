@@ -609,6 +609,11 @@
             @include borderRadius(8px);
           }
         }
+
+        .cta {
+          margin-top: 5px;
+          margin-left: 15px;
+        }
       }
     }
   }
