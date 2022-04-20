@@ -80,6 +80,7 @@
         -webkit-transform-style: preserve-3d;
         -ms-transform-style: preserve-3d;
         animation: floorrise 1s 1;
+        z-index: 1;
         * {
           transform-style: preserve-3d;
           -moz-transform-style: preserve-3d;
@@ -186,6 +187,7 @@
             width: 100%;
             height: auto;
             margin-left: -50%;
+            z-index: 2;
           }
 
           .smoke {
@@ -315,7 +317,7 @@
         }
       }
       .frames {
-        z-index: 1;
+        z-index: 100;
         position: absolute;
         top: 30px;
         left: 35px;
@@ -480,7 +482,7 @@
         }
       }
       .cards {
-        z-index: 2;
+        z-index: 100;
         position: absolute;
         bottom: 15px;
         left: 50%;
@@ -525,7 +527,7 @@
         }
       }
       .lights {
-        z-index: 2;
+        z-index: 100;
         position: absolute;
         bottom: 15px;
         left: 50%;
@@ -692,6 +694,7 @@
         cursor: pointer;
         border: 2px solid #fff;
         @include borderRadius(12px);
+        z-index: 1;
 
         img {
           position: absolute;
@@ -991,6 +994,7 @@
     border: 4px solid $l1;
     @include borderRadius(12px);
     background: #fff;
+    z-index: 1;
 
     &.l2 {
       border-color: $l2;
@@ -1255,6 +1259,7 @@
         border: 1px dashed $orange;
         @include borderRadius(15px);
         position: relative;
+        z-index: 1;
         &::after,
         &::before {
           display: none;
@@ -1380,6 +1385,7 @@
         border: 1px dashed $orange;
         @include borderRadius(15px);
         position: relative;
+        z-index: 1;
         &::after,
         &::before {
           display: none;
@@ -1481,6 +1487,7 @@
         border: 1px dashed $orange;
         @include borderRadius(15px);
         position: relative;
+        z-index: 1;
         &::after,
         &::before {
           display: none;
@@ -1589,6 +1596,7 @@
         border: 1px dashed $orange;
         @include borderRadius(15px);
         position: relative;
+        z-index: 1;
         &::after,
         &::before {
           display: none;
@@ -2025,6 +2033,7 @@
         cursor: pointer;
         @include transition(all, 0.4s);
         position: relative;
+        z-index: 1;
 
         &.disable,
         &.cached {
@@ -2048,6 +2057,8 @@
           height: 100%;
           object-fit: scale-down;
           object-position: center bottom;
+          z-index: 1;
+          position: relative;
         }
         > span {
           position: absolute;
@@ -2085,6 +2096,7 @@
       width: 100% !important;
       height: 100% !important;
       position: relative;
+      z-index: 1;
       img {
         width: 100%;
         height: 100%;

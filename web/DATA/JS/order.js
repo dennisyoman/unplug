@@ -176,8 +176,20 @@ var handleDrag = function (ev) {
 
   if (isDragging && $elem) {
     if ($($elem).hasClass("rotater")) {
-      var RX = (-0.1 * ev.deltaY) / stageRatioReal + lastRX;
-      var RZ = (-0.1 * ev.deltaX) / stageRatioReal + lastRZ;
+      var RX = (-0.2 * ev.deltaY) / stageRatioReal + lastRX;
+      var RZ = (-0.2 * ev.deltaX) / stageRatioReal + lastRZ;
+      if (RX < 10) {
+        RX = 10;
+      }
+      if (RX > 80) {
+        RX = 80;
+      }
+      if (RZ > 50) {
+        RZ = 50;
+      }
+      if (RZ < -50) {
+        RZ = -50;
+      }
       $($elem).attr("curRX", RX);
       $($elem).attr("curRZ", RZ);
       $elem.style.transform = "rotateX(" + RX + "deg) rotateZ(" + RZ + "deg)";
