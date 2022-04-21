@@ -13,11 +13,11 @@
 
   <div id="contents" class="contents">
     <div>
-      <div class="intro wow fadeIn">
+      <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>
-            過度使用數位產品會怎麼樣？讓我們一起討論吧。可以自己決定討論的順序。
+            過度使用數位產品會怎麼樣？讓我們一起討論吧。點擊圖片，可以查看圖片說明。
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
@@ -29,52 +29,102 @@
           style="padding-top: 40px"
         >
           <div>
-            <div class="cardItem n1 l4 cards" ans="1">
+            <div
+              class="cardItem n1 l4"
+              ans="1"
+              title="眼睛痠痛"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-A.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n2 l4 cards" ans="2">
+            <div
+              class="cardItem n2 l4"
+              ans="2"
+              title="造成近視眼、老花眼"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-B.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n3 l4 cards" ans="3">
+            <div
+              class="cardItem n3 l4"
+              ans="3"
+              title="運動時間變少"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-C.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n4 l4 cards" ans="4">
+            <div
+              class="cardItem n4 l4"
+              ans="4"
+              title="肩頸痠痛"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-D.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n5 l4 cards" ans="5">
+            <div
+              class="cardItem n5 l4"
+              ans="5"
+              title="手腕痠痛"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-E.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n6 l4 cards" ans="6">
+            <div
+              class="cardItem n6 l4"
+              ans="6"
+              title="睡眠不足"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-F.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n7 l4 cards" ans="7">
+            <div
+              class="cardItem n7 l4"
+              ans="7"
+              title="情緒焦慮"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-G.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n8 l4 cards" ans="8">
+            <div
+              class="cardItem n8 l4"
+              ans="8"
+              title="親子關係疏離"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-H.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n9 l4 cards" ans="9">
+            <div
+              class="cardItem n9 l4"
+              ans="9"
+              title="注力下降"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-I.jpg" />
             </div>
           </div>
           <div>
-            <div class="cardItem n10 l4 cards" ans="10">
+            <div
+              class="cardItem n10 l4"
+              ans="10"
+              title="駝背、姿勢不良"
+              onClick="slideToMe($(this))"
+            >
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-1-J.jpg" />
             </div>
           </div>
@@ -87,7 +137,7 @@
       </div>
     </div>
     <div>
-      <div class="intro wow fadeIn">
+      <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>如何當個健康的好小孩？請把正確的卡片圈選起來。</p>
@@ -97,42 +147,82 @@
       <!--  加上 decimal 表示用數字排順序 -->
       <div class="grids grid12 decimal wow fadeIn">
         <div>
-          <div class="cardItem n1 l4" ans="1" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n1 l4"
+            ans="1"
+            title="常做伸展操"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-A.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n2 l4" ans="2" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n2 l4"
+            ans="2"
+            title="去戶外運動"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-B.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n3 l4" ans="3" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n3 l4"
+            ans="3"
+            title="看電視要定時間"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-C.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n4 l4" ans="4" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n4 l4"
+            ans="4"
+            title="多做其它活動，如畫畫、拼圖、玩積木等"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-D.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n5 l4" ans="5" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n5 l4"
+            ans="5"
+            title="躺著使用平板、手機"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-E.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n6 l4" ans="6" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n6 l4"
+            ans="6"
+            title="在光線昏暗的地方使用手機"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-F.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n7 l4" ans="7" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n7 l4"
+            ans="7"
+            title="平板、手機不用的時候請長輩保管"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-G.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n8 l4" ans="8" onClick="toggleMe($(this))">
+          <div
+            class="cardItem n8 l4"
+            ans="8"
+            title="多吃胡蘿蔔、柑橘類及檸檬、各式深綠及深黃蔬菜(菠菜、地瓜葉、南瓜)"
+            onClick="toggleMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-4-2-H.jpg" />
           </div>
         </div>

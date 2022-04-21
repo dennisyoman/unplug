@@ -13,10 +13,10 @@
 
   <div id="contents" class="contents">
     <div>
-      <div class="intro wow fadeIn">
+      <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p>讓我們一起討論數位產品有哪些分類？可以自己決定討論的順序。</p>
+          <p>讓我們一起討論數位產品有哪些分類？點擊圖片，可以查看圖片說明。</p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
@@ -24,17 +24,35 @@
         <!--  加上 decimal 表示用數字排順序 -->
         <div class="grids grid4 decimal wow fadeInDown">
           <div>
-            <div class="cardItem n1 l4 cards" ans="1">
+            <div
+              class="cardItem l4"
+              ans="1"
+              title="電腦"
+              onClick="slideToMe($(this))"
+            >
+              <span>電腦</span>
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-1-A.png" />
             </div>
           </div>
           <div>
-            <div class="cardItem n2 l4 cards" ans="2">
+            <div
+              class="cardItem l4"
+              ans="2"
+              title="通訊產品"
+              onClick="slideToMe($(this))"
+            >
+              <span>通訊產品</span>
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-1-B.png" />
             </div>
           </div>
           <div>
-            <div class="cardItem n3 l4 cards" ans="3">
+            <div
+              class="cardItem l4"
+              ans="3"
+              title="消費電子產品"
+              onClick="slideToMe($(this))"
+            >
+              <span>消費電子產品</span>
               <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-1-C.png" />
             </div>
           </div>
@@ -47,11 +65,11 @@
       </div>
     </div>
     <div>
-      <div class="intro wow fadeIn">
+      <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>
-            讓我們一起討論如何正確使用這些數位產品。可以自己決定討論的順序。
+            讓我們一起討論如何正確使用這些數位產品。點擊圖片，可以查看圖片說明。
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
@@ -62,62 +80,122 @@
         style="padding-top: 40px"
       >
         <div>
-          <div class="cardItem n1 l4 cards" ans="1">
+          <div
+            class="cardItem n1 l4"
+            ans="1"
+            title="早上用手機鬧鐘叫醒我們"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-A.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n2 l4 cards" ans="2">
+          <div
+            class="cardItem n2 l4"
+            ans="2"
+            title="用手機app看今天天氣"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-B.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n3 l4 cards" ans="3">
+          <div
+            class="cardItem n3 l4"
+            ans="3"
+            title="上車後使用車上導航"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-C.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n4 l4 cards" ans="4">
+          <div
+            class="cardItem n4 l4"
+            ans="4"
+            title="使用車上觸控螢幕撥放音樂"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-D.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n5 l4 cards" ans="5">
+          <div
+            class="cardItem n5 l4"
+            ans="5"
+            title="到公司使用電腦發送email"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-E.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n6 l4 cards" ans="6">
+          <div
+            class="cardItem n6 l4"
+            ans="6"
+            title="中午吃飯時店員用平板電腦做點餐"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-F.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n7 l4 cards" ans="7">
+          <div
+            class="cardItem n7 l4"
+            ans="7"
+            title="開會時使用大螢幕投放ppt"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-G.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n8 l4 cards" ans="8">
+          <div
+            class="cardItem n8 l4"
+            ans="8"
+            title="下班時電梯內有螢幕播放廣告"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-H.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n9 l4 cards" ans="9">
+          <div
+            class="cardItem n9 l4"
+            ans="9"
+            title="到家用手機點吳柏毅或傅朋達"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-I.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n10 l4 cards" ans="10">
+          <div
+            class="cardItem n10 l4"
+            ans="10"
+            title="看電視"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-J.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n11 l4 cards" ans="11">
+          <div
+            class="cardItem n11 l4"
+            ans="11"
+            title="用手機和爺爺奶奶視訊通話"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-K.jpg" />
           </div>
         </div>
         <div>
-          <div class="cardItem n12 l4 cards" ans="12">
+          <div
+            class="cardItem n12 l4"
+            ans="12"
+            title="用平板玩遊戲"
+            onClick="slideToMe($(this))"
+          >
             <img src="./DATA/PT/BOOK1/IMAGES/PT-1-4-3-2-L.jpg" />
           </div>
         </div>

@@ -353,7 +353,7 @@ img {
     top: 0;
     left: 0;
     overflow: hidden;
-    z-index: 2;
+    z-index: 10;
     pointer-events: none;
 
     &.inclass {

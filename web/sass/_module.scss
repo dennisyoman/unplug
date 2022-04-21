@@ -998,21 +998,24 @@
 
     &.l2 {
       border-color: $l2;
-      &::after {
+      &::after,
+      > span {
         background: $l2;
       }
     }
 
     &.l3 {
       border-color: $l3;
-      &::after {
+      &::after,
+      > span {
         background: $l3;
       }
     }
 
     &.l4 {
       border-color: $l4;
-      &::after {
+      &::after,
+      > span {
         background: $l4;
       }
     }
@@ -1228,6 +1231,24 @@
       left: -12px;
       background: $orange;
       pointer-events: none;
+    }
+
+    > span {
+      position: absolute;
+      min-width: 25px;
+      height: 25px;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      font-weight: bold;
+      line-height: 25px;
+      @include borderRadius(12px);
+      z-index: 12;
+      top: -12px;
+      left: -12px;
+      background: $orange;
+      pointer-events: none;
+      padding: 0 15px;
     }
   }
   .contents {
@@ -1692,6 +1713,18 @@
       align-items: center;
       gap: 0px;
       display: none;
+
+      .card-title {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 20px;
+        top: 37px;
+        left: 0;
+        font-size: 12px;
+        color: $text;
+        text-align: center;
+      }
 
       .btn {
         position: absolute;
@@ -2739,6 +2772,23 @@
 
   &.visited {
     animation-delay: 0s !important;
+    > div {
+      animation-delay: 0s !important;
+    }
+  }
+
+  @keyframes unleash {
+    0% {
+      @include scale(0);
+      margin-top: 1000px;
+      margin-left: -2000px;
+    }
+
+    100% {
+      @include scale(1);
+      margin-top: 0px;
+      margin-left: 0px;
+    }
   }
 
   > div {
@@ -2751,6 +2801,11 @@
     position: relative;
     z-index: 1;
     filter: drop-shadow(2px 6px 8px rgba(0, 0, 0, 0.2));
+    animation-name: unleash;
+    animation-iteration-count: 1;
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+    animation-delay: 1.2s !important;
 
     &::after {
       content: "";
@@ -2799,6 +2854,18 @@
     margin-bottom: 0.5em;
     width: 400px;
     font-family: "Gfont-Bold";
+
+    &::before {
+      content: "";
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+      background: url("../DATA/IMAGES/common/btn_intro.png") no-repeat center center;
+      display: inline-block;
+      background-size: cover;
+      vertical-align: middle;
+      @include borderRadius(4px);
+    }
   }
   p {
     color: $text;

@@ -67,6 +67,7 @@ $(document).ready(function () {
         });
 
       //init
+      $("#module_wrapper .gridSlider").append(`<span class="card-title"/>`);
 
       $(this)
         .addClass("loaded")
@@ -302,6 +303,12 @@ var showSlider = function (boolean) {
       .next()
       .addClass("nextSlider");
 
+    selectedElem
+      .find(".card-title")
+      .text(
+        selectedElem.find(".storyline").find(">div.selected").attr("title"),
+      );
+
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_answer").hide();
@@ -331,6 +338,19 @@ var showSlider = function (boolean) {
     selectedElem.find(".framesMulti > .cta").show();
     selectedElem.find(".frames > .cta").show();
   }
+};
+
+var slideToMe = function (target) {
+  $(".sideTool > div.btn_playorder").click();
+  var selectedElem = $(".contents > div.selected");
+  var cards = selectedElem.find(".gridSlider > .storyline > div");
+  cards.each(function (index) {
+    var tempSrc1 = $(this).find("img").attr("src");
+    var tempSrc2 = target.find("img").attr("src");
+    if (tempSrc1 == tempSrc2) {
+      switchSlider(index);
+    }
+  });
 };
 
 var playSeq = 0;
@@ -366,6 +386,10 @@ var switchSlider = function (direction) {
     .removeClass("selected prevSlider nextSlider")
     .eq(playSeq)
     .addClass("selected");
+
+  selectedElem
+    .find(".card-title")
+    .text(storyline.find(">div.selected").attr("title"));
 
   selectedElem
     .find(".frames > div")
