@@ -67,7 +67,15 @@ $(document).ready(function () {
         });
 
       //init
+      //放上card-title欄位
       $("#module_wrapper .gridSlider").append(`<span class="card-title"/>`);
+      //增加卡片說明
+      $("#module_wrapper .grids > div > div").each(function () {
+        var tempTitle = $(this).attr("title");
+        if (tempTitle && tempTitle != "") {
+          $(this).append(`<p class="wow fadeIn">${tempTitle}</p>`);
+        }
+      });
 
       $(this)
         .addClass("loaded")
@@ -341,6 +349,7 @@ var showSlider = function (boolean) {
 };
 
 var slideToMe = function (target) {
+  /*
   $(".sideTool > div.btn_playorder").click();
   var selectedElem = $(".contents > div.selected");
   var cards = selectedElem.find(".gridSlider > .storyline > div");
@@ -350,7 +359,7 @@ var slideToMe = function (target) {
     if (tempSrc1 == tempSrc2) {
       switchSlider(index);
     }
-  });
+  });*/
 };
 
 var playSeq = 0;

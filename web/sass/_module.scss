@@ -1250,6 +1250,30 @@
       pointer-events: none;
       padding: 0 15px;
     }
+
+    &:hover,
+    &:focus {
+      p {
+        display: block;
+      }
+    }
+
+    p {
+      position: absolute;
+      z-index: 12;
+      min-height: 24px;
+      width: 100%;
+      font-size: 12px;
+      line-height: 16px;
+      padding: 4px;
+      text-align: center;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      left: 0;
+      bottom: 0;
+      @include borderRadius(0 0 8px 8px);
+      display: none;
+    }
   }
   .contents {
     .shrink {

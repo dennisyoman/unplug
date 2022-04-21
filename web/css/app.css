@@ -1948,6 +1948,29 @@
   padding: 0 15px;
 }
 
+.module_calculus .cardItem:hover p, .module_calculus .cardItem:focus p {
+  display: block;
+}
+
+.module_calculus .cardItem p {
+  position: absolute;
+  z-index: 12;
+  min-height: 24px;
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 4px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0;
+  bottom: 0;
+  border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  display: none;
+}
+
 .module_calculus .contents .shrink {
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
