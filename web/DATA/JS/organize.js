@@ -308,6 +308,22 @@ var checkOrderStatus = function () {
     //
     rootSoundEffect($pop);
     $(".sideTool > div.btn_replay").show();
+    //確定是否完成
+    if (
+      gridElem.find(".row > span").length ==
+      gridElem.find(".row > span.disable").length
+    ) {
+      rootSoundEffect($chimes);
+      gridElem.append(
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+      );
+      $(".smoke")
+        .delay(1500)
+        .queue(function () {
+          $(".resultIcon").remove();
+          $(this).dequeue().remove();
+        });
+    }
   } else {
     //gridElem.find("p").css("opacity", 1);
     var alert = `<p>兩列<b>不可以</b>使用一樣的組合方式<p>`;

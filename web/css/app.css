@@ -2608,7 +2608,8 @@
           justify-content: center;
 }
 
-.module_calculus .contents .frames .smoke {
+.module_calculus .contents .frames .smoke,
+.module_calculus .contents .frames .resultIcon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2621,11 +2622,16 @@
   margin-top: -30px;
 }
 
-.module_calculus .contents .frames .smoke > img {
+.module_calculus .contents .frames .smoke > img,
+.module_calculus .contents .frames .resultIcon > img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.module_calculus .contents .frames .resultIcon {
+  margin-top: -80px;
 }
 
 .module_calculus .contents .frames::before {
@@ -2745,7 +2751,8 @@
   content: "我的順序";
 }
 
-.module_calculus .contents .framesMulti .smoke {
+.module_calculus .contents .framesMulti .smoke,
+.module_calculus .contents .framesMulti .resultIcon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2758,11 +2765,16 @@
   margin-top: -30px;
 }
 
-.module_calculus .contents .framesMulti .smoke > img {
+.module_calculus .contents .framesMulti .smoke > img,
+.module_calculus .contents .framesMulti .resultIcon > img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.module_calculus .contents .framesMulti .resultIcon {
+  margin-top: -80px;
 }
 
 .module_calculus .contents .framesMulti::before {
@@ -2856,13 +2868,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   z-index: 99;
   -webkit-transform-origin: center center;
           transform-origin: center center;
-  margin-top: -50px;
-  margin-left: -50px;
+  margin-top: -80px;
+  margin-left: -80px;
 }
 
 .module_box .contents .boxes .smoke > img {
@@ -2887,8 +2899,22 @@
   width: 70px;
 }
 
+.module_box .contents .boxes .box.small .smoke {
+  width: 120px;
+  height: 120px;
+  margin-top: -60px;
+  margin-left: -60px;
+}
+
 .module_box .contents .boxes .box.middle {
   width: 100px;
+}
+
+.module_box .contents .boxes .box.middle .smoke {
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
 }
 
 .module_box .contents .boxes .box img {
@@ -3633,17 +3659,35 @@
   display: none;
 }
 
+.module_organize .resultIcon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -60px;
+  z-index: 999;
+}
+
+.module_organize .resultIcon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .module_organize .smoke {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50px;
-  height: 50px;
-  z-index: 99;
+  width: 200px;
+  height: 200px;
+  z-index: 999;
   -webkit-transform-origin: center center;
           transform-origin: center center;
-  margin-left: -25px;
-  margin-top: -25px;
+  margin-left: -100px;
+  margin-top: -100px;
 }
 
 .module_organize .smoke > img {
@@ -3721,6 +3765,7 @@
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
+  position: relative;
 }
 
 .module_organize .grids .row {

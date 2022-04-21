@@ -668,11 +668,12 @@ var checkAnswer = function () {
     selectedElem
       .find(".frames")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
       .queue(function () {
+        $(".resultIcon").remove();
         $(this).dequeue().remove();
       });
   }
@@ -697,11 +698,12 @@ var checkAnswerMulti = function () {
     selectedElem
       .find(".framesMulti")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
       .queue(function () {
+        $(".resultIcon").remove();
         $(this).dequeue().remove();
       });
   }
