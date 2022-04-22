@@ -57,10 +57,11 @@ $(document).ready(function () {
           $(this).hide();
           resetElem($(".contents > div.selected"));
         });
+
       //gem_container2
       $(".gem_container2 > div").each(function () {
-        var img = $(this).find(">img");
-        img.unbind().bind("click", function () {
+        var dashes = $(this).find(">.dashes");
+        dashes.unbind().bind("click", function () {
           rootSoundEffect($pop);
           $(this).addClass("selected");
           $(".sideTool > div.btn_replay").show();
@@ -76,6 +77,7 @@ $(document).ready(function () {
               "#" + $(".colours > div.selected").attr("col"),
             );
             $(".sideTool > div.btn_replay").show();
+            checkAnswer($(this));
           } else {
             rootSoundEffect($show);
             $(this).attr("guess", "0");
@@ -273,6 +275,66 @@ var checkOrderStatus = function () {
   }
 };
 
+var checkAnswer = function (target) {
+  var groups = target.parent().find(">span");
+  var ansArr = [];
+  var guessArr = [];
+  groups.each(function () {
+    ansArr.push($(this).attr("ans"));
+    if ($(this).attr("guess")) {
+      guessArr.push($(this).attr("guess"));
+    }
+  });
+  ansArr.sort();
+  guessArr.sort();
+  console.log(ansArr, guessArr);
+  if (JSON.stringify(ansArr) == JSON.stringify(guessArr)) {
+    rootSoundEffect($chimes);
+    var uniq = new Date().getTime();
+    target
+      .parent()
+      .append(
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+      );
+    $(".smoke")
+      .delay(1500)
+      .queue(function () {
+        $(this).dequeue().remove();
+      });
+  }
+};
+
+var showAnswer = function (boolean) {
+  if (boolean) {
+    if ($(".contents > div.selected .gem_container").length > 0) {
+      //任務一
+      $(".contents > div.selected .gem_container > div")
+        .removeClass("selected")
+        .addClass("bingo");
+    }
+    if ($(".contents > div.selected .gem_container2").length > 0) {
+      //任務二
+      var colours = $(".contents > div.selected .colours").find(">div");
+      $(".contents > div.selected .gem_container2 > div").each(function () {
+        var dashes = $(this).find(">.dashes");
+        dashes.addClass("selected");
+
+        var piece = $(this).find(">span");
+        for (var k = 0; k < piece.length; k++) {
+          for (var i = 0; i < colours.length; i++) {
+            if (piece.eq(k).attr("ans") == colours.eq(i).attr("ans")) {
+              piece.eq(k).attr("guess", colours.eq(i).attr("ans"));
+              piece.eq(k).css("background", "#" + colours.eq(i).attr("col"));
+            }
+          }
+        }
+      });
+    }
+    rootSoundEffect($help);
+    $(".sideTool > div.btn_replay").show();
+  }
+};
+
 var openContent = function (id) {
   resetAudio();
   resetTool();
@@ -290,7 +352,7 @@ var resetElem = function (elem) {
   elem.find(".bingo").removeClass("bingo");
   elem.find(".disable").removeClass("disable");
   elem.find(".gem_container2 > div > span").css("background", "transparent");
-
+  $(".sideTool > div.btn_answer").removeClass("active").show();
   //smoke effect
   $(".smoke").remove();
   $(".cardAvatar").remove();
