@@ -14,6 +14,9 @@ $(document).ready(function () {
         });
       }
 
+      //hammer
+      trigHammer();
+
       //tabs
       $(".tabs > span")
         .unbind()
@@ -84,6 +87,7 @@ $(document).ready(function () {
       //pieces
       $(".pieces > span").each(function () {
         $(this)
+          .addClass("draggable")
           .unbind()
           .bind("click", function () {
             var selectedElem = $(".contents > div.selected");
@@ -157,6 +161,78 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
+var lowlaged = false;
+var lastPosX = 0;
+var lastPosY = 0;
+var isDragging = false;
+var $elem = null;
+
+var trigHammer = function () {
+  //hammer
+  var myElement = document.getElementById("contents");
+  var mc = new Hammer(myElement);
+  mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
+  mc.on("pan", function (ev) {
+    handleDrag(ev);
+  });
+};
+
+var handleDrag = function (ev) {
+  $elem = ev.target;
+
+  if ($($elem).hasClass("draggable")) {
+    var selectedElem = $(".contents > div.selected");
+    var paletteElem = selectedElem.find(".palette");
+    if (paletteElem.find(">div.selected").length > 0) {
+      if (paletteElem.find(">div.selected.erasor").length > 0) {
+        $($elem).removeAttr("col");
+        $($elem).css("background", "none");
+      } else {
+        $($elem).attr("col", paletteElem.find(">div.selected").attr("ans"));
+        $($elem).css(
+          "background",
+          "#" + paletteElem.find(">div.selected").attr("col"),
+        );
+      }
+    } else {
+      $($elem).removeAttr("col");
+      $($elem).css("background", "none");
+    }
+
+    //
+    $(".sideTool > div.btn_answer").removeClass("active");
+    checkOrderStatus();
+  }
+
+  if (ev.isFinal) {
+    $elem = null;
+  }
+};
+
+var checkCollision = function (ev) {
+  var lastX = ev.center.x;
+  var lastY = ev.center.y;
+  var frameElem = $(".contents > div.selected .gem_container > div");
+  var gotit = false;
+  frameElem.each(function () {
+    var oriX = $(this).offset().left;
+    var oriW = oriX + $(this).width();
+    var oriY = $(this).offset().top;
+    var oriH = oriY + $(this).height();
+    if (lastX >= oriX && lastX <= oriW && lastY >= oriY && lastY <= oriH) {
+      $(this).addClass("selected");
+      gotit = true;
+    } else {
+      $(this).removeClass("selected");
+    }
+  });
+  if (gotit) {
+    $("#cardAvatar").addClass("focus");
+  } else {
+    $("#cardAvatar").removeClass("focus");
+  }
+};
+
 var checkOrderStatus = function () {
   //pieces
   var selectedElem = $(".contents > div.selected");
@@ -174,8 +250,6 @@ var checkOrderStatus = function () {
     paletteElem.find(".cta").removeClass("disable");
   }
 };
-
-var lowlaged = false;
 
 var showAnswer = function (boolean) {
   if (boolean) {
