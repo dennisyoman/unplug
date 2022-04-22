@@ -2017,6 +2017,103 @@
   }
 
   .contents {
+    .contain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      padding: 50px 50px 20px;
+      pointer-events: auto;
+      gap: 0 5px;
+      filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+
+      * {
+        pointer-events: none;
+      }
+      > div {
+        width: 100%;
+        height: 100%;
+        padding: 20px 5px;
+        text-align: center;
+        border: 3px solid $light;
+        background: #fff;
+        @include borderRadius(20px);
+
+        &:first-child {
+          //@include borderRadius(8px 0 0 8px);
+        }
+
+        &:last-child {
+          //border: none;
+          //@include borderRadius(0 8px 8px 0);
+        }
+      }
+      .box {
+        width: 100%;
+        height: 65px;
+        margin: 0 auto 20px;
+        border-bottom: 1px solid #e6e6e6;
+        &.large {
+          img {
+            width: 65px;
+            height: 65px;
+          }
+        }
+
+        &.small {
+          img {
+            width: 35px;
+            height: 65px;
+          }
+        }
+        &.middle {
+          img {
+            width: 50px;
+            height: 65px;
+          }
+        }
+        img {
+          width: 65px;
+          height: 65px;
+          object-fit: scale-down;
+          object-position: center middle;
+        }
+      }
+
+      .toy {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+
+        &.large {
+          img {
+            width: 45px;
+            height: 45px;
+          }
+        }
+        &.small {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        &.middle {
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        img {
+          object-fit: contain;
+          object-position: center top;
+        }
+        > span {
+          display: none;
+        }
+      }
+    }
     .boxes {
       width: 100%;
       height: 180px;
@@ -2088,6 +2185,19 @@
         img {
           width: 400px;
           height: 22px;
+        }
+      }
+
+      .cta {
+        position: absolute;
+        z-index: 90;
+        bottom: -60px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: none;
+
+        &.selected {
+          display: block;
         }
       }
     }
@@ -2987,6 +3097,10 @@
   &.orange {
     border-color: #ffb67e;
     background: $orange;
+  }
+  &.green {
+    border-color: $l3;
+    background: $second;
   }
 
   &.disable {

@@ -207,6 +207,7 @@ var checkOrderStatus = function () {
         `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".cached")
+      .attr("ans", tempNum)
       .addClass("disable")
       .removeClass("cached")
       .delay(1000)
@@ -216,6 +217,16 @@ var checkOrderStatus = function () {
         $(this).dequeue();
         $(".sideTool > div.btn_replay").show();
       });
+
+    //全部結束?
+    if (
+      $(".contents > div.selected .toy.cards").length ==
+      $(".contents > div.selected .toy.cards.disable").length
+    ) {
+      $(".contents > div.selected .boxes .cta").addClass("selected");
+    } else {
+      $(".contents > div.selected .boxes .cta").removeClass("selected");
+    }
   } else {
     //wrong
     rootSoundEffect($fail);
@@ -236,6 +247,26 @@ var checkOrderStatus = function () {
         $(this).removeClass("cached").dequeue();
       });
   }
+};
+
+var openBox = function () {
+  rootSoundEffect($show);
+  var selectedElem = $(".contents > div.selected");
+  var boxElem = selectedElem.find(".boxes .box");
+  var toyElem = selectedElem.find(".toys .toy");
+  var tempHTML = `<div class="contain" onClick="$(this).remove()">`;
+  boxElem.each(function () {
+    tempHTML += `<div class="wow bounceIn">`;
+    tempHTML += $("<div>").append($(this).clone()).html();
+
+    for (var i = 0; i < toyElem.length; i++) {
+      if ($(this).attr("ans") == toyElem.eq(i).attr("ans")) {
+        tempHTML += $("<div>").append(toyElem.eq(i).clone()).html();
+      }
+    }
+    tempHTML += `</div>`;
+  });
+  selectedElem.append(tempHTML);
 };
 
 var toggleMe = function (elem) {
@@ -345,7 +376,12 @@ var animateBox = function () {
                       $(".sideTool > div.btn_playorder")
                         .removeClass("active")
                         .hide();
+
+                      //全部結束?
                       $(".sideTool > div.btn_replay").show();
+                      $(".contents > div.selected .boxes .cta").addClass(
+                        "selected",
+                      );
                     }
                   }
                 });
@@ -388,6 +424,7 @@ var resetElem = function (elem) {
     .queue(function () {
       $(this).show().dequeue();
     });
+  $(".contain").remove();
   //smoke effect
   $(".smoke").remove();
   $(".cardAvatarDie").remove();
