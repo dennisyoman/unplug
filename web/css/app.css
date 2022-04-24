@@ -3270,6 +3270,55 @@
   filter: alpha(opacity=100);
 }
 
+.module_pairing .brushAvatar {
+  position: absolute;
+  width: 0px;
+  left: 0px;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.module_pairing .brushAvatar * {
+  pointer-events: none;
+}
+
+.module_pairing .brushAvatar img {
+  width: 20px;
+  height: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: left bottom;
+     object-position: left bottom;
+  margin-top: -15px;
+  margin-left: -5px;
+}
+
+.module_pairing .brushAvatar.brush {
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.6));
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.6));
+}
+
+.module_pairing .brushAvatar.brush img {
+  margin-top: -16px;
+  margin-left: -4px;
+}
+
+.module_pairing .brushAvatar.brush > span {
+  position: absolute;
+  width: 10px;
+  height: 7px;
+  background: #fff;
+  top: -5px;
+  left: -4px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 0 0 2px 2px;
+  -moz-border-radius: 0 0 2px 2px;
+  -webkit-border-radius: 0 0 2px 2px;
+}
+
 .module_pairing .contents > div .artboard {
   width: 300px;
   height: 300px;

@@ -2345,6 +2345,43 @@
     @include opacity(1);
   }
 
+  .brushAvatar {
+    position: absolute;
+    width: 0px;
+    left: 0px;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    * {
+      pointer-events: none;
+    }
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      object-position: left bottom;
+      margin-top: -15px;
+      margin-left: -5px;
+    }
+    &.brush {
+      filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.6));
+      img {
+        margin-top: -16px;
+        margin-left: -4px;
+      }
+      > span {
+        position: absolute;
+        width: 10px;
+        height: 7px;
+        background: #fff;
+        top: -5px;
+        left: -4px;
+        @include rotate(45deg);
+        @include borderRadius(0 0 2px 2px);
+      }
+    }
+  }
   .contents {
     > div {
       .artboard {

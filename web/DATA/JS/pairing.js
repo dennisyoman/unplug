@@ -164,7 +164,6 @@ $(document).ready(function () {
 var lowlaged = false;
 var lastPosX = 0;
 var lastPosY = 0;
-var isDragging = false;
 var $elem = null;
 
 var trigHammer = function () {
@@ -179,8 +178,35 @@ var trigHammer = function () {
 
 var handleDrag = function (ev) {
   $elem = ev.target;
-
+  var paletteElem = $(".contents > div.selected .palette");
   if ($($elem).hasClass("draggable")) {
+    if ($("#module_wrapper").find(".brushAvatar").length == 0) {
+      if (
+        paletteElem.find(">div.selected").length > 0 &&
+        paletteElem.find(">div.selected.erasor").length == 0
+      ) {
+        $("#module_wrapper").append(
+          `<div id="brushAvatar" class="brushAvatar brush"><img src="./DATA/IMAGES/common/icon_brush.png" /><span style="background:#${paletteElem
+            .find(">div.selected")
+            .attr("col")}"/></div>`,
+        );
+      } else {
+        $("#module_wrapper").append(
+          `<div id="brushAvatar" class="brushAvatar"><img src="./DATA/IMAGES/common/icon_erasor.png" /></div>`,
+        );
+      }
+    }
+    var deltaContainerX = $("#module_wrapper").offset().left;
+    var deltaContainerY = $("#module_wrapper").offset().top;
+    $("#brushAvatar").get(0).style.top =
+      Math.round(
+        ev.center.y / stageRatioReal - deltaContainerY / stageRatioReal,
+      ) + "px";
+    $("#brushAvatar").get(0).style.left =
+      Math.round(
+        ev.center.x / stageRatioReal - deltaContainerX / stageRatioReal,
+      ) + "px";
+    //
     var selectedElem = $(".contents > div.selected");
     var paletteElem = selectedElem.find(".palette");
     if (paletteElem.find(">div.selected").length > 0) {
@@ -202,10 +228,14 @@ var handleDrag = function (ev) {
     //
     $(".sideTool > div.btn_answer").removeClass("active");
     checkOrderStatus();
+  } else {
+    $(".brushAvatar").remove();
   }
 
   if (ev.isFinal) {
     $elem = null;
+
+    $(".brushAvatar").remove();
   }
 };
 
