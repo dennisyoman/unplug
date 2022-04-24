@@ -58,6 +58,16 @@ $(document).ready(function () {
           resetElem($(".contents > div.selected"));
         });
 
+      $(".sideTool > div.btn_unbox")
+        .unbind()
+        .bind("click", function () {
+          $(".contain").remove();
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            openBox();
+          }
+        });
+
       //init
 
       $(this)
@@ -223,9 +233,9 @@ var checkOrderStatus = function () {
       $(".contents > div.selected .toy.cards").length ==
       $(".contents > div.selected .toy.cards.disable").length
     ) {
-      $(".contents > div.selected .boxes .cta").addClass("selected");
+      $(".sideTool > div.btn_unbox").show();
     } else {
-      $(".contents > div.selected .boxes .cta").removeClass("selected");
+      $(".sideTool > div.btn_unbox").hide();
     }
   } else {
     //wrong
@@ -254,7 +264,7 @@ var openBox = function () {
   var selectedElem = $(".contents > div.selected");
   var boxElem = selectedElem.find(".boxes .box");
   var toyElem = selectedElem.find(".toys .toy");
-  var tempHTML = `<div class="contain" onClick="$(this).remove()">`;
+  var tempHTML = `<div class="contain">`;
   boxElem.each(function () {
     tempHTML += `<div class="wow bounceIn">`;
     tempHTML += $("<div>").append($(this).clone()).html();
@@ -379,9 +389,7 @@ var animateBox = function () {
 
                       //全部結束?
                       $(".sideTool > div.btn_replay").show();
-                      $(".contents > div.selected .boxes .cta").addClass(
-                        "selected",
-                      );
+                      $(".sideTool > div.btn_unbox").show();
                     }
                   }
                 });
@@ -428,6 +436,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".cardAvatarDie").remove();
+  $(".sideTool > div.btn_unbox").hide();
 };
 
 var resetTool = function () {
