@@ -7,34 +7,10 @@
       <lesson lid="4">正確使用數位產品</lesson>
     </book>
     <book name="Book 2" bid="2" img="PT_book2.jpg">
-      <lesson lid="1">日常中的程式</lesson>
-      <lesson lid="2">啟發邏輯腦</lesson>
-      <lesson lid="3">把玩具分類</lesson>
-      <lesson lid="4">正確使用數位產品</lesson>
-    </book>
-    <book name="Book 3" bid="3" img="PT_book3.jpg">
-      <lesson lid="1">日常中的程式</lesson>
-      <lesson lid="2">啟發邏輯腦</lesson>
-      <lesson lid="3">把玩具分類</lesson>
-      <lesson lid="4">正確使用數位產品</lesson>
-    </book>
-    <book name="Book 4" bid="4" img="PT_book4.jpg">
-      <lesson lid="1">日常中的程式</lesson>
-      <lesson lid="2">啟發邏輯腦</lesson>
-      <lesson lid="3">把玩具分類</lesson>
-      <lesson lid="4">正確使用數位產品</lesson>
-    </book>
-    <book name="Book 5" bid="5" img="PT_book5.jpg">
-      <lesson lid="1">日常中的程式</lesson>
-      <lesson lid="2">啟發邏輯腦</lesson>
-      <lesson lid="3">把玩具分類</lesson>
-      <lesson lid="4">正確使用數位產品</lesson>
-    </book>
-    <book name="Book 6" bid="6" img="PT_book6.jpg">
-      <lesson lid="1">日常中的程式</lesson>
-      <lesson lid="2">啟發邏輯腦</lesson>
-      <lesson lid="3">把玩具分類</lesson>
-      <lesson lid="4">正確使用數位產品</lesson>
+      <lesson lid="1">感恩卡片</lesson>
+      <lesson lid="2">幫忙做家事</lesson>
+      <lesson lid="3">規律的生活</lesson>
+      <lesson lid="4">尋寶遊戲</lesson>
     </book>
   </series>
 </root>

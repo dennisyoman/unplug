@@ -131,19 +131,21 @@ var trigHammer = function () {
 var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
     $(".contents > div.selected .grids > div").removeClass(
-      "afterward backward",
+      "afterward backward"
     );
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`,
+        `<div id="cardAvatar" class="cardAvatar"></div>`
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
       var caWidth =
         parseInt($(".contents > div.selected .grids .cardItem").css("width")) /
         stageRatioReal;
-      $("#cardAvatar").css("width", caWidth + "px");
+      $("#cardAvatar")
+        .css("width", caWidth + "px")
+        .attr("num", $($elem).parent().index());
     }
   }
 
@@ -156,13 +158,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2,
+            $("#cardAvatar").height() / stageRatioReal / 2
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2,
+            $("#cardAvatar").width() / stageRatioReal / 2
         ) + "px";
       checkCollision(ev);
     }
@@ -211,24 +213,14 @@ var checkCollision = function (ev) {
 
 var checkOrderStatus = function () {
   var gridElem = $(".contents > div.selected .grids");
-  var tempNum = gridElem.find(">div.selected >div").attr("ans");
-  var tempNumCard = $("#cardAvatar").find(">div").attr("ans");
+  var fromOrder = parseInt($("#cardAvatar").attr("num"));
+  var toOrder = gridElem.find(">div.selected").index();
   $("#cardAvatar").remove();
   $(".cached").removeClass("cached");
   gridElem.find(">div.selected").removeClass("selected");
-  if (tempNum != tempNumCard) {
+  if (fromOrder != toOrder) {
     $(".sideTool > div.btn_answer").removeClass("active");
     //update order
-    var fromOrder;
-    var toOrder;
-    gridElem.find(">div").each(function (index) {
-      if ($(this).find("div").attr("ans") == tempNum) {
-        toOrder = index;
-      }
-      if ($(this).find("div").attr("ans") == tempNumCard) {
-        fromOrder = index;
-      }
-    });
     if (fromOrder > toOrder) {
       gridElem
         .find(">div")
@@ -314,7 +306,7 @@ var showSlider = function (boolean) {
     selectedElem
       .find(".card-title")
       .text(
-        selectedElem.find(".storyline").find(">div.selected").attr("title"),
+        selectedElem.find(".storyline").find(">div.selected").attr("title")
       );
 
     selectedElem.find(".gridSlider > .prev").addClass("disable");
@@ -389,7 +381,7 @@ var switchSlider = function (direction) {
       playSeq *
         (storyline.hasClass("lg") ? slideDistanceLarge : slideDistance) *
         -1 +
-        "px",
+        "px"
     )
     .find(">div")
     .removeClass("selected prevSlider nextSlider")
@@ -454,7 +446,7 @@ var resetFrameMulti = function () {
       .split(";");
     $(".contents > div.selected .framesMulti").attr(
       "ans",
-      multiAnsArr[Math.floor(Math.random() * multiAnsArr.length)],
+      multiAnsArr[Math.floor(Math.random() * multiAnsArr.length)]
     );
   }
   //依照參考答案數量分配格子
@@ -491,7 +483,7 @@ var toggleMe = function (tar) {
   //
   if ($(".contents > div.selected .framesMulti").attr("freeanswer")) {
     var count = parseInt(
-      $(".contents > div.selected .framesMulti").attr("freeanswer"),
+      $(".contents > div.selected .framesMulti").attr("freeanswer")
     );
   } else {
     var ansArr = $(".contents > div.selected .framesMulti")
@@ -507,7 +499,7 @@ var toggleMe = function (tar) {
     $(
       `<div ans="${$(this).find(">div").attr("ans")}">${$(this)
         .find(">div")
-        .attr("ans")}</div>`,
+        .attr("ans")}</div>`
     ).insertBefore(cta);
     count--;
   });
@@ -603,6 +595,10 @@ var checkAnswer = function () {
         //前後順序 match[0] 的位置要小於 match[1]
         var ans = cond.split("-");
         cond = "-";
+      } else if (cond.indexOf("+") != -1) {
+        //前後順序 match[1] 的位置接著 match[0]
+        var ans = cond.split("+");
+        cond = "+";
       }
 
       //開始判斷
@@ -622,12 +618,25 @@ var checkAnswer = function () {
       switch (cond) {
         case "=":
           //固定位置
-          if (match[0] != ans[1]) {
-            targets[0].addClass("wrong");
-            alert += `<p><b>${targets[0].text()}</b>必須在第<b>${
-              ans[1]
-            }</b>格<p>`;
+          var anss = ans[1].split("^");
+          var gotit = false;
+          for (var m = 0; m < anss.length; m++) {
+            if (match[0] == anss[m]) {
+              gotit = true;
+            }
           }
+          if (!gotit) {
+            targets[0].addClass("wrong");
+
+            alert += `<p><b>${targets[0].text()}</b>必須在第<b>${
+              anss[0]
+            }</b>格`;
+            for (var m = 1; m < anss.length; m++) {
+              alert += `或第<b>${anss[m]}</b>格`;
+            }
+            alert += `</p>`;
+          }
+
           break;
         case "-":
           //前後順序
@@ -635,6 +644,14 @@ var checkAnswer = function () {
             targets[0].addClass("wrong");
             targets[1].addClass("wrong");
             alert += `<p><b>${targets[0].text()}</b>必須在<b>${targets[1].text()}</b>之前<p>`;
+          }
+          break;
+        case "+":
+          //緊貼著
+          if (parseInt(match[0]) + 1 != parseInt(match[1])) {
+            targets[0].addClass("wrong");
+            targets[1].addClass("wrong");
+            alert += `<p><b>${targets[0].text()}</b>之後必須接著<b>${targets[1].text()}</b><p>`;
           }
           break;
         default:
@@ -645,7 +662,7 @@ var checkAnswer = function () {
 
     if (alert != "") {
       selectedElem.append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`,
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`
       );
     }
   } else {
@@ -668,7 +685,7 @@ var checkAnswer = function () {
     selectedElem
       .find(".frames")
       .append(
-        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
       );
     $(".smoke")
       .delay(1500)
@@ -698,7 +715,7 @@ var checkAnswerMulti = function () {
     selectedElem
       .find(".framesMulti")
       .append(
-        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
       );
     $(".smoke")
       .delay(1500)
@@ -759,7 +776,6 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
-  $(".alert").remove();
   elem
     .find(".gridSlider")
     .removeClass("active")
@@ -840,6 +856,8 @@ var resetElem = function (elem) {
 
   //smoke effect
   $(".smoke").remove();
+  $(".resultIcon").remove();
+  $(".alert").remove();
 };
 
 var checkTool = function () {

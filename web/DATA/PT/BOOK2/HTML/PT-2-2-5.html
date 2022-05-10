@@ -1,0 +1,170 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>我會用拖把</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-D.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div class="end" ans="B"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>我會用拖把</b>：也可以這樣寫喔。</p>
+          <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid4 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-D.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div class="end repeat" ans="B"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition"></div>
+    </div>
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>我會拖地</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l2 cards" ans="C" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l2 cards" ans="D" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l2 cards" ans="E" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l2 cards" ans="F" title="圖片說明">
+            <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="F"></div>
+        <div ans="C"></div>
+        <div class="repeat" ans="D"></div>
+        <div ans="E"></div>
+        <div class="end" ans="A"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
