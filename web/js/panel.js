@@ -92,7 +92,7 @@ $(document).ready(function () {
               .removeClass("active");
             //
             if ($(".pen_tool .size.active").length == 0) {
-              $(".pen_tool .size.sm").click();
+              $(".pen_tool .size.md").click();
             }
           } else if ($(this).hasClass("size")) {
             $(this)
@@ -115,7 +115,7 @@ $(document).ready(function () {
         .queue(function () {
           //pen tool
           $(".pen_tool .colour").eq(0).click();
-          $(".pen_tool .size.sm").eq(0).click();
+          $(".pen_tool .size.md").eq(0).click();
           $(this).dequeue();
         });
       //deactiveLoading();
@@ -139,7 +139,7 @@ $(document).ready(function () {
           });
         let utArr = ut.split("/");
         $("#unit-title").html(
-          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : ""),
+          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : "")
         );
       }
     });
@@ -169,7 +169,7 @@ var appendScorer = function (e) {
       "",
       "",
       "",
-      true,
+      true
     );
   } else {
     console.log("點太快了`,急甚麼?");
@@ -189,7 +189,7 @@ var appendRoulette = function (e) {
       "",
       "",
       "",
-      true,
+      true
     );
   }
 };
@@ -206,7 +206,7 @@ var appendFinger = function (e) {
       "",
       "",
       "",
-      true,
+      true
     );
   }
 };
@@ -222,7 +222,7 @@ var appendCountdown = function (e) {
       "",
       "",
       "",
-      true,
+      true
     );
   }
 };
@@ -238,7 +238,7 @@ var appendCounter = function (e) {
       "",
       "",
       "",
-      true,
+      true
     );
   }
 };
@@ -258,7 +258,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         } else if ($("#widget").children(".dice.green").length == 0) {
           $("#widget").append(`<div id="dice" class="dice green"/>`);
@@ -269,7 +269,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         }
         break;
@@ -283,7 +283,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         } else if ($("#widget").children(".dice.yellow").length == 0) {
           $("#widget").append(`<div id="dice" class="dice yellow"/>`);
@@ -294,7 +294,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         }
         break;
@@ -308,7 +308,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         } else if ($("#widget").children(".dice.pink").length == 0) {
           $("#widget").append(`<div id="dice" class="dice pink"/>`);
@@ -319,7 +319,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         }
       case 4:
@@ -332,7 +332,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true,
+            true
           );
         }
         break;
@@ -440,7 +440,7 @@ var handleZoomDrag = function (ev) {
         scrollX: 0,
         scrollY: 0,
         scale: html2canvasScale,
-      },
+      }
     ).then(function (canvas) {
       var ctx = canvas.getContext("2d");
 
@@ -535,7 +535,7 @@ var makeDrawable = function (tar) {
               ((event.clientY - tar.offset().top) * html2canvasScale) / th -
                 _eraserWidth / 2,
               _eraserWidth,
-              _eraserWidth,
+              _eraserWidth
             );
           } else {
             ctx.clearRect(
@@ -548,7 +548,7 @@ var makeDrawable = function (tar) {
                 th -
                 _eraserWidth / 2,
               _eraserWidth,
-              _eraserWidth,
+              _eraserWidth
             );
           }
         } else {
@@ -557,7 +557,7 @@ var makeDrawable = function (tar) {
               startX,
               startY,
               ((event.clientX - tar.offset().left) * html2canvasScale) / tw,
-              ((event.clientY - tar.offset().top) * html2canvasScale) / th,
+              ((event.clientY - tar.offset().top) * html2canvasScale) / th
             );
           } else {
             drawLine(
@@ -568,7 +568,7 @@ var makeDrawable = function (tar) {
                 tw,
               ((event.touches[0].clientY - tar.offset().top) *
                 html2canvasScale) /
-                th,
+                th
             );
           }
         }
@@ -689,11 +689,11 @@ var appendPainting = function (active) {
         "",
         "",
         "",
-        true,
+        true
       );
     }
   } else {
-    $(".pen_tool").find("span.size.sm").click();
+    $(".pen_tool").find("span.size.md").click();
     $("#painting").remove();
     clickthen();
   }
@@ -710,7 +710,7 @@ var appendMasker = function (active) {
         "",
         "",
         "",
-        true,
+        true
       );
     }
   } else {
@@ -729,7 +729,7 @@ var appendTag = function (active) {
         "",
         "",
         "",
-        true,
+        true
       );
     }
   }
@@ -745,7 +745,7 @@ var appendTagPicker = function (active) {
         "",
         "",
         "",
-        true,
+        true
       );
     }
   } else {

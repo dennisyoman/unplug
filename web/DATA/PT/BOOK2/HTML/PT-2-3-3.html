@@ -1,6 +1,6 @@
 <div id="module_wrapper" class="module_decode">
   <div class="tabs">
-    <span>示範</span>
+    <span class="demo">示範</span>
     <span>任務一</span>
     <span>任務二</span>
     <span>任務三</span>
@@ -13,6 +13,7 @@
 
   <div class="sideTool">
     <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -27,7 +28,7 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="code wow fadeInLeft">
+      <div class="code wow fadeInLeft" style="width: 190px">
         <span
           class="cta orange"
           url="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-1-2.png"
@@ -81,140 +82,294 @@
     </div>
     <div>
       <div class="puzzle wow fadeInLeft">
-        <img
-          height="200"
-          width="auto"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-2-1.png"
-        />
-        <img
-          height="200"
-          width="auto"
-          class="ans"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-2-1-A.png"
-        />
+        <div class="subject">
+          <img
+            height="200"
+            width="auto"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-2-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="200"
+            width="auto"
+            class="ans"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-2-1-A.png"
+          />
+        </div>
       </div>
-      <div class="pattern wow fadeInRight">
+      <div class="pattern" ans="10">
         <img
           height="45"
           width="auto"
+          class="piece wow fadeIn"
           src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-2-1-P.png"
         />
-        <p>重複了<span>10</span>次</p>
+        <p>重複了<span>0</span>次</p>
       </div>
     </div>
     <div>
       <div class="puzzle wow fadeInLeft">
-        <img
-          height="200"
-          width="auto"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-3-1.png"
-        />
-        <img
-          height="200"
-          width="auto"
-          class="ans"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-3-1-A.png"
-        />
+        <div class="subject">
+          <img
+            height="200"
+            width="auto"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-3-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="200"
+            width="auto"
+            class="ans"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-3-1-A.png"
+          />
+        </div>
       </div>
-      <div class="pattern wow fadeInRight">
+      <div class="pattern" ans="20">
         <img
           height="50"
           width="auto"
+          class="piece wow fadeIn"
           src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-3-1-P.png"
         />
-        <p>重複了<span>20</span>次</p>
+        <p>重複了<span>0</span>次</p>
       </div>
     </div>
     <div>
       <div class="puzzle wow fadeInLeft">
-        <img
-          height="200"
-          width="auto"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-4-1.png"
-        />
-        <img
-          height="200"
-          width="auto"
-          class="ans"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-4-1-A.png"
-        />
+        <div class="subject">
+          <img
+            height="200"
+            width="auto"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-4-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="200"
+            width="auto"
+            class="ans"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-4-1-A.png"
+          />
+        </div>
       </div>
-      <div class="pattern wow fadeInRight">
+      <div class="pattern" ans="12">
         <img
           height="30"
           width="auto"
+          class="piece wow fadeIn"
           src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-4-1-P.png"
         />
-        <p>重複了<span>12</span>次</p>
+        <p>重複了<span>0</span>次</p>
       </div>
     </div>
     <div>
       <div class="puzzle wow fadeInLeft">
-        <img
-          height="200"
-          width="auto"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-5-1.png"
-        />
-        <img
-          height="200"
-          width="auto"
-          class="ans"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-5-1-A.png"
-        />
+        <div class="subject">
+          <img
+            height="200"
+            width="auto"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-5-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="200"
+            width="auto"
+            class="ans"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-5-1-A.png"
+          />
+        </div>
       </div>
-      <div class="pattern wow fadeInRight">
+      <div class="pattern" ans="6">
         <img
           height="90"
           width="auto"
+          class="piece wow fadeIn"
           src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-5-1-P.png"
         />
-        <p>重複了<span>6</span>次</p>
+        <p>重複了<span>0</span>次</p>
       </div>
     </div>
     <div>
-      <div class="puzzle wow fadeInLeft">
-        <img
-          height="auto"
-          width="302"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1.png"
-        />
-        <img
-          height="auto"
-          width="302"
-          class="ans"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-A.png"
-        />
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>發現重複的東西</b
+            >：嘗試移動右邊的貼紙物件，貼到左邊圖表看看可以重複幾次！
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
       </div>
-      <div class="pattern wow fadeInRight">
+      <div class="puzzle wow fadeInLeft">
+        <div class="subject">
+          <div class="sensors">
+            <span style="top: 0px; left: 0px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 0px; left: 71px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 0px; left: 142px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 0px; left: 213px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 69px; left: 0px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 69px; left: 71px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 69px; left: 142px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 69px; left: 213px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 138px; left: 0px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 138px; left: 71px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 138px; left: 142px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+            <span style="top: 138px; left: 213px">
+              <img
+                height="auto"
+                width="87"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
+              />
+            </span>
+          </div>
+          <img
+            height="auto"
+            width="300"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1.png"
+          />
+        </div>
+      </div>
+      <div class="pattern" ans="12">
         <img
-          height="90"
-          width="auto"
+          height="auto"
+          width="87"
+          class="piece wow bounceInDown draggable"
           src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-6-1-P.png"
         />
-        <p>重複了<span>12</span>次</p>
+        <p>重複了<span>0</span>次</p>
       </div>
     </div>
     <div>
       <div class="puzzle wow fadeInLeft">
-        <img
-          height="auto"
-          width="302"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1.png"
-        />
-        <img
-          height="auto"
-          width="302"
-          class="ans"
-          src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-A.png"
-        />
+        <div class="subject">
+          <div class="sensors">
+            <span style="top: 0px; left: 0px">
+              <img
+                height="auto"
+                width="100"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
+              />
+            </span>
+            <span style="top: 0px; left: 100px">
+              <img
+                height="auto"
+                width="100"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
+              />
+            </span>
+            <span style="top: 0px; left: 200px">
+              <img
+                height="auto"
+                width="100"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
+              />
+            </span>
+            <span style="top: 96px; left: 0px">
+              <img
+                height="auto"
+                width="100"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
+              />
+            </span>
+            <span style="top: 96px; left: 100px">
+              <img
+                height="auto"
+                width="100"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
+              />
+            </span>
+            <span style="top: 96px; left: 200px">
+              <img
+                height="auto"
+                width="100"
+                src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
+              />
+            </span>
+          </div>
+          <img
+            height="auto"
+            width="300"
+            src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1.png"
+          />
+        </div>
       </div>
-      <div class="pattern wow fadeInRight">
+      <div class="pattern" ans="6">
         <img
-          height="100"
-          width="auto"
+          height="auto"
+          width="100"
+          class="piece wow bounceInDown draggable"
           src="./DATA/PT/BOOK2/IMAGES/PT-2-3-3-7-1-P.png"
         />
-        <p>重複了<span>6</span>次</p>
+        <p>重複了<span>0</span>次</p>
       </div>
     </div>
   </div>

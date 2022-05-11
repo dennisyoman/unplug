@@ -189,7 +189,7 @@ var checkStatus = function () {
     $(".cached").addClass("done").removeClass("cached");
     selectedElem.remove();
     //
-    $(".sideTool > div.btn_replay").fadeIn();
+    $(".sideTool > div.btn_replay").show();
     //
     ansSeq.push(selectedElem.attr("pid"));
   } else {

@@ -1454,6 +1454,17 @@
   &.loaded {
     @include opacity(1);
   }
+  .pieceAvatar {
+    position: absolute;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    .piece {
+      display: inline-block;
+    }
+  }
   .contents {
     width: calc(100% - 40px);
     .code {
@@ -1464,7 +1475,7 @@
       padding: 20px;
 
       .cta {
-        @include opacity(0.5);
+        @include opacity(0.4);
         margin-bottom: 5px;
 
         &.selected {
@@ -1482,12 +1493,35 @@
         @include boxShadow(1px 1px 6px rgba(0, 0, 0, 0.2));
       }
 
+      .subject {
+        position: relative;
+        .sensors {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+
+          span {
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            @include opacity(0);
+            &.selected {
+              @include opacity(0.3);
+            }
+            &.done {
+              @include opacity(1);
+            }
+          }
+        }
+      }
+
       .ans {
         display: none;
       }
 
       &.showAnswer {
-        img {
+        .subject {
           display: none;
         }
         .ans {
@@ -1503,8 +1537,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      > img {
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+
+      > .piece {
         margin-bottom: 20px;
+      }
+
+      > .draggable {
+        pointer-events: auto;
+        cursor: pointer;
       }
 
       &.showAnswer {
