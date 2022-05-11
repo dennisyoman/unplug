@@ -1455,16 +1455,32 @@
     @include opacity(1);
   }
   .contents {
+    width: calc(100% - 40px);
     .code {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
+
+      .cta {
+        @include opacity(0.5);
+        margin-bottom: 5px;
+
+        &.selected {
+          @include opacity(1);
+        }
+      }
     }
     .puzzle {
-      padding: 20px;
-      background: #fff;
-      @include borderRadius(10px);
-      margin-right: 40px;
-      @include boxShadow(1px 1px 6px rgba(0, 0, 0, 0.2));
       position: relative;
+
+      &.withBG {
+        padding: 20px;
+        background: #fff;
+        @include borderRadius(10px);
+        @include boxShadow(1px 1px 6px rgba(0, 0, 0, 0.2));
+      }
 
       .ans {
         display: none;
@@ -1476,6 +1492,48 @@
         }
         .ans {
           display: inline-block !important;
+        }
+      }
+    }
+    .pattern {
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > img {
+        margin-bottom: 20px;
+      }
+
+      &.showAnswer {
+        p {
+          span {
+            color: #eb6154;
+          }
+        }
+      }
+
+      p {
+        text-align: center;
+        font-size: 12px;
+        color: $text;
+        display: inline-block;
+        line-height: 20px;
+        padding: 5px 15px;
+        background: #fff;
+        @include borderRadius(15px);
+        margin: 0px auto 0;
+
+        span {
+          text-align: center;
+          display: inline-block;
+          height: 20px;
+          min-width: 20px;
+          border-bottom: 1px solid $text;
+          margin: 0 5px;
+          color: transparent;
+          font-weight: bold;
         }
       }
     }

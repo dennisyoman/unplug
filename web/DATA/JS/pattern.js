@@ -77,23 +77,11 @@ $(document).ready(function () {
 var showAnswer = function (boolean) {
   if (boolean) {
     $(".contents > div.selected .puzzle").addClass("showAnswer");
-    $(".contents > div.selected .pattern").addClass("showAnswer");
   } else {
     $(".contents > div.selected .puzzle").removeClass("showAnswer");
-    $(".contents > div.selected .pattern").removeClass("showAnswer");
   }
 };
 var lowlaged = false;
-
-var switchPuzzle = function (tar, repeat) {
-  var newSRC = tar.attr("url");
-  var target = $(".contents > div.selected .puzzle > img");
-  target.attr("src", newSRC);
-  var ansTarget = $(".contents > div.selected .pattern");
-  ansTarget.addClass("showAnswer").find("p > span").text(repeat);
-  //
-  tar.addClass("selected").siblings(".selected").removeClass("selected");
-};
 
 var openContent = function (id) {
   resetAudio();
