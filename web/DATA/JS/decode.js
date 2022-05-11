@@ -85,9 +85,9 @@ var showAnswer = function (boolean) {
 };
 var lowlaged = false;
 
-var switchPuzzle = function (tar, repeat) {
+var switchSample = function (tar, repeat) {
   var newSRC = tar.attr("url");
-  var target = $(".contents > div.selected .puzzle > img");
+  var target = $(".contents > div.selected .sample > img");
   target.attr("src", newSRC);
   var ansTarget = $(".contents > div.selected .pattern");
   ansTarget.addClass("showAnswer").find("p > span").text(repeat);
@@ -111,6 +111,11 @@ var resetElem = function (elem) {
   if (elem.find(".ans").length > 0) {
     $(".sideTool > div.btn_answer").removeClass("active").show();
   }
+  //sample
+  elem.find(".selected").removeClass("selected");
+  var newSRC = elem.find(".sample").attr("url");
+  var target = elem.find(".sample > img");
+  target.attr("src", newSRC);
 };
 
 var resetTool = function () {
