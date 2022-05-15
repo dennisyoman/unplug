@@ -1448,6 +1448,154 @@
   margin: 2px;
 }
 
+.module_mop {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.module_mop .smoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-top: -80px;
+  margin-left: -80px;
+}
+
+.module_mop .smoke > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_mop.loaded {
+  opacity: 1;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.module_mop .mopAvatar {
+  position: absolute;
+  width: 0;
+  left: 0;
+  z-index: 99;
+  -webkit-animation-name: mopping;
+  animation-name: mopping;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 0.4s !important;
+          animation-duration: 0.4s !important;
+}
+
+.module_mop .mopAvatar img {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: auto;
+}
+
+@-webkit-keyframes mopping {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes mopping {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+}
+
+.module_mop .mop-area {
+  position: relative;
+}
+
+.module_mop .mop-area .mop-group {
+  position: absolute;
+  z-index: 1;
+}
+
+.module_mop .mop-area .mop-group canvas {
+  position: absolute;
+  z-index: 4;
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.module_mop .mop-area .mop-group > span {
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  pointer-events: auto;
+  z-index: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+  background: transparent;
+}
+
+.module_mop .mop-area .mop-group > span * {
+  pointer-events: none;
+}
+
+.module_mop .mop-area .mop-group > span.mopped {
+  pointer-events: none;
+}
+
+.module_mop .mop-area .mop-group > span.bt {
+  border-top: 8px solid #4873b9;
+  border-style: ridge;
+}
+
+.module_mop .mop-area .mop-group > span.bb {
+  border-bottom: 8px solid #4873b9;
+  border-style: ridge;
+}
+
+.module_mop .mop-area .mop-group > span.br {
+  border-right: 8px solid #4873b9;
+  border-style: ridge;
+}
+
+.module_mop .mop-area .mop-group > span.bl {
+  border-left: 8px solid #4873b9;
+  border-style: ridge;
+}
+
 .module_guess {
   position: relative;
   top: 0;

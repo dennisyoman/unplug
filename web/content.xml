@@ -55,9 +55,9 @@
     <section section="1" name="熱身活動" html="PT/BOOK2/HTML/PT-2-2-1.html" js="JS/order.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK2/HTML/PT-2-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 平面的解構法" html="PT/BOOK2/HTML/PT-2-2-3.html" js="JS/pairing.js" image="IMAGES/UNITS/flat.png" skin="">
+    <section section="3" name="一起玩遊戲 / 平面的解構法" html="PT/BOOK2/HTML/PT-2-2-3.html" js="JS/mop.js" image="IMAGES/UNITS/flat.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲 / 平面的解構法的運用" html="PT/BOOK2/HTML/PT-2-2-4.html" js="JS/box.js" image="IMAGES/UNITS/flat2.png" skin="">
+    <section section="4" name="一起玩遊戲 / 平面的解構法的運用" html="PT/BOOK2/HTML/PT-2-2-4.html" js="JS/irobot.js" image="IMAGES/UNITS/flat2.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK2/HTML/PT-2-2-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>

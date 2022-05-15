@@ -1,0 +1,398 @@
+<div id="module_wrapper" class="module_mop">
+  <div class="tabs">
+    <span class="demo">示範1</span>
+    <span>任務一</span>
+    <span class="demo">示範2</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範1 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>拖地的方法</b>：安排順序，將所有的磁磚都清潔完畢。</p>
+          <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="mop-area">
+        <div class="mop-group" style="top: -60px; left: -140px">
+          <span
+            preset="1"
+            px="0"
+            py="0"
+            style="top: 0; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            preset="2"
+            px="1"
+            py="0"
+            style="top: 0; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            preset="3"
+            px="0"
+            py="1"
+            style="top: 62px; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            preset="4"
+            px="1"
+            py="1"
+            style="top: 62px; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <canvas width="124" height="124"></canvas>
+          <img height="125" src="./DATA/PT/BOOK2/IMAGES/floor1.png" />
+        </div>
+        <div class="mop-group" style="top: -60px; left: 20px">
+          <span
+            preset="1"
+            px="0"
+            py="0"
+            style="top: 0; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="1"
+            py="0"
+            style="top: 0; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="0"
+            py="1"
+            style="top: 62px; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="1"
+            py="1"
+            style="top: 62px; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <canvas width="124" height="124"></canvas>
+          <img height="125" src="./DATA/PT/BOOK2/IMAGES/floor1.png" />
+        </div>
+      </div>
+    </div>
+    <!-- 任務一 -->
+    <div>
+      <div class="mop-area">
+        <div class="mop-group" style="top: -60px; left: -140px">
+          <span
+            class="bt bl"
+            px="0"
+            py="0"
+            style="top: 0; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            class="bt br"
+            px="1"
+            py="0"
+            style="top: 0; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            class="bl"
+            px="0"
+            py="1"
+            style="top: 62px; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            class="br"
+            px="1"
+            py="1"
+            style="top: 62px; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <canvas width="124" height="124"></canvas>
+          <img height="125" src="./DATA/PT/BOOK2/IMAGES/floor1.png" />
+        </div>
+        <div class="mop-group" style="top: -60px; left: 20px">
+          <span
+            class="bt bl"
+            px="0"
+            py="0"
+            style="top: 0; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            class="bt br"
+            px="1"
+            py="0"
+            style="top: 0; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            class="bl"
+            px="0"
+            py="1"
+            style="top: 62px; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            class="br bb"
+            px="1"
+            py="1"
+            style="top: 62px; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <canvas width="124" height="124"></canvas>
+          <img height="125" src="./DATA/PT/BOOK2/IMAGES/floor1.png" />
+        </div>
+      </div>
+    </div>
+    <!-- 示範2 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>你洗了幾次拖把？</b
+            >：拖把一次可以拖1-6個格子，就需要清洗一次。<br />
+            請試著將格子分組，並列出你計畫拖地的順序。
+          </p>
+          <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="mop-area">
+        <div class="mop-group" max="6" style="top: -90px; left: -140px">
+          <span
+            px="0"
+            py="0"
+            style="top: 0; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="1"
+            py="0"
+            style="top: 0; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="2"
+            py="0"
+            style="top: 0; left: 124px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="3"
+            py="0"
+            style="top: 0; left: 186px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="0"
+            py="1"
+            style="top: 62px; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="1"
+            py="1"
+            style="top: 62px; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="2"
+            py="1"
+            style="top: 62px; left: 124px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="3"
+            py="1"
+            style="top: 62px; left: 186px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="0"
+            py="2"
+            style="top: 124px; left: 0; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="1"
+            py="2"
+            style="top: 124px; left: 62px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="2"
+            py="2"
+            style="top: 124px; left: 124px; width: 62px; height: 62px"
+          ></span>
+          <span
+            px="3"
+            py="2"
+            style="top: 124px; left: 186px; width: 62px; height: 62px"
+          ></span>
+          <canvas width="248" height="186"></canvas>
+          <img
+            width="269"
+            style="margin: -5px 0 0 -5px"
+            src="./DATA/PT/BOOK2/IMAGES/floor4.png"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- 任務二 -->
+    <div>
+      <div class="mop-area">
+        <div class="mop-group" max="6" style="top: -60px; left: -50px">
+          <span
+            px="0"
+            py="0"
+            style="top: 0; left: 0; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="1"
+            py="0"
+            style="top: 0; left: 42px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="2"
+            py="0"
+            style="top: 0; left: 84px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="0"
+            style="top: 0; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="0"
+            py="1"
+            style="top: 42px; left: 0; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="1"
+            py="1"
+            style="top: 42px; left: 42px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="2"
+            py="1"
+            style="top: 42px; left: 84px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="1"
+            style="top: 42px; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="2"
+            style="top: 84px; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="3"
+            style="top: 126px; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <canvas width="168" height="168"></canvas>
+          <img
+            width="262"
+            style="margin: -41px 0 0 -83px"
+            src="./DATA/PT/BOOK2/IMAGES/floor2.png"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- 任務三 -->
+    <div>
+      <div class="mop-area">
+        <div class="mop-group" max="6" style="top: -50px; left: -120px">
+          <span
+            px="2"
+            py="0"
+            style="top: 0; left: 84px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="0"
+            style="top: 0; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="4"
+            py="0"
+            style="top: 0; left: 168px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="5"
+            py="0"
+            style="top: 0; left: 210px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="2"
+            py="1"
+            style="top: 42px; left: 84px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="1"
+            style="top: 42px; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="4"
+            py="1"
+            style="top: 42px; left: 168px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="5"
+            py="1"
+            style="top: 42px; left: 210px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="0"
+            py="2"
+            style="top: 84px; left: 0; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="1"
+            py="2"
+            style="top: 84px; left: 42px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="2"
+            py="2"
+            style="top: 84px; left: 84px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="2"
+            style="top: 84px; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="4"
+            py="2"
+            style="top: 84px; left: 168px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="5"
+            py="2"
+            style="top: 84px; left: 210px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="2"
+            py="3"
+            style="top: 126px; left: 84px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="3"
+            py="3"
+            style="top: 126px; left: 126px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="4"
+            py="3"
+            style="top: 126px; left: 168px; width: 42px; height: 42px"
+          ></span>
+          <span
+            px="5"
+            py="3"
+            style="top: 126px; left: 210px; width: 42px; height: 42px"
+          ></span>
+          <canvas width="252" height="168"></canvas>
+          <img
+            width="262"
+            style="margin: -44px 0 0 -1px"
+            src="./DATA/PT/BOOK2/IMAGES/floor3.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
