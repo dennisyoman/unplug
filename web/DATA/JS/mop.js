@@ -201,6 +201,7 @@ var checkCollision = function (ev) {
         }
         //為鄰近區域
         if (isNeighbor) {
+          rootSoundEffect($show);
           mopCounter += 1;
           var directClass = "";
           //是否畫線條
@@ -232,7 +233,6 @@ var checkCollision = function (ev) {
             }
           } else {
             $(this).addClass("last");
-            console.log("draw");
           }
           //canvas
           var mopgroupCanvas = mopgroup.find("canvas").get(0);
@@ -359,6 +359,7 @@ var checkCollisionMulti = function (ev) {
         }
         //為鄰近區域or不超過連續次數限制max
         if (isNeighbor && mopCounter < max) {
+          rootSoundEffect($show);
           mopCounter += 1;
           if (!ppx) {
             $(this).addClass("last");
@@ -392,10 +393,6 @@ var checkCollisionMulti = function (ev) {
           $(this)
             .addClass("mopped last")
             .attr("ans", mopCounter)
-            /*.css(
-              "background",
-              mopZoneColours[mopZoneCounter % mopZoneColours.length]
-            )*/
             .text(mopZoneCounter + 1)
             .siblings(".last")
             .removeClass("last");
@@ -428,6 +425,9 @@ var checkMopStatus = function () {
       ////可分段完成
       mopgroup.find("> span.last").removeClass("last");
       $(".sideTool > div.btn_replay").show();
+      //洗拖把
+      rootSoundEffect($water);
+      updateWasher(mopZoneCounter + 1);
     } else {
       ////需要一次完成
       //////重設
@@ -441,6 +441,7 @@ var checkMopStatus = function () {
           $(this).text("");
         }
       });
+      updateWasher(0);
       //canvas clean
       mopgroup.each(function () {
         var mopgroupCanvas = $(this).find("canvas").get(0);
@@ -480,13 +481,26 @@ var openContent = function (id) {
   //show side tool btn
 };
 
+var updateWasher = function (num) {
+  if ($(".contents > div.selected .washer").length > 0) {
+    $(".contents > div.selected .washer").find("p > span").text(num);
+    if (num > 0) {
+      $(".contents > div.selected .washer")
+        .addClass("active")
+        .delay(1500)
+        .queue(function () {
+          $(this).dequeue().removeClass("active");
+        });
+    }
+  }
+};
+
 var resetElem = function (elem) {
   var mopgroup = elem.find(".mop-group");
   mopgroup.find(">span").each(function () {
     $(this)
       .removeAttr("ans")
-      .removeClass("mopped last tl tr td tt ttl ttr tdl tdr")
-      .css("background", "transparent");
+      .removeClass("mopped last tl tr td tt ttl ttr tdl tdr");
     if ($(this).attr("preset")) {
       $(this).text($(this).attr("preset"));
     } else {
@@ -506,6 +520,7 @@ var resetElem = function (elem) {
   });
 
   //
+  updateWasher(0);
   mopCounter = mopZoneCounter = 0;
   $(".smoke").remove();
   $(".mopAvatar").remove();

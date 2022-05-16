@@ -810,6 +810,53 @@
 
   .mop-area {
     position: relative;
+    .washer {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      text-align: center;
+      z-index: 1;
+      width: 150px;
+
+      &.active {
+        img {
+          @include opacity(1);
+        }
+      }
+
+      img {
+        width: 100px;
+        margin-bottom: 10px;
+        transform-origin: center bottom;
+        animation-name: washing;
+        animation-duration: 0.4s !important;
+        animation-iteration-count: infinite !important;
+        @include opacity(0);
+      }
+      p {
+        text-align: center;
+        font-size: 12px;
+        color: $text;
+        display: inline-block;
+        line-height: 20px;
+        padding: 5px 15px;
+        background: #fff;
+        @include borderRadius(15px);
+        margin: 0px auto 0;
+
+        span {
+          text-align: center;
+          display: inline-block;
+          height: 20px;
+          min-width: 20px;
+          border-bottom: 1px solid $text;
+          margin: 0 5px;
+          color: #eb6154;
+          font-weight: bold;
+        }
+      }
+    }
     .mop-group {
       position: absolute;
       z-index: 1;
@@ -829,13 +876,15 @@
         font-size: 25px;
         font-weight: bold;
         color: $text;
-        background: transparent;
+        background: url("../DATA/PT/BOOK2/IMAGES/stains.png") no-repeat center center;
+        background-size: cover;
         * {
           pointer-events: none;
         }
 
         &.mopped {
           pointer-events: none;
+          background: none;
         }
 
         &.bt {

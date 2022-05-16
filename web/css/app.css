@@ -122,6 +122,28 @@
   }
 }
 
+@-webkit-keyframes washing {
+  0% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  50% {
+    -webkit-transform: scaleY(1.05);
+            transform: scaleY(1.05);
+  }
+}
+
+@keyframes washing {
+  0% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  50% {
+    -webkit-transform: scaleY(1.05);
+            transform: scaleY(1.05);
+  }
+}
+
 @-webkit-keyframes skewing {
   0% {
     -webkit-transform: translate(0, 0);
@@ -1535,6 +1557,65 @@
   position: relative;
 }
 
+.module_mop .mop-area .washer {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  text-align: center;
+  z-index: 1;
+  width: 150px;
+}
+
+.module_mop .mop-area .washer.active img {
+  opacity: 1;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.module_mop .mop-area .washer img {
+  width: 100px;
+  margin-bottom: 10px;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+  -webkit-animation-name: washing;
+          animation-name: washing;
+  -webkit-animation-duration: 0.4s !important;
+          animation-duration: 0.4s !important;
+  -webkit-animation-iteration-count: infinite !important;
+          animation-iteration-count: infinite !important;
+  opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.module_mop .mop-area .washer p {
+  text-align: center;
+  font-size: 12px;
+  color: #000;
+  display: inline-block;
+  line-height: 20px;
+  padding: 5px 15px;
+  background: #fff;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin: 0px auto 0;
+}
+
+.module_mop .mop-area .washer p span {
+  text-align: center;
+  display: inline-block;
+  height: 20px;
+  min-width: 20px;
+  border-bottom: 1px solid #000;
+  margin: 0 5px;
+  color: #eb6154;
+  font-weight: bold;
+}
+
 .module_mop .mop-area .mop-group {
   position: absolute;
   z-index: 1;
@@ -1565,7 +1646,8 @@
   font-size: 25px;
   font-weight: bold;
   color: #000;
-  background: transparent;
+  background: url("../DATA/PT/BOOK2/IMAGES/stains.png") no-repeat center center;
+  background-size: cover;
 }
 
 .module_mop .mop-area .mop-group > span * {
@@ -1574,6 +1656,7 @@
 
 .module_mop .mop-area .mop-group > span.mopped {
   pointer-events: none;
+  background: none;
 }
 
 .module_mop .mop-area .mop-group > span.bt {

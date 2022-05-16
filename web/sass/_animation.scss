@@ -60,6 +60,16 @@
   }
 }
 
+@keyframes washing {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.05);
+  }
+}
+
 @keyframes skewing {
   0% {
     @include translate(0, 0);

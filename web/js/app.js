@@ -39,7 +39,7 @@ $(document).ready(function () {
           style_arr,
           "./css/",
           script_arr,
-          "./js/",
+          "./js/"
         );
 
         console.log("load and goto Unit selection");
@@ -134,8 +134,8 @@ $(document).ready(function () {
             x: Math.random() * ($(window).width() / stageRatioReal),
             y: $(window).height() / stageRatioReal,
           },
-          1 + Math.random() * 3,
-        ),
+          1 + Math.random() * 3
+        )
       );
     }
   }, 200);
@@ -323,7 +323,7 @@ let toLogin = function () {
     style_arr,
     "./css/",
     script_arr,
-    "./js/",
+    "./js/"
   );
 };
 
@@ -361,7 +361,7 @@ let loadContainer = function (id, section) {
           style_arr,
           "./DATA/",
           script_arr,
-          "./DATA/",
+          "./DATA/"
         );
 
         resetAudio();
@@ -389,7 +389,7 @@ let loadPanel = function () {
     "./css/",
     script_arr,
     "./js/",
-    true,
+    true
   );
 };
 
@@ -403,7 +403,7 @@ let loadMainSlider = function () {
     style_arr,
     "./css/",
     script_arr,
-    "./js/",
+    "./js/"
   );
 };
 
@@ -740,7 +740,7 @@ $.getComponent = function (
   css_path,
   js_arr,
   js_path,
-  noloading,
+  noloading
 ) {
   let delayTime = 50;
   let chamount = $(comp_holder).length;
@@ -814,7 +814,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")",
+      ")"
   );
   $("#root").css(
     "-webkit-transform",
@@ -822,7 +822,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")",
+      ")"
   );
   $("#root").css(
     "transform",
@@ -830,7 +830,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")",
+      ")"
   );
 };
 
@@ -1069,7 +1069,7 @@ let erasorPainting = function (ev) {
         (newPos[0] * pRatio) / newZoomRatio - _eraserWidth / 2,
         (newPos[1] * pRatio) / newZoomRatio - _eraserWidth / 2,
         _eraserWidth,
-        _eraserWidth,
+        _eraserWidth
       );
     });
   }
@@ -1196,7 +1196,7 @@ let apartCanvas = function () {
 let isCanvasBlank = function (canvas) {
   var context = canvas.getContext("2d");
   var pixelBuffer = new Uint32Array(
-    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer,
+    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
   );
 
   return !pixelBuffer.some((color) => color !== 0);
@@ -1273,15 +1273,15 @@ let adjustSizer = function () {
       //
       $("#main").css(
         "-ms-transform",
-        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")"
       );
       $("#main").css(
         "-webkit-transform",
-        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")"
       );
       $("#main").css(
         "transform",
-        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")"
       );
 
       var rangeX = Math.abs((640 * (stageRatioMain - 1)) / 2);
@@ -1358,6 +1358,8 @@ let $click = new Audio("./sfx/click.mp3");
 let $surprise = new Audio("./sfx/surprise.mp3");
 let $water = new Audio("./sfx/water.mp3");
 let $good = new Audio("./sfx/good.mp3");
+let $right = new Audio("./sfx/right.mp3");
+let $wrong = new Audio("./sfx/wrong.mp3");
 
 //combine
 var sfxLowLagged = 0;
@@ -1375,6 +1377,8 @@ let $SFXAr = [
   $surprise,
   $water,
   $good,
+  $right,
+  $wrong,
 ];
 let $SFXNameAr = [
   "chimes",
@@ -1390,6 +1394,8 @@ let $SFXNameAr = [
   "surprise",
   "water",
   "good",
+  "right",
+  "wrong",
 ];
 for (let k = 0; k < $SFXAr.length; k++) {
   $SFXAr[k].preload = "auto";
