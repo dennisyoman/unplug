@@ -306,7 +306,7 @@ var checkCollision = function (ev) {
             );
             cctx.rotate((degree * Math.PI) / 180);
             cctx.moveTo(0, -1 * cctx.lineWidth);
-            cctx.lineTo(cctx.lineWidth, 0);
+            cctx.lineTo(mtw / 3, 0);
             cctx.lineTo(0, cctx.lineWidth);
 
             cctx.closePath();

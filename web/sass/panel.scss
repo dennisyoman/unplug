@@ -23,12 +23,9 @@
       line-height: 1.5;
       color: #ffedbc;
       transform-origin: top left;
-      text-align: right;
       margin: 0 3px;
-      width: 260px;
+      width: 200%;
       height: 60px;
-      overflow: hidden;
-      flex: none;
       @include scale(0.5);
 
       > span {
@@ -45,7 +42,7 @@
       display: inline-block;
       cursor: pointer;
       font-family: Gfont-Bold;
-      width: 180px;
+      min-width: 150px;
       text-align: center;
       height: 32px;
       line-height: 32px;
@@ -58,6 +55,7 @@
       justify-content: center;
       align-items: center;
       flex: none;
+      padding: 0 5px;
       span {
         font-size: 16px;
         font-weight: bold;
