@@ -828,6 +828,24 @@
     }
   }
 
+  .irobot {
+    position: absolute;
+    z-index: 99;
+    width: 0;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include transition(all, 0.5s);
+    img {
+      display: inline-block;
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.5));
+    }
+  }
+
   .mop-area {
     position: relative;
     .washer {
@@ -905,6 +923,10 @@
         &.mopped {
           pointer-events: none;
           background: none;
+        }
+
+        &.disable {
+          pointer-events: none;
         }
 
         &.bt {

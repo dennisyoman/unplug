@@ -278,17 +278,8 @@ var checkMopStatus = function () {
     //
     drawArrow();
     //全部區域完成
-    rootSoundEffect($chimes);
-    var uniq = new Date().getTime();
-    mopgroup.append(
-      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
-    );
-    $(".smoke")
-      .delay(1000)
-      .queue(function () {
-        $(this).dequeue().remove();
-      });
     $(".sideTool > div.btn_replay").show();
+    triggerRobot();
   } else {
     //區域尚未完成
 
@@ -296,7 +287,7 @@ var checkMopStatus = function () {
     mopgroup.find("> span").each(function () {
       $(this)
         .removeAttr("ans")
-        .removeClass("onmop mopped last tl tr td tt ttl ttr tdl tdr");
+        .removeClass("disable onmop mopped last tl tr td tt ttl ttr tdl tdr");
       if ($(this).attr("preset")) {
         $(this).text($(this).attr("preset"));
       } else {
@@ -482,6 +473,8 @@ var showAnswer = function () {
       $elem = targetSpan.get(0);
     }
     drawArrow();
+    //
+    triggerRobot();
   }
 };
 var updateFrame = function (tar) {
@@ -522,6 +515,68 @@ var resetFrame = function () {
   $(".sideTool > div.btn_answer").removeClass("active").show();
 };
 
+var resetRobot = function () {
+  var irobot = $(".contents > div.selected .mop-group").find(".irobot");
+  var intX = parseInt(irobot.attr("intX"));
+  var intY = parseInt(irobot.attr("intY"));
+  var stepX = parseInt(irobot.attr("stepX"));
+  var stepY = parseInt(irobot.attr("stepY"));
+  irobot
+    .css("top", intY * stepY + "px")
+    .css("left", intX * stepX + "px")
+    .css("width", stepX + "px")
+    .css("height", stepY + "px");
+};
+
+var robotSpeed = 500;
+var robotTimeout;
+var robotStep = 0;
+
+var triggerRobot = function () {
+  $(".contents > div.selected .mop-group > span").addClass("disable");
+  robotStep = 0;
+  robotTimeout = setTimeout(updateRobot, robotSpeed);
+};
+var updateRobot = function () {
+  var selectElem = $(".contents > div.selected");
+  var mopgroup = selectElem.find(".mop-group");
+  var frames = selectElem.find(".frames");
+  var irobot = mopgroup.find(".irobot");
+  var tempGrid;
+  for (var k = 0; k < mopgroup.find(">span").length; k++) {
+    if (
+      mopgroup.find(">span").eq(k).text() ==
+      frames.find(">div").eq(robotStep).text()
+    ) {
+      tempGrid = mopgroup.find(">span").eq(k);
+      tempGrid.addClass("mopped");
+    }
+  }
+
+  var intX = parseInt(tempGrid.attr("px"));
+  var intY = parseInt(tempGrid.attr("py"));
+  var stepX = parseInt(irobot.attr("stepX"));
+  var stepY = parseInt(irobot.attr("stepY"));
+  irobot.css("top", intY * stepY + "px").css("left", intX * stepX + "px");
+  rootSoundEffect($show);
+
+  if (mopgroup.find(">span").length != mopgroup.find(">span.mopped").length) {
+    robotStep += 1;
+    robotTimeout = setTimeout(updateRobot, robotSpeed);
+  } else {
+    rootSoundEffect($chimes);
+    var uniq = new Date().getTime();
+    mopgroup.append(
+      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+    );
+    $(".smoke")
+      .delay(1000)
+      .queue(function () {
+        $(this).dequeue().remove();
+      });
+  }
+};
+
 var openContent = function (id) {
   resetAudio();
   resetTool();
@@ -535,11 +590,12 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  clearTimeout(robotTimeout);
   var mopgroup = elem.find(".mop-group");
   mopgroup.find(">span").each(function () {
     $(this)
       .removeAttr("ans")
-      .removeClass("onmop mopped last tl tr td tt ttl ttr tdl tdr");
+      .removeClass("disable onmop mopped last tl tr td tt ttl ttr tdl tdr");
     if ($(this).attr("preset")) {
       $(this).text($(this).attr("preset"));
     } else {
@@ -557,6 +613,9 @@ var resetElem = function (elem) {
       $(mopgroupCanvas).attr("height")
     );
   });
+  //irobot
+
+  resetRobot();
 
   //
   mopCounter = 0;
