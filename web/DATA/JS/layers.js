@@ -204,6 +204,17 @@ var checkStatus = function () {
   ) {
     var ans = $(".contents > div.selected .board").attr("ans");
     ans = ans.split("^");
+    //刪掉不限順序的item
+    if ($(".contents > div.selected .board").attr("skip")) {
+      var skip = $(".contents > div.selected .board").attr("skip");
+      skip = skip.split("^");
+      for (var i = 0; i < skip.length; i++) {
+        ansSeq = jQuery.grep(ansSeq, function (value) {
+          return value != skip[i];
+        });
+      }
+      console.log(ansSeq);
+    }
     var bingo = false;
     var tempAns = ansSeq.join(",");
     for (var i = 0; i < ans.length; i++) {

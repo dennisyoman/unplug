@@ -643,6 +643,7 @@
     .piece {
       display: inline-block;
       @include transition(all, 0.3s);
+      filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
     }
   }
   .puzzle {
@@ -743,10 +744,12 @@
       display: flex;
       flex-wrap: wrap;
       align-content: center;
+      justify-content: center;
       .piece {
         position: static !important;
         display: inline-block;
         margin: 2px;
+        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
       }
     }
   }
