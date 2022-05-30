@@ -60,13 +60,6 @@ body {
   outline: none;
 }
 
-img {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
 .wrapper {
   width: 100%;
   height: 100%;
@@ -525,6 +518,10 @@ img {
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .assetsPreload {

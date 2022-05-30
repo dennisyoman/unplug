@@ -144,7 +144,7 @@ $(document).ready(function () {
 
 //parameters
 let html2canvasScale = 5;
-let testmode = true;
+let testmode = false;
 let translateCountDown = false; //繁轉簡倒數(勿動)
 let uToken = ""; //user token(勿動)
 let version = new Date().getDate(); //版本(勿動)
@@ -297,9 +297,6 @@ let createUnits = function () {
 
 let showUnits = function (checkcheck) {
   $("#units").addClass("active");
-  if (checkcheck) {
-    doubleCheckin();
-  }
 };
 
 let hideUnits = function () {
@@ -407,6 +404,12 @@ let loadMainSlider = function () {
   );
 };
 
+let getTimeStamp = function () {
+  let timestamp = Date.parse(new Date()); //1610075969000
+  timestamp = timestamp.toString().slice(0, 10);
+  return timestamp;
+};
+
 let checkLogin = function () {
   $(".error").html("login...");
 
@@ -419,21 +422,22 @@ let checkLogin = function () {
     //case insensitive
     let uname = $('input[name="username"]').val().toUpperCase();
     userID = uname;
-    let upass = $('input[name="password"]').val().toUpperCase();
-    let upassLength = upass.length < 10 ? "0" + upass.length : upass.length;
-    let combo = uname + upass + upassLength;
-    combo = combo.split("");
-    let encodedToken = "";
-    for (let i = 0; i < combo.length; i++) {
-      encodedToken += combo[i];
-      encodedToken += "_";
-    }
-    encodedToken = btoa(encodedToken);
+    window.localStorage.setItem("UserID", uname);
+    let upass = $('input[name="password"]').val().toLowerCase() + "GIRF";
+    var hash = md5(upass).toUpperCase();
+    let timestamp = getTimeStamp();
+    let sign = md5(timestamp + "LDD@Giraffe55825168").toUpperCase();
 
     $.ajax({
-      type: "GET",
-      url: "/ws/ws_get.asmx/MemberLogin",
-      data: { data: encodedToken, source: "C" },
+      type: "POST",
+      url: "//api01.giraffe.com.tw/api/ludodo/eteaching/member-login",
+      data: JSON.stringify({
+        id: userID,
+        pwd: hash,
+        courseType: "U",
+        timestamp: timestamp,
+        sign: sign,
+      }),
       async: false,
       contentType: "application/json; charset=utf-8",
       timeout: 10000,
@@ -443,9 +447,10 @@ let checkLogin = function () {
         console.log(data);
         let code = $(data).find("code").first().text();
         let msg = $(data).find("msg").first().text();
+        let encodedToken = $(data).find("token").first().text();
         if (code == "0" || code == 0) {
           uToken = $(data).find("token").first().text();
-          dueDate = $(data).find("ServiceEndDate").first().text();
+          dueDate = $(data).find("serviceenddate").first().text();
           uName = $(data).find("name").first().text();
           getSeriesXML();
         } else if (code == "2" || code == 2) {
@@ -456,6 +461,7 @@ let checkLogin = function () {
             reCheckLogin(encodedToken);
           } else {
             //alert("密碼錯誤");
+            console.log("不踢掉原登入");
           }
         } else {
           $(".error").html(msg);
@@ -470,22 +476,28 @@ let checkLogin = function () {
 };
 
 let reCheckLogin = function (encodedToken) {
+  let timestamp = getTimeStamp();
+  let sign = md5(timestamp + "LDD@Giraffe55825168").toUpperCase();
   $.ajax({
-    type: "GET",
-    url: "/ws/ws_get.asmx/MemberReLogin",
-    data: { data: encodedToken, source: "C" },
+    type: "POST",
+    url: "//api01.giraffe.com.tw/api/ludodo/eteaching/member-relogin",
+    data: JSON.stringify({
+      token: encodedToken,
+      timestamp: timestamp,
+      sign: sign,
+    }),
     async: false,
     contentType: "application/json; charset=utf-8",
     timeout: 10000,
     cache: false,
     dataType: "xml",
     success: function (data) {
-      console.log(data);
       let code = $(data).find("code").first().text();
       let msg = $(data).find("msg").first().text();
-      if (code == "0" || code == 0) {
+      if (code == "0") {
         uToken = $(data).find("token").first().text();
-        dueDate = $(data).find("ServiceEndDate").first().text();
+        dueDate = $(data).find("serviceenddate").first().text();
+        window.localStorage.setItem("DueDate", dueDate);
         uName = $(data).find("name").first().text();
         getSeriesXML();
       } else {
@@ -495,36 +507,6 @@ let reCheckLogin = function (encodedToken) {
     error: function (xhr, ajaxOptions, thrownError) {
       console.log(thrownError);
       $(".error").html(thrownError);
-    },
-  });
-};
-
-let doubleCheckin = function () {
-  let xpath = "/ws/ws_get.asmx/Series";
-  $.ajax({
-    type: "GET",
-    url: xpath,
-    data: { token: uToken },
-    cache: false,
-    contentType: "application/json; charset=utf-8",
-    async: false,
-    timeout: 10000,
-    dataType: "xml",
-    success: function (data) {
-      let code = $(data).find("code").first().text();
-      let msg = $(data).find("msg").first().text();
-      if (code == "0" || code == 0) {
-        console.log("pass double");
-      } else {
-        showError(msg);
-        if (code == "12" || code == 12) {
-          window.location.reload();
-        }
-      }
-    },
-    error: function (xhr, ajaxOptions, thrownError) {
-      console.log(thrownError);
-      console.log("Series:error");
     },
   });
 };
