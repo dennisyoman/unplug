@@ -1643,11 +1643,11 @@ let backToGEO = function () {
   let logoutConfirm = confirm("Log out now？");
 
   if (logoutConfirm) {
-    window.location.reload();
-    /*
+    //window.location.reload();
+
     $.ajax({
       type: "GET",
-      url: "/ws/ws_get.asmx/MemberLogout",
+      url: "//api01.giraffe.com.tw/api/ludodo/eteaching/member-logout",
       data: { token: uToken },
       async: false,
       contentType: "application/json; charset=utf-8",
@@ -1669,7 +1669,6 @@ let backToGEO = function () {
         alert(thrownError);
       },
     });
-    */
   }
 };
 
