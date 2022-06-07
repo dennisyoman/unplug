@@ -54,13 +54,21 @@ $(document).ready(function () {
         .unbind()
         .bind("click", function () {
           resetMen();
-          //if ($(".sideTool > div.btn_playorder").hasClass("active")) {
-          //$(".sideTool > div.btn_playorder").removeClass("active");
+
           $(".contents > div.selected .lights > div").removeClass(
-            "passed wrong right",
+            "passed wrong right"
           );
           //}
           $(this).toggleClass("selected");
+          //
+          if ($(this).siblings(".cta").css("display") == "none") {
+            if ($(".contents > div.selected .frames").hasClass("fixAnswer")) {
+              showAnswer(true);
+              $(".contents > div.selected .frames")
+                .find("> div > div")
+                .css("pointer-events", "none");
+            }
+          }
           $(".lights > .cta").show();
         });
 
@@ -168,7 +176,7 @@ var handleDrag = function (ev) {
     }
     if ($($elem).parent().hasClass("cards")) {
       $("#module_wrapper").append(
-        '<div id="cardAvatar" class="cardAvatar"></div>',
+        '<div id="cardAvatar" class="cardAvatar"></div>'
       );
       $($elem).clone().appendTo("#cardAvatar");
     }
@@ -215,13 +223,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2,
+            $("#cardAvatar").height() / stageRatioReal / 2
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2,
+            $("#cardAvatar").width() / stageRatioReal / 2
         ) + "px";
       checkCollision(ev);
     }
@@ -273,7 +281,36 @@ var checkOrderStatus = function () {
   var frameCheckBtn = $(".contents > div.selected .frames > .cta");
   frameElem.each(function () {
     if ($(this).hasClass("selected")) {
-      $(this).removeClass("selected").empty().append($("#cardAvatar").html());
+      if (!$(this).attr("amount")) {
+        $(this).removeClass("selected").empty().append($("#cardAvatar").html());
+      } else {
+        //改變箭頭樣式
+        $("#cardAvatar")
+          .find("img")
+          .attr("src", "./DATA/IMAGES/common/arrow2.png");
+        $("#cardAvatar > div").append("<p></p>");
+        //箭頭方向相同則累加,否則重算
+        var curAns = $(this).find("> div").attr("ans");
+        var avatarAns = $("#cardAvatar").find("> div").attr("ans");
+        if (curAns == avatarAns) {
+          var curNumber = parseInt($(this).find("p").text()) || 1;
+
+          $(this)
+            .removeClass("selected")
+            .empty()
+            .append($("#cardAvatar").html());
+          $(this)
+            .find("p")
+            .text(curNumber + 1);
+        } else {
+          $(this)
+            .removeClass("selected")
+            .empty()
+            .append($("#cardAvatar").html());
+          $(this).find("p").text(1);
+        }
+      }
+
       rootSoundEffect($pop);
       //user change status
       resetMen();
@@ -299,12 +336,23 @@ var showAnswer = function (boolean) {
   resetMen();
   if (boolean) {
     frameElem.each(function () {
-      $(this).removeClass("selected").empty().append(`
-    <div class="${$(this).attr(
-      "ans",
-    )} wow bounceIn" ans="${$(this).attr("ans")}">
+      if (!$(this).attr("amount")) {
+        $(this).removeClass("selected").empty().append(`
+    <div class="${$(this).attr("ans")} wow bounceIn" ans="${$(this).attr(
+          "ans"
+        )}">
     <img src="./DATA/IMAGES/common/arrow1.png" />
     </div>`);
+      } else {
+        $(this).removeClass("selected").empty().append(`
+    <div class="${$(this).attr("ans")} wow bounceIn" ans="${$(this).attr(
+          "ans"
+        )}">
+    <img src="./DATA/IMAGES/common/arrow2.png" /><p>${$(this).attr(
+      "amount"
+    )}</p>
+    </div>`);
+      }
     });
     rootSoundEffect($help);
     $(".btn_answer").addClass("active");
@@ -390,7 +438,7 @@ var passingAnimation = function () {
               //
               var uniq = new Date().getTime();
               tempLight.append(
-                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
               );
               $(".smoke")
                 .delay(1500)
@@ -412,25 +460,70 @@ var passingAnimation = function () {
   } else if (getStocked) {
     showResult("stocked");
   } else {
-    fightStep++;
-    if (fightStep < frameElem.length) {
-      fightTimeout = setTimeout(passingAnimation, fightSpeed);
-    } else {
-      //lights
-      for (var k = 0; k < lightsElem.length; k++) {
-        var tempLight = lightsElem.eq(k);
-        if (tempLight.hasClass("selected") && !tempLight.hasClass("right")) {
-          tempLight.addClass("wrong");
+    if (!frameElem.eq(fightStep).attr("amount")) {
+      fightStep++;
+      if (fightStep < frameElem.length) {
+        fightTimeout = setTimeout(passingAnimation, fightSpeed);
+      } else {
+        //lights
+        for (var k = 0; k < lightsElem.length; k++) {
+          var tempLight = lightsElem.eq(k);
+          if (tempLight.hasClass("selected") && !tempLight.hasClass("right")) {
+            tempLight.addClass("wrong");
+          }
+        }
+        //
+        if (
+          tempKing.attr("curX") == tempGhost.attr("curX") &&
+          tempKing.attr("curY") == tempGhost.attr("curY")
+        ) {
+          showResult("success");
+        } else {
+          if (tempGhost.length > 0) {
+            showResult("fail");
+          } else {
+            showResult("success");
+          }
         }
       }
-      //
-      if (
-        tempKing.attr("curX") == tempGhost.attr("curX") &&
-        tempKing.attr("curY") == tempGhost.attr("curY")
-      ) {
-        showResult("success");
+    } else {
+      var restSteps = parseInt(frameElem.eq(fightStep).find("p").text());
+      if (restSteps > 1) {
+        frameElem
+          .eq(fightStep)
+          .find("p")
+          .text(restSteps - 1);
+        fightTimeout = setTimeout(passingAnimation, fightSpeed);
       } else {
-        showResult("fail");
+        frameElem.eq(fightStep).find("p").text("");
+        fightStep++;
+        if (fightStep < frameElem.length) {
+          fightTimeout = setTimeout(passingAnimation, fightSpeed);
+        } else {
+          //lights
+          for (var k = 0; k < lightsElem.length; k++) {
+            var tempLight = lightsElem.eq(k);
+            if (
+              tempLight.hasClass("selected") &&
+              !tempLight.hasClass("right")
+            ) {
+              tempLight.addClass("wrong");
+            }
+          }
+          //
+          if (
+            tempKing.attr("curX") == tempGhost.attr("curX") &&
+            tempKing.attr("curY") == tempGhost.attr("curY")
+          ) {
+            showResult("success");
+          } else {
+            if (tempGhost.length > 0) {
+              showResult("fail");
+            } else {
+              showResult("success");
+            }
+          }
+        }
       }
     }
   }
@@ -491,17 +584,51 @@ var fightAnimation = function () {
   } else if (getStocked) {
     showResult("stocked");
   } else {
-    fightStep++;
-    if (fightStep < frameElem.length) {
-      fightTimeout = setTimeout(fightAnimation, fightSpeed);
-    } else {
-      if (
-        tempKing.attr("curX") == tempGhost.attr("curX") &&
-        tempKing.attr("curY") == tempGhost.attr("curY")
-      ) {
-        showResult("success");
+    if (!frameElem.eq(fightStep).attr("amount")) {
+      fightStep++;
+      if (fightStep < frameElem.length) {
+        fightTimeout = setTimeout(fightAnimation, fightSpeed);
       } else {
-        showResult("fail");
+        if (
+          tempKing.attr("curX") == tempGhost.attr("curX") &&
+          tempKing.attr("curY") == tempGhost.attr("curY")
+        ) {
+          showResult("success");
+        } else {
+          if (tempGhost.length > 0) {
+            showResult("fail");
+          } else {
+            showResult("success");
+          }
+        }
+      }
+    } else {
+      var restSteps = parseInt(frameElem.eq(fightStep).find("p").text());
+      if (restSteps > 1) {
+        frameElem
+          .eq(fightStep)
+          .find("p")
+          .text(restSteps - 1);
+        fightTimeout = setTimeout(fightAnimation, fightSpeed);
+      } else {
+        frameElem.eq(fightStep).find("p").text("");
+        fightStep++;
+        if (fightStep < frameElem.length) {
+          fightTimeout = setTimeout(fightAnimation, fightSpeed);
+        } else {
+          if (
+            tempKing.attr("curX") == tempGhost.attr("curX") &&
+            tempKing.attr("curY") == tempGhost.attr("curY")
+          ) {
+            showResult("success");
+          } else {
+            if (tempGhost.length > 0) {
+              showResult("fail");
+            } else {
+              showResult("success");
+            }
+          }
+        }
       }
     }
   }
@@ -518,7 +645,7 @@ var showResult = function (result) {
       tempKing
         .addClass("outbound")
         .append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`,
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`
         );
       $(".smoke")
         .delay(1000)
@@ -555,14 +682,14 @@ var showResult = function (result) {
     case "success":
       console.log("success");
       var uniq = new Date().getTime();
-      tempGhost.delay(300).queue(function () {
+      tempKing.delay(300).queue(function () {
         rootSoundEffect($correct);
-        tempKing.addClass("jump");
-        $(this)
-          .dequeue()
+        $(this).addClass("jump");
+        $(this).dequeue();
+        tempGhost
           .addClass("vanish")
           .append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`,
+            `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`
           );
         $(".smoke")
           .delay(1000)
@@ -579,7 +706,7 @@ var showResult = function (result) {
 
 var appendArrow = function (direction, xx, yy) {
   $(".contents > div.selected .stage").append(
-    `<div id="arrow" class="arrow ${direction}" />`,
+    `<div id="arrow" class="arrow ${direction}" />`
   );
   var diffX = (gridsColumn / 2) * gridW - gridW / 2;
   var diffY = (gridsRow / 2) * gridH - gridH / 2;
@@ -665,6 +792,15 @@ var resetElem = function (elem) {
   var tempFrameset = elem.find(".frames");
   tempFrameset.find("> div").empty();
   checkOrderStatus();
+
+  //
+
+  if ($(".contents > div.selected .frames").hasClass("fixAnswer")) {
+    showAnswer(true);
+    $(".contents > div.selected .frames")
+      .find("> div > div")
+      .css("pointer-events", "none");
+  }
 
   //cards & lights reset
   elem.find(".selected").removeClass("selected");

@@ -12,5 +12,11 @@
       <lesson lid="3">規律的生活</lesson>
       <lesson lid="4">尋寶遊戲</lesson>
     </book>
+    <book name="Book 3" bid="3" img="PT_book3.jpg">
+      <lesson lid="1">日常中的程式2</lesson>
+      <lesson lid="2">運算思維學幾何</lesson>
+      <lesson lid="3">溝通訓練大揭密</lesson>
+      <lesson lid="4">輪流與優先序</lesson>
+    </book>
   </series>
 </root>

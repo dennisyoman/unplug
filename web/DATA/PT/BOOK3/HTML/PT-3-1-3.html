@@ -1,0 +1,314 @@
+<div id="module_wrapper" class="module_order">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+    <span>任務四</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>精衛填海</b
+            >：重複將同樣的箭頭元素放到對應的框框中，利用數字減少使用框框的數量。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="1" col="5" intRX="50" intRZ="0">
+          <div class="man king bird cry" intX="1" intY="1">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK3/IMAGES/bird.png"
+            />
+          </div>
+          <div class="man ghost stone" intX="5" intY="1">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK3/IMAGES/stone.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <img
+              width="300"
+              height="60"
+              src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-1.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div amount="4" ans="r" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="4" col="4" intRX="50" intRZ="0">
+          <div class="man king bird" intX="4" intY="4">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK3/IMAGES/bird.png"
+            />
+          </div>
+          <div class="man ghost stone" intX="4" intY="1">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK3/IMAGES/stone.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="barrier">
+              <span pX="3" pY="3" />
+              <span pX="4" pY="3" />
+            </div>
+            <img
+              width="240"
+              height="240"
+              src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-2.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="l" amount="2" />
+          <div ans="d" amount="3" />
+          <div class="end" ans="r" amount="2" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="world3D">
+        <div class="stage rotater" row="4" col="4" intRX="50" intRZ="0">
+          <div class="man king bird" intX="4" intY="4">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK3/IMAGES/bird.png"
+            />
+          </div>
+          <div class="man ghost stone" intX="1" intY="4">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK3/IMAGES/stone.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="barrier">
+              <span pX="2" pY="3" />
+              <span pX="2" pY="4" />
+              <span pX="3" pY="2" />
+            </div>
+            <img
+              width="240"
+              height="240"
+              src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-3.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="d" amount="3" />
+          <div ans="l" amount="3" />
+          <div class="end" ans="u" amount="3" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="5" col="4" intRX="50" intRZ="0">
+          <div class="man king bird" intX="1" intY="4">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK3/IMAGES/bird.png"
+            />
+          </div>
+          <div class="man ghost stone" intX="3" intY="2">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK3/IMAGES/stone.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="barrier">
+              <span pX="1" pY="2" />
+              <span pX="2" pY="2" />
+              <span pX="2" pY="3" />
+              <span pX="3" pY="4" />
+            </div>
+            <img
+              width="240"
+              height="300"
+              src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-4.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="u" amount="1" />
+          <div ans="r" amount="3" />
+          <div ans="d" amount="3" />
+          <div class="end" ans="l" amount="1" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>請圈出精衛鳥一共叼了哪些顏色的石子？</p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="5" col="4" intRX="50" intRZ="0">
+          <div class="man king bird" intX="1" intY="3">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK3/IMAGES/bird.png"
+            />
+          </div>
+
+          <div class="ground" mt="1">
+            <div class="items">
+              <span pX="4" pY="5" ans="green" />
+              <span pX="2" pY="4" ans="red" />
+              <span pX="3" pY="4" ans="black" />
+              <span pX="4" pY="3" ans="purple" />
+            </div>
+            <img
+              width="240"
+              height="300"
+              src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-5.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft fixAnswer" data-wow-delay="1s">
+          <div class="u start" ans="u" amount="2" />
+          <div class="r" ans="r" amount="3" />
+          <div class="d" ans="d" amount="2" />
+          <div class="d end" ans="l" amount="1" />
+        </div>
+        <div class="lights">
+          <div class="wow bounceInUp" data-wow-delay="1.4s" ans="green">
+            <img src="./DATA/PT/BOOK3/IMAGES/card_greenstone.jpg" />
+          </div>
+          <div class="wow bounceInUp" data-wow-delay="1.3s" ans="red">
+            <img src="./DATA/PT/BOOK3/IMAGES/card_redstone.jpg" />
+          </div>
+          <div class="wow bounceInUp" data-wow-delay="1.2s" ans="black">
+            <img src="./DATA/PT/BOOK3/IMAGES/card_blackstone.jpg" />
+          </div>
+          <div class="wow bounceInUp" data-wow-delay="1.1s" ans="purple">
+            <img src="./DATA/PT/BOOK3/IMAGES/card_purplestone.jpg" />
+          </div>
+          <span class="cta orange wow bounceInUp" data-wow-delay="1s"
+            >CHECK</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

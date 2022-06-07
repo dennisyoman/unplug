@@ -1,0 +1,142 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>如果你是媽媽，你會怎麼做？</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="擦掉牆壁上塗鴉">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="關瓦斯">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="接電話">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="看書">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="應門">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="幫忙拿糖果">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="E"></div>
+        <div ans="C"></div>
+        <div ans="F"></div>
+        <div ans="A"></div>
+        <div class="end" ans="D"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>B=1</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>如果你是老師，你會先幫忙誰？</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="塗鴉">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="被蚊子咬">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="撞到頭">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="衣服被勾住">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="打翻水杯">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="手指被割傷">
+            <img src="./DATA/PT/BOOK3/IMAGES/PT-3-4-4-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="F"></div>
+        <div ans="C"></div>
+        <div ans="E"></div>
+        <div ans="B"></div>
+        <div ans="D"></div>
+        <div class="end" ans="A"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <!-- 空內容代表沒有一定的順序 -->
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
