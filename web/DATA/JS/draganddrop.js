@@ -110,6 +110,10 @@ var handleDrag = function (ev) {
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
+      //是否有正確位置參數fp
+      if ($($elem).attr("fp")) {
+        $($elem).addClass("semiTransparent");
+      }
       var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
       console.log(caWidth);
       $("#cardAvatar").css("width", caWidth + "px");
@@ -152,8 +156,15 @@ var handleDrag = function (ev) {
         //check order status
         checkStatus();
       } else {
+        var src1 = $("#cardAvatar").find("img").attr("src");
+        $(".contents > div.selected")
+          .find(".toys > div")
+          .each(function () {
+            if (src1 == $(this).find("img").attr("src")) {
+              $(this).removeClass("cached semiTransparent positionBingo");
+            }
+          });
         $("#cardAvatar").remove();
-        $(".cached").removeClass("cached");
       }
     }
     //then
@@ -180,6 +191,38 @@ var checkCollision = function (ev) {
 };
 
 var checkStatus = function () {
+  //是否有正確位置參數fp
+  if ($("#cardAvatar > div").attr("fp")) {
+    var itemFP = $("#cardAvatar > div").attr("fp").split(",");
+    var itemW = $("#cardAvatar").get(0).style.width;
+    var itemH = $("#cardAvatar").get(0).style.height;
+    var itemTop = $("#cardAvatar").get(0).style.top;
+    var itemLeft = $("#cardAvatar").get(0).style.left;
+    if (
+      parseInt(itemTop) > parseInt(itemFP[0]) - parseInt(itemH) / 2 &&
+      parseInt(itemTop) < parseInt(itemFP[0]) + parseInt(itemH) / 2 &&
+      parseInt(itemLeft) > parseInt(itemFP[1]) - parseInt(itemW) / 2 &&
+      parseInt(itemLeft) < parseInt(itemFP[1]) + parseInt(itemW) / 2
+    ) {
+      rootSoundEffect($correct);
+      $("#cardAvatar").addClass("positionBingo");
+      $("#cardAvatar").get(0).style.top = itemFP[0] + "px";
+      $("#cardAvatar").get(0).style.left = itemFP[1] + "px";
+      var src1 = $("#cardAvatar").find("img").attr("src");
+      $(".contents > div.selected")
+        .find(".toys > div")
+        .each(function () {
+          if (src1 == $(this).find("img").attr("src")) {
+            $(this).addClass("positionBingo");
+          }
+        });
+    } else {
+      rootSoundEffect($pop);
+    }
+  } else {
+    rootSoundEffect($pop);
+  }
+  //
   $("#cardAvatar")
     .unbind()
     .bind("click", function () {
@@ -188,7 +231,7 @@ var checkStatus = function () {
         .find(".toys > div")
         .each(function () {
           if (src1 == $(this).find("img").attr("src")) {
-            $(this).removeClass("cached");
+            $(this).removeClass("cached semiTransparent positionBingo");
           }
         });
       $(this).remove();
@@ -198,7 +241,7 @@ var checkStatus = function () {
     .addClass("cardAvatarDie")
     .css("pointer-events", "auto")
     .css("cursor", "pointer");
-  rootSoundEffect($pop);
+
   $(".sideTool > div.btn_replay").show();
 };
 
@@ -215,7 +258,7 @@ var openContent = function (id) {
 
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
-  elem.find(".cached").removeClass("cached");
+  elem.find(".cached").removeClass("cached semiTransparent positionBingo");
   elem.find(".disable").removeClass("disable");
   //shuffle toy
   var toyArr = [];
@@ -242,4 +285,8 @@ var resetElem = function (elem) {
 
 var resetTool = function () {
   $(".sideTool > div").removeClass("active").hide();
+};
+
+var bingo = function () {
+  rootSoundEffect($correct);
 };
