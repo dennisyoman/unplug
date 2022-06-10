@@ -1,0 +1,198 @@
+<div id="module_wrapper" class="module_condition">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+    <span>任務四</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            切換下方的條件，選出符合條件的圖形。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。點選
+            <img
+              src="./DATA/IMAGES/common/btn_prev2.png"
+              height="30"
+              width="30"
+            />
+            <img
+              src="./DATA/IMAGES/common/btn_next2.png"
+              height="30"
+              width="30"
+            />
+            可以切換條件。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 500px; height: 210px" class="puzzle">
+        <div class="subject">
+          <div class="items" style="width: 494px; height: 205px">
+            <span val="A" style="width: 25%; height: 50%"></span>
+            <span val="B" style="width: 25%; height: 50%"></span>
+            <span val="E" style="width: 25%; height: 50%"></span>
+            <span
+              val="F"
+              style="width: 25%; height: 50%; border-radius: 0 12px 0 0"
+            ></span>
+            <span
+              val="C"
+              style="width: 25%; height: 50%; border-radius: 0 0 0 12px"
+            ></span>
+            <span val="D" class="ans" style="width: 25%; height: 50%"></span>
+            <span val="G" style="width: 25%; height: 50%"></span>
+            <span
+              val="H"
+              style="width: 25%; height: 50%; border-radius: 0 0 12px 0"
+            ></span>
+          </div>
+          <img
+            class="wow fadeInLeft"
+            src="./DATA/PT/BOOK3/IMAGES/PT-3-2-4-1.png"
+          />
+        </div>
+        <div class="nav-in" style="top: 220px">
+          <span class="prev disable" onclick="goCommand(-1)"></span>
+          <span class="conditon" cid="0"></span>
+          <span class="next" onclick="goCommand(1)"></span>
+        </div>
+        <div class="conditons">
+          <span class="wow fadeIn">1. 卡片中只有1種顏色</span>
+          <span class="wow fadeIn">2. 卡片中有2種形狀 </span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="width: 500px; height: 210px" class="puzzle">
+        <div class="subject">
+          <div class="items" style="width: 494px; height: 205px">
+            <span val="A" class="ans" style="width: 25%; height: 50%"></span>
+            <span val="B" style="width: 25%; height: 50%"></span>
+            <span val="E" style="width: 25%; height: 50%"></span>
+            <span
+              val="F"
+              style="width: 25%; height: 50%; border-radius: 0 12px 0 0"
+            ></span>
+            <span
+              val="C"
+              style="width: 25%; height: 50%; border-radius: 0 0 0 12px"
+            ></span>
+            <span val="D" style="width: 25%; height: 50%"></span>
+            <span val="G" style="width: 25%; height: 50%"></span>
+            <span
+              val="H"
+              style="width: 25%; height: 50%; border-radius: 0 0 12px 0"
+            ></span>
+          </div>
+          <img
+            class="wow fadeInLeft"
+            src="./DATA/PT/BOOK3/IMAGES/PT-3-2-4-1.png"
+          />
+        </div>
+        <div class="nav-in" style="top: 220px">
+          <span class="prev disable" onclick="goCommand(-1)"></span>
+          <span class="conditon" cid="0"></span>
+          <span class="next" onclick="goCommand(1)"></span>
+        </div>
+        <div class="conditons">
+          <span class="wow fadeIn">1. 卡片中有2種顏色</span>
+          <span class="wow fadeIn">2. 卡片中有2種形狀</span>
+          <span class="wow fadeIn">3. 卡片中有1個黃色的三角形</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="width: 500px; height: 210px" class="puzzle">
+        <div class="subject">
+          <div class="items" style="width: 494px; height: 205px">
+            <span val="A" style="width: 25%; height: 50%"></span>
+            <span val="B" style="width: 25%; height: 50%"></span>
+            <span val="E" style="width: 25%; height: 50%"></span>
+            <span
+              val="F"
+              class="ans"
+              style="width: 25%; height: 50%; border-radius: 0 12px 0 0"
+            ></span>
+            <span
+              val="C"
+              style="width: 25%; height: 50%; border-radius: 0 0 0 12px"
+            ></span>
+            <span val="D" style="width: 25%; height: 50%"></span>
+            <span val="G" style="width: 25%; height: 50%"></span>
+            <span
+              val="H"
+              style="width: 25%; height: 50%; border-radius: 0 0 12px 0"
+            ></span>
+          </div>
+          <img
+            class="wow fadeInLeft"
+            src="./DATA/PT/BOOK3/IMAGES/PT-3-2-4-1.png"
+          />
+        </div>
+        <div class="nav-in" style="top: 220px">
+          <span class="prev disable" onclick="goCommand(-1)"></span>
+          <span class="conditon" cid="0"></span>
+          <span class="next" onclick="goCommand(1)"></span>
+        </div>
+        <div class="conditons">
+          <span class="wow fadeIn">1. 卡片中有2種顏色</span>
+          <span class="wow fadeIn">2. 卡片中有1種形狀</span>
+          <span class="wow fadeIn">3. 卡片中有2個黃色的圓形</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="width: 500px; height: 210px" class="puzzle">
+        <div class="subject">
+          <div class="items" style="width: 494px; height: 205px">
+            <span val="A" style="width: 25%; height: 50%"></span>
+            <span val="B" style="width: 25%; height: 50%"></span>
+            <span val="E" style="width: 25%; height: 50%"></span>
+            <span
+              val="F"
+              style="width: 25%; height: 50%; border-radius: 0 12px 0 0"
+            ></span>
+            <span
+              val="C"
+              style="width: 25%; height: 50%; border-radius: 0 0 0 12px"
+            ></span>
+            <span val="D" style="width: 25%; height: 50%"></span>
+            <span val="G" style="width: 25%; height: 50%"></span>
+            <span
+              val="H"
+              style="width: 25%; height: 50%; border-radius: 0 0 12px 0"
+            ></span>
+          </div>
+          <img
+            class="wow fadeInLeft"
+            src="./DATA/PT/BOOK3/IMAGES/PT-3-2-4-1.png"
+          />
+        </div>
+        <div class="title-in wow slideInDown" style="top: -30px">
+          換你來告訴老師怎麼做吧！
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

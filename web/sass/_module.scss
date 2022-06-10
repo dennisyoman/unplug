@@ -1872,6 +1872,246 @@
   }
 }
 
+.module_condition {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .puzzle {
+      position: relative;
+
+      &.showAnswer {
+        display: block;
+        .items {
+          > span {
+            background: rgba(0, 0, 0, 0.5);
+            &.ans {
+              background: rgba(0, 0, 0, 0);
+            }
+          }
+        }
+      }
+
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .conditons {
+        display: none;
+      }
+
+      .title-in {
+        display: block;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 12px;
+        left: 0;
+        color: $main;
+      }
+
+      .nav-in {
+        display: block;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        left: 0;
+        span {
+          display: inline-block;
+          &.disable {
+            @include opacity(0.3);
+            pointer-events: none !important;
+          }
+        }
+        span.prev {
+          width: 30px;
+          height: 30px;
+          background: url("../DATA/IMAGES/common/btn_prev2.png") no-repeat center center;
+          background-size: 100% 100%;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+        span.next {
+          width: 30px;
+          height: 30px;
+          pointer-events: auto;
+          background: url("../DATA/IMAGES/common/btn_next2.png") no-repeat center center;
+          background-size: 100% 100%;
+          cursor: pointer;
+        }
+      }
+      .items {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        background: rgba(0, 0, 0, 0);
+        width: 100%;
+        height: 100%;
+        > span {
+          display: inline-block;
+          pointer-events: auto;
+          cursor: pointer;
+          @include transition(background, 0.3s);
+          &.selected {
+            border: 3px solid $main;
+          }
+        }
+      }
+
+      .subject {
+        position: relative;
+        z-index: 1;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.module_apart {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .puzzle {
+      position: relative;
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .commands {
+        line-height: 16px;
+        font-size: 12px;
+        text-align: left;
+
+        span {
+          display: block;
+          margin-bottom: 4px;
+        }
+      }
+
+      .title-in {
+        display: block;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 12px;
+        left: 0;
+        color: $main;
+      }
+
+      .nav-in {
+        display: block;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        left: 0;
+        span {
+          display: inline-block;
+          &.disable {
+            @include opacity(0.3);
+            pointer-events: none !important;
+          }
+        }
+        span.prev {
+          width: 30px;
+          height: 30px;
+          background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+          background-size: 100% 100%;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+        span.next {
+          width: 30px;
+          height: 30px;
+          pointer-events: auto;
+          background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+          background-size: 100% 100%;
+          cursor: pointer;
+        }
+      }
+
+      .canvas {
+        z-index: 3;
+        @include opacity(0.7);
+        canvas {
+          pointer-events: auto;
+          cursor: pointer;
+        }
+      }
+      .subject {
+        z-index: 1;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .ans {
+        z-index: 2;
+        display: none;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &.showAnswer {
+        .subject {
+          display: none;
+        }
+        .ans {
+          display: inline-block !important;
+        }
+      }
+    }
+  }
+}
+
 .module_decode {
   position: relative;
   top: 0;
@@ -1920,6 +2160,8 @@
         background: #fff;
         @include borderRadius(10px);
         @include boxShadow(1px 1px 6px rgba(0, 0, 0, 0.2));
+      }
+      .canvas {
       }
 
       .subject {

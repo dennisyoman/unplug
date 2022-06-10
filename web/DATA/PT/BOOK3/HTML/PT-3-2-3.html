@@ -1,0 +1,229 @@
+<div id="module_wrapper" class="module_apart">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            依照指示，依序完成繪圖。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 242px; height: 200px" class="puzzle">
+        <div class="canvas">
+          <canvas width="242" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-1.png" />
+        </div>
+        <div class="ans">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-1A.png" />
+        </div>
+        <div class="nav-in" style="top: 210px">
+          <span class="prev disable"></span>
+          <span>1/6</span>
+          <span class="next" onclick="goPuzzle(1)"></span>
+        </div>
+        <div class="commands" style="left: 260px">
+          <span class="wow fadeIn" data-wow-delay="1s">1. 去到起始點</span>
+          <span class="wow fadeIn" data-wow-delay="1.5s">2. 下筆</span>
+          <span class="wow fadeIn" data-wow-delay="2s">3. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="2.5s">4. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="3s">5. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="3.5s">6. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="4s">7. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="4.5s">8. 提筆</span>
+        </div>
+      </div>
+      <div style="width: 242px; height: 200px" class="puzzle">
+        <div class="canvas">
+          <canvas width="242" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-2.png" />
+        </div>
+        <div class="ans">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-2A.png" />
+        </div>
+        <div class="nav-in" style="top: 210px">
+          <span class="prev" onclick="goPuzzle(0)"></span>
+          <span>2/6</span>
+          <span class="next" onclick="goPuzzle(2)"></span>
+        </div>
+        <div class="commands" style="left: 260px">
+          <span class="wow fadeIn" data-wow-delay="1s">1. 去到起始點</span>
+          <span class="wow fadeIn" data-wow-delay="1.5s">2. 下筆</span>
+          <span class="wow fadeIn" data-wow-delay="2s">3. 往右上走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="2.5s"
+            >4. 往右下走一小格</span
+          >
+          <span class="wow fadeIn" data-wow-delay="3s">5. 往右上走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="3.5s"
+            >6. 往右下走一小格</span
+          >
+          <span class="wow fadeIn" data-wow-delay="4s">7. 往右上走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="4.5s"
+            >8. 往右下走一小格</span
+          >
+          <span class="wow fadeIn" data-wow-delay="5s">9. 提筆</span>
+        </div>
+      </div>
+      <div style="width: 242px; height: 200px" class="puzzle">
+        <div class="canvas">
+          <canvas width="242" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-3.png" />
+        </div>
+        <div class="ans">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-3A.png" />
+        </div>
+        <div class="nav-in" style="top: 210px">
+          <span class="prev" onclick="goPuzzle(1)"></span>
+          <span>3/6</span>
+          <span class="next" onclick="goPuzzle(3)"></span>
+        </div>
+        <div class="commands" style="left: 260px">
+          <span class="wow fadeIn" data-wow-delay="1s">1. 去到起始點</span>
+          <span class="wow fadeIn" data-wow-delay="1.5s">2. 下筆</span>
+          <span class="wow fadeIn" data-wow-delay="2s">3. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="2.5s">4. 提筆</span>
+          <span class="wow fadeIn" data-wow-delay="3s">5. 往右移動一小格</span>
+          <span class="wow fadeIn" data-wow-delay="3.5s">6. 下筆</span>
+          <span class="wow fadeIn" data-wow-delay="4s">7. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="4.5s">8. 提筆</span>
+          <span class="wow fadeIn" data-wow-delay="5s">9. 往右移動一小格</span>
+          <span class="wow fadeIn" data-wow-delay="5.5s">10. 下筆</span>
+          <span class="wow fadeIn" data-wow-delay="6s">11. 往右走一小格</span>
+          <span class="wow fadeIn" data-wow-delay="6.5s">12. 提筆</span>
+        </div>
+      </div>
+      <div style="width: 242px; height: 200px" class="puzzle">
+        <div class="canvas">
+          <canvas width="242" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-4.png" />
+        </div>
+        <div class="nav-in" style="top: 210px">
+          <span class="prev" onclick="goPuzzle(2)"></span>
+          <span>4/6</span>
+          <span class="next" onclick="goPuzzle(4)"></span>
+        </div>
+        <div class="title-in wow slideInDown" style="top: -30px">
+          換你來告訴老師怎麼做吧！
+        </div>
+      </div>
+      <div style="width: 242px; height: 200px" class="puzzle">
+        <div class="canvas">
+          <canvas width="242" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-5.png" />
+        </div>
+        <div class="nav-in" style="top: 210px">
+          <span class="prev" onclick="goPuzzle(3)"></span>
+          <span>5/6</span>
+          <span class="next" onclick="goPuzzle(5)"></span>
+        </div>
+        <div class="title-in wow slideInDown" style="top: -30px">
+          換你來告訴老師怎麼做吧！
+        </div>
+      </div>
+      <div style="width: 242px; height: 200px" class="puzzle">
+        <div class="canvas">
+          <canvas width="242" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-1-6.png" />
+        </div>
+        <div class="nav-in" style="top: 210px">
+          <span class="prev" onclick="goPuzzle(4)"></span>
+          <span>6/6</span>
+          <span class="next disable"></span>
+        </div>
+        <div class="title-in wow slideInDown" style="top: -30px">
+          換你來告訴老師怎麼做吧！
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            依照指示，依序完成繪圖。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        style="width: 322px; height: 200px; margin-left: -150px"
+        class="puzzle"
+      >
+        <div class="canvas">
+          <canvas width="322" height="200"></canvas>
+        </div>
+        <div class="subject">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-2.png" />
+        </div>
+        <div class="ans">
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-2-3-2A.png" />
+        </div>
+        <div class="commands" style="left: 332px; width: 180px">
+          <span class="wow fadeIn" data-wow-delay="1s"
+            >1. 在圖中方形中間畫一個愛心</span
+          >
+          <span class="wow fadeIn" data-wow-delay="2s"
+            >2. 在圖中方形左右二邊各畫上一條水平的直線(與方形連接)</span
+          >
+          <span class="wow fadeIn" data-wow-delay="3s"
+            >3. 在左邊直線的最左邊畫一顆星星</span
+          >
+          <span class="wow fadeIn" data-wow-delay="4s"
+            >4. 在圖中方形下方畫上二條垂直的直線(與方形連接)</span
+          >
+          <span class="wow fadeIn" data-wow-delay="5s"
+            >5. 在圖中方形上方畫上一個小一點的正方形(與方形連接)</span
+          >
+          <span class="wow fadeIn" data-wow-delay="6s"
+            >6. 在小正方形上方再畫上一個三角形(與小正方形連接)</span
+          >
+          <span class="wow fadeIn" data-wow-delay="7s"
+            >7. 在小正方形內畫上二個水平對稱的圓形</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
