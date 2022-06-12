@@ -115,7 +115,7 @@ var handleDrag = function (ev) {
         $($elem).addClass("semiTransparent");
       }
       var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
-      console.log(caWidth);
+
       $("#cardAvatar").css("width", caWidth + "px");
       $("#cardAvatar").css("height", caWidth + "px");
     }
@@ -198,6 +198,7 @@ var checkStatus = function () {
     var itemH = $("#cardAvatar").get(0).style.height;
     var itemTop = $("#cardAvatar").get(0).style.top;
     var itemLeft = $("#cardAvatar").get(0).style.left;
+    console.log(itemTop, itemLeft);
     if (
       parseInt(itemTop) > parseInt(itemFP[0]) - parseInt(itemH) / 2 &&
       parseInt(itemTop) < parseInt(itemFP[0]) + parseInt(itemH) / 2 &&

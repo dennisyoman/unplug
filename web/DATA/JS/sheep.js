@@ -36,6 +36,29 @@ $(document).ready(function () {
         $(".tabs").hide();
       }
 
+      $(".items > span")
+        .unbind()
+        .bind("click", function () {
+          $(".sideTool > div.btn_replay").removeClass("active").show();
+          //
+          if ($(this).hasClass("black")) {
+            $(this).removeClass("black").addClass("white");
+            rootSoundEffect($pop);
+          } else if ($(this).hasClass("white")) {
+            $(this).removeClass("white");
+            rootSoundEffect($show);
+          } else {
+            $(this).removeClass("black").addClass("black");
+            rootSoundEffect($pop);
+          }
+        });
+      $(".items > span").each(function () {
+        var w = $(this).parent().attr("w");
+        var h = $(this).parent().attr("h");
+        $(this).css("width", w + "px");
+        $(this).css("height", h + "px");
+      });
+
       //sidetool
       $(".sideTool > div.btn_answer")
         .unbind()
@@ -83,46 +106,19 @@ $(document).ready(function () {
 var showAnswer = function (boolean) {
   if (boolean) {
     //秀出答案圖片
-    $(".contents > div.selected .puzzle").addClass("showAnswer");
-    rootSoundEffect($chimes);
+    $(".contents > div.selected .items > span").each(function () {
+      var sheep = $(this).attr("ans");
+      if (sheep == "") {
+        sheep = "none";
+      }
+      $(this).addClass(sheep);
+    });
   } else {
-    $(".contents > div.selected .puzzle").removeClass("showAnswer");
+    $(".contents > div.selected .items > span").removeClass("w b none");
   }
 };
-var lowlaged = false;
 
-var goCommand = function (cond) {
-  var commands = $(".contents > div.selected .puzzle .conditons");
-  var condition = $(".contents > div.selected .puzzle .conditon");
-  var cid = condition.attr("cid");
-  if (cond == 0) {
-    cid = 0;
-    condition.attr("cid", 0);
-    //歸0
-    condition.empty().append(commands.find("> span").eq(0).clone());
-  } else if (cond > 0) {
-    //next
-    cid = parseInt(cid) + 1;
-    condition.attr("cid", cid);
-    condition.empty().append(commands.find("> span").eq(cid).clone());
-  } else {
-    //prev
-    cid = parseInt(cid) - 1;
-    condition.attr("cid", cid);
-    condition.empty().append(commands.find("> span").eq(cid).clone());
-  }
-  //btns
-  if (cid == 0) {
-    $(".contents > div.selected .puzzle .prev").addClass("disable");
-  } else {
-    $(".contents > div.selected .puzzle .prev").removeClass("disable");
-  }
-  if (cid == commands.find("> span").length - 1) {
-    $(".contents > div.selected .puzzle .next").addClass("disable");
-  } else {
-    $(".contents > div.selected .puzzle .next").removeClass("disable");
-  }
-};
+var lowlaged = false;
 
 var openContent = function (id) {
   resetAudio();
@@ -136,22 +132,9 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
-  elem.find(".showAnswer").removeClass("showAnswer");
-  elem.find(".selected").removeClass("selected");
-  elem
-    .find(".items > span")
-    .unbind()
-    .bind("click", function () {
-      $(this).toggleClass("selected");
-      if ($(this).hasClass("selected")) {
-        rootSoundEffect($click);
-      }
-    });
+  elem.find(".items > span").removeClass();
   //
-  if (elem.find(".conditons").length > 0) {
-    $(".sideTool > div.btn_answer").removeClass("active").show();
-    goCommand(0);
-  }
+  $(".sideTool > div.btn_answer").removeClass("active").show();
 };
 
 var resetTool = function () {

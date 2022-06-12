@@ -1872,6 +1872,103 @@
   }
 }
 
+.module_sheep {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .puzzle {
+      position: relative;
+
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .items {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        > span {
+          display: inline-block;
+          pointer-events: auto;
+          cursor: pointer;
+          position: absolute;
+          z-index: 5;
+          background: none;
+          background-size: contain;
+          &::after {
+            content: "";
+            width: 70%;
+            height: 70%;
+            position: absolute;
+            top: 17%;
+            left: 15%;
+            z-index: 6;
+            animation-name: bounceIn;
+            animation-iteration-count: 1;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            display: none;
+          }
+          &.black {
+            background: url("../DATA/PT/BOOK3/IMAGES/sheep_black_icon.png") no-repeat center center;
+            background-size: contain;
+          }
+          &.white {
+            background: url("../DATA/PT/BOOK3/IMAGES/sheep_white_icon.png") no-repeat center center;
+            background-size: contain;
+          }
+          &.w {
+            pointer-events: none !important;
+            &::after {
+              display: block;
+              background: url("../DATA/PT/BOOK3/IMAGES/sheep_white.png") no-repeat center center !important;
+              background-size: contain !important;
+            }
+          }
+          &.b {
+            pointer-events: none !important;
+            &::after {
+              display: block;
+              background: url("../DATA/PT/BOOK3/IMAGES/sheep_black.png") no-repeat center center !important;
+              background-size: contain !important;
+            }
+          }
+          &.none {
+            pointer-events: none !important;
+          }
+        }
+      }
+
+      .subject {
+        position: relative;
+        z-index: 1;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
 .module_condition {
   position: relative;
   top: 0;
@@ -3590,10 +3687,11 @@
           &::after {
             content: "";
             position: absolute;
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
+            width: 30px;
+            height: 30px;
+            bottom: 5px;
+            left: 50%;
+            margin-left: -15px;
             background: url("../DATA/IMAGES/common/icon_right.png") no-repeat center center;
             background-size: contain;
             z-index: 10;
@@ -3657,7 +3755,7 @@
     pointer-events: none;
 
     &.positionBingo {
-      filter: drop-shadow(0px 0px 4px rgba(255, 174, 0, 1));
+      filter: drop-shadow(0px 0px 3px rgba(255, 174, 0, 1));
     }
 
     &.automove {

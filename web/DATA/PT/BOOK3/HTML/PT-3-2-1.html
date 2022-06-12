@@ -1,0 +1,77 @@
+<div id="module_wrapper" class="module_order">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>請使用箭頭跟數字，找到兩種抵達石子的方法</p>
+          <img src="./DATA/PT/BOOK3/IMAGES/PT-3-1-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="5" col="4" intRX="50" intRZ="0">
+          <div class="man king bird" intX="1" intY="2">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK3/IMAGES/bird.png"
+            />
+          </div>
+          <div class="man ghost stone" intX="4" intY="5">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK3/IMAGES/stone.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="barrier">
+              <span pX="2" pY="2" />
+              <span pX="2" pY="3" />
+              <span pX="2" pY="5" />
+              <span pX="4" pY="4" />
+            </div>
+            <img
+              width="240"
+              height="300"
+              src="./DATA/PT/BOOK3/IMAGES/PT-3-2-1-1.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="d" amount="1" />
+          <div ans="r" amount="2" />
+          <div ans="u" amount="4" />
+          <div class="end" ans="r" amount="1" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
