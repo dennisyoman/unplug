@@ -2592,6 +2592,8 @@
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .module_creativity .contents .grid4 > div img.l1 {
@@ -2656,6 +2658,8 @@
   top: -12px;
   right: 10px;
   background: #fff;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .module_creativity .contents .gridSlider {
@@ -2821,6 +2825,8 @@
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   transition-timing-function: ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .module_creativity .contents .gridSlider .storyline > div img.l1 {
@@ -3536,6 +3542,8 @@
   -webkit-border-radius: 12px;
   background: #fff;
   z-index: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .module_calculus .cardItem.l2 {
@@ -3575,6 +3583,8 @@
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .module_calculus .cardItem.cached {
@@ -3746,6 +3756,8 @@
   left: -12px;
   background: #ff8426;
   pointer-events: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .module_calculus .cardItem > span {
