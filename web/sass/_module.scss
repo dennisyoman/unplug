@@ -784,6 +784,7 @@
 
         &.done {
           @include opacity(1);
+          pointer-events: auto;
         }
       }
     }
@@ -1274,6 +1275,7 @@
   }
 
   .contents {
+    height: 100%;
     > div {
       flex-direction: column;
     }
@@ -1539,8 +1541,16 @@
 
     .grids-dots {
       width: 100%;
-      height: auto;
-      margin: 5px auto;
+      height: 70px;
+      margin: 10px auto;
+      position: relative;
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: auto;
+      }
       > div {
         height: auto;
         display: flex;
@@ -2254,6 +2264,36 @@
           @include opacity(1);
         }
       }
+
+      .items {
+        > span {
+          position: absolute;
+
+          top: 0;
+          left: 0;
+          z-index: 5;
+          @include opacity(0);
+        }
+      }
+    }
+    .items {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      text-align: center;
+      display: inline-block;
+      > span {
+        display: inline-block;
+        min-width: 15px;
+        pointer-events: auto;
+        cursor: pointer;
+        font-size: 14px;
+        color: #ff0000;
+        font-family: "Gfont-bold";
+        line-height: 20px;
+        text-align: center;
+      }
     }
     .puzzle {
       position: relative;
@@ -2264,6 +2304,25 @@
         @include borderRadius(10px);
         @include boxShadow(1px 1px 6px rgba(0, 0, 0, 0.2));
       }
+
+      .items {
+        pointer-events: auto;
+
+        @include borderRadius(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.selected {
+          border: 3px solid #ff0000;
+        }
+
+        > span {
+          min-width: 0;
+          margin: 0 2px;
+        }
+      }
+
       .canvas {
       }
 
@@ -2279,6 +2338,7 @@
             display: inline-block;
             position: absolute;
             z-index: 1;
+            pointer-events: auto;
             @include opacity(0);
             &.selected {
               @include opacity(0.3);
@@ -4788,6 +4848,10 @@
     }
     &.btn_unbox {
       background: url("../DATA/IMAGES/common/btn_unbox.png") no-repeat center center;
+      background-size: 100% 100%;
+    }
+    &.btn_erase {
+      background: url("../DATA/IMAGES/common/btn_erase.png") no-repeat center center;
       background-size: 100% 100%;
     }
   }

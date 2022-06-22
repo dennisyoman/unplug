@@ -195,10 +195,10 @@
 
 .panel .main-panel .btn.disabled {
   pointer-events: none;
-  opacity: 0.5;
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.3;
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  filter: alpha(opacity=30);
 }
 
 .panel .main-panel .pen_tool {

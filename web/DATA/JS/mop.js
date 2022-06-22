@@ -417,6 +417,9 @@ var checkMopStatus = function () {
         $(this).dequeue().remove();
       });
     $(".sideTool > div.btn_replay").show();
+    if (mopgroup.attr("max")) {
+      updateWasher(mopZoneCounter + 1);
+    }
   } else {
     //區域尚未完成
     rootSoundEffect($pop);

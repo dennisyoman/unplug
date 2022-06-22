@@ -66,13 +66,13 @@
     <section section="1" name="熱身活動" html="PT/BOOK2/HTML/PT-2-3-1.html" js="JS/irobot.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK2/HTML/PT-2-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 圖形模式" html="PT/BOOK2/HTML/PT-2-3-3.html" js="JS/decode.js" image="IMAGES/UNITS/pattern.png" skin="">
+    <section section="3" name="一起玩遊戲 / 圖形模式" html="PT/BOOK2/HTML/PT-2-3-3.html" js="JS/pattern.js" image="IMAGES/UNITS/pattern.png" skin="">
     </section>
     <section section="4" name="編程時間 / 演算法" html="PT/BOOK2/HTML/PT-2-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="2" lid="4">
-    <section section="1" name="熱身活動" html="PT/BOOK2/HTML/PT-2-4-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT/BOOK2/HTML/PT-2-4-1.html" js="JS/pattern.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK2/HTML/PT-2-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 拆解+映射" html="PT/BOOK2/HTML/PT-2-4-3.html" js="JS/decode.js" image="IMAGES/UNITS/match.png" skin="">

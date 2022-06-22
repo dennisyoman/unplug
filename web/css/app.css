@@ -1490,6 +1490,7 @@
   -moz-opacity: 1;
   -khtml-opacity: 1;
   filter: alpha(opacity=100);
+  pointer-events: auto;
 }
 
 .module_layers .puzzle .piece {
@@ -2113,6 +2114,10 @@
   pointer-events: auto;
 }
 
+.module_guess .contents {
+  height: 100%;
+}
+
 .module_guess .contents > div {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -2468,8 +2473,16 @@
 
 .module_guess .contents .grids-dots {
   width: 100%;
-  height: auto;
-  margin: 5px auto;
+  height: 70px;
+  margin: 10px auto;
+  position: relative;
+}
+
+.module_guess .contents .grids-dots canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
 }
 
 .module_guess .contents .grids-dots > div {
@@ -3335,6 +3348,38 @@
   filter: alpha(opacity=100);
 }
 
+.module_decode .contents .code .items > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.module_decode .contents .items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  text-align: center;
+  display: inline-block;
+}
+
+.module_decode .contents .items > span {
+  display: inline-block;
+  min-width: 15px;
+  pointer-events: auto;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ff0000;
+  font-family: "Gfont-bold";
+  line-height: 20px;
+  text-align: center;
+}
+
 .module_decode .contents .puzzle {
   position: relative;
 }
@@ -3347,6 +3392,31 @@
   -webkit-border-radius: 10px;
   -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.module_decode .contents .puzzle .items {
+  pointer-events: auto;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.module_decode .contents .puzzle .items.selected {
+  border: 3px solid #ff0000;
+}
+
+.module_decode .contents .puzzle .items > span {
+  min-width: 0;
+  margin: 0 2px;
 }
 
 .module_decode .contents .puzzle .subject {
@@ -3364,6 +3434,7 @@
   display: inline-block;
   position: absolute;
   z-index: 1;
+  pointer-events: auto;
   opacity: 0;
   -moz-opacity: 0;
   -khtml-opacity: 0;
@@ -6295,6 +6366,11 @@
 
 .sideTool > div.btn_unbox {
   background: url("../DATA/IMAGES/common/btn_unbox.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.sideTool > div.btn_erase {
+  background: url("../DATA/IMAGES/common/btn_erase.png") no-repeat center center;
   background-size: 100% 100%;
 }
 

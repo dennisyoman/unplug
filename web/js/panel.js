@@ -52,6 +52,11 @@ $(document).ready(function () {
           }
           createZoomSensor();
         });
+      if ($("#module_wrapper").hasClass("module_order")) {
+        $(".btn_zoom").addClass("disabled");
+      } else {
+        $(".btn_zoom").removeClass("disabled");
+      }
       $(".btn_focus")
         .unbind()
         .bind("click", function () {
@@ -146,7 +151,7 @@ $(document).ready(function () {
   //get user info
   $(".user-info .username").html(uName);
   $(".user-info .duedate").html(dueDate);
-  $(".user-info .unitpath").html(sid + "-B" + bid + "-L" + lid);
+  $(".user-info .unitpath").html(sid + "-B" + bid + "-L" + lid + "-" + uid);
 
   //check loading
   checkCompLoading("#main-panel");

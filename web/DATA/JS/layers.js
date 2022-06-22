@@ -105,7 +105,7 @@ var trigHammer = function () {
 var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
     isDragging = true;
-    if ($($elem).hasClass("piece")) {
+    if ($($elem).hasClass("piece") && $($elem).parent().hasClass("pieces")) {
       $("#module_wrapper").append(
         `<div id="pieceAvatar" class="pieceAvatar"></div>`
       );
@@ -116,7 +116,7 @@ var handleDrag = function (ev) {
 
   if (isDragging && $elem) {
     //drag clon card
-    if ($($elem).hasClass("piece")) {
+    if ($($elem).hasClass("piece") && $($elem).parent().hasClass("pieces")) {
       var deltaContainerX = $("#module_wrapper").offset().left;
       var deltaContainerY = $("#module_wrapper").offset().top;
       $("#pieceAvatar").get(0).style.top =
@@ -136,7 +136,7 @@ var handleDrag = function (ev) {
   }
 
   if (ev.isFinal) {
-    if ($($elem).hasClass("piece")) {
+    if ($($elem).hasClass("piece") && $($elem).parent().hasClass("pieces")) {
       checkStatus();
     }
     //then
@@ -150,25 +150,29 @@ var checkCollision = function (ev) {
   var lastY = ev.center.y;
   var frameElem = $(".contents > div.selected .board .zone > .piece.disable");
   frameElem.each(function () {
-    var oriX = $(this).offset().left;
-    var oriW = oriX + $(this).width();
-    var oriY = $(this).offset().top;
-    var oriH = oriY + $(this).height();
-    var ans1 = $("#pieceAvatar > span").attr("piece");
-    var ans2 = $(this).attr("piece");
-    if (
-      lastX >= oriX &&
-      lastX <= oriW &&
-      lastY >= oriY &&
-      lastY <= oriH &&
-      ans1 == ans2
-    ) {
-      $(this)
-        .addClass("selected")
-        .siblings(".selected")
-        .removeClass("selected");
-      $("#pieceAvatar > span").get(0).style.transform =
-        $(this).get(0).style.transform;
+    if (!$(this).attr("uniq")) {
+      var oriX = $(this).offset().left;
+      var oriW = oriX + $(this).width();
+      var oriY = $(this).offset().top;
+      var oriH = oriY + $(this).height();
+      var ans1 = $("#pieceAvatar > span").attr("piece");
+      var ans2 = $(this).attr("piece");
+      if (
+        lastX >= oriX &&
+        lastX <= oriW &&
+        lastY >= oriY &&
+        lastY <= oriH &&
+        ans1 == ans2
+      ) {
+        $(this)
+          .addClass("selected")
+          .siblings(".selected")
+          .removeClass("selected");
+        $("#pieceAvatar > span").get(0).style.transform =
+          $(this).get(0).style.transform;
+      } else {
+        $(this).removeClass("selected");
+      }
     } else {
       $(this).removeClass("selected");
     }
@@ -183,11 +187,20 @@ var checkStatus = function () {
     //有對應到
     rootSoundEffect($pop);
     zCounte++;
-    var tempElem = selectedElem.clone().removeClass("disable").addClass("done");
+    var tempElem = selectedElem
+      .clone()
+      .removeClass("disable")
+      .addClass("done")
+      .attr("uniq", zCounte);
+
     tempElem.get(0).style.zIndex = zCounte;
+    tempElem.unbind().bind("click", function () {
+      removeDone($(this).attr("uniq"));
+    });
+    //
     $(".contents > div.selected .board").append(tempElem);
-    $(".cached").addClass("done").removeClass("cached");
-    selectedElem.remove();
+    $(".cached").addClass("done").removeClass("cached").attr("uniq", zCounte);
+    selectedElem.attr("uniq", zCounte);
     //
     $(".sideTool > div.btn_replay").show();
     //
@@ -263,6 +276,38 @@ var openContent = function (id) {
   resetElem($(".contents > div.selected"));
 };
 
+var removeDone = function (matchID) {
+  rootSoundEffect($show);
+  $(".contents > div.selected")
+    .find(".board > .piece")
+    .each(function () {
+      if ($(this).attr("uniq") == matchID) {
+        $(this).remove();
+      }
+    });
+  $(".contents > div.selected")
+    .find(".pieces > .piece")
+    .each(function () {
+      if ($(this).attr("uniq") == matchID) {
+        $(this).removeAttr("uniq").removeClass("done");
+      }
+    });
+  $(".contents > div.selected")
+    .find(".board > .zone > .piece")
+    .each(function () {
+      if ($(this).attr("uniq") == matchID) {
+        $(this).removeAttr("uniq");
+        //update ansSeq
+        var ppid = $(this).attr("pid");
+        const index = ansSeq.indexOf(ppid);
+        if (index > -1) {
+          ansSeq.splice(index, 1);
+        }
+        console.log(ansSeq);
+      }
+    });
+};
+
 var resetElem = function (elem) {
   zCounte = 0;
   ansSeq = [];
@@ -271,6 +316,7 @@ var resetElem = function (elem) {
   $(".pieceAvatar").remove();
   //
   elem.find(".puzzle").find(".board").html(elem.find(".ref").html());
+  elem.find("*").removeAttr("uniq");
 };
 
 var resetTool = function () {

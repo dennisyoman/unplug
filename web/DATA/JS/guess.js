@@ -37,6 +37,23 @@ $(document).ready(function () {
       }
 
       //sidetool
+      $(".sideTool > div.btn_erase")
+        .unbind()
+        .bind("click", function () {
+          $(this).hide();
+          var cann = $("#contents > div.selected")
+            .find(".grids-dots canvas")
+            .get(0);
+          var cww = $("#contents > div.selected")
+            .find(".grids-dots canvas")
+            .attr("width");
+          var chh = $("#contents > div.selected")
+            .find(".grids-dots canvas")
+            .attr("height");
+          var ctxx = cann.getContext("2d");
+          console.log(cww, chh);
+          ctxx.clearRect(0, 0, 640, 320);
+        });
 
       //init
       //增加卡片說明
@@ -283,6 +300,7 @@ var resetElem = function (elem) {
   var peopleLength = elem.find(".grids-people > div").length;
   if (eventsLength > 0 && peopleLength > 0) {
     var HTML = `<div class="grids-dots">
+    <canvas width="640px" height="70px"></canvas>
     <div class="events">`;
     for (var i = 0; i < eventsLength; i++) {
       HTML += `<div />`;
@@ -295,9 +313,100 @@ var resetElem = function (elem) {
     HTML += `</div></div>`;
   }
   elem.find(".grids").after(HTML);
-
+  //canvas
+  initCanvas(elem.find(".grids-dots"));
   //smoke effect
   $(".smoke").remove();
+};
+
+var initCanvas = function (tar) {
+  //canvas
+  var can = tar.find("canvas").get(0);
+  var cw = tar.find("canvas").attr("width");
+  var ch = tar.find("canvas").attr("height");
+  var ctx = can.getContext("2d");
+  var isDraw = false;
+  ctx.strokeStyle = "#1c9b64";
+  ctx.lineWidth = 2;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  var startX, startY;
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  var ol = 0;
+  var ot = 0;
+  var intPoint = [0, 0];
+
+  // Mouse Down Event
+  ["mousedown", "touchstart"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      $(".sideTool > div.btn_erase").removeClass("active").show();
+      isDraw = true;
+      newZoomRatio = stageRatioReal / stageRatioMain;
+
+      if (event.clientX) {
+        startX = (event.clientX - tar.offset().left) / newZoomRatio - ol;
+        startY = (event.clientY - tar.offset().top) / newZoomRatio - ot;
+      } else {
+        startX =
+          (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol;
+        startY =
+          (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot;
+      }
+      intPoint = [startX, startY];
+    });
+  });
+
+  // Mouse Move Event
+  ["mousemove", "touchmove"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      if (isDraw) {
+        if (event.clientX) {
+          drawLineBoard(
+            startX,
+            startY,
+            (event.clientX - tar.offset().left) / newZoomRatio - ol,
+            (event.clientY - tar.offset().top) / newZoomRatio - ot
+          );
+        } else {
+          drawLineBoard(
+            startX,
+            startY,
+            (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol,
+            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot
+          );
+        }
+      }
+    });
+  });
+
+  ["mouseup", "touchend"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      //first dot
+      if (intPoint[0] == startX && intPoint[1] == startY) {
+        ctx.arc(startX, startY, ctx.lineWidth / 2, 0, 2 * Math.PI, false);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
+        ctx.closePath();
+      }
+      isDraw = false;
+    });
+  });
+
+  ["mouseleave"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      isDraw = false;
+    });
+  });
+
+  function drawLineBoard(x, y, stopX, stopY) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(stopX, stopY);
+    ctx.closePath();
+    ctx.stroke();
+    startX = stopX;
+    startY = stopY;
+  }
 };
 
 var checkTool = function () {};

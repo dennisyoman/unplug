@@ -638,6 +638,7 @@ function update() {
 }
 
 //common funcs
+
 let isitEmpty = function (str) {
   var tempStr = str.replace(/\s+/g, "");
   return !(tempStr.length > 0);

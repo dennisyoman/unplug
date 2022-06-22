@@ -162,7 +162,7 @@
 
       &.disabled {
         pointer-events: none;
-        @include opacity(0.5);
+        @include opacity(0.3);
       }
     }
 

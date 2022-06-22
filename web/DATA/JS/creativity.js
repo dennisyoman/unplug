@@ -43,8 +43,10 @@ $(document).ready(function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
             showAnswer(true);
+            $(".sideTool > div.btn_replay").show();
           } else {
             showAnswer(false);
+            $(".sideTool > div.btn_replay").hide();
           }
         });
 
@@ -59,11 +61,20 @@ $(document).ready(function () {
           }
         });
 
+      $(".sideTool > div.btn_replay")
+        .unbind()
+        .bind("click", function () {
+          $(this).hide();
+          $(".sideTool > div.btn_correctslider").removeClass("active");
+          resetElem($(".contents > div.selected"));
+        });
+
       //grid4
       $(".grid4 > div")
         .unbind()
         .bind("click", function () {
           setSequence($(this));
+          $(".sideTool > div.btn_replay").show();
         });
 
       //init
@@ -154,6 +165,7 @@ var showSlider = function (boolean) {
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_correctslider").hide();
+    $(".sideTool > div.btn_replay").hide();
     //
     if (selectedElem.find(".gridSlider > .storyline > div").length <= 1) {
       selectedElem.find(".gridSlider > .prev").hide();
@@ -171,6 +183,7 @@ var showSlider = function (boolean) {
       .css("left", 0)
       .empty();
     $(".sideTool > div.btn_correctslider").show();
+    $(".sideTool > div.btn_replay").show();
   }
 };
 
