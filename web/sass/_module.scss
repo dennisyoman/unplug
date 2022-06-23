@@ -242,6 +242,8 @@
               animation-iteration-count: infinite;
               animation-duration: 0.4s;
               animation-timing-function: linear !important;
+              -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
             }
             @keyframes crying {
               0% {

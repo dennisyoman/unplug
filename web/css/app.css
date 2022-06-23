@@ -422,151 +422,151 @@
 
 @-webkit-keyframes cardContentFlip {
   from {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60.01% {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
   to {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
 }
 
 @keyframes cardContentFlip {
   from {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60.01% {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
   to {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
 }
 
 @-webkit-keyframes cardContentFlipBack {
   from {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60.01% {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
   to {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
 }
 
 @keyframes cardContentFlipBack {
   from {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   60.01% {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
   to {
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
 }
 
 @-webkit-keyframes flashing {
   from {
-    opacity: 0.5;
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
-    filter: alpha(opacity=50);
+    opacity: 0.5 !important;
+    -moz-opacity: 0.5 !important;
+    -khtml-opacity: 0.5 !important;
+    filter: alpha(opacity=50) !important;
   }
   50% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   to {
-    opacity: 0.5;
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
-    filter: alpha(opacity=50);
+    opacity: 0.5 !important;
+    -moz-opacity: 0.5 !important;
+    -khtml-opacity: 0.5 !important;
+    filter: alpha(opacity=50) !important;
   }
 }
 
 @keyframes flashing {
   from {
-    opacity: 0.5;
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
-    filter: alpha(opacity=50);
+    opacity: 0.5 !important;
+    -moz-opacity: 0.5 !important;
+    -khtml-opacity: 0.5 !important;
+    filter: alpha(opacity=50) !important;
   }
   50% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
   to {
-    opacity: 0.5;
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
-    filter: alpha(opacity=50);
+    opacity: 0.5 !important;
+    -moz-opacity: 0.5 !important;
+    -khtml-opacity: 0.5 !important;
+    filter: alpha(opacity=50) !important;
   }
 }
 
@@ -576,17 +576,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_order.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_order .cardAvatar {
@@ -778,10 +778,10 @@
   background-size: 100% 100%;
   -webkit-filter: blur(1px) brightness(0%);
           filter: blur(1px) brightness(0%);
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .module_order .contents .world3D .stage .man {
@@ -830,10 +830,10 @@
 }
 
 .module_order .contents .world3D .stage .man.vanish > img {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_order .contents .world3D .stage .man.cry::after {
@@ -855,6 +855,8 @@
           animation-duration: 0.4s;
   -webkit-animation-timing-function: linear !important;
           animation-timing-function: linear !important;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 @-webkit-keyframes crying {
@@ -899,10 +901,10 @@
   100% {
     -webkit-transform: translateY(250px) translateZ(0) rotate(600deg);
             transform: translateY(250px) translateZ(0) rotate(600deg);
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
 }
 
@@ -914,10 +916,10 @@
   100% {
     -webkit-transform: translateY(250px) translateZ(0) rotate(600deg);
             transform: translateY(250px) translateZ(0) rotate(600deg);
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
 }
 
@@ -964,10 +966,10 @@
 
 .module_order .contents .world3D .stage .ground .barrier,
 .module_order .contents .world3D .stage .ground .items {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
   visibility: hidden;
   width: 0;
   height: 0;
@@ -1221,10 +1223,10 @@
 }
 
 .module_order .contents .world3D .frames .cta.disable {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_order .contents .world3D .cards {
@@ -1381,17 +1383,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_layers.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_layers .pieceAvatar {
@@ -1474,10 +1476,10 @@
 .module_layers .puzzle .board .zone {
   position: relative;
   z-index: 1;
-  opacity: 0.2;
-  -moz-opacity: 0.2;
-  -khtml-opacity: 0.2;
-  filter: alpha(opacity=20);
+  opacity: 0.2 !important;
+  -moz-opacity: 0.2 !important;
+  -khtml-opacity: 0.2 !important;
+  filter: alpha(opacity=20) !important;
 }
 
 .module_layers .puzzle .board .piece.disable {
@@ -1486,10 +1488,10 @@
 }
 
 .module_layers .puzzle .board .piece.done {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
   pointer-events: auto;
 }
 
@@ -1508,10 +1510,10 @@
 
 .module_layers .puzzle .piece.cached, .module_layers .puzzle .piece.done {
   pointer-events: none;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_layers .puzzle .bgg {
@@ -1560,10 +1562,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_mop .smoke {
@@ -1587,10 +1589,10 @@
 }
 
 .module_mop.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_mop .mopAvatar {
@@ -1706,10 +1708,10 @@
 }
 
 .module_mop .mop-area .washer.active img {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_mop .mop-area .washer img {
@@ -1723,10 +1725,10 @@
           animation-duration: 0.4s !important;
   -webkit-animation-iteration-count: infinite !important;
           animation-iteration-count: infinite !important;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_mop .mop-area .washer p {
@@ -1762,10 +1764,10 @@
 .module_mop .mop-area .mop-group canvas {
   position: absolute;
   z-index: 4;
-  opacity: 0.5;
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.5 !important;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  filter: alpha(opacity=50) !important;
 }
 
 .module_mop .mop-area .mop-group > span {
@@ -2001,17 +2003,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_guess.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_guess .drawer_wrapper {
@@ -2274,10 +2276,10 @@
 }
 
 .module_guess .contents .grids .cardItem.canvas.drawed canvas {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_guess .contents .grids .cardItem.canvas canvas {
@@ -2290,10 +2292,10 @@
           transform-origin: top left;
   -webkit-transform: scale(0.33);
   transform: scale(0.33);
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_guess .contents .grids .cardItem.l2 {
@@ -2321,10 +2323,10 @@
 }
 
 .module_guess .contents .grids .cardItem.cached {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_guess .contents .grids .cardItem:hover p, .module_guess .contents .grids .cardItem:focus p {
@@ -2449,10 +2451,10 @@
 }
 
 .module_guess .contents .grids-people > div.drawed canvas {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_guess .contents .grids-people > div canvas {
@@ -2465,10 +2467,10 @@
           transform-origin: top left;
   -webkit-transform: scale(0.5);
   transform: scale(0.5);
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_guess .contents .grids-dots {
@@ -2525,17 +2527,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_creativity.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_creativity .contents .grid4 {
@@ -2712,10 +2714,10 @@
 }
 
 .module_creativity .contents .gridSlider .btn.disable {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
   pointer-events: none;
 }
 
@@ -2886,17 +2888,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_sheep.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_sheep .contents {
@@ -3003,17 +3005,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_condition.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_condition .contents {
@@ -3074,10 +3076,10 @@
 }
 
 .module_condition .contents .puzzle .nav-in span.disable {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
   pointer-events: none !important;
 }
 
@@ -3144,17 +3146,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_apart.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_apart .contents {
@@ -3215,10 +3217,10 @@
 }
 
 .module_apart .contents .puzzle .nav-in span.disable {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
   pointer-events: none !important;
 }
 
@@ -3242,10 +3244,10 @@
 
 .module_apart .contents .puzzle .canvas {
   z-index: 3;
-  opacity: 0.7;
-  -moz-opacity: 0.7;
-  -khtml-opacity: 0.7;
-  filter: alpha(opacity=70);
+  opacity: 0.7 !important;
+  -moz-opacity: 0.7 !important;
+  -khtml-opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important;
 }
 
 .module_apart .contents .puzzle .canvas canvas {
@@ -3286,17 +3288,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_decode.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_decode .pieceAvatar {
@@ -3334,18 +3336,18 @@
 }
 
 .module_decode .contents .code .cta {
-  opacity: 0.4;
-  -moz-opacity: 0.4;
-  -khtml-opacity: 0.4;
-  filter: alpha(opacity=40);
+  opacity: 0.4 !important;
+  -moz-opacity: 0.4 !important;
+  -khtml-opacity: 0.4 !important;
+  filter: alpha(opacity=40) !important;
   margin-bottom: 5px;
 }
 
 .module_decode .contents .code .cta.selected {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_decode .contents .code .items > span {
@@ -3353,10 +3355,10 @@
   top: 0;
   left: 0;
   z-index: 5;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_decode .contents .items {
@@ -3435,24 +3437,24 @@
   position: absolute;
   z-index: 1;
   pointer-events: auto;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_decode .contents .puzzle .subject .sensors span.selected {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .module_decode .contents .puzzle .subject .sensors span.done {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_decode .contents .puzzle .ans {
@@ -3531,17 +3533,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_calculus.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_calculus .alert {
@@ -3659,10 +3661,10 @@
 }
 
 .module_calculus .cardItem.cached {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_calculus .cardItem.A::after {
@@ -4447,10 +4449,10 @@
 }
 
 .module_calculus .contents .gridSlider .btn.disable {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
   pointer-events: none;
 }
 
@@ -4753,17 +4755,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_box.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_box .contents .contain {
@@ -5006,10 +5008,10 @@
 }
 
 .module_box .contents .toys .toy.disable img, .module_box .contents .toys .toy.cached img {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_box .contents .toys .toy.positionBingo::after {
@@ -5034,10 +5036,10 @@
 }
 
 .module_box .contents .toys .toy.semiTransparent img {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .module_box .contents .toys .toy.large {
@@ -5175,17 +5177,17 @@
   }
   50% {
     top: -100px;
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
   100% {
     top: -20px;
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
 }
 
@@ -5195,17 +5197,17 @@
   }
   50% {
     top: -100px;
-    opacity: 1;
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
-    filter: alpha(opacity=100);
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
   }
   100% {
     top: -20px;
-    opacity: 0;
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
   }
 }
 
@@ -5215,17 +5217,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_pairing.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_pairing .brushAvatar {
@@ -5343,10 +5345,10 @@
 .module_pairing .contents > div .artboard > img.cover {
   z-index: 3;
   mix-blend-mode: multiply;
-  opacity: 0.4;
-  -moz-opacity: 0.4;
-  -khtml-opacity: 0.4;
-  filter: alpha(opacity=40);
+  opacity: 0.4 !important;
+  -moz-opacity: 0.4 !important;
+  -khtml-opacity: 0.4 !important;
+  filter: alpha(opacity=40) !important;
 }
 
 .module_pairing .contents > div .artboard .wrong {
@@ -5484,17 +5486,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_gem.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_gem .cardAvatar {
@@ -5687,10 +5689,10 @@
   pointer-events: auto;
   cursor: pointer;
   z-index: 5;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_gem .gem_container2 > div .dashes > span {
@@ -5704,10 +5706,10 @@
 
 .module_gem .gem_container2 > div .dashes.selected {
   pointer-events: none;
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_gem .gem_container2 > div > span {
@@ -5731,10 +5733,10 @@
   mix-blend-mode: darken;
   pointer-events: auto;
   cursor: pointer;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   -webkit-transition-timing-function: ease;
@@ -5742,10 +5744,10 @@
 }
 
 .module_gem .gem_container2 > div > img.selected {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
   pointer-events: none;
 }
 
@@ -5755,17 +5757,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_organize.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_organize .alert {
@@ -6086,10 +6088,10 @@
   z-index: 3;
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
-  opacity: 0.7;
-  -moz-opacity: 0.7;
-  -khtml-opacity: 0.7;
-  filter: alpha(opacity=70);
+  opacity: 0.7 !important;
+  -moz-opacity: 0.7 !important;
+  -khtml-opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important;
 }
 
 .intro > div::before {
@@ -6104,10 +6106,10 @@
   z-index: 3;
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
-  opacity: 0.7;
-  -moz-opacity: 0.7;
-  -khtml-opacity: 0.7;
-  filter: alpha(opacity=70);
+  opacity: 0.7 !important;
+  -moz-opacity: 0.7 !important;
+  -khtml-opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important;
 }
 
 .intro > div > img {
@@ -6188,10 +6190,10 @@
 }
 
 .cta.disable {
-  opacity: 0.5;
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.5 !important;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  filter: alpha(opacity=50) !important;
   pointer-events: none;
 }
 
@@ -6323,10 +6325,10 @@
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
-  opacity: 0.4;
-  -moz-opacity: 0.4;
-  -khtml-opacity: 0.4;
-  filter: alpha(opacity=40);
+  opacity: 0.4 !important;
+  -moz-opacity: 0.4 !important;
+  -khtml-opacity: 0.4 !important;
+  filter: alpha(opacity=40) !important;
   -webkit-animation-name: popIn !important;
   animation-name: popIn !important;
   -webkit-animation-iteration-count: 1 !important;
@@ -6336,10 +6338,10 @@
 }
 
 .sideTool > div.active {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
@@ -6710,10 +6712,10 @@ body {
   margin-left: -20px;
   background: url("../DATA/IMAGES/common/tap1.png") no-repeat center center;
   background-size: 100% 100%;
-  opacity: 0.7;
-  -moz-opacity: 0.7;
-  -khtml-opacity: 0.7;
-  filter: alpha(opacity=70);
+  opacity: 0.7 !important;
+  -moz-opacity: 0.7 !important;
+  -khtml-opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important;
 }
 
 .root > .units .icon-wrapper li::before {
@@ -7037,10 +7039,10 @@ img {
   left: -100vw;
   max-width: 4px;
   max-height: 4px;
-  opacity: 0.1;
-  -moz-opacity: 0.1;
-  -khtml-opacity: 0.1;
-  filter: alpha(opacity=10);
+  opacity: 0.1 !important;
+  -moz-opacity: 0.1 !important;
+  -khtml-opacity: 0.1 !important;
+  filter: alpha(opacity=10) !important;
 }
 
 input {

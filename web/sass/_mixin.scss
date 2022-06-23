@@ -44,10 +44,10 @@
 }
 
 @mixin opacity($var) {
-  opacity: $var;
-  -moz-opacity: $var;
-  -khtml-opacity: $var;
-  filter: alpha(opacity = $var * 100);
+  opacity: $var !important;
+  -moz-opacity: $var !important;
+  -khtml-opacity: $var !important;
+  filter: alpha(opacity = $var * 100) !important;
 }
 
 @mixin box {
@@ -95,21 +95,15 @@
 }
 
 @mixin transform3D($tx, $ty, $tz, $rx, $ry, $rz) {
-  transform: rotateZ($rz) rotateX($rx) rotateY($ry) translateX($tx)
-    translateY($ty) translateZ($tz);
-  -moz-transform: rotateZ($rz) rotateX($rx) rotateY($ry) translateX($tx)
-    translateY($ty) translateZ($tz);
-  -webkit-transform: rotateZ($rz) rotateX($rx) rotateY($ry) translateX($tx)
-    translateY($ty) translateZ($tz);
+  transform: rotateZ($rz) rotateX($rx) rotateY($ry) translateX($tx) translateY($ty) translateZ($tz);
+  -moz-transform: rotateZ($rz) rotateX($rx) rotateY($ry) translateX($tx) translateY($ty) translateZ($tz);
+  -webkit-transform: rotateZ($rz) rotateX($rx) rotateY($ry) translateX($tx) translateY($ty) translateZ($tz);
 }
 
 @mixin transform3D_2($tx, $ty, $tz, $rx, $ry, $rz) {
-  transform: translateX($tx) translateY($ty) translateZ($tz) rotateZ($rz)
-    rotateX($rx) rotateY($ry);
-  -moz-transform: translateX($tx) translateY($ty) translateZ($tz) rotateZ($rz)
-    rotateX($rx) rotateY($ry);
-  -webkit-transform: translateX($tx) translateY($ty) translateZ($tz)
-    rotateZ($rz) rotateX($rx) rotateY($ry);
+  transform: translateX($tx) translateY($ty) translateZ($tz) rotateZ($rz) rotateX($rx) rotateY($ry);
+  -moz-transform: translateX($tx) translateY($ty) translateZ($tz) rotateZ($rz) rotateX($rx) rotateY($ry);
+  -webkit-transform: translateX($tx) translateY($ty) translateZ($tz) rotateZ($rz) rotateX($rx) rotateY($ry);
 }
 
 @mixin translate3D($tx, $ty, $tz, $imp) {
