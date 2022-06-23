@@ -580,82 +580,119 @@ var checkAnswer = function () {
   var selectedElem = $(".contents > div.selected");
   $(".alert").remove();
   var alert = "";
+  var matched = false;
   //condition?
   if (selectedElem.find(".condition").length > 0) {
     var conditions = selectedElem.find(".condition > span");
 
     for (var i = 0; i < conditions.length; i++) {
-      var cond = conditions.eq(i).text();
-      console.log(cond);
-      if (cond.indexOf("=") != -1) {
-        //固定位置 match[0]的要等於ans[1]
-        var ans = cond.split("=");
-        cond = "=";
-      } else if (cond.indexOf("-") != -1) {
-        //前後順序 match[0] 的位置要小於 match[1]
-        var ans = cond.split("-");
-        cond = "-";
-      } else if (cond.indexOf("+") != -1) {
-        //前後順序 match[1] 的位置接著 match[0]
-        var ans = cond.split("+");
-        cond = "+";
-      }
-
-      //開始判斷
-      var targets = [];
-      var match = [-1, -1];
-      selectedElem.find(".frames > div").each(function (index) {
-        var tempAns = $(this).text();
-        if (ans[0] == tempAns) {
-          match[0] = index + 1;
-          targets[0] = $(this);
+      if (!conditions.eq(i).hasClass("matched")) {
+        var cond = conditions.eq(i).text();
+        console.log(cond);
+        if (cond.indexOf("=") != -1) {
+          //固定位置 match[0]的要等於ans[1]
+          var ans = cond.split("=");
+          cond = "=";
+        } else if (cond.indexOf("-") != -1) {
+          //前後順序 match[0] 的位置要小於 match[1]
+          var ans = cond.split("-");
+          cond = "-";
+        } else if (cond.indexOf("+") != -1) {
+          //前後順序 match[1] 的位置接著 match[0]
+          var ans = cond.split("+");
+          cond = "+";
+        } else if (cond.indexOf("&") != -1) {
+          //match[1] 要相鄰 match[0]
+          var ans = cond.split("&");
+          cond = "&";
         }
-        if (ans[1] == tempAns) {
-          match[1] = index + 1;
-          targets[1] = $(this);
+
+        //開始判斷
+        var targets = [];
+        var match = [-1, -1];
+        selectedElem.find(".frames > div").each(function (index) {
+          var tempAns = $(this).text();
+          if (ans[0] == tempAns) {
+            match[0] = index + 1;
+            targets[0] = $(this);
+          }
+          if (ans[1] == tempAns) {
+            match[1] = index + 1;
+            targets[1] = $(this);
+          }
+        });
+        switch (cond) {
+          case "=":
+            //A固定位置
+            var anss = ans[1].split("^");
+            var gotit = false;
+            for (var m = 0; m < anss.length; m++) {
+              if (match[0] == anss[m]) {
+                gotit = true;
+              }
+            }
+            if (!gotit) {
+              targets[0].addClass("wrong");
+
+              alert += `<p><b>${targets[0].text()}</b>必須在第<b>${
+                anss[0]
+              }</b>格`;
+              for (var m = 1; m < anss.length; m++) {
+                alert += `或第<b>${anss[m]}</b>格`;
+              }
+              alert += `</p>`;
+            }
+
+            break;
+          case "-":
+            //A必須在B之前
+            if (match[0] >= match[1]) {
+              targets[0].addClass("wrong");
+              targets[1].addClass("wrong");
+              alert += `<p><b>${targets[0].text()}</b>必須在<b>${targets[1].text()}</b>之前<p>`;
+            }
+            break;
+          case "+":
+            //A之後必須接著B
+            if (parseInt(match[0]) + 1 != parseInt(match[1])) {
+              targets[0].addClass("wrong");
+              targets[1].addClass("wrong");
+              alert += `<p><b>${targets[0].text()}</b>之後必須接著<b>${targets[1].text()}</b><p>`;
+            }
+            break;
+          case "&":
+            //A和B要相鄰
+            if (
+              parseInt(match[0]) + 1 != parseInt(match[1]) &&
+              parseInt(match[0]) - 1 != parseInt(match[1])
+            ) {
+              targets[0].addClass("wrong");
+              targets[1].addClass("wrong");
+              alert += `<p><b>${targets[0].text()}</b>和<b>${targets[1].text()}</b>要相鄰<p>`;
+            }
+            break;
+          default:
+          // code block
         }
-      });
-      switch (cond) {
-        case "=":
-          //固定位置
-          var anss = ans[1].split("^");
-          var gotit = false;
-          for (var m = 0; m < anss.length; m++) {
-            if (match[0] == anss[m]) {
-              gotit = true;
+      } else {
+        //matched answers
+        if (!matched) {
+          var gotWrongAns = false;
+          var ansArr = conditions.eq(i).text().split(",");
+          selectedElem.find(".frames > div").each(function (index) {
+            var tempAns = ansArr[index];
+            var tempAns2 = $(this).text();
+            if (tempAns != tempAns2) {
+              $(this).addClass("wrong");
+              gotWrongAns = true;
+            } else {
+              $(this).removeClass("wrong");
             }
+          });
+          if (!gotWrongAns) {
+            matched = true;
           }
-          if (!gotit) {
-            targets[0].addClass("wrong");
-
-            alert += `<p><b>${targets[0].text()}</b>必須在第<b>${
-              anss[0]
-            }</b>格`;
-            for (var m = 1; m < anss.length; m++) {
-              alert += `或第<b>${anss[m]}</b>格`;
-            }
-            alert += `</p>`;
-          }
-
-          break;
-        case "-":
-          //前後順序
-          if (match[0] >= match[1]) {
-            targets[0].addClass("wrong");
-            targets[1].addClass("wrong");
-            alert += `<p><b>${targets[0].text()}</b>必須在<b>${targets[1].text()}</b>之前<p>`;
-          }
-          break;
-        case "+":
-          //緊貼著
-          if (parseInt(match[0]) + 1 != parseInt(match[1])) {
-            targets[0].addClass("wrong");
-            targets[1].addClass("wrong");
-            alert += `<p><b>${targets[0].text()}</b>之後必須接著<b>${targets[1].text()}</b><p>`;
-          }
-          break;
-        default:
-        // code block
+        }
       }
     }
     //show alert
