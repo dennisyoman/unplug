@@ -101,6 +101,65 @@ var trigMe = function (tar) {
   }
 };
 
+var trigMeHash = function (tar) {
+  var frame = $(".contents > div.selected").find(".puzzle .items.selected");
+  //
+  if (tar.parent().parent().hasClass("code")) {
+    if (
+      tar.attr("iid") == "h1" ||
+      tar.attr("iid") == "h2" ||
+      tar.attr("iid") == "h3"
+    ) {
+      if (frame.length > 0) {
+        rootSoundEffect($pop);
+        frame.append(tar.clone());
+      }
+    } else if (tar.hasClass("done")) {
+      if (frame.length > 0) {
+        //填入
+        rootSoundEffect($pop);
+        frame.append(tar.clone());
+      } else {
+        var newSeq = parseInt(tar.attr("seq")) + 1;
+        if (newSeq > 9) {
+          newSeq = 1;
+        }
+        tar.attr("seq", newSeq);
+        tar.empty().append(`
+        <img
+          width="20"
+          height="auto"
+          src="./DATA/PT/BOOK2/IMAGES/hash_${tar.attr("seq")}.png"
+      />`);
+        rootSoundEffect($show);
+      }
+    } else {
+      if (frame.length > 0) {
+        frame.removeClass("selected");
+      }
+      tar.addClass("done");
+      tar.attr("seq", 1);
+      tar.empty().append(`
+      <img
+        width="20"
+        height="auto"
+        src="./DATA/PT/BOOK2/IMAGES/hash_${tar.attr("seq")}.png"
+    />`);
+      rootSoundEffect($show);
+    }
+  }
+  if (tar.parent().parent().hasClass("puzzle")) {
+    rootSoundEffect($show);
+    tar
+      .parent()
+      .addClass("selected")
+      .siblings(".selected")
+      .removeClass("selected");
+    tar.remove();
+    window.event.stopPropagation();
+  }
+};
+
 var showAnswer = function (boolean) {
   if (boolean) {
     rootSoundEffect($help);
