@@ -242,8 +242,26 @@ var checkAnswer = function () {
   });
   if (getWrong) {
     rootSoundEffect($wrong);
+    $(".contents > div.selected .puzzle").append(
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`
+    );
+    $(".resultIcon")
+      .delay(1500)
+      .queue(function () {
+        $(this).dequeue().remove();
+      });
   } else {
     rootSoundEffect($chimes);
+    var uniq = new Date().getTime();
+    $(".contents > div.selected .puzzle").append(
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+    );
+    $(".smoke")
+      .delay(1500)
+      .queue(function () {
+        $(".resultIcon").remove();
+        $(this).dequeue().remove();
+      });
   }
 };
 
@@ -374,6 +392,9 @@ var resetElem = function (elem) {
         .siblings(".selected")
         .removeClass("selected");
     });
+
+  $(".smoke").remove();
+  $(".resultIcon").remove();
 };
 
 var resetTool = function () {

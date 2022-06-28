@@ -3301,6 +3301,28 @@
   filter: alpha(opacity=100) !important;
 }
 
+.module_decode .smoke,
+.module_decode .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+
+.module_decode .smoke > img,
+.module_decode .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .module_decode .alert {
   position: absolute;
   z-index: 10;
@@ -3427,6 +3449,12 @@
 .module_decode .contents .items > span.wrong {
   -webkit-filter: grayscale(1) brightness(300%) sepia(100%) hue-rotate(-50deg) saturate(500%);
           filter: grayscale(1) brightness(300%) sepia(100%) hue-rotate(-50deg) saturate(500%);
+  -webkit-animation: growing;
+          animation: growing;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
 .module_decode .contents .items > span.wrong img {
