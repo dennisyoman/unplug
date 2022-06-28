@@ -2238,6 +2238,41 @@
   &.loaded {
     @include opacity(1);
   }
+
+  .alert {
+    position: absolute;
+    z-index: 10;
+    background: $main;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    left: 67%;
+    bottom: 20px;
+    @include borderRadius(8px);
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+    pointer-events: auto;
+    padding: 10px 20px;
+
+    p {
+      margin-bottom: 5px;
+      b {
+        margin: 0 3px;
+        display: inline-block;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -5px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5px 10px 5px;
+      border-color: transparent transparent $main transparent;
+    }
+  }
   .pieceAvatar {
     position: absolute;
     height: auto;
@@ -2294,10 +2329,18 @@
         pointer-events: auto;
         cursor: pointer;
         font-size: 14px;
-        color: #ff0000;
+        color: #333333;
         font-family: "Gfont-bold";
         line-height: 20px;
         text-align: center;
+
+        &.wrong {
+          filter: grayscale(1) brightness(300%) sepia(100%) hue-rotate(-50deg) saturate(500%);
+
+          img {
+            filter: hue-rotate(0deg);
+          }
+        }
         &.done {
           @include opacity(1);
         }
@@ -2322,12 +2365,12 @@
         justify-content: center;
 
         &.selected {
-          border: 3px solid #ff0000;
+          border: 3px solid #333333;
         }
 
         > span {
           min-width: 0;
-          margin: 0 2px;
+          margin: 0 1px;
         }
       }
 
@@ -4860,6 +4903,10 @@
     }
     &.btn_erase {
       background: url("../DATA/IMAGES/common/btn_erase.png") no-repeat center center;
+      background-size: 100% 100%;
+    }
+    &.btn_check {
+      background: url("../DATA/IMAGES/common/btn_check.png") no-repeat center center;
       background-size: 100% 100%;
     }
   }
