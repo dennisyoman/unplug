@@ -84,7 +84,7 @@ var showAnswer = function (boolean) {
   if (boolean) {
     //秀出答案圖片
     $(".contents > div.selected .puzzle").addClass("showAnswer");
-    rootSoundEffect($chimes);
+    rootSoundEffect($help);
   } else {
     $(".contents > div.selected .puzzle").removeClass("showAnswer");
   }

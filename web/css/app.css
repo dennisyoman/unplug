@@ -2778,6 +2778,11 @@
   box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+.module_creativity .contents .gridSlider .storyline > div.prevSlider {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img {
   -webkit-animation: none !important;
           animation: none !important;
@@ -2804,6 +2809,11 @@
 }
 
 .module_creativity .contents .gridSlider .storyline > div.nextSlider {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
+.module_creativity .contents .gridSlider .storyline > div.nextSlider img {
   -webkit-animation: none !important;
           animation: none !important;
 }
@@ -3036,6 +3046,7 @@
 
 .module_condition .contents .puzzle.showAnswer .items > span.ans {
   background: rgba(0, 0, 0, 0);
+  border: 3px solid #eb6154;
 }
 
 .module_condition .contents .puzzle > div {
@@ -3127,7 +3138,7 @@
 }
 
 .module_condition .contents .puzzle .items > span.selected {
-  border: 3px solid #eb6154;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .module_condition .contents .puzzle .subject {
@@ -3189,6 +3200,73 @@
 .module_apart .contents .puzzle .commands span {
   display: block;
   margin-bottom: 4px;
+}
+
+.module_apart .contents .puzzle .commands span::before {
+  content: "1.";
+  display: inline-block;
+  width: 20px;
+  margin-left: -20px;
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(1)::before {
+  content: "1.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(2)::before {
+  content: "2.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(3)::before {
+  content: "3.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(4)::before {
+  content: "4.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(5)::before {
+  content: "5.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(6)::before {
+  content: "6.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(7)::before {
+  content: "7.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(8)::before {
+  content: "8.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(9)::before {
+  content: "9.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(10)::before {
+  content: "10.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(11)::before {
+  content: "11.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(12)::before {
+  content: "12.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(13)::before {
+  content: "13.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(14)::before {
+  content: "14.";
+}
+
+.module_apart .contents .puzzle .commands span:nth-child(15)::before {
+  content: "15.";
 }
 
 .module_apart .contents .puzzle .title-in {
@@ -3257,6 +3335,7 @@
 
 .module_apart .contents .puzzle .subject {
   z-index: 1;
+  position: relative;
 }
 
 .module_apart .contents .puzzle .subject img {
@@ -3264,14 +3343,39 @@
   height: 100%;
 }
 
+.module_apart .contents .puzzle .subject h3 {
+  font-size: 18px;
+  color: #fff;
+  line-height: 27px;
+  width: 55px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+}
+
 .module_apart .contents .puzzle .ans {
   z-index: 2;
+  position: relative;
   display: none;
 }
 
 .module_apart .contents .puzzle .ans img {
   width: 100%;
   height: 100%;
+}
+
+.module_apart .contents .puzzle .ans h3 {
+  font-size: 18px;
+  color: #fff;
+  line-height: 27px;
+  width: 55px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  text-align: center;
 }
 
 .module_apart .contents .puzzle.showAnswer .subject {
@@ -5171,6 +5275,28 @@
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   z-index: 5;
+}
+
+.module_box .smoke,
+.module_box .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+
+.module_box .smoke > img,
+.module_box .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .module_box .cardAvatar {

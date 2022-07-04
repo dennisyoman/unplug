@@ -193,31 +193,37 @@ var checkCollision = function (ev) {
 var checkStatus = function () {
   //是否有正確位置參數fp
   if ($("#cardAvatar > div").attr("fp")) {
-    var itemFP = $("#cardAvatar > div").attr("fp").split(",");
+    var itemFP = $("#cardAvatar > div").attr("fp").split("^");
     var itemW = $("#cardAvatar").get(0).style.width;
     var itemH = $("#cardAvatar").get(0).style.height;
     var itemTop = $("#cardAvatar").get(0).style.top;
     var itemLeft = $("#cardAvatar").get(0).style.left;
     console.log(itemTop, itemLeft);
-    if (
-      parseInt(itemTop) > parseInt(itemFP[0]) - parseInt(itemH) / 2 &&
-      parseInt(itemTop) < parseInt(itemFP[0]) + parseInt(itemH) / 2 &&
-      parseInt(itemLeft) > parseInt(itemFP[1]) - parseInt(itemW) / 2 &&
-      parseInt(itemLeft) < parseInt(itemFP[1]) + parseInt(itemW) / 2
-    ) {
-      rootSoundEffect($correct);
-      $("#cardAvatar").addClass("positionBingo");
-      $("#cardAvatar").get(0).style.top = itemFP[0] + "px";
-      $("#cardAvatar").get(0).style.left = itemFP[1] + "px";
-      var src1 = $("#cardAvatar").find("img").attr("src");
-      $(".contents > div.selected")
-        .find(".toys > div")
-        .each(function () {
-          if (src1 == $(this).find("img").attr("src")) {
-            $(this).addClass("positionBingo");
-          }
-        });
-    } else {
+    var gotRight = false;
+    for (var k = 0; k < itemFP.length; k++) {
+      var tempFP = itemFP[k].split(",");
+      if (
+        parseInt(itemTop) > parseInt(tempFP[0]) - parseInt(itemH) / 2 &&
+        parseInt(itemTop) < parseInt(tempFP[0]) + parseInt(itemH) / 2 &&
+        parseInt(itemLeft) > parseInt(tempFP[1]) - parseInt(itemW) / 2 &&
+        parseInt(itemLeft) < parseInt(tempFP[1]) + parseInt(itemW) / 2
+      ) {
+        rootSoundEffect($correct);
+        $("#cardAvatar").addClass("positionBingo");
+        $("#cardAvatar").get(0).style.top = tempFP[0] + "px";
+        $("#cardAvatar").get(0).style.left = tempFP[1] + "px";
+        var src1 = $("#cardAvatar").find("img").attr("src");
+        $(".contents > div.selected")
+          .find(".toys > div")
+          .each(function () {
+            if (src1 == $(this).find("img").attr("src")) {
+              $(this).addClass("positionBingo");
+            }
+          });
+        gotRight = true;
+      }
+    }
+    if (!gotRight) {
       rootSoundEffect($pop);
     }
   } else {
@@ -281,6 +287,7 @@ var resetElem = function (elem) {
   $(".contain").remove();
   //smoke effect
   $(".smoke").remove();
+  $(".resultIcon").remove();
   $(".cardAvatarDie").remove();
 };
 
@@ -290,4 +297,16 @@ var resetTool = function () {
 
 var bingo = function () {
   rootSoundEffect($correct);
+  var uniq = new Date().getTime();
+  $(".contents > div.selected")
+    .find(".sensorArea")
+    .append(
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    );
+  $(".smoke")
+    .delay(1500)
+    .queue(function () {
+      $(".resultIcon").remove();
+      $(this).dequeue().remove();
+    });
 };
