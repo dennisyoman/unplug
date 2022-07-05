@@ -46,6 +46,10 @@ $(document).ready(function () {
           resetMen();
           $(this).empty();
           checkOrderStatus();
+          //有無sync?
+          if ($(this).siblings(".sync").length > 0) {
+            syncArrow($(this));
+          }
         });
 
       //lights
@@ -314,6 +318,11 @@ var checkOrderStatus = function () {
       rootSoundEffect($pop);
       //user change status
       resetMen();
+
+      //有無sync?
+      if ($(this).siblings(".sync").length > 0) {
+        syncArrow($(this));
+      }
     }
     if ($(this).find(">div").length > 0) {
       count++;
@@ -328,6 +337,34 @@ var checkOrderStatus = function () {
     frameCheckBtn.addClass("disable");
     //user change status
     resetMen();
+  }
+};
+
+var syncArrow = function (tar) {
+  var frameElem = $(".contents > div.selected .frames > div");
+  var sync = tar.siblings(".sync");
+  var arrowAmount = 0;
+
+  //箭頭方向相同則累加,否則重算
+
+  for (var i = 0; i < frameElem.length; i++) {
+    if (frameElem.eq(i).find("> div").length > 0) {
+      arrowAmount++;
+    }
+  }
+
+  if (arrowAmount > 0) {
+    sync.empty().append(`<div class="${tar
+      .find(">div")
+      .attr(
+        "ans"
+      )} wow bounceInUp animated" data-wow-delay="1.1s" ans="${sync.attr(
+      "ans"
+    )}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
+    <img src="./DATA/IMAGES/common/arrow2.png">
+  <p>${arrowAmount}</p></div>`);
+  } else {
+    sync.empty();
   }
 };
 
@@ -356,10 +393,25 @@ var showAnswer = function (boolean) {
     });
     rootSoundEffect($help);
     $(".btn_answer").addClass("active");
+    //有無sync?
+    if ($(".contents > div.selected .frames > .sync").length > 0) {
+      var sync = $(".contents > div.selected .frames > .sync");
+      sync.empty().append(`<div class="${sync.attr(
+        "ans"
+      )} wow bounceInUp animated animated animated" data-wow-delay="1.1s" ans="${sync.attr(
+        "ans"
+      )}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
+      <img src="./DATA/IMAGES/common/arrow2.png">
+    <p>${sync.attr("amount")}</p></div>`);
+    }
   } else {
     frameElem.each(function () {
       $(this).removeClass("selected").empty();
     });
+    //有無sync?
+    if ($(".contents > div.selected .frames > .sync").length > 0) {
+      $(".contents > div.selected .frames > .sync").empty();
+    }
   }
   //
   checkOrderStatus();
