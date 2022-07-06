@@ -3016,6 +3016,28 @@
   filter: alpha(opacity=100) !important;
 }
 
+.module_sheep .smoke,
+.module_sheep .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+
+.module_sheep .smoke > img,
+.module_sheep .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .module_sheep .contents {
   width: calc(100% - 40px);
 }
@@ -3024,15 +3046,7 @@
   position: relative;
 }
 
-.module_sheep .contents .puzzle > div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.module_sheep .contents .puzzle .items {
+.module_sheep .contents .puzzle .sheeps {
   position: absolute;
   z-index: 5;
   top: 0;
@@ -3041,23 +3055,163 @@
   height: 100%;
 }
 
-.module_sheep .contents .puzzle .items > span {
+.module_sheep .contents .puzzle .sheeps.disabled > div > span, .module_sheep .contents .puzzle .sheeps.done > div > span {
+  pointer-events: none !important;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span {
+  display: inline-block;
+  pointer-events: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 5;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  display: none;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.w {
+  pointer-events: auto;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.w::after {
+  display: block;
+  background: url("../DATA/PT/BOOK3/IMAGES/sheep_white.png") no-repeat center center !important;
+  background-size: contain !important;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.b {
+  pointer-events: auto;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.b::after {
+  display: block;
+  background: url("../DATA/PT/BOOK3/IMAGES/sheep_black.png") no-repeat center center !important;
+  background-size: contain !important;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.jumpRTL::after {
+  -webkit-animation-name: jumpRTL;
+          animation-name: jumpRTL;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.jumpLTR::after {
+  -webkit-animation-name: jumpLTR;
+          animation-name: jumpLTR;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes jumpRTL {
+  0% {
+    top: -20%;
+    left: 300%;
+  }
+  50% {
+    top: -120%;
+    left: 150%;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes jumpRTL {
+  0% {
+    top: -20%;
+    left: 300%;
+  }
+  50% {
+    top: -120%;
+    left: 150%;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes jumpLTR {
+  0% {
+    top: -20%;
+    left: -300%;
+  }
+  50% {
+    top: -120%;
+    left: -150%;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes jumpLTR {
+  0% {
+    top: -20%;
+    left: -300%;
+  }
+  50% {
+    top: -120%;
+    left: -150%;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.module_sheep .contents .puzzle .items {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.module_sheep .contents .puzzle .items.disabled > div > span {
+  pointer-events: none !important;
+}
+
+.module_sheep .contents .puzzle .items > div > span {
   display: inline-block;
   pointer-events: auto;
   cursor: pointer;
   position: absolute;
   z-index: 5;
-  background: none;
-  background-size: contain;
 }
 
-.module_sheep .contents .puzzle .items > span::after {
+.module_sheep .contents .puzzle .items > div > span::after {
   content: "";
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 17%;
-  left: 15%;
+  top: 10;
+  left: 0;
   z-index: 6;
   -webkit-animation-name: bounceIn;
           animation-name: bounceIn;
@@ -3070,48 +3224,57 @@
   display: none;
 }
 
-.module_sheep .contents .puzzle .items > span.black {
+.module_sheep .contents .puzzle .items > div > span.black {
   background: url("../DATA/PT/BOOK3/IMAGES/sheep_black_icon.png") no-repeat center center;
   background-size: contain;
 }
 
-.module_sheep .contents .puzzle .items > span.white {
+.module_sheep .contents .puzzle .items > div > span.white {
   background: url("../DATA/PT/BOOK3/IMAGES/sheep_white_icon.png") no-repeat center center;
   background-size: contain;
 }
 
-.module_sheep .contents .puzzle .items > span.w {
+.module_sheep .contents .puzzle .items > div > span.w {
   pointer-events: none !important;
+  background: none !important;
 }
 
-.module_sheep .contents .puzzle .items > span.w::after {
+.module_sheep .contents .puzzle .items > div > span.w::after {
   display: block;
-  background: url("../DATA/PT/BOOK3/IMAGES/sheep_white.png") no-repeat center center !important;
+  background: url("../DATA/PT/BOOK3/IMAGES/sheep_white_icon.png") no-repeat center center !important;
   background-size: contain !important;
 }
 
-.module_sheep .contents .puzzle .items > span.b {
+.module_sheep .contents .puzzle .items > div > span.b {
   pointer-events: none !important;
+  background: none !important;
 }
 
-.module_sheep .contents .puzzle .items > span.b::after {
+.module_sheep .contents .puzzle .items > div > span.b::after {
   display: block;
-  background: url("../DATA/PT/BOOK3/IMAGES/sheep_black.png") no-repeat center center !important;
+  background: url("../DATA/PT/BOOK3/IMAGES/sheep_black_icon.png") no-repeat center center !important;
   background-size: contain !important;
 }
 
-.module_sheep .contents .puzzle .items > span.none {
+.module_sheep .contents .puzzle .items > div > span.none {
   pointer-events: none !important;
+  background: none !important;
 }
 
 .module_sheep .contents .puzzle .subject {
   position: relative;
   z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .module_sheep .contents .puzzle .subject img {
-  width: 100%;
-  height: 100%;
+  pointer-events: auto;
+  height: auto;
 }
 
 .module_condition {
