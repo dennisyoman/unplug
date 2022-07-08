@@ -1409,6 +1409,16 @@
         justify-content: center;
         color: #aaa;
 
+        &.lg {
+          width: 165px;
+          &.canvas {
+            height: 105px;
+            canvas {
+              @include scale(0.49);
+            }
+          }
+        }
+
         &.start {
           border-color: $orange;
           &::before {

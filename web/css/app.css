@@ -2287,6 +2287,19 @@
   color: #aaa;
 }
 
+.module_guess .contents .grids .cardItem.lg {
+  width: 165px;
+}
+
+.module_guess .contents .grids .cardItem.lg.canvas {
+  height: 105px;
+}
+
+.module_guess .contents .grids .cardItem.lg.canvas canvas {
+  -webkit-transform: scale(0.49);
+  transform: scale(0.49);
+}
+
 .module_guess .contents .grids .cardItem.start {
   border-color: #ff8426;
 }
