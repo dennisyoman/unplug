@@ -4353,7 +4353,12 @@
   transform: scale(0.9);
 }
 
-.module_calculus .contents .grid6 {
+.module_calculus .contents .grid3 > div:nth-child(3)::after, .module_calculus .contents .grid3 > div:nth-child(3)::before {
+  display: none !important;
+}
+
+.module_calculus .contents .grid6,
+.module_calculus .contents .grid3 {
   width: 500px;
   height: 100%;
   display: -webkit-box;
@@ -4373,11 +4378,14 @@
   margin: 0 auto 0;
 }
 
-.module_calculus .contents .grid6.withArrow > div::after, .module_calculus .contents .grid6.withArrow > div::before {
+.module_calculus .contents .grid6.withArrow > div::after, .module_calculus .contents .grid6.withArrow > div::before,
+.module_calculus .contents .grid3.withArrow > div::after,
+.module_calculus .contents .grid3.withArrow > div::before {
   display: block;
 }
 
-.module_calculus .contents .grid6 > div {
+.module_calculus .contents .grid6 > div,
+.module_calculus .contents .grid3 > div {
   padding: 4px;
   border: 1px dashed #ff8426;
   border-radius: 15px;
@@ -4387,24 +4395,29 @@
   z-index: 1;
 }
 
-.module_calculus .contents .grid6 > div::after, .module_calculus .contents .grid6 > div::before {
+.module_calculus .contents .grid6 > div::after, .module_calculus .contents .grid6 > div::before,
+.module_calculus .contents .grid3 > div::after,
+.module_calculus .contents .grid3 > div::before {
   display: none;
 }
 
-.module_calculus .contents .grid6 > div.selected {
+.module_calculus .contents .grid6 > div.selected,
+.module_calculus .contents .grid3 > div.selected {
   border-style: solid;
   -webkit-filter: drop-shadow(0px 0px 7px #eb6154);
           filter: drop-shadow(0px 0px 7px #eb6154);
 }
 
-.module_calculus .contents .grid6 > div.afterward > div {
+.module_calculus .contents .grid6 > div.afterward > div,
+.module_calculus .contents .grid3 > div.afterward > div {
   -webkit-animation-name: rtl;
           animation-name: rtl;
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
 }
 
-.module_calculus .contents .grid6 > div.backward > div {
+.module_calculus .contents .grid6 > div.backward > div,
+.module_calculus .contents .grid3 > div.backward > div {
   -webkit-animation-name: ltr;
           animation-name: ltr;
   -webkit-animation-duration: 0.3s;
@@ -4463,7 +4476,11 @@
   }
 }
 
-.module_calculus .contents .grid6 > div:nth-child(1)::after, .module_calculus .contents .grid6 > div:nth-child(2)::after, .module_calculus .contents .grid6 > div:nth-child(4)::after, .module_calculus .contents .grid6 > div:nth-child(5)::after {
+.module_calculus .contents .grid6 > div:nth-child(1)::after, .module_calculus .contents .grid6 > div:nth-child(2)::after, .module_calculus .contents .grid6 > div:nth-child(4)::after, .module_calculus .contents .grid6 > div:nth-child(5)::after,
+.module_calculus .contents .grid3 > div:nth-child(1)::after,
+.module_calculus .contents .grid3 > div:nth-child(2)::after,
+.module_calculus .contents .grid3 > div:nth-child(4)::after,
+.module_calculus .contents .grid3 > div:nth-child(5)::after {
   content: "";
   position: absolute;
   width: 35px;
@@ -4473,7 +4490,11 @@
   right: -35px;
 }
 
-.module_calculus .contents .grid6 > div:nth-child(1)::before, .module_calculus .contents .grid6 > div:nth-child(2)::before, .module_calculus .contents .grid6 > div:nth-child(4)::before, .module_calculus .contents .grid6 > div:nth-child(5)::before {
+.module_calculus .contents .grid6 > div:nth-child(1)::before, .module_calculus .contents .grid6 > div:nth-child(2)::before, .module_calculus .contents .grid6 > div:nth-child(4)::before, .module_calculus .contents .grid6 > div:nth-child(5)::before,
+.module_calculus .contents .grid3 > div:nth-child(1)::before,
+.module_calculus .contents .grid3 > div:nth-child(2)::before,
+.module_calculus .contents .grid3 > div:nth-child(4)::before,
+.module_calculus .contents .grid3 > div:nth-child(5)::before {
   content: "";
   position: absolute;
   width: 0;
@@ -4485,7 +4506,8 @@
   right: -38px;
 }
 
-.module_calculus .contents .grid6 > div:nth-child(3)::after {
+.module_calculus .contents .grid6 > div:nth-child(3)::after,
+.module_calculus .contents .grid3 > div:nth-child(3)::after {
   content: "";
   position: absolute;
   width: 300px;
@@ -4499,7 +4521,8 @@
   -webkit-border-radius: 5px 0 0 0;
 }
 
-.module_calculus .contents .grid6 > div:nth-child(3)::before {
+.module_calculus .contents .grid6 > div:nth-child(3)::before,
+.module_calculus .contents .grid3 > div:nth-child(3)::before {
   content: "";
   position: absolute;
   width: 0;
@@ -4511,7 +4534,8 @@
   right: 374px;
 }
 
-.module_calculus .contents .grid6 > div:nth-child(6)::after {
+.module_calculus .contents .grid6 > div:nth-child(6)::after,
+.module_calculus .contents .grid3 > div:nth-child(6)::after {
   content: "";
   position: absolute;
   width: 24px;
@@ -4525,7 +4549,8 @@
   -webkit-border-radius: 0 0 5px 0;
 }
 
-.module_calculus .contents .grid6 > div .cardItem {
+.module_calculus .contents .grid6 > div .cardItem,
+.module_calculus .contents .grid3 > div .cardItem {
   width: 110px;
 }
 
@@ -5066,6 +5091,19 @@
   position: absolute;
   top: -10px;
   left: -20px;
+  z-index: 5;
+}
+
+.module_calculus .contents .frames > div.repeat2::before {
+  content: "";
+  color: #fff;
+  background: url("../DATA/IMAGES/common/repeat.png") no-repeat center center;
+  background-size: 100% 100%;
+  width: 55px;
+  height: 38px;
+  position: absolute;
+  top: -10px;
+  left: -47px;
   z-index: 5;
 }
 

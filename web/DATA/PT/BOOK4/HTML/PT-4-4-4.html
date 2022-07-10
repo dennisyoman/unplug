@@ -1,0 +1,146 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>我會搭公車</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="找位置坐好">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="準備悠遊卡">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="招手攔車">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="下車刷卡">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="上車刷卡">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="在站牌等車">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="F"></div>
+        <div ans="C"></div>
+        <div ans="E"></div>
+        <div ans="A"></div>
+        <div class="end" ans="D"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>C=3</span>
+        <span>E=4</span>
+        <span>A=5</span>
+        <span>D=6</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>觀察車票</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="坐好">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="確認月台位置">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="找到月台">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="刷票卡">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="抵達出發站">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="找到座位">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-4-4-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="E"></div>
+        <div ans="D"></div>
+        <div ans="B"></div>
+        <div ans="C"></div>
+        <div ans="F"></div>
+        <div class="end" ans="A"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>E,D,B,C,F,A</span>
+        <span>E,B,C,F,A,D</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

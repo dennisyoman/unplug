@@ -18,5 +18,11 @@
       <lesson lid="3">溝通訓練大揭密</lesson>
       <lesson lid="4">輪流與優先序</lesson>
     </book>
+    <book name="Book 4" bid="4" img="PT_book4.jpg">
+      <lesson lid="1">路燈的最小點覆蓋</lesson>
+      <lesson lid="2">園藝小偵探</lesson>
+      <lesson lid="3">超市尤拉圖</lesson>
+      <lesson lid="4">社區路徑串列</lesson>
+    </book>
   </series>
 </root>

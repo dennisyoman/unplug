@@ -151,7 +151,7 @@ $(document).ready(function () {
   //get user info
   $(".user-info .username").html(uName);
   $(".user-info .duedate").html(dueDate);
-  $(".user-info .unitpath").html(sid + "-B" + bid + "-L" + lid + "-" + uid);
+  $(".user-info .unitpath").html(sid + "-B" + bid + "-L" + lid + "-S" + uid);
 
   //check loading
   checkCompLoading("#main-panel");
