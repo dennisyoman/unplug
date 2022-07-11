@@ -1,8 +1,8 @@
 <div id="module_wrapper" class="module_calculus">
   <div class="tabs">
     <span>任務一</span>
+    <span style="display: none">任務一</span>
     <span>任務二</span>
-    <span>任務三</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
@@ -70,6 +70,7 @@
         <div ans="A"></div>
         <div class="end" ans="B"></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="cta green" onClick="openContent(1)">也可這樣寫 🡲</span>
       </div>
       <div class="condition">
         <span class="matched">A,B,A,B,A,B</span>
@@ -77,14 +78,6 @@
       </div>
     </div>
     <div>
-      <div class="intro">
-        <div>
-          <h3>How to play?</h3>
-          <p><b>我會用拖把</b>：也可以這樣寫喔。</p>
-          <img src="./DATA/PT/BOOK2/IMAGES/PT-2-2-5-3-intro.png" />
-          <span class="cta" onClick="switchIntro()">START</span>
-        </div>
-      </div>
       <div class="grids grid4 withArrow wow fadeInDown">
         <div>
           <div class="cardItem A l2 cards" ans="A" title="洗拖把">
@@ -106,6 +99,7 @@
         <div class="start" ans="A"></div>
         <div class="end repeat" ans="B"></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="cta green" onClick="openContent(0)">🡰 也可這樣寫</span>
       </div>
       <div class="condition">
         <span class="matched">A,B</span>
