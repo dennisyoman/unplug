@@ -3091,6 +3091,29 @@
   display: none;
 }
 
+.module_sheep .contents .puzzle .sheeps > div > span.pending {
+  pointer-events: none;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.choise {
+  pointer-events: auto;
+  border: 2px solid #eb6154;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.choise::after {
+  display: none;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.choise.jumpRTL::after {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.choise.jumpLTR::after {
+  -webkit-animation: none;
+          animation: none;
+}
+
 .module_sheep .contents .puzzle .sheeps > div > span.w {
   pointer-events: auto;
 }

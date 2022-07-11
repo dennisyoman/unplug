@@ -2063,6 +2063,26 @@
             display: none;
           }
 
+          &.pending {
+            pointer-events: none;
+          }
+          &.choise {
+            pointer-events: auto;
+            border: 2px solid $main;
+            &::after {
+              display: none;
+            }
+            &.jumpRTL {
+              &::after {
+                animation: none;
+              }
+            }
+            &.jumpLTR {
+              &::after {
+                animation: none;
+              }
+            }
+          }
           &.w {
             pointer-events: auto;
             &::after {
