@@ -2234,6 +2234,433 @@
   }
 }
 
+.module_torch {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+  .cards {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .cardAvatar {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    > img {
+      position: absolute;
+      height: 25px;
+      width: auto;
+      top: 50%;
+      left: 50%;
+      @include translate(-50%, -50%);
+    }
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .result {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      text-align: center;
+      padding: 15px 10px 10px;
+      background: #fff;
+      border: 2px solid #f7b125;
+      @include borderRadius(5px);
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-bot.png") no-repeat center center;
+        background-size: contain;
+        top: -30px;
+        left: 50%;
+        margin-left: -20px;
+      }
+      p {
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 5px;
+        span {
+          display: inline-block;
+          height: 15px;
+          color: $main;
+          border-bottom: 1px solid #333;
+          min-width: 25px;
+        }
+      }
+    }
+
+    .puzzle {
+      position: relative;
+
+      .items {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &.disabled {
+          > span {
+            pointer-events: none !important;
+          }
+        }
+
+        &.square {
+          > span {
+            &.torch {
+              pointer-events: none !important;
+              &::after {
+                background-color: #f8b825;
+                background-image: none;
+              }
+            }
+            &.mode1 {
+              &::after {
+                background-color: #f8b825;
+                background-image: none;
+              }
+            }
+
+            &.mode2 {
+              &::after {
+                background-color: #f8b825;
+                background-image: none;
+              }
+            }
+
+            &.m1 {
+              &::after {
+                background-color: #f8b825;
+                background-image: none;
+              }
+            }
+            &.m2 {
+              &::after {
+                background-color: #f8b825;
+                background-image: none;
+              }
+            }
+          }
+        }
+        &.triangle {
+          > span {
+            > img {
+              margin-top: 10px;
+            }
+            &::after {
+              width: 180%;
+              top: -25%;
+              left: -40%;
+            }
+            &::before {
+              top: 70%;
+            }
+            &.torch {
+              pointer-events: none !important;
+              &::after {
+                background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-tri.png") !important;
+              }
+            }
+            &.mode1 {
+              &::after {
+                background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-tri.png");
+              }
+            }
+
+            &.mode2 {
+              &::after {
+                background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-tri.png");
+              }
+            }
+
+            &.m1 {
+              &::after {
+                background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-tri.png");
+              }
+            }
+            &.m2 {
+              &::after {
+                background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-tri.png");
+              }
+            }
+          }
+        }
+        > span {
+          display: inline-block;
+          pointer-events: auto;
+          cursor: pointer;
+          position: absolute;
+          z-index: 5;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > img {
+            position: relative;
+            z-index: 5;
+            pointer-events: none !important;
+          }
+
+          &::after {
+            content: "";
+            width: 150%;
+            height: 150%;
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            z-index: 1;
+            display: none;
+            pointer-events: none !important;
+          }
+          &::before {
+            content: "";
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            animation-name: bounceIn;
+            animation-iteration-count: 1;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            display: none;
+            margin-left: -25%;
+            margin-top: -25%;
+            pointer-events: none !important;
+          }
+          &.torch {
+            pointer-events: none !important;
+            &::after {
+              display: block !important;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-hive.png") !important;
+              background-position: center center !important;
+              background-repeat: no-repeat !important;
+              background-size: 100% 100%;
+              @include opacity(0.2);
+            }
+          }
+          &.mode1 {
+            &::after {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-hive.png");
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: 100% 100% !important;
+              @include opacity(0.2);
+            }
+            &::before {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/light.png");
+              background-position: left top;
+              background-repeat: repeat;
+              background-size: 100% 100% !important;
+            }
+          }
+
+          &.mode2 {
+            &::after {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-hive.png");
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: 100% 100% !important;
+              @include opacity(0.5);
+            }
+            &::before {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/light.png");
+              background-position: left top;
+              background-repeat: repeat;
+              background-size: 50% 100% !important;
+              width: 100%;
+              margin-left: -50%;
+            }
+          }
+          &.wrong {
+            &::after {
+              display: none !important;
+            }
+            &::before {
+              display: block;
+              background-image: url("../DATA/IMAGES/common/icon_wrong.png") !important;
+              background-position: center center !important;
+              background-repeat: no-repeat !important;
+              background-size: contain !important;
+            }
+          }
+          &.m1 {
+            pointer-events: none !important;
+            &::after {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-hive.png");
+              background-position: center center !important;
+              background-repeat: no-repeat !important;
+              background-size: 100% 100% !important;
+              @include opacity(0.2);
+            }
+            &::before {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/light.png");
+              background-position: left top !important;
+              background-repeat: repeat !important;
+              background-size: 100% 100% !important;
+              width: 50%;
+              margin-left: -25%;
+            }
+          }
+          &.m2 {
+            pointer-events: none !important;
+            &::after {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/PT-4-1-3-hive.png");
+              background-position: center center !important;
+              background-repeat: no-repeat !important;
+              background-size: 100% 100% !important;
+              @include opacity(0.5);
+            }
+            &::before {
+              display: block;
+              background-image: url("../DATA/PT/BOOK4/IMAGES/light.png");
+              background-position: left top !important;
+              background-repeat: repeat !important;
+              background-size: 50% 100% !important;
+              width: 100% !important;
+              margin-left: -50%;
+            }
+          }
+          &.none {
+            pointer-events: none !important;
+            &::after,
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .areas {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        > span {
+          display: inline-block;
+          cursor: pointer;
+          position: absolute;
+          z-index: 5;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.origin,
+          &.anchored {
+            pointer-events: auto;
+            &::before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 2;
+              background: url("../DATA/PT/BOOK4/IMAGES/torch.png") no-repeat center center;
+              background-size: auto 80%;
+              pointer-events: none;
+            }
+          }
+
+          &.mode1 {
+            &::after {
+              @include opacity(0.2);
+            }
+          }
+
+          &.mode2 {
+            &::after {
+              @include opacity(0.3);
+            }
+          }
+
+          &.temp {
+            &::after {
+              @include opacity(0.15);
+            }
+            &.mode1 {
+              &::after {
+                @include opacity(0.2);
+              }
+            }
+          }
+
+          &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background: #f7b125;
+            @include opacity(0);
+            @include transition(opacity, 0.6s);
+            pointer-events: none !important;
+          }
+        }
+      }
+
+      .subject {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-end;
+        img {
+          pointer-events: auto;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
 .module_condition {
   position: relative;
   top: 0;
