@@ -4587,6 +4587,22 @@
   width: 100% !important;
 }
 
+.module_calculus .numAvatar {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 20px;
+  background: #ff8426;
+  color: #fff;
+  z-index: 100;
+  pointer-events: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
 .module_calculus .cardItem {
   width: 110px;
   height: auto;
@@ -4628,6 +4644,65 @@
 .module_calculus .cardItem.l4::after,
 .module_calculus .cardItem.l4 > span {
   background: #ea80b0;
+}
+
+.module_calculus .cardItem.observe {
+  background: transparent;
+  border-color: transparent;
+}
+
+.module_calculus .cardItem.observe::after,
+.module_calculus .cardItem.observe > span {
+  background: #eb6154;
+}
+
+.module_calculus .cardItem .diff {
+  position: absolute;
+  z-index: 10;
+  pointer-events: auto;
+  border: 3px solid transparent;
+  height: 0;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  display: none;
+  cursor: default;
+}
+
+.module_calculus .cardItem .diff.active {
+  border: 3px solid #eb6154;
+}
+
+.module_calculus .cardItem .diff::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.module_calculus .cardItem .diffAmount {
+  position: absolute;
+  z-index: 10;
+  border: 3px solid #294197;
+  background: #fff;
+  height: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+  bottom: -10px;
+  left: -10px;
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+.module_calculus .cardItem .diffAmount.wrong {
+  color: #eb6154;
+  border-color: #eb6154;
 }
 
 .module_calculus .cardItem img {
@@ -4858,6 +4933,45 @@
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   display: none;
+}
+
+.module_calculus .contents .chart .items > div span {
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  pointer-events: auto;
+  width: 20px;
+  height: 20px;
+}
+
+.module_calculus .contents .chart .items > div span.r {
+  background: url("../DATA/IMAGES/common/icon_right.png") no-repeat center center;
+  background-size: auto 50%;
+}
+
+.module_calculus .contents .chart .items > div span.w {
+  background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+  background-size: auto 50%;
+}
+
+.module_calculus .contents .chart .items > div span.sum {
+  pointer-events: none;
+  text-align: center;
+  font-size: 18px;
+  color: #000;
+}
+
+.module_calculus .contents .chart .items > div span.wrong {
+  background: url("../DATA/IMAGES/common/icon_stupid.png") no-repeat center center;
+  background-size: auto 50%;
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-filter: saturate(0);
+          filter: saturate(0);
 }
 
 .module_calculus .contents .shrink {
@@ -5457,6 +5571,12 @@
   margin-left: 10px;
 }
 
+.module_calculus .contents .gridSlider .btn.close {
+  background: url("../DATA/IMAGES/common/btn_return.png") no-repeat center center;
+  background-size: contain;
+  margin-left: -12.5px;
+}
+
 .module_calculus .contents .gridSlider .btn.disable {
   opacity: 0.3 !important;
   -moz-opacity: 0.3 !important;
@@ -5493,6 +5613,15 @@
   left: -200px;
 }
 
+.module_calculus .contents .gridSlider .storyline .diff {
+  display: block;
+}
+
+.module_calculus .contents .gridSlider .storyline .diffAmount {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
 .module_calculus .contents .gridSlider .storyline .cardItem {
   width: 220px;
   left: -110px;
@@ -5508,8 +5637,8 @@
 .module_calculus .contents .gridSlider .storyline .cardItem.selected {
   -webkit-transform: scale(1);
   transform: scale(1);
-  -webkit-box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.2);
+  -webkit-filter: drop-shadow(3px 10px 10px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(3px 10px 10px rgba(0, 0, 0, 0.5));
 }
 
 .module_calculus .contents .frames {
@@ -5524,6 +5653,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 1;
 }
 
 .module_calculus .contents .frames .smoke,
@@ -5552,12 +5682,30 @@
   margin-top: -80px;
 }
 
+.module_calculus .contents .frames.observe {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.module_calculus .contents .frames.observe::before {
+  content: "我的順序";
+}
+
+.module_calculus .contents .frames.observe .cardItem {
+  width: 60px;
+}
+
 .module_calculus .contents .frames::before {
   content: "我的演算法";
   font-size: 12px;
   color: #000;
   line-height: 25px;
   margin-right: 5px;
+}
+
+.module_calculus .contents .frames .cardItem {
+  pointer-events: none;
 }
 
 .module_calculus .contents .frames > div {

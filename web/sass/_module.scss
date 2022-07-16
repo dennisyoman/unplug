@@ -3333,6 +3333,19 @@
       width: 100% !important;
     }
   }
+  .numAvatar {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+    background: $orange;
+    color: #fff;
+    z-index: 100;
+    pointer-events: none;
+    @include borderRadius(3px);
+  }
   .cardItem {
     width: 110px;
     height: auto;
@@ -3367,6 +3380,59 @@
       &::after,
       > span {
         background: $l4;
+      }
+    }
+
+    &.observe {
+      background: transparent;
+      border-color: transparent;
+      &::after,
+      > span {
+        background: $main;
+      }
+    }
+
+    .diff {
+      position: absolute;
+      z-index: 10;
+      pointer-events: auto;
+      border: 3px solid transparent;
+      height: 0;
+      @include borderRadius(100%);
+      display: none;
+      cursor: default;
+
+      &.active {
+        border: 3px solid $main;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        @include box;
+      }
+    }
+
+    .diffAmount {
+      position: absolute;
+      z-index: 10;
+      border: 3px solid $third;
+      background: #fff;
+      height: 0;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      line-height: 34px;
+      text-align: center;
+      bottom: -10px;
+      left: -10px;
+      @include scale(0.7);
+
+      &.wrong {
+        color: $main;
+        border-color: $main;
       }
     }
 
@@ -3630,6 +3696,44 @@
     }
   }
   .contents {
+    .chart {
+      .items {
+        > div {
+          span {
+            position: absolute;
+            cursor: pointer;
+            z-index: 1;
+            pointer-events: auto;
+            width: 20px;
+            height: 20px;
+
+            &.r {
+              background: url("../DATA/IMAGES/common/icon_right.png") no-repeat center center;
+              background-size: auto 50%;
+            }
+            &.w {
+              background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+              background-size: auto 50%;
+            }
+            &.sum {
+              pointer-events: none;
+              text-align: center;
+              font-size: 18px;
+              color: $text;
+            }
+            &.wrong {
+              background: url("../DATA/IMAGES/common/icon_stupid.png") no-repeat center center;
+              background-size: auto 50%;
+              -webkit-animation-name: bounceIn;
+              animation-name: bounceIn;
+              animation-iteration-count: 1;
+              animation-duration: 0.8s;
+              filter: saturate(0);
+            }
+          }
+        }
+      }
+    }
     .shrink {
       @include scale(0.9);
     }
@@ -4143,6 +4247,11 @@
           background-size: 100% 100%;
           margin-left: 10px;
         }
+        &.close {
+          background: url("../DATA/IMAGES/common/btn_return.png") no-repeat center center;
+          background-size: contain;
+          margin-left: -12.5px;
+        }
         &.disable {
           @include opacity(0.3);
           pointer-events: none;
@@ -4168,6 +4277,13 @@
           }
         }
 
+        .diff {
+          display: block;
+        }
+        .diffAmount {
+          @include scale(1);
+        }
+
         .cardItem {
           width: 220px;
           left: -110px;
@@ -4178,7 +4294,8 @@
 
           &.selected {
             @include scale(1);
-            @include boxShadow(3px 10px 10px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(3px 10px 10px rgba(0, 0, 0, 0.5));
+            //@include boxShadow(3px 10px 10px rgba(0, 0, 0, 0.2));
           }
         }
       }
@@ -4191,6 +4308,7 @@
       left: 0;
       display: flex;
       justify-content: center;
+      z-index: 1;
 
       .smoke,
       .resultIcon {
@@ -4214,6 +4332,17 @@
         margin-top: -80px;
       }
 
+      &.observe {
+        &::before {
+          content: "我的順序";
+        }
+        align-items: center;
+
+        .cardItem {
+          width: 60px;
+        }
+      }
+
       &::before {
         content: "我的演算法";
         font-size: 12px;
@@ -4221,6 +4350,11 @@
         line-height: 25px;
         margin-right: 5px;
       }
+
+      .cardItem {
+        pointer-events: none;
+      }
+
       > div {
         width: 25px;
         height: 25px;

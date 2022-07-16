@@ -135,7 +135,7 @@
     <section section="1" name="熱身活動" html="PT/BOOK4/HTML/PT-4-2-1.html" js="JS/order.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK4/HTML/PT-4-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 觀察與邏輯推理" html="PT/BOOK4/HTML/PT-4-2-3.html" js="JS/apart.js" image="IMAGES/UNITS/logic.png" skin="">
+    <section section="3" name="一起玩遊戲 / 觀察與邏輯推理" html="PT/BOOK4/HTML/PT-4-2-3.html" js="JS/observe.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="4" name="編程時間 / 演算法" html="PT/BOOK4/HTML/PT-4-2-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>

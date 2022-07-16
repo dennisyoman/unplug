@@ -1,0 +1,416 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check" onClick="checkAnswer()"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>園藝小偵探</b
+            >：仔細觀察這些照片有哪些不一樣的地方，並將他們按照規則排列。
+          </p>
+          <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid12 withArrow wow fadeInDown">
+        <div>
+          <div
+            class="cardItem A observe cards"
+            ans="A"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 50px; left: 60px; width: 20px; height: 20px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 125px; left: 100px; width: 50px; height: 50px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-A.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B observe cards"
+            ans="B"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 45px; left: 65px; width: 20px; height: 20px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 65px; left: 60px; width: 29px; height: 29px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 125px; left: 100px; width: 50px; height: 50px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 30px; left: 140px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-B.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem C observe cards"
+            ans="C"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 50px; left: 60px; width: 20px; height: 20px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-C.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem D observe cards"
+            ans="D"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 50px; left: 60px; width: 20px; height: 20px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 125px; left: 100px; width: 50px; height: 50px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 30px; left: 140px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-D.png" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn close" onClick="showCompare(false)" />
+      </div>
+      <div class="frames observe wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="D"></div>
+        <div ans="A"></div>
+        <div ans="C"></div>
+        <span
+          ><div class="cardItem E observe cards">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-E.png" /></div
+        ></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="grids grid12 withArrow wow fadeInDown">
+        <div>
+          <div
+            class="cardItem A observe cards"
+            ans="A"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 135px; left: 120px; width: 50px; height: 50px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 35px; left: 50px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 150px; left: 40px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-2-A.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B observe cards"
+            ans="B"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 135px; left: 120px; width: 50px; height: 50px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 150px; left: 40px; width: 40px; height: 40px"
+            ></div>
+
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-2-B.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem C observe cards"
+            ans="C"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 120px; left: 40px; width: 40px; height: 40px"
+            ></div>
+
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-2-C.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem D observe cards"
+            ans="D"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 135px; left: 120px; width: 50px; height: 50px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 35px; left: 50px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 150px; left: 40px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 55px; left: 105px; width: 50px; height: 50px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-2-D.png" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn close" onClick="showCompare(false)" />
+      </div>
+      <div class="frames observe wow bounceInUp">
+        <div class="start" ans="D"></div>
+        <div ans="A"></div>
+        <div ans="B"></div>
+        <div ans="C"></div>
+        <span
+          ><div class="cardItem E observe cards">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-2-E.png" /></div
+        ></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="grids grid12 withArrow wow fadeInDown">
+        <div>
+          <div
+            class="cardItem A observe cards"
+            ans="A"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 155px; left: 120px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 48px; left: 83px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 73px; left: 39px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 13px; left: 145px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-3-A.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B observe cards"
+            ans="B"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 13px; left: 145px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-3-B.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem C observe cards"
+            ans="C"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 155px; left: 120px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 48px; left: 83px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 73px; left: 39px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 13px; left: 145px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 23px; left: 38px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-3-C.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem D observe cards"
+            ans="D"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 155px; left: 120px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 48px; left: 83px; width: 40px; height: 40px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 13px; left: 145px; width: 40px; height: 40px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-3-D.png" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn close" onClick="showCompare(false)" />
+      </div>
+      <div class="frames observe wow bounceInUp">
+        <div class="start" ans="C"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div ans="B"></div>
+        <span
+          ><div class="cardItem E observe cards">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-3-E.png" /></div
+        ></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            請在一樣的地方畫
+            <img
+              src="./DATA/IMAGES/common/icon_right.png"
+              height="30"
+              width="30"
+            />， 不一樣的地方畫
+            <img
+              src="./DATA/IMAGES/common/icon_wrong.png"
+              height="30"
+              width="30"
+            />，最後將順序填入。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="chart">
+        <div class="items" w="37" h="41">
+          <div>
+            <span cid="A" class="cards" style="top: 69px; left: 201px"></span>
+            <span ans="r" style="top: 69px; left: 242px"></span>
+            <span ans="r" style="top: 69px; left: 279px"></span>
+            <span ans="w" style="top: 69px; left: 316px"></span>
+            <span ans="w" style="top: 69px; left: 354px"></span>
+            <span ans="2" class="sum" style="top: 69px; left: 401px"></span>
+          </div>
+          <div>
+            <span cid="B" class="cards" style="top: 111px; left: 201px"></span>
+            <span ans="r" style="top: 111px; left: 242px"></span>
+            <span ans="w" style="top: 111px; left: 279px"></span>
+            <span ans="w" style="top: 111px; left: 316px"></span>
+            <span ans="w" style="top: 111px; left: 354px"></span>
+            <span ans="3" class="sum" style="top: 111px; left: 401px"></span>
+          </div>
+          <div>
+            <span cid="C" class="cards" style="top: 156px; left: 201px"></span>
+            <span ans="w" style="top: 156px; left: 242px"></span>
+            <span ans="w" style="top: 156px; left: 279px"></span>
+            <span ans="w" style="top: 156px; left: 316px"></span>
+            <span ans="w" style="top: 156px; left: 354px"></span>
+            <span ans="4" class="sum" style="top: 156px; left: 401px"></span>
+          </div>
+          <div>
+            <span cid="D" class="cards" style="top: 197px; left: 201px"></span>
+            <span ans="r" style="top: 197px; left: 242px"></span>
+            <span ans="r" style="top: 197px; left: 279px"></span>
+            <span ans="r" style="top: 197px; left: 316px"></span>
+            <span ans="w" style="top: 197px; left: 354px"></span>
+            <span ans="1" class="sum" style="top: 197px; left: 401px"></span>
+          </div>
+        </div>
+        <img
+          width="250"
+          style="margin-top: -60px"
+          class="wow fadeIn"
+          src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-4.png"
+        />
+      </div>
+      <div class="frames observe wow bounceInUp">
+        <div class="start" ans="C"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <span
+          ><div class="cardItem E observe cards">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-4-E.png" /></div
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
