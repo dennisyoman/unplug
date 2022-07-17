@@ -117,16 +117,12 @@ var makeMove = function (tar) {
     start = currentJoint.attr("jid");
     end = tar.attr("jid");
     routes.each(function () {
-      if (start == $(this).attr("start")) {
-        if (end == $(this).attr("end")) {
-          //順向
-          $(this).addClass("done");
-        }
-      } else if (end == $(this).attr("start")) {
-        if (start == $(this).attr("end")) {
-          //逆向
-          $(this).addClass("done reverse");
-        }
+      if (start == $(this).attr("start") && end == $(this).attr("end")) {
+        //順向
+        $(this).addClass("done");
+      } else if (end == $(this).attr("start") && start == $(this).attr("end")) {
+        //逆向
+        $(this).addClass("done reverse");
       }
     });
     //紀錄交接點
@@ -162,8 +158,8 @@ var makeMove = function (tar) {
   currentJoint = tar;
   //是否是原點
   if (
-    !currentJoint.hasClass("start") &&
-    selectedElem.find(".setstart").length < 1
+    selectedElem.find(".setstart").length < 1 &&
+    selectedElem.find(".start").length < 1
   ) {
     currentJoint.addClass("setstart");
   }
