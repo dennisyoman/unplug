@@ -144,7 +144,7 @@
     <section section="1" name="熱身活動" html="PT/BOOK4/HTML/PT-4-3-1.html" js="JS/condition.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK4/HTML/PT-4-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 分類與尤拉圖" html="PT/BOOK4/HTML/PT-4-3-3.html" js="JS/draganddrop.js" image="IMAGES/UNITS/euler.png" skin="">
+    <section section="3" name="一起玩遊戲 / 分類與尤拉圖" html="PT/BOOK4/HTML/PT-4-3-3.html" js="JS/euler.js" image="IMAGES/UNITS/euler.png" skin="">
     </section>
     <section section="4" name="編程時間 / 演算法" html="PT/BOOK4/HTML/PT-4-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>

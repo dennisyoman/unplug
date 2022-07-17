@@ -103,6 +103,15 @@
     @include scale(1.1);
   }
 }
+@keyframes growingLarge {
+  0% {
+    @include scale(1);
+  }
+
+  50% {
+    @include scale(1.2);
+  }
+}
 
 @keyframes popIn {
   0% {

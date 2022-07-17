@@ -228,6 +228,28 @@
   }
 }
 
+@-webkit-keyframes growingLarge {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes growingLarge {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
 @-webkit-keyframes popIn {
   0% {
     -webkit-transform: scale(0);
@@ -2100,6 +2122,342 @@
           transform-origin: top center;
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
+}
+
+.module_euler {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+
+.module_euler .hint {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  text-align: left;
+  padding: 10px 10px 10px;
+  background: #fff;
+  border: 2px solid #87caab;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.module_euler .hint p {
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 5px;
+}
+
+.module_euler .hint p span {
+  display: inline-block;
+  height: 15px;
+  color: #eb6154;
+  border-bottom: 1px solid #333;
+  min-width: 25px;
+}
+
+.module_euler .smoke,
+.module_euler .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -60px;
+  margin-top: -60px;
+}
+
+.module_euler .smoke > img,
+.module_euler .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_euler .map {
+  position: relative;
+}
+
+.module_euler .map > img {
+  height: auto;
+}
+
+.module_euler .map .joints {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+
+.module_euler .map .joints > span {
+  position: absolute;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation-fill-mode: forwards;
+}
+
+.module_euler .map .joints > span.active {
+  pointer-events: auto;
+}
+
+.module_euler .map .joints > span.active::before {
+  width: 50%;
+  height: 50%;
+  -webkit-animation-name: growingLarge;
+          animation-name: growingLarge;
+  -webkit-animation-duration: 0.6s !important;
+          animation-duration: 0.6s !important;
+  -webkit-animation-iteration-count: infinite !important;
+          animation-iteration-count: infinite !important;
+}
+
+.module_euler .map .joints > span.active.green::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #22ac38);
+          filter: drop-shadow(0px 0px 3px #22ac38);
+}
+
+.module_euler .map .joints > span.active.orange::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #f39800);
+          filter: drop-shadow(0px 0px 3px #f39800);
+}
+
+.module_euler .map .joints > span.active.red::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #e60012);
+          filter: drop-shadow(0px 0px 3px #e60012);
+}
+
+.module_euler .map .joints > span.active.sky::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #54c3f1);
+          filter: drop-shadow(0px 0px 3px #54c3f1);
+}
+
+.module_euler .map .joints > span.active.purple::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #b60081);
+          filter: drop-shadow(0px 0px 3px #b60081);
+}
+
+.module_euler .map .joints > span.active.blue::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #0069b2);
+          filter: drop-shadow(0px 0px 3px #0069b2);
+}
+
+.module_euler .map .joints > span.active.black::before {
+  -webkit-filter: drop-shadow(0px 0px 3px #aaa);
+          filter: drop-shadow(0px 0px 3px #aaa);
+}
+
+.module_euler .map .joints > span.done {
+  pointer-events: none !important;
+}
+
+.module_euler .map .joints > span.done::before {
+  width: 30% !important;
+  height: 30% !important;
+  -webkit-animation: none !important;
+          animation: none !important;
+  -webkit-filter: none !important;
+          filter: none !important;
+}
+
+.module_euler .map .joints > span.setstart::after {
+  content: "Start";
+  position: absolute;
+  color: #fff;
+  background: #ff8426;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 11px;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+
+.module_euler .map .joints > span.r::after {
+  right: 0px;
+  -webkit-transform: scale(0.8) translate(140%, 0);
+          transform: scale(0.8) translate(140%, 0);
+}
+
+.module_euler .map .joints > span.l::after {
+  left: 0;
+  -webkit-transform: scale(0.8) translate(-140%, 0);
+          transform: scale(0.8) translate(-140%, 0);
+}
+
+.module_euler .map .joints > span.t::after {
+  top: 0;
+  -webkit-transform: scale(0.8) translate(0, -140%);
+          transform: scale(0.8) translate(0, -140%);
+}
+
+.module_euler .map .joints > span.b::after {
+  bottom: 0;
+  -webkit-transform: scale(0.8) translate(0, 140%);
+          transform: scale(0.8) translate(0, 140%);
+}
+
+.module_euler .map .joints > span::before {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 30%;
+  background: #ccc;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  pointer-events: none;
+}
+
+.module_euler .map .joints > span.green::before, .module_euler .map .joints > span.green::after {
+  background: #22ac38;
+}
+
+.module_euler .map .joints > span.orange::before, .module_euler .map .joints > span.orange::after {
+  background: #f39800;
+}
+
+.module_euler .map .joints > span.red::before, .module_euler .map .joints > span.red::after {
+  background: #e60012;
+}
+
+.module_euler .map .joints > span.sky::before, .module_euler .map .joints > span.sky::after {
+  background: #54c3f1;
+}
+
+.module_euler .map .joints > span.purple::before, .module_euler .map .joints > span.purple::after {
+  background: #b60081;
+}
+
+.module_euler .map .joints > span.blue::before, .module_euler .map .joints > span.blue::after {
+  background: #0069b2;
+}
+
+.module_euler .map .joints > span.black::before, .module_euler .map .joints > span.black::after {
+  background: #333;
+}
+
+.module_euler .map .items {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+
+.module_euler .map .items > span {
+  position: absolute;
+  z-index: 1;
+  -webkit-filter: saturate(0);
+          filter: saturate(0);
+  -webkit-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+.module_euler .map .items > span.done {
+  -webkit-animation-name: bounceIn;
+          animation-name: bounceIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-filter: saturate(1);
+          filter: saturate(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.6));
+          filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.6));
+}
+
+.module_euler .map .routes {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+}
+
+.module_euler .map .routes > span {
+  position: absolute;
+  z-index: 1;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  width: 10px;
+  display: none;
+}
+
+.module_euler .map .routes > span::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("../DATA/IMAGES/common/route_reverse.png") repeat center center;
+  background-size: 100% auto;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-animation-name: pathing;
+          animation-name: pathing;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.module_euler .map .routes > span.done {
+  display: block;
+}
+
+.module_euler .map .routes > span.reverse::after {
+  background-image: url("../DATA/IMAGES/common/route.png");
+  animation-direction: reverse;
+}
+
+.module_euler.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+@-webkit-keyframes pathing {
+  0% {
+    background-position: center bottom;
+  }
+  100% {
+    background-position: center bottom -20px;
+  }
+}
+
+@keyframes pathing {
+  0% {
+    background-position: center bottom;
+  }
+  100% {
+    background-position: center bottom -20px;
+  }
 }
 
 .module_guess {
