@@ -284,7 +284,7 @@ var showAnswer = function (boolean) {
     var items = selectedElem.find(".items > span");
     joints.addClass("done");
     routes.each(function () {
-      $(this).removeClass("active reverse").addClass("done");
+      $(this).removeClass("active reverse").addClass("done").css("opacity", 1);
       $(this).addClass($(this).attr("ref"));
     });
     items.addClass("done");
@@ -309,7 +309,7 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
-  elem.find(".done").removeClass("done");
+  elem.find(".done").removeClass("done").css("opacity", 1);
   elem.find(".reverse").removeClass("reverse");
   elem.find(".active").removeClass("active");
   elem.find(".setstart").removeClass("setstart");
@@ -322,7 +322,7 @@ var resetElem = function (elem) {
     elem.find(".joints >span.start").addClass("active");
   }
   //
-  $(".sideTool > div.btn_answer").show();
+  $(".sideTool > div.btn_answer").removeClass("active").show();
 };
 
 var resetTool = function () {

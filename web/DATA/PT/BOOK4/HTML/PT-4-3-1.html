@@ -1,0 +1,127 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check" onClick="checkAnswer()"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>園藝小偵探</b
+            >：仔細觀察這些照片有哪些不一樣的地方，並將他們按照規則排列。
+          </p>
+          <img src="./DATA/PT/BOOK4/IMAGES/PT-4-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid12 withArrow wow fadeInDown">
+        <div>
+          <div
+            class="cardItem A observe cards"
+            ans="A"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 26px; left: 105px; width: 20px; height: 20px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 94px; left: 84px; width: 20px; height: 20px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-3-1-1-A.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B observe cards"
+            ans="B"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 44px; left: 78px; width: 30px; height: 30px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 26px; left: 105px; width: 20px; height: 20px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 94px; left: 84px; width: 20px; height: 20px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-3-1-1-B.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem C observe cards"
+            ans="C"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 94px; left: 84px; width: 20px; height: 20px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-3-1-1-C.png" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem D observe cards"
+            ans="D"
+            onClick="showCompare(true,$(this))"
+          >
+            <div
+              class="diff"
+              style="top: 44px; left: 78px; width: 30px; height: 30px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 27px; left: 126px; width: 30px; height: 30px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 26px; left: 105px; width: 20px; height: 20px"
+            ></div>
+            <div
+              class="diff"
+              style="top: 94px; left: 84px; width: 20px; height: 20px"
+            ></div>
+            <div class="diffAmount">0</div>
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-3-1-1-D.png" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn close" onClick="showCompare(false)" />
+      </div>
+      <div class="frames observe wow bounceInUp">
+        <div class="start" ans="D"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div ans="C"></div>
+        <span
+          ><div class="cardItem E observe cards">
+            <img src="./DATA/PT/BOOK4/IMAGES/PT-4-3-1-1-E.png" /></div
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

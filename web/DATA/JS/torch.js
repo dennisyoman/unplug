@@ -136,6 +136,7 @@ $(document).ready(function () {
         .unbind()
         .bind("click", function () {
           $(this).hide();
+
           resetElem($(".contents > div.selected"));
         });
 

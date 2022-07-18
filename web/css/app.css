@@ -4079,21 +4079,52 @@
           justify-content: center;
 }
 
+.module_torch .contents .puzzle .areas > span::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  display: none;
+  pointer-events: none !important;
+}
+
 .module_torch .contents .puzzle .areas > span.origin, .module_torch .contents .puzzle .areas > span.anchored {
   pointer-events: auto;
 }
 
 .module_torch .contents .puzzle .areas > span.origin::before, .module_torch .contents .puzzle .areas > span.anchored::before {
   content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background: url("../DATA/PT/BOOK4/IMAGES/torch.png") no-repeat center center;
-  background-size: auto 80%;
-  pointer-events: none;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 2 !important;
+  background: url("../DATA/PT/BOOK4/IMAGES/torch.png") no-repeat center center !important;
+  background-size: auto 80% !important;
+  margin: 0 !important;
+}
+
+.module_torch .contents .puzzle .areas > span.mode1::before {
+  display: block;
+  background-image: url("../DATA/PT/BOOK4/IMAGES/light.png");
+  background-position: left top;
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  width: 40%;
+  height: 40%;
+  margin-left: -20%;
+  margin-top: -20%;
 }
 
 .module_torch .contents .puzzle .areas > span.mode1::after {
@@ -4101,6 +4132,17 @@
   -moz-opacity: 0.2 !important;
   -khtml-opacity: 0.2 !important;
   filter: alpha(opacity=20) !important;
+}
+
+.module_torch .contents .puzzle .areas > span.mode2::before {
+  display: block;
+  background-image: url("../DATA/PT/BOOK4/IMAGES/light.png");
+  background-position: left top;
+  background-repeat: repeat;
+  background-size: 50% 100%;
+  width: 80%;
+  height: 40%;
+  margin-left: -40%;
 }
 
 .module_torch .contents .puzzle .areas > span.mode2::after {
