@@ -3910,8 +3910,8 @@
   top: 50%;
   left: 50%;
   z-index: 2;
-  -webkit-animation-name: bounceIn;
-          animation-name: bounceIn;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   -webkit-animation-duration: 0.8s;

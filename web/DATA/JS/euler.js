@@ -117,14 +117,30 @@ var makeMove = function (tar) {
     start = currentJoint.attr("jid");
     end = tar.attr("jid");
     routes.each(function () {
+      var total = routes.length;
       if (start == $(this).attr("start") && end == $(this).attr("end")) {
         //順向
         $(this).addClass("done");
+        $(this).css(
+          "opacity",
+          0.2 +
+            0.8 *
+              (selectedElem.find(".routes").find(">span[class*=done]").length /
+                total)
+        );
       } else if (end == $(this).attr("start") && start == $(this).attr("end")) {
         //逆向
         $(this).addClass("done reverse");
+        $(this).css(
+          "opacity",
+          0.2 +
+            0.8 *
+              (selectedElem.find(".routes").find(">span[class*=done]").length /
+                total)
+        );
       }
     });
+
     //紀錄交接點
     var tempJoins = currentJoint.attr("join").split(",");
     if (tempJoins[0] != "") {
@@ -234,7 +250,7 @@ var makeMove = function (tar) {
     if (selectedElem.find(".joints > span.active").length > 0) {
       //可以繼續
       if (gotItem) {
-        rootSoundEffect($pop);
+        rootSoundEffect($good);
       } else {
         rootSoundEffect($key);
       }

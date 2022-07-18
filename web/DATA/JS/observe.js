@@ -81,14 +81,16 @@ $(document).ready(function () {
               $(this).removeClass("wrong");
               if ($(this).hasClass("r")) {
                 $(this).removeClass("r").addClass("w");
+                rootSoundEffect($pop);
               } else if ($(this).hasClass("w")) {
                 $(this).removeClass("w");
+                rootSoundEffect($show);
               } else {
                 $(this).addClass("r");
+                rootSoundEffect($pop);
               }
               //sum up
               $(this).siblings(".sum").text($(this).parent().find(".w").length);
-              rootSoundEffect($key);
             }
           });
       });
@@ -383,6 +385,11 @@ var showCompare = function (boolean, tar) {
       .unbind()
       .bind("click", function () {
         $(this).toggleClass("active");
+        if ($(this).hasClass("active")) {
+          rootSoundEffect($right);
+        } else {
+          rootSoundEffect($show);
+        }
         avatar
           .find(".diffAmount")
           .removeClass("wrong")
@@ -393,7 +400,6 @@ var showCompare = function (boolean, tar) {
           .find(".diffAmount")
           .removeClass("wrong")
           .text(avatar.find(".diff.active").length);
-        rootSoundEffect($key);
       });
   } else {
     selectedElem.find(".grids").show();

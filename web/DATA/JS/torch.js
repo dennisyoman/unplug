@@ -47,13 +47,13 @@ $(document).ready(function () {
             //
             if ($(this).hasClass("mode1")) {
               $(this).removeClass("mode1 wrong").addClass("mode2");
-              rootSoundEffect($pop);
+              rootSoundEffect($key);
             } else if ($(this).hasClass("mode2")) {
               $(this).removeClass("mode2 wrong");
               rootSoundEffect($show);
             } else {
               $(this).removeClass("wrong").addClass("mode1");
-              rootSoundEffect($pop);
+              rootSoundEffect($key);
             }
           });
         //
