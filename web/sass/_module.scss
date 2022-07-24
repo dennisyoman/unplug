@@ -1277,6 +1277,433 @@
   }
 }
 
+.module_exchange {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -50px;
+    margin-top: -50px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .sequence {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    width: auto;
+    z-index: 5;
+    white-space: nowrap;
+    display: flex;
+    &::before {
+      content: "換東西的順序　";
+      font-size: 12px;
+      line-height: 35px;
+    }
+
+    > span {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      background: #fff;
+      border: 2px solid #d36d7d;
+      border-right: 3px solid #d36d7d;
+      border-bottom: 3px solid #d36d7d;
+      @include borderRadius(6px);
+      position: relative;
+      margin-right: 10px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 13px;
+        right: -9px;
+        width: 4px;
+        height: 4px;
+        border: 1px solid #d36d7d;
+        border-color: transparent #d36d7d #d36d7d transparent;
+        @include rotate(-45deg);
+      }
+
+      &:last-child {
+        margin-right: 0;
+        &::after {
+          display: none;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .carry {
+    position: absolute;
+    bottom: -60px;
+    left: 10px;
+    width: 70px;
+    height: 130px;
+    z-index: 5;
+    .man {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      z-index: 5;
+
+      > img {
+        width: auto;
+        height: 100%;
+      }
+    }
+    .items {
+      position: absolute;
+      z-index: 1;
+      width: 50px;
+      bottom: 110px;
+      left: 40px;
+
+      > span {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        border: 3px solid #7eb0df;
+        border-right: 4px solid #7eb0df;
+        border-bottom: 4px solid #7eb0df;
+        margin-top: 2px;
+        pointer-events: auto;
+        cursor: pointer;
+
+        @include borderRadius(8px);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+    &.done {
+      .items {
+        > span {
+          display: none;
+          &.selected {
+            display: block;
+            pointer-events: none;
+          }
+        }
+      }
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      content: "應該選擇帶哪個呢？";
+      font-size: 12px;
+      line-height: 12px;
+      position: absolute;
+      z-index: 2;
+      background: #fff;
+      padding: 10px;
+      @include borderRadius(0 15px 15px 15px);
+      top: 35px;
+      left: 73px;
+      white-space: nowrap;
+      transform-origin: left center;
+      @include scale(0.8);
+    }
+  }
+
+  .map {
+    position: relative;
+    z-index: 1;
+    > img {
+      height: auto;
+    }
+
+    .shipper {
+      position: absolute;
+      height: 0;
+      width: 0;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      @include transition(all, 0.2s);
+      transition-timing-function: linear;
+
+      .man {
+        width: 25px;
+        height: 50px;
+        @include translate(-50%, -90%);
+        overflow: hidden;
+        img {
+          margin-left: 0;
+          height: 100%;
+          width: auto;
+        }
+      }
+      &.reverse {
+        transform: scaleX(-1);
+      }
+
+      &.walking {
+        .man {
+          img {
+            animation-name: walking;
+            animation-duration: 0.4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(1);
+          }
+        }
+      }
+      @keyframes walking {
+        0% {
+          margin-left: 0;
+        }
+
+        50% {
+          margin-left: -28px;
+        }
+      }
+
+      &.win {
+        -webkit-animation-name: bounce !important;
+        animation-name: bounce !important;
+        -webkit-transform-origin: center bottom !important;
+        transform-origin: center bottom !important;
+        animation-iteration-count: infinite !important;
+        animation-duration: 1s;
+      }
+
+      &.lose {
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 8;
+          width: 13px;
+          height: 8px;
+          top: -31px;
+          left: 3px;
+          margin-left: -8px;
+          background: url("../DATA/IMAGES/common/tear.png") no-repeat top left;
+          background-size: 13px 16px;
+          -webkit-animation-name: crying;
+          animation-name: crying;
+          animation-iteration-count: infinite;
+          animation-duration: 0.4s;
+          animation-timing-function: linear !important;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+        @keyframes crying {
+          0% {
+            background-position: top left;
+          }
+
+          100% {
+            background-position: bottom left;
+          }
+        }
+      }
+    }
+
+    .residents {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      > div {
+        pointer-events: auto;
+        position: absolute;
+        z-index: 1;
+        width: 70px;
+        height: 60px;
+        cursor: pointer;
+        background: #fffddd;
+        border: 3px solid #7eb0df;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        @include borderRadius(8px);
+        @include translate(-50%, -50%);
+
+        &.start {
+          width: 5px;
+          height: 5px;
+          opacity: 0;
+        }
+
+        &.done {
+          pointer-events: none;
+        }
+
+        &.happy {
+          .need {
+            > img {
+              display: none;
+            }
+            background-image: url("../DATA/IMAGES/common/happy.png");
+            background-size: auto 70%;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+          .own {
+            > img {
+              display: none;
+            }
+          }
+        }
+        &.love {
+          .need {
+            > img {
+              display: none;
+            }
+            background-image: url("../DATA/IMAGES/common/love.png");
+            background-size: auto 70%;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+          .own {
+            > img {
+              display: none;
+            }
+          }
+        }
+        &.angry {
+          .need {
+            > img {
+              display: none;
+            }
+            background-image: url("../DATA/IMAGES/common/angry.png");
+            background-size: auto 70%;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+        }
+
+        .need {
+          position: absolute;
+          z-index: 5;
+          top: -30px;
+          right: -21px;
+          width: 36px;
+          height: 36px;
+          border: 3px solid #7eb0df;
+          background: #fff;
+          @include borderRadius(100%);
+          animation-name: floating;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+
+          &::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            width: 8px;
+            height: 8px;
+            border: 3px solid #7eb0df;
+            background: #fff;
+            @include borderRadius(100%);
+            bottom: -5px;
+            left: -6px;
+          }
+
+          > img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .own {
+          position: absolute;
+          z-index: 5;
+          left: -3px;
+          bottom: -3px;
+          width: 28px;
+          height: 28px;
+          border: 3px solid #7eb0df;
+          background: #fff;
+          @include borderRadius(0 14px 0 0);
+          > img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        > img {
+          width: auto;
+          height: 65px;
+          transform-origin: center bottom;
+        }
+      }
+    }
+
+    .routes {
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      left: 0;
+      > div {
+        &.reverse {
+          > span {
+            background-image: url("../DATA/IMAGES/common/route_reverse.png");
+          }
+        }
+        > span {
+          position: absolute;
+          z-index: 1;
+          width: 8px;
+          height: 16px;
+          background: url("../DATA/IMAGES/common/route.png") repeat center center;
+          background-size: 100% 100%;
+          margin-left: -4px;
+          margin-top: -8px;
+          @include opacity(0);
+          @include transition(opacity, 0.5s);
+
+          &.active {
+            @include opacity(0.7);
+          }
+        }
+      }
+    }
+  }
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  @keyframes pathing {
+    0% {
+      background-position: center bottom;
+    }
+
+    100% {
+      background-position: center bottom -20px;
+    }
+  }
+}
+
 .module_euler {
   position: relative;
   top: 0;

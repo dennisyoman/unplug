@@ -79,6 +79,8 @@
   animation-name: bounce;
   -webkit-transform-origin: center bottom;
   transform-origin: center bottom;
+  animation-duration: 1s;
+  
 }
 
 @-webkit-keyframes flash {
