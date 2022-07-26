@@ -58,7 +58,9 @@ $(document).ready(function () {
           .unbind()
           .bind("click", function () {
             $(".sideTool > div.btn_replay").removeClass("active").show();
+            $(".sideTool > div.btn_check").removeClass("active").show();
             //
+            $(this).removeClass("wrong");
             if ($(this).hasClass("black")) {
               $(this).removeClass("black").addClass("white");
               rootSoundEffect($pop);
@@ -93,6 +95,11 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).hide();
           resetElem($(".contents > div.selected"));
+        });
+      $(".sideTool > div.btn_check")
+        .unbind()
+        .bind("click", function () {
+          checkcheck();
         });
 
       //init
@@ -182,7 +189,23 @@ var moveSheep = function (sheep) {
     checkAns();
   }
 };
-
+var checkcheck = function () {
+  var items = $(".contents > div.selected .items > div > span");
+  items.each(function () {
+    var ans = $(this).attr("ans");
+    if (ans == "b" && !$(this).hasClass("black")) {
+      $(this).addClass("wrong");
+    }
+    if (ans == "w" && !$(this).hasClass("white")) {
+      $(this).addClass("wrong");
+    }
+  });
+  if ($(".contents > div.selected .items > div > span.wrong").length >= 1) {
+    rootSoundEffect($wrong);
+  } else {
+    rootSoundEffect($correct);
+  }
+};
 var checkAns = function () {
   var sheeps = $(".contents > div.selected .sheeps > div > span");
   var row = $(".contents > div.selected .items > div");
@@ -241,7 +264,7 @@ var showAnswer = function (boolean) {
       if (sheep == "") {
         sheep = "none";
       }
-      $(this).addClass(sheep);
+      $(this).removeClass("wrong").addClass(sheep);
     });
     $(".contents > div.selected .sheeps").addClass("disabled");
     $(".resultIcon").remove();
@@ -269,6 +292,7 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  resetTool();
   sheepStep = 0;
   //sheeps
   elem.find(".sheeps > div > span").each(function () {

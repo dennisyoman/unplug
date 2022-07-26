@@ -84,6 +84,7 @@ var showAnswer = function (boolean) {
   if (boolean) {
     //秀出答案圖片
     $(".contents > div.selected .puzzle").addClass("showAnswer");
+    $(".sideTool > div.btn_replay").show();
     rootSoundEffect($help);
   } else {
     $(".contents > div.selected .puzzle").removeClass("showAnswer");
@@ -142,6 +143,7 @@ var resetElem = function (elem) {
     .find(".items > span")
     .unbind()
     .bind("click", function () {
+      $(".sideTool > div.btn_replay").show();
       $(this).toggleClass("selected");
       if ($(this).hasClass("selected")) {
         rootSoundEffect($click);

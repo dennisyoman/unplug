@@ -738,11 +738,19 @@ var showResult = function (result) {
         rootSoundEffect($correct);
         $(this).addClass("jump");
         $(this).dequeue();
-        tempGhost
-          .addClass("vanish")
-          .append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`
-          );
+        if (!tempGhost.hasClass("stone")) {
+          tempGhost
+            .addClass("vanish")
+            .append(
+              `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`
+            );
+        } else {
+          tempGhost
+            .addClass("vanish")
+            .append(
+              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+            );
+        }
         $(".smoke")
           .delay(1000)
           .queue(function () {

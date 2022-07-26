@@ -360,6 +360,7 @@ var showCompare = function (boolean, tar) {
     selectedElem.find(".gridSlider > .storyline").append(tar.clone());
     selectedElem
       .find(".gridSlider > .storyline")
+      .css("left", "-100px")
       .append(selectedElem.find(".frames .cardItem").clone());
 
     //

@@ -53,6 +53,7 @@ $(document).ready(function () {
           $(this).hide();
           resetElem($(".contents > div.selected"));
         });
+
       //joints
       $("#module_wrapper .joints").each(function () {
         var w = $(this).attr("w");
@@ -245,6 +246,9 @@ var makeMove = function (tar) {
           $(".smoke").remove();
           $(this).dequeue().remove();
         });
+      if (selectedElem.find(".setstart").length == 1) {
+        currentJoint.addClass("setend");
+      }
     }
   } else {
     if (selectedElem.find(".joints > span.active").length > 0) {
@@ -282,7 +286,10 @@ var showAnswer = function (boolean) {
     var routes = selectedElem.find(".routes > span");
     var joints = selectedElem.find(".joints > span");
     var items = selectedElem.find(".items > span");
-    joints.addClass("done");
+    joints.each(function () {
+      $(this).addClass("done");
+      $(this).addClass($(this).attr("ans"));
+    });
     routes.each(function () {
       $(this).removeClass("active reverse").addClass("done").css("opacity", 1);
       $(this).addClass($(this).attr("ref"));
@@ -313,6 +320,7 @@ var resetElem = function (elem) {
   elem.find(".reverse").removeClass("reverse");
   elem.find(".active").removeClass("active");
   elem.find(".setstart").removeClass("setstart");
+  elem.find(".setend").removeClass("setend");
   elem.find(".joints >span").attr("join", "");
   currentJoint = null;
   //無指定起始點
