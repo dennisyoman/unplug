@@ -2770,6 +2770,41 @@
     @include opacity(1);
   }
 
+  .alert {
+    position: absolute;
+    z-index: 10;
+    background: $main;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    right: 0;
+    top: 0;
+    @include borderRadius(8px);
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+    pointer-events: auto;
+    padding: 10px 20px;
+
+    p {
+      margin-bottom: 5px;
+      b {
+        margin: 0 3px;
+        display: inline-block;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 5px 0px 5px;
+      border-color: $main transparent transparent transparent;
+    }
+  }
+
   .smoke,
   .resultIcon {
     position: absolute;
@@ -2864,6 +2899,26 @@
             }
           }
 
+          &.RTL {
+            &::after {
+              animation-name: RTL;
+              animation-iteration-count: 1;
+              animation-duration: 0.5s;
+              animation-fill-mode: both;
+              animation-timing-function: ease-out;
+            }
+          }
+
+          &.LTR {
+            &::after {
+              animation-name: LTR;
+              animation-iteration-count: 1;
+              animation-duration: 0.5s;
+              animation-fill-mode: both;
+              animation-timing-function: ease-out;
+            }
+          }
+
           &.jumpRTL {
             &::after {
               animation-name: jumpRTL;
@@ -2873,6 +2928,7 @@
               animation-timing-function: ease-out;
             }
           }
+
           &.jumpLTR {
             &::after {
               animation-name: jumpLTR;
@@ -2880,6 +2936,24 @@
               animation-duration: 0.8s;
               animation-fill-mode: both;
               animation-timing-function: ease-out;
+            }
+          }
+          @keyframes RTL {
+            0% {
+              left: 100%;
+            }
+
+            100% {
+              top: 0px;
+            }
+          }
+          @keyframes LTR {
+            0% {
+              left: -100%;
+            }
+
+            100% {
+              top: 0px;
             }
           }
           @keyframes jumpRTL {

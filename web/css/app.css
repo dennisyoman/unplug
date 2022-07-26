@@ -3935,6 +3935,45 @@
   filter: alpha(opacity=100) !important;
 }
 
+.module_sheep .alert {
+  position: absolute;
+  z-index: 10;
+  background: #eb6154;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  right: 0;
+  top: 0;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+  pointer-events: auto;
+  padding: 10px 20px;
+}
+
+.module_sheep .alert p {
+  margin-bottom: 5px;
+}
+
+.module_sheep .alert p b {
+  margin: 0 3px;
+  display: inline-block;
+}
+
+.module_sheep .alert::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 5px 0px 5px;
+  border-color: #eb6154 transparent transparent transparent;
+}
+
 .module_sheep .smoke,
 .module_sheep .resultIcon {
   position: absolute;
@@ -4042,6 +4081,32 @@
   background-size: contain !important;
 }
 
+.module_sheep .contents .puzzle .sheeps > div > span.RTL::after {
+  -webkit-animation-name: RTL;
+          animation-name: RTL;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
+.module_sheep .contents .puzzle .sheeps > div > span.LTR::after {
+  -webkit-animation-name: LTR;
+          animation-name: LTR;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
 .module_sheep .contents .puzzle .sheeps > div > span.jumpRTL::after {
   -webkit-animation-name: jumpRTL;
           animation-name: jumpRTL;
@@ -4066,6 +4131,42 @@
           animation-fill-mode: both;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes RTL {
+  0% {
+    left: 100%;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes RTL {
+  0% {
+    left: 100%;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes LTR {
+  0% {
+    left: -100%;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes LTR {
+  0% {
+    left: -100%;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 @-webkit-keyframes jumpRTL {

@@ -129,11 +129,15 @@ $(document).ready(function () {
 });
 
 var moveSheep = function (sheep) {
+  $(".alert").hide();
+  //
   if (!sheep.hasClass("choise")) {
     $(".sheeps .pending").removeClass("pending");
     $(".sheeps .choise").removeClass("choise");
     $(".sheeps .jumpLTR").removeClass("jumpLTR");
     $(".sheeps .jumpRTL").removeClass("jumpRTL");
+    $(".sheeps .LTR").removeClass("LTR");
+    $(".sheeps .RTL").removeClass("RTL");
     var className = sheep.attr("cur");
     //點在羊上面
     //往右
@@ -144,7 +148,7 @@ var moveSheep = function (sheep) {
     ) {
       //右移1格
       sheep.addClass("pending");
-      sheep.next().addClass("choise");
+      sheep.next().addClass("choise LTR");
     } else if (
       sheep.next().next().length > 0 &&
       !sheep.next().next().hasClass("b") &&
@@ -162,7 +166,7 @@ var moveSheep = function (sheep) {
     ) {
       //左移1格
       sheep.addClass("pending");
-      sheep.prev().addClass("choise");
+      sheep.prev().addClass("choise RTL");
     } else if (
       sheep.prev().prev().length > 0 &&
       !sheep.prev().prev().hasClass("b") &&
@@ -259,6 +263,7 @@ var checkAns = function () {
 var showAnswer = function (boolean) {
   if (boolean) {
     //秀出答案圖片
+    $(".alert").hide();
     $(".contents > div.selected .items > div > span").each(function () {
       var sheep = $(this).attr("ans");
       if (sheep == "") {
@@ -306,6 +311,7 @@ var resetElem = function (elem) {
   $(".sideTool > div.btn_answer").removeClass("active").show();
   $(".resultIcon").remove();
   $(".smoke").remove();
+  $(".alert").show();
 };
 
 var resetTool = function () {
