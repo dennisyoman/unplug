@@ -2506,6 +2506,11 @@
   display: none;
 }
 
+.module_exchange .map .residents > div.angry > img {
+  -webkit-animation-duration: 0.8s !important;
+          animation-duration: 0.8s !important;
+}
+
 .module_exchange .map .residents > div .need {
   position: absolute;
   z-index: 5;

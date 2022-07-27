@@ -283,10 +283,9 @@ var moviShipper = function (route, reverse) {
       //紀錄交換到的物品
       joint.find(".man").addClass("wow rubberBand");
       if (own) {
-        $(".contents > div.selected .carry > .items")
-          .append(`<span class="selected addup"
-      ><img class="wow bounceIn" src="${own}"
-    /></span>`);
+        $(".contents > div.selected .carry > .items").append(
+          `<span class="selected addup"><img class="wow bounceInDown" src="${own}"/></span>`
+        );
         updateSequence($(".addup").find("img"));
         joint.addClass("done happy");
         rootSoundEffect($right);
@@ -313,6 +312,12 @@ var moviShipper = function (route, reverse) {
         if ($(".contents > div.selected .residents > .angry").length == 0) {
           rootSoundEffect($chimes);
           var uniq = new Date().getTime();
+          $(".contents > div.selected .carry > .items").append(
+            `<span class="selected addup"></span>`
+          );
+          $(".contents > div.selected .carry > .items > span.addup").append(
+            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`
+          );
           $(".contents > div.selected .map").append(
             `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
           );
@@ -340,6 +345,9 @@ var moviShipper = function (route, reverse) {
     } else {
       //交換失敗
       joint.addClass("done angry");
+      joint.find(".man").addClass("wow swing");
+      console.log("-");
+      console.log(joint);
 
       //判斷結束沒
       if (!joint.find(".own").find("img").attr("src")) {
@@ -354,9 +362,10 @@ var moviShipper = function (route, reverse) {
           });
         $(".contents > div.selected .shipper").addClass("lose");
         //還沒做到的臭臉
-        $(".contents > div.selected .residents > div:not('.done')").addClass(
-          "done angry"
-        );
+        $(".contents > div.selected .residents > div:not('.done')")
+          .addClass("done angry")
+          .find(".man")
+          .addClass("wow swing");
         $(".contents > div.selected .shipper").removeClass("walking");
       } else {
         rootSoundEffect($fail);
@@ -379,16 +388,11 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   clearTimeout(animationID);
   //
-  elem.find(".done").removeClass("done");
-  elem.find(".selected").removeClass("selected");
-  elem.find(".active").removeClass("active");
-  elem.find(".happy").removeClass("happy");
-  elem.find(".angry").removeClass("angry");
-  elem.find(".love").removeClass("love");
   elem
-    .find(".wow.rubberBand.animated")
-    .removeAttr("style")
-    .removeClass("wow rubberBand animated");
+    .find("*")
+    .removeClass("done selected active happy angry love swing rubberBand");
+
+  elem.find(".wow.animated").removeAttr("style").removeClass("wow animated");
 
   //移動送貨員到起始點
   currentJoint = elem.find(".residents >.start").attr("sid");
@@ -399,6 +403,10 @@ var resetElem = function (elem) {
     .addClass(elem.find(".shipper").attr("intX"))
     .attr("style", elem.find(".residents >.start").attr("style"));
 
+  //
+  $(".addup").remove();
+  $(".smoke").remove();
+  $(".resultIcon").remove();
   //清除交換順序
   elem.find(".sequence > span").empty();
 
@@ -406,11 +414,6 @@ var resetElem = function (elem) {
   if (elem.find(".carry .items > span").length <= 1) {
     elem.find(".carry .items > span").click();
   }
-
-  //
-  $(".addup").remove();
-  $(".smoke").remove();
-  $(".resultIcon").remove();
   //
   $(".sideTool > div.btn_answer").removeClass("active").show();
 };

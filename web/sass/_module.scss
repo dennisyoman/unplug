@@ -1598,6 +1598,9 @@
             background-repeat: no-repeat;
             background-position: center center;
           }
+          > img {
+            animation-duration: 0.8s !important;
+          }
         }
 
         .need {
