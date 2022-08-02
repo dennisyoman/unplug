@@ -148,7 +148,7 @@ let testmode = false;
 let translateCountDown = false; //繁轉簡倒數(勿動)
 let uToken = ""; //user token(勿動)
 let version = new Date().getDate(); //版本(勿動)
-let sid, bid, lid, uid, sectionID;
+let sid, bid, lid, uid, pid, sectionID;
 let userID = "-";
 let uName = "DEMO用不插電帳號";
 let dueDate = "2022/12/31";
@@ -325,7 +325,8 @@ let toLogin = function () {
 };
 
 let loadContainer = function (id, section) {
-  gpObj = {};
+  pid = 0;
+  //gpObj = {};
   uid = id;
   sectionID = section;
   //
@@ -370,6 +371,32 @@ let loadContainer = function (id, section) {
         isPaused = true;
       }
     });
+};
+
+let loadContainerInside = function (htmlPath, jsPath, p) {
+  pid = p;
+  console.log("pid:" + pid);
+  let script_arr = [
+    /*jsPath*/
+    jsPath,
+  ];
+  let style_arr = [
+    /*cssPath*/
+  ];
+  $.getComponent(
+    "./DATA/" + htmlPath,
+    "#main",
+    style_arr,
+    "./DATA/",
+    script_arr,
+    "./DATA/"
+  );
+  resetAudio();
+  //loadPanel();
+  //$("#return").show();
+  $("#main").show();
+  //stop particle animation
+  isPaused = true;
 };
 
 let loadPanel = function () {

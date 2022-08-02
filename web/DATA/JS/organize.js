@@ -74,7 +74,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();

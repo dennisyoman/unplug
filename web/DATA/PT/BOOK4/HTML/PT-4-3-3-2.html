@@ -1,0 +1,687 @@
+<div id="module_wrapper" class="module_euler">
+  <div class="tabs">
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK4/HTML/PT-4-3-3.html','JS/draganddrop.js',0)"
+      >製作購物清單</span
+    >
+    <span class="demo">示範1</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+    <span>任務四</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 製作購物清單 -->
+    <div></div>
+
+    <!-- 示範 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>超市購物計劃</b
+            >：從入口進入，要購買到所有需要的商品，再從出口離開。（每條路只能走一次喔！）
+          </p>
+          <img src="./DATA/PT/BOOK4/IMAGES/PT-4-3-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="map wow slideInUp">
+        <div class="joints" w="20" h="20">
+          <span
+            class="green start"
+            jid="green"
+            join=""
+            neighbor="orange,sky,red"
+            style="top: 154px; left: 77px"
+          />
+          <span
+            class="orange end"
+            jid="orange"
+            join=""
+            neighbor="green"
+            style="top: 16px; left: 155px"
+          />
+          <span
+            class="red"
+            jid="red"
+            join=""
+            neighbor="green,sky"
+            style="top: 102px; left: 155px"
+          />
+          <span
+            class="sky"
+            jid="sky"
+            join=""
+            neighbor="red,green"
+            style="top: 153px; left: 233px"
+          />
+        </div>
+        <div class="routes">
+          <span
+            style="
+              top: 154px;
+              left: 77px;
+              transform: rotate(-90deg);
+              height: 155px;
+            "
+            start="green"
+            end="sky"
+          />
+          <span
+            style="
+              top: 154px;
+              left: 77px;
+              transform: rotate(-124deg);
+              height: 94px;
+            "
+            start="green"
+            end="red"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 154px;
+              left: 77px;
+              transform: rotate(-150deg);
+              height: 159px;
+            "
+            start="green"
+            end="orange"
+          />
+          <span
+            style="
+              top: 153px;
+              left: 233px;
+              transform: rotate(124deg);
+              height: 94px;
+            "
+            start="sky"
+            end="red"
+          />
+        </div>
+        <div class="items" scale=".33">
+          <span style="top: 0px; left: 10px" joints="green,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/e1.png"
+          /></span>
+          <span style="top: 56px; left: 106px" joints="red,sky"
+            ><img src="./DATA/PT/BOOK4/IMAGES/e2.png"
+          /></span>
+          <span style="top: 87px; left: 78px" joints="green,sky"
+            ><img src="./DATA/PT/BOOK4/IMAGES/e3.png"
+          /></span>
+        </div>
+        <img width="250" src="./DATA/PT/BOOK4/IMAGES/PT-4-3-3-1.png" />
+      </div>
+    </div>
+
+    <!-- 任務1 -->
+    <div>
+      <div class="map wow slideInUp">
+        <div class="joints" w="20" h="20">
+          <span
+            class="green start"
+            jid="green"
+            join=""
+            neighbor="orange,sky,red"
+            style="top: 154px; left: 77px"
+          />
+          <span
+            class="orange end"
+            jid="orange"
+            join=""
+            neighbor="green,red,sky"
+            style="top: 16px; left: 155px"
+          />
+          <span
+            class="red"
+            jid="red"
+            join=""
+            neighbor="green,orange"
+            style="top: 102px; left: 155px"
+          />
+          <span
+            class="sky"
+            jid="sky"
+            join=""
+            neighbor="orange,green"
+            style="top: 153px; left: 233px"
+          />
+        </div>
+        <div class="routes">
+          <span
+            style="
+              top: 154px;
+              left: 77px;
+              transform: rotate(-90deg);
+              height: 155px;
+            "
+            start="green"
+            end="sky"
+          />
+          <span
+            style="
+              top: 154px;
+              left: 77px;
+              transform: rotate(-124deg);
+              height: 94px;
+            "
+            start="green"
+            end="red"
+          />
+          <span
+            style="
+              top: 154px;
+              left: 77px;
+              transform: rotate(-150deg);
+              height: 159px;
+            "
+            start="green"
+            end="orange"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 153px;
+              left: 233px;
+              transform: rotate(150deg);
+              height: 154px;
+            "
+            start="sky"
+            end="orange"
+          />
+          <span
+            style="
+              top: 102px;
+              left: 155px;
+              transform: rotate(180deg);
+              height: 85px;
+            "
+            start="red"
+            end="orange"
+          />
+        </div>
+        <div class="items" scale=".33">
+          <span style="top: 0px; left: 55px" joints="green,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/f1.png"
+          /></span>
+          <span style="top: 89px; left: 46px" joints="red,green"
+            ><img src="./DATA/PT/BOOK4/IMAGES/f2.png"
+          /></span>
+          <span style="top: 79px; left: 98px" joints="green,sky"
+            ><img src="./DATA/PT/BOOK4/IMAGES/f3.png"
+          /></span>
+        </div>
+        <img width="250" src="./DATA/PT/BOOK4/IMAGES/PT-4-3-3-2.png" />
+      </div>
+    </div>
+    <!-- 任務2 -->
+    <div>
+      <div class="map wow slideInUp">
+        <div class="joints" w="20" h="20">
+          <span
+            class="green start end"
+            jid="green"
+            join=""
+            neighbor="orange,purple"
+            style="top: 177px; left: 76px"
+          />
+          <span
+            class="orange"
+            jid="orange"
+            join=""
+            neighbor="green,purple"
+            style="top: 20px; left: 76px"
+          />
+          <span
+            class="purple"
+            jid="purple"
+            join=""
+            neighbor="green,red,sky,orange"
+            style="top: 101px; left: 156px"
+          />
+          <span
+            class="red"
+            jid="red"
+            join=""
+            neighbor="purple,sky"
+            style="top: 20px; left: 237px"
+          />
+          <span
+            class="sky"
+            jid="sky"
+            join=""
+            neighbor="red,purple"
+            style="top: 177px; left: 237px"
+          />
+        </div>
+        <div class="routes">
+          <span
+            style="
+              top: 177px;
+              left: 76px;
+              transform: rotate(-134deg);
+              height: 111px;
+            "
+            start="green"
+            end="purple"
+          />
+          <span
+            style="
+              top: 101px;
+              left: 156px;
+              transform: rotate(-134deg);
+              height: 111px;
+            "
+            start="purple"
+            end="red"
+          />
+          <span
+            style="
+              top: 177px;
+              left: 76px;
+              transform: rotate(180deg);
+              height: 150px;
+            "
+            start="green"
+            end="orange"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 20px;
+              left: 237px;
+              transform: rotate(0deg);
+              height: 150px;
+            "
+            start="red"
+            end="sky"
+          />
+          <span
+            style="
+              top: 101px;
+              left: 156px;
+              transform: rotate(-45deg);
+              height: 111px;
+            "
+            start="purple"
+            end="sky"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 20px;
+              left: 76px;
+              transform: rotate(-45deg);
+              height: 111px;
+            "
+            start="orange"
+            end="purple"
+            ref="reverse"
+          />
+        </div>
+        <div class="items" scale=".33">
+          <span style="top: 75px; left: 149px" joints="purple,sky"
+            ><img src="./DATA/PT/BOOK4/IMAGES/a1.png"
+          /></span>
+          <span style="top: 68px; left: 71px" joints="purple,green"
+            ><img src="./DATA/PT/BOOK4/IMAGES/a2.png"
+          /></span>
+          <span style="top: 28px; left: 34px" joints="green,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/a3.png"
+          /></span>
+          <span style="top: -31px; left: 68px" joints="purple,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/a4.png"
+          /></span>
+          <span style="top: -14px; left: 84px" joints="purple,red"
+            ><img src="./DATA/PT/BOOK4/IMAGES/a5.png"
+          /></span>
+        </div>
+        <img width="255" src="./DATA/PT/BOOK4/IMAGES/PT-4-3-3-3.png" />
+      </div>
+    </div>
+    <!-- 任務3 -->
+    <div>
+      <div class="map wow slideInUp">
+        <div class="joints" w="20" h="20">
+          <span
+            class="green l"
+            jid="green"
+            join=""
+            neighbor="orange,purple,sky"
+            style="top: 175px; left: 16px"
+            ans="setend"
+          />
+          <span
+            class="orange l"
+            jid="orange"
+            join=""
+            neighbor="green,purple,red"
+            style="top: 15px; left: 16px"
+            ans="setstart"
+          />
+          <span
+            class="purple r"
+            jid="purple"
+            join=""
+            neighbor="green,red,sky,orange"
+            style="top: 95px; left: 95px"
+          />
+          <span
+            class="red r"
+            jid="red"
+            join=""
+            neighbor="purple,orange,sky"
+            style="top: 15px; left: 174px"
+          />
+          <span
+            class="sky r"
+            jid="sky"
+            join=""
+            neighbor="red,purple,green"
+            style="top: 175px; left: 174px"
+          />
+        </div>
+        <div class="routes">
+          <span
+            style="
+              top: 175px;
+              left: 16px;
+              transform: rotate(-134deg);
+              height: 111px;
+            "
+            start="green"
+            end="purple"
+          />
+          <span
+            style="
+              top: 95px;
+              left: 95px;
+              transform: rotate(-134deg);
+              height: 111px;
+            "
+            start="purple"
+            end="red"
+          />
+          <span
+            style="
+              top: 175px;
+              left: 16px;
+              transform: rotate(180deg);
+              height: 150px;
+            "
+            start="green"
+            end="orange"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 15px;
+              left: 174px;
+              transform: rotate(90deg);
+              height: 154px;
+            "
+            start="red"
+            end="orange"
+          />
+          <span
+            style="
+              top: 175px;
+              left: 174px;
+              transform: rotate(90deg);
+              height: 154px;
+            "
+            start="sky"
+            end="green"
+          />
+          <span
+            style="
+              top: 95px;
+              left: 95px;
+              transform: rotate(-45deg);
+              height: 111px;
+            "
+            start="purple"
+            end="sky"
+          />
+          <span
+            style="
+              top: 15px;
+              left: 16px;
+              transform: rotate(-45deg);
+              height: 111px;
+            "
+            start="orange"
+            end="purple"
+          />
+        </div>
+        <div class="items" scale=".33">
+          <span style="top: 0px; left: -6px" joints="purple,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/c1.png"
+          /></span>
+          <span style="top: -58px; left: -13px" joints="orange,red"
+            ><img src="./DATA/PT/BOOK4/IMAGES/c2.png"
+          /></span>
+          <span style="top: 44px; left: -85px" joints="green,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/c3.png"
+          /></span>
+          <span style="top: 56px; left: 18px" joints="purple,green"
+            ><img src="./DATA/PT/BOOK4/IMAGES/c4.png"
+          /></span>
+          <span style="top: 109px; left: 8px" joints="green,sky"
+            ><img src="./DATA/PT/BOOK4/IMAGES/c5.png"
+          /></span>
+        </div>
+        <img width="190" src="./DATA/PT/BOOK4/IMAGES/PT-4-3-3-4.png" />
+      </div>
+      <div class="hint wow bounceIn" style="right: 90px; bottom: 133px">
+        <p>想一想，要從哪裡<br />出發好呢？。</p>
+      </div>
+    </div>
+    <!-- 任務4 -->
+    <div>
+      <div class="map wow slideInUp">
+        <div class="joints" w="15" h="15">
+          <span
+            class="green l"
+            jid="green"
+            join=""
+            neighbor="orange,purple,blue,black"
+            style="top: 185px; left: 91px"
+          />
+          <span
+            class="orange l"
+            jid="orange"
+            join=""
+            neighbor="green,purple"
+            style="top: 91px; left: 15px"
+            ans="setstart setend"
+          />
+          <span
+            class="purple r"
+            jid="purple"
+            join=""
+            neighbor="green,red,blue,orange"
+            style="top: 99px; left: 100px"
+          />
+          <span
+            class="red r"
+            jid="red"
+            join=""
+            neighbor="purple,sky"
+            style="top: 14px; left: 110px"
+          />
+          <span
+            class="sky r"
+            jid="sky"
+            join=""
+            neighbor="red,blue"
+            style="top: 109px; left: 185px"
+          />
+          <span
+            class="blue r"
+            jid="blue"
+            join=""
+            neighbor="sky,purple,green,black"
+            style="top: 195px; left: 176px"
+          />
+          <span
+            class="black r"
+            jid="black"
+            join=""
+            neighbor="blue,green"
+            style="top: 281px; left: 167px"
+          />
+        </div>
+        <div class="routes">
+          <span
+            style="
+              top: 91px;
+              left: 15px;
+              transform: rotate(-84deg);
+              height: 85px;
+            "
+            start="orange"
+            end="purple"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 91px;
+              left: 15px;
+              transform: rotate(-38deg);
+              height: 120px;
+            "
+            start="orange"
+            end="green"
+          />
+          <span
+            style="
+              top: 185px;
+              left: 91px;
+              transform: rotate(-38deg);
+              height: 120px;
+            "
+            start="green"
+            end="black"
+          />
+          <span
+            style="
+              top: 185px;
+              left: 91px;
+              transform: rotate(-84deg);
+              height: 84px;
+            "
+            start="green"
+            end="blue"
+          />
+          <span
+            style="
+              top: 185px;
+              left: 91px;
+              transform: rotate(-174deg);
+              height: 84px;
+            "
+            start="green"
+            end="purple"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 99px;
+              left: 100px;
+              transform: rotate(-174deg);
+              height: 84px;
+            "
+            start="purple"
+            end="red"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 99px;
+              left: 100px;
+              transform: rotate(-38deg);
+              height: 120px;
+            "
+            start="purple"
+            end="blue"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 14px;
+              left: 110px;
+              transform: rotate(-38deg);
+              height: 120px;
+            "
+            start="red"
+            end="sky"
+            ref="reverse"
+          />
+          <span
+            style="
+              top: 281px;
+              left: 167px;
+              transform: rotate(-174deg);
+              height: 84px;
+            "
+            start="black"
+            end="blue"
+          />
+          <span
+            style="
+              top: 195px;
+              left: 176px;
+              transform: rotate(-174deg);
+              height: 84px;
+            "
+            start="blue"
+            end="sky"
+          />
+        </div>
+        <div class="items" scale=".25">
+          <span style="top: 81px; left: 14px" joints="green,orange"
+            ><img src="./DATA/PT/BOOK4/IMAGES/d1.png"
+          /></span>
+          <span style="top: -5px; left: 19px" joints="orange,purple"
+            ><img src="./DATA/PT/BOOK4/IMAGES/d2.png"
+          /></span>
+          <span style="top: -16px; left: 38px" joints="purple,red"
+            ><img src="./DATA/PT/BOOK4/IMAGES/b1.png"
+          /></span>
+          <span style="top: -12px; left: 73px" joints="sky,red"
+            ><img src="./DATA/PT/BOOK4/IMAGES/b2.png"
+          /></span>
+          <span style="top: 85px; left: 48px" joints="green,purple"
+            ><img src="./DATA/PT/BOOK4/IMAGES/b3.png"
+          /></span>
+          <span style="top: 185px; left: 119px" joints="blue,black"
+            ><img src="./DATA/PT/BOOK4/IMAGES/b4.png"
+          /></span>
+          <span style="top: 87px; left: 124px" joints="blue,sky"
+            ><img src="./DATA/PT/BOOK4/IMAGES/b5.png"
+          /></span>
+          <span style="top: 111px; left: 44px" joints="green,blue"
+            ><img src="./DATA/PT/BOOK4/IMAGES/b6.png"
+          /></span>
+        </div>
+        <img width="200" src="./DATA/PT/BOOK4/IMAGES/PT-4-3-3-5.png" />
+      </div>
+      <div class="hint wow bounceIn" style="right: 367px; bottom: 29px">
+        <p>想一想，要從哪裡<br />出發好呢？。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

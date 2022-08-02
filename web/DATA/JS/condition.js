@@ -51,7 +51,14 @@ $(document).ready(function () {
         .unbind()
         .bind("click", function () {
           $(this).hide();
+
           resetElem($(".contents > div.selected"));
+        });
+
+      $(".sideTool > div.btn_check")
+        .unbind()
+        .bind("click", function () {
+          checkAnswer();
         });
 
       //init
@@ -60,7 +67,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -85,9 +92,47 @@ var showAnswer = function (boolean) {
     //秀出答案圖片
     $(".contents > div.selected .puzzle").addClass("showAnswer");
     $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_check").hide();
     rootSoundEffect($help);
   } else {
     $(".contents > div.selected .puzzle").removeClass("showAnswer");
+    $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_check").show();
+  }
+};
+var checkAnswer = function (boolean) {
+  //檢查答案
+  var getWrong = false;
+  $(".contents > div.selected .puzzle .subject .items")
+    .find("span")
+    .each(function () {
+      $(this).removeClass("wrong");
+      if ($(this).hasClass("selected") && $(this).hasClass("ans")) {
+        $(this).addClass("wrong");
+        getWrong = true;
+      } else if (!$(this).hasClass("selected") && !$(this).hasClass("ans")) {
+        $(this).addClass("wrong");
+        getWrong = true;
+      }
+    });
+
+  if (getWrong) {
+    rootSoundEffect($stupid);
+  } else {
+    var uniq = new Date().getTime();
+    $(".contents > div.selected")
+      .find(".puzzle")
+      .append(
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      );
+    $(".smoke")
+      .delay(1500)
+      .queue(function () {
+        $(".resultIcon").remove();
+        $(this).dequeue().remove();
+      });
+    //
+    rootSoundEffect($chimes);
   }
 };
 var lowlaged = false;
@@ -139,11 +184,16 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   elem.find(".showAnswer").removeClass("showAnswer");
   elem.find(".selected").removeClass("selected");
+  elem.find(".wrong").removeClass("wrong");
   elem
     .find(".items > span")
     .unbind()
     .bind("click", function () {
+      $(this).removeClass("wrong");
       $(".sideTool > div.btn_replay").show();
+      if (elem.find(".conditons").length > 0) {
+        $(".sideTool > div.btn_check").show();
+      }
       $(this).toggleClass("selected");
       if ($(this).hasClass("selected")) {
         rootSoundEffect($click);
@@ -154,6 +204,8 @@ var resetElem = function (elem) {
     $(".sideTool > div.btn_answer").removeClass("active").show();
     goCommand(0);
   }
+  //
+  $(".sideTool > div.btn_check").hide();
 };
 
 var resetTool = function () {

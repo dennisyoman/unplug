@@ -1027,6 +1027,10 @@
       align-content: center;
 }
 
+.module_order .contents .world3D .frames.fixAnswer > div > div {
+  pointer-events: none !important;
+}
+
 .module_order .contents .world3D .frames.small > div {
   width: 30px;
   height: 30px;
@@ -1160,6 +1164,10 @@
 .module_order .contents .world3D .frames > div.solid.l::after {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+
+.module_order .contents .world3D .frames > div.solid > div {
+  display: none !important;
 }
 
 .module_order .contents .world3D .frames > div > div {
@@ -4279,7 +4287,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 0;
   z-index: 10;
   -webkit-animation-name: bounceIn;
@@ -4889,6 +4897,28 @@
   filter: alpha(opacity=0) !important;
 }
 
+.module_condition .smoke,
+.module_condition .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+
+.module_condition .smoke > img,
+.module_condition .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .module_condition.loaded {
   opacity: 1 !important;
   -moz-opacity: 1 !important;
@@ -4915,6 +4945,10 @@
 .module_condition .contents .puzzle.showAnswer .items > span.ans {
   background: rgba(0, 0, 0, 0);
   border: 3px solid #eb6154;
+}
+
+.module_condition .contents .puzzle.showAnswer .items > span.wrong::after {
+  display: none;
 }
 
 .module_condition .contents .puzzle > div {
@@ -4998,6 +5032,7 @@
 .module_condition .contents .puzzle .items > span {
   display: inline-block;
   pointer-events: auto;
+  position: relative;
   cursor: pointer;
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
@@ -5007,6 +5042,27 @@
 
 .module_condition .contents .puzzle .items > span.selected {
   background: rgba(0, 0, 0, 0.5);
+}
+
+.module_condition .contents .puzzle .items > span.wrong::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+  background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+  background-size: auto 100%;
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
 }
 
 .module_condition .contents .puzzle .subject {
@@ -7215,9 +7271,22 @@
   display: block;
 }
 
+.module_box .contents .sensorArea {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
 .module_box .contents .toys {
   width: 100%;
-  height: 90px;
+  min-height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7231,6 +7300,8 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .module_box .contents .toys .toy {

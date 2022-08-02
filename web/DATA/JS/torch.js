@@ -146,7 +146,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -240,7 +240,7 @@ var checkAns = function () {
 
 var showAnswer = function (boolean) {
   $(".contents > div.selected .items > span").removeClass("wrong");
-  $(".contents > div.selected .areas > span").removeClass("wrong");
+  $(".contents > div.selected .areas > span").removeClass("wrong mode1 mode2");
   if (boolean) {
     //秀出答案圖片
     //items

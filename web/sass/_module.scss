@@ -353,6 +353,13 @@
         align-items: center;
         justify-content: center;
         align-content: center;
+        &.fixAnswer {
+          > div {
+            > div {
+              pointer-events: none !important;
+            }
+          }
+        }
 
         &.small {
           //top: 40px;
@@ -481,6 +488,9 @@
               &::after {
                 @include rotate(180deg);
               }
+            }
+            > div {
+              display: none !important;
             }
           }
           > div {
@@ -789,6 +799,9 @@
         .cta {
           margin-top: 5px;
           margin-left: 15px;
+          &.disable {
+            //@include opacity(0);
+          }
         }
       }
     }
@@ -3034,7 +3047,7 @@
               width: 100%;
               height: 100%;
               position: absolute;
-              top: 10px;
+              top: 0px;
               left: 0;
               z-index: 10;
               animation-name: bounceIn;
@@ -3564,6 +3577,25 @@
   height: 100%;
   @include opacity(0);
 
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
   &.loaded {
     @include opacity(1);
   }
@@ -3582,6 +3614,11 @@
             &.ans {
               background: rgba(0, 0, 0, 0);
               border: 3px solid $main;
+            }
+            &.wrong {
+              &::after {
+                display: none;
+              }
             }
           }
         }
@@ -3655,11 +3692,33 @@
         > span {
           display: inline-block;
           pointer-events: auto;
+          position: relative;
           cursor: pointer;
           @include transition(background, 0.3s);
           &.selected {
             //border: 3px solid $main;
             background: rgba(0, 0, 0, 0.5);
+          }
+
+          &.wrong {
+            &::after {
+              pointer-events: none;
+              content: "";
+              position: absolute;
+              z-index: 2;
+              width: 50px;
+              height: 50px;
+              top: 50%;
+              left: 50%;
+              margin-left: -25px;
+              margin-top: -25px;
+              background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+              background-size: auto 100%;
+              -webkit-animation-name: bounceIn;
+              animation-name: bounceIn;
+              animation-iteration-count: 1;
+              animation-duration: 0.8s;
+            }
           }
         }
       }
@@ -5637,9 +5696,16 @@
         }
       }
     }
+    .sensorArea {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
     .toys {
       width: 100%;
-      height: 90px;
+      min-height: 90px;
       display: flex;
       align-items: end;
       justify-content: center;
@@ -5647,6 +5713,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
+      flex-wrap: wrap;
 
       .toy {
         width: 90px;

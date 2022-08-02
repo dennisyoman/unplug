@@ -65,7 +65,6 @@ $(document).ready(function () {
         .unbind()
         .bind("click", function () {
           $(this).hide();
-          $(".sideTool > div.btn_correctslider").removeClass("active");
           resetElem($(".contents > div.selected"));
         });
 
@@ -83,7 +82,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -262,6 +261,8 @@ var resetElem = function (elem) {
     .css("left", 0)
     .empty();
   elem.find(".grid4").show().find(">div").removeClass().attr("seq", "");
+  $(".sideTool > div.btn_correctslider").removeClass("active");
+  $(".sideTool > div.btn_playorder").removeClass("active").hide();
 };
 
 var resetTool = function () {

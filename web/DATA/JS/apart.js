@@ -66,7 +66,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -114,6 +114,7 @@ var initCanvas = function (tar) {
   ["mousedown", "touchstart"].forEach(function (e) {
     can.addEventListener(e, function (event) {
       $(".sideTool > div.btn_replay").removeClass("active").show();
+
       isDraw = true;
       newZoomRatio = stageRatioReal / stageRatioMain;
 
@@ -184,6 +185,7 @@ var initCanvas = function (tar) {
 };
 
 var goPuzzle = function (page) {
+  ppp = page;
   //reset all puzzles
   $(".contents > div.selected").find(".selected").removeClass("selected");
   $(".contents > div.selected").find(".showAnswer").removeClass("showAnswer");
@@ -216,6 +218,7 @@ var showAnswer = function (boolean) {
 var lowlaged = false;
 
 var openContent = function (id) {
+  ppp = 0;
   resetAudio();
   resetTool();
   $(".contents > div")
@@ -225,10 +228,10 @@ var openContent = function (id) {
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
 };
-
+var ppp = 0;
 var resetElem = function (elem) {
   elem.find(".showAnswer").removeClass("showAnswer");
-  goPuzzle(0);
+  goPuzzle(ppp);
 };
 
 var resetTool = function () {

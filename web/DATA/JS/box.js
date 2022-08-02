@@ -74,7 +74,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -126,7 +126,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`,
+        `<div id="cardAvatar" class="cardAvatar"></div>`
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
@@ -146,13 +146,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2,
+            $("#cardAvatar").height() / stageRatioReal / 2
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2,
+            $("#cardAvatar").width() / stageRatioReal / 2
         ) + "px";
       checkCollision(ev);
     }
@@ -214,7 +214,7 @@ var checkOrderStatus = function () {
       .find(">div.selected")
       .removeClass("selected")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
       );
     $(".cached")
       .attr("ans", tempNum)
@@ -245,7 +245,7 @@ var checkOrderStatus = function () {
       .find(">div.selected")
       .removeClass("selected")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`,
+        `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`
       );
     $("#cardAvatar > div").addClass("flyout");
     $("#cardAvatar").attr("id", "").addClass("cardAvatarDie");
@@ -320,7 +320,7 @@ var animateBox = function () {
     var ans = tar.attr("ans");
     if (!tar.hasClass("disable")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`,
+        `<div id="cardAvatar" class="cardAvatar"></div>`
       );
       var tar2 = tar.clone();
       tar2.find("span").remove();
@@ -368,7 +368,7 @@ var animateBox = function () {
               rootSoundEffect($chimes);
               var uniq = new Date().getTime();
               tarBox.append(
-                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
               );
               $(this)
                 .dequeue()

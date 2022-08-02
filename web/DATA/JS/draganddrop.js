@@ -40,12 +40,33 @@ $(document).ready(function () {
       }
 
       //sidetool
+      $(".sideTool > div.btn_answer")
+        .unbind()
+        .bind("click", function () {
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            showAnswer(true);
+            $(".sideTool > div.btn_replay").show();
+            $(".sideTool > div.btn_check").hide();
+          } else {
+            showAnswer(false);
+            $(".sideTool > div.btn_replay").hide();
+          }
+        });
 
       $(".sideTool > div.btn_replay")
         .unbind()
         .bind("click", function () {
+          $(".sideTool > div.btn_check").hide();
+          $(".sideTool > div.btn_answer").removeClass("active");
           $(this).hide();
           resetElem($(".contents > div.selected"));
+        });
+
+      $(".sideTool > div.btn_check")
+        .unbind()
+        .bind("click", function () {
+          checkAnswer();
         });
 
       //init
@@ -54,7 +75,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -144,7 +165,7 @@ var handleDrag = function (ev) {
 
   if (ev.isFinal) {
     if ($($elem).hasClass("cards")) {
-      var frameElem = $(".contents > div.selected .sensorArea");
+      var frameElem = $(".contents > div.selected .sensorArea").children();
       var gotit = false;
       frameElem.each(function () {
         if ($(this).hasClass("selected")) {
@@ -176,7 +197,7 @@ var handleDrag = function (ev) {
 var checkCollision = function (ev) {
   var lastX = ev.center.x;
   var lastY = ev.center.y;
-  var frameElem = $(".contents > div.selected .sensorArea");
+  var frameElem = $(".contents > div.selected .sensorArea").children();
   frameElem.each(function () {
     var oriX = $(this).offset().left;
     var oriW = oriX + $(this).width();
@@ -229,6 +250,13 @@ var checkStatus = function () {
   } else {
     rootSoundEffect($pop);
   }
+  if (
+    $("#cardAvatar > div").attr("group") &&
+    $("#cardAvatar > div").attr("group") ==
+      $(".contents > div.selected .sensorArea > .selected").attr("group")
+  ) {
+    $("#cardAvatar").addClass("right");
+  }
   //
   $("#cardAvatar")
     .unbind()
@@ -244,12 +272,84 @@ var checkStatus = function () {
       $(this).remove();
       rootSoundEffect($show);
     })
-    .attr("id", "")
+    .removeAttr("id")
     .addClass("cardAvatarDie")
     .css("pointer-events", "auto")
     .css("cursor", "pointer");
 
   $(".sideTool > div.btn_replay").show();
+  $(".sideTool > div.btn_check").show();
+};
+
+var showAnswer = function (boolean) {
+  var containers = $(".contents > div.selected .sensorArea").children();
+  var toys = $(".contents > div.selected .toys > .toy");
+  if (boolean) {
+    //秀出答案
+    $(".contents > div.selected").find(".selected").removeClass("selected");
+    $(".contents > div.selected")
+      .find(".cached")
+      .removeClass("cached semiTransparent positionBingo");
+    $(".contents > div.selected").find(".disable").removeClass("disable");
+    $(".cardAvatarDie").remove();
+    rootSoundEffect($help);
+    //排位子
+    var ansArray = [];
+
+    containers.each(function (index) {
+      var deltaContainerX = $("#module_wrapper").offset().left;
+      var deltaContainerY = $("#module_wrapper").offset().top;
+      var oX = 5;
+      var oY = 30;
+      var oriX =
+        $(this).offset().left / stageRatioReal -
+        deltaContainerX / stageRatioReal;
+      var oriW = $(this).width() / stageRatioReal;
+      var oriY =
+        $(this).offset().top / stageRatioReal -
+        deltaContainerY / stageRatioReal;
+      var oriH = $(this).height() / stageRatioReal;
+      ansArray.push([]);
+      for (var i = 0; i < toys.length; i++) {
+        if (toys.eq(i).attr("group") == $(this).attr("group")) {
+          //
+          toys.eq(i).addClass("cached");
+          var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
+
+          if (oX + caWidth > oriW) {
+            oX = 5;
+            oY += caWidth;
+          }
+          ansArray[index].push(
+            `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caWidth}px;top:${
+              oriY + oY
+            }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`
+          );
+          //
+          oX += caWidth;
+        }
+      }
+    });
+
+    for (var i = 0; i < ansArray.length; i++) {
+      var itemsArr = ansArray[i];
+      for (var k = 0; k < itemsArr.length; k++) {
+        $("#module_wrapper").append(itemsArr[k]);
+      }
+    }
+  } else {
+    toys.removeClass("cached semiTransparent positionBingo");
+    $(".cardAvatarDie").remove();
+  }
+};
+
+var checkAnswer = function () {
+  if ($(".cardAvatarDie:not('.right')").length > 0) {
+    $(".cardAvatarDie:not('.right')").click();
+    rootSoundEffect($stupid);
+  } else {
+    rootSoundEffect($correct);
+  }
 };
 
 var openContent = function (id) {
@@ -289,6 +389,8 @@ var resetElem = function (elem) {
   $(".smoke").remove();
   $(".resultIcon").remove();
   $(".cardAvatarDie").remove();
+  //
+  $(".sideTool > div.btn_answer").show();
 };
 
 var resetTool = function () {

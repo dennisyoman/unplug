@@ -65,7 +65,7 @@ $(document).ready(function () {
           //}
           $(this).toggleClass("selected");
           //
-          if ($(this).siblings(".cta").css("display") == "none") {
+          if ($(this).siblings(".cta").hasClass("disable")) {
             if ($(".contents > div.selected .frames").hasClass("fixAnswer")) {
               showAnswer(true);
               $(".contents > div.selected .frames")
@@ -73,7 +73,8 @@ $(document).ready(function () {
                 .css("pointer-events", "none");
             }
           }
-          $(".lights > .cta").show();
+          $(".lights > .cta").removeClass("disable");
+          $(".btn_answer").removeClass("active");
         });
 
       //sidetool
@@ -82,27 +83,20 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
+            showLightAnswer(true);
             showAnswer(true);
           } else {
             showAnswer(false);
+            showLightAnswer(false);
           }
         });
-      $(".sideTool > div.btn_playorder")
-        .unbind()
-        .bind("click", function () {
-          $(this).toggleClass("active");
-          if ($(this).hasClass("active")) {
-            //
-            goPassing(true);
-          } else {
-            goPassing(false);
-          }
-        });
+
       $(".lights > .cta")
         .unbind()
         .bind("click", function () {
           goPassing(true);
-          $(this).hide();
+          $(this).addClass("disable");
+          $(".sideTool > div.btn_answer").removeClass("active");
         });
 
       //init
@@ -111,7 +105,7 @@ $(document).ready(function () {
         .addClass("loaded")
         .delay(500)
         .queue(function () {
-          $(".tabs > span").eq(0).click();
+          $(".tabs > span").eq(pid).click();
           $(this).dequeue().unbind();
         });
       deactiveLoading();
@@ -367,13 +361,28 @@ var syncArrow = function (tar) {
     sync.empty();
   }
 };
-
+var showLightAnswer = function (boolean) {
+  var lightElem = $(".contents > div.selected .lights > div");
+  if (boolean) {
+    lightElem.each(function () {
+      if ($(this).hasClass("ans")) {
+        $(this).removeClass("wrong passed right").addClass("selected");
+      } else {
+        $(this).removeClass("selected wrong passed right");
+      }
+    });
+  } else {
+    lightElem.removeClass("selected wrong passed right");
+  }
+  $(".lights > .cta").removeClass("disable");
+};
 var showAnswer = function (boolean) {
   var frameElem = $(".contents > div.selected .frames > div");
   resetMen();
   if (boolean) {
     frameElem.each(function () {
       if (!$(this).attr("amount")) {
+        //標準箭頭
         $(this).removeClass("selected").empty().append(`
     <div class="${$(this).attr("ans")} wow bounceIn" ans="${$(this).attr(
           "ans"
@@ -381,6 +390,7 @@ var showAnswer = function (boolean) {
     <img src="./DATA/IMAGES/common/arrow1.png" />
     </div>`);
       } else {
+        //組合型箭頭
         $(this).removeClass("selected").empty().append(`
     <div class="${$(this).attr("ans")} wow bounceIn" ans="${$(this).attr(
           "ans"
@@ -392,7 +402,7 @@ var showAnswer = function (boolean) {
       }
     });
     rootSoundEffect($help);
-    $(".btn_answer").addClass("active");
+
     //有無sync?
     if ($(".contents > div.selected .frames > .sync").length > 0) {
       var sync = $(".contents > div.selected .frames > .sync");
@@ -404,10 +414,14 @@ var showAnswer = function (boolean) {
       <img src="./DATA/IMAGES/common/arrow2.png">
     <p>${sync.attr("amount")}</p></div>`);
     }
+
+    $(".btn_answer").addClass("active");
   } else {
-    frameElem.each(function () {
-      $(this).removeClass("selected").empty();
-    });
+    if (!$(".contents > div.selected .frames").hasClass("fixAnswer")) {
+      frameElem.each(function () {
+        $(this).removeClass("selected").empty();
+      });
+    }
     //有無sync?
     if ($(".contents > div.selected .frames > .sync").length > 0) {
       $(".contents > div.selected .frames > .sync").empty();
@@ -588,6 +602,7 @@ var goFight = function () {
   fightAnimation();
   var frameCheckBtn = $(".contents > div.selected .frames > .cta");
   frameCheckBtn.addClass("disable");
+  $(".sideTool > div.btn_answer").removeClass("active");
 };
 
 var fightAnimation = function () {
@@ -804,7 +819,8 @@ var openContent = function (id) {
   //show side tool btn
   if ($(".contents > div.selected").find(".lights").length > 0) {
     $(".sideTool > div.btn_playorder").show();
-    $(".lights > .cta").show();
+    $(".lights > .cta").removeClass("disable");
+    $(".sideTool > div.btn_answer").show();
   }
   if ($(".contents > div.selected").find(".cards").length > 0) {
     $(".sideTool > div.btn_answer").show();
@@ -867,6 +883,7 @@ var resetElem = function (elem) {
 
   //lights
   resetLights();
+  $(".sideTool > div").removeClass("active").hide();
 
   //smoke effect
   $(".smoke").remove();
