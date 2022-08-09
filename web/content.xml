@@ -158,4 +158,44 @@
     <section section="4" name="編程時間 / 演算法" html="PT/BOOK4/HTML/PT-4-4-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
+  <lesson sid="PT" bid="5" lid="1">
+    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-1-1.html" js="JS/sheep.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-1-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 輸入與輸出" html="PT/BOOK5/HTML/PT-5-1-3.html" js="JS/torch.js" image="IMAGES/UNITS/link.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK5/HTML/PT-5-1-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="5" lid="2">
+    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-2-1.html" js="JS/torch.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 事件" html="PT/BOOK5/HTML/PT-5-2-3.html" js="JS/observe.js" image="IMAGES/UNITS/euler.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK5/HTML/PT-5-2-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="5" lid="3">
+    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-3-1.html" js="JS/observe.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 規律" html="PT/BOOK5/HTML/PT-5-3-3.html" js="JS/draganddrop.js" image="IMAGES/UNITS/layers.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲 / 規律②" html="PT/BOOK5/HTML/PT-5-3-4.html" js="JS/draganddrop.js" image="IMAGES/UNITS/pattern.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK5/HTML/PT-5-3-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="5" lid="4">
+    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-4-1.html" js="JS/euler.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 廣度優先搜尋" html="PT/BOOK5/HTML/PT-5-4-3.html" js="JS/exchange.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲 / 廣度優先搜尋②" html="PT/BOOK5/HTML/PT-5-4-4.html" js="JS/exchange.js" image="IMAGES/UNITS/neighbor.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK5/HTML/PT-5-4-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
 </root>

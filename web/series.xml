@@ -24,5 +24,11 @@
       <lesson lid="3">超市尤拉圖</lesson>
       <lesson lid="4">社區路徑串列</lesson>
     </book>
+    <book name="Book 5" bid="5" img="PT_book5.jpg">
+      <lesson lid="1">螞蟻艾歐</lesson>
+      <lesson lid="2">光之神奇事件</lesson>
+      <lesson lid="3">規律的彩色稻穗</lesson>
+      <lesson lid="4">洪水與演算法</lesson>
+    </book>
   </series>
 </root>

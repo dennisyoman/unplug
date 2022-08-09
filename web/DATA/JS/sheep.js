@@ -86,8 +86,10 @@ $(document).ready(function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
             showAnswer(true);
+            $(".sideTool > div.btn_check").hide();
           } else {
             showAnswer(false);
+            $(".sideTool > div.btn_check").show();
           }
         });
       $(".sideTool > div.btn_replay")
@@ -207,6 +209,18 @@ var checkcheck = function () {
   if ($(".contents > div.selected .items > div > span.wrong").length >= 1) {
     rootSoundEffect($wrong);
   } else {
+    var uniq = new Date().getTime();
+    $(".contents > div.selected")
+      .find(".puzzle")
+      .append(
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+      );
+    $(".smoke")
+      .delay(1500)
+      .queue(function () {
+        $(".resultIcon").remove();
+        $(this).dequeue().remove();
+      });
     rootSoundEffect($correct);
   }
 };
