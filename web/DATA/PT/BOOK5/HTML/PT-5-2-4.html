@@ -1,0 +1,147 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>購物發生的事件</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="按電梯">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="付錢">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l2 cards" ans="C" title="掃條碼">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l2 cards" ans="D" title="測溫消毒">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l2 cards" ans="E" title="搓揉雙手">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l2 cards" ans="F" title="進入電梯">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="D"></div>
+        <div ans="E"></div>
+        <div ans="A"></div>
+        <div ans="F"></div>
+        <div ans="C"></div>
+        <div class="end" ans="B"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>A+F</span>
+        <span>D+E</span>
+        <span>C+B</span>
+        <span>E-C</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>熄滅炭火</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l2 cards" ans="A" title="挖土坑">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l2 cards" ans="B" title="澆水在炭火上">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l2 cards" ans="C" title="澆水在土堆">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l2 cards" ans="D" title="掩埋餘燼">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l2 cards" ans="E" title="取水">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l2 cards" ans="F" title="清除易燃物">
+            <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-4-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="E"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div ans="C"></div>
+        <div class="end" ans="F"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>A-D</span>
+        <span>B-D</span>
+        <span>E-C</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

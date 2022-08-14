@@ -605,6 +605,10 @@ var checkAnswer = function () {
           //match[1] 要相鄰 match[0]
           var ans = cond.split("&");
           cond = "&";
+        } else if (cond.indexOf("~") != -1) {
+          //固定位置 match[0]的位置要在前ans[1]個
+          var ans = cond.split("~");
+          cond = "~";
         }
 
         //開始判斷
@@ -658,6 +662,14 @@ var checkAnswer = function () {
               targets[0].addClass("wrong");
               targets[1].addClass("wrong");
               alert += `<p><b>${targets[0].text()}</b>之後必須接著<b>${targets[1].text()}</b><p>`;
+            }
+            break;
+          case "~":
+            //A必須在前?個
+            if (parseInt(match[0]) > parseInt(match[1])) {
+              targets[0].addClass("wrong");
+              targets[1].addClass("wrong");
+              alert += `<p><b>${targets[0].text()}</b>必須在前<b>${targets[1].text()}</b>個<p>`;
             }
             break;
           case "&":
