@@ -152,7 +152,10 @@ var moveMe = function (tar) {
           $(".resultIcon").remove();
           $(this).dequeue().remove();
         });
-      //
+      //addup
+      var sum = $(".contents > div.selected").find(".result > p > span").text();
+      sum = parseInt(sum) + 1;
+      $(".contents > div.selected").find(".result > p > span").text(sum);
     } else if (tar.hasClass("end")) {
       $(".contents > div.selected .subject span.available").removeClass(
         "available"
@@ -238,6 +241,7 @@ var resetElem = function (elem) {
       $(this).addClass("selected");
     }
   });
+  elem.find(".result > p > span").text("0");
 
   $(".sideTool > div.btn_answer").removeClass("active").show();
 };

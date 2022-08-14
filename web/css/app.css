@@ -5149,12 +5149,37 @@
   background: #80c157;
 }
 
+.module_regularity .contents .map .y {
+  background: #f8b62d;
+}
+
 .module_regularity .contents .map .b {
   background: #3dafe5;
 }
 
 .module_regularity .contents .map .r {
   background: #e9504f;
+}
+
+.module_regularity .contents .map .o {
+  background: #ea5514;
+}
+
+.module_regularity .contents .map .result {
+  margin-left: 30px;
+}
+
+.module_regularity .contents .map .result p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.module_regularity .contents .map .result p > span {
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  vertical-align: bottom;
 }
 
 .module_regularity .contents .map .hint {

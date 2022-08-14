@@ -3788,11 +3788,32 @@
       .g {
         background: #80c157;
       }
+      .y {
+        background: #f8b62d;
+      }
       .b {
         background: #3dafe5;
       }
       .r {
         background: #e9504f;
+      }
+      .o {
+        background: #ea5514;
+      }
+
+      .result {
+        margin-left: 30px;
+        p {
+          font-size: 12px;
+          line-height: 1.5;
+          > span {
+            display: inline-block;
+            min-width: 20px;
+            text-align: center;
+            border-bottom: 1px solid $text;
+            vertical-align: bottom;
+          }
+        }
       }
 
       .hint {
