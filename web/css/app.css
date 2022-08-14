@@ -5075,6 +5075,409 @@
   height: 100%;
 }
 
+.module_regularity {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+
+.module_regularity .smoke,
+.module_regularity .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -70px;
+  margin-top: -70px;
+}
+
+.module_regularity .smoke.small,
+.module_regularity .resultIcon.small {
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+
+.module_regularity .smoke > img,
+.module_regularity .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_regularity.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.module_regularity .contents {
+  width: calc(100% - 40px);
+}
+
+.module_regularity .contents .map {
+  position: relative;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.module_regularity .contents .map .g {
+  background: #80c157;
+}
+
+.module_regularity .contents .map .b {
+  background: #3dafe5;
+}
+
+.module_regularity .contents .map .r {
+  background: #e9504f;
+}
+
+.module_regularity .contents .map .hint {
+  position: relative;
+  width: 130px;
+  height: 150px;
+}
+
+.module_regularity .contents .map .hint span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  position: absolute;
+}
+
+.module_regularity .contents .map .hint span::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 4px;
+  background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center center;
+  background-size: 100% 100%;
+  top: 50%;
+  left: 100%;
+  -webkit-transform: translate(7px, -50%);
+  transform: translate(7px, -50%);
+  -webkit-animation-fill-mode: forwards;
+}
+
+.module_regularity .contents .map .hint span:nth-child(1) {
+  top: 30px;
+  left: 30px;
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+.module_regularity .contents .map .hint span:nth-child(2) {
+  top: 80px;
+  left: 60px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.module_regularity .contents .map .hint span:nth-child(3) {
+  top: 80px;
+  left: 0px;
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.module_regularity .contents .map .hint span.selected {
+  border-color: #fff78f;
+  -webkit-filter: drop-shadow(0px 0px 10px #ffb41d);
+          filter: drop-shadow(0px 0px 10px #ffb41d);
+}
+
+.module_regularity .contents .map .subject {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.module_regularity .contents .map .subject.small > div span {
+  width: 25px;
+  height: 25px;
+  margin: 4px;
+  border-width: 3px;
+}
+
+.module_regularity .contents .map .subject.small > div span::after {
+  width: 20px;
+  height: 16px;
+  background-size: 7px auto;
+  top: calc(50% - 8px);
+  left: 50%;
+}
+
+.module_regularity .contents .map .subject.small > div span > p {
+  top: -15px;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
+.module_regularity .contents .map .subject.small > div span.end > p {
+  bottom: -15px;
+}
+
+.module_regularity .contents .map .subject > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.module_regularity .contents .map .subject > div span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.module_regularity .contents .map .subject > div span > p {
+  font-size: 12px;
+  font-family: "Gfont-bold";
+  color: #2d8066;
+  position: absolute;
+  white-space: nowrap;
+  width: 40px;
+  line-height: 12px;
+  top: -20px;
+  text-align: center;
+  left: 50%;
+  margin-left: -20px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.module_regularity .contents .map .subject > div span.end > p {
+  top: auto;
+  bottom: -20px;
+}
+
+.module_regularity .contents .map .subject > div span.east::after {
+  display: block;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.module_regularity .contents .map .subject > div span.south::after {
+  display: block;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.module_regularity .contents .map .subject > div span.west::after {
+  display: block;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.module_regularity .contents .map .subject > div span.north::after {
+  display: block;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.module_regularity .contents .map .subject > div span.selected::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  top: 0% !important;
+  left: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: url("../DATA/PT/BOOK5/IMAGES/man.png") no-repeat center center !important;
+  background-size: contain !important;
+  display: block !important;
+  margin-top: -7px;
+  margin-left: -1px;
+}
+
+.module_regularity .contents .map .subject > div span.peach::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: url("../DATA/PT/BOOK5/IMAGES/peach.png") no-repeat center center;
+  background-size: contain;
+}
+
+.module_regularity .contents .map .subject > div span.peach.visited::before {
+  display: none;
+}
+
+.module_regularity .contents .map .subject > div span.shovel::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: url("../DATA/PT/BOOK5/IMAGES/shovel.png") no-repeat center center;
+  background-size: contain;
+}
+
+.module_regularity .contents .map .subject > div span.shovel.visited::before {
+  display: none;
+}
+
+.module_regularity .contents .map .subject > div span.visited {
+  pointer-events: none;
+  opacity: 0.6 !important;
+  -moz-opacity: 0.6 !important;
+  -khtml-opacity: 0.6 !important;
+  filter: alpha(opacity=60) !important;
+}
+
+.module_regularity .contents .map .subject > div span.visited.selected {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.module_regularity .contents .map .subject > div span::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 36px;
+  height: 16px;
+  background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center right;
+  background-size: 16px auto;
+  top: calc(50% - 8px);
+  left: 50%;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  display: none;
+}
+
+.module_regularity .contents .puzzle {
+  position: relative;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+.module_regularity .contents .puzzle.showAnswer .subject > span {
+  pointer-events: none;
+}
+
+.module_regularity .contents .puzzle.showAnswer .subject > span.g {
+  background: #80c157 !important;
+}
+
+.module_regularity .contents .puzzle.showAnswer .subject > span.b {
+  background: #3dafe5 !important;
+}
+
+.module_regularity .contents .puzzle.showAnswer .subject > span.r {
+  background: #e9504f !important;
+}
+
+.module_regularity .contents .puzzle .subject {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.module_regularity .contents .puzzle .subject > span {
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  background: #fff;
+  border: 3px solid #222;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.module_regularity .contents .puzzle .subject > span.reverse {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.module_regularity .contents .puzzle .subject > span.green {
+  background: #80c157;
+}
+
+.module_regularity .contents .puzzle .subject > span.blue {
+  background: #3dafe5;
+}
+
+.module_regularity .contents .puzzle .subject > span.red {
+  background: #e9504f;
+}
+
+.module_regularity .contents .puzzle .subject > span.wrong {
+  border-color: #f9b900;
+  -webkit-animation: shaking;
+          animation: shaking;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+}
+
+.module_regularity .contents .puzzle > img {
+  width: 100%;
+  height: 100%;
+}
+
 .module_apart {
   position: relative;
   top: 0;
