@@ -199,12 +199,29 @@ var moveMe = function (tar) {
 
 var showAnswer = function (boolean) {
   if (boolean) {
-    //秀出答案圖片
-    $(".contents > div.selected .puzzle").addClass("showAnswer");
+    //秀出答案
+    $(".contents > div.selected")
+      .find(".subject span")
+      .each(function () {
+        $(this)
+          .removeClass("wrong available visited east south west north selected")
+          .removeAttr("dir");
+        if ($(this).attr("ans")) {
+          $(this).addClass("visited " + $(this).attr("ans"));
+        }
+        if ($(this).hasClass("end")) {
+          $(this).addClass("selected");
+        }
+      });
+    var sum = $(".contents > div.selected")
+      .find(".result > p > span")
+      .attr("ans");
+    $(".contents > div.selected").find(".result > p > span").text(sum);
+    //
     $(".sideTool > div.btn_replay").show();
     rootSoundEffect($help);
   } else {
-    $(".contents > div.selected .puzzle").removeClass("showAnswer");
+    $(".sideTool > div.btn_replay").click();
   }
 };
 
