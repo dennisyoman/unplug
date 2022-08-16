@@ -4095,6 +4095,220 @@
   }
 }
 
+.module_laser {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -35px;
+    margin-top: -35px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .cardAvatar {
+    position: absolute;
+    z-index: 99;
+    width: 0;
+    height: 0;
+    > span {
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      @include translate(-50%, -50%);
+      > img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        animation: none !important;
+      }
+    }
+  }
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .pieces {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+
+      > span {
+        display: inline-flex;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        cursor: pointer;
+
+        &.cached {
+          pointer-events: none;
+          @include opacity(0.3);
+        }
+
+        > img {
+          width: 80%;
+          height: 80%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .map {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .board {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 5px solid #4873b9;
+        background: #fff;
+        @include borderRadius(15px);
+
+        > .beam {
+          position: absolute;
+          width: 100px;
+          height: 0px;
+          transform-origin: left center;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          &::before {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 2px;
+            background: $main;
+            margin-top: -1px;
+            filter: drop-shadow(0px 0px 2px $main);
+            animation: laser;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            @keyframes laser {
+              0% {
+                width: 0%;
+              }
+
+              100% {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        > div {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          border-top: 1px solid #4873b9;
+          &:first-child {
+            border-top: none;
+          }
+          > span {
+            display: inline-flex;
+            width: 40px;
+            height: 36px;
+            border-right: 1px solid #4873b9;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+
+            &:last-child {
+              border-right: none;
+            }
+            &.fit {
+              pointer-events: none;
+            }
+            &.laser {
+              cursor: pointer;
+              > img {
+                @include opacity(0.3);
+              }
+              &.selected {
+                > img {
+                  @include opacity(1);
+                }
+              }
+              &.right {
+                > img {
+                  transform: rotate(90deg) !important;
+                }
+              }
+              &.left {
+                > img {
+                  transform: rotate(-90deg) !important;
+                }
+              }
+              &.down {
+                > img {
+                  transform: rotate(180deg) !important;
+                }
+              }
+              &.up {
+                > img {
+                  transform: rotate(0deg) !important;
+                }
+              }
+            }
+
+            &.blackhole {
+              > img {
+                animation-name: selfRotate !important;
+                animation-duration: 1.2s;
+                animation-iteration-count: infinite;
+                animation-fill-mode: forwards;
+                animation-timing-function: linear;
+              }
+            }
+
+            > img {
+              width: 80%;
+              height: 80%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .module_apart {
   position: relative;
   top: 0;

@@ -1371,6 +1371,7 @@ let $good = new Audio("./sfx/good.mp3");
 let $right = new Audio("./sfx/right.mp3");
 let $wrong = new Audio("./sfx/wrong.mp3");
 let $key = new Audio("./sfx/pushing_a_key.mp3");
+let $beep = new Audio("./sfx/beep.mp3");
 
 //combine
 var sfxLowLagged = 0;
@@ -1391,6 +1392,7 @@ let $SFXAr = [
   $right,
   $wrong,
   $key,
+  $beep,
 ];
 let $SFXNameAr = [
   "chimes",
@@ -1409,6 +1411,7 @@ let $SFXNameAr = [
   "right",
   "wrong",
   "key",
+  "beep",
 ];
 for (let k = 0; k < $SFXAr.length; k++) {
   $SFXAr[k].preload = "auto";

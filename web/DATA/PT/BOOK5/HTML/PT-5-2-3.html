@@ -1,0 +1,338 @@
+<div id="module_wrapper" class="module_laser">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span>任務一</span>
+    <span class="demo">示範二</span>
+    <span>任務二</span>
+    <span class="demo">示範三</span>
+    <span>任務三</span>
+    <span>任務四</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>光的魔術盒</b
+            >：<br />1.光會從雷射筆前方發出直線前進。<br />2.想辦法讓雷射光打到鑽石。<br />3.只能使用指定的魔術盒。
+          </p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span />
+            <span />
+            <span class="diamond" int="diamond" />
+          </div>
+          <div>
+            <span class="laser right" int="laser_red" ans="true" />
+            <span />
+            <span class="up" int="box_up" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span class="diamond" int="diamond" />
+            <span />
+            <span />
+            <span />
+            <span box="box_left" />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span class="laser up" int="laser_red" ans="true" />
+            <span />
+          </div>
+        </div>
+      </div>
+      <div class="pieces">
+        <span class="left" int="box_left" />
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span />
+            <span box="box_right" />
+            <span />
+            <span class="diamond" int="diamond" />
+          </div>
+          <div>
+            <span class="laser right" int="laser_red" ans="true" />
+            <span box="box_up" />
+            <span class="blackhole" int="blackhole" />
+            <span />
+          </div>
+        </div>
+      </div>
+      <div class="pieces">
+        <span class="right" int="box_right" />
+        <span class="up" int="box_up" />
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span />
+            <span box="box_down" />
+            <span />
+            <span />
+            <span />
+            <span box="box_left" />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span class="diamond" int="diamond" />
+            <span class="blackhole" int="blackhole" />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span class="laser up" int="laser_red" ans="true" />
+            <span />
+          </div>
+        </div>
+      </div>
+      <div class="pieces">
+        <span class="left" int="box_left" />
+        <span class="down" int="box_down" />
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span class="diamond" int="diamond" />
+            <span />
+            <span class="duo" int="box_duo" />
+            <span />
+            <span class="diamond" int="diamond" />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span class="laser up" int="laser_red" ans="true" />
+            <span />
+            <span />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span />
+            <span box="box_down" />
+            <span />
+            <span box="box_duo" />
+            <span />
+            <span box="box_down" />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span class="blackhole" int="blackhole" />
+            <span />
+            <span class="blackhole" int="blackhole" />
+            <span class="diamond" int="diamond" />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span box="box_right" />
+            <span class="diamond" int="diamond" />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span class="laser up" int="laser_red" ans="true" />
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+      </div>
+      <div class="pieces">
+        <span class="right" int="box_right" />
+        <span class="down" int="box_down" />
+        <span class="down" int="box_down" />
+        <span class="duo" int="box_duo" />
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>哪一支雷射可以擊中鑽石</b>：依照檯面選擇正確的雷射筆。</p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-2-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="map">
+        <div class="board wow fadeIn">
+          <div>
+            <span />
+            <span />
+            <span />
+            <span class="down" int="box_down" />
+            <span />
+            <span />
+            <span class="left" int="box_left" />
+          </div>
+          <div>
+            <span class="right" int="box_right" />
+            <span />
+            <span />
+            <span />
+            <span class="blackhole" int="blackhole" />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span />
+            <span class="diamond" int="diamond" />
+            <span class="blackhole" int="blackhole" />
+            <span />
+            <span class="duo" int="box_duo" />
+            <span />
+            <span class="up" int="box_up" />
+          </div>
+          <div>
+            <span />
+            <span />
+            <span />
+            <span class="diamond" int="diamond" />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <span class="up" int="box_up" />
+            <span />
+            <span class="laser left" int="laser_green" />
+            <span />
+            <span class="laser up" int="laser_red" ans="true" />
+            <span />
+            <span />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

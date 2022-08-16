@@ -2,21 +2,21 @@
 @-webkit-keyframes selfRotate {
   0% {
     -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform: rotate(0);
   }
   100% {
     -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
+            transform: rotate(-360deg);
   }
 }
 @keyframes selfRotate {
   0% {
     -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform: rotate(0);
   }
   100% {
     -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
+            transform: rotate(-360deg);
   }
 }
 
@@ -5496,6 +5496,303 @@
 .module_regularity .contents .puzzle > img {
   width: 100%;
   height: 100%;
+}
+
+.module_laser {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+
+.module_laser .smoke,
+.module_laser .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  z-index: 99;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-left: -35px;
+  margin-top: -35px;
+}
+
+.module_laser .smoke > img,
+.module_laser .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_laser .cardAvatar {
+  position: absolute;
+  z-index: 99;
+  width: 0;
+  height: 0;
+}
+
+.module_laser .cardAvatar > span {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation-fill-mode: forwards;
+}
+
+.module_laser .cardAvatar > span > img {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
+.module_laser.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.module_laser .contents {
+  width: calc(100% - 40px);
+}
+
+.module_laser .contents .pieces {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.module_laser .contents .pieces > span {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.module_laser .contents .pieces > span.cached {
+  pointer-events: none;
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
+}
+
+.module_laser .contents .pieces > span > img {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.module_laser .contents .map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.module_laser .contents .map .board {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  border: 5px solid #4873b9;
+  background: #fff;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+.module_laser .contents .map .board > .beam {
+  position: absolute;
+  width: 100px;
+  height: 0px;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.module_laser .contents .map .board > .beam::before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #eb6154;
+  margin-top: -1px;
+  -webkit-filter: drop-shadow(0px 0px 2px #eb6154);
+          filter: drop-shadow(0px 0px 2px #eb6154);
+  -webkit-animation: laser;
+          animation: laser;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes laser {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes laser {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.module_laser .contents .map .board > div {
+  position: relative;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid #4873b9;
+}
+
+.module_laser .contents .map .board > div:first-child {
+  border-top: none;
+}
+
+.module_laser .contents .map .board > div > span {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 40px;
+  height: 36px;
+  border-right: 1px solid #4873b9;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  pointer-events: auto;
+}
+
+.module_laser .contents .map .board > div > span:last-child {
+  border-right: none;
+}
+
+.module_laser .contents .map .board > div > span.fit {
+  pointer-events: none;
+}
+
+.module_laser .contents .map .board > div > span.laser {
+  cursor: pointer;
+}
+
+.module_laser .contents .map .board > div > span.laser > img {
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
+}
+
+.module_laser .contents .map .board > div > span.laser.selected > img {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.module_laser .contents .map .board > div > span.laser.right > img {
+  -webkit-transform: rotate(90deg) !important;
+          transform: rotate(90deg) !important;
+}
+
+.module_laser .contents .map .board > div > span.laser.left > img {
+  -webkit-transform: rotate(-90deg) !important;
+          transform: rotate(-90deg) !important;
+}
+
+.module_laser .contents .map .board > div > span.laser.down > img {
+  -webkit-transform: rotate(180deg) !important;
+          transform: rotate(180deg) !important;
+}
+
+.module_laser .contents .map .board > div > span.laser.up > img {
+  -webkit-transform: rotate(0deg) !important;
+          transform: rotate(0deg) !important;
+}
+
+.module_laser .contents .map .board > div > span.blackhole > img {
+  -webkit-animation-name: selfRotate !important;
+          animation-name: selfRotate !important;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.module_laser .contents .map .board > div > span > img {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .module_apart {
