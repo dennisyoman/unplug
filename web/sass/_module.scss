@@ -4153,7 +4153,7 @@
 
     .pieces {
       position: absolute;
-      bottom: 0;
+      bottom: 5px;
       left: 0;
       width: 100%;
       text-align: center;
@@ -4167,6 +4167,7 @@
         justify-content: center;
         pointer-events: auto;
         cursor: pointer;
+        @include borderRadius(100%);
 
         &.cached {
           pointer-events: none;

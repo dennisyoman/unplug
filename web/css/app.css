@@ -5579,7 +5579,7 @@
 
 .module_laser .contents .pieces {
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   left: 0;
   width: 100%;
   text-align: center;
@@ -5600,6 +5600,9 @@
           justify-content: center;
   pointer-events: auto;
   cursor: pointer;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
 }
 
 .module_laser .contents .pieces > span.cached {

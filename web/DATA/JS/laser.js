@@ -428,7 +428,7 @@ var createBeam = function () {
       //結束後還沒找到鑽石
 
       if ($(".contents > div.selected").find(".diamond.bingo").length == 0) {
-        rootSoundEffect($wrong);
+        rootSoundEffect($fail);
         $(".contents > div.selected")
           .find(".map")
           .append(
