@@ -44,10 +44,10 @@
 }
 
 @mixin opacity($var) {
-  opacity: $var !important;
-  -moz-opacity: $var !important;
-  -khtml-opacity: $var !important;
-  filter: alpha(opacity = $var * 100) !important;
+  opacity: $var;
+  -moz-opacity: $var;
+  -khtml-opacity: $var;
+  filter: alpha(opacity = $var * 100);
 }
 
 @mixin box {

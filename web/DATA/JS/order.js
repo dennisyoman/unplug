@@ -877,6 +877,10 @@ var resetElem = function (elem) {
       .find("> div > div")
       .css("pointer-events", "none");
   }
+  //有無sync?
+  if ($(".contents > div.selected .frames > .sync").length > 0) {
+    $(".contents > div.selected .frames > .sync").empty();
+  }
 
   //cards & lights reset
   elem.find(".selected").removeClass("selected");

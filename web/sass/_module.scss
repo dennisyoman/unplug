@@ -4310,6 +4310,141 @@
   }
 }
 
+.module_flood {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -35px;
+    margin-top: -35px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .active {
+      &.c1 {
+        background: #e60012;
+      }
+      &.c2 {
+        background: #f39800;
+      }
+      &.c3 {
+        background: #faee00;
+      }
+      &.c4 {
+        background: #22ac38;
+      }
+      &.c5 {
+        background: #00a0e9;
+      }
+      &.c6 {
+        background: #601986;
+        color: #fff;
+        * {
+          color: #fff;
+        }
+      }
+    }
+
+    .map {
+      position: relative;
+      width: 100%;
+      height: 95%;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+
+      .area {
+        position: relative;
+
+        .flood {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          > span {
+            position: absolute;
+            z-index: 2;
+            pointer-events: auto;
+            cursor: pointer;
+            color: $text;
+
+            &.active {
+              p {
+                @include opacity(1);
+              }
+            }
+            p {
+              position: absolute;
+              width: 20px;
+              height: 12px;
+              line-height: 12px;
+              font-size: 12px;
+              text-align: center;
+
+              z-index: 2;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              font-family: "Gfont-bold";
+              @include opacity(0);
+            }
+          }
+        }
+      }
+
+      .calendar {
+        position: relative;
+        margin-left: 50px;
+        overflow: hidden;
+        .date {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          z-index: 2;
+          overflow: hidden;
+          @include borderRadius(0 0 7px 7px);
+          > span {
+            width: 20%;
+            pointer-events: auto;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
 .module_apart {
   position: relative;
   top: 0;

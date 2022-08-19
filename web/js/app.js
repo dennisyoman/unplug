@@ -1372,6 +1372,8 @@ let $right = new Audio("./sfx/right.mp3");
 let $wrong = new Audio("./sfx/wrong.mp3");
 let $key = new Audio("./sfx/pushing_a_key.mp3");
 let $beep = new Audio("./sfx/beep.mp3");
+let $beam = new Audio("./sfx/beam.mp3");
+let $flood = new Audio("./sfx/flood.mp3");
 
 //combine
 var sfxLowLagged = 0;
@@ -1393,6 +1395,8 @@ let $SFXAr = [
   $wrong,
   $key,
   $beep,
+  $beam,
+  $flood,
 ];
 let $SFXNameAr = [
   "chimes",
@@ -1412,6 +1416,8 @@ let $SFXNameAr = [
   "wrong",
   "key",
   "beep",
+  "beam",
+  "flood",
 ];
 for (let k = 0; k < $SFXAr.length; k++) {
   $SFXAr[k].preload = "auto";
@@ -1616,6 +1622,8 @@ let checkCompLoading = function (elem) {
     } else {
       $(elem).trigger("compLoaded");
     }
+    //hide image not found icon
+    $("img").attr("onerror", "this.style.display='none'");
   } else {
     setTimeout(function () {
       checkCompLoading(elem);
@@ -1748,4 +1756,5 @@ window.onload = function () {
     activeSFX();
   }
   resizeScreen();
+  //onerror="this.style.display='none'"
 };

@@ -405,7 +405,7 @@ var createBeam = function () {
     }
 
     //
-    rootSoundEffect($beep);
+    rootSoundEffect($beam);
     var beam = `<span class="beam" style="top:${oY}px;left:${oX}px;width:${meter}px;transform:rotate(${degree}deg)"></span>`;
     board.append(beam);
 
