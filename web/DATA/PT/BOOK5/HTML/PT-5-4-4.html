@@ -1,0 +1,377 @@
+<div id="module_wrapper" class="module_flood">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>火山爆發</b
+            >：<br />1.先點擊月曆上的數字。<br />2.依岩漿擴散的順序在區域填入日期。<br />3.點擊確認按鈕看是否正確。
+          </p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="map">
+        <div class="area">
+          <div class="volcano">
+            <span
+              style="top: 35px; left: 79px; width: 154px; height: 88px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1-A.png"
+              ans="1"
+              ><p></p>
+            </span>
+            <span
+              style="top: 123px; left: 57px; width: 121px; height: 94px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1-B.png"
+              ans="1"
+              ><p style="top: 55%; left: 43%"></p>
+            </span>
+            <span
+              style="top: 95px; left: 180px; width: 115px; height: 123px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1-C.png"
+              ans="1"
+              ><p style="top: 60%; left: 71%"></p>
+            </span>
+            <span
+              style="top: 31px; left: 196px; width: 97px; height: 100px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1-D.png"
+              ans="2"
+              ><p style="top: 37%; left: 53%"></p>
+            </span>
+            <span
+              style="top: 141px; left: 5px; width: 93px; height: 78px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1-E.png"
+              ans="2"
+              ><p style="top: 64%; left: 38%"></p>
+            </span>
+            <span
+              style="top: 5px; left: 151px; width: 85px; height: 46px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1-F.png"
+              ans="3"
+              ><p></p>
+            </span>
+          </div>
+          <img
+            width="300px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-1.png"
+          />
+        </div>
+        <div class="calendar wow fadeInDown">
+          <div
+            style="width: 120px; height: 23px; top: 34px; left: 1px"
+            class="date"
+          >
+            <span ans="1"></span>
+            <span ans="2"></span>
+            <span ans="3"></span>
+            <span ans="4"></span>
+            <span ans="5"></span>
+          </div>
+          <img
+            width="125px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-calendar.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="area">
+          <div class="volcano">
+            <span
+              style="top: 4px; left: 33px; width: 168px; height: 100px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2-A.png"
+              ans="1"
+              ><p style="top: 34%; left: 34%"></p>
+            </span>
+            <span
+              style="top: 107px; left: 51px; width: 87px; height: 94px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2-B.png"
+              ans="1"
+              ><p style="top: 46%; left: 37%"></p>
+            </span>
+            <span
+              style="
+                top: 4px;
+                left: 189px;
+                width: 105px;
+                height: 135px;
+                z-index: 5;
+              "
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2-C.png"
+              ans="2"
+              ><p style="top: 45%; left: 75%"></p>
+            </span>
+            <span
+              style="top: 74px; left: 4px; width: 82px; height: 171px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2-D.png"
+              ans="2"
+              ><p style="top: 37%; left: 28%"></p>
+            </span>
+            <span
+              style="top: 141px; left: 179px; width: 115px; height: 103px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2-E.png"
+              ans="3"
+              ><p style="top: 40%; left: 45%"></p>
+            </span>
+            <span
+              style="top: 205px; left: 76px; width: 113px; height: 41px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2-F.png"
+              ans="3"
+              ><p></p>
+            </span>
+          </div>
+          <img
+            width="300px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-2.png"
+          />
+        </div>
+        <div class="calendar wow fadeInDown">
+          <div
+            style="width: 120px; height: 23px; top: 34px; left: 1px"
+            class="date"
+          >
+            <span ans="1"></span>
+            <span ans="2"></span>
+            <span ans="3"></span>
+            <span ans="4"></span>
+            <span ans="5"></span>
+          </div>
+          <img
+            width="125px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-calendar.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="area">
+          <div class="volcano">
+            <span
+              style="top: 68px; left: 142px; width: 106px; height: 93px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-A.png"
+              ans="1"
+              ><p style="top: 34%; left: 62%"></p>
+            </span>
+            <span
+              style="top: 105px; left: 48px; width: 80px; height: 96px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-B.png"
+              ans="1"
+              ><p style="top: 50%; left: 44%"></p>
+            </span>
+            <span
+              style="
+                top: 191px;
+                left: 113px;
+                width: 93px;
+                height: 64px;
+                z-index: 5;
+              "
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-C.png"
+              ans="1"
+              ><p style="top: 50%; left: 50%"></p>
+            </span>
+            <span
+              style="top: 36px; left: 177px; width: 55px; height: 39px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-D.png"
+              ans="2"
+              ><p style="top: 50%; left: 50%"></p>
+            </span>
+            <span
+              style="top: 49px; left: 224px; width: 70px; height: 64px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-E.png"
+              ans="2"
+              ><p style="top: 68%; left: 57%"></p>
+            </span>
+            <span
+              style="top: 115px; left: 227px; width: 67px; height: 71px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-F.png"
+              ans="2"
+              ><p style="top: 43%; left: 59%"></p>
+            </span>
+            <span
+              style="top: 190px; left: 60px; width: 92px; height: 65px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-G.png"
+              ans="2"
+              ><p style="top: 58%; left: 35%"></p>
+            </span>
+            <span
+              style="top: 19px; left: 7px; width: 107px; height: 89px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-H.png"
+              ans="2"
+              ><p style="top: 40%; left: 42%"></p>
+            </span>
+            <span
+              style="top: 4px; left: 180px; width: 64px; height: 41px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3-I.png"
+              ans="3"
+              ><p style="top: 50%; left: 50%"></p>
+            </span>
+          </div>
+          <img
+            width="300px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-3.png"
+          />
+        </div>
+        <div class="calendar wow fadeInDown">
+          <div
+            style="width: 120px; height: 23px; top: 34px; left: 1px"
+            class="date"
+          >
+            <span ans="1"></span>
+            <span ans="2"></span>
+            <span ans="3"></span>
+            <span ans="4"></span>
+            <span ans="5"></span>
+          </div>
+          <img
+            width="125px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-calendar.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="area">
+          <div class="volcano">
+            <span
+              style="
+                top: 47px;
+                left: 95px;
+                width: 107px;
+                height: 140px;
+                z-index: 5;
+              "
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-A.png"
+              ans="1"
+              ><p style="top: 50%; left: 86%"></p>
+            </span>
+            <span
+              style="
+                top: 103px;
+                left: 75px;
+                width: 159px;
+                height: 118px;
+                z-index: 4;
+              "
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-B.png"
+              ans="2"
+              ><p style="top: 73%; left: 73%"></p>
+            </span>
+            <span
+              style="top: 4px; left: 57px; width: 80px; height: 59px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-C.png"
+              ans="2"
+              ><p style="top: 50%; left: 58%"></p>
+            </span>
+            <span
+              style="top: 21px; left: 10px; width: 67px; height: 89px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-D.png"
+              ans="3"
+              ><p style="top: 57%; left: 35%"></p>
+            </span>
+            <span
+              style="top: 98px; left: 228px; width: 67px; height: 69px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-E.png"
+              ans="3"
+              ><p style="top: 50%; left: 50%"></p>
+            </span>
+            <span
+              style="top: 184px; left: 42px; width: 97px; height: 66px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-F.png"
+              ans="3"
+              ><p style="top: 62%; left: 44%"></p>
+            </span>
+            <span
+              style="top: 97px; left: 9px; width: 55px; height: 55px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-G.png"
+              ans="4"
+              ><p style="top: 46%; left: 42%"></p>
+            </span>
+            <span
+              style="top: 145px; left: 3px; width: 45px; height: 59px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-H.png"
+              ans="4"
+              ><p style="top: 50%; left: 50%"></p>
+            </span>
+            <span
+              style="top: 47px; left: 237px; width: 53px; height: 52px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-I.png"
+              ans="4"
+              ><p style="top: 50%; left: 50%"></p>
+            </span>
+            <span
+              style="top: 248px; left: 108px; width: 66px; height: 27px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-J.png"
+              ans="4"
+              ><p style="top: 50%; left: 56%"></p>
+            </span>
+            <span
+              style="top: 20px; left: 192px; width: 54px; height: 43px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-K.png"
+              ans="5"
+              ><p style="top: 41%; left: 58%"></p>
+            </span>
+            <span
+              style="top: 219px; left: 171px; width: 62px; height: 56px"
+              mask="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4-L.png"
+              ans="5"
+              ><p style="top: 65%; left: 50%"></p>
+            </span>
+          </div>
+          <img
+            width="300px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-4.png"
+          />
+        </div>
+        <div class="calendar wow fadeInDown">
+          <div
+            style="width: 120px; height: 23px; top: 34px; left: 1px"
+            class="date"
+          >
+            <span ans="1"></span>
+            <span ans="2"></span>
+            <span ans="3"></span>
+            <span ans="4"></span>
+            <span ans="5"></span>
+          </div>
+          <img
+            width="125px"
+            height="auto"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-4-4-calendar.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

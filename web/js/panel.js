@@ -52,7 +52,10 @@ $(document).ready(function () {
           }
           createZoomSensor();
         });
-      if ($("#module_wrapper").hasClass("module_order")) {
+      if (
+        $("#module_wrapper").hasClass("module_order") ||
+        $("#module_wrapper").hasClass("module_flood")
+      ) {
         $(".btn_zoom").addClass("disabled");
       } else {
         $(".btn_zoom").removeClass("disabled");
