@@ -3105,6 +3105,436 @@
   }
 }
 
+.module_ant {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -20px;
+    margin-top: -20px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .map {
+      margin-top: 50px;
+      position: relative;
+
+      &.disabled {
+        .ant {
+          pointer-events: none;
+          * {
+            pointer-events: none;
+          }
+          &.swing {
+            animation: none !important;
+          }
+        }
+        .subject {
+          .path {
+            > span {
+              > span {
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+
+      .area {
+        position: relative;
+        z-index: 1;
+      }
+
+      .who {
+        position: absolute;
+        z-index: 50;
+        .alert {
+          position: absolute;
+          z-index: 10;
+          background: $main;
+          color: #fff;
+          font-size: 12px;
+          line-height: 1.5;
+          left: 67%;
+          bottom: 60px;
+          @include borderRadius(8px);
+          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+          pointer-events: auto;
+          padding: 10px 10px;
+          width: 125px;
+
+          p {
+            margin-bottom: 5px;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 15%;
+            bottom: -5px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 5px 0 5px;
+            border-color: $main transparent transparent transparent;
+          }
+        }
+      }
+
+      .ant {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        z-index: 10;
+        pointer-events: auto;
+        cursor: pointer;
+        @include transition(all, 1s);
+        .smoke,
+        .resultIcon {
+          width: 50px;
+          height: 50px;
+          margin-left: -25px;
+          margin-top: -50px;
+        }
+
+        &.right {
+          -webkit-animation-name: bounce !important;
+          animation-name: bounce !important;
+          -webkit-transform-origin: center bottom !important;
+          transform-origin: center bottom !important;
+          animation-iteration-count: infinite !important;
+          animation-duration: 1s !important;
+        }
+
+        &.swing {
+          -webkit-animation-name: swing !important;
+          animation-name: swing !important;
+          -webkit-transform-origin: center bottom !important;
+          transform-origin: center bottom !important;
+          animation-iteration-count: infinite !important;
+          animation-duration: 1s !important;
+        }
+
+        &.wrong {
+          -webkit-animation-name: flyant !important;
+          animation-name: flyant !important;
+          -webkit-transform-origin: center center !important;
+          transform-origin: center center !important;
+          animation-iteration-count: 1 !important;
+          animation-duration: 1s !important;
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes flyant {
+          100% {
+            transform: translate(200px, -400px) rotate(400deg);
+            @include opacity(0);
+          }
+        }
+
+        &.green {
+          > div {
+            span {
+              &.head {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant.png");
+              }
+              &.butt {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt.png");
+              }
+            }
+          }
+        }
+
+        &.blue {
+          > div {
+            span {
+              &.head,
+              &.butt {
+                filter: grayscale(1) brightness(100%) sepia(50%) hue-rotate(-178deg) saturate(500%);
+              }
+              &.head {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant.png");
+              }
+              &.butt {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt.png");
+              }
+            }
+          }
+        }
+        &.red {
+          > div {
+            span {
+              &.head,
+              &.butt {
+                filter: grayscale(1) brightness(50%) sepia(100%) hue-rotate(-40deg) saturate(500%);
+              }
+              &.head {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant.png");
+              }
+              &.butt {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt.png");
+              }
+            }
+          }
+        }
+        &.purple {
+          > div {
+            span {
+              &.head,
+              &.butt {
+                filter: grayscale(1) brightness(60%) sepia(70%) hue-rotate(-120deg) saturate(500%);
+              }
+              &.head {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant.png");
+              }
+              &.butt {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt.png");
+              }
+            }
+          }
+        }
+        &.yellow {
+          > div {
+            span {
+              &.head,
+              &.butt {
+                filter: grayscale(1) brightness(100%) sepia(100%) hue-rotate(15deg) saturate(500%);
+              }
+              &.head {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant.png");
+              }
+              &.butt {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt.png");
+              }
+            }
+          }
+        }
+        &.black {
+          > div {
+            span {
+              &.head,
+              &.butt {
+                filter: grayscale(1) brightness(60%) saturate(0%);
+              }
+              &.head {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant.png");
+              }
+              &.butt {
+                background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt.png");
+              }
+            }
+          }
+        }
+
+        &.walk {
+          @include transition(all, 1s);
+          transition-timing-function: linear;
+          > div {
+            span {
+              &.head {
+                animation-name: antwalking;
+                animation-duration: 0.3s;
+                animation-iteration-count: infinite;
+              }
+              &.butt {
+                animation-name: antwalking2;
+                animation-duration: 0.3s;
+                animation-iteration-count: infinite;
+              }
+              &.item {
+                animation-name: antwalking3;
+                animation-duration: 0.3s;
+                animation-iteration-count: infinite;
+              }
+            }
+          }
+        }
+
+        &.donut {
+          .item {
+            background: url("../DATA/PT/BOOK5/IMAGES/donut.png") no-repeat center center;
+            background-size: contain;
+          }
+        }
+        &.rice {
+          .item {
+            background: url("../DATA/PT/BOOK5/IMAGES/rice.png") no-repeat center center;
+            background-size: contain;
+          }
+        }
+        &.milk {
+          .item {
+            background: url("../DATA/PT/BOOK5/IMAGES/milk.png") no-repeat center center;
+            background-size: contain;
+          }
+        }
+
+        @keyframes antwalking {
+          50% {
+            transform: rotate(-10deg);
+          }
+        }
+
+        @keyframes antwalking2 {
+          50% {
+            transform: rotate(20deg);
+          }
+        }
+        @keyframes antwalking3 {
+          50% {
+            transform: rotate(10deg) translateY(-10px);
+          }
+        }
+
+        > div {
+          position: absolute;
+          width: 0;
+          height: 0;
+          z-index: 1;
+          transform-origin: center bottom;
+
+          span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: auto;
+            &.head {
+              z-index: 5;
+              width: 216px;
+              height: 188px;
+              background-image: url("../DATA/PT/BOOK5/IMAGES/ant_ghost.png");
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 100% 100%;
+              left: -41px;
+            }
+            &.item {
+              z-index: 3;
+              width: 200px;
+              height: 200px;
+              left: -110px;
+              bottom: 62px;
+            }
+            &.butt {
+              z-index: 1;
+              width: 124px;
+              height: 88px;
+              background-image: url("../DATA/PT/BOOK5/IMAGES/ant_butt_ghost.png");
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 100% 100%;
+              left: -72px;
+              bottom: 20px;
+            }
+          }
+        }
+      }
+
+      .subject {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        background: rgba(0, 0, 0, 0.2);
+        .path {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 8;
+          > span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            //background: #ff0000;
+            z-index: 1;
+            pointer-events: auto;
+            animation-duration: 0.8s;
+
+            &.alert {
+              animation: shaking;
+              animation-duration: 0.3s;
+              animation-iteration-count: 2;
+            }
+
+            > span {
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 50%;
+              left: 50%;
+              background-color: #fff;
+              border: 3px solid #727171;
+              @include borderRadius(5px);
+              @include translate(-50%, -50%);
+              z-index: 1;
+              pointer-events: auto;
+              cursor: pointer;
+
+              &.green {
+                border-color: #80c160;
+              }
+              &.red {
+                border-color: #e26968;
+              }
+              &.yellow {
+                border-color: #f7ec76;
+              }
+              &.purple {
+                border-color: #9788bf;
+              }
+              &.blue {
+                border-color: #79cced;
+              }
+
+              &.donut {
+                background: #fff url("../DATA/PT/BOOK5/IMAGES/donut.png") no-repeat center center;
+                background-size: auto 70%;
+              }
+              &.rice {
+                background: #fff url("../DATA/PT/BOOK5/IMAGES/rice.png") no-repeat center center;
+                background-size: auto 70%;
+              }
+              &.milk {
+                background: #fff url("../DATA/PT/BOOK5/IMAGES/milk.png") no-repeat center center;
+                background-size: auto 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .module_torch {
   position: relative;
   top: 0;

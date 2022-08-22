@@ -54,7 +54,8 @@ $(document).ready(function () {
         });
       if (
         $("#module_wrapper").hasClass("module_order") ||
-        $("#module_wrapper").hasClass("module_flood")
+        $("#module_wrapper").hasClass("module_flood") ||
+        $("#module_wrapper").hasClass("module_ant")
       ) {
         $(".btn_zoom").addClass("disabled");
       } else {

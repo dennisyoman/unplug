@@ -1,0 +1,577 @@
+<div id="module_wrapper" class="module_ant">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <!--<div class="btn_check"></div>-->
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>螞蟻倉庫</b
+            >：<br />1.點選螞蟻，觀察倉庫交易的邏輯。<br />2.將正確交易食物填入空格。
+          </p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-1-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="map wow fadeIn">
+        <div class="subject">
+          <div class="ant black">
+            <div style="transform: scale(0.15)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: 36px; left: 26px" int="donut" />
+            <span style="top: 25px; left: 83px" />
+            <span style="top: 54px; left: 174px" input="donut" output="milk" />
+            <span style="top: 36px; left: 230px" />
+          </div>
+        </div>
+        <div class="subject" style="top: 103px">
+          <div class="ant blue">
+            <div style="transform: scale(0.15)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: 36px; left: 26px" int="rice" />
+            <span style="top: 25px; left: 83px" />
+            <span style="top: 54px; left: 174px" input="milk" output="donut" />
+            <span style="top: 36px; left: 230px" />
+          </div>
+        </div>
+        <div class="subject" style="top: 55px; left: 287px">
+          <div class="ant green">
+            <div style="transform: scale(0.15)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: 36px; left: 26px" int="rice" />
+            <span style="top: 25px; left: 83px" />
+            <span style="top: 54px; left: 174px" input="rice" output="milk" />
+            <span style="top: 36px; left: 230px">
+              <span
+                class="guess green"
+                style="transform: translate(-50%, -150%)"
+                ans="milk"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="area">
+          <img
+            width="auto"
+            height="180"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-1-3-1.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map wow fadeIn">
+        <div class="subject" style="top: 0px; left: 0px">
+          <div class="ant green">
+            <div style="transform: scale(0.15)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 97px" int="donut"></span>
+            <span style="top: 37px; left: 97px"></span>
+            <span style="top: 41px; left: 46px"></span>
+            <span
+              style="top: 84px; left: 68px"
+              input="donut"
+              output="milk"
+            ></span>
+
+            <span style="top: 84px; left: 155px">
+              <span
+                class="guess green milk"
+                ans="milk"
+                style="transform: translate(-142%, -61%) scale(0.8)"
+              ></span>
+            </span>
+            <span style="top: 113px; left: 155px"></span>
+            <span
+              style="top: 139px; left: 104px"
+              input="rice"
+              output="donut"
+            ></span>
+            <span style="top: 139px; left: 38px">
+              <span
+                class="guess green milk"
+                ans="milk"
+                style="transform: translate(15%, -62%) scale(0.8)"
+              ></span>
+            </span>
+            <span style="top: 178px; left: 38px"></span>
+            <span
+              style="top: 192px; left: 79px"
+              input="milk"
+              output="rice"
+            ></span>
+            <span style="top: 192px; left: 125px"></span>
+            <span style="top: 240px; left: 125px"></span>
+            <span style="top: 240px; left: 188px">
+              <span
+                class="guess green rice"
+                ans="rice"
+                style="transform: translate(-110%, -127%) scale(0.8)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="area">
+          <img
+            width="auto"
+            height="250"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-1-3-2.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map wow fadeIn">
+        <div class="subject" style="top: 0px; left: 0px">
+          <div class="ant green">
+            <div style="transform: scale(0.1)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 47px" int="donut"></span>
+            <span style="top: 24px; left: 47px"></span>
+            <span
+              style="top: 49px; left: 47px"
+              input="donut"
+              output="milk"
+            ></span>
+            <span style="top: 94px; left: 73px">
+              <span
+                class="guess green"
+                ans="milk"
+                style="transform: translate(-110%, -114%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 104px; left: 46px"
+              input="milk"
+              output="rice"
+            ></span>
+            <span style="top: 143px; left: 46px"></span>
+            <span style="top: 143px; left: 75px"
+              ><span
+                class="guess green"
+                ans="rice"
+                style="transform: translate(-119%, -62%) scale(0.6)"
+              ></span
+            ></span>
+            <span style="top: 181px; left: 75px"></span>
+            <span
+              style="top: 180px; left: 42px"
+              input="milk"
+              output="donut"
+            ></span>
+            <span style="top: 181px; left: 5px"></span>
+            <span style="top: 242px; left: 5px"></span>
+            <span style="top: 242px; left: 40px">
+              <span
+                class="guess green"
+                ans="rice"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 63px">
+          <div class="ant purple" style="top: -5px; left: 47px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 47px" int="donut"></span>
+            <span style="top: 24px; left: 47px"></span>
+            <span
+              style="top: 49px; left: 47px"
+              input="donut"
+              output="rice"
+            ></span>
+            <span style="top: 104px; left: 46px">
+              <span
+                class="guess purple"
+                ans="rice"
+                style="transform: translate(-59%, -135%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 118px; left: 76px"
+              input="donut"
+              output="milk"
+            ></span>
+            <span style="top: 143px; left: 76px"></span>
+            <span style="top: 143px; left: 44px"></span>
+            <span style="top: 181px; left: 45px"
+              ><span
+                class="guess purple"
+                ans="rice"
+                style="transform: translate(-60%, -139%) scale(0.6)"
+              ></span
+            ></span>
+            <span
+              style="top: 181px; left: -35px"
+              input="milk"
+              output="donut"
+            ></span>
+            <span style="top: 181px; left: -58px"></span>
+            <span style="top: 242px; left: -58px"></span>
+            <span style="top: 242px; left: 21px">
+              <span
+                class="guess purple"
+                ans="rice"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 63px">
+          <div class="ant red" style="top: -5px; left: 47px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 109px" int="donut"></span>
+            <span style="top: 24px; left: 109px"></span>
+            <span
+              style="top: 49px; left: 109px"
+              input="rice"
+              output="milk"
+            ></span>
+            <span style="top: 104px; left: 109px">
+              <span
+                class="guess red"
+                ans="donut"
+                style="transform: translate(-61%, -135%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 118px; left: 76px"
+              input="donut"
+              output="milk"
+            ></span>
+            <span style="top: 143px; left: 76px"></span>
+            <span style="top: 143px; left: 109px"></span>
+            <span style="top: 167px; left: 110px"
+              ><span
+                class="guess red"
+                ans="milk"
+                style="transform: translate(-62%, -112%) scale(0.6)"
+              ></span
+            ></span>
+            <span style="top: 168px; left: 45px"></span>
+            <span style="top: 181px; left: 45px"></span>
+            <span
+              style="top: 181px; left: -35px"
+              input="milk"
+              output="donut"
+            ></span>
+            <span style="top: 181px; left: -58px"></span>
+            <span style="top: 242px; left: -58px"></span>
+            <span style="top: 242px; left: 66px">
+              <span
+                class="guess red"
+                ans="donut"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="area">
+          <img
+            width="auto"
+            height="250"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-1-3-3.png"
+          />
+        </div>
+        <div class="who wow bounceInUp" style="right: -20px; bottom: 5px">
+          <div class="alert">
+            <p>最後誰帶著甜甜圈回家了？點擊牠塗上顏色吧。</p>
+          </div>
+          <div class="ant" int="donut" ans="red">
+            <div style="transform: scale(0.2)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="map wow fadeIn">
+        <div class="subject" style="top: 0px; left: 0px">
+          <div class="ant yellow" style="top: -5px; left: 47px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 28px" int="donut"></span>
+            <span style="top: -5px; left: 53px"></span>
+            <span style="top: 23px; left: 53px"></span>
+            <span
+              style="top: 66px; left: 53px"
+              input="milk"
+              output="rice"
+            ></span>
+            <span style="top: 96px; left: 53px">
+              <span
+                class="guess yellow"
+                ans="donut"
+                style="transform: translate(-119%, -123%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 128px; left: 53px"
+              input="donut"
+              output="milk"
+            ></span>
+
+            <span style="top: 180px; left: 53px"
+              ><span
+                class="guess yellow"
+                ans="rice"
+                style="transform: translate(-119%, -140%) scale(0.6)"
+              ></span
+            ></span>
+            <span style="top: 181px; left: 5px"></span>
+            <span style="top: 242px; left: 5px"></span>
+            <span style="top: 242px; left: 40px">
+              <span
+                class="guess yellow"
+                ans="rice"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 0px">
+          <div class="ant green" style="top: -5px; left: 47px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 78px" int="milk"></span>
+            <span style="top: -5px; left: 53px"></span>
+            <span style="top: 23px; left: 53px"></span>
+            <span
+              style="top: 66px; left: 53px"
+              input="milk"
+              output="rice"
+            ></span>
+            <span style="top: 96px; left: 53px">
+              <span
+                class="guess green"
+                ans="rice"
+                style="transform: translate(-5%, -123%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 128px; left: 53px"
+              input="donut"
+              output="milk"
+            ></span>
+
+            <span style="top: 180px; left: 53px"
+              ><span
+                class="guess green"
+                ans="rice"
+                style="transform: translate(-5%, -140%) scale(0.6)"
+              ></span
+            ></span>
+            <span style="top: 181px; left: 5px"></span>
+            <span style="top: 242px; left: 5px"></span>
+            <span style="top: 242px; left: 85px">
+              <span
+                class="guess green"
+                ans="rice"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 112px">
+          <div class="ant purple" style="top: -5px; left: 47px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 28px" int="donut"></span>
+            <span style="top: -5px; left: 53px"></span>
+            <span style="top: 23px; left: 53px"></span>
+            <span
+              style="top: 66px; left: 53px"
+              input="donut"
+              output="rice"
+            ></span>
+            <span style="top: 96px; left: 53px">
+              <span
+                class="guess purple"
+                ans="rice"
+                style="transform: translate(-119%, -123%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 128px; left: 53px"
+              input="rice"
+              output="milk"
+            ></span>
+
+            <span style="top: 180px; left: 53px"
+              ><span
+                class="guess purple"
+                ans="milk"
+                style="transform: translate(-119%, -140%) scale(0.6)"
+              ></span
+            ></span>
+            <span style="top: 181px; left: 5px"></span>
+            <span
+              style="top: 181px; left: -53px"
+              input="donut"
+              output="rice"
+            ></span>
+            <span style="top: 181px; left: -107px"></span>
+            <span style="top: 242px; left: -107px"></span>
+            <span style="top: 242px; left: -50px"></span>
+            <span style="top: 242px; left: 20px">
+              <span
+                class="guess purple"
+                ans="milk"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 112px">
+          <div class="ant red" style="top: -5px; left: 47px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: -5px; left: 78px" int="milk"></span>
+            <span style="top: -5px; left: 53px"></span>
+            <span style="top: 23px; left: 53px"></span>
+            <span
+              style="top: 66px; left: 53px"
+              input="donut"
+              output="rice"
+            ></span>
+            <span style="top: 96px; left: 53px">
+              <span
+                class="guess red"
+                ans="milk"
+                style="transform: translate(-5%, -123%) scale(0.6)"
+              ></span>
+            </span>
+            <span
+              style="top: 128px; left: 53px"
+              input="rice"
+              output="milk"
+            ></span>
+
+            <span style="top: 180px; left: 53px"
+              ><span
+                class="guess red"
+                ans="milk"
+                style="transform: translate(-5%, -140%) scale(0.6)"
+              ></span
+            ></span>
+            <span style="top: 181px; left: 5px"></span>
+            <span
+              style="top: 181px; left: -53px"
+              input="donut"
+              output="rice"
+            ></span>
+            <span style="top: 181px; left: -107px"></span>
+            <span style="top: 242px; left: -107px"></span>
+            <span style="top: 242px; left: -20px"></span>
+
+            <span style="top: 242px; left: 65px">
+              <span
+                class="guess red"
+                ans="milk"
+                style="transform: translate(-85%, -109%) scale(0.6)"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="area">
+          <img
+            width="auto"
+            height="250"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-1-3-4.png"
+          />
+        </div>
+        <div class="who wow bounceInUp" style="right: -30px; bottom: 5px">
+          <div class="alert">
+            <p>最後誰帶著甜甜圈回家了？點擊牠塗上顏色吧。</p>
+          </div>
+          <div class="ant" int="rice" ans="red">
+            <div style="transform: scale(0.2)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
