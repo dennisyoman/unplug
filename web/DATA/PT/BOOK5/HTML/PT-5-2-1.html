@@ -1,0 +1,188 @@
+<div id="module_wrapper" class="module_ant">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <!--<div class="btn_check"></div>-->
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>螞蟻倉庫</b>：請問螞蟻各自帶了什麼物品回家。</p>
+          <img src="./DATA/PT/BOOK5/IMAGES/PT-5-1-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="map wow fadeIn" style="margin-top: 0">
+        <div class="subject" style="top: 0px; left: 93px">
+          <div class="ant green">
+            <div style="transform: scale(0.1)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: 0px; left: 0px" int="rice"></span>
+            <span style="top: 25px; left: 0px"></span>
+            <span
+              style="top: 54px; left: 0px"
+              input="donut"
+              output="milk"
+            ></span>
+            <span style="top: 110px; left: 0px">
+              <span
+                class="guess green"
+                style="transform: translate(-59%, -122%) scale(0.6)"
+                ans="rice"
+              ></span>
+            </span>
+            <span
+              style="top: 140px; left: 0px"
+              input="rice"
+              output="donut"
+            ></span>
+            <span style="top: 168px; left: 0px"></span>
+            <span style="top: 168px; left: -40px">
+              <span
+                class="guess green"
+                style="transform: translate(20%, -68%) scale(0.6)"
+                ans="donut"
+              ></span>
+            </span>
+            <span style="top: 191px; left: -40px"></span>
+            <span
+              style="top: 218px; left: -40px"
+              input="milk"
+              output="rice"
+            ></span>
+            <span style="top: 275px; left: -28px">
+              <span
+                class="guess green"
+                style="transform: translate(-82%, -121%) scale(0.6)"
+                ans="donut"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 137px">
+          <div class="ant red">
+            <div style="transform: scale(0.1)">
+              <span class="head" />
+              <span class="item" />
+              <span class="butt" />
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: 0px; left: 0px" int="milk"></span>
+            <span style="top: 25px; left: 0px"></span>
+            <span
+              style="top: 54px; left: 0px"
+              input="donut"
+              output="milk"
+            ></span>
+            <span style="top: 110px; left: 0px">
+              <span
+                class="guess red"
+                style="transform: translate(-59%, -122%) scale(0.6)"
+                ans="milk"
+              ></span>
+            </span>
+            <span
+              style="top: 140px; left: 0px"
+              input="rice"
+              output="donut"
+            ></span>
+            <span style="top: 191px; left: 0px">
+              <span
+                class="guess red"
+                style="transform: translate(-59%, -115%) scale(0.6)"
+                ans="milk"
+              ></span>
+            </span>
+            <span
+              style="top: 218px; left: 0px"
+              input="milk"
+              output="rice"
+            ></span>
+            <span style="top: 275px; left: 12px">
+              <span
+                class="guess red"
+                style="transform: translate(-82%, -121%) scale(0.6)"
+                ans="rice"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="subject" style="top: 0px; left: 184px">
+          <div class="ant purple" style="top: 0px; left: 0px">
+            <div style="transform: scale(0.1)">
+              <span class="head"></span>
+              <span class="item"></span>
+              <span class="butt"></span>
+            </div>
+          </div>
+          <div class="path">
+            <span style="top: 0px; left: 0px" int="donut"></span>
+            <span style="top: 25px; left: 0px"></span>
+            <span
+              style="top: 54px; left: 0px"
+              input="donut"
+              output="milk"
+            ></span>
+            <span style="top: 110px; left: 0px">
+              <span
+                class="guess purple"
+                style="transform: translate(-62%, -122%) scale(0.6)"
+                ans="milk"
+              ></span>
+            </span>
+            <span
+              style="top: 140px; left: 0px"
+              input="rice"
+              output="donut"
+            ></span>
+            <span style="top: 168px; left: 0px"></span>
+            <span style="top: 168px; left: 42px">
+              <span
+                class="guess purple"
+                style="transform: translate(-146%, -68%) scale(0.6)"
+                ans="milk"
+              ></span>
+            </span>
+            <span style="top: 191px; left: 41px"></span>
+            <span
+              style="top: 218px; left: 41px"
+              input="rice"
+              output="donut"
+            ></span>
+            <span style="top: 275px; left: 52px">
+              <span
+                class="guess purple"
+                style="transform: translate(-82%, -121%) scale(0.6)"
+                ans="milk"
+              ></span>
+            </span>
+          </div>
+        </div>
+        <div class="area">
+          <img
+            width="auto"
+            height="250"
+            src="./DATA/PT/BOOK5/IMAGES/PT-5-2-1-1.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

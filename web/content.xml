@@ -168,7 +168,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="5" lid="2">
-    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-2-1.html" js="JS/torch.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-2-1.html" js="JS/ant.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 事件" html="PT/BOOK5/HTML/PT-5-2-3.html" js="JS/laser.js" image="IMAGES/UNITS/euler.png" skin="">
@@ -177,7 +177,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="5" lid="3">
-    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-3-1.html" js="JS/observe.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT/BOOK5/HTML/PT-5-3-1.html" js="JS/laser.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 規律" html="PT/BOOK5/HTML/PT-5-3-3.html" js="JS/regularity.js" image="IMAGES/UNITS/layers.png" skin="">

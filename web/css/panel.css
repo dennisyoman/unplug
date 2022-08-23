@@ -195,10 +195,10 @@
 
 .panel .main-panel .btn.disabled {
   pointer-events: none;
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .panel .main-panel .pen_tool {
@@ -345,10 +345,10 @@
   width: 0;
   background: #fee2a5;
   z-index: 1;
-  opacity: 0.7;
-  -moz-opacity: 0.7;
-  -khtml-opacity: 0.7;
-  filter: alpha(opacity=70);
+  opacity: 0.7 !important;
+  -moz-opacity: 0.7 !important;
+  -khtml-opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important;
 }
 
 .player .main-player .bar .dragger {
@@ -413,18 +413,18 @@
   width: 25px;
   height: 30px;
   background-image: url("../DATA/IMAGES/common/player_repeat.png");
-  opacity: 0.5;
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.5 !important;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  filter: alpha(opacity=50) !important;
   pointer-events: none;
 }
 
 .player .main-player .btns span.repeat.active {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
   pointer-events: auto;
 }
 
@@ -432,17 +432,17 @@
   width: 25px;
   height: 30px;
   background-image: url("../DATA/IMAGES/common/player_loop.png");
-  opacity: 0.5;
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.5 !important;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  filter: alpha(opacity=50) !important;
 }
 
 .player .main-player .btns span.loop.active {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .player .main-player .btns span.close {
@@ -1150,17 +1150,17 @@
   background-size: 40px 20px;
   pointer-events: auto;
   cursor: pointer;
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .widget > .zoomer .edit.active {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .widget > .zoomer .erase {
@@ -1173,18 +1173,18 @@
   background-size: 40px 20px;
   pointer-events: auto;
   cursor: pointer;
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .widget > .zoomer .erase.active {
   pointer-events: auto;
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .widget > .zoomer .eraseAll {
@@ -1197,18 +1197,18 @@
   background-size: 40px 20px;
   pointer-events: auto;
   cursor: pointer;
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .widget > .zoomer .eraseAll.active {
   pointer-events: auto;
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .widget > .zoomer.active {
@@ -2284,10 +2284,10 @@
 }
 
 .widget > .wbcard .def.active {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  filter: alpha(opacity=30);
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
 }
 
 .widget > .wbcard p {
@@ -2336,17 +2336,17 @@
   position: relative;
   background: url("../DATA/IMAGES/common/monopoly.jpg") no-repeat center center;
   background-size: 100% 100%;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .widget > .monopoly .monopoly_wrapper.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .widget > .monopoly .close,
@@ -2439,10 +2439,10 @@
 }
 
 .widget > .monopoly .board .cardo > * {
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
   pointer-events: none;
 }
 
@@ -2575,10 +2575,10 @@
   height: 272px;
   top: 30px;
   position: relative;
-  opacity: 0;
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .widget > .flipcard .flipcard_wrapper::before {
@@ -2596,10 +2596,10 @@
 }
 
 .widget > .flipcard .flipcard_wrapper.loaded {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .widget > .flipcard .close {
@@ -2635,19 +2635,19 @@
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
-  opacity: 0.4;
-  -moz-opacity: 0.4;
-  -khtml-opacity: 0.4;
-  filter: alpha(opacity=40);
+  opacity: 0.4 !important;
+  -moz-opacity: 0.4 !important;
+  -khtml-opacity: 0.4 !important;
+  filter: alpha(opacity=40) !important;
   background: url("../DATA/IMAGES/common/wb_read.png") no-repeat center center;
   background-size: 100% 100%;
 }
 
 .widget > .flipcard .func > span.active {
-  opacity: 1;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
