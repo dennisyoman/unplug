@@ -58,7 +58,12 @@ $(document).ready(function () {
       $(".sideTool > div.btn_check")
         .unbind()
         .bind("click", function () {
-          checkAnswer();
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            checkAnswer(true);
+          } else {
+            checkAnswer(false);
+          }
         });
 
       //init
@@ -101,38 +106,44 @@ var showAnswer = function (boolean) {
   }
 };
 var checkAnswer = function (boolean) {
-  //檢查答案
-  var getWrong = false;
-  $(".contents > div.selected .puzzle .subject .items")
-    .find("span")
-    .each(function () {
-      $(this).removeClass("wrong");
-      if ($(this).hasClass("selected") && $(this).hasClass("ans")) {
-        $(this).addClass("wrong");
-        getWrong = true;
-      } else if (!$(this).hasClass("selected") && !$(this).hasClass("ans")) {
-        $(this).addClass("wrong");
-        getWrong = true;
-      }
-    });
-
-  if (getWrong) {
-    rootSoundEffect($stupid);
-  } else {
-    var uniq = new Date().getTime();
-    $(".contents > div.selected")
-      .find(".puzzle")
-      .append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
-      );
-    $(".smoke")
-      .delay(1500)
-      .queue(function () {
-        $(".resultIcon").remove();
-        $(this).dequeue().remove();
+  if (boolean) {
+    //檢查答案
+    var getWrong = false;
+    $(".contents > div.selected .puzzle .subject .items")
+      .find("span")
+      .each(function () {
+        $(this).removeClass("wrong");
+        if ($(this).hasClass("selected") && $(this).hasClass("ans")) {
+          $(this).addClass("wrong");
+          getWrong = true;
+        } else if (!$(this).hasClass("selected") && !$(this).hasClass("ans")) {
+          $(this).addClass("wrong");
+          getWrong = true;
+        }
       });
-    //
-    rootSoundEffect($chimes);
+
+    if (getWrong) {
+      rootSoundEffect($stupid);
+    } else {
+      var uniq = new Date().getTime();
+      $(".contents > div.selected")
+        .find(".puzzle")
+        .append(
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        );
+      $(".smoke")
+        .delay(1500)
+        .queue(function () {
+          $(".resultIcon").remove();
+          $(this).dequeue().remove();
+        });
+      //
+      rootSoundEffect($chimes);
+    }
+  } else {
+    $(".contents > div.selected .puzzle .subject .items")
+      .find("span")
+      .removeClass("wrong");
   }
 };
 var lowlaged = false;
@@ -192,7 +203,7 @@ var resetElem = function (elem) {
       $(this).removeClass("wrong");
       $(".sideTool > div.btn_replay").show();
       if (elem.find(".conditons").length > 0) {
-        $(".sideTool > div.btn_check").show();
+        $(".sideTool > div.btn_check").removeClass("active").show();
       }
       $(this).toggleClass("selected");
       if ($(this).hasClass("selected")) {
