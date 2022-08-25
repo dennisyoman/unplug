@@ -4420,6 +4420,14 @@
           animation: none !important;
 }
 
+.module_ant .contents .map.disabled .ant.pending {
+  pointer-events: auto !important;
+}
+
+.module_ant .contents .map.disabled .ant.pending * {
+  pointer-events: auto !important;
+}
+
 .module_ant .contents .map.disabled .subject .path > span > span {
   pointer-events: none;
 }
@@ -4525,6 +4533,34 @@
           animation-duration: 1s !important;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+.module_ant .contents .map .ant.pending::after {
+  content: "";
+  --webkit-animation-name: swing;
+  -webkit-animation-name: swing;
+          animation-name: swing;
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  position: absolute;
+  z-index: 99;
+  top: -40px;
+  right: -35px;
+  width: 20px;
+  height: 20px;
+  background-image: url("../DATA/IMAGES/common/btn_replay.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #eb6154;
+  border: 1px solid #eb6154;
+  border-radius: 10px 10px 10px 0;
+  -moz-border-radius: 10px 10px 10px 0;
+  -webkit-border-radius: 10px 10px 10px 0;
 }
 
 @-webkit-keyframes flyant {
@@ -4785,7 +4821,6 @@
   width: 10px;
   height: 10px;
   z-index: 1;
-  pointer-events: auto;
   -webkit-animation-duration: 0.8s;
           animation-duration: 0.8s;
 }

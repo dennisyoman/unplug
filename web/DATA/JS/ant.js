@@ -143,6 +143,7 @@ var moveAnt = function (ant) {
           //
         } else {
           rootSoundEffect($wrong);
+          ant.addClass("pending");
           guess
             .addClass("wrong")
             .append(
@@ -198,6 +199,7 @@ var showAnswer = function (boolean) {
         .addClass("ant")
         .addClass(extraAnt.attr("int"))
         .addClass(extraAnt.attr("ans"));
+      $(".contents > div.selected").find(".alert").hide();
     }
     //
     rootSoundEffect($help);
@@ -241,6 +243,7 @@ var resetElem = function (elem) {
   elem.find(".walk").removeClass("walk");
   elem.find(".right").removeClass("right");
   elem.find(".wrong").removeClass("wrong");
+  elem.find(".pending").removeClass("pending");
   elem.find(".visited").removeClass("visited");
   elem.find(".donut").removeClass("donut");
   elem.find(".milk").removeClass("milk");
@@ -287,9 +290,27 @@ var resetElem = function (elem) {
       .bind("click", function () {
         var guesses = $(this).siblings(".path").find(".guess:not(.visited)");
         if (guesses.length == 0) {
-          $(this).removeClass("swing");
-          moveAnt($(this));
-          $(".sideTool > div.btn_replay").removeClass("active").show();
+          if (!$(this).hasClass("pending")) {
+            $(this).removeClass("swing");
+            moveAnt($(this));
+            $(".sideTool > div.btn_replay").removeClass("active").show();
+          } else {
+            //重設單一螞蟻
+            resetElem($(this).parent());
+            var path = $(this).parent().find(".path > span");
+            for (var i = 0; i < path.length; i++) {
+              if (path.eq(i).attr("int")) {
+                var startPoint = path.eq(i);
+                startPoint.addClass("visited");
+                var intX = startPoint.get(0).style.left;
+                var intY = startPoint.get(0).style.top;
+                $(this).css("top", intY).css("left", intX);
+                $(this).addClass(startPoint.attr("int"));
+              }
+            }
+            $(this).addClass("swing");
+            $(".contents > div.selected").find(".map").removeClass("disabled");
+          }
         } else {
           guesses
             .parent()
@@ -313,15 +334,20 @@ var resetElem = function (elem) {
           extraAnt.siblings(".alert").hide();
           rootSoundEffect($key);
           $(".sideTool > div.btn_replay").removeClass("active").show();
-          if ($(this).hasClass("green")) {
-            $(this).removeClass("green").addClass("red");
-          } else if ($(this).hasClass("red")) {
-            $(this).removeClass("red").addClass("blue");
-          } else if ($(this).hasClass("blue")) {
-            $(this).removeClass("blue").addClass("purple");
-          } else {
-            $(this).removeClass("purple").addClass("green");
+          $(".sideTool > div.btn_answer").removeClass("active");
+          var colour = $(this).attr("seq").split(",");
+          var seq = -1;
+          for (var j = 0; j < colour.length; j++) {
+            if ($(this).hasClass(colour[j])) {
+              $(this).removeClass(colour[j]);
+              seq = j;
+            }
           }
+          seq += 1;
+          if (seq >= colour.length) {
+            seq = 0;
+          }
+          $(this).addClass(colour[seq]);
         });
     }
   });

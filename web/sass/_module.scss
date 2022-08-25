@@ -3155,6 +3155,12 @@
           &.swing {
             animation: none !important;
           }
+          &.pending {
+            pointer-events: auto !important;
+            * {
+              pointer-events: auto !important;
+            }
+          }
         }
         .subject {
           .path {
@@ -3252,6 +3258,31 @@
           animation-iteration-count: 1 !important;
           animation-duration: 1s !important;
           animation-fill-mode: forwards;
+        }
+
+        &.pending {
+          &::after {
+            content: "";
+            --webkit-animation-name: swing;
+            animation-name: swing;
+            -webkit-transform-origin: left bottom;
+            transform-origin: left bottom;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            position: absolute;
+            z-index: 99;
+            top: -40px;
+            right: -35px;
+            width: 20px;
+            height: 20px;
+            background-image: url("../DATA/IMAGES/common/btn_replay.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: $main;
+            border: 1px solid $main;
+            @include borderRadius(10px 10px 10px 0);
+          }
         }
 
         @keyframes flyant {
@@ -3479,7 +3510,7 @@
             height: 10px;
             //background: #ff0000;
             z-index: 1;
-            pointer-events: auto;
+            //pointer-events: auto;
             animation-duration: 0.8s;
 
             &.alert {
