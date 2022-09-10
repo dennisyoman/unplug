@@ -30,5 +30,11 @@
       <lesson lid="3">規律的彩色稻穗</lesson>
       <lesson lid="4">洪水與演算法</lesson>
     </book>
+    <book name="Book 6" bid="6" img="PT_book6.jpg">
+      <lesson lid="1">年獸的傳說</lesson>
+      <lesson lid="2">二進位燈籠</lesson>
+      <lesson lid="3">搜尋白娘子</lesson>
+      <lesson lid="4">多樣的月餅</lesson>
+    </book>
   </series>
 </root>

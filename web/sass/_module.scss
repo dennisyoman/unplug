@@ -6613,6 +6613,34 @@
             z-index: 5;
           }
         }
+        &.repeat3 {
+          &::before {
+            content: "";
+            color: #fff;
+            background: url("../DATA/IMAGES/common/repeat2.png") no-repeat center center;
+            background-size: 100% 100%;
+            width: 100px;
+            height: 38px;
+            position: absolute;
+            top: -10px;
+            left: -84px;
+            z-index: 5;
+          }
+        }
+        &.repeat5 {
+          &::before {
+            content: "";
+            color: #fff;
+            background: url("../DATA/IMAGES/common/repeat2.png") no-repeat center center;
+            background-size: 100% 100%;
+            width: 155px;
+            height: 38px;
+            position: absolute;
+            top: -10px;
+            left: -139px;
+            z-index: 5;
+          }
+        }
 
         &.start {
           margin-left: 15px;
