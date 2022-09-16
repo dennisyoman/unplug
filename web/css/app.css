@@ -4549,7 +4549,7 @@
   position: absolute;
   z-index: 99;
   top: -40px;
-  right: -35px;
+  right: -15px;
   width: 20px;
   height: 20px;
   background-image: url("../DATA/IMAGES/common/btn_replay.png");
@@ -4561,6 +4561,20 @@
   border-radius: 10px 10px 10px 0;
   -moz-border-radius: 10px 10px 10px 0;
   -webkit-border-radius: 10px 10px 10px 0;
+}
+
+.module_ant .contents .map .ant.mememe::after {
+  content: "";
+  position: absolute;
+  z-index: 99;
+  top: -25px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #eb6154;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
 }
 
 @-webkit-keyframes flyant {
@@ -10567,7 +10581,7 @@ body {
   pointer-events: auto;
   cursor: pointer;
   display: inline-block;
-  width: 85px;
+  width: 100px;
   height: auto;
   text-align: center;
   margin: 0 5px;
@@ -10627,7 +10641,7 @@ body {
 
 .root > .units .icon-wrapper li h3 span {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
 }
 

@@ -179,6 +179,13 @@ var moveAnt = function (ant) {
       }
     }
     ant.removeClass("walk");
+    if (!ant.hasClass("meme")) {
+      ant.addClass("meme");
+    } else {
+      //select the right ant
+      ant.toggleClass("mememe");
+      rootSoundEffect($click);
+    }
   }
 };
 
@@ -244,6 +251,8 @@ var resetElem = function (elem) {
   elem.find(".right").removeClass("right");
   elem.find(".wrong").removeClass("wrong");
   elem.find(".pending").removeClass("pending");
+  elem.find(".meme").removeClass("meme");
+  elem.find(".mememe").removeClass("mememe");
   elem.find(".visited").removeClass("visited");
   elem.find(".donut").removeClass("donut");
   elem.find(".milk").removeClass("milk");

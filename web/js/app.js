@@ -1374,6 +1374,7 @@ let $key = new Audio("./sfx/pushing_a_key.mp3");
 let $beep = new Audio("./sfx/beep.mp3");
 let $beam = new Audio("./sfx/beam.mp3");
 let $flood = new Audio("./sfx/flood.mp3");
+let $lava = new Audio("./sfx/lava.mp3");
 
 //combine
 var sfxLowLagged = 0;
@@ -1397,6 +1398,7 @@ let $SFXAr = [
   $beep,
   $beam,
   $flood,
+  $lava,
 ];
 let $SFXNameAr = [
   "chimes",
@@ -1418,6 +1420,7 @@ let $SFXNameAr = [
   "beep",
   "beam",
   "flood",
+  "lava",
 ];
 for (let k = 0; k < $SFXAr.length; k++) {
   $SFXAr[k].preload = "auto";

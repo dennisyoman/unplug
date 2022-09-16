@@ -160,7 +160,6 @@ var floodDuration = 1000;
 
 var checkAnswer = function (boolean) {
   if (boolean) {
-    rootSoundEffect($flood);
     //
     $(".contents > div.selected")
       .find(".calendar >div > span")
@@ -170,9 +169,11 @@ var checkAnswer = function (boolean) {
     $(".sideTool > div.btn_answer").hide();
     if ($(".contents > div.selected").find(".flood").length > 0) {
       flooding();
+      rootSoundEffect($flood);
     }
     if ($(".contents > div.selected").find(".volcano").length > 0) {
       lava();
+      rootSoundEffect($lava);
     }
     //
     $(".contents > div.selected").find(".map").addClass("flooding");
@@ -337,8 +338,19 @@ var resetElem = function (elem) {
       .html($(this).attr("ans"))
       .unbind()
       .bind("click", function () {
-        rootSoundEffect($key);
-        $(this).addClass("active").siblings(".active").removeClass("active");
+        //check seq
+        var seq = $(this).attr("ans");
+        seq = parseInt(seq) - 1;
+        if (
+          elem.find(".flood > span.c" + seq).length > 0 ||
+          elem.find(".volcano > span.c" + seq).length > 0 ||
+          seq == 0
+        ) {
+          rootSoundEffect($key);
+          $(this).addClass("active").siblings(".active").removeClass("active");
+        } else {
+          rootSoundEffect($wrong);
+        }
       });
   });
   elem.find(".flood > span").each(function () {

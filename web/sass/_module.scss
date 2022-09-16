@@ -3272,7 +3272,7 @@
             position: absolute;
             z-index: 99;
             top: -40px;
-            right: -35px;
+            right: -15px;
             width: 20px;
             height: 20px;
             background-image: url("../DATA/IMAGES/common/btn_replay.png");
@@ -3282,6 +3282,20 @@
             background-color: $main;
             border: 1px solid $main;
             @include borderRadius(10px 10px 10px 0);
+          }
+        }
+
+        &.mememe {
+          &::after {
+            content: "";
+            position: absolute;
+            z-index: 99;
+            top: -25px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            border: 3px solid $main;
+            @include borderRadius(100%);
           }
         }
 
