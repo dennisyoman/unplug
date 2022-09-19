@@ -6210,6 +6210,12 @@
   z-index: 1;
 }
 
+.module_laser .contents .map .board > .beam.green::before {
+  background: #87caab;
+  -webkit-filter: drop-shadow(0px 0px 2px #87caab);
+          filter: drop-shadow(0px 0px 2px #87caab);
+}
+
 .module_laser .contents .map .board > .beam::before {
   content: "";
   display: block;

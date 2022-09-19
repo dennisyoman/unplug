@@ -406,7 +406,15 @@ var createBeam = function () {
 
     //
     rootSoundEffect($beam);
-    var beam = `<span class="beam" style="top:${oY}px;left:${oX}px;width:${meter}px;transform:rotate(${degree}deg)"></span>`;
+    var colour = "";
+    if (
+      $(".contents > div.selected")
+        .find(".board .laser.selected")
+        .attr("int") == "laser_green"
+    ) {
+      colour = "green";
+    }
+    var beam = `<span class="beam ${colour}" style="top:${oY}px;left:${oX}px;width:${meter}px;transform:rotate(${degree}deg)"></span>`;
     board.append(beam);
 
     if (outbound) {
