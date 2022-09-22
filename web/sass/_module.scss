@@ -10,6 +10,43 @@
     @include opacity(1);
   }
 
+  .alert {
+    position: absolute;
+    z-index: 10;
+    background: $main;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    left: 50%;
+    bottom: 15px;
+    @include translate(-50%, 0);
+    @include borderRadius(8px);
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+    pointer-events: auto;
+    padding: 10px 20px;
+
+    p {
+      margin-bottom: 5px;
+      b {
+        margin: 0 3px;
+        display: inline-block;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 50%;
+      top: -5px;
+      margin-right: -5px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0px 5px 10px 5px;
+      border-color: transparent transparent $main transparent;
+    }
+  }
+
   .cardAvatar {
     position: absolute;
     width: 40px;
@@ -63,22 +100,36 @@
   }
 
   .contents {
+    .result {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 12px;
+      line-height: 24px;
+      vertical-align: baseline;
+      text-align: center;
+      padding: 5px 10px;
+      background: #fff;
+      @include borderRadius(5px);
+      * {
+        vertical-align: middle;
+      }
+      span {
+        display: inline-block;
+        border-bottom: 1px solid $text;
+        padding: 0 5px;
+        pointer-events: auto;
+        cursor: pointer;
+        min-width: 24px;
+        margin: 0 4px;
+        font-family: "Gfont-bold";
+      }
+    }
     .world3D {
       width: 100%;
       height: 100%;
       perspective: 300px;
       position: relative;
-
-      @keyframes floorrise {
-        0% {
-          -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-        }
-        100% {
-          -webkit-transform: rotateX(50deg);
-          transform: rotateX(50deg);
-        }
-      }
 
       .stage {
         position: absolute;
@@ -86,14 +137,16 @@
         top: 40%;
         width: 0;
         height: 0;
-        -webkit-transform: rotateX(50deg);
-        transform: rotateX(50deg);
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
         transform-style: preserve-3d;
         -moz-transform-style: preserve-3d;
         -webkit-transform-style: preserve-3d;
         -ms-transform-style: preserve-3d;
-        animation: floorrise 1s 1;
         z-index: 1;
+        &.autoMove {
+          @include transition(all, 1s);
+        }
         * {
           transform-style: preserve-3d;
           -moz-transform-style: preserve-3d;
@@ -148,6 +201,12 @@
             &::after {
               -webkit-transform: translateZ(1px) rotate(180deg);
               transform: translateZ(1px) rotate(180deg);
+            }
+          }
+
+          &.blue {
+            &::before {
+              filter: sepia(50%) hue-rotate(-150deg) saturate(100%);
             }
           }
 
@@ -236,7 +295,7 @@
               left: 0;
               margin-left: -8px;
               background: url("../DATA/IMAGES/common/tear.png") no-repeat top left;
-              background-size: 13px 16px;
+              background-size: 100% 200%;
               -webkit-animation-name: crying;
               animation-name: crying;
               animation-iteration-count: infinite;
@@ -261,8 +320,20 @@
               &::after {
                 width: 8px;
                 bottom: 33px;
+                background-size: 13px 200%;
               }
             }
+          }
+          &.villager {
+            &.cry {
+              &::after {
+                width: 21px;
+                height: 11px;
+                bottom: 13px;
+              }
+            }
+          }
+          &.bamboo {
           }
 
           &.outbound {
@@ -348,14 +419,15 @@
         position: absolute;
         top: 30px;
         left: 35px;
-        width: 40px !important;
+        width: auto;
         height: calc(100% - 30px);
         display: inline-flex;
         flex-wrap: wrap;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        align-content: center;
+        align-content: flex-start;
+
         &.fixAnswer {
           > div {
             > div {
@@ -378,6 +450,65 @@
               left: -2px;
               @include scale(0.3);
             }
+            > div {
+              p {
+                @include scale(0.6);
+              }
+
+              &.u {
+                p {
+                  top: 6px;
+                  left: 1px;
+                }
+              }
+              &.r {
+                p {
+                  top: 1px;
+                  left: -5px;
+                }
+              }
+              &.d {
+                p {
+                  top: -4px;
+                  left: 1px;
+                }
+              }
+              &.l {
+                p {
+                  top: 1px;
+                  left: 5px;
+                }
+              }
+            }
+          }
+          .repeat {
+            width: 30px;
+            height: 30px;
+            border-width: 2px;
+            line-height: 26px;
+            @include borderRadius(6px);
+            &::after {
+              bottom: -18px;
+              width: 26px;
+            }
+          }
+          .sync {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 2px;
+            border-width: 2px;
+            @include borderRadius(6px);
+            &::after {
+              top: -18px;
+              width: 26px;
+            }
+          }
+        }
+        &.secondary {
+          .sync,
+          .repeat,
+          > div {
+            border-color: $third;
           }
         }
         > div {
@@ -566,6 +697,69 @@
             }
           }
         }
+        .repeatTop {
+          margin-top: 20px !important;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -15px;
+            width: 100%;
+            height: 15px;
+            background: url("../DATA/IMAGES/common/repeat.png") no-repeat top center;
+            background-size: 80% 160%;
+          }
+        }
+        .repeatBottom {
+          margin-bottom: 20px !important;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            width: 100%;
+            height: 15px;
+            background: url("../DATA/IMAGES/common/repeat.png") no-repeat bottom 1px center;
+            background-size: 80% 160%;
+          }
+        }
+        .repeat {
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          border: 3px solid $orange;
+          position: relative;
+          background: #fff;
+          @include borderRadius(8px);
+          font-family: "Gfont-bold";
+          z-index: 1;
+          margin-top: 5px;
+          margin-bottom: 15px;
+          font-size: 12px;
+          text-align: center;
+          line-height: 34px;
+          pointer-events: auto;
+          cursor: pointer;
+          &.disable,
+          &.visited {
+            pointer-events: none;
+          }
+          &.visited {
+            @include opacity(0.3);
+          }
+          &::after {
+            content: "次";
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 35px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            @include scale(0.7);
+          }
+        }
         .sync {
           display: inline-block;
           width: 40px;
@@ -579,10 +773,12 @@
           margin-top: 10px;
           &::after {
             content: "=";
+            font-size: 12px;
             font-weight: bold;
             @include rotate(90deg);
             position: absolute;
             top: -20px;
+            left: 0;
             width: 35px;
             height: 20px;
             text-align: center;

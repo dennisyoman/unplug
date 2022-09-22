@@ -90,6 +90,11 @@ $(document).ready(function () {
             showLightAnswer(false);
           }
         });
+      $(".sideTool > div.btn_replay")
+        .unbind()
+        .bind("click", function () {
+          resetElem($(".contents > div.selected"));
+        });
 
       $(".lights > .cta")
         .unbind()
@@ -100,7 +105,44 @@ $(document).ready(function () {
         });
 
       //init
+      ////if items exists;
+      $("#contents .world3D").each(function () {
+        var stage = $(this).find(".stage");
+        var items = $(this).find(".items").find(">span");
+        for (var i = 0; i < items.length; i++) {
+          var item = items.eq(i);
+          var man = `<div class="man ${item.attr("ans")}" intX="${item.attr(
+            "pX"
+          )}" intY="${item.attr("pY")}">
+          <img
+            class="wow bounceInDown"
+            data-wow-delay=".4s"
+            src="./DATA/${sid}/BOOK${bid}/IMAGES/${item.attr("ans")}.png"
+          />
+        </div>`;
+          stage.append(man);
+        }
+      });
+      ////if pickups exists;
+      $("#contents .world3D").each(function () {
+        var stage = $(this).find(".stage");
+        var pickups = $(this).find(".pickups").find(">span");
+        for (var i = 0; i < pickups.length; i++) {
+          var pickup = pickups.eq(i);
+          var man = `<div class="man ${pickup.attr("ans")}" intX="${pickup.attr(
+            "pX"
+          )}" intY="${pickup.attr("pY")}">
+          <img
+            class="wow bounceInDown"
+            data-wow-delay=".4s"
+            src="./DATA/${sid}/BOOK${bid}/IMAGES/${pickup.attr("ans")}.png"
+          />
+        </div>`;
+          stage.append(man);
+        }
+      });
 
+      //
       $(this)
         .addClass("loaded")
         .delay(500)
@@ -139,6 +181,7 @@ var $elem = null;
 var fightTimeout;
 var fightStep = 0;
 var fightSpeed = 1000;
+var targetFrame = null;
 
 var trigHammer = function () {
   //hammer
@@ -165,6 +208,7 @@ var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
     isDragging = true;
     if ($($elem).hasClass("rotater")) {
+      $($elem).removeClass("autoMove");
       lastRX = parseInt($($elem).attr("curRX"));
       lastRZ = parseInt($($elem).attr("curRZ"));
     }
@@ -329,9 +373,9 @@ var checkOrderStatus = function () {
     frameCheckBtn.removeClass("disable");
   } else {
     frameCheckBtn.addClass("disable");
-    //user change status
-    resetMen();
   }
+  //user change status
+  resetMen();
 };
 
 var syncArrow = function (tar) {
@@ -406,13 +450,21 @@ var showAnswer = function (boolean) {
     //有無sync?
     if ($(".contents > div.selected .frames > .sync").length > 0) {
       var sync = $(".contents > div.selected .frames > .sync");
-      sync.empty().append(`<div class="${sync.attr(
-        "ans"
-      )} wow bounceInUp animated animated animated" data-wow-delay="1.1s" ans="${sync.attr(
-        "ans"
-      )}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
-      <img src="./DATA/IMAGES/common/arrow2.png">
-    <p>${sync.attr("amount")}</p></div>`);
+      sync.each(function () {
+        $(
+          this
+        ).empty().append(`<div class="${$(this).attr("ans")} wow bounceInUp animated animated animated" data-wow-delay="1.1s" ans="${$(this).attr("ans")}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
+        <img src="./DATA/IMAGES/common/arrow2.png">
+      <p>${$(this).attr("amount")}</p></div>`);
+      });
+    }
+
+    //有無repeat?
+    if ($(".contents > div.selected .frames > .repeat").length > 0) {
+      var repeat = $(".contents > div.selected .frames > .repeat");
+      repeat.each(function () {
+        $(this).text($(this).attr("ans"));
+      });
     }
 
     $(".btn_answer").addClass("active");
@@ -426,6 +478,10 @@ var showAnswer = function (boolean) {
     if ($(".contents > div.selected .frames > .sync").length > 0) {
       $(".contents > div.selected .frames > .sync").empty();
     }
+    //有無repeat?
+    if ($(".contents > div.selected .frames > .repeat").length > 0) {
+      $(".contents > div.selected .frames > .repeat").text("");
+    }
   }
   //
   checkOrderStatus();
@@ -433,6 +489,7 @@ var showAnswer = function (boolean) {
 
 //passing
 var goPassing = function (boolean) {
+  $(".alert").remove();
   fightStep = 0;
   if (boolean) {
     passingAnimation();
@@ -471,7 +528,11 @@ var passingAnimation = function () {
       break;
   }
   //add arrow
-  appendArrow(frameElem.eq(fightStep).attr("ans"), xx, yy);
+  if (frameElem.eq(fightStep).parent().hasClass("secondary")) {
+    appendArrow(frameElem.eq(fightStep).attr("ans"), xx, yy, "blue");
+  } else {
+    appendArrow(frameElem.eq(fightStep).attr("ans"), xx, yy, "");
+  }
   //
   rootSoundEffect($show);
   moveMan(tempKing, xx, yy);
@@ -596,8 +657,40 @@ var passingAnimation = function () {
 };
 
 //fight
+var goRepeatFrames = function (frame, btn) {
+  var prevFrame = btn.parent().prev();
+  //依順序觸發
+  if (
+    !prevFrame ||
+    prevFrame.find("span.repeat").length == 0 ||
+    prevFrame.find("span.repeat.visited").length > 0
+  ) {
+    $(".contents > div.selected .king").removeClass("jump");
+    btn.addClass("visited");
+    //
+    var frameRepeatBtn = $(".contents > div.selected .frames > span.repeat");
+    frameRepeatBtn.addClass("disable");
+    //
+    goFight(frame);
+  } else {
+    rootSoundEffect($wrong);
+    $(".alert").remove();
+    var alert = "請依照順序移動。";
+    if (alert != "") {
+      $(".contents > div.selected").append(
+        `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`
+      );
+    }
+  }
+};
 
-var goFight = function () {
+var goFight = function (tar) {
+  $(".alert").remove();
+  if (tar) {
+    targetFrame = tar;
+  } else {
+    targetFrame = null;
+  }
   fightStep = 0;
   fightAnimation();
   var frameCheckBtn = $(".contents > div.selected .frames > .cta");
@@ -605,11 +698,87 @@ var goFight = function () {
   $(".sideTool > div.btn_answer").removeClass("active");
 };
 
+var pairFight = function () {
+  //目前 無 箭頭內有數字的計算法
+  var allMatch = true;
+  var framesPair = $(".contents > div.selected .frames.pair");
+
+  framesPair.each(function () {
+    var frames = $("#" + $(this).attr("pair-target"));
+    var repeatTimes = parseInt($(this).find(".repeat").text());
+    var framesArray = [];
+    var framesPairArray = [];
+    frames.find(">div").each(function () {
+      framesArray.push($(this).find(">div").attr("ans"));
+    });
+    for (var i = 0; i < repeatTimes; i++) {
+      $(this)
+        .find(">div")
+        .each(function () {
+          framesPairArray.push($(this).find(">div").attr("ans"));
+        });
+    }
+    //
+    if (framesArray.join("^") != framesPairArray.join("^")) {
+      allMatch = false;
+    }
+  });
+
+  //
+  if (allMatch) {
+    goFight();
+  } else {
+    rootSoundEffect($wrong);
+    $(".alert").remove();
+    var alert = "兩邊的次數與方向需吻合才能移動。";
+    if (alert != "") {
+      $(".contents > div.selected").append(
+        `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`
+      );
+    }
+  }
+};
+
+var setRepeatTimes = function (tar) {
+  var frames = $("#" + tar.parent().attr("pair-target"));
+  var framesPair = tar.parent();
+  var max = Math.ceil(
+    frames.find(">div").length / framesPair.find(">div").length
+  );
+  if (tar.text() == "") {
+    tar.text("1");
+  } else {
+    var times = parseInt(tar.text()) + 1;
+    if (times > max) {
+      times = 1;
+    }
+    tar.text(times);
+  }
+  rootSoundEffect($click);
+};
+
+var setPickupAmount = function (tar, id) {
+  var max = $(".contents > div.selected").find(".man." + id).length;
+  var cur = parseInt(tar.text()) + 1;
+  if (cur > max) {
+    cur = 0;
+  }
+  tar.text(cur);
+  rootSoundEffect($click);
+};
+
 var fightAnimation = function () {
-  var frameElem = $(".contents > div.selected .frames > div");
+  if (targetFrame != null) {
+    var frameElem = targetFrame.find(">div");
+  } else {
+    var frameElem = $(".contents > div.selected .frames:not('.pair') > div");
+  }
+
   var barrierElem = $(".contents > div.selected .barrier > span");
+  var pickupsElem = $(".contents > div.selected .pickups > span");
   var tempKing = $(".contents > div.selected .king");
   var tempGhost = $(".contents > div.selected .ghost");
+  var tempMan = $(".contents > div.selected .man");
   var xx = tempKing.attr("curX");
   var yy = tempKing.attr("curY");
   frameElem
@@ -632,7 +801,17 @@ var fightAnimation = function () {
       break;
   }
   //add arrow
-  appendArrow(frameElem.eq(fightStep).find(">div").attr("ans"), xx, yy);
+  if (frameElem.eq(fightStep).parent().hasClass("secondary")) {
+    appendArrow(
+      frameElem.eq(fightStep).find(">div").attr("ans"),
+      xx,
+      yy,
+      "blue"
+    );
+  } else {
+    appendArrow(frameElem.eq(fightStep).find(">div").attr("ans"), xx, yy, "");
+  }
+
   //
   rootSoundEffect($show);
   moveMan(tempKing, xx, yy);
@@ -643,6 +822,34 @@ var fightAnimation = function () {
     var pY = $(this).attr("pY");
     if (xx == pX && yy == pY) {
       getStocked = true;
+    }
+  });
+  //確定有無撿到物品pickups
+  pickupsElem.each(function () {
+    var pX = $(this).attr("pX");
+    var pY = $(this).attr("pY");
+    if (xx == pX && yy == pY) {
+      for (var i = 0; i < tempMan.length; i++) {
+        if (
+          tempMan.eq(i).attr("intX") == pX &&
+          tempMan.eq(i).attr("intY") == pY
+        ) {
+          rootSoundEffect($pop);
+          $(".smoke").dequeue().remove();
+          var uniq = new Date().getTime();
+          tempMan
+            .eq(i)
+            .addClass("vanish")
+            .append(
+              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+            );
+          $(".smoke")
+            .delay(1000)
+            .queue(function () {
+              $(this).dequeue().remove();
+            });
+        }
+      }
     }
   });
   //
@@ -753,6 +960,7 @@ var showResult = function (result) {
         rootSoundEffect($correct);
         $(this).addClass("jump");
         $(this).dequeue();
+        //到達石頭
         if (!tempGhost.hasClass("stone")) {
           tempGhost
             .addClass("vanish")
@@ -777,11 +985,14 @@ var showResult = function (result) {
     default:
     // code block
   }
+  //$(".sideTool > div.btn_replay").fadeIn();
+  //
+  $(".contents > div.selected .frames > .repeat").removeClass("disable");
 };
 
-var appendArrow = function (direction, xx, yy) {
+var appendArrow = function (direction, xx, yy, colour) {
   $(".contents > div.selected .stage").append(
-    `<div id="arrow" class="arrow ${direction}" />`
+    `<div id="arrow" class="arrow ${direction} ${colour}" />`
   );
   var diffX = (gridsColumn / 2) * gridW - gridW / 2;
   var diffY = (gridsRow / 2) * gridH - gridH / 2;
@@ -816,15 +1027,6 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
-  //show side tool btn
-  if ($(".contents > div.selected").find(".lights").length > 0) {
-    $(".sideTool > div.btn_playorder").show();
-    $(".lights > .cta").removeClass("disable");
-    $(".sideTool > div.btn_answer").show();
-  }
-  if ($(".contents > div.selected").find(".cards").length > 0) {
-    $(".sideTool > div.btn_answer").show();
-  }
 };
 var resetLights = function () {
   var tempLights = $(".contents > div.selected .lights > div");
@@ -854,8 +1056,32 @@ var resetElem = function (elem) {
   var tempStage = elem.find(".stage");
   tempStage
     .removeAttr("style")
+    .addClass("autoMove")
     .attr("curRX", tempStage.attr("intRX"))
-    .attr("curRZ", tempStage.attr("intRZ"));
+    .attr("curRZ", tempStage.attr("intRZ"))
+    .css("-webkit-transform", "rotateX(0deg) rotateZ(0deg)")
+    .css("transform", "rotateX(0deg) rotateZ(0deg)")
+    .delay(10)
+    .queue(function () {
+      tempStage
+        .css(
+          "-webkit-transform",
+          "rotateX(" +
+            tempStage.attr("intRX") +
+            "deg) rotateZ(" +
+            tempStage.attr("intRZ") +
+            "deg)"
+        )
+        .css(
+          "transform",
+          "rotateX(" +
+            tempStage.attr("intRX") +
+            "deg) rotateZ(" +
+            tempStage.attr("intRZ") +
+            "deg)"
+        )
+        .dequeue();
+    });
   gridsRow = parseInt(tempStage.attr("row"));
   gridsColumn = parseInt(tempStage.attr("col"));
   gridW = parseInt(tempStage.find(".ground > img").attr("width")) / gridsColumn;
@@ -869,17 +1095,20 @@ var resetElem = function (elem) {
   tempFrameset.find("> div").empty();
   checkOrderStatus();
 
-  //
-
-  if ($(".contents > div.selected .frames").hasClass("fixAnswer")) {
-    showAnswer(true);
-    $(".contents > div.selected .frames")
-      .find("> div > div")
-      .css("pointer-events", "none");
-  }
   //有無sync?
   if ($(".contents > div.selected .frames > .sync").length > 0) {
     $(".contents > div.selected .frames > .sync").empty();
+  }
+  //有無repeat?
+  if ($(".contents > div.selected .frames > .repeat").length > 0) {
+    $(".contents > div.selected .frames > .repeat")
+      .removeClass("disable visited")
+      .text("");
+  }
+
+  //有無result?
+  if ($(".contents > div.selected .result").length > 0) {
+    $(".contents > div.selected .result span").text("0");
   }
 
   //cards & lights reset
@@ -891,6 +1120,24 @@ var resetElem = function (elem) {
 
   //smoke effect
   $(".smoke").remove();
+
+  //答案固定?
+  if ($(".contents > div.selected .frames").hasClass("fixAnswer")) {
+    showAnswer(true);
+    $(".contents > div.selected .frames")
+      .find("> div > div")
+      .css("pointer-events", "none");
+  }
+
+  //show side tool btn
+  if ($(".contents > div.selected").find(".lights").length > 0) {
+    $(".lights > .cta").removeClass("disable");
+    $(".sideTool > div.btn_answer").show();
+  }
+  if ($(".contents > div.selected").find(".cards").length > 0) {
+    $(".sideTool > div.btn_answer").show();
+  }
+  $(".sideTool > div.btn_replay").show();
 };
 
 var moveMan = function (tar, x, y) {
