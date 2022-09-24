@@ -630,44 +630,18 @@
 }
 
 .module_order .alert {
-  position: absolute;
-  z-index: 10;
-  background: #eb6154;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
   left: 50%;
   bottom: 15px;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   -webkit-animation-fill-mode: forwards;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-  pointer-events: auto;
-  padding: 10px 20px;
-}
-
-.module_order .alert p {
-  margin-bottom: 5px;
-}
-
-.module_order .alert p b {
-  margin: 0 3px;
-  display: inline-block;
 }
 
 .module_order .alert::after {
-  content: "";
-  position: absolute;
   right: 50%;
+  margin-right: -5px;
   top: -5px;
   margin-right: -5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
   border-width: 0px 5px 10px 5px;
   border-color: transparent transparent #eb6154 transparent;
 }
@@ -4176,40 +4150,14 @@
 }
 
 .module_sheep .alert {
-  position: absolute;
-  z-index: 10;
-  background: #eb6154;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
   right: 0;
   top: 0;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-  pointer-events: auto;
-  padding: 10px 20px;
-}
-
-.module_sheep .alert p {
-  margin-bottom: 5px;
-}
-
-.module_sheep .alert p b {
-  margin: 0 3px;
-  display: inline-block;
 }
 
 .module_sheep .alert::after {
-  content: "";
-  position: absolute;
   left: 50%;
+  margin-left: -5px;
   bottom: -5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
   border-width: 10px 5px 0px 5px;
   border-color: #eb6154 transparent transparent transparent;
 }
@@ -4668,36 +4616,16 @@
 }
 
 .module_ant .contents .map .who .alert {
-  position: absolute;
-  z-index: 10;
-  background: #eb6154;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
   left: 67%;
   bottom: 60px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-  pointer-events: auto;
   padding: 10px 10px;
   width: 125px;
 }
 
-.module_ant .contents .map .who .alert p {
-  margin-bottom: 5px;
-}
-
 .module_ant .contents .map .who .alert::after {
-  content: "";
-  position: absolute;
   left: 15%;
+  margin-left: -5px;
   bottom: -5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
   border-width: 10px 5px 0 5px;
   border-color: #eb6154 transparent transparent transparent;
 }
@@ -5064,7 +4992,7 @@
           animation-duration: 0.8s;
 }
 
-.module_ant .contents .map .subject .path > span.alert {
+.module_ant .contents .map .subject .path > span.notice {
   -webkit-animation: shaking;
           animation: shaking;
   -webkit-animation-duration: 0.3s;
@@ -7102,40 +7030,14 @@
 }
 
 .module_decode .alert {
-  position: absolute;
-  z-index: 10;
-  background: #eb6154;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
   left: 67%;
   bottom: 20px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-  pointer-events: auto;
-  padding: 10px 20px;
-}
-
-.module_decode .alert p {
-  margin-bottom: 5px;
-}
-
-.module_decode .alert p b {
-  margin: 0 3px;
-  display: inline-block;
 }
 
 .module_decode .alert::after {
-  content: "";
-  position: absolute;
   left: 50%;
   top: -5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
+  margin-left: -5px;
   border-width: 0 5px 10px 5px;
   border-color: transparent transparent #eb6154 transparent;
 }
@@ -7412,40 +7314,14 @@
 }
 
 .module_calculus .alert {
-  position: absolute;
-  z-index: 10;
-  background: #eb6154;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
   left: 50%;
   bottom: 30px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-  pointer-events: auto;
-  padding: 10px 20px;
-}
-
-.module_calculus .alert p {
-  margin-bottom: 5px;
-}
-
-.module_calculus .alert p b {
-  margin: 0 3px;
-  display: inline-block;
 }
 
 .module_calculus .alert::after {
-  content: "";
-  position: absolute;
   left: 50%;
   bottom: -5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
+  margin-left: -5px;
   border-width: 10px 5px 0 5px;
   border-color: #eb6154 transparent transparent transparent;
 }
@@ -9893,40 +9769,14 @@
 }
 
 .module_organize .alert {
-  position: absolute;
-  z-index: 10;
-  background: #eb6154;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
   left: 50%;
   bottom: 30px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-  pointer-events: auto;
-  padding: 10px 20px;
-}
-
-.module_organize .alert p {
-  margin-bottom: 5px;
-}
-
-.module_organize .alert p b {
-  margin: 0 3px;
-  display: inline-block;
 }
 
 .module_organize .alert::after {
-  content: "";
-  position: absolute;
   left: 50%;
   bottom: -5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
+  margin-left: -5px;
   border-width: 10px 5px 0 5px;
   border-color: #eb6154 transparent transparent transparent;
 }
@@ -10537,6 +10387,41 @@
 
 .units-title.l4 {
   background-color: #ea80b0;
+}
+
+.alert {
+  position: absolute;
+  z-index: 10;
+  background: #eb6154;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -webkit-filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+  pointer-events: auto;
+  padding: 10px 20px;
+}
+
+.alert p {
+  margin-bottom: 5px;
+}
+
+.alert p b {
+  margin: 0 3px;
+  display: inline-block;
+}
+
+.alert::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0px 5px 10px 5px;
+  border-color: transparent transparent #eb6154 transparent;
 }
 
 @font-face {

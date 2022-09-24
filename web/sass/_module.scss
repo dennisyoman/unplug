@@ -24,37 +24,15 @@
   }
 
   .alert {
-    position: absolute;
-    z-index: 10;
-    background: $main;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
     left: 50%;
     bottom: 15px;
     @include translate(-50%, 0);
-    @include borderRadius(8px);
-    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-    pointer-events: auto;
-    padding: 10px 20px;
-
-    p {
-      margin-bottom: 5px;
-      b {
-        margin: 0 3px;
-        display: inline-block;
-      }
-    }
 
     &::after {
-      content: "";
-      position: absolute;
       right: 50%;
+      margin-right: -5px;
       top: -5px;
       margin-right: -5px;
-      width: 0;
-      height: 0;
-      border-style: solid;
       border-width: 0px 5px 10px 5px;
       border-color: transparent transparent $main transparent;
     }
@@ -2999,35 +2977,13 @@
   }
 
   .alert {
-    position: absolute;
-    z-index: 10;
-    background: $main;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
     right: 0;
     top: 0;
-    @include borderRadius(8px);
-    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-    pointer-events: auto;
-    padding: 10px 20px;
-
-    p {
-      margin-bottom: 5px;
-      b {
-        margin: 0 3px;
-        display: inline-block;
-      }
-    }
 
     &::after {
-      content: "";
-      position: absolute;
       left: 50%;
+      margin-left: -5px;
       bottom: -5px;
-      width: 0;
-      height: 0;
-      border-style: solid;
       border-width: 10px 5px 0px 5px;
       border-color: $main transparent transparent transparent;
     }
@@ -3391,32 +3347,15 @@
         position: absolute;
         z-index: 50;
         .alert {
-          position: absolute;
-          z-index: 10;
-          background: $main;
-          color: #fff;
-          font-size: 12px;
-          line-height: 1.5;
           left: 67%;
           bottom: 60px;
-          @include borderRadius(8px);
-          filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-          pointer-events: auto;
           padding: 10px 10px;
           width: 125px;
 
-          p {
-            margin-bottom: 5px;
-          }
-
           &::after {
-            content: "";
-            position: absolute;
             left: 15%;
+            margin-left: -5px;
             bottom: -5px;
-            width: 0;
-            height: 0;
-            border-style: solid;
             border-width: 10px 5px 0 5px;
             border-color: $main transparent transparent transparent;
           }
@@ -3736,7 +3675,7 @@
             //pointer-events: auto;
             animation-duration: 0.8s;
 
-            &.alert {
+            &.notice {
               animation: shaking;
               animation-duration: 0.3s;
               animation-iteration-count: 2;
@@ -5469,35 +5408,13 @@
   }
 
   .alert {
-    position: absolute;
-    z-index: 10;
-    background: $main;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
     left: 67%;
     bottom: 20px;
-    @include borderRadius(8px);
-    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-    pointer-events: auto;
-    padding: 10px 20px;
-
-    p {
-      margin-bottom: 5px;
-      b {
-        margin: 0 3px;
-        display: inline-block;
-      }
-    }
 
     &::after {
-      content: "";
-      position: absolute;
       left: 50%;
       top: -5px;
-      width: 0;
-      height: 0;
-      border-style: solid;
+      margin-left: -5px;
       border-width: 0 5px 10px 5px;
       border-color: transparent transparent $main transparent;
     }
@@ -5712,35 +5629,13 @@
   }
 
   .alert {
-    position: absolute;
-    z-index: 10;
-    background: $main;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
     left: 50%;
     bottom: 30px;
-    @include borderRadius(8px);
-    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-    pointer-events: auto;
-    padding: 10px 20px;
-
-    p {
-      margin-bottom: 5px;
-      b {
-        margin: 0 3px;
-        display: inline-block;
-      }
-    }
 
     &::after {
-      content: "";
-      position: absolute;
       left: 50%;
       bottom: -5px;
-      width: 0;
-      height: 0;
-      border-style: solid;
+      margin-left: -5px;
       border-width: 10px 5px 0 5px;
       border-color: $main transparent transparent transparent;
     }
@@ -7871,35 +7766,13 @@
   }
 
   .alert {
-    position: absolute;
-    z-index: 10;
-    background: $main;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
     left: 50%;
     bottom: 30px;
-    @include borderRadius(8px);
-    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
-    pointer-events: auto;
-    padding: 10px 20px;
-
-    p {
-      margin-bottom: 5px;
-      b {
-        margin: 0 3px;
-        display: inline-block;
-      }
-    }
 
     &::after {
-      content: "";
-      position: absolute;
       left: 50%;
       bottom: -5px;
-      width: 0;
-      height: 0;
-      border-style: solid;
+      margin-left: -5px;
       border-width: 10px 5px 0 5px;
       border-color: $main transparent transparent transparent;
     }
@@ -8205,6 +8078,7 @@
     display: none !important;
   }
 }
+
 .tabs {
   position: absolute;
   z-index: 8;
@@ -8391,5 +8265,36 @@
   }
   &.l4 {
     background-color: $l4;
+  }
+}
+
+.alert {
+  position: absolute;
+  z-index: 10;
+  background: $main;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  @include borderRadius(8px);
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.5));
+  pointer-events: auto;
+  padding: 10px 20px;
+
+  p {
+    margin-bottom: 5px;
+    b {
+      margin: 0 3px;
+      display: inline-block;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 5px 10px 5px;
+    border-color: transparent transparent $main transparent;
   }
 }
