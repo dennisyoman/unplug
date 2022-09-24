@@ -8045,7 +8045,7 @@
           color: $text;
           font-family: "Gfont-bold";
           background: #fff;
-          border: 4px solid $l2;
+          border: 3px solid $l2;
           @include borderRadius(8px);
           $max: 16;
           @for $i from 0 through $max {
@@ -8077,7 +8077,7 @@
           align-items: center;
           justify-content: center;
           background: #fff;
-          border: 4px solid $l2;
+          border: 3px solid $l2;
           @include borderRadius(6px);
           &::after {
             content: "";
