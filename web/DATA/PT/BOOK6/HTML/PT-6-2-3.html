@@ -1,0 +1,311 @@
+<div id="module_wrapper" class="module_lantern">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>數字天燈</b
+            >：根據月亮上的數字，找出總和相同的天燈，並在需要施放的天燈下方記錄
+            1，不需要的記錄 0。
+          </p>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 512px; height: 209px" class="puzzle wow bounceInUp">
+        <div class="subject wbg">
+          <div
+            class="moon"
+            style="top: 50px; left: 49px; width: 58px; height: 58px"
+          >
+            5
+          </div>
+          <span
+            class="lantern"
+            ans="off"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 161px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 250px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="off"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 337px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 425px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="digit"
+            ans="off"
+            mode="on^off"
+            style="top: 143px; left: 161px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 250px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="off"
+            mode="on^off"
+            style="top: 143px; left: 337px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 425px; width: 58px; height: 40px"
+          ></span>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>數字天燈</b
+            >：根據天燈下方記錄的數字，找出總和相同的天燈點亮，並計算出正確的數字總和填在月亮上。
+          </p>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 512px; height: 209px" class="puzzle wow bounceInUp">
+        <div class="subject wbg">
+          <span
+            class="moon"
+            ans="n6"
+            mode="n0^n1^n2^n3^n4^n5^n6^n7^n8^n9^n10^n11^n12^n13^n14^n15^n16"
+            style="top: 50px; left: 49px; width: 58px; height: 58px"
+          ></span>
+          <span
+            class="lantern"
+            ans="off"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 161px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 250px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 337px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="off"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 425px; width: 58px; height: 74px"
+          ></span>
+          <div
+            class="digit off"
+            style="top: 143px; left: 161px; width: 58px; height: 40px"
+          ></div>
+          <div
+            class="digit on"
+            style="top: 143px; left: 250px; width: 58px; height: 40px"
+          ></div>
+          <div
+            class="digit on"
+            style="top: 143px; left: 337px; width: 58px; height: 40px"
+          ></div>
+          <div
+            class="digit off"
+            style="top: 143px; left: 425px; width: 58px; height: 40px"
+          ></div>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>數字天燈</b
+            >：計算施放的天燈上面數字的總和，將其填在月亮上，並在施放的天燈下方記錄
+            1，不需要施放的記錄 0。
+          </p>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 532px; height: 209px" class="puzzle wow bounceInUp">
+        <div class="subject wbg">
+          <span
+            class="moon"
+            ans="n9"
+            mode="n0^n1^n2^n3^n4^n5^n6^n7^n8^n9^n10^n11^n12^n13^n14^n15^n16"
+            style="top: 50px; left: 49px; width: 58px; height: 58px"
+          ></span>
+          <div
+            class="lantern on"
+            style="top: 31px; left: 161px; width: 58px; height: 74px"
+          ></div>
+          <div
+            class="lantern off"
+            style="top: 31px; left: 250px; width: 58px; height: 74px"
+          ></div>
+          <div
+            class="lantern off"
+            style="top: 31px; left: 337px; width: 58px; height: 74px"
+          ></div>
+          <div
+            class="lantern on"
+            style="top: 31px; left: 425px; width: 58px; height: 74px"
+          ></div>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 161px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="off"
+            mode="on^off"
+            style="top: 143px; left: 250px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="off"
+            mode="on^off"
+            style="top: 143px; left: 337px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 425px; width: 58px; height: 40px"
+          ></span>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-3.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro" style="display: none">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>數字天燈</b
+            >：根據月亮上的數字，找出總和相同的天燈，並在需要施放的天燈下方記錄
+            1，不需要的記錄 0。
+          </p>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 512px; height: 209px" class="puzzle wow bounceInUp">
+        <div class="subject wbg">
+          <div
+            class="moon"
+            style="top: 50px; left: 49px; width: 58px; height: 58px"
+          >
+            7
+          </div>
+          <span
+            class="lantern"
+            ans="off"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 161px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 250px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 337px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="lantern"
+            ans="on"
+            defaultClass="off"
+            mode="on^off"
+            style="top: 31px; left: 425px; width: 58px; height: 74px"
+          ></span>
+          <span
+            class="digit"
+            ans="off"
+            mode="on^off"
+            style="top: 143px; left: 161px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 250px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 337px; width: 58px; height: 40px"
+          ></span>
+          <span
+            class="digit"
+            ans="on"
+            mode="on^off"
+            style="top: 143px; left: 425px; width: 58px; height: 40px"
+          ></span>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

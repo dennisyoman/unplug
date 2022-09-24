@@ -7897,6 +7897,228 @@
   }
 }
 
+.module_lantern {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 140px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -70px;
+    margin-top: -70px;
+
+    &.small {
+      width: 80px;
+      height: 80px;
+      margin-left: -40px;
+      margin-top: -40px;
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .puzzle {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      .subject {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        &.wbg {
+          background: #fff;
+          padding: 20px;
+          @include borderRadius(8px);
+        }
+
+        > img {
+          width: 100%;
+          height: 100%;
+        }
+
+        > span,
+        > div {
+          position: absolute;
+          display: inline-block;
+          width: 10px;
+          height: 5px;
+          pointer-events: auto;
+          cursor: pointer;
+          z-index: 1;
+        }
+        > div {
+          pointer-events: none;
+          &.moon {
+            background: none;
+            border: none;
+            font-size: 58px;
+            @include stroke(2, #fff);
+          }
+          &.digit {
+            background: none;
+            border: none;
+          }
+          &.lantern {
+            &.on {
+              &::before {
+                background: $l1;
+                @include opacity(0.6);
+              }
+            }
+          }
+        }
+
+        .lantern {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 1;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $orange;
+            filter: blur(20px);
+            @include opacity(0);
+            @include transition(opacity, 0.6s);
+          }
+
+          &.off {
+            &::before {
+              @include opacity(0);
+            }
+          }
+
+          &.on {
+            &::before {
+              @include opacity(0.6);
+            }
+          }
+          &.wrong {
+            &::after {
+              position: relative;
+              z-index: 5;
+              content: "";
+              width: 80%;
+              height: 80%;
+              background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+              background-size: contain;
+              animation: bounceIn;
+              animation-duration: 1s;
+            }
+          }
+        }
+        .moon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 40px;
+          color: $text;
+          font-family: "Gfont-bold";
+          background: #fff;
+          border: 4px solid $l2;
+          @include borderRadius(8px);
+          $max: 16;
+          @for $i from 0 through $max {
+            &.n#{$i} {
+              &::after {
+                content: "#{$i}";
+              }
+            }
+          }
+          &.wrong {
+            &::before {
+              position: relative;
+              z-index: 5;
+              content: "";
+              width: 80%;
+              height: 80%;
+              background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+              background-size: contain;
+              animation: bounceIn;
+              animation-duration: 1s;
+            }
+            &::after {
+              display: none;
+            }
+          }
+        }
+        .digit {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+          border: 4px solid $l2;
+          @include borderRadius(6px);
+          &::after {
+            content: "";
+            font-size: 24px;
+            color: $text;
+            font-family: "Gfont-bold";
+          }
+          &.off {
+            &::after {
+              content: "0";
+            }
+          }
+
+          &.on {
+            &::after {
+              content: "1";
+            }
+          }
+
+          &.wrong {
+            &::before {
+              position: relative;
+              z-index: 5;
+              content: "";
+              width: 80%;
+              height: 80%;
+              background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+              background-size: contain;
+              animation: bounceIn;
+              animation-duration: 1s;
+            }
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .contents {
   pointer-events: none;
   position: relative;

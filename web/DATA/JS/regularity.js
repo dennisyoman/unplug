@@ -180,6 +180,10 @@ var resetElem = function (elem) {
         }
         $(this).addClass(mode[curID]);
       });
+    //defaultClass
+    if ($(this).attr("defaultClass")) {
+      $(this).addClass($(this).attr("defaultClass"));
+    }
   });
 
   $(".sideTool > div.btn_answer").removeClass("active").show();
