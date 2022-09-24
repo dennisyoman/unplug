@@ -87,6 +87,7 @@
             <img src="./DATA/IMAGES/common/arrow1.png" />
           </div>
         </div>
+        <div class="hint wow fadeIn" style="top:115px;right:45px;"/>
       </div>
     </div>
 
@@ -460,11 +461,12 @@
         </div>
       </div>
       <div class="result wow bounceInUp" data-wow-delay="1.6s" >
-        <p><img
-          width="auto"
-          height="45"
-          src="./DATA/PT/BOOK6/IMAGES/villager.png"
-        />一共收集了</p>
+        <img width="auto" height="70" src="./DATA/PT/BOOK6/IMAGES/villager.png" onerror="this.style.display='none'" style="
+    position: absolute;
+    top: -30px;
+    left: 0px;
+">
+        <p>一共收集了</p>
         <p><span onClick="setPickupAmount($(this),'couplet')">0</span>個<img
           width="auto"
           height="30"
@@ -477,6 +479,7 @@
         src="./DATA/PT/BOOK6/IMAGES/bamboo.png"
       /></p>
       </div>
+      <div class="hint wow fadeIn" style="top:85px;left:45px;"/>
     </div>
 
   </div>

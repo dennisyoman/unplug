@@ -90,13 +90,20 @@ $(document).ready(function () {
 var showAnswer = function (boolean) {
   if (boolean) {
     //秀出答案圖片
-    $(".contents > div.selected .puzzle").addClass("showAnswer");
+    //$(".contents > div.selected .puzzle").addClass("showAnswer");
+    $(".contents > div.selected .puzzle .subject")
+      .find("span")
+      .each(function () {
+        var mode = $(this).attr("mode").split("^");
+        $(this).removeClass("wrong");
+        $(this).removeClass(mode.join(" "));
+        $(this).addClass($(this).attr("ans"));
+      });
     $(".sideTool > div.btn_replay").show();
     $(".sideTool > div.btn_check").hide();
     rootSoundEffect($help);
   } else {
-    $(".contents > div.selected .puzzle").removeClass("showAnswer");
-    $(".sideTool > div.btn_check").show();
+    $(".sideTool > div.btn_replay").click();
   }
 };
 var checkAnswer = function (boolean) {
@@ -104,11 +111,7 @@ var checkAnswer = function (boolean) {
   $(".contents > div.selected .puzzle .subject")
     .find("span")
     .each(function () {
-      if (
-        ($(this).hasClass("b") && $(this).hasClass("blue")) ||
-        ($(this).hasClass("g") && $(this).hasClass("green")) ||
-        ($(this).hasClass("r") && $(this).hasClass("red"))
-      ) {
+      if ($(this).hasClass($(this).attr("ans"))) {
         $(this).removeClass("wrong");
       } else {
         $(this).addClass("wrong");
@@ -153,26 +156,31 @@ var resetElem = function (elem) {
   elem.find(".showAnswer").removeClass("showAnswer");
   elem.find(".selected").removeClass("selected");
   elem.find(".wrong").removeClass("wrong");
-  elem
-    .find(".subject > span")
-    .removeClass("wrong blue green red")
-    .unbind()
-    .bind("click", function () {
-      $(this).removeClass("wrong");
-      $(".sideTool > div.btn_check").show();
-      $(".sideTool > div.btn_replay").show();
-      //
-      rootSoundEffect($click);
-      if ($(this).hasClass("blue")) {
-        $(this).removeClass("blue").addClass("green");
-      } else if ($(this).hasClass("green")) {
-        $(this).removeClass("green").addClass("red");
-      } else if ($(this).hasClass("red")) {
-        $(this).removeClass("red").addClass("blue");
-      } else {
-        $(this).addClass("blue");
-      }
-    });
+  elem.find(".subject > span").each(function () {
+    var mode = $(this).attr("mode").split("^");
+    $(this)
+      .removeClass(mode.join(" "))
+      .unbind()
+      .bind("click", function () {
+        $(this).removeClass("wrong");
+        $(".sideTool > div.btn_check").show();
+        $(".sideTool > div.btn_replay").show();
+        //
+        rootSoundEffect($click);
+        mode = $(this).attr("mode").split("^");
+        var curID = 0;
+        for (var i = 0; i < mode.length; i++) {
+          if ($(this).hasClass(mode[i])) {
+            $(this).removeClass(mode[i]);
+            curID = i + 1;
+          }
+        }
+        if (curID >= mode.length) {
+          curID = 0;
+        }
+        $(this).addClass(mode[curID]);
+      });
+  });
 
   $(".sideTool > div.btn_answer").removeClass("active").show();
 };

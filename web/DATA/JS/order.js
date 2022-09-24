@@ -745,15 +745,13 @@ var setRepeatTimes = function (tar) {
   var max = Math.ceil(
     frames.find(">div").length / framesPair.find(">div").length
   );
-  if (tar.text() == "") {
-    tar.text("1");
-  } else {
-    var times = parseInt(tar.text()) + 1;
-    if (times > max) {
-      times = 1;
-    }
-    tar.text(times);
+
+  var times = parseInt(tar.text()) + 1;
+  if (times > max) {
+    times = 1;
   }
+  tar.text(times);
+
   rootSoundEffect($click);
 };
 
@@ -1103,12 +1101,21 @@ var resetElem = function (elem) {
   if ($(".contents > div.selected .frames > .repeat").length > 0) {
     $(".contents > div.selected .frames > .repeat")
       .removeClass("disable visited")
-      .text("");
+      .text("1");
   }
 
   //有無result?
   if ($(".contents > div.selected .result").length > 0) {
     $(".contents > div.selected .result span").text("0");
+  }
+  //有無hint?
+  if ($(".contents > div.selected .hint").length > 0) {
+    $(".contents > div.selected .hint")
+      .fadeIn()
+      .unbind()
+      .bind("click", function () {
+        $(this).hide();
+      });
   }
 
   //cards & lights reset

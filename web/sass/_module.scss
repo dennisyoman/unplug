@@ -9,6 +9,19 @@
   &.loaded {
     @include opacity(1);
   }
+  .hint {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url("../DATA/IMAGES/common/finger2.png") no-repeat center center;
+    background-size: contain;
+    z-index: 990;
+    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.3));
+    animation: floating;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    pointer-events: auto;
+  }
 
   .alert {
     position: absolute;
@@ -165,8 +178,8 @@
 
           &.u {
             &::before {
-              -webkit-transform: translateZ(15px) rotate(-90deg);
-              transform: translateZ(15px) rotate(-90deg);
+              -webkit-transform: translateZ(6px) rotate(-90deg);
+              transform: translateZ(6px) rotate(-90deg);
             }
             &::after {
               -webkit-transform: translateZ(1px) rotate(-90deg);
@@ -175,8 +188,8 @@
           }
           &.r {
             &::before {
-              -webkit-transform: translateZ(15px) rotate(0deg);
-              transform: translateZ(15px) rotate(0deg);
+              -webkit-transform: translateZ(6px) rotate(0deg);
+              transform: translateZ(6px) rotate(0deg);
             }
             &::after {
               -webkit-transform: translateZ(1px) rotate(0deg);
@@ -185,8 +198,8 @@
           }
           &.d {
             &::before {
-              -webkit-transform: translateZ(15px) rotate(90deg);
-              transform: translateZ(15px) rotate(90deg);
+              -webkit-transform: translateZ(6px) rotate(90deg);
+              transform: translateZ(6px) rotate(90deg);
             }
             &::after {
               -webkit-transform: translateZ(1px) rotate(90deg);
@@ -195,8 +208,8 @@
           }
           &.l {
             &::before {
-              -webkit-transform: translateZ(15px) rotate(180deg);
-              transform: translateZ(15px) rotate(180deg);
+              -webkit-transform: translateZ(6px) rotate(180deg);
+              transform: translateZ(6px) rotate(180deg);
             }
             &::after {
               -webkit-transform: translateZ(1px) rotate(180deg);
@@ -234,7 +247,7 @@
             margin-top: -7.5px;
             background: url("../DATA/IMAGES/common/icon_arrow_thick.png") no-repeat center center;
             background-size: 100% 100%;
-            filter: blur(1px) brightness(0%);
+            filter: blur(2px) brightness(0%);
             @include opacity(0.3);
           }
         }
