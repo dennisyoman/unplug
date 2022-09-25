@@ -376,6 +376,7 @@ var openContent = function (id) {
 
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
+  elem.find(".showAnswer").removeClass("showAnswer");
   elem.find(".cached").removeClass("cached semiTransparent positionBingo");
   elem.find(".disable").removeClass("disable");
   //shuffle toy
