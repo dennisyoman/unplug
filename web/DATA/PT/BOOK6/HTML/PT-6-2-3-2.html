@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_lantern">
+<div id="module_wrapper" class="module_box">
   <div class="tabs">
     <span
       class="demo"
@@ -25,7 +25,6 @@
   <div class="sideTool">
     <div class="btn_answer"></div>
     <div class="btn_replay"></div>
-    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -42,74 +41,103 @@
             <b>花燈點餐</b
             >：多多食堂在元宵節掛上了二進位燈籠，代表了節日的優惠菜式，猜猜看，燈籠代表的是哪些食物呢？
           </p>
-          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-5-2.png" />
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-5-intro.png" />
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div style="width: 512px; height: 209px" class="puzzle wow bounceInUp">
-        <div class="subject">
-          <div
-            class="moon"
-            style="top: 50px; left: 49px; width: 58px; height: 58px"
-          >
-            7
-          </div>
-          <span
-            class="lantern"
-            ans="off"
-            defaultClass="off"
-            mode="on^off"
-            style="top: 31px; left: 161px; width: 58px; height: 74px"
-          ></span>
-          <span
-            class="lantern"
-            ans="on"
-            defaultClass="off"
-            mode="on^off"
-            style="top: 31px; left: 250px; width: 58px; height: 74px"
-          ></span>
-          <span
-            class="lantern"
-            ans="on"
-            defaultClass="off"
-            mode="on^off"
-            style="top: 31px; left: 337px; width: 58px; height: 74px"
-          ></span>
-          <span
-            class="lantern"
-            ans="on"
-            defaultClass="off"
-            mode="on^off"
-            style="top: 31px; left: 425px; width: 58px; height: 74px"
-          ></span>
-          <span
-            class="digit"
-            ans="off"
-            mode="on^off"
-            style="top: 143px; left: 161px; width: 58px; height: 40px"
-          ></span>
-          <span
-            class="digit"
-            ans="on"
-            mode="on^off"
-            style="top: 143px; left: 250px; width: 58px; height: 40px"
-          ></span>
-          <span
-            class="digit"
-            ans="on"
-            mode="on^off"
-            style="top: 143px; left: 337px; width: 58px; height: 40px"
-          ></span>
-          <span
-            class="digit"
-            ans="on"
-            mode="on^off"
-            style="top: 143px; left: 425px; width: 58px; height: 40px"
-          ></span>
-          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-1.png" />
+      <div
+        class="hint"
+        style="margin-right: 40px; pointer-events: auto; cursor: pointer"
+        onClick="toggleHint($(this))"
+      >
+        <img
+          class="sub"
+          height="250"
+          width="auto"
+          src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-5.png"
+        />
+        <img
+          class="ans"
+          height="250"
+          width="auto"
+          src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-5-ans.png"
+        />
+      </div>
+      <div
+        class="sensorArea wow slideInUp"
+        style="
+          width: 250px;
+          height: 38px;
+          margin-top: 195px;
+          background: url('../DATA/PT/BOOK6/IMAGES/PT-6-2-3-5-3.png') no-repeat
+            center center;
+          background-size: 100% 100%;
+        "
+      >
+        <div oY="-2" style="width: calc(25% - 10px); height: 100%" group="f1" />
+        <div oY="-2" style="width: calc(25% - 10px); height: 100%" group="f2" />
+        <div oY="-2" style="width: calc(25% - 10px); height: 100%" group="f5" />
+        <div oY="-2" style="width: calc(25% - 10px); height: 100%" group="f7" />
+      </div>
+      <div
+        class="toys wow slideInDown noShuffle"
+        style="
+          width: 190px;
+          height: 140px;
+          left: 350px;
+          bottom: 120px;
+          background: url('../DATA/PT/BOOK6/IMAGES/PT-6-2-3-5-2.png') no-repeat
+            bottom center;
+          background-size: 190px auto;
+        "
+      >
+        <div
+          class="toy cards"
+          style="width: 42px; height: 42px"
+          fp="233,332"
+          group="f1"
+        >
+          <img src="./DATA/PT/BOOK6/IMAGES/f1.png" />
+        </div>
+        <div
+          class="toy cards"
+          style="width: 42px; height: 42px"
+          fp="238,398"
+          group="f2"
+        >
+          <img src="./DATA/PT/BOOK6/IMAGES/f2.png" />
+        </div>
+        <div class="toy cards" style="width: 42px; height: 42px">
+          <img src="./DATA/PT/BOOK6/IMAGES/f3.png" />
+        </div>
+        <div class="toy cards" style="width: 42px; height: 42px">
+          <img src="./DATA/PT/BOOK6/IMAGES/f4.png" />
+        </div>
+        <div
+          class="toy cards"
+          style="width: 42px; height: 42px"
+          fp="238,463"
+          group="f5"
+        >
+          <img src="./DATA/PT/BOOK6/IMAGES/f5.png" />
+        </div>
+        <div class="toy cards" style="width: 42px; height: 42px">
+          <img src="./DATA/PT/BOOK6/IMAGES/f6.png" />
+        </div>
+        <div
+          class="toy cards"
+          style="width: 42px; height: 42px"
+          fp="234,527"
+          group="f7"
+        >
+          <img src="./DATA/PT/BOOK6/IMAGES/f7.png" />
+        </div>
+        <div class="toy cards" style="width: 42px; height: 42px">
+          <img src="./DATA/PT/BOOK6/IMAGES/f8.png" />
         </div>
       </div>
     </div>
+    <div class="assetsPreload"></div>
   </div>
 
   <div class="assetsPreload"></div>

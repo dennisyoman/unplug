@@ -301,6 +301,8 @@ var showAnswer = function (boolean) {
       var deltaContainerY = $("#module_wrapper").offset().top;
       var oX = 5;
       var oY = 30;
+      if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
+      if ($(this).attr("oY")) oY = parseInt($(this).attr("oY"));
       var oriX =
         $(this).offset().left / stageRatioReal -
         deltaContainerX / stageRatioReal;
@@ -311,7 +313,11 @@ var showAnswer = function (boolean) {
       var oriH = $(this).height() / stageRatioReal;
       ansArray.push([]);
       for (var i = 0; i < toys.length; i++) {
-        if (toys.eq(i).attr("group") == $(this).attr("group")) {
+        if (
+          toys.eq(i).attr("group") &&
+          $(this).attr("group") &&
+          toys.eq(i).attr("group") == $(this).attr("group")
+        ) {
           //
           toys.eq(i).addClass("cached");
           var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
@@ -343,6 +349,11 @@ var showAnswer = function (boolean) {
   }
 };
 
+var toggleHint = function (tar) {
+  rootSoundEffect($key);
+  tar.toggleClass("showAnswer");
+};
+
 var checkAnswer = function () {
   if ($(".cardAvatarDie:not('.right')").length > 0) {
     $(".cardAvatarDie:not('.right')").click();
@@ -368,15 +379,19 @@ var resetElem = function (elem) {
   elem.find(".cached").removeClass("cached semiTransparent positionBingo");
   elem.find(".disable").removeClass("disable");
   //shuffle toy
-  var toyArr = [];
-  elem.find(".toys > div").each(function () {
-    $(this).attr("ans", "").find("span").text("");
-    toyArr.push($(this).clone());
-  });
-  shuffle(toyArr);
-  elem.find(".toys").empty().hide();
-  for (var i = 0; i < toyArr.length; i++) {
-    elem.find(".toys").append(toyArr[i].clone());
+  if (!elem.find(".toys").hasClass("noShuffle")) {
+    var toyArr = [];
+    elem.find(".toys > div").each(function () {
+      $(this).attr("ans", "").find("span").text("");
+      toyArr.push($(this).clone());
+    });
+
+    shuffle(toyArr);
+
+    elem.find(".toys").empty().hide();
+    for (var i = 0; i < toyArr.length; i++) {
+      elem.find(".toys").append(toyArr[i].clone());
+    }
   }
   elem
     .find(".toys")
