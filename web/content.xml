@@ -220,7 +220,7 @@
     <section section="1" name="熱身活動" html="PT/BOOK6/HTML/PT-6-3-1.html" js="JS/laser.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK6/HTML/PT-6-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 二分搜尋" html="PT/BOOK6/HTML/PT-6-3-3.html" js="JS/regularity.js" image="IMAGES/UNITS/logic.png" skin="">
+    <section section="3" name="一起玩遊戲 / 二分搜尋" html="PT/BOOK6/HTML/PT-6-3-3.html" js="JS/mid.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="4" name="編程時間 / 演算法" html="PT/BOOK6/HTML/PT-6-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
