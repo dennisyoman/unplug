@@ -91,6 +91,8 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
+var dir = [true, -1];
+
 var setCode = function () {
   rootSoundEffect($show);
   var treasurebox = $(".contents > div.selected").find(".treasurebox");
@@ -126,12 +128,12 @@ var setCode = function () {
           $(this).dequeue().remove();
         });
     }
-    $(".mid").removeClass("mid");
     //清除提示
     $(".alert").remove();
     //
     var ansID = $(this).parent().attr("ans");
     if (parseInt(ansID) == $(this).index()) {
+      $(".mid").removeClass("mid");
       $(this).addClass("bingo");
       rootSoundEffect($chimes);
       treasurebox.removeClass("active").addClass("bingo");
@@ -177,18 +179,33 @@ var setCode = function () {
       $(".contents > div.selected").append(
         `<div class="alert wow bounceInRight" onclick="$(this).remove()">${alert}</div>`
       );
-      //找新的中位數
-      var midIDArr = getSectionMidID(
-        $(".contents > div.selected").find(".frames"),
-        $(this).index(),
-        parseInt(ansID) > $(this).index()
-      );
-      for (var i = 0; i < midIDArr.length; i++) {
-        $(".contents > div.selected")
-          .find(".frames")
-          .find(">div")
-          .eq(midIDArr[i])
-          .addClass("mid");
+      //是否找新的中位數
+      if (
+        dir[1] == -1 ||
+        (dir[0] && $(this).index() > dir[1]) ||
+        (!dir[0] && $(this).index() < dir[1])
+      ) {
+        $(".mid").removeClass("mid");
+        var midIDArr = getSectionMidID(
+          $(".contents > div.selected").find(".frames"),
+          $(this).index(),
+          parseInt(ansID) > $(this).index()
+        );
+        for (var i = 0; i < midIDArr.length; i++) {
+          $(".contents > div.selected")
+            .find(".frames")
+            .find(">div")
+            .eq(midIDArr[i])
+            .addClass("mid");
+        }
+      }
+      //
+      if (parseInt(ansID) < $(this).index()) {
+        //密碼比數字小
+        dir = [false, $(this).index()];
+      } else {
+        //密碼比數字大
+        dir = [true, $(this).index()];
       }
     }
   });
@@ -344,6 +361,7 @@ var resetElem = function (elem) {
   elem.find(".bingo").removeClass("bingo");
   elem.find(".mid").removeClass("mid");
   elem.find(".active").removeClass("active");
+  dir = [true, -1];
 
   //shuffle array
   //shuffle(toyArr);

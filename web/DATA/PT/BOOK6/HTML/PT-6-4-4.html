@@ -1,14 +1,14 @@
-<div id="module_wrapper" class="module_calculus">
+<div id="module_wrapper" class="module_box">
   <div class="tabs">
     <span>任務一</span>
-    <span>任務二</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
     <div class="btn_answer"></div>
-    <div class="btn_playorder"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -16,121 +16,268 @@
       <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p>
-            <b>烤月餅</b
-            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
-          </p>
-          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-intro.jpg" />
+          <p><b>做月餅</b>：依照不同的餡料及形狀，請試著將月餅分類。</p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="grids grid6 withArrow wow fadeInLeft">
-        <div>
-          <div class="cardItem A l1 cards" ans="A" title="烘烤">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-A.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem B l1 cards" ans="B" title="戴手套、圍裙">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-B.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem C l1 cards" ans="C" title="將蛋黃包入豆沙">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-C.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem D l1 cards" ans="D" title="將豆沙包入麵團">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-D.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem E l1 cards" ans="E" title="壓形">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-E.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem F l1 cards" ans="F" title="揉麵">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-1-F.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="gridSlider">
-        <div class="storyline wow slideInRight"></div>
-        <span class="btn prev" onClick="switchSlider(-1)" />
-        <span class="btn next" onClick="switchSlider(1)" />
-      </div>
-      <div class="frames wow bounceInUp">
-        <div class="start" ans="F"></div>
-        <div ans="C"></div>
-        <div ans="D"></div>
-        <div ans="E"></div>
-        <div ans="B"></div>
-        <div class="end" ans="A"></div>
-        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
-      </div>
-    </div>
-    <div>
-      <div class="intro">
-        <div>
-          <h3>How to play?</h3>
-          <p>
-            <b>月亮的變化</b
-            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
-          </p>
-          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-intro.jpg" />
-          <span class="cta" onClick="switchIntro()">START</span>
-        </div>
-      </div>
-      <div class="grids grid6 withArrow wow fadeInLeft">
-        <div>
-          <div class="cardItem A l1 cards" ans="A">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-A.jpg" title="下凸月" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem B l1 cards" ans="B">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-B.jpg" title="峨嵋月" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem C l1 cards" ans="C">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-C.jpg" title="殘月" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem D l1 cards" ans="D">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-D.jpg" title="上凸月" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem E l1 cards" ans="E">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-E.jpg" title="上弦月" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem F l1 cards" ans="F">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-4-2-F.jpg" title="新月" />
-          </div>
-        </div>
-      </div>
-      <div class="gridSlider">
-        <div class="storyline wow slideInRight"></div>
-        <span class="btn prev" onClick="switchSlider(-1)" />
-        <span class="btn next" onClick="switchSlider(1)" />
-      </div>
-      <div class="frames wow bounceInUp">
-        <div class="start" ans="F"></div>
-        <div ans="B"></div>
-        <div ans="E"></div>
-        <div ans="D"></div>
-        <div ans="A"></div>
-        <div class="end repeat5" ans="C"></div>
-        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="assetsPreload"></div>
+      <div>
+        <div
+          class="sensorArea checkonchange"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 31px;
+              left: 76px;
+            "
+            group="k"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 81px;
+              left: 76px;
+            "
+            group="o"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 132px;
+              left: 76px;
+            "
+            group="h"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 183px;
+              left: 76px;
+            "
+            group="d"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 31px;
+              left: 169px;
+            "
+            group="b"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 81px;
+              left: 169px;
+            "
+            group="f"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 132px;
+              left: 169px;
+            "
+            group="j"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 183px;
+              left: 169px;
+            "
+            group="a"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 31px;
+              left: 260px;
+            "
+            group="p"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 81px;
+              left: 260px;
+            "
+            group="g"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 132px;
+              left: 260px;
+            "
+            group="n"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 183px;
+              left: 260px;
+            "
+            group="e"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 31px;
+              left: 354px;
+            "
+            group="m"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 81px;
+              left: 354px;
+            "
+            group="i"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 132px;
+              left: 354px;
+            "
+            group="l"
+          />
+          <span
+            oX="24"
+            oY="6"
+            style="
+              position: absolute;
+              width: 88px;
+              height: 47px;
+              top: 183px;
+              left: 354px;
+            "
+            group="c"
+          />
+        </div>
+        <img
+          width="auto"
+          height="230"
+          src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-2.png"
+        />
+      </div>
+
+      <div class="toys wow slideInRight">
+        <div class="toy small cards" group="a">
+          <img src="./DATA/PT/BOOK6/IMAGES/m1.png" />
+        </div>
+        <div class="toy small cards" group="b">
+          <img src="./DATA/PT/BOOK6/IMAGES/m2.png" />
+        </div>
+        <div class="toy small cards" group="c">
+          <img src="./DATA/PT/BOOK6/IMAGES/m3.png" />
+        </div>
+        <div class="toy small cards" group="d">
+          <img src="./DATA/PT/BOOK6/IMAGES/m4.png" />
+        </div>
+        <div class="toy small cards" group="e">
+          <img src="./DATA/PT/BOOK6/IMAGES/m5.png" />
+        </div>
+        <div class="toy small cards" group="f">
+          <img src="./DATA/PT/BOOK6/IMAGES/m6.png" />
+        </div>
+        <div class="toy small cards" group="g">
+          <img src="./DATA/PT/BOOK6/IMAGES/m7.png" />
+        </div>
+        <div class="toy small cards" group="h">
+          <img src="./DATA/PT/BOOK6/IMAGES/m8.png" />
+        </div>
+        <div class="toy small cards" group="i">
+          <img src="./DATA/PT/BOOK6/IMAGES/m9.png" />
+        </div>
+        <div class="toy small cards" group="j">
+          <img src="./DATA/PT/BOOK6/IMAGES/m10.png" />
+        </div>
+        <div class="toy small cards" group="k">
+          <img src="./DATA/PT/BOOK6/IMAGES/m11.png" />
+        </div>
+        <div class="toy small cards" group="l">
+          <img src="./DATA/PT/BOOK6/IMAGES/m12.png" />
+        </div>
+        <div class="toy small cards" group="m">
+          <img src="./DATA/PT/BOOK6/IMAGES/m13.png" />
+        </div>
+        <div class="toy small cards" group="n">
+          <img src="./DATA/PT/BOOK6/IMAGES/m14.png" />
+        </div>
+        <div class="toy small cards" group="o">
+          <img src="./DATA/PT/BOOK6/IMAGES/m15.png" />
+        </div>
+        <div class="toy small cards" group="p">
+          <img src="./DATA/PT/BOOK6/IMAGES/m16.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
 </div>

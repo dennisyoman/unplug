@@ -1,0 +1,68 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>準備拜拜月亮的用品</b
+            >：<br />請找出水果類別的東西，用紅筆工具圈起。<br />
+            請找出月餅類別的東西，用藍筆工具圈起。
+          </p>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="puzzle wow fadeInRight" style="max-width: 350px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            class="ans"
+            src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-1A.png"
+          />
+        </div>
+      </div>
+      <div
+        class="pen wow bounceInUp"
+        style="position: absolute; left: 40px; bottom: 20px"
+      >
+        <span
+          style="
+            pointer-events: auto;
+            display: inline-block;
+            border: 3px solid #ffffff;
+          "
+          onClick="$('#main-panel .btn_paletton').click();$(this).fadeOut()"
+          ><img
+            height="40px"
+            width="40px"
+            src="./DATA/IMAGES/common/btn_paletton.png"
+            style="pointer-events: auto"
+        /></span>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>

@@ -250,6 +250,7 @@ var checkStatus = function () {
   } else {
     rootSoundEffect($pop);
   }
+  //是否放對區域
   if (
     $("#cardAvatar > div").attr("group") &&
     $("#cardAvatar > div").attr("group") ==
@@ -257,6 +258,7 @@ var checkStatus = function () {
   ) {
     $("#cardAvatar").addClass("right");
   }
+
   //
   $("#cardAvatar")
     .unbind()
@@ -276,7 +278,12 @@ var checkStatus = function () {
     .addClass("cardAvatarDie")
     .css("pointer-events", "auto")
     .css("cursor", "pointer");
-
+  //是否直接驗收
+  if ($(".contents > div.selected .sensorArea").hasClass("checkonchange")) {
+    console.log("coc");
+    $(".sideTool > div.btn_check").click();
+  }
+  //
   $(".sideTool > div.btn_replay").show();
   $(".sideTool > div.btn_check").show();
 };
