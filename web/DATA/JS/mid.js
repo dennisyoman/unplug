@@ -117,7 +117,7 @@ var setCode = function () {
   }
   frames.unbind().bind("click", function () {
     //是否點到中位數
-    if ($(this).hasClass("mid")) {
+    if ($(this).hasClass("mid") && $(this).parent().hasClass("midhint")) {
       var uniq = new Date().getTime();
       $(this).append(
         `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
@@ -135,7 +135,6 @@ var setCode = function () {
     if (parseInt(ansID) == $(this).index()) {
       $(".mid").removeClass("mid");
       $(this).addClass("bingo");
-      rootSoundEffect($chimes);
       treasurebox.removeClass("active").addClass("bingo");
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
@@ -214,6 +213,209 @@ var setCode = function () {
   $(".sideTool > div.btn_replay").fadeIn();
 };
 
+var setTower = function () {
+  rootSoundEffect($show);
+  var treasurebox = $(".contents > div.selected").find(".treasurebox");
+  var code = treasurebox.find(".code");
+  var frames = $(".contents > div.selected").find(".tower > div");
+  var records = $(".contents > div.selected").find(".record");
+  var ansID = Math.floor(Math.random() * frames.length);
+  //
+  frames.removeClass("hsu chin");
+  treasurebox.addClass("active");
+  records.addClass("active");
+  $(".contents > div.selected")
+    .find(".tower")
+    .attr("ans", ansID)
+    .addClass("active");
+  //找起始的中位數
+  var midIDArr = getMidID($(".contents > div.selected").find(".tower"));
+  for (var i = 0; i < midIDArr.length; i++) {
+    $(".contents > div.selected")
+      .find(".tower")
+      .find(">div")
+      .eq(midIDArr[i])
+      .addClass("mid");
+  }
+  frames.unbind().bind("click", function () {
+    //是否點到中位數
+    if ($(this).hasClass("mid") && $(this).parent().hasClass("midhint")) {
+      var uniq = new Date().getTime();
+      $(this).append(
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+      );
+      $(".smoke")
+        .delay(1500)
+        .queue(function () {
+          $(this).dequeue().remove();
+        });
+    }
+    //清除提示
+    $(".alert").remove();
+    //
+    var ansID = $(this).parent().attr("ans");
+    if (parseInt(ansID) == $(this).index()) {
+      $(".mid").removeClass("mid");
+      $(this).addClass("bingo");
+      rootSoundEffect($chimes);
+      var uniq = new Date().getTime();
+      $(".contents > div.selected .record:not('.wrong')").append(
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      );
+      $(".smoke")
+        .delay(1500)
+        .queue(function () {
+          $(".resultIcon").remove();
+          $(this).dequeue().remove();
+        });
+    } else {
+      $(this).addClass("wrong");
+      rootSoundEffect($wrong);
+      //比大小
+      var alert = "";
+      var guess = $(".contents > div.selected").find(
+        ".tower > div.wrong"
+      ).length;
+      if (parseInt(ansID) < $(this).index()) {
+        alert = "白娘子位置比 " + ($(this).index() + 1) + " 樓低";
+      } else {
+        alert = "白娘子位置比 " + ($(this).index() + 1) + " 樓高";
+      }
+
+      /*$(".contents > div.selected").append(
+        `<div class="alert wow bounceInRight" style="right:100px;bottom:15px" onclick="$(this).remove()">${alert}</div>`
+      );*/
+      //是否找新的中位數
+      if (
+        dir[1] == -1 ||
+        (dir[0] && $(this).index() > dir[1]) ||
+        (!dir[0] && $(this).index() < dir[1])
+      ) {
+        $(".mid").removeClass("mid");
+        var midIDArr = getSectionMidID(
+          $(".contents > div.selected").find(".tower"),
+          $(this).index(),
+          parseInt(ansID) > $(this).index()
+        );
+        for (var i = 0; i < midIDArr.length; i++) {
+          $(".contents > div.selected")
+            .find(".tower")
+            .find(">div")
+            .eq(midIDArr[i])
+            .addClass("mid");
+        }
+      }
+      //
+      if (parseInt(ansID) < $(this).index()) {
+        //密碼比數字小
+        dir = [false, $(this).index()];
+      } else {
+        //密碼比數字大
+        dir = [true, $(this).index()];
+      }
+    }
+  });
+  //
+  $(".sideTool > div.btn_answer").fadeIn();
+  $(".sideTool > div.btn_replay").fadeIn();
+};
+
+var goTower = function () {
+  var ansID = parseInt(
+    $(".contents > div.selected").find(".tower").attr("ans")
+  );
+  var tower = $(".contents > div.selected").find(".tower");
+  var recordHsu = $(".contents > div.selected").find(".record.hsu");
+  var cta = recordHsu.find(".cta");
+  var recordChin = $(".contents > div.selected").find(".record.chin");
+  var floors = tower.find("> div");
+
+  //hsu
+  var hsuID = 0;
+  for (var i = 0; i < floors.length; i++) {
+    if (!floors.eq(i).hasClass("wrong")) {
+      hsuID = i;
+      break;
+    }
+  }
+  //chin
+  var chinID = 0;
+  var chinIDArr = [];
+  for (var i = 0; i < floors.length; i++) {
+    if (floors.eq(i).hasClass("mid")) {
+      chinIDArr.push(i);
+    }
+  }
+  chinID = chinIDArr[Math.floor(Math.random() * chinIDArr.length)];
+  //尋找次數
+  var times = recordHsu.find("> h3 > span").text();
+  recordHsu.find("> h3 > span").text(1 + parseInt(times));
+  recordChin.find("> h3 > span").text(1 + parseInt(times));
+  //reset floors
+  floors.removeClass("hsu chin");
+  //確認是否正確
+  if (hsuID != chinID) {
+    //開不同層
+    if (ansID == chinID) {
+      //record
+      recordHsu
+        .addClass("wrong")
+        .find(".steps")
+        .append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
+      recordChin
+        .find(".steps")
+        .append("<p>白娘子在第 " + (chinID + 1) + " 層！</p>");
+      //小青找到
+      cta.hide();
+      floors.eq(hsuID).addClass("hsu").click();
+      floors.eq(chinID).addClass("chin").click();
+    } else if (ansID == hsuID) {
+      //record
+      recordHsu
+        .find(".steps")
+        .append("<p>白娘子在第 " + (hsuID + 1) + " 層！</p>");
+      recordChin
+        .addClass("wrong")
+        .find(".steps")
+        .append("<p>第 " + (chinID + 1) + " 層沒找到</p>");
+      //許仙找到
+      cta.hide();
+      floors.eq(chinID).addClass("chin").click();
+      floors.eq(hsuID).addClass("hsu").click();
+    } else {
+      //record
+      recordHsu.find(".steps").append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
+      recordChin
+        .find(".steps")
+        .append("<p>第 " + (chinID + 1) + " 層沒找到</p>");
+      //都沒找到
+      floors.eq(hsuID).addClass("hsu").click();
+      floors.eq(chinID).addClass("chin").click();
+    }
+  } else {
+    //開同一層
+    floors.eq(hsuID).addClass("hsu").click();
+    floors.eq(chinID).addClass("chin");
+    if (ansID == chinID) {
+      //一起找到
+      cta.hide();
+      //record
+      recordHsu
+        .find(".steps")
+        .append("<p>白娘子在第 " + (hsuID + 1) + " 層！</p>");
+      recordChin
+        .find(".steps")
+        .append("<p>白娘子在第 " + (hsuID + 1) + " 層！</p>");
+    } else {
+      //record
+      recordHsu.find(".steps").append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
+      recordChin
+        .find(".steps")
+        .append("<p>第 " + (chinID + 1) + " 層沒找到</p>");
+    }
+  }
+};
+
 var showAnswer = function (boolean) {
   if (boolean) {
     rootSoundEffect($help);
@@ -236,6 +438,14 @@ var showAnswer = function (boolean) {
           $(this).find(">div").eq(midIDArr[i]).addClass("bingo");
         }
       });
+    }
+    //任務三
+    if ($(".tower").length > 0) {
+      var ansID = $(".contents > div.selected").find(".tower").attr("ans");
+      $(".contents > div.selected")
+        .find(".tower > div")
+        .eq(parseInt(ansID))
+        .click();
     }
   } else {
     $(".sideTool > div.btn_replay").click();
@@ -286,7 +496,7 @@ var getMidID = function (tar) {
   var itemsLength = tar.find(">div").length;
   var midIDArr = [];
   //兩個以上才有中位數
-  if (itemsLength > 2) {
+  if (itemsLength > 0) {
     if (itemsLength % 2 == 0) {
       midIDArr.push(itemsLength / 2);
       midIDArr.push(itemsLength / 2 - 1);
@@ -327,10 +537,9 @@ var getSectionMidID = function (tar, index, bigger) {
     }
     itemsLength = counter;
   }
-  console.log("找:", counter);
-  console.log("找:", itemsLength);
+
   //兩個以上才有中位數
-  if (itemsLength > 2) {
+  if (itemsLength > 0) {
     if (itemsLength % 2 == 0) {
       midIDArr.push(offset + itemsLength / 2);
       midIDArr.push(offset + itemsLength / 2 - 1);
@@ -363,8 +572,6 @@ var resetElem = function (elem) {
   elem.find(".active").removeClass("active");
   dir = [true, -1];
 
-  //shuffle array
-  //shuffle(toyArr);
   //示範三
   if (elem.find(".frames2").length > 0) {
     elem.find(".frames2").each(function () {
@@ -384,6 +591,13 @@ var resetElem = function (elem) {
     });
     //
     $(".sideTool > div.btn_answer").fadeIn();
+  }
+
+  //任務三
+  if (elem.find(".tower").length > 0) {
+    elem.find(".record .steps p").remove();
+    elem.find(".record > h3 > span").text("0");
+    elem.find(".record .cta").show();
   }
 
   //smoke effect
