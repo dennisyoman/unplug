@@ -263,7 +263,7 @@ var setTower = function () {
         `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
       );
       $(".smoke")
-        .delay(1500)
+        .delay(2500)
         .queue(function () {
           $(".resultIcon").remove();
           $(this).dequeue().remove();
@@ -363,8 +363,11 @@ var goTower = function () {
         .find(".steps")
         .append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
       recordChin
+        .addClass("bingo")
         .find(".steps")
-        .append("<p>白娘子在第 " + (chinID + 1) + " 層！</p>");
+        .append(
+          "<p style='color:#ff8426'>白娘子在第 " + (chinID + 1) + " 層！</p>"
+        );
       //小青找到
       cta.hide();
       floors.eq(hsuID).addClass("hsu").click();
@@ -372,8 +375,11 @@ var goTower = function () {
     } else if (ansID == hsuID) {
       //record
       recordHsu
+        .addClass("bingo")
         .find(".steps")
-        .append("<p>白娘子在第 " + (hsuID + 1) + " 層！</p>");
+        .append(
+          "<p style='color:#eb6154'>白娘子在第 " + (hsuID + 1) + " 層！</p>"
+        );
       recordChin
         .addClass("wrong")
         .find(".steps")
@@ -401,11 +407,17 @@ var goTower = function () {
       cta.hide();
       //record
       recordHsu
+        .addClass("bingo")
         .find(".steps")
-        .append("<p>白娘子在第 " + (hsuID + 1) + " 層！</p>");
+        .append(
+          "<p style='color:#eb6154'>白娘子在第 " + (hsuID + 1) + " 層！</p>"
+        );
       recordChin
+        .addClass("bingo")
         .find(".steps")
-        .append("<p>白娘子在第 " + (hsuID + 1) + " 層！</p>");
+        .append(
+          "<p style='color:#eb6154'>白娘子在第 " + (hsuID + 1) + " 層！</p>"
+        );
     } else {
       //record
       recordHsu.find(".steps").append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");

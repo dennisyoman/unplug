@@ -1,0 +1,113 @@
+<div id="module_wrapper" class="module_order">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+  </div>
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>收集紅紙和竹子</b><br />想一想，應該要重複幾次？</p>
+          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-1-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="7" col="5" intRX="50" intRZ="0">
+          <div class="man king villager" intX="1" intY="1">
+            <img class="wow fadeIn" src="./DATA/PT/BOOK6/IMAGES/villager.png" />
+          </div>
+
+          <div class="ground" mt="1">
+            <div class="pickups">
+              <span pX="2" pY="3" ans="couplet" />
+              <span pX="3" pY="1" ans="couplet" />
+              <span pX="4" pY="4" ans="couplet" />
+              <span pX="5" pY="6" ans="couplet" />
+              <span pX="3" pY="2" ans="bamboo" />
+              <span pX="3" pY="3" ans="bamboo" />
+              <span pX="3" pY="5" ans="bamboo" />
+              <span pX="4" pY="7" ans="bamboo" />
+            </div>
+            <div class="barrier">
+              <span pX="1" pY="2" />
+              <span pX="1" pY="3" />
+              <span pX="1" pY="4" />
+              <span pX="1" pY="5" />
+              <span pX="1" pY="6" />
+              <span pX="1" pY="7" />
+              <span pX="2" pY="4" />
+              <span pX="2" pY="5" />
+              <span pX="2" pY="6" />
+              <span pX="2" pY="7" />
+              <span pX="3" pY="6" />
+              <span pX="3" pY="7" />
+              <span pX="4" pY="1" />
+              <span pX="4" pY="2" />
+              <span pX="5" pY="1" />
+              <span pX="5" pY="2" />
+              <span pX="5" pY="3" />
+              <span pX="5" pY="4" />
+              <span pX="5" pY="7" />
+            </div>
+            <img
+              width="225"
+              height="315"
+              src="./DATA/PT/BOOK6/IMAGES/PT-6-2-1-1.png"
+            />
+          </div>
+        </div>
+
+        <div id="frame1" class="frames" style="display: none">
+          <div ans="r" />
+          <div ans="r" />
+          <div ans="u" />
+          <div ans="l" />
+          <div ans="u" />
+          <div ans="r" />
+          <div ans="r" />
+          <div ans="u" />
+          <div ans="l" />
+          <div ans="u" />
+          <div ans="r" />
+          <div ans="r" />
+          <div ans="u" />
+          <div ans="l" />
+          <div ans="u" />
+        </div>
+
+        <div
+          class="frames small wow bounceInRight fixAnswer pair"
+          data-wow-delay="1s"
+          pair-target="frame1"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="setRepeatTimes($(this))"
+          />
+          <div ans="r" amount="2" />
+          <div ans="u" amount="1" />
+          <div ans="l" amount="1" />
+          <div class="repeatBottom" ans="u" amount="1" />
+          <span
+            class="cta orange"
+            onClick="pairFight('重複的次數不對喔，再想一想。')"
+            >CHECK</span
+          >
+        </div>
+      </div>
+
+      <div class="hint wow fadeIn" style="top: 80px; left: 75px" />
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

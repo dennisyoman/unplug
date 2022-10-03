@@ -180,6 +180,7 @@ var isDragging = false;
 var $elem = null;
 var fightTimeout;
 var fightStep = 0;
+var loopTimes = 0;
 var fightSpeed = 1000;
 var targetFrame = null;
 
@@ -491,6 +492,7 @@ var showAnswer = function (boolean) {
 var goPassing = function (boolean) {
   $(".alert").remove();
   fightStep = 0;
+  loopTimes = 0;
   if (boolean) {
     passingAnimation();
   } else {
@@ -692,14 +694,14 @@ var goFight = function (tar) {
     targetFrame = null;
   }
   fightStep = 0;
+  loopTimes = 0;
   fightAnimation();
   var frameCheckBtn = $(".contents > div.selected .frames > .cta");
   frameCheckBtn.addClass("disable");
   $(".sideTool > div.btn_answer").removeClass("active");
 };
 
-var pairFight = function () {
-  //目前 無 箭頭內有數字的計算法
+var pairFight = function (alertMsg) {
   var allMatch = true;
   var framesPair = $(".contents > div.selected .frames.pair");
 
@@ -711,13 +713,21 @@ var pairFight = function () {
     frames.find(">div").each(function () {
       framesArray.push($(this).find(">div").attr("ans"));
     });
+
     for (var i = 0; i < repeatTimes; i++) {
       $(this)
         .find(">div")
         .each(function () {
-          framesPairArray.push($(this).find(">div").attr("ans"));
+          //箭頭無數字
+          var loop = 1;
+          //箭頭內有數字的
+          if ($(this).attr("amount")) loop = parseInt($(this).attr("amount"));
+          for (var g = 0; g < loop; g++) {
+            framesPairArray.push($(this).find(">div").attr("ans"));
+          }
         });
     }
+
     //
     if (framesArray.join("^") != framesPairArray.join("^")) {
       allMatch = false;
@@ -728,9 +738,10 @@ var pairFight = function () {
   if (allMatch) {
     goFight();
   } else {
-    rootSoundEffect($wrong);
     $(".alert").remove();
-    var alert = "兩邊的次數與方向需吻合才能移動。";
+    //
+    rootSoundEffect($wrong);
+    var alert = alertMsg || "兩邊的次數與方向需吻合才能移動。";
     if (alert != "") {
       $(".contents > div.selected").append(
         `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`
