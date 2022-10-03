@@ -1,14 +1,14 @@
-<div id="module_wrapper" class="module_calculus">
+<div id="module_wrapper" class="module_mid">
   <div class="tabs">
     <span>任務一</span>
-    <span>任務二</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
     <div class="btn_answer"></div>
-    <div class="btn_playorder"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -17,119 +17,86 @@
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>包粽子</b
-            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+            <b>搜尋白娘子</b
+            >：利用不同的搜尋方式找出白蛇在哪一層樓，並討論看看哪一種方式比較有效率？
           </p>
-          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-intro.jpg" />
+          <img src="./DATA/PT/BOOK6/IMAGES/snake2.png" />
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="grids grid6 withArrow wow fadeInLeft">
+      <div class="treasurebox">
+        <div class="code" style="width: 140px; margin-left: -70px">
+          <img
+            width="50"
+            height="auto"
+            src="./DATA/PT/BOOK6/IMAGES/snake2.png"
+          />
+          <h2></h2>
+          <span class="cta orange" onClick="setTower()">GO</span>
+        </div>
+        <img width="100" height="auto" src="./DATA/PT/BOOK6/IMAGES/tower.png" />
+      </div>
+      <div class="tower wow fadeIn">
         <div>
-          <div class="cardItem A l1 cards" ans="A" title="清洗粽葉">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-A.jpg" />
-          </div>
+          <span>1</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r7.png" />
         </div>
         <div>
-          <div class="cardItem B l1 cards" ans="B" title="將粽子綁起">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-B.jpg" />
-          </div>
+          <span>2</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r6.png" />
         </div>
         <div>
-          <div class="cardItem C l1 cards" ans="C" title="放入糯米">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-C.jpg" />
-          </div>
+          <span>3</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r5.png" />
         </div>
         <div>
-          <div class="cardItem D l1 cards" ans="D" title="放入配料">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-D.jpg" />
-          </div>
+          <span>4</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r4.png" />
         </div>
         <div>
-          <div class="cardItem E l1 cards" ans="E" title="將粽葉捲起">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-E.jpg" />
-          </div>
+          <span>5</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r3.png" />
         </div>
         <div>
-          <div class="cardItem F l1 cards" ans="F" title="蒸粽子">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-1-F.jpg" />
-          </div>
+          <span>6</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r2.png" />
+        </div>
+        <div>
+          <span>7</span>
+          <img src="./DATA/PT/BOOK6/IMAGES/r1.png" />
         </div>
       </div>
-      <div class="gridSlider">
-        <div class="storyline wow slideInRight"></div>
-        <span class="btn prev" onClick="switchSlider(-1)" />
-        <span class="btn next" onClick="switchSlider(1)" />
-      </div>
-      <div class="frames wow bounceInUp">
-        <div class="start" ans="A"></div>
-        <div ans="E"></div>
-        <div ans="C"></div>
-        <div ans="D"></div>
-        <div class="repeat3" ans="B"></div>
-        <div class="end" ans="F"></div>
-        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
-      </div>
-    </div>
-    <div>
-      <div class="intro">
-        <div>
-          <h3>How to play?</h3>
-          <p>
-            <b>划龍舟</b
-            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
-          </p>
-          <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-intro.jpg" />
-          <span class="cta" onClick="switchIntro()">START</span>
+      <div class="record hsu wow slideInLeft">
+        <div class="avatar">
+          <img src="./DATA/PT/BOOK6/IMAGES/hsu2.png" />
+        </div>
+
+        <div class="steps">
+          <h4 class="wow bounceInUp">許仙從第一層找起</h4>
+        </div>
+        <h3>一共開 <span>0</span> 次</h3>
+
+        <div
+          class="cta green"
+          style="margin-left: 90px; margin-top: 10px"
+          onClick="goTower()"
+        >
+          行動
         </div>
       </div>
-      <div class="grids grid6 withArrow wow fadeInLeft">
-        <div>
-          <div class="cardItem A l1 cards" ans="A">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-A.jpg" />
-          </div>
+      <div class="record chin wow slideInRight">
+        <div class="avatar">
+          <img src="./DATA/PT/BOOK6/IMAGES/chin.png" />
         </div>
-        <div>
-          <div class="cardItem B l1 cards" ans="B">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-B.jpg" />
-          </div>
+
+        <div class="steps">
+          <h4 class="wow bounceInUp">小青從中間找起</h4>
         </div>
-        <div>
-          <div class="cardItem C l1 cards" ans="C">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-C.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem D l1 cards" ans="D">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-D.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem E l1 cards" ans="E">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-E.jpg" />
-          </div>
-        </div>
-        <div>
-          <div class="cardItem F l1 cards" ans="F">
-            <img src="./DATA/PT/BOOK6/IMAGES/PT-6-3-4-2-F.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="gridSlider">
-        <div class="storyline wow slideInRight"></div>
-        <span class="btn prev" onClick="switchSlider(-1)" />
-        <span class="btn next" onClick="switchSlider(1)" />
-      </div>
-      <div class="frames wow bounceInUp">
-        <div class="start" ans="D"></div>
-        <div ans="C"></div>
-        <div ans="B"></div>
-        <div ans="F"></div>
-        <div ans="E"></div>
-        <div class="end repeat5" ans="A"></div>
-        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <h3>一共開 <span>0</span> 次</h3>
       </div>
     </div>
+
+    <div class="assetsPreload"></div>
   </div>
 
   <div class="assetsPreload"></div>
