@@ -12,8 +12,11 @@
   <div class="sideTool">
     <div class="btn_answer"></div>
     <div class="btn_replay"></div>
+    <div class="btn_check"></div>
   </div>
+
   <div id="contents" class="contents">
+    <!-- 示範 -->
     <div>
       <div class="intro">
         <div>
@@ -35,7 +38,7 @@
               src="./DATA/PT/BOOK6/IMAGES/villager.png"
             />
           </div>
-          
+
           <div class="ground" mt="1">
             <div class="pickups">
               <span pX="2" pY="2" ans="couplet" />
@@ -59,7 +62,11 @@
             />
           </div>
         </div>
-        <div id="frame1" class="frames small wow bounceInLeft" data-wow-delay="1s">
+        <div
+          id="frame1"
+          class="frames small wow bounceInLeft"
+          data-wow-delay="1s"
+        >
           <div class="start" ans="r" />
           <div ans="u" />
           <div ans="r" />
@@ -67,8 +74,17 @@
           <div ans="r" />
           <div class="end" ans="u" />
         </div>
-        <div class="frames small pair wow bounceInRight" pair-target="frame1" style="left:auto;right:40px" data-wow-delay="1s">
-          <span class="repeat repeatTop" ans="3" onClick="setRepeatTimes($(this))"/>
+        <div
+          class="frames small pair wow bounceInRight"
+          pair-target="frame1"
+          style="left: auto; right: 40px"
+          data-wow-delay="1s"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="setRepeatTimes($(this))"
+          />
           <div ans="r" />
           <div class="repeatBottom" ans="u" />
           <span class="cta orange" onClick="pairFight()">CHECK</span>
@@ -87,12 +103,12 @@
             <img src="./DATA/IMAGES/common/arrow1.png" />
           </div>
         </div>
-        <div class="hint wow fadeIn" style="top:115px;right:45px;"/>
+        <div class="hint wow fadeIn" style="top: 115px; right: 45px" />
       </div>
     </div>
-
+    <!-- 任務一 -->
     <div>
-      <div class="intro" style="display:none"">
+      <div class="intro" style="display: none">
         <div>
           <h3>How to play?</h3>
           <p>
@@ -112,7 +128,7 @@
               src="./DATA/PT/BOOK6/IMAGES/villager.png"
             />
           </div>
-         
+
           <div class="ground" mt="1">
             <div class="pickups">
               <span pX="1" pY="1" ans="couplet" />
@@ -136,7 +152,11 @@
             />
           </div>
         </div>
-        <div id="frame2" class="frames small wow bounceInLeft" data-wow-delay="1s">
+        <div
+          id="frame2"
+          class="frames small wow bounceInLeft"
+          data-wow-delay="1s"
+        >
           <div class="start" ans="d" />
           <div ans="l" />
           <div ans="d" />
@@ -144,8 +164,17 @@
           <div ans="d" />
           <div class="end" ans="l" />
         </div>
-        <div class="frames small pair wow bounceInRight" style="left:auto;right:40px" data-wow-delay="1s" pair-target="frame2">
-          <span class="repeat repeatTop" ans="3" onClick="setRepeatTimes($(this))"/>
+        <div
+          class="frames small pair wow bounceInRight"
+          style="left: auto; right: 40px"
+          data-wow-delay="1s"
+          pair-target="frame2"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="setRepeatTimes($(this))"
+          />
           <div ans="d" />
           <div class="repeatBottom" ans="l" />
           <span class="cta orange" onClick="pairFight()">CHECK</span>
@@ -166,7 +195,7 @@
         </div>
       </div>
     </div>
-
+    <!-- 任務2 -->
     <div>
       <div class="intro">
         <div>
@@ -184,7 +213,6 @@
           <div class="man king villager" intX="4" intY="1">
             <img
               class="wow fadeIn"
-              
               data-wow-delay=".2s"
               src="./DATA/PT/BOOK6/IMAGES/villager.png"
             />
@@ -222,7 +250,11 @@
             />
           </div>
         </div>
-        <div id="frame3" class="frames small wow bounceInLeft" data-wow-delay="1s">
+        <div
+          id="frame3"
+          class="frames small wow bounceInLeft"
+          data-wow-delay="1s"
+        >
           <div class="start" ans="u" />
           <div ans="u" />
           <div ans="l" />
@@ -233,8 +265,17 @@
           <div ans="u" />
           <div class="end" ans="l" />
         </div>
-        <div class="frames small pair wow bounceInRight" style="left:auto;right:40px" data-wow-delay="1s" pair-target="frame3">
-          <span class="repeat repeatTop" ans="3" onClick="setRepeatTimes($(this))"/>
+        <div
+          class="frames small pair wow bounceInRight"
+          style="left: auto; right: 40px"
+          data-wow-delay="1s"
+          pair-target="frame3"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="setRepeatTimes($(this))"
+          />
           <div ans="u" />
           <div ans="u" />
           <div class="repeatBottom" ans="l" />
@@ -256,7 +297,7 @@
         </div>
       </div>
     </div>
-
+    <!-- 任務3 -->
     <div>
       <div class="intro">
         <div>
@@ -310,7 +351,11 @@
             />
           </div>
         </div>
-        <div id="frame4_1" class="frames small wow bounceInLeft" data-wow-delay="1s">
+        <div
+          id="frame4_1"
+          class="frames small wow bounceInLeft"
+          data-wow-delay="1s"
+        >
           <div class="start" ans="u" />
           <div ans="r" />
           <div ans="u" />
@@ -318,12 +363,26 @@
           <div ans="u" />
           <div class="end" ans="r" />
         </div>
-        <div class="frames small pair wow bounceInLeft" style="left:85px;" data-wow-delay="1s" pair-target="frame4_1">
-          <span class="repeat repeatTop" ans="3" onClick="setRepeatTimes($(this))"/>
+        <div
+          class="frames small pair wow bounceInRight"
+          style="left: auto; right: 105px; top: 15px"
+          data-wow-delay="1s"
+          pair-target="frame4_1"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="setRepeatTimes($(this))"
+          />
           <div ans="u" />
           <div class="repeatBottom" ans="r" />
         </div>
-        <div id="frame4_2" class="frames secondary small wow bounceInRight" data-wow-delay="1s" style="left:auto;right:105px;">
+        <div
+          id="frame4_2"
+          class="frames secondary small wow bounceInLeft"
+          data-wow-delay="1s"
+          style="left: 85px"
+        >
           <div class="start" ans="u" />
           <div ans="l" />
           <div ans="u" />
@@ -331,8 +390,17 @@
           <div ans="u" />
           <div class="end" ans="l" />
         </div>
-        <div class="frames secondary small pair wow bounceInRight" style="left:auto;right:30px;" data-wow-delay="1s" pair-target="frame4_2">
-          <span class="repeat repeatTop" ans="3" onClick="setRepeatTimes($(this))"/>
+        <div
+          class="frames secondary small pair wow bounceInRight"
+          style="left: auto; right: 30px"
+          data-wow-delay="1s"
+          pair-target="frame4_2"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="setRepeatTimes($(this))"
+          />
           <div ans="u" />
           <div class="repeatBottom" ans="l" />
           <span class="cta orange" onClick="pairFight()">CHECK</span>
@@ -353,7 +421,7 @@
         </div>
       </div>
     </div>
-
+    <!-- 任務4 -->
     <div>
       <div class="intro">
         <div>
@@ -366,13 +434,10 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="world3D" style="left:70px">
+      <div class="world3D" style="left: 70px">
         <div class="stage rotater" row="9" col="7" intRX="30" intRZ="0">
           <div class="man king villager" intX="1" intY="1">
-            <img
-              class="wow fadeIn"
-              src="./DATA/PT/BOOK6/IMAGES/villager.png"
-            />
+            <img class="wow fadeIn" src="./DATA/PT/BOOK6/IMAGES/villager.png" />
           </div>
 
           <div class="ground" mt="1">
@@ -402,7 +467,7 @@
           </div>
         </div>
 
-        <div id="frame5_1" class="frames" style="display:none">
+        <div id="frame5_1" class="frames" style="display: none">
           <div ans="u" />
           <div ans="r" />
           <div ans="u" />
@@ -410,7 +475,7 @@
           <div ans="u" />
           <div ans="r" />
         </div>
-        <div id="frame5_2" class="frames secondary" style="display:none">
+        <div id="frame5_2" class="frames secondary" style="display: none">
           <div ans="u" />
           <div ans="l" />
           <div ans="u" />
@@ -418,7 +483,7 @@
           <div ans="u" />
           <div ans="l" />
         </div>
-        <div id="frame5_3" class="frames" style="display:none">
+        <div id="frame5_3" class="frames" style="display: none">
           <div ans="u" />
           <div ans="r" />
           <div ans="r" />
@@ -428,7 +493,7 @@
           <div ans="r" />
           <div ans="r" />
         </div>
-        <div id="frame5_4" class="frames secondary" style="display:none">
+        <div id="frame5_4" class="frames secondary" style="display: none">
           <div ans="d" />
           <div ans="d" />
           <div ans="d" />
@@ -439,49 +504,89 @@
           <div ans="l" />
         </div>
 
-        <div class="frames small wow fadeIn fixAnswer pair" data-wow-delay="1s" style="left:-45px;top:-10px;" pair-target="frame5_1">
-          <span class="repeat repeatTop" ans="3" onClick="goRepeatFrames($('#frame5_1'),$(this))"/>
-          <div ans="u" amount="1"/>
-          <div class="repeatBottom" ans="r" amount="1"/>
+        <div
+          class="frames small wow fadeIn fixAnswer pair"
+          data-wow-delay="1s"
+          style="left: -45px; top: -10px"
+          pair-target="frame5_1"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="goRepeatFrames($('#frame5_1'),$(this))"
+          />
+          <div ans="u" amount="1" />
+          <div class="repeatBottom" ans="r" amount="1" />
         </div>
-        <div class="frames small wow fadeIn fixAnswer pair secondary" data-wow-delay="1.1s" style="left:-5px;top:-10px" pair-target="frame5_2">
-          <span class="repeat repeatTop" ans="3" onClick="goRepeatFrames($('#frame5_2'),$(this))"/>
-          <div ans="u" amount="1"/>
-          <div class="repeatBottom" ans="l" amount="1"/>
+        <div
+          class="frames small wow fadeIn fixAnswer pair secondary"
+          data-wow-delay="1.1s"
+          style="left: -5px; top: -10px"
+          pair-target="frame5_2"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="3"
+            onClick="goRepeatFrames($('#frame5_2'),$(this))"
+          />
+          <div ans="u" amount="1" />
+          <div class="repeatBottom" ans="l" amount="1" />
         </div>
-        <div class="frames small wow fadeIn fixAnswer pair" data-wow-delay="1.2s" style="left:35px;top:-10px" pair-target="frame5_3">
-          <span class="repeat repeatTop" ans="2" onClick="goRepeatFrames($('#frame5_3'),$(this))"/>
-          <div ans="u" amount="1"/>
-          <div class="repeatBottom" ans="r" amount="3"/>
+        <div
+          class="frames small wow fadeIn fixAnswer pair"
+          data-wow-delay="1.2s"
+          style="left: 35px; top: -10px"
+          pair-target="frame5_3"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="2"
+            onClick="goRepeatFrames($('#frame5_3'),$(this))"
+          />
+          <div ans="u" amount="1" />
+          <div class="repeatBottom" ans="r" amount="3" />
         </div>
-        <div class="frames small wow fadeIn fixAnswer pair secondary" data-wow-delay="1.3s" style="left:75px;top:-10px" pair-target="frame5_4">
-          <span class="repeat repeatTop" ans="2" onClick="goRepeatFrames($('#frame5_4'),$(this))"/>
-          <div ans="d" amount="3"/>
-          <div class="repeatBottom" ans="l" amount="1"/>
+        <div
+          class="frames small wow fadeIn fixAnswer pair secondary"
+          data-wow-delay="1.3s"
+          style="left: 75px; top: -10px"
+          pair-target="frame5_4"
+        >
+          <span
+            class="repeat repeatTop"
+            ans="2"
+            onClick="goRepeatFrames($('#frame5_4'),$(this))"
+          />
+          <div ans="d" amount="3" />
+          <div class="repeatBottom" ans="l" amount="1" />
         </div>
       </div>
-      <div class="result wow bounceInUp" data-wow-delay="1.6s" >
-        <img width="auto" height="70" src="./DATA/PT/BOOK6/IMAGES/villager.png" onerror="this.style.display='none'" style="
-    position: absolute;
-    top: -30px;
-    left: 0px;
-">
-        <p>一共收集了</p>
-        <p><span onClick="setPickupAmount($(this),'couplet')">0</span>個<img
+      <div class="result wow bounceInUp" data-wow-delay="1.6s">
+        <img
           width="auto"
-          height="30"
-          style="margin-top:-10px;"
-          src="./DATA/PT/BOOK6/IMAGES/couplet.png"
-        />和<span onClick="setPickupAmount($(this),'bamboo')">0</span>個<img
-        width="auto"
-        height="30"
-        style="margin-top:-10px;"
-        src="./DATA/PT/BOOK6/IMAGES/bamboo.png"
-      /></p>
+          height="70"
+          src="./DATA/PT/BOOK6/IMAGES/villager.png"
+          style="position: absolute; top: -40px; left: 0px"
+        />
+        <p>一共收集了</p>
+        <p>
+          <span ans="6" onClick="setPickupAmount($(this),'couplet')">0</span
+          >個<img
+            width="auto"
+            height="30"
+            style="margin-top: -10px"
+            src="./DATA/PT/BOOK6/IMAGES/couplet.png"
+          />和<span ans="3" onClick="setPickupAmount($(this),'bamboo')">0</span
+          >個<img
+            width="auto"
+            height="30"
+            style="margin-top: -10px"
+            src="./DATA/PT/BOOK6/IMAGES/bamboo.png"
+          />
+        </p>
       </div>
-      <div class="hint wow fadeIn" style="top:85px;left:45px;"/>
+      <div class="hint wow fadeIn" style="top: 85px; left: 45px" />
     </div>
-
   </div>
 
   <div class="assetsPreload"></div>

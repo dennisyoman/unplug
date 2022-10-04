@@ -76,6 +76,9 @@ $(document).ready(function () {
         });
       deactiveLoading();
     });
+  for (var i = 1; i <= 100; i++) {
+    numArr.push(i);
+  }
   //assetsPreload img
   $("#module_wrapper")
     .find("img")
@@ -91,6 +94,7 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
+var numArr = new Array();
 var dir = [true, -1];
 
 var setCode = function () {
@@ -99,8 +103,7 @@ var setCode = function () {
   var code = treasurebox.find(".code");
   var frames = $(".contents > div.selected").find(".frames > div");
   var ansID = Math.floor(Math.random() * frames.length);
-  //
-  code.find("h3").text(frames.eq(ansID).text());
+
   treasurebox.addClass("active");
   $(".contents > div.selected")
     .find(".frames")
@@ -135,6 +138,7 @@ var setCode = function () {
     if (parseInt(ansID) == $(this).index()) {
       $(".mid").removeClass("mid");
       $(this).addClass("bingo");
+      treasurebox.find(".code").find("h3").text(ansID);
       treasurebox.removeClass("active").addClass("bingo");
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
@@ -216,18 +220,36 @@ var setCode = function () {
 var setTower = function () {
   rootSoundEffect($show);
   var treasurebox = $(".contents > div.selected").find(".treasurebox");
-  var code = treasurebox.find(".code");
   var frames = $(".contents > div.selected").find(".tower > div");
   var records = $(".contents > div.selected").find(".record");
   var ansID = Math.floor(Math.random() * frames.length);
-  //
   frames.removeClass("hsu chin");
-  treasurebox.addClass("active");
-  records.addClass("active");
-  $(".contents > div.selected")
-    .find(".tower")
-    .attr("ans", ansID)
-    .addClass("active");
+  //設定密碼
+  shuffle(numArr);
+  var tempArr = new Array();
+  for (var i = 0; i < frames.length; i++) {
+    tempArr.push(numArr[i]);
+  }
+  tempArr.sort(function (a, b) {
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+  });
+  for (var i = 0; i < frames.length; i++) {
+    frames.eq(i).find("p").text(tempArr[i]);
+  }
+  frames.eq(ansID).find("p").addClass("bingo");
+  treasurebox.find(".code > h2").text(frames.eq(ansID).find("p").text());
+  treasurebox.delay(1000).queue(function () {
+    treasurebox.addClass("active");
+    records.addClass("active");
+    $(".contents > div.selected")
+      .find(".tower")
+      .attr("ans", ansID)
+      .addClass("active");
+    $(this).dequeue();
+  });
+
   //找起始的中位數
   var midIDArr = getMidID($(".contents > div.selected").find(".tower"));
   for (var i = 0; i < midIDArr.length; i++) {
@@ -263,7 +285,7 @@ var setTower = function () {
         `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
       );
       $(".smoke")
-        .delay(2500)
+        .delay(1800)
         .queue(function () {
           $(".resultIcon").remove();
           $(this).dequeue().remove();
@@ -361,13 +383,11 @@ var goTower = function () {
       recordHsu
         .addClass("wrong")
         .find(".steps")
-        .append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
+        .append("<p>" + (hsuID + 1) + "F：X</p>");
       recordChin
         .addClass("bingo")
         .find(".steps")
-        .append(
-          "<p style='color:#ff8426'>白娘子在第 " + (chinID + 1) + " 層！</p>"
-        );
+        .append("<p style='color:#ff8426'>" + (chinID + 1) + "F：O</p>");
       //小青找到
       cta.hide();
       floors.eq(hsuID).addClass("hsu").click();
@@ -377,23 +397,19 @@ var goTower = function () {
       recordHsu
         .addClass("bingo")
         .find(".steps")
-        .append(
-          "<p style='color:#eb6154'>白娘子在第 " + (hsuID + 1) + " 層！</p>"
-        );
+        .append("<p style='color:#eb6154'>" + (hsuID + 1) + "F：O</p>");
       recordChin
         .addClass("wrong")
         .find(".steps")
-        .append("<p>第 " + (chinID + 1) + " 層沒找到</p>");
+        .append("<p>" + (chinID + 1) + "F：X</p>");
       //許仙找到
       cta.hide();
       floors.eq(chinID).addClass("chin").click();
       floors.eq(hsuID).addClass("hsu").click();
     } else {
       //record
-      recordHsu.find(".steps").append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
-      recordChin
-        .find(".steps")
-        .append("<p>第 " + (chinID + 1) + " 層沒找到</p>");
+      recordHsu.find(".steps").append("<p>" + (hsuID + 1) + "F：X</p>");
+      recordChin.find(".steps").append("<p>" + (chinID + 1) + "F：X</p>");
       //都沒找到
       floors.eq(hsuID).addClass("hsu").click();
       floors.eq(chinID).addClass("chin").click();
@@ -409,21 +425,15 @@ var goTower = function () {
       recordHsu
         .addClass("bingo")
         .find(".steps")
-        .append(
-          "<p style='color:#eb6154'>白娘子在第 " + (hsuID + 1) + " 層！</p>"
-        );
+        .append("<p style='color:#eb6154'>" + (hsuID + 1) + "F：O</p>");
       recordChin
         .addClass("bingo")
         .find(".steps")
-        .append(
-          "<p style='color:#eb6154'>白娘子在第 " + (hsuID + 1) + " 層！</p>"
-        );
+        .append("<p style='color:#eb6154'>" + (hsuID + 1) + "F：O</p>");
     } else {
       //record
-      recordHsu.find(".steps").append("<p>第 " + (hsuID + 1) + " 層沒找到</p>");
-      recordChin
-        .find(".steps")
-        .append("<p>第 " + (chinID + 1) + " 層沒找到</p>");
+      recordHsu.find(".steps").append("<p>" + (hsuID + 1) + "F：X</p>");
+      recordChin.find(".steps").append("<p>" + (chinID + 1) + "F：X</p>");
     }
   }
 };
@@ -578,6 +588,7 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   $(".alert").remove();
   elem.find(".treasurebox .code h3").text("?");
+  elem.find(".treasurebox .code h2").text("?");
   elem.find(".wrong").removeClass("wrong");
   elem.find(".bingo").removeClass("bingo");
   elem.find(".mid").removeClass("mid");

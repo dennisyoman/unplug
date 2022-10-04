@@ -24,17 +24,16 @@
   }
 
   .alert {
-    left: 50%;
+    left: 40%;
     bottom: 15px;
     @include translate(-50%, 0);
 
     &::after {
-      right: 50%;
-      margin-right: -5px;
-      top: -5px;
-      margin-right: -5px;
-      border-width: 0px 5px 10px 5px;
-      border-color: transparent transparent $main transparent;
+      top: 50%;
+      margin-top: -5px;
+      left: -5px;
+      border-width: 5px 10px 5px 0px;
+      border-color: transparent $main transparent transparent;
     }
   }
 
@@ -114,6 +113,33 @@
         min-width: 24px;
         margin: 0 4px;
         font-family: "Gfont-bold";
+        position: relative;
+        &.right {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("../DATA/IMAGES/common/icon_right.png") no-repeat center center;
+            background-size: auto 95%;
+            z-index: 5;
+          }
+        }
+        &.wrong {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+            background-size: auto 50%;
+            z-index: 5;
+          }
+        }
       }
     }
     .world3D {
@@ -324,8 +350,6 @@
               }
             }
           }
-          &.bamboo {
-          }
 
           &.outbound {
             > img {
@@ -448,14 +472,14 @@
 
               &.u {
                 p {
-                  top: 6px;
+                  top: 5px;
                   left: 1px;
                 }
               }
               &.r {
                 p {
                   top: 1px;
-                  left: -5px;
+                  left: -4px;
                 }
               }
               &.d {
@@ -468,6 +492,34 @@
                 p {
                   top: 1px;
                   left: 5px;
+                }
+              }
+            }
+            &.selected {
+              > div {
+                &.u {
+                  p {
+                    top: 10px;
+                    left: 3px;
+                  }
+                }
+                &.r {
+                  p {
+                    top: 3px;
+                    left: -2px;
+                  }
+                }
+                &.d {
+                  p {
+                    top: -3px;
+                    left: 3px;
+                  }
+                }
+                &.l {
+                  p {
+                    top: 4px;
+                    left: 9px;
+                  }
                 }
               }
             }
@@ -736,7 +788,18 @@
             pointer-events: none;
           }
           &.visited {
-            @include opacity(0.3);
+            &::before {
+              content: "";
+              position: absolute;
+              z-index: 3;
+              width: 15px;
+              height: 15px;
+              top: -10px;
+              left: 50%;
+              margin-left: -7px;
+              background: url("../DATA/IMAGES/common/btn_answer.png") center center no-repeat;
+              background-size: 90% 90%;
+            }
           }
           &::after {
             content: "次";
@@ -1183,9 +1246,7 @@
     &.active {
       .code {
         animation-name: bounceOut;
-        h3 {
-          @include opacity(0);
-        }
+        animation-duration: 1.5s;
       }
     }
     &.bingo {
@@ -1240,7 +1301,10 @@
         color: $text;
         margin-bottom: 5px;
         &::before {
-          content: "白娘子在哪一層？";
+          content: "白娘子在 ";
+        }
+        &::after {
+          content: " 號";
         }
       }
       h3 {
@@ -1435,8 +1499,8 @@
       display: inline-block;
       position: relative;
       z-index: 1;
-      pointer-events: auto;
-      cursor: pointer;
+      ////pointer-events: auto;
+      //cursor: pointer;
 
       > span {
         position: absolute;
@@ -1449,11 +1513,31 @@
         background: #fff;
         text-align: center;
         margin-left: -10px;
-        margin-top: -10px;
+        margin-top: -17px;
         color: $text;
         z-index: 2;
         @include borderRadius(100%);
         @include scale(0.6);
+      }
+
+      > p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -20px;
+        width: 40px;
+        height: 15px;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        margin-top: -1px;
+        font-family: "Gfont-bold";
+        color: #fff;
+        z-index: 2;
+        @include stroke(2, #000);
+        &.bingo {
+          color: $main;
+        }
       }
 
       > img {
@@ -1484,7 +1568,7 @@
         }
       }
       &.chin {
-        &::before {
+        &::after {
           content: "";
           position: absolute;
           top: 0px;
@@ -1500,6 +1584,9 @@
       }
       &.bingo {
         > span {
+          display: none;
+        }
+        > p {
           display: none;
         }
         > img {

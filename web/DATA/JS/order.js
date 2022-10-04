@@ -90,6 +90,11 @@ $(document).ready(function () {
             showLightAnswer(false);
           }
         });
+      $(".sideTool > div.btn_check")
+        .unbind()
+        .bind("click", function () {
+          checkAnswer();
+        });
       $(".sideTool > div.btn_replay")
         .unbind()
         .bind("click", function () {
@@ -467,8 +472,16 @@ var showAnswer = function (boolean) {
         $(this).text($(this).attr("ans"));
       });
     }
+    //有無result?
+    if ($(".contents > div.selected").find(".result").length > 0) {
+      var items = $(".contents > div.selected").find(".result >p >span");
+      items.each(function () {
+        $(this).removeClass("wrong right").text($(this).attr("ans"));
+      });
+    }
+    //
 
-    $(".btn_answer").addClass("active");
+    $(".sideTool > div.btn_answer").addClass("active");
   } else {
     if (!$(".contents > div.selected .frames").hasClass("fixAnswer")) {
       frameElem.each(function () {
@@ -486,6 +499,27 @@ var showAnswer = function (boolean) {
   }
   //
   checkOrderStatus();
+};
+
+var checkAnswer = function () {
+  if ($(".contents > div.selected").find(".result").length > 0) {
+    var items = $(".contents > div.selected").find(".result >p >span");
+    items.each(function () {
+      if ($(this).attr("ans") != $(this).text()) {
+        $(this).addClass("wrong");
+      } else {
+        $(this).addClass("right");
+      }
+    });
+    //
+    if (
+      $(".contents > div.selected").find(".result >p >span.wrong").length > 0
+    ) {
+      rootSoundEffect($wrong);
+    } else {
+      rootSoundEffect($right);
+    }
+  }
 };
 
 //passing
@@ -772,8 +806,10 @@ var setPickupAmount = function (tar, id) {
   if (cur > max) {
     cur = 0;
   }
-  tar.text(cur);
+  tar.removeClass("wrong right").text(cur);
   rootSoundEffect($click);
+  //
+  $(".sideTool > div.btn_check").removeClass("active").show();
 };
 
 var fightAnimation = function () {
@@ -790,11 +826,9 @@ var fightAnimation = function () {
   var tempMan = $(".contents > div.selected .man");
   var xx = tempKing.attr("curX");
   var yy = tempKing.attr("curY");
-  frameElem
-    .eq(fightStep)
-    .addClass("selected")
-    .siblings(".selected")
-    .removeClass("selected");
+
+  frameElem.removeClass("selected").eq(fightStep).addClass("selected");
+
   switch (frameElem.eq(fightStep).find(">div").attr("ans")) {
     case "u":
       yy = parseInt(yy) + 1;
@@ -809,6 +843,37 @@ var fightAnimation = function () {
       xx = parseInt(xx) + 1;
       break;
   }
+
+  //同步pair的閃動
+  var pairFrame = null;
+  $(".contents > div.selected .frames.pair").each(function () {
+    if (
+      $(this).attr("pair-target") == frameElem.eq(fightStep).parent().attr("id")
+    ) {
+      pairFrame = $(this);
+    }
+  });
+
+  if (pairFrame) {
+    var pairSeqArr = new Array();
+    var repeat = pairFrame.find("span.repeat").text() || 1;
+    for (var k = 0; k < parseInt(repeat); k++) {
+      pairFrame.find(">div").each(function () {
+        var counter = $(this).attr("amount") || 1;
+        for (var i = 0; i < parseInt(counter); i++) {
+          pairSeqArr.push($(this).index());
+        }
+      });
+    }
+    $(".contents > div.selected .frames.pair")
+      .find(".selected")
+      .removeClass("selected");
+    pairFrame
+      .children()
+      .eq(pairSeqArr[frameElem.eq(fightStep).index()])
+      .addClass("selected");
+  }
+
   //add arrow
   if (frameElem.eq(fightStep).parent().hasClass("secondary")) {
     appendArrow(
@@ -1055,7 +1120,7 @@ var resetMen = function () {
     var intY = parseInt($(this).attr("intY"));
     moveMan($(this), intX, intY);
   });
-  $(".btn_answer").removeClass("active");
+  $(".sideTool > div.btn_answer").removeClass("active");
   $(".contents > div.selected .frames .selected").removeClass("selected");
   $(".contents > div.selected .arrow").removeClass();
 };
@@ -1115,10 +1180,6 @@ var resetElem = function (elem) {
       .text("1");
   }
 
-  //有無result?
-  if ($(".contents > div.selected .result").length > 0) {
-    $(".contents > div.selected .result span").text("0");
-  }
   //有無hint?
   if ($(".contents > div.selected .hint").length > 0) {
     $(".contents > div.selected .hint")
@@ -1147,12 +1208,30 @@ var resetElem = function (elem) {
       .css("pointer-events", "none");
   }
 
+  ////不被fixAnswer答案固定showAnswer()影響的項目放下面
+
+  //有無repeat.notfixed?
+  if ($(".contents > div.selected .frames > .repeat.notfixed").length > 0) {
+    $(".contents > div.selected .frames > .repeat.notfixed")
+      .removeClass("disable visited")
+      .text("1");
+  }
+
+  //有無result?
+  if ($(".contents > div.selected .result").length > 0) {
+    elem.find(".wrong,.right").removeClass("wrong right");
+    $(".contents > div.selected .result span").text("0");
+  }
+
   //show side tool btn
   if ($(".contents > div.selected").find(".lights").length > 0) {
     $(".lights > .cta").removeClass("disable");
     $(".sideTool > div.btn_answer").show();
   }
   if ($(".contents > div.selected").find(".cards").length > 0) {
+    $(".sideTool > div.btn_answer").show();
+  }
+  if ($(".contents > div.selected").find(".result").length > 0) {
     $(".sideTool > div.btn_answer").show();
   }
   $(".sideTool > div.btn_replay").show();

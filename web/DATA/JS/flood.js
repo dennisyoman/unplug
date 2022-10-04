@@ -335,6 +335,7 @@ var resetElem = function (elem) {
   elem.find(".calendar >div > span").each(function () {
     $(this)
       .addClass("c" + (($(this).index() % 6) + 1))
+      .attr("did", "k" + ($(this).index() + 1))
       .html($(this).attr("ans"))
       .unbind()
       .bind("click", function () {
@@ -342,8 +343,8 @@ var resetElem = function (elem) {
         var seq = $(this).attr("ans");
         seq = parseInt(seq) - 1;
         if (
-          elem.find(".flood > span.c" + seq).length > 0 ||
-          elem.find(".volcano > span.c" + seq).length > 0 ||
+          elem.find(".flood > span.k" + seq).length > 0 ||
+          elem.find(".volcano > span.k" + seq).length > 0 ||
           seq == 0
         ) {
           rootSoundEffect($key);
@@ -367,6 +368,7 @@ var resetElem = function (elem) {
           $(this)
             .removeClass()
             .addClass(day.attr("class"))
+            .addClass(day.attr("did"))
             .removeClass("active")
             .html(`<p>${day.attr("ans")}</p>`);
         } else {
@@ -393,6 +395,7 @@ var resetElem = function (elem) {
           $(this)
             .removeClass()
             .addClass(day.attr("class"))
+            .addClass(day.attr("did"))
             .removeClass("active")
             .find("p")
             .html(day.attr("ans"));

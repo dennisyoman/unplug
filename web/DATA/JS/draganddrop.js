@@ -250,6 +250,28 @@ var checkStatus = function () {
   } else {
     rootSoundEffect($pop);
   }
+  //是否有黏性位置sp
+  if ($("#cardAvatar > div").attr("sp")) {
+    var itemSP = $("#cardAvatar > div").attr("sp").split("^");
+    var itemW = $("#cardAvatar").get(0).style.width;
+    var itemH = $("#cardAvatar").get(0).style.height;
+    var itemTop = $("#cardAvatar").get(0).style.top;
+    var itemLeft = $("#cardAvatar").get(0).style.left;
+    console.log(itemTop, itemLeft);
+    var gotRight = false;
+    for (var k = 0; k < itemSP.length; k++) {
+      var tempSP = itemSP[k].split(",");
+      if (
+        parseInt(itemTop) > parseInt(tempSP[0]) - parseInt(itemH) / 2 &&
+        parseInt(itemTop) < parseInt(tempSP[0]) + parseInt(itemH) / 2 &&
+        parseInt(itemLeft) > parseInt(tempSP[1]) - parseInt(itemW) / 2 &&
+        parseInt(itemLeft) < parseInt(tempSP[1]) + parseInt(itemW) / 2
+      ) {
+        $("#cardAvatar").get(0).style.top = tempSP[0] + "px";
+        $("#cardAvatar").get(0).style.left = tempSP[1] + "px";
+      }
+    }
+  }
   //是否放對區域
   if (
     $("#cardAvatar > div").attr("group") &&
@@ -258,7 +280,9 @@ var checkStatus = function () {
   ) {
     $("#cardAvatar").addClass("right");
   }
-
+  $("#cardAvatar").addClass(
+    "s" + $(".contents > div.selected .sensorArea > .selected").index()
+  );
   //
   $("#cardAvatar")
     .unbind()
@@ -333,7 +357,7 @@ var showAnswer = function (boolean) {
             oX = 5;
             oY += caWidth;
           }
-          ansArray[index].push(
+          ansArray[ansArray.length - 1].push(
             `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caWidth}px;top:${
               oriY + oY
             }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`
@@ -367,6 +391,79 @@ var checkAnswer = function () {
     rootSoundEffect($stupid);
   } else {
     rootSoundEffect($correct);
+  }
+};
+
+var showSpecificAnswer = function (str) {
+  rootSoundEffect($help);
+  //
+  var arr = str.split(",");
+  //取消錯誤的
+  for (var i = 0; i < arr.length; i++) {
+    var sid = parseInt(arr[i]);
+    var tar = $(".cardAvatarDie.s" + sid);
+    if (tar.length > 0) {
+    }
+    $(".cardAvatarDie.s" + sid + ":not('.right')").click();
+  }
+  //補上缺少的
+  var containers = $(".contents > div.selected .sensorArea").children();
+  var toys = $(".contents > div.selected .toys > .toy");
+  var ansArray = new Array();
+  for (var j = 0; j < arr.length; j++) {
+    var sid = parseInt(arr[j]);
+    if ($(".cardAvatarDie.s" + sid).length == 0) {
+      //排位子
+      containers.each(function (index) {
+        if (sid == index) {
+          var deltaContainerX = $("#module_wrapper").offset().left;
+          var deltaContainerY = $("#module_wrapper").offset().top;
+          var oX = 5;
+          var oY = 30;
+          if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
+          if ($(this).attr("oY")) oY = parseInt($(this).attr("oY"));
+          var oriX =
+            $(this).offset().left / stageRatioReal -
+            deltaContainerX / stageRatioReal;
+          var oriW = $(this).width() / stageRatioReal;
+          var oriY =
+            $(this).offset().top / stageRatioReal -
+            deltaContainerY / stageRatioReal;
+          var oriH = $(this).height() / stageRatioReal;
+          ansArray.push([]);
+          for (var i = 0; i < toys.length; i++) {
+            if (
+              toys.eq(i).attr("group") &&
+              $(this).attr("group") &&
+              toys.eq(i).attr("group") == $(this).attr("group")
+            ) {
+              //
+              toys.eq(i).addClass("cached");
+              var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
+
+              if (oX + caWidth > oriW) {
+                oX = 5;
+                oY += caWidth;
+              }
+              ansArray[ansArray.length - 1].push(
+                `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caWidth}px;top:${
+                  oriY + oY
+                }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`
+              );
+              //
+              oX += caWidth;
+            }
+          }
+        }
+      });
+
+      for (var i = 0; i < ansArray.length; i++) {
+        var itemsArr = ansArray[i];
+        for (var k = 0; k < itemsArr.length; k++) {
+          $("#module_wrapper").append(itemsArr[k]);
+        }
+      }
+    }
   }
 };
 
