@@ -25,6 +25,7 @@
   <div class="sideTool">
     <div class="btn_answer"></div>
     <div class="btn_replay"></div>
+    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -47,24 +48,29 @@
       </div>
       <div
         class="hint"
-        style="margin-right: 40px; pointer-events: auto; cursor: pointer"
+        style="
+          margin-right: 20px;
+          margin-top: 20px;
+          pointer-events: auto;
+          cursor: pointer;
+        "
         onClick="toggleHint($(this))"
       >
         <img
           class="sub"
-          height="250"
+          height="280"
           width="auto"
           src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-5.png"
         />
         <img
           class="ans"
-          height="250"
+          height="280"
           width="auto"
           src="./DATA/PT/BOOK6/IMAGES/PT-6-2-3-5-ans.png"
         />
       </div>
       <div
-        class="sensorArea wow slideInUp"
+        class="sensorArea wow slideInUp checkonchange"
         style="
           width: 250px;
           height: 38px;

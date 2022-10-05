@@ -2091,6 +2091,7 @@
           justify-content: center;
   z-index: 50;
   display: none;
+  margin: 0 auto;
 }
 
 .module_mid .frames.active {
@@ -2113,6 +2114,9 @@
 
 .module_mid .frames > div {
   width: 40px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
   height: 40px;
   line-height: 34px;
   font-size: 20px;
@@ -2129,23 +2133,24 @@
   cursor: pointer;
 }
 
-.module_mid .frames > div.wrap::after {
-  content: "";
-  width: 100%;
-  display: block;
-}
-
-.module_mid .frames > div:first-child {
+.module_mid .frames > div:first-child, .module_mid .frames > div.start {
   border-radius: 8px 0 0 8px;
   -moz-border-radius: 8px 0 0 8px;
   -webkit-border-radius: 8px 0 0 8px;
 }
 
-.module_mid .frames > div:last-child {
+.module_mid .frames > div:last-child, .module_mid .frames > div.end {
   border-radius: 0 8px 8px 0;
   -moz-border-radius: 0 8px 8px 0;
   -webkit-border-radius: 0 8px 8px 0;
   border-right: 3px solid #2d8066;
+}
+
+.module_mid .frames > div.single {
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border: 3px solid #2d8066;
 }
 
 .module_mid .frames > div.wrong {

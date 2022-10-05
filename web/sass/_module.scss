@@ -1326,6 +1326,7 @@
     justify-content: center;
     z-index: 50;
     display: none;
+    margin: 0 auto;
     &.active {
       display: flex;
     }
@@ -1350,6 +1351,7 @@
 
     > div {
       width: 40px;
+      flex: none;
       height: 40px;
       line-height: 34px;
       font-size: 20px;
@@ -1365,21 +1367,22 @@
       pointer-events: auto;
       cursor: pointer;
 
-      &.wrap {
-        &::after {
-          content: "";
-          width: 100%;
-          display: block;
-        }
-      }
-
-      &:first-child {
+      &:first-child,
+      &.start {
         @include borderRadius(8px 0 0 8px);
       }
 
-      &:last-child {
+      &:last-child,
+      &.end {
         @include borderRadius(0 8px 8px 0);
         border-right: 3px solid #2d8066;
+      }
+      &.single {
+        @include borderRadius(0px);
+        border: 3px solid #2d8066;
+      }
+
+      &.single {
       }
 
       &.wrong {
