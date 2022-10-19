@@ -132,7 +132,7 @@ var handleDrag = function (ev) {
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
       //是否有正確位置參數fp
-      if ($($elem).attr("fp")) {
+      if ($($elem).attr("fp") || $($elem).attr("sp")) {
         $($elem).addClass("semiTransparent");
       }
       var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
@@ -389,8 +389,20 @@ var checkAnswer = function () {
   if ($(".cardAvatarDie:not('.right')").length > 0) {
     $(".cardAvatarDie:not('.right')").click();
     rootSoundEffect($stupid);
-  } else {
+  }
+  if ($(".cardAvatarDie.right").length > 0) {
     rootSoundEffect($correct);
+    //加上正確符號
+    $(".cardAvatarDie.right").each(function () {
+      var src1 = $(this).find("img").attr("src");
+      $(".contents > div.selected")
+        .find(".toys > div")
+        .each(function () {
+          if (src1 == $(this).find("img").attr("src")) {
+            $(this).addClass("positionBingo");
+          }
+        });
+    });
   }
 };
 

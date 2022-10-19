@@ -62,13 +62,21 @@
         <span class="btn next" onClick="switchSlider(1)" />
       </div>
       <div class="frames wow bounceInUp">
-        <div class="start" ans="F"></div>
+        <div class="start" ans="B"></div>
+        <div ans="F"></div>
         <div ans="C"></div>
         <div ans="D"></div>
         <div ans="E"></div>
-        <div ans="B"></div>
         <div class="end" ans="A"></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>B=1</span>
+        <span>D=4</span>
+        <span>E=5</span>
+        <span>A=6</span>
+        <span>C-D</span>
+        <span>F-D</span>
       </div>
     </div>
     <div>
@@ -128,6 +136,14 @@
         <div ans="A"></div>
         <div class="end repeat5" ans="C"></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span class="matched">F,B,E,D,A,C</span>
+        <span class="matched">B,E,D,A,C,F</span>
+        <span class="matched">E,D,A,C,F,B</span>
+        <span class="matched">D,A,C,F,B,E</span>
+        <span class="matched">A,C,F,B,E,D</span>
+        <span class="matched">C,F,B,E,D,A</span>
       </div>
     </div>
   </div>

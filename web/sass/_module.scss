@@ -6198,6 +6198,29 @@
       }
     }
   }
+  .hint {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    text-align: left;
+    padding: 10px 10px 10px;
+    background: #fff;
+    border: 2px solid $l4;
+    @include borderRadius(5px);
+
+    p {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 5px;
+      span {
+        display: inline-block;
+        height: 15px;
+        color: $main;
+        border-bottom: 1px solid #333;
+        min-width: 25px;
+      }
+    }
+  }
 }
 
 .module_calculus {

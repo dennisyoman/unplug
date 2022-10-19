@@ -134,11 +134,14 @@ var setCode = function () {
     //清除提示
     $(".alert").remove();
     //
-    var ansID = $(this).parent().attr("ans");
+    var ansID = parseInt($(this).parent().attr("ans"));
     if (parseInt(ansID) == $(this).index()) {
       $(".mid").removeClass("mid");
       $(this).addClass("bingo");
-      treasurebox.find(".code").find("h3").text(ansID);
+      treasurebox
+        .find(".code")
+        .find("h3")
+        .text(ansID + 1);
       treasurebox.removeClass("active").addClass("bingo");
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
@@ -215,6 +218,8 @@ var setCode = function () {
   //
   $(".sideTool > div.btn_answer").fadeIn();
   $(".sideTool > div.btn_replay").fadeIn();
+  //
+  $(".contents > div.selected .treasurebox .cta").addClass("disable");
 };
 
 var setTower = function () {
@@ -340,6 +345,8 @@ var setTower = function () {
   //
   $(".sideTool > div.btn_answer").fadeIn();
   $(".sideTool > div.btn_replay").fadeIn();
+  //
+  $(".contents > div.selected .treasurebox .cta").addClass("disable");
 };
 
 var goTower = function () {
@@ -480,16 +487,21 @@ var checkAnswer = function (boolean) {
     //示範三
     if ($(".frames2").length > 0) {
       $(".frames2").each(function () {
-        $(this).find(">div.bingo").addClass("wrong").removeClass("bingo");
-        //
         var midIDArr = getMidID($(this));
         for (var i = 0; i < midIDArr.length; i++) {
-          $(this)
-            .find(">div")
-            .eq(midIDArr[i])
-            .addClass("bingo")
-            .removeClass("wrong");
+          if (!$(this).find(">div").eq(midIDArr[i]).hasClass("bingo")) {
+            $(this).find(">div").eq(midIDArr[i]).addClass("wrong");
+          } else {
+            $(this).find(">div").eq(midIDArr[i]).addClass("good");
+          }
         }
+        //
+        $(this)
+          .find(">div.bingo:not('.good')")
+          .addClass("wrong")
+          .removeClass("bingo");
+        $(this).find(">div.bingo.good").removeClass("good");
+        //
       });
       //
       if ($(".frames2 > div.wrong").length == 0) {
@@ -590,6 +602,7 @@ var resetElem = function (elem) {
   elem.find(".treasurebox .code h3").text("?");
   elem.find(".treasurebox .code h2").text("?");
   elem.find(".wrong").removeClass("wrong");
+  elem.find(".disable").removeClass("disable");
   elem.find(".bingo").removeClass("bingo");
   elem.find(".mid").removeClass("mid");
   elem.find(".active").removeClass("active");
