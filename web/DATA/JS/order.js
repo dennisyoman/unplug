@@ -761,7 +761,12 @@ var pairFight = function (alertMsg) {
           }
         });
     }
-
+    //顯示錯誤的
+    for (var i = 0; i < framesArray.length; i++) {
+      if (framesArray[i] != framesPairArray[i]) {
+        frames.find(">div").eq(i).addClass("selected");
+      }
+    }
     //
     if (framesArray.join("^") != framesPairArray.join("^")) {
       allMatch = false;
