@@ -182,11 +182,11 @@
         if (adddown == 0) {
           $(".countdown_wrapper")
             .parent()
-            .removeClass("alert")
+            .removeClass("alertmode")
             .delay(100)
             .queue(function () {
               rootSoundEffect($surprise);
-              $(this).addClass("alert").dequeue();
+              $(this).addClass("alertmode").dequeue();
             });
         }
       }
