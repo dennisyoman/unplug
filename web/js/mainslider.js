@@ -7,10 +7,12 @@ $(document).ready(function () {
       $(this)
         .addClass("loaded")
         .delay(500)
-        .queue(function () {});
-      deactiveLoading();
+        .queue(function () {
+          deactiveLoading();
+          initSwiper();
+        });
     });
-  initSwiper();
+
   //assetsPreload img
   $("#ms_wrapper")
     .find("img")
