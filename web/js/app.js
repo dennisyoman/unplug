@@ -399,6 +399,18 @@ let loadContainerInside = function (htmlPath, jsPath, p) {
   isPaused = true;
 };
 
+let checkPanelBtns = function () {
+  if (
+    $("#module_wrapper").hasClass("module_order") ||
+    $("#module_wrapper").hasClass("module_flood") ||
+    $("#module_wrapper").hasClass("module_ant")
+  ) {
+    $(".btn_zoom").addClass("disabled");
+  } else {
+    $(".btn_zoom").removeClass("disabled");
+  }
+};
+
 let loadPanel = function () {
   resetPanel();
   $("#root").append("<div id='panel' class='panel wow slideInUp'></div>");
@@ -710,7 +722,8 @@ $.getMultiScripts = function (arr, path) {
     sc.src = (path || "") + scr + "?v=" + version;
     $("body").append(sc);
     //
-    //console.log(scr + " is loaded.");
+    console.log(scr + " is loaded.");
+    checkPanelBtns();
   });
   return {
     done: function (method) {
