@@ -52,7 +52,7 @@ $(document).ready(function () {
           }
           createZoomSensor();
         });
-
+      checkPanelBtns();
       $(".btn_focus")
         .unbind()
         .bind("click", function () {
