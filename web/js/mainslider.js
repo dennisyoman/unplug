@@ -67,7 +67,7 @@ var createSeries = function () {
       var ssid = $(this).attr("sid");
       var thumb = $(this).attr("img");
       var tempElem = `<div class="swiper-slide" sid="${ssid}">
-            <img onclick="openSeries('${ssid}')" src="./DATA/${ssid}/${thumb}"/>
+            <img width="170" height="170" onclick="openSeries('${ssid}')" src="./DATA/${ssid}/${thumb}"/>
         </div>`;
 
       slideArray.push(tempElem);
@@ -102,7 +102,7 @@ var createBooks = function () {
             var bbid = $(this).attr("bid");
             var thumb = $(this).attr("img");
             var tempElem = `<div class="swiper-slide" bid="${bbid}">
-                <img onclick="openBook('${bbid}')" src="./DATA/${ssid}/${thumb}"/>
+                <img width="170" height="240" onclick="openBook('${bbid}')" src="./DATA/${ssid}/${thumb}"/>
             </div>`;
 
             slideArray.push(tempElem);
