@@ -4420,6 +4420,18 @@
   filter: alpha(opacity=100) !important;
 }
 
+.module_creativity .storybtn {
+  display: none;
+  position: absolute;
+  z-index: -1;
+  bottom: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  background: url("../DATA/IMAGES/common/btn_story.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+
 .module_creativity .contents .grid4 {
   width: 500px;
   height: 100%;
@@ -4656,6 +4668,12 @@
   transform: scale(1);
   -webkit-box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.module_creativity .contents .gridSlider .storyline > div.selected .storybtn {
+  display: block;
+  pointer-events: auto;
+  z-index: 10;
 }
 
 .module_creativity .contents .gridSlider .storyline > div.prevSlider {

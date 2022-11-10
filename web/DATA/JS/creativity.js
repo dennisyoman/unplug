@@ -56,8 +56,10 @@ $(document).ready(function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
             showSlider(true);
+            resetAudio();
           } else {
             showSlider(false);
+            resetAudio();
           }
         });
 
@@ -87,6 +89,23 @@ $(document).ready(function () {
         });
       deactiveLoading();
     });
+  //add audio
+  var audioBaseUrl = "https://et.ludodo.com.tw/UnplugFile/";
+  var contentElem = $(".contents > div");
+  contentElem.each(function () {
+    var itemElem = $(this).find(".grid4 > div");
+    for (var k = 0; k < itemElem.length; k++) {
+      var seq = itemElem.eq(k).attr("ans");
+      var audioPath =
+        audioBaseUrl + "B" + bid + "L" + lid + "_voice_story_" + seq + ".mp3";
+      itemElem
+        .eq(k)
+        .append(
+          `<span class="storybtn wow bounceInLeft" onClick="rootSoundEffectName('${audioPath}')"><audio preload="auto" src="${audioPath}" /></span>`
+        );
+    }
+  });
+
   //assetsPreload img
   $("#module_wrapper")
     .find("img")
@@ -190,6 +209,7 @@ var playSeq = 0;
 var slideDistance = 350;
 
 var switchSlider = function (direction) {
+  resetAudio();
   var selectedElem = $(".contents > div.selected");
   var storyline = selectedElem.find(".storyline");
   playSeq = playSeq + direction;

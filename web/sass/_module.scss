@@ -3247,6 +3247,18 @@
   &.loaded {
     @include opacity(1);
   }
+  .storybtn {
+    display: none;
+    position: absolute;
+    //pointer-events: auto;
+    z-index: -1;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: url("../DATA/IMAGES/common/btn_story.png") no-repeat center center;
+    background-size: 100% 100%;
+  }
   .contents {
     .grid4 {
       width: 500px;
@@ -3432,6 +3444,7 @@
         position: relative;
         left: 0;
         @include transition(left, 0.8s);
+
         > div {
           width: 350px;
           height: 187px;
@@ -3451,6 +3464,11 @@
           &.selected {
             @include scale(1);
             @include boxShadow(3px 10px 10px rgba(0, 0, 0, 0.2));
+            .storybtn {
+              display: block;
+              pointer-events: auto;
+              z-index: 10;
+            }
           }
 
           &.prevSlider {
