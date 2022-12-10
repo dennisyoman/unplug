@@ -312,8 +312,8 @@ var showSlider = function (boolean) {
     selectedElem.find(".gridSlider > .prev").addClass("disable");
     selectedElem.find(".gridSlider > .next").removeClass("disable");
     $(".sideTool > div.btn_answer").hide();
-    selectedElem.find(".framesMulti > .cta").hide();
-    selectedElem.find(".frames > .cta").hide();
+    selectedElem.find(".framesMulti > .cta").addClass("transparent");
+    selectedElem.find(".frames > .cta").addClass("transparent");
     //
     if (selectedElem.find(".gridSlider > .storyline > div").length <= 1) {
       selectedElem.find(".gridSlider > .prev").hide();
@@ -335,8 +335,8 @@ var showSlider = function (boolean) {
 
     //
     checkTool();
-    selectedElem.find(".framesMulti > .cta").show();
-    selectedElem.find(".frames > .cta").show();
+    selectedElem.find(".framesMulti > .cta").removeClass("transparent");
+    selectedElem.find(".frames > .cta").removeClass("transparent");
   }
 };
 
@@ -888,8 +888,8 @@ var resetElem = function (elem) {
     resetFrameMulti();
     updateFrameMulti();
   }
-  elem.find(".framesMulti > .cta").show();
-  elem.find(".frames > .cta").show();
+  elem.find(".framesMulti > .cta").show().removeClass("transparent");
+  elem.find(".frames > .cta").show().removeClass("transparent");
 
   //smoke effect
   $(".smoke").remove();

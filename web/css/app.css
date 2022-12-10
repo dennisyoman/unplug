@@ -9085,6 +9085,25 @@
           filter: drop-shadow(3px 10px 10px rgba(0, 0, 0, 0.5));
 }
 
+.module_calculus .contents .crossroads {
+  position: absolute;
+  font-size: 12px;
+  color: #000;
+  background: #fff;
+  line-height: 25px;
+  padding: 0 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  z-index: 50;
+}
+
+.module_calculus .contents .crossroads img {
+  position: absolute;
+  width: auto;
+  height: auto;
+}
+
 .module_calculus .contents .frames {
   width: 100%;
   text-align: center;
@@ -9167,6 +9186,14 @@
   margin: 0 2px;
   z-index: 1;
   position: relative;
+}
+
+.module_calculus .contents .frames > div.positive {
+  border-color: #3c9bd7;
+}
+
+.module_calculus .contents .frames > div.negative {
+  border-color: #ea5a59;
 }
 
 .module_calculus .contents .frames > div.wrong {
@@ -9363,6 +9390,14 @@
   -webkit-border-radius: 8px;
   margin: 0 2px;
   z-index: 1;
+}
+
+.module_calculus .contents .framesMulti > div.positive {
+  border-color: #3c9bd7;
+}
+
+.module_calculus .contents .framesMulti > div.negative {
+  border-color: #ea5a59;
 }
 
 .module_calculus .contents .framesMulti > div.wrong {
@@ -11197,6 +11232,14 @@
   pointer-events: none;
 }
 
+.cta.transparent {
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+  pointer-events: none;
+}
+
 .cta.hidden {
   display: none !important;
 }
@@ -11725,7 +11768,7 @@ body {
   pointer-events: auto;
   cursor: pointer;
   display: inline-block;
-  width: 100px;
+  width: 110px;
   height: auto;
   text-align: center;
   margin: 0 5px;
@@ -11785,7 +11828,7 @@ body {
 
 .root > .units .icon-wrapper li h3 span {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
 }
 

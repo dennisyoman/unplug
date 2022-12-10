@@ -7249,6 +7249,22 @@
         }
       }
     }
+    .crossroads {
+      position: absolute;
+      font-size: 12px;
+      color: $text;
+      background: #fff;
+      line-height: 25px;
+      padding: 0 5px;
+      @include borderRadius(3px);
+      z-index: 50;
+      img {
+        position: absolute;
+        width: auto;
+        height: auto;
+      }
+    }
+
     .frames {
       width: 100%;
       text-align: center;
@@ -7317,6 +7333,13 @@
         margin: 0 2px;
         z-index: 1;
         position: relative;
+
+        &.positive {
+          border-color: #3c9bd7;
+        }
+        &.negative {
+          border-color: #ea5a59;
+        }
 
         &.wrong {
           color: #eb6154;
@@ -7495,6 +7518,13 @@
         @include borderRadius(8px);
         margin: 0 2px;
         z-index: 1;
+
+        &.positive {
+          border-color: #3c9bd7;
+        }
+        &.negative {
+          border-color: #ea5a59;
+        }
 
         &.wrong {
           color: #eb6154;
@@ -8929,6 +8959,10 @@
 
   &.disable {
     @include opacity(0.5);
+    pointer-events: none;
+  }
+  &.transparent {
+    @include opacity(0);
     pointer-events: none;
   }
   &.hidden {

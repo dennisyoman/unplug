@@ -1,0 +1,156 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>星期三穿制服上學</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="準備出門上學">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="穿制服">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="找出便服">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="出門">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="找出制服">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="穿便服">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div class="positive" style="margin-left: 90px" ans="E"></div>
+        <div class="positive" ans="B"></div>
+        <div class="negative" ans="C"></div>
+        <div class="negative" ans="F"></div>
+        <div class="end" ans="D"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 218px"
+          >是星期三嗎?
+          <img
+            style="top: -10px; left: 64px; height: 15px"
+            src="./DATA/IMAGES/common/positive1.png" />
+          <img
+            style="top: 20px; left: 64px; height: 15px"
+            src="./DATA/IMAGES/common/negative2.png"
+        /></span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>準備旅行的衣服</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="準備出遊">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="冬天衣服">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="天氣熱時很涼快">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="天氣冷時很暖和">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="夏天衣服">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="看天氣預報">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-3-4-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="F"></div>
+        <div ans="A"></div>
+        <div class="positive" style="margin-left: 80px" ans="B"></div>
+        <div class="positive" ans="D"></div>
+        <div class="negative" ans="E"></div>
+        <div class="negative end" ans="C"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 253px"
+          >天氣冷嗎?
+          <img
+            style="top: -10px; left: 54px; height: 15px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 20px; left: 54px; height: 15px"
+            src="./DATA/IMAGES/common/negative2.png"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

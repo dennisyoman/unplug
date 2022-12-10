@@ -36,5 +36,11 @@
       <lesson lid="3">搜尋白娘子</lesson>
       <lesson lid="4">多樣的月餅</lesson>
     </book>
+    <book name="Book 7" bid="7" img="PT_book7.jpg">
+      <lesson lid="1">IF思考法</lesson>
+      <lesson lid="2">否則遊樂園</lesson>
+      <lesson lid="3">分類樹</lesson>
+      <lesson lid="4">資訊安全</lesson>
+    </book>
   </series>
 </root>

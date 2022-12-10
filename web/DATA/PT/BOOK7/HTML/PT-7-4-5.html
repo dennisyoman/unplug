@@ -1,0 +1,188 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>記得登出</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="登入網站">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="登出">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="危險">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="關閉">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="資訊遭竊">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="安全">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div class="positive" style="margin-left: 80px" ans="B"></div>
+        <div class="positive" ans="F"></div>
+        <div class="negative" ans="D"></div>
+        <div class="negative" ans="C"></div>
+        <div class="negative end" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 225px"
+          >要登出嗎?
+          <img
+            style="top: -10px; left: 54px; height: 15px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 20px; left: 54px; height: 15px"
+            src="./DATA/IMAGES/common/negative2.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>C=5^6</span>
+        <span>E=5^6</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>保護資訊</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A">
+            <img
+              src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-A.jpg"
+              title="手機解鎖密碼"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B">
+            <img
+              src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-B.jpg"
+              title="最喜歡的玩具"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C">
+            <img
+              src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-C.jpg"
+              title="家裡的地址"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D">
+            <img
+              src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-D.jpg"
+              title="寵物的名字"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E">
+            <img
+              src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-E.jpg"
+              title="LCO帳號和密碼"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F">
+            <img
+              src="./DATA/PT/BOOK7/IMAGES/PT-7-4-5-2-F.jpg"
+              title="討厭的食物"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div style="margin-left: 100px" class="positive" ans="B"></div>
+        <div class="positive" ans="D"></div>
+        <div class="positive" ans="F"></div>
+        <div class="negative" ans="A"></div>
+        <div class="negative" ans="C"></div>
+        <div class="negative" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 180px"
+          >可以告訴別人?
+          <img
+            style="top: -10px; left: 78px; height: 15px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 20px; left: 78px; height: 15px"
+            src="./DATA/IMAGES/common/negative3.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>B=1^2^3</span>
+        <span>D=1^2^3</span>
+        <span>F=1^2^3</span>
+        <span>A=4^5^6</span>
+        <span>C=4^5^6</span>
+        <span>E=4^5^6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

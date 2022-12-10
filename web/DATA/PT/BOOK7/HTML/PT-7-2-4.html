@@ -1,0 +1,170 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>走失了怎麼辦</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="與爸媽會合">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B l1 cards"
+            ans="B"
+            title="到服務台<br />請求幫忙"
+          >
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="保持冷靜">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="走丟了">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="呼喚家長">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="在原地等待">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="D"></div>
+        <div ans="C"></div>
+        <div ans="E"></div>
+        <div class="positive" style="margin-left: 75px" ans="B"></div>
+        <div class="negative" ans="F"></div>
+        <div class="end" ans="A"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 282px"
+          >有服務台?
+          <img
+            style="top: -10px; left: 50px; height: 15px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 20px; left: 50px; height: 15px"
+            src="./DATA/IMAGES/common/negative1.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>D=1</span>
+        <span>A=6</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>摩天輪維修中</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="購票">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="搭旋轉木馬">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="搭摩天輪">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="搭鞦韆">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="玩鬼屋">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="回家">
+            <img src="./DATA/PT/BOOK7/IMAGES/PT-7-2-4-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div class="positive" style="margin-left: 100px" ans="D"></div>
+        <div class="negative" ans="C"></div>
+        <div ans="B"></div>
+        <div ans="E"></div>
+        <div class="end" ans="F"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 213px"
+          >摩天輪在維修?
+          <img
+            style="top: -10px; left: 75px; height: 15px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 20px; left: 75px; height: 15px"
+            src="./DATA/IMAGES/common/negative1.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>A=1</span>
+        <span>F=6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

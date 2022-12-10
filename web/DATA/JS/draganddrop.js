@@ -391,18 +391,25 @@ var checkAnswer = function () {
     rootSoundEffect($stupid);
   }
   if ($(".cardAvatarDie.right").length > 0) {
-    rootSoundEffect($correct);
+    var newBingo = false;
     //加上正確符號
     $(".cardAvatarDie.right").each(function () {
       var src1 = $(this).find("img").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
         .each(function () {
-          if (src1 == $(this).find("img").attr("src")) {
+          if (
+            src1 == $(this).find("img").attr("src") &&
+            !$(this).hasClass("positionBingo")
+          ) {
             $(this).addClass("positionBingo");
+            newBingo = true;
           }
         });
     });
+    if (newBingo) {
+      rootSoundEffect($correct);
+    }
   }
 };
 
