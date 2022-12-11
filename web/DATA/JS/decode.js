@@ -188,6 +188,13 @@ var trigMeHash = function (tar) {
   $(".sideTool > div.btn_answer").removeClass("active");
 };
 
+var trigMeCheck = function (tar) {
+  tar.removeClass("wrong").toggleClass("selected");
+  rootSoundEffect($show);
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
+
 var checkAnswer = function () {
   //code
   var getWrong = false;
@@ -199,8 +206,23 @@ var checkAnswer = function () {
     if (seq && $(this).hasClass("done")) {
       if (iid != "h" + seq) {
         $(this).addClass("wrong");
-        getWrong = false;
+        getWrong = true;
       }
+    }
+  });
+
+  //checks
+  var checkItems = $(".contents > div.selected .check").find(".items > span");
+  checkItems.each(function () {
+    $(this).removeClass("wrong");
+    var ans = $(this).attr("ans");
+    if (ans != "1" && $(this).hasClass("selected")) {
+      $(this).addClass("wrong").removeClass("selected");
+      getWrong = true;
+    }
+    if (ans == "1" && !$(this).hasClass("selected")) {
+      $(this).addClass("wrong").removeClass("selected");
+      getWrong = true;
     }
   });
 
@@ -273,6 +295,7 @@ var showAnswer = function (boolean) {
     if ($(".contents > div.selected .puzzle").find(".ans").length > 0) {
       $(".contents > div.selected .puzzle").addClass("showAnswer");
     }
+    //code
     if ($(".contents > div.selected .puzzle").find(".items").length > 0) {
       var items = $(".contents > div.selected .puzzle").find(".items");
       items.removeClass("selected");
@@ -305,14 +328,14 @@ var showAnswer = function (boolean) {
         if (newSeq > 0) {
           $(this)
             .attr("seq", newSeq)
-            .removeClass("wonrg")
+            .removeClass("wrong")
             .empty()
             .append(
               `
           <img
             width="20"
             height="auto"
-            src="./DATA/PT/BOOK2/IMAGES/hash_${$(this).attr("seq")}.png"
+            src="./DATA/PT/BOOK${bid}/IMAGES/hash_${$(this).attr("seq")}.png"
         />`
             )
             .addClass("done");
@@ -331,10 +354,23 @@ var showAnswer = function (boolean) {
         }
       });
     }
+    //check
+    if ($(".contents > div.selected .check").length > 0) {
+      var checkItems = $(".contents > div.selected .check").find(
+        ".items > span"
+      );
+      checkItems.each(function () {
+        $(this).removeClass("selected");
+        if ($(this).attr("ans") == "1") {
+          $(this).addClass("selected");
+        }
+      });
+    }
   } else {
     if ($(".contents > div.selected .puzzle").find(".ans").length > 0) {
       $(".contents > div.selected .puzzle").removeClass("showAnswer");
     }
+    //code
     if ($(".contents > div.selected .puzzle").find(".items").length > 0) {
       var items = $(".contents > div.selected .puzzle").find(".items");
       items.empty().removeClass("selected");
@@ -351,6 +387,15 @@ var showAnswer = function (boolean) {
         ) {
           $(this).empty().removeClass("done");
         }
+      });
+    }
+    //check
+    if ($(".contents > div.selected .check").length > 0) {
+      var checkItems = $(".contents > div.selected .check").find(
+        ".items > span"
+      );
+      checkItems.each(function () {
+        $(this).removeClass("selected");
       });
     }
   }
@@ -378,6 +423,10 @@ var resetElem = function (elem) {
     $(".sideTool > div.btn_answer").removeClass("active").show();
   }
   if (elem.find(".puzzle .items").length > 0) {
+    $(".sideTool > div.btn_answer").removeClass("active").show();
+    $(".sideTool > div.btn_check").removeClass("active").show();
+  }
+  if (elem.find(".check").length > 0) {
     $(".sideTool > div.btn_answer").removeClass("active").show();
     $(".sideTool > div.btn_check").removeClass("active").show();
   }

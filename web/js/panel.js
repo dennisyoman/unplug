@@ -684,7 +684,7 @@ var appendZoomer = function () {
 var appendPainting = function (active) {
   if (active) {
     $("#canvas-board").clearQueue();
-    canvasCord = [2560, 1280, 0, 0];
+    canvasCord = [2400, 1280, 0, 0];
     if ($("#widget").children("#painting").length < 1) {
       $("#widget").append(`<div id="painting" class="painting"/>`);
       $.getComponent(

@@ -132,13 +132,14 @@ var handleDrag = function (ev) {
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
       //是否有正確位置參數fp
-      if ($($elem).attr("fp") || $($elem).attr("sp")) {
+      if ($($elem).attr("fp") || $($elem).attr("sp") || $($elem).attr("ap")) {
         $($elem).addClass("semiTransparent");
       }
       var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
+      var caHeight = parseInt($($elem).css("height")) / stageRatioReal;
 
       $("#cardAvatar").css("width", caWidth + "px");
-      $("#cardAvatar").css("height", caWidth + "px");
+      $("#cardAvatar").css("height", caHeight + "px");
     }
   }
 
@@ -230,7 +231,7 @@ var checkStatus = function () {
         parseInt(itemLeft) < parseInt(tempFP[1]) + parseInt(itemW) / 2
       ) {
         rootSoundEffect($correct);
-        $("#cardAvatar").addClass("positionBingo");
+        $("#cardAvatar").addClass("positionBingo right");
         $("#cardAvatar").get(0).style.top = tempFP[0] + "px";
         $("#cardAvatar").get(0).style.left = tempFP[1] + "px";
         var src1 = $("#cardAvatar").find("img").attr("src");
@@ -304,12 +305,13 @@ var checkStatus = function () {
     .css("cursor", "pointer");
   //是否直接驗收
   if ($(".contents > div.selected .sensorArea").hasClass("checkonchange")) {
-    console.log("coc");
     $(".sideTool > div.btn_check").click();
   }
   //
   $(".sideTool > div.btn_replay").show();
-  $(".sideTool > div.btn_check").show();
+  if (!$(".contents > div.selected .sensorArea").hasClass("checkonchange")) {
+    $(".sideTool > div.btn_check").show();
+  }
 };
 
 var showAnswer = function (boolean) {
@@ -345,22 +347,34 @@ var showAnswer = function (boolean) {
       ansArray.push([]);
       for (var i = 0; i < toys.length; i++) {
         if (
-          toys.eq(i).attr("group") &&
-          $(this).attr("group") &&
-          toys.eq(i).attr("group") == $(this).attr("group")
+          (toys.eq(i).attr("group") &&
+            $(this).attr("group") &&
+            toys.eq(i).attr("group") == $(this).attr("group")) ||
+          (toys.eq(i).attr("ap") && !toys.eq(i).attr("group"))
         ) {
           //
           toys.eq(i).addClass("cached");
           var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
+          var caHeight = parseInt(toys.eq(i).css("height")) / stageRatioReal;
 
           if (oX + caWidth > oriW) {
             oX = 5;
-            oY += caWidth;
+            if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
+            oY += caHeight;
           }
+          //答案預設位置
+          var ansTop = oriY + oY;
+          var ansLeft = oriX + oX;
+          if (toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto") {
+            var ap = toys.eq(i).attr("ap").split(",");
+            ansTop = ap[0];
+            ansLeft = ap[1];
+          }
+          //
           ansArray[ansArray.length - 1].push(
-            `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caWidth}px;top:${
-              oriY + oY
-            }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`
+            `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+              .eq(i)
+              .prop("outerHTML")}</div>`
           );
           //
           oX += caWidth;
