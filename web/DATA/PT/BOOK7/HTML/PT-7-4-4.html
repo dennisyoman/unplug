@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_decode">
+<div id="module_wrapper" class="module_fillin">
   <div class="tabs">
     <span>任務一</span>
     <span
@@ -10,8 +10,9 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_check"></div>
     <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -27,88 +28,67 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="check">
-        <div class="items" style="top: -149px; left: 0px">
+      <div class="subject wow fadeInDown" style="height: 300px">
+        <div class="sensorArea">
           <span
-            style="top: 34px; left: 41px"
-            ans="1"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 34px; left: 41px"
+            ans="true"
+          />
           <span
-            style="top: 42px; left: 199px"
-            ans="1"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 42px; left: 199px"
+            ans="true"
+          />
           <span
-            style="top: 34px; left: 294px"
-            ans="1"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 34px; left: 294px"
+            ans="true"
+          />
           <span
-            style="top: 93px; left: 20px"
-            ans="0"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 93px; left: 20px"
+            ans=""
+          />
           <span
-            style="top: 106px; left: 274px"
-            ans="0"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 106px; left: 274px"
+            ans=""
+          />
           <span
-            style="top: 203px; left: 71px"
-            ans="1"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 203px; left: 71px"
+            ans="true"
+          />
           <span
-            style="top: 137px; left: 320px"
-            ans="0"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 137px; left: 320px"
+            ans=""
+          />
           <span
-            style="top: 220px; left: 300px"
-            ans="0"
-            onClick="trigMeCheck($(this))"
-            ><img
-              width="20"
-              height="auto"
-              src="./DATA/IMAGES/common/icon_check.png"
-          /></span>
+            class="sensor"
+            style="width: 20px; height: 20px; top: 220px; left: 300px"
+            ans=""
+          />
         </div>
-      </div>
-      <div class="puzzle">
+
         <img
-          height="300px"
+          height="100%"
           width="auto"
           src="./DATA/PT/BOOK7/IMAGES/PT-7-4-4-1.png"
         />
+      </div>
+
+      <div class="options">
+        <div class="option" fillin="true">
+          <span class="fillin">
+            <img
+              width="20"
+              height="auto"
+              src="./DATA/IMAGES/common/icon_check.png"
+            />
+          </span>
+        </div>
       </div>
     </div>
   </div>

@@ -6382,6 +6382,138 @@
   }
 }
 
+.module_fillin {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  .circle_blue {
+    @include borderRadius(100%);
+    border: 4px solid $third;
+  }
+  .circle_red {
+    @include borderRadius(100%);
+    border: 4px solid #f84343;
+  }
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+  }
+  .subject {
+    position: relative;
+    z-index: 1;
+  }
+  .sensorArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    > .sensor {
+      pointer-events: auto;
+      cursor: pointer;
+      position: absolute;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      //background: rgba(255, 255, 255, 0.4);
+
+      &.wrong {
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 5;
+          background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center center;
+          background-size: 50% auto;
+        }
+      }
+    }
+  }
+  .options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: inline-flex;
+    flex-wrap: wrap;
+    .option {
+      margin: 5px;
+      pointer-events: auto;
+      cursor: pointer;
+
+      &.selected {
+        .icon {
+          @include opacity(1);
+        }
+      }
+
+      .icon {
+        @include opacity(0.3);
+      }
+      .fillin {
+        display: none;
+      }
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  .hint {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    text-align: left;
+    padding: 10px 10px 10px;
+    background: #fff;
+    border: 2px solid $l4;
+    @include borderRadius(5px);
+    z-index: 2;
+
+    p {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 5px;
+      span {
+        display: inline-block;
+        height: 15px;
+        color: $main;
+        border-bottom: 1px solid #333;
+        min-width: 25px;
+      }
+    }
+  }
+}
+
 .module_calculus {
   position: relative;
   top: 0;

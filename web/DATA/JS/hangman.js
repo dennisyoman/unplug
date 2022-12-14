@@ -78,7 +78,7 @@ var checkAnswer = function () {
   });
   codes.each(function () {
     for (var i = 0; i < ans_array.length; i++) {
-      if ($(this).text() == ans_array[i]) {
+      if ($(this).html() == ans_array[i]) {
         if ($(this).index() == i) {
           $(this).addClass("modeA");
         } else {
@@ -154,7 +154,7 @@ var resetElem = function (elem) {
   //reset code
   var tempCode = new Array();
   keys.each(function () {
-    tempCode.push($(this).text());
+    tempCode.push($(this).html());
   });
   shuffle(tempCode);
   codes.each(function (index) {
@@ -179,7 +179,7 @@ var resetElem = function (elem) {
           if ($(this).hasClass("used")) {
             //去掉重複的
             for (var k = 0; k < codes.length; k++) {
-              if (codes.eq(k).text() == $(this).text()) {
+              if (codes.eq(k).html() == $(this).html()) {
                 codes.eq(k).removeClass("modeA modeB").text("");
               }
             }
@@ -187,12 +187,12 @@ var resetElem = function (elem) {
             elem
               .find(".hangman .code > span.selected")
               .removeClass("modeA modeB")
-              .text($(this).text());
+              .text($(this).html());
           } else {
             elem
               .find(".hangman .code > span.selected")
               .removeClass("modeA modeB")
-              .text($(this).text());
+              .text($(this).html());
           }
           rootSoundEffect($pop);
         } else {
@@ -201,9 +201,9 @@ var resetElem = function (elem) {
         //set used
         keys.removeClass("used");
         for (var k = 0; k < codes.length; k++) {
-          if (codes.eq(k).text() != "") {
+          if (codes.eq(k).html() != "") {
             for (var i = 0; i < keys.length; i++) {
-              if (codes.eq(k).text() == keys.eq(i).text()) {
+              if (codes.eq(k).html() == keys.eq(i).html()) {
                 keys.eq(i).addClass("used");
               }
             }

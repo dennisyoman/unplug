@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_decode">
+<div id="module_wrapper" class="module_fillin">
   <div class="tabs">
     <span>任務一</span>
   </div>
@@ -26,46 +26,116 @@
         </div>
       </div>
 
-      <div class="puzzle wow fadeInRight" style="max-width: 350px">
-        <div class="subject">
-          <img
-            height="auto"
-            width="100%"
-            src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-1.png"
+      <div class="subject wow fadeInDown" style="width: 350px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 48px; height: 48px; top: 55px; left: 26px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 50px; height: 50px; top: 14px; left: 70px"
+            ans="blue"
+          />
+          <span
+            class="sensor"
+            style="width: 50px; height: 50px; top: 67px; left: 108px"
+            ans="blue"
+          />
+          <span
+            class="sensor"
+            style="width: 34px; height: 75px; top: 18px; left: 161px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 50px; height: 50px; top: 16px; left: 214px"
+            ans="red"
+          />
+          <span
+            class="sensor"
+            style="width: 62px; height: 54px; top: 73px; left: 200px"
+            ans="red"
+          />
+          <span
+            class="sensor"
+            style="width: 42px; height: 74px; top: 34px; left: 284px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 67px; height: 80px; top: 128px; left: 15px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 76px; height: 63px; top: 124px; left: 91px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 46px; height: 63px; top: 149px; left: 173px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 46px; height: 63px; top: 126px; left: 233px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 51px; height: 68px; top: 126px; left: 288px"
+            ans=""
+          />
+          <span
+            class="sensor"
+            style="width: 50px; height: 50px; top: 221px; left: 20px"
+            ans="blue"
+          />
+          <span
+            class="sensor"
+            style="width: 79px; height: 65px; top: 212px; left: 88px"
+            ans="red"
+          />
+          <span
+            class="sensor"
+            style="width: 56px; height: 57px; top: 212px; left: 208px"
+            ans="red"
+          />
+          <span
+            class="sensor"
+            style="width: 56px; height: 53px; top: 221px; left: 281px"
+            ans=""
           />
         </div>
-        <div class="ans">
-          <img
-            height="auto"
-            width="100%"
-            class="ans"
-            src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-1A.png"
-          />
+        <div class="hint wow bounceIn" style="left: -110px; top: 80px">
+          <p>紅筆圈水果<br />藍筆圈月餅</p>
         </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK6/IMAGES/PT-6-4-3-1.png"
+        />
       </div>
-      <div
-        class="pen wow bounceInUp"
-        style="position: absolute; left: 40px; bottom: 20px"
-      >
-        <span
-          style="
-            pointer-events: auto;
-            display: inline-block;
-            border: 3px solid #ffffff;
-          "
-          onClick="$('#main-panel .btn_paletton').click();$(this).fadeOut()"
-          ><img
-            height="40px"
-            width="40px"
-            src="./DATA/IMAGES/common/btn_paletton.png"
-            style="pointer-events: auto"
-        /></span>
-      </div>
-      <div
-        class="hint wow bounceIn"
-        style="right: auto; left: 20px; bottom: 75px"
-      >
-        <p>紅筆圈水果<br />藍筆圈月餅</p>
+
+      <div class="options" style="top: 175px; left: 30px; width: 30px">
+        <div class="option" fillin="red">
+          <span class="icon">
+            <img style="width: 30px" src="./DATA/IMAGES/common/pen_red.png" />
+          </span>
+          <span class="fillin">
+            <span class="circle_red" style="width: 50px; height: 50px"></span>
+          </span>
+        </div>
+        <div class="option" fillin="blue">
+          <span class="icon">
+            <img style="width: 30px" src="./DATA/IMAGES/common/pen_blue.png" />
+          </span>
+          <span class="fillin">
+            <span class="circle_blue" style="width: 50px; height: 50px"></span>
+          </span>
+        </div>
       </div>
     </div>
 
