@@ -6514,6 +6514,444 @@
   }
 }
 
+.module_if {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .hint {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    text-align: left;
+    z-index: 2;
+
+    p {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 5px;
+      span {
+        display: inline-block;
+        height: 15px;
+        color: $main;
+        border-bottom: 1px solid #333;
+        min-width: 25px;
+      }
+    }
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    top: 40px;
+    width: calc(100% - 40px);
+    height: calc(100% - 80px);
+
+    > div {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  .subject {
+    position: relative;
+    z-index: 1;
+  }
+  .cards {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    &.vertical {
+      width: 130px;
+      flex-direction: column;
+      > div {
+        &.mycardtype {
+          width: 100%;
+          height: 30px;
+          margin-top: -10px;
+          flex-direction: row;
+          > * {
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+
+    > div {
+      width: 127px;
+      height: 85px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: auto;
+      cursor: pointer;
+      > span {
+        position: absolute;
+        z-index: 1;
+        width: 127px;
+        height: 85px;
+        margin-top: 10px;
+        margin-left: 10px;
+        border: 3px solid #fff;
+        background: #fff;
+        text-align: center;
+        display: none;
+        @include borderRadius(10px);
+
+        &.active {
+          display: block;
+        }
+      }
+      &.mycardtype {
+        width: 30px;
+        flex-direction: column;
+        pointer-events: none;
+        > * {
+          pointer-events: auto;
+          cursor: pointer;
+        }
+      }
+      &.ifcard {
+        background: #fff;
+        border: 3px solid #ddd;
+        @include borderRadius(10px);
+        &::after {
+          content: "If卡";
+          position: absolute;
+          color: #bbb;
+          z-index: 0;
+        }
+        > span {
+          .pair {
+            display: block;
+            width: 69px;
+            height: 23px;
+            background: url("../DATA/PT/BOOK7/IMAGES/ifyes.png") no-repeat center center;
+            background-size: 100% 100%;
+            margin: 10px 0 10px 10px;
+          }
+          .t1,
+          .t2 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url("../DATA/PT/BOOK7/IMAGES/if_color.png") no-repeat center center;
+            background-size: contain;
+            top: 5px;
+            left: 30px;
+          }
+          .t2 {
+            left: 85px;
+          }
+          &.equal {
+            .pair {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/ifyes.png");
+            }
+          }
+          &.diff {
+            .pair {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/ifnot.png");
+            }
+          }
+
+          &.color {
+            .t1,
+            .t2 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/if_color.png");
+            }
+          }
+          &.shape {
+            .t1,
+            .t2 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/if_shape.png");
+            }
+          }
+          &.number {
+            .t1,
+            .t2 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/if_number.png");
+            }
+          }
+          .d1,
+          .d2,
+          .d3,
+          .d4,
+          .d5 {
+            display: inline-block;
+            width: 19px;
+            height: 27px;
+            background: url("../DATA/PT/BOOK7/IMAGES/if_forward.png") no-repeat center center;
+            background-size: 100% 100%;
+            top: 0;
+            left: 0;
+          }
+          &.forward {
+            border-color: #80bf6b;
+            .d1,
+            .d2,
+            .d3,
+            .d4,
+            .d5 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/if_forward.png");
+            }
+          }
+          &.backward {
+            border-color: #ed8f4e;
+            .d1,
+            .d2,
+            .d3,
+            .d4,
+            .d5 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/if_backward.png");
+            }
+          }
+          &.s1 {
+            .d2,
+            .d3,
+            .d4,
+            .d5 {
+              display: none;
+            }
+          }
+          &.s2 {
+            .d3,
+            .d4,
+            .d5 {
+              display: none;
+            }
+          }
+          &.s3 {
+            .d4,
+            .d5 {
+              display: none;
+            }
+          }
+          &.s4 {
+            .d5 {
+              display: none;
+            }
+          }
+          &.s5 {
+          }
+        }
+      }
+      &.mycard {
+        background: #81a6d7;
+        border: 3px solid #fff;
+        @include borderRadius(10px);
+        &::after {
+          content: "我出的卡片";
+          position: absolute;
+          color: #fff;
+          z-index: 0;
+        }
+        > span {
+          .p1,
+          .p2,
+          .p3 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url("../DATA/PT/BOOK7/IMAGES/blue_dot.png") no-repeat center center;
+            background-size: 100% 100%;
+            top: 5px;
+            left: 5px;
+          }
+          .p2 {
+            top: 22px;
+            left: 45px;
+          }
+          .p3 {
+            top: 39px;
+            left: 85px;
+          }
+          &.n1 {
+            .p1 {
+              top: 22px;
+              left: 45px;
+            }
+            .p2,
+            .p3 {
+              display: none;
+            }
+          }
+          &.n2 {
+            .p1 {
+              top: 5px;
+              left: 15px;
+            }
+            .p2 {
+              top: 39px;
+              left: 75px;
+            }
+            .p3 {
+              display: none;
+            }
+          }
+          &.blue {
+            border-color: #729ccb;
+          }
+          &.red {
+            border-color: #e24f32;
+          }
+          &.yellow {
+            border-color: #f5c651;
+          }
+          &.blue.dot {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/blue_dot.png");
+            }
+          }
+          &.red.dot {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/red_dot.png");
+            }
+          }
+          &.yellow.dot {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/yellow_dot.png");
+            }
+          }
+          &.blue.star {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/blue_star.png");
+            }
+          }
+          &.red.star {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/red_star.png");
+            }
+          }
+          &.yellow.star {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/yellow_star.png");
+            }
+          }
+          &.blue.heart {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/blue_heart.png");
+            }
+          }
+          &.red.heart {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/red_heart.png");
+            }
+          }
+          &.yellow.heart {
+            .p1,
+            .p2,
+            .p3 {
+              background-image: url("../DATA/PT/BOOK7/IMAGES/yellow_heart.png");
+            }
+          }
+        }
+      }
+    }
+  }
+  .sensorArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    > .sensor {
+      pointer-events: auto;
+      cursor: pointer;
+      position: absolute;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      //background: rgba(255, 0, 0, 0.1);
+    }
+  }
+
+  .piece {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 0;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 9;
+
+    &.selected {
+      filter: drop-shadow(0px 0px 2px $main) drop-shadow(0px 0px 4px $orange);
+      z-index: 10;
+      > * {
+        pointer-events: none;
+      }
+    }
+
+    > * {
+      pointer-events: auto;
+      align-self: end;
+    }
+  }
+
+  .diceresult {
+    position: absolute;
+    bottom: 10px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    @include borderRadius(8px);
+    border: 3px solid $l3;
+    background: #fff;
+    color: $text;
+    line-height: 44px;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Gfont-bold";
+    z-index: 2;
+    display: none;
+  }
+}
+
 .module_calculus {
   position: relative;
   top: 0;

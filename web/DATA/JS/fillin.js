@@ -215,14 +215,6 @@ var resetElem = function (elem) {
         });
     });
   }
-  if (elem.find(".puzzle .items").length > 0) {
-    $(".sideTool > div.btn_answer").removeClass("active").show();
-    $(".sideTool > div.btn_check").removeClass("active").show();
-  }
-  if (elem.find(".check").length > 0) {
-    $(".sideTool > div.btn_answer").removeClass("active").show();
-    $(".sideTool > div.btn_check").removeClass("active").show();
-  }
 
   $(".smoke").remove();
   $(".resultIcon").remove();

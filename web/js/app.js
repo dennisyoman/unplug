@@ -1758,7 +1758,9 @@ var getHighestDepthCanvas = function (tar) {
     $("#canvas-board").attr("zindex", nextZIndex);
   }
 };
-
+var afterDice = function (points) {
+  console.log(points);
+};
 let showError = function (msg) {
   alert(msg);
 };
