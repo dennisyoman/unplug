@@ -253,8 +253,7 @@
     </section>
     <section section="3" name="一起玩遊戲 / IF…ELSE" html="PT/BOOK7/HTML/PT-7-2-3.html" js="JS/fillin.js" image="IMAGES/UNITS/match.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲② / IF…ELSE" html="PT/BOOK7/HTML/PT-7-2-3-2.html" js="JS/fillin.js" image="IMAGES/UNITS/logic.png" skin="">
-    </section>
+
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK7/HTML/PT-7-2-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
@@ -262,13 +261,12 @@
     <section section="1" name="熱身活動" html="PT/BOOK7/HTML/PT-7-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK7/HTML/PT-7-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 分類樹" html="PT/BOOK7/HTML/PT-7-3-3.html" js="JS/mid.js" image="IMAGES/UNITS/pairing.png" skin="">
-    </section>
+
     <section section="4" name="編程時間 / 演算法" html="PT/BOOK7/HTML/PT-7-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="7" lid="4">
-    <section section="1" name="熱身活動" html="PT/BOOK7/HTML/PT-7-4-1.html" js="JS/mid.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK7/HTML/PT-7-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 電腦的結構" html="PT/BOOK7/HTML/PT-7-4-3.html" js="JS/draganddrop.js" image="IMAGES/UNITS/tech.png" skin="">
