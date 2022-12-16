@@ -8417,9 +8417,7 @@
 }
 
 .module_if .contents {
-  top: 40px;
   width: calc(100% - 40px);
-  height: calc(100% - 80px);
 }
 
 .module_if .contents > div {
@@ -8843,7 +8841,7 @@
   text-align: center;
   font-size: 25px;
   font-family: "Gfont-bold";
-  z-index: 2;
+  z-index: 0;
   display: none;
 }
 

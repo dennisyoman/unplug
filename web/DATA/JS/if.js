@@ -190,6 +190,7 @@ var resetElem = function (elem) {
       $(this)
         .unbind()
         .bind("click", function () {
+          console.log("click");
           var piece = elem.find(".piece.selected");
           //
           if (piece.length > 0) {
@@ -200,7 +201,27 @@ var resetElem = function (elem) {
               .attr("neighbor");
             var neighbors = neighbor ? neighbor.split(",") : new Array();
             var myname = $(this).attr("name");
+
+            //是否是鄰近格子
             if (neighbors.indexOf(myname) >= 0 || $(this).hasClass("start")) {
+              //是否點在crossroads上
+              if (
+                elem
+                  .find(
+                    ".sensorArea .sensor[name='" + piece.attr("location") + "']"
+                  )
+                  .hasClass("crossroads") &&
+                $(this).attr("allow")
+              ) {
+                var allowArr = $(this).attr("allow").split(",");
+                var currentDice = elem.find(".diceresult").text();
+                console.log(allowArr, currentDice);
+                if (allowArr.indexOf(currentDice) < 0) {
+                  rootSoundEffect($stupid);
+                  //不能走這邊
+                  return false;
+                }
+              }
               var pX = parseInt(elem.find(".sensorArea").css("left"));
               var pY = parseInt(elem.find(".sensorArea").css("top"));
               var oX = parseInt($(this).css("left"));
@@ -211,7 +232,21 @@ var resetElem = function (elem) {
               piece.css("left", pX + oX + ww / 2).css("top", pY + oY + hh / 2);
               rootSoundEffect($show);
               piece.attr("location", $(this).attr("name"));
+              //換軌道
+              var switcher = $(this).attr("switcher");
+              if (switcher) {
+                var switcher_arr = switcher.split("^");
+                for (var i = 0; i < switcher_arr.length; i++) {
+                  var arr = switcher_arr[i].split(":");
+                  $(
+                    ".contents > div.selected .sensorArea .sensor[name='" +
+                      arr[0] +
+                      "']"
+                  ).attr("allow", arr[1]);
+                }
+              }
             } else {
+              //非鄰近格子
               rootSoundEffect($wrong);
             }
           } else {

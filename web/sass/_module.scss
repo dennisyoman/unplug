@@ -6567,9 +6567,9 @@
   }
 
   .contents {
-    top: 40px;
+    //top: 40px;
     width: calc(100% - 40px);
-    height: calc(100% - 80px);
+    //height: calc(100% - 80px);
 
     > div {
       flex-direction: column;
@@ -6947,7 +6947,7 @@
     text-align: center;
     font-size: 25px;
     font-family: "Gfont-bold";
-    z-index: 2;
+    z-index: 0;
     display: none;
   }
 }
