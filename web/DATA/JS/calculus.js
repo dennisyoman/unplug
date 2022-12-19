@@ -218,7 +218,17 @@ var checkOrderStatus = function () {
   $("#cardAvatar").remove();
   $(".cached").removeClass("cached");
   gridElem.find(">div.selected").removeClass("selected");
+
   if (fromOrder != toOrder) {
+    //duplicate styles
+    var stylesArr = [];
+    $(".contents > div.selected")
+      .find(".grids > div")
+      .each(function () {
+        stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
+        $(this).removeAttr("style");
+      });
+    //
     $(".sideTool > div.btn_answer").removeClass("active");
     //update order
     if (fromOrder > toOrder) {
@@ -242,6 +252,15 @@ var checkOrderStatus = function () {
         }
       });
     }
+    //
+    $(".contents > div.selected")
+      .find(".grids > div")
+      .each(function (index) {
+        if (stylesArr[index] != false) {
+          $(this).attr("style", stylesArr[index]);
+        }
+      });
+    //
     rootSoundEffect($show);
     updateFrame();
   }
@@ -305,7 +324,7 @@ var showSlider = function (boolean) {
 
     selectedElem
       .find(".card-title")
-      .text(
+      .html(
         selectedElem.find(".storyline").find(">div.selected").attr("title")
       );
 
@@ -390,7 +409,7 @@ var switchSlider = function (direction) {
 
   selectedElem
     .find(".card-title")
-    .text(storyline.find(">div.selected").attr("title"));
+    .html(storyline.find(">div.selected").attr("title"));
 
   selectedElem
     .find(".frames > div")
@@ -526,16 +545,26 @@ var showAnswer = function (boolean) {
       });
 
       var cardsArr = [];
+      var stylesArr = [];
       selectedElem.find(".grids > div").each(function () {
-        cardsArr.push($(this).removeClass("afterward backward").clone());
+        stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
+        cardsArr.push(
+          $(this).removeClass("afterward backward").removeAttr("style").clone()
+        );
       });
+
       selectedElem.find(".grids").empty();
+
+      var styleID = 0;
 
       for (var i = 0; i < originArr.length; i++) {
         for (var k = 0; k < cardsArr.length; k++) {
           var tempElem = cardsArr[k];
           if (originArr[i] == tempElem.find(">div").attr("ans")) {
-            console.log(tempElem.find(">div").attr("ans"));
+            if (stylesArr[styleID] != false) {
+              tempElem.attr("style", stylesArr[styleID]);
+            }
+            styleID++;
             selectedElem.find(".grids").append(tempElem.clone());
             break;
           }
@@ -864,14 +893,19 @@ var resetElem = function (elem) {
     ];
   }
   var cardsArr = [];
+  var stylesArr = [];
   elem.find(".grids > div").each(function () {
-    cardsArr.push($(this).removeClass("selected").clone());
+    stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
+    cardsArr.push($(this).removeClass("selected").removeAttr("style").clone());
   });
 
   elem.find(".grids").empty();
   for (var i = 0; i < originArr.length; i++) {
     for (var k = 0; k < cardsArr.length; k++) {
       var tempElem = cardsArr[k];
+      if (stylesArr[k] != false) {
+        tempElem.attr("style", stylesArr[k]);
+      }
       if (originArr[i] == tempElem.find(">div").attr("ans")) {
         elem.find(".grids").append(cardsArr[k]);
       }
