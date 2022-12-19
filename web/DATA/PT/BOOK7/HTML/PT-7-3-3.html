@@ -1,0 +1,916 @@
+<div id="module_wrapper" class="module_yesno">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span class="demo">示範二</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分類：</b
+            >請依照條件，點選符合或是不符合箭頭，將目標移動到正確的位置。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject wow fadeIn" style="height: 200px; margin-top: 100px">
+        <div class="piece_holder">
+          <!-- piece加上oriXY="x,y" :固定棋子起始位置 -->
+          <!-- piece加上class="visible" :棋子維持顯示 -->
+          <div class="piece wow bounceIn" group="3">
+            <img
+              width="25px"
+              height="60px"
+              src="./DATA/PT/BOOK7/IMAGES/p_01.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="2">
+            <img
+              width="47px"
+              height="60px"
+              src="./DATA/PT/BOOK7/IMAGES/p_02.png"
+            />
+          </div>
+        </div>
+        <div class="sensorArea">
+          <!-- sensor加上diffX 或 diffY : 格子裡可以放多物件-->
+          <span
+            class="sensor start"
+            style="width: 70px; height: 70px; top: -70px; left: 21px"
+            name="1"
+            neighbor="2,3"
+          />
+          <span
+            class="sensor end"
+            style="width: 70px; height: 70px; top: 39px; left: 134px"
+            name="2"
+            neighbor="1"
+          />
+          <span
+            class="sensor end"
+            style="width: 70px; height: 70px; top: 129px; left: 21px"
+            name="3"
+            neighbor="1"
+          />
+        </div>
+        <div class="arrowArea">
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 66px; left: 112px"
+            parent="1"
+            target="2"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 111px; left: 48px"
+            parent="1"
+            target="3"
+          />
+        </div>
+        <img
+          width="auto"
+          height="100%"
+          src="./DATA/PT/BOOK7/IMAGES/PT-7-3-3-1.png"
+        />
+      </div>
+    </div>
+
+    <!-- 示範二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分類：</b
+            >請依照條件，點選符合或是不符合箭頭，將目標移動到正確的位置。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject wow fadeIn" style="height: 230px; margin-top: 60px">
+        <div class="piece_holder">
+          <!-- piece加上oriXY="x,y" :固定棋子起始位置 -->
+          <!-- piece加上class="visible" :棋子維持顯示 -->
+          <div class="piece wow bounceIn" group="4">
+            <img
+              width="17px"
+              height="40px"
+              src="./DATA/PT/BOOK7/IMAGES/p_01.png"
+            />
+          </div>
+        </div>
+        <div class="sensorArea">
+          <!-- sensor加上diffX 或 diffY :格子裡可以放多物件-->
+          <span
+            class="sensor start"
+            style="width: 38px; height: 38px; top: -33px; left: 96px"
+            name="1"
+            neighbor="2,3"
+          />
+          <span
+            class="sensor"
+            style="width: 38px; height: 38px; top: 80px; left: 27px"
+            name="2"
+            neighbor="4,5"
+          />
+          <span
+            class="sensor"
+            style="width: 38px; height: 38px; top: 80px; left: 155px"
+            name="3"
+            neighbor="6,7"
+          />
+          <span
+            class="sensor end"
+            style="width: 38px; height: 38px; top: 193px; left: 2px"
+            name="4"
+            neighbor="2"
+          />
+          <span
+            class="sensor end"
+            style="width: 38px; height: 38px; top: 193px; left: 53px"
+            name="5"
+            neighbor="2"
+          />
+          <span
+            class="sensor end"
+            style="width: 38px; height: 38px; top: 192px; left: 130px"
+            name="6"
+            neighbor="3"
+          />
+          <span
+            class="sensor end"
+            style="width: 38px; height: 38px; top: 192px; left: 180px"
+            name="7"
+            neighbor="3"
+          />
+        </div>
+        <div class="arrowArea">
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 94px; left: 39px"
+            parent="1"
+            target="2"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 94px; left: 167px"
+            parent="1"
+            target="3"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 174px; left: 14px"
+            parent="2"
+            target="4"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 174px; left: 64px"
+            parent="2"
+            target="5"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 174px; left: 142px"
+            parent="3"
+            target="6"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 174px; left: 192px"
+            parent="3"
+            target="7"
+          />
+        </div>
+        <img
+          width="auto"
+          height="100%"
+          src="./DATA/PT/BOOK7/IMAGES/PT-7-3-3-2.png"
+        />
+      </div>
+    </div>
+
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分類：</b
+            >請依照條件，點選符合或是不符合箭頭，將目標移動到正確的位置。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject wow fadeIn" style="height: 270px; margin-top: 30px">
+        <div class="piece_holder">
+          <!-- piece加上oriXY="x,y" :固定棋子起始位置 -->
+          <!-- piece加上class="visible" :棋子維持顯示 -->
+          <div class="piece wow bounceIn" group="2">
+            <img
+              width="40px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_05.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="2">
+            <img
+              width="40px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_23.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="7">
+            <img
+              width="40px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_24.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="4">
+            <img
+              width="auto"
+              height="40px"
+              src="./DATA/PT/BOOK7/IMAGES/p_25.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="6">
+            <img
+              width="auto"
+              height="40px"
+              src="./DATA/PT/BOOK7/IMAGES/p_26.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="7">
+            <img
+              width="auto"
+              height="40px"
+              src="./DATA/PT/BOOK7/IMAGES/p_27.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="4">
+            <img
+              width="40px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_28.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="4">
+            <img
+              width="auto"
+              height="40px"
+              src="./DATA/PT/BOOK7/IMAGES/p_29.png"
+            />
+          </div>
+          <div class="piece wow bounceIn" group="2">
+            <img
+              width="40px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_30.png"
+            />
+          </div>
+        </div>
+        <div class="sensorArea">
+          <!-- sensor 加上diffX 或 diffY :格子裡可以放多物件-->
+          <span
+            class="sensor start"
+            style="width: 40px; height: 40px; top: 25px; left: -60px"
+            name="1"
+            neighbor="2,3"
+          />
+          <span
+            class="sensor end"
+            style="width: 40px; height: 40px; top: 28px; left: 91px"
+            name="2"
+            neighbor="1"
+            diffX="0"
+          />
+          <span
+            class="sensor"
+            style="width: 38px; height: 38px; top: 60px; left: 16px"
+            name="3"
+            neighbor="2,4,5"
+          />
+          <span
+            class="sensor end"
+            style="width: 40px; height: 40px; top: 94px; left: 91px"
+            name="4"
+            neighbor="3"
+            diffX="0"
+          />
+          <span
+            class="sensor"
+            style="width: 38px; height: 38px; top: 126px; left: 16px"
+            name="5"
+            neighbor="3,6,7"
+          />
+          <span
+            class="sensor end"
+            style="width: 40px; height: 40px; top: 159px; left: 91px"
+            name="6"
+            neighbor="5"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 40px; height: 40px; top: 225px; left: 91px"
+            name="7"
+            neighbor="5"
+            diffX="0"
+          />
+        </div>
+        <div class="arrowArea">
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 39px; left: 69px"
+            parent="1"
+            target="2"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 72px; left: 28px"
+            parent="1"
+            target="3"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 104px; left: 69px"
+            parent="3"
+            target="4"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 138px; left: 28px"
+            parent="3"
+            target="5"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 170px; left: 69px"
+            parent="5"
+            target="6"
+          />
+          <span
+            class="arrow"
+            style="width: 15px; height: 15px; top: 241px; left: 69px"
+            parent="5"
+            target="7"
+          />
+        </div>
+        <img
+          width="auto"
+          height="100%"
+          src="./DATA/PT/BOOK7/IMAGES/PT-7-3-3-3.png"
+        />
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分類：</b
+            >將條件卡依序拉入空格中，檢查上面的水果依序下落後，是否落在正確的區塊。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <!-- subject加上needcards : 要先將條件卡放置完全 -->
+      <!-- subject加上noanswer : 本題沒有正確答案 -->
+      <div
+        class="subject wow fadeIn needcards"
+        style="height: 270px; margin-top: 30px"
+      >
+        <div class="piece_holder">
+          <!-- piece加上oriXY="x,y" :固定棋子起始位置 -->
+          <!-- piece加上class="visible" :棋子維持顯示 -->
+          <div class="piece wow bounceIn visible" group="7" oriXY="39,24">
+            <img
+              width="30px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_04.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="5" oriXY="70,15">
+            <img
+              width="auto"
+              height="15px"
+              src="./DATA/PT/BOOK7/IMAGES/p_06.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="5" oriXY="58,48">
+            <img
+              width="auto"
+              height="17px"
+              src="./DATA/PT/BOOK7/IMAGES/p_15.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="87,41">
+            <img
+              width="30px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_16.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="4" oriXY="111,24">
+            <img
+              width="30px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_17.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="4" oriXY="135,45">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_18.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="5" oriXY="140,14">
+            <img
+              width="auto"
+              height="15px"
+              src="./DATA/PT/BOOK7/IMAGES/p_19.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="7" oriXY="166,26">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_20.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="200,20">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_21.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="197,46">
+            <img
+              width="30px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_22.png"
+            />
+          </div>
+        </div>
+        <div class="sensorArea">
+          <!--sensor加上 diffX 或 diffY :格子裡可以放多物件-->
+          <span
+            class="sensor start"
+            style="width: 30px; height: 30px; top: 20px; left: 106px"
+            name="1"
+            neighbor="2,3"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 105px; left: 73px"
+            name="2"
+            neighbor="1,4,5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 105px; left: 139px"
+            name="3"
+            neighbor="1,6,7"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 231px; left: 5px"
+            name="4"
+            neighbor="2"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 179px; left: 55px"
+            name="5"
+            neighbor="2"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 231px; left: 122px"
+            name="6"
+            neighbor="3"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 179px; left: 174px"
+            name="7"
+            neighbor="3"
+            diffX="0"
+          />
+        </div>
+        <div class="arrowArea">
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 117px; left: 81px"
+            parent="1"
+            target="2"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 117px; left: 149px"
+            parent="1"
+            target="3"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 210px; left: 31px"
+            parent="2"
+            target="4"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 160px; left: 81px"
+            parent="2"
+            target="5"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 210px; left: 149px"
+            parent="3"
+            target="6"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 160px; left: 199px"
+            parent="3"
+            target="7"
+          />
+        </div>
+        <div class="contain" />
+        <img
+          width="auto"
+          height="100%"
+          src="./DATA/PT/BOOK7/IMAGES/PT-7-3-3-4.png"
+        />
+      </div>
+
+      <div
+        class="toys wow slideInLeft"
+        style="width: 80px; left: 80px; height: 90px; top: 130px"
+      >
+        <div
+          title="顏色是紅色嗎?"
+          class="toy cards"
+          ap="131,275"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_01.png" />
+        </div>
+        <div
+          title="體積比雞蛋大嗎?"
+          class="toy cards"
+          ap="170,243"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_02.png" />
+        </div>
+        <div
+          title="長在樹上嗎?"
+          class="toy cards"
+          ap="170,311"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_03.png" />
+        </div>
+      </div>
+
+      <div class="cardArea" style="height: 100%">
+        <span
+          oX="0"
+          oY="0"
+          style="
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            top: 131px;
+            left: 275px;
+          "
+          group="a"
+        />
+        <span
+          oX="0"
+          oY="0"
+          style="
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            top: 170px;
+            left: 243px;
+          "
+          group="b"
+        />
+        <span
+          oX="0"
+          oY="0"
+          style="
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            top: 170px;
+            left: 311px;
+          "
+          group="c"
+        />
+      </div>
+    </div>
+
+    <!-- 任務三 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分類：</b
+            >將條件卡拉入空格中，再將食物依照自己設定的條件填入分類框中。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <!-- subject加上needcards : 要先將條件卡放置完全 -->
+      <!-- subject加上noanswer : 本題沒有正確答案 -->
+      <div
+        class="subject wow fadeIn needcards noanswer"
+        style="height: 270px; margin-top: 30px"
+      >
+        <div class="piece_holder">
+          <!-- piece加上oriXY="x,y" : 固定棋子起始位置 -->
+          <!-- piece加上class="visible" : 棋子維持顯示 -->
+          <div class="piece wow bounceIn visible" group="7" oriXY="39,18">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_07.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="5" oriXY="73,26">
+            <img
+              width="auto"
+              height="40px"
+              src="./DATA/PT/BOOK7/IMAGES/p_08.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="5" oriXY="48,48">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_09.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="95,41">
+            <img
+              width="20px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_10.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="4" oriXY="118,20">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_11.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="4" oriXY="135,45">
+            <img
+              width="30px"
+              height="auto"
+              src="./DATA/PT/BOOK7/IMAGES/p_12.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="5" oriXY="160,22">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_13.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="7" oriXY="188,47">
+            <img
+              width="auto"
+              height="20px"
+              src="./DATA/PT/BOOK7/IMAGES/p_14.png"
+            />
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="200,20">
+            <img
+              width="auto"
+              height="30px"
+              src="./DATA/PT/BOOK7/IMAGES/p_17.png"
+            />
+          </div>
+        </div>
+        <div class="sensorArea">
+          <!-- sensor加上diffX 或 diffY : 格子裡可以放多物件-->
+          <span
+            class="sensor start"
+            style="width: 30px; height: 30px; top: 20px; left: 106px"
+            name="1"
+            neighbor="2,3"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 105px; left: 73px"
+            name="2"
+            neighbor="1,4,5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 105px; left: 139px"
+            name="3"
+            neighbor="1,6,7"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 231px; left: 5px"
+            name="4"
+            neighbor="2"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 179px; left: 55px"
+            name="5"
+            neighbor="2"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 231px; left: 122px"
+            name="6"
+            neighbor="3"
+            diffX="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 30px; height: 30px; top: 179px; left: 174px"
+            name="7"
+            neighbor="3"
+            diffX="0"
+          />
+        </div>
+        <div class="arrowArea">
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 117px; left: 81px"
+            parent="1"
+            target="2"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 117px; left: 149px"
+            parent="1"
+            target="3"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 210px; left: 31px"
+            parent="2"
+            target="4"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 160px; left: 81px"
+            parent="2"
+            target="5"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 210px; left: 149px"
+            parent="3"
+            target="6"
+          />
+          <span
+            class="arrow"
+            style="width: 10px; height: 10px; top: 160px; left: 199px"
+            parent="3"
+            target="7"
+          />
+        </div>
+        <div class="contain" />
+        <img
+          width="auto"
+          height="100%"
+          src="./DATA/PT/BOOK7/IMAGES/PT-7-3-3-5.png"
+        />
+      </div>
+
+      <div
+        class="toys wow slideInLeft"
+        style="width: 80px; left: 80px; height: 140px; top: 110px"
+      >
+        <div
+          title="是蔬菜水果嗎？"
+          class="toy cards"
+          group="a"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_04.png" />
+        </div>
+        <div
+          title="是甜的嗎？"
+          class="toy cards"
+          group="b"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_05.png" />
+        </div>
+        <div
+          title="是早餐吃的嗎？"
+          class="toy cards"
+          group="c"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_06.png" />
+        </div>
+        <div
+          title="是熱的嗎？"
+          class="toy cards"
+          group="d"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_07.png" />
+        </div>
+        <div
+          title="是液體的嗎？"
+          class="toy cards"
+          group="e"
+          sp="131,275^170,243^170,311"
+          style="width: 45px; height: 22px"
+        >
+          <img src="./DATA/PT/BOOK7/IMAGES/c_08.png" />
+        </div>
+      </div>
+
+      <div class="cardArea" style="height: 100%">
+        <span
+          oX="0"
+          oY="0"
+          style="
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            top: 131px;
+            left: 275px;
+          "
+        />
+        <span
+          oX="0"
+          oY="0"
+          style="
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            top: 170px;
+            left: 243px;
+          "
+        />
+        <span
+          oX="0"
+          oY="0"
+          style="
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            top: 170px;
+            left: 311px;
+          "
+        />
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>

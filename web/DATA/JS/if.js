@@ -256,10 +256,6 @@ var resetElem = function (elem) {
           //
           $(".sideTool > div.btn_replay").show();
         });
-      //移動旗子到起點
-      if ($(this).hasClass("start")) {
-        $(this).click();
-      }
     });
   }
 
