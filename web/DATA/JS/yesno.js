@@ -99,8 +99,10 @@ var showAnswer = function (boolean) {
     var piece = elem.find(".piece");
     if (piece.length > 0) {
       if (elem.find(".subject").hasClass("needcards")) {
-        initPieces();
+        initPieces(true);
       } else {
+        //清掉arrow
+        elem.find(".arrowArea .arrow").removeClass("selected");
         //移動
         var pX = parseInt(elem.find(".sensorArea").css("left"));
         var pY = parseInt(elem.find(".sensorArea").css("top"));
@@ -408,9 +410,10 @@ var checkStatus = function () {
     $(".contents > div.selected .cardArea > span").length
   ) {
     console.log("放完");
-    initPieces();
+    initPieces(true);
   } else {
     console.log("還沒放完");
+    initPieces(false);
   }
 
   $(".sideTool > div.btn_replay").show();
@@ -426,13 +429,18 @@ var nextPiece = function (tar) {
   }
 };
 
-var initPieces = function () {
+var initPieces = function (boolean) {
   var elem = $(".contents > div.selected");
   if (elem.find(".piece").length > 0) {
-    elem.find(".piece").addClass("selected");
-    elem.find(".sensorArea .sensor.start").click();
-    elem.find(".piece").removeClass("selected");
-    elem.find(".piece").eq(0).addClass("selected");
+    if (boolean) {
+      elem.find(".piece").addClass("selected");
+      elem.find(".sensorArea .sensor.start").click();
+      elem.find(".piece").removeClass("selected");
+      elem.find(".piece").eq(0).addClass("selected");
+    } else {
+      elem.find(".piece").removeClass("selected");
+      elem.find(".arrowArea .arrow").removeClass("selected");
+    }
   }
 };
 
@@ -658,7 +666,7 @@ var resetElem = function (elem) {
   }
 
   //移動旗子到起點
-  initPieces();
+  initPieces(true);
 
   //這個題目需要needcards
   if (elem.find(".subject").hasClass("needcards")) {

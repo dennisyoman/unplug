@@ -1,0 +1,264 @@
+<div id="module_wrapper" class="module_yesno">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分類：</b
+            >請依照條件，點選符合或是不符合箭頭，將目標移動到正確的位置。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <!-- subject加上needcards : 要先將條件卡放置完全 -->
+      <!-- subject加上noanswer : 本題沒有正確答案 -->
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="piece_holder">
+          <!-- piece加上oriXY="x,y" :固定棋子起始位置 -->
+          <!-- piece加上class="visible" :棋子維持顯示 -->
+          <div class="piece wow bounceIn visible" group="7" oriXY="16,16">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 15px;
+                height: 15px;
+                line-height: 15px;
+                text-align: center;
+              "
+              >A</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="68,16">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >B</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="7" oriXY="246,16">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >C</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="7" oriXY="16,59">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >D</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="6" oriXY="78,45">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >E</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="7" oriXY="76,73">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >F</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="2" oriXY="242,65">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >G</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="2" oriXY="272,65">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >H</span
+            >
+          </div>
+          <div class="piece wow bounceIn visible" group="4" oriXY="316,65">
+            <span
+              style="
+                color: #fff;
+                background: #000;
+                border-radius: 100%;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                text-align: center;
+              "
+              >I</span
+            >
+          </div>
+        </div>
+        <div class="sensorArea">
+          <!--sensor加上 diffX 或 diffY :格子裡可以放多物件-->
+          <span
+            class="sensor start"
+            style="width: 30px; height: 30px; top: 20px; left: 106px"
+            name="1"
+            neighbor="2,3"
+          />
+          <span
+            class="sensor end"
+            style="width: 54px; height: 20px; top: 226px; left: 28px"
+            name="2"
+            neighbor="1"
+            diffY="0"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 138px; left: 89px"
+            name="3"
+            neighbor="1,4,5"
+          />
+          <span
+            class="sensor end"
+            style="width: 54px; height: 20px; top: 226px; left: 120px"
+            name="4"
+            neighbor="3"
+            diffY="0"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 138px; left: 180px"
+            name="5"
+            neighbor="3,6,7"
+          />
+          <span
+            class="sensor end"
+            style="width: 54px; height: 20px; top: 226px; left: 212px"
+            name="6"
+            neighbor="5"
+            diffY="0"
+          />
+          <span
+            class="sensor end"
+            style="width: 54px; height: 20px; top: 226px; left: 299px"
+            name="7"
+            neighbor="5"
+            diffY="0"
+          />
+        </div>
+        <div class="arrowArea">
+          <span
+            class="arrow"
+            style="width: 20px; height: 20px; top: 201px; left: 45px"
+            parent="1"
+            target="2"
+          />
+          <span
+            class="arrow"
+            style="width: 20px; height: 20px; top: 143px; left: 90px"
+            parent="1"
+            target="3"
+          />
+          <span
+            class="arrow"
+            style="width: 20px; height: 20px; top: 201px; left: 139px"
+            parent="3"
+            target="4"
+          />
+          <span
+            class="arrow"
+            style="width: 20px; height: 20px; top: 143px; left: 183px"
+            parent="3"
+            target="5"
+          />
+          <span
+            class="arrow"
+            style="width: 20px; height: 20px; top: 201px; left: 228px"
+            parent="5"
+            target="6"
+          />
+          <span
+            class="arrow"
+            style="width: 20px; height: 20px; top: 201px; left: 316px"
+            parent="5"
+            target="7"
+          />
+        </div>
+        <img
+          width="auto"
+          height="100%"
+          src="./DATA/PT/BOOK7/IMAGES/PT-7-4-1-1.png"
+        />
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
