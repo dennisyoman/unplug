@@ -19,7 +19,10 @@
       <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p><b>If 向前衝</b>：走到END要轉幾次點數呢？。</p>
+          <p>
+            <b>If 向前衝</b
+            >：翻開if卡並出好花色牌，由老師搖出骰子點數，看看你是不是有符合條件，獲得額外的獎勵吧。
+          </p>
           <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-3-1-intro.png" />
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
@@ -85,23 +88,6 @@
         />
       </div>
       <div class="cards wow fadeInUp">
-        <div class="ifcard" onClick="randomIfCard()">
-          <span
-            pair="equal"
-            type="color,shape,number"
-            direction="forward"
-            step="s5"
-          >
-            <span class="pair"></span>
-            <span class="t1"></span>
-            <span class="t2"></span>
-            <span class="d1"></span>
-            <span class="d2"></span>
-            <span class="d3"></span>
-            <span class="d4"></span>
-            <span class="d5"></span>
-          </span>
-        </div>
         <div class="mycard" onClick="randomMyCard('all')">
           <span
             color="red,blue,yellow"
@@ -113,7 +99,16 @@
             <span class="p3"></span>
           </span>
         </div>
-        <div class="mycardtype">
+        <div
+          class="mycardtype"
+          style="
+            position: absolute;
+            top: 65px;
+            left: 165px;
+            width: 120px;
+            flex-direction: row;
+          "
+        >
           <img
             onClick="randomMyCard('color')"
             height="auto"
@@ -132,6 +127,23 @@
             width="30px"
             src="./DATA/PT/BOOK7/IMAGES/if_number.png"
           />
+        </div>
+        <div class="ifcard" onClick="randomIfCard()">
+          <span
+            pair="equal"
+            type="color,shape,number"
+            direction="forward"
+            step="s5"
+          >
+            <span class="pair"></span>
+            <span class="t1"></span>
+            <span class="t2"></span>
+            <span class="d1"></span>
+            <span class="d2"></span>
+            <span class="d3"></span>
+            <span class="d4"></span>
+            <span class="d5"></span>
+          </span>
         </div>
       </div>
 
@@ -756,7 +768,7 @@
       <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p><b>If 向前衝</b>：走到END要轉幾次點數呢？。</p>
+          <p><b>If 向前衝</b>：在地圖上填上你喜歡的圖樣，再開始遊戲吧！</p>
           <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-3-1-intro.png" />
           <span class="cta" onClick="switchIntro()">START</span>
         </div>

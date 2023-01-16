@@ -177,6 +177,15 @@ var resetElem = function (elem) {
             .siblings(".piece.selected")
             .removeClass("selected");
           rootSoundEffect($pop);
+          //切換所屬感應區
+          if ($(this).attr("sa")) {
+            elem.find(".sensorArea").hide();
+            elem.find("#" + $(this).attr("sa")).show();
+          }
+          if ($(this).attr("ha")) {
+            elem.find(".hintArea").hide();
+            elem.find("#" + $(this).attr("ha")).show();
+          }
         });
     });
     //reset cards
@@ -191,14 +200,19 @@ var resetElem = function (elem) {
         .unbind()
         .bind("click", function () {
           console.log("click");
+          //
           var piece = elem.find(".piece.selected");
+          var SA = piece.attr("sa")
+            ? elem.find("#" + piece.attr("sa"))
+            : elem.find(".sensorArea");
+          var HA = piece.attr("ha")
+            ? elem.find("#" + piece.attr("ha"))
+            : elem.find(".hintArea");
           //
           if (piece.length > 0) {
-            var neighbor = elem
-              .find(
-                ".sensorArea .sensor[name='" + piece.attr("location") + "']"
-              )
-              .attr("neighbor");
+            var neighbor = SA.find(
+              ".sensor[name='" + piece.attr("location") + "']"
+            ).attr("neighbor");
             var neighbors = neighbor ? neighbor.split(",") : new Array();
             var myname = $(this).attr("name");
 
@@ -206,11 +220,9 @@ var resetElem = function (elem) {
             if (neighbors.indexOf(myname) >= 0 || $(this).hasClass("start")) {
               //是否點在crossroads上
               if (
-                elem
-                  .find(
-                    ".sensorArea .sensor[name='" + piece.attr("location") + "']"
-                  )
-                  .hasClass("crossroads") &&
+                SA.find(
+                  ".sensor[name='" + piece.attr("location") + "']"
+                ).hasClass("crossroads") &&
                 $(this).attr("allow")
               ) {
                 var allowArr = $(this).attr("allow").split(",");
@@ -222,8 +234,8 @@ var resetElem = function (elem) {
                   return false;
                 }
               }
-              var pX = parseInt(elem.find(".sensorArea").css("left"));
-              var pY = parseInt(elem.find(".sensorArea").css("top"));
+              var pX = parseInt(SA.css("left"));
+              var pY = parseInt(SA.css("top"));
               var oX = parseInt($(this).css("left"));
               var oY = parseInt($(this).css("top"));
               var ww = parseInt($(this).css("width")) / stageRatioReal;
@@ -232,17 +244,44 @@ var resetElem = function (elem) {
               piece.css("left", pX + oX + ww / 2).css("top", pY + oY + hh / 2);
               rootSoundEffect($show);
               piece.attr("location", $(this).attr("name"));
+
+              //elem是否有hintArea
+              if (HA.length > 0) {
+                HA.find(".hinter").removeClass("selected");
+                if (!$(this).hasClass("start")) {
+                  $(this).addClass("selected");
+                }
+                var hinterSeq = SA.find(".sensor.selected").length;
+                if (hinterSeq > 0) {
+                  HA.find(".hinter")
+                    .eq(hinterSeq - 1)
+                    .addClass("selected");
+                }
+              }
+              if ($(this).hasClass("end")) {
+                var uniq = new Date().getTime();
+                $(".contents > div.selected .piece.selected")
+                  .append(
+                    `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
+                  )
+                  .delay(1500)
+                  .queue(function () {
+                    $(".resultIcon").remove();
+                    $(this).dequeue();
+                  });
+                rootSoundEffect($chimes);
+              }
+
               //換軌道
               var switcher = $(this).attr("switcher");
               if (switcher) {
                 var switcher_arr = switcher.split("^");
                 for (var i = 0; i < switcher_arr.length; i++) {
                   var arr = switcher_arr[i].split(":");
-                  $(
-                    ".contents > div.selected .sensorArea .sensor[name='" +
-                      arr[0] +
-                      "']"
-                  ).attr("allow", arr[1]);
+                  SA.find(".sensor[name='" + arr[0] + "']").attr(
+                    "allow",
+                    arr[1]
+                  );
                 }
               }
             } else {
@@ -261,10 +300,15 @@ var resetElem = function (elem) {
 
   //移動旗子到起點
   if (elem.find(".piece").length > 0) {
-    elem.find(".piece").addClass("selected");
-    elem.find(".sensorArea .sensor.start").click();
-    elem.find(".piece").removeClass("selected");
-    elem.find(".piece").eq(0).addClass("selected");
+    elem.find(".piece").each(function () {
+      $(this).addClass("selected");
+      var SA = $(this).attr("sa")
+        ? elem.find("#" + $(this).attr("sa"))
+        : elem.find(".sensorArea");
+      SA.find(".sensor.start").click();
+      $(this).removeClass("selected");
+    });
+    elem.find(".piece").eq(0).addClass("selected").click();
   }
 
   $(".smoke").remove();
@@ -272,7 +316,15 @@ var resetElem = function (elem) {
   //
   $(".sideTool > div.btn_answer").removeClass("active").show();
   $(".sideTool > div.btn_check").hide();
-  $(".diceresult").hide();
+
+  //show dice
+  if (
+    $("#widget .dice").length < 1 &&
+    $(".contents > div.selected .diceresult").length > 0
+  ) {
+    appendDice("", 1);
+  }
+  $(".diceresult").html("?").show();
 };
 
 var resetTool = function () {
@@ -280,5 +332,5 @@ var resetTool = function () {
 };
 
 var afterDice = function (points) {
-  $(".diceresult").html(points).show();
+  $(".contents > div.selected .diceresult").html(points);
 };

@@ -42,5 +42,11 @@
       <lesson lid="3">分類樹</lesson>
       <lesson lid="4">資訊安全</lesson>
     </book>
+    <book name="Book 8" bid="8" img="PT_book8.jpg">
+      <lesson lid="1">重複節奏好好玩</lesson>
+      <lesson lid="2">重複藝術</lesson>
+      <lesson lid="3">怪獸數隻</lesson>
+      <lesson lid="4">不達目標不罷休</lesson>
+    </book>
   </series>
 </root>

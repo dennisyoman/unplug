@@ -1,0 +1,148 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>布穀！布穀！</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="8點59分">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="布穀鳥叫">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="9點01分">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="9點整">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="布穀鳥休息">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="9點01分">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div ans="D"></div>
+        <div ans="E"></div>
+        <div class="repeat" ans="B"></div>
+        <div ans="F"></div>
+        <div class="end" ans="C"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>A=1</span>
+        <span>D=2</span>
+        <span>F=5</span>
+        <span>C=6</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>音樂盒上的舞者</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="音樂盒">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="上發條">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="跳舞（正面）">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="打開音樂盒">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="敬禮">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="跳舞（背面）">
+            <img src="./DATA/PT/Book8/IMAGES/PT-8-1-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div ans="B"></div>
+        <div ans="D"></div>
+        <div ans="C"></div>
+        <div class="repeat" ans="F"></div>
+        <div class="end" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>B-C</span>
+        <span>B-F</span>
+        <span>C=4</span>
+        <span>F=5</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

@@ -251,9 +251,9 @@
     <section section="1" name="熱身活動" html="PT/BOOK7/HTML/PT-7-2-1.html" js="JS/if.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK7/HTML/PT-7-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / IF…ELSE" html="PT/BOOK7/HTML/PT-7-2-3.html" js="JS/fillin.js" image="IMAGES/UNITS/match.png" skin="">
+    <section section="3" name="一起玩遊戲 / If…else" html="PT/BOOK7/HTML/PT-7-2-3.html" js="JS/fillin.js" image="IMAGES/UNITS/match.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲② / IF…ELSE" html="PT/BOOK7/HTML/PT-7-2-3-2.html" js="JS/if.js" image="IMAGES/UNITS/logic.png" skin="">
+    <section section="4" name="一起玩遊戲② / If…else" html="PT/BOOK7/HTML/PT-7-2-3-2.html" js="JS/if.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK7/HTML/PT-7-2-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
@@ -276,6 +276,44 @@
     <section section="4" name="一起玩遊戲② / 密碼與資訊安全" html="PT/BOOK7/HTML/PT-7-4-4.html" js="JS/fillin.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK7/HTML/PT-7-4-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="8" lid="1">
+    <section section="1" name="熱身活動" html="PT/BOOK8/HTML/PT-8-1-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK8/HTML/PT-8-1-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 認識樂譜重複" html="PT/BOOK8/HTML/PT-8-1-3.html" js="JS/pattern.js" image="IMAGES/UNITS/repeat.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲② / 展開重複" html="PT/BOOK8/HTML/PT-8-1-4.html" js="JS/if.js" image="IMAGES/UNITS/pattern.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-1-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="8" lid="2">
+    <section section="1" name="熱身活動" html="PT/BOOK8/HTML/PT-8-2-1.html" js="JS/if.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK8/HTML/PT-8-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="巢狀結構" html="PT/BOOK8/HTML/PT-8-2-3.html" js="JS/fillin.js" image="IMAGES/UNITS/layers.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-2-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="8" lid="3">
+    <section section="1" name="熱身活動" html="PT/BOOK8/HTML/PT-8-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK8/HTML/PT-8-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / Counter" html="PT/BOOK8/HTML/PT-8-3-3.html" js="JS/yesno.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="8" lid="4">
+    <section section="1" name="熱身活動" html="PT/BOOK8/HTML/PT-8-4-1.html" js="JS/yesno.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK8/HTML/PT-8-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / Repeat until" html="PT/BOOK8/HTML/PT-8-4-3.html" js="JS/draganddrop.js" image="IMAGES/UNITS/link.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-4-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
 </root>

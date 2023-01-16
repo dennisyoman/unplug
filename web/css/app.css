@@ -206,6 +206,32 @@
   }
 }
 
+@-webkit-keyframes floatingReverse {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-animation-fill-mode: forwards;
+  }
+  50% {
+    -webkit-transform: translate(0, -10px);
+    transform: translate(0, -10px);
+    -webkit-animation-fill-mode: forwards;
+  }
+}
+
+@keyframes floatingReverse {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-animation-fill-mode: forwards;
+  }
+  50% {
+    -webkit-transform: translate(0, -10px);
+    transform: translate(0, -10px);
+    -webkit-animation-fill-mode: forwards;
+  }
+}
+
 @-webkit-keyframes growing {
   0% {
     -webkit-transform: scale(1);
@@ -4790,6 +4816,20 @@
           animation-iteration-count: infinite;
 }
 
+.module_creativity .contents .gridSlider .storyline > div .ani_floatingReverse {
+  -webkit-animation: floatingReverse;
+          animation: floatingReverse;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.module_creativity .contents .gridSlider .storyline > div .ani_delay {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
 .module_sheep {
   position: relative;
   top: 0;
@@ -8519,6 +8559,7 @@
 .module_if .cards > div.mycardtype > * {
   pointer-events: auto;
   cursor: pointer;
+  margin: 0 5px;
 }
 
 .module_if .cards > div.ifcard {
@@ -8792,6 +8833,42 @@
           align-items: center;
 }
 
+.module_if .sensorArea > .sensor.selected {
+  border: 2px solid #ff0000;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+
+.module_if .hintArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.module_if .hintArea > .hinter {
+  pointer-events: auto;
+  cursor: pointer;
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.module_if .hintArea > .hinter.selected {
+  border: 2px solid #ff0000;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+
 .module_if .piece {
   position: absolute;
   top: 0px;
@@ -8956,18 +9033,29 @@
   pointer-events: auto;
   cursor: pointer;
   position: absolute;
-  background: #ffffff;
-  -webkit-animation: hinting 0.5s infinite;
-          animation: hinting 0.5s infinite;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
 }
 
 .module_yesno .arrowArea > .arrow.selected {
   display: inline-block;
+}
+
+.module_yesno .arrowArea > .arrow.selected::after {
+  content: "";
+  -webkit-animation: skewing 1.2s infinite;
+          animation: skewing 1.2s infinite;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-right: -25px;
+  margin-top: -10px;
+  background: url("../DATA/IMAGES/common/finger3.png") no-repeat center center;
+  background-size: contain;
 }
 
 @-webkit-keyframes hinting {
@@ -9005,6 +9093,10 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  opacity: 0.5 !important;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  filter: alpha(opacity=50) !important;
   display: none;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -9032,13 +9124,21 @@
 }
 
 .module_yesno .piece_holder .piece.selected {
-  -webkit-filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426);
-          filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426);
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+  -webkit-filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426) drop-shadow(0px 0px 6px #eb6154);
+          filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426) drop-shadow(0px 0px 6px #eb6154);
   z-index: 2;
   display: inline-block;
 }
 
 .module_yesno .piece_holder .piece.done {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
   display: inline-block;
   -webkit-animation: none !important;
           animation: none !important;
@@ -9755,6 +9855,21 @@
           filter: drop-shadow(0px 0px 7px #eb6154);
 }
 
+.module_calculus .contents .grid6 > div.fixed,
+.module_calculus .contents .grid3 > div.fixed {
+  border: none;
+}
+
+.module_calculus .contents .grid6 > div.positive > div,
+.module_calculus .contents .grid3 > div.positive > div {
+  border-color: #3c9bd7;
+}
+
+.module_calculus .contents .grid6 > div.negative > div,
+.module_calculus .contents .grid3 > div.negative > div {
+  border-color: #ea5a59;
+}
+
 .module_calculus .contents .grid6 > div.afterward > div,
 .module_calculus .contents .grid3 > div.afterward > div {
   -webkit-animation-name: rtl;
@@ -9939,6 +10054,18 @@
   display: none;
 }
 
+.module_calculus .contents .grid4 > div.fixed {
+  border: none;
+}
+
+.module_calculus .contents .grid4 > div.positive > div {
+  border-color: #3c9bd7;
+}
+
+.module_calculus .contents .grid4 > div.negative > div {
+  border-color: #ea5a59;
+}
+
 .module_calculus .contents .grid4 > div.selected {
   border-style: solid;
   -webkit-filter: drop-shadow(0px 0px 7px #eb6154);
@@ -10051,6 +10178,18 @@
 
 .module_calculus .contents .grid12 > div::after, .module_calculus .contents .grid12 > div::before {
   display: none;
+}
+
+.module_calculus .contents .grid12 > div.fixed {
+  border: none;
+}
+
+.module_calculus .contents .grid12 > div.positive > div {
+  border-color: #3c9bd7;
+}
+
+.module_calculus .contents .grid12 > div.negative > div {
+  border-color: #ea5a59;
 }
 
 .module_calculus .contents .grid12 > div.selected {
@@ -10167,6 +10306,18 @@
 
 .module_calculus .contents .grid18 > div::after, .module_calculus .contents .grid18 > div::before {
   display: none;
+}
+
+.module_calculus .contents .grid18 > div.fixed {
+  border: none;
+}
+
+.module_calculus .contents .grid18 > div.positive > div {
+  border-color: #3c9bd7;
+}
+
+.module_calculus .contents .grid18 > div.negative > div {
+  border-color: #ea5a59;
 }
 
 .module_calculus .contents .grid18 > div.selected {
@@ -10511,6 +10662,20 @@
   z-index: 5;
 }
 
+.module_calculus .contents .frames > div.repeat0::after {
+  content: "";
+  color: #fff;
+  background: url("../DATA/IMAGES/common/repeat.png") no-repeat center center;
+  background-size: contain;
+  background-size: 100% 100%;
+  width: 20px;
+  height: 31px;
+  position: absolute;
+  top: -6px;
+  left: 0px;
+  z-index: 5;
+}
+
 .module_calculus .contents .frames > div.repeat2::before {
   content: "";
   color: #fff;
@@ -10547,6 +10712,19 @@
   position: absolute;
   top: -10px;
   left: -139px;
+  z-index: 5;
+}
+
+.module_calculus .contents .frames > div.repeat4::before {
+  content: "";
+  color: #fff;
+  background: url("../DATA/IMAGES/common/repeat2.png") no-repeat center center;
+  background-size: 100% 100%;
+  width: 115px;
+  height: 38px;
+  position: absolute;
+  top: -10px;
+  left: -105px;
   z-index: 5;
 }
 

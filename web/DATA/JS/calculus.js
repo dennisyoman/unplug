@@ -203,7 +203,13 @@ var checkCollision = function (ev) {
     var oriW = oriX + $(this).width();
     var oriY = $(this).offset().top;
     var oriH = oriY + $(this).height();
-    if (lastX >= oriX && lastX <= oriW && lastY >= oriY && lastY <= oriH) {
+    if (
+      lastX >= oriX &&
+      lastX <= oriW &&
+      lastY >= oriY &&
+      lastY <= oriH &&
+      !$(this).hasClass("fixed")
+    ) {
       $(this).addClass("selected");
     } else {
       $(this).removeClass("selected");
@@ -220,13 +226,15 @@ var checkOrderStatus = function () {
   gridElem.find(">div.selected").removeClass("selected");
 
   if (fromOrder != toOrder) {
-    //duplicate styles
+    //duplicate styles & class
     var stylesArr = [];
+    var classArr = [];
     $(".contents > div.selected")
       .find(".grids > div")
       .each(function () {
         stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
-        $(this).removeAttr("style");
+        classArr.push($(this).attr("class") ? $(this).attr("class") : false);
+        $(this).removeAttr("class");
       });
     //
     $(".sideTool > div.btn_answer").removeClass("active");
@@ -258,6 +266,12 @@ var checkOrderStatus = function () {
       .each(function (index) {
         if (stylesArr[index] != false) {
           $(this).attr("style", stylesArr[index]);
+        }
+        if (classArr[index] != false) {
+          var oriclass = $(this).attr("class")
+            ? $(this).attr("class") + " "
+            : "";
+          $(this).attr("class", oriclass + classArr[index]);
         }
       });
     //
@@ -546,11 +560,12 @@ var showAnswer = function (boolean) {
 
       var cardsArr = [];
       var stylesArr = [];
+      var classArr = [];
       selectedElem.find(".grids > div").each(function () {
+        $(this).removeClass("afterward backward");
         stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
-        cardsArr.push(
-          $(this).removeClass("afterward backward").removeAttr("style").clone()
-        );
+        classArr.push($(this).attr("class") ? $(this).attr("class") : false);
+        cardsArr.push($(this).removeAttr("style class").clone());
       });
 
       selectedElem.find(".grids").empty();
@@ -563,6 +578,12 @@ var showAnswer = function (boolean) {
           if (originArr[i] == tempElem.find(">div").attr("ans")) {
             if (stylesArr[styleID] != false) {
               tempElem.attr("style", stylesArr[styleID]);
+            }
+            if (classArr[styleID] != false) {
+              var oriClass = tempElem.attr("class")
+                ? tempElem.attr("class") + " "
+                : "";
+              tempElem.attr("class", oriClass + classArr[styleID]);
             }
             styleID++;
             selectedElem.find(".grids").append(tempElem.clone());

@@ -12,8 +12,8 @@
   </div>
 
   <div id="contents" class="contents">
-    <div>
-      <div class="intro">
+    <div style="top: -15px">
+      <div class="intro" style="margin-top: 15px">
         <div>
           <h3>How to play?</h3>
           <p>
@@ -24,33 +24,39 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="grids grid6 withArrow wow fadeInLeft">
-        <div>
+      <div class="grids grid6 wow fadeInLeft">
+        <div style="position: absolute; top: 100px; left: -60px">
           <div class="cardItem A l1 cards" ans="A" title="把學習單做完">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-1-A.jpg" />
           </div>
         </div>
-        <div>
+        <div style="position: absolute; top: 100px; left: 65px">
           <div class="cardItem B l1 cards" ans="B" title="找出學校制服">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-1-B.jpg" />
           </div>
         </div>
-        <div>
+        <div style="position: absolute; top: 100px; left: 190px">
           <div class="cardItem C l1 cards" ans="C" title="拿出餐盒">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-1-C.jpg" />
           </div>
         </div>
-        <div>
+        <div style="position: absolute; top: 100px; left: 315px">
           <div class="cardItem D l1 cards" ans="D" title="去睡覺">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-1-D.jpg" />
           </div>
         </div>
-        <div>
+        <div
+          class="negative"
+          style="position: absolute; top: 40px; left: 440px"
+        >
           <div class="cardItem E l1 cards" ans="E" title="檢查書本和作業">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-1-E.jpg" />
           </div>
         </div>
-        <div>
+        <div
+          class="positive"
+          style="position: absolute; top: 160px; left: 440px"
+        >
           <div class="cardItem F l1 cards" ans="F" title="餐盒放進餐袋">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-1-F.jpg" />
           </div>
@@ -65,19 +71,38 @@
         <div class="start" ans="C"></div>
         <div ans="F"></div>
         <div ans="E"></div>
-        <div ans="B"></div>
-        <div ans="A"></div>
-        <div class="end" ans="D"></div>
+        <div ans="B" style="margin-right: 150px"></div>
+        <div
+          class="negative"
+          ans="D"
+          style="position: absolute; top: -10px; left: 420px"
+        ></div>
+        <div
+          class="positive end"
+          ans="A"
+          style="position: absolute; top: 20px; left: 420px"
+        ></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 310px"
+          >有學習單要寫?
+          <img
+            style="top: 0px; left: 90px; height: 10px"
+            src="./DATA/IMAGES/common/negative2.png"
+          />
+          <img
+            style="top: 25px; left: 70px; height: 15px"
+            src="./DATA/IMAGES/common/positive2.png"
+          />
+        </span>
       </div>
       <div class="condition">
         <span>C-F</span>
-        <span>A=5</span>
-        <span>D=6</span>
+        <span>A=6</span>
+        <span>D=5</span>
       </div>
     </div>
-    <div>
-      <div class="intro">
+    <div style="top: -15px">
+      <div class="intro" style="margin-top: 15px">
         <div>
           <h3>How to play?</h3>
           <p>
@@ -88,33 +113,39 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="grids grid6 withArrow wow fadeInLeft">
-        <div>
+      <div class="grids grid6 wow fadeInLeft">
+        <div style="position: absolute; top: 100px; left: -60px">
           <div class="cardItem A l1 cards" ans="A" title="跟媽媽回家">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-2-A.jpg" />
           </div>
         </div>
-        <div>
+        <div style="position: absolute; top: 100px; left: 65px">
           <div class="cardItem B l1 cards" ans="B" title="收拾好餐盒">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-2-B.jpg" />
           </div>
         </div>
-        <div>
+        <div style="position: absolute; top: 100px; left: 190px">
           <div class="cardItem C l1 cards" ans="C" title="和朋友玩">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-2-C.jpg" />
           </div>
         </div>
-        <div>
+        <div style="position: absolute; top: 100px; left: 315px">
           <div class="cardItem D l1 cards" ans="D" title="換鞋子">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-2-D.jpg" />
           </div>
         </div>
-        <div>
+        <div
+          class="negative"
+          style="position: absolute; top: 40px; left: 440px"
+        >
           <div class="cardItem E l1 cards" ans="E" title="看故事書">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-2-E.jpg" />
           </div>
         </div>
-        <div>
+        <div
+          class="positive"
+          style="position: absolute; top: 160px; left: 440px"
+        >
           <div class="cardItem F l1 cards" ans="F" title="洗手間">
             <img src="./DATA/PT/BOOK7/IMAGES/PT-7-1-4-2-F.jpg" />
           </div>
@@ -129,15 +160,34 @@
         <div class="start" ans="C"></div>
         <div ans="E"></div>
         <div ans="B"></div>
-        <div ans="D"></div>
-        <div ans="F"></div>
-        <div class="end" ans="A"></div>
+        <div ans="D" style="margin-right: 130px"></div>
+        <div
+          class="negative"
+          ans="A"
+          style="position: absolute; top: -10px; left: 405px"
+        ></div>
+        <div
+          class="positive end"
+          ans="F"
+          style="position: absolute; top: 20px; left: 405px"
+        ></div>
         <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 320px"
+          >想上廁所?
+          <img
+            style="top: 0px; left: 65px; height: 10px"
+            src="./DATA/IMAGES/common/negative2.png"
+          />
+          <img
+            style="top: 25px; left: 45px; height: 15px"
+            src="./DATA/IMAGES/common/positive2.png"
+          />
+        </span>
       </div>
       <div class="condition">
         <span>C-D</span>
-        <span>A=6</span>
-        <span>F=5</span>
+        <span>A=5</span>
+        <span>F=6</span>
       </div>
     </div>
   </div>

@@ -1,0 +1,154 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <!--<div class="btn_playorder"></div>-->
+  </div>
+
+  <div id="contents" class="contents">
+    <div style="top: -15px">
+      <div class="intro" style="margin-top: 15px">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>吹頭髮</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 wow fadeInLeft">
+        <div style="position: absolute; top: 100px; left: -60px">
+          <div class="cardItem A l4 cards" ans="A" title="梳頭髮">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-1-A.jpg" />
+          </div>
+        </div>
+        <div style="position: absolute; top: 100px; left: 65px">
+          <div class="cardItem B l4 cards" ans="B" title="擦乾頭髮">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-1-B.jpg" />
+          </div>
+        </div>
+        <div style="position: absolute; top: 100px; left: 190px">
+          <div class="cardItem C l4 cards" ans="C" title="吹頭髮">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-1-C.jpg" />
+          </div>
+        </div>
+        <div style="position: absolute; top: 100px; left: 315px">
+          <div class="cardItem D l4 cards" ans="D" title="頭髮乾了嗎？">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-1-D.jpg" />
+          </div>
+        </div>
+        <div
+          class="positive"
+          style="position: absolute; top: 100px; left: 440px"
+        >
+          <div class="cardItem E l4 cards" ans="E" title="吹好了！">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-1-E.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="C"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div style="margin-left: 20px" class="end positive" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 277px">
+          <img
+            style="top: 7px; left: 70px; height: 10px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 25px; left: -4px; height: 15px"
+            src="./DATA/IMAGES/common/negative3.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>E=5</span>
+        <span>D=4</span>
+      </div>
+    </div>
+    <div style="top: -15px">
+      <div class="intro" style="margin-top: 15px">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>玩遊戲</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid3 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="女生畫">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="遊戲結束">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="男生畫">
+            <img src="./DATA/PT/BOOK8/IMAGES/PT-8-4-4-2-C.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div ans="C" style="margin-left: 120px"></div>
+        <div class="end" ans="B" style="margin-left: 120px"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 185px"
+          >只剩下一個嗎？
+          <img
+            style="top: 7px; left: 95px; height: 10px"
+            src="./DATA/IMAGES/common/negative2.png"
+          />
+          <img
+            style="top: -15px; left: 77px; height: 15px; rotate: 180deg"
+            src="./DATA/IMAGES/common/positive4.png"
+          />
+        </span>
+        <span class="crossroads" style="top: 0px; left: 333px"
+          >只剩下一個嗎？
+          <img
+            style="top: 7px; left: 95px; height: 10px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 25px; left: -171px; height: 15px"
+            src="./DATA/IMAGES/common/negative4.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>B=3</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

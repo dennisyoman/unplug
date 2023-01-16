@@ -94,6 +94,16 @@
   }
 }
 
+@keyframes floatingReverse {
+  0% {
+    @include translate(0, 0);
+  }
+
+  50% {
+    @include translate(0, -10px);
+  }
+}
+
 @keyframes growing {
   0% {
     @include scale(1);

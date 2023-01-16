@@ -56,6 +56,12 @@ $(document).ready(function () {
           $(this).hide();
           resetElem($(".contents > div.selected"));
         });
+      $(".sideTool > div.btn_check")
+        .unbind()
+        .bind("click", function () {
+          $(this).hide();
+          checkAnswer();
+        });
 
       //init
 
@@ -94,6 +100,51 @@ var trigMe = function (tar) {
   $(".contents > div.selected .pattern").addClass("showAnswer");
 };
 
+var offMe = function (tar) {
+  rootSoundEffect($show);
+  $(".sideTool > div.btn_answer").removeClass("active");
+  tar.removeClass("done");
+  //
+  $(".contents > div.selected .pattern > p span").text(
+    $(".contents > div.selected .sensors > span.done").length
+  );
+  $(".contents > div.selected .pattern").addClass("showAnswer");
+  //
+  $(".sideTool > div.btn_check").hide();
+};
+
+var checkAnswer = function () {
+  var getBug = false;
+  $(".contents > div.selected .puzzle .sensors > span").each(function () {
+    if (!$(this).find("img").attr("ans")) {
+      $(this).addClass("done");
+    } else {
+      //秀出正確答案
+      if ($(this).find("img").attr("src") != $(this).find("img").attr("ans")) {
+        getBug = true;
+        $(this).click();
+      }
+    }
+  });
+  //
+  if (getBug) {
+    rootSoundEffect($stupid);
+  } else {
+    var uniq = new Date().getTime();
+    $(".contents > div.selected .puzzle")
+      .append(
+        `<div class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></div>
+        <div class="resultIcon"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+      )
+      .delay(1500)
+      .queue(function () {
+        $(".resultIcon").remove();
+        $(this).dequeue();
+      });
+    rootSoundEffect($chimes);
+  }
+};
+
 var showAnswer = function (boolean) {
   if (boolean) {
     rootSoundEffect($help);
@@ -102,7 +153,15 @@ var showAnswer = function (boolean) {
       $(".contents > div.selected .puzzle").addClass("showAnswer");
     }
     //秀出重複區域
-    $(".contents > div.selected .puzzle .sensors > span").addClass("done");
+    $(".contents > div.selected .puzzle .sensors > span").each(function () {
+      if (!$(this).find("img").attr("ans")) {
+        $(this).addClass("done");
+      } else {
+        //秀出正確答案
+        $(this).find("img").attr("src", $(this).find("img").attr("ans"));
+        $(this).addClass("done");
+      }
+    });
     //秀出次數答案
     $(".contents > div.selected .pattern > p span").text(
       $(".contents > div.selected .pattern").attr("ans")
@@ -193,20 +252,27 @@ var checkCollision = function (ev) {
     var oriW = oriX + $(this).width();
     var oriY = $(this).offset().top;
     var oriH = oriY + $(this).height();
-    var ans1 = $("#pieceAvatar > span").attr("src");
-    var ans2 = $(this).attr("src");
+    var ans1 = $("#pieceAvatar img").attr("src");
+    var ans2 = $(this).find("img").attr("src");
     if (
       lastX >= oriX &&
       lastX <= oriW &&
       lastY >= oriY &&
       lastY <= oriH &&
-      ans1 == ans2 &&
       !$(this).hasClass("done")
     ) {
       $(this)
         .addClass("selected")
         .siblings(".selected")
         .removeClass("selected");
+      //替換圖片
+      if (ans1 != ans2) {
+        $(this).find("img").attr("src", ans1);
+        $(this)
+          .find("img")
+          .attr("height", $("#pieceAvatar img").attr("height"));
+        $(this).find("img").attr("width", $("#pieceAvatar img").attr("width"));
+      }
     } else {
       $(this).removeClass("selected");
     }
@@ -239,6 +305,9 @@ var checkStatus = function () {
     $(".contents > div.selected .puzzle .sensors > span.done").length
   ) {
     console.log("complete");
+    $(".sideTool > div.btn_check").show();
+  } else {
+    $(".sideTool > div.btn_check").hide();
   }
 };
 
@@ -270,6 +339,7 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  //
   elem.find(".showAnswer").removeClass("showAnswer");
   elem.find(".done").removeClass("done");
   elem.find(".selected").removeClass("selected");
@@ -285,6 +355,8 @@ var resetElem = function (elem) {
 
   //draggable elements
   $("#pieceAvatar").remove();
+  //
+  $(".sideTool > div.btn_check").hide();
 };
 
 var resetTool = function () {

@@ -103,10 +103,10 @@ $(document).ready(function () {
 
       $(this)
         .find(".pieces >span")
-        .each(function () {
+        .each(function (index) {
           var obj = `<img class="wow bounceIn" src="./DATA/PT/BOOK5/IMAGES/${$(
             this
-          ).attr("int")}.png"/>`;
+          ).attr("int")}.png?u=${index}"/>`;
           $(this).append(obj);
         });
 
@@ -152,10 +152,7 @@ var showAnswer = function (boolean) {
           var box = $(this).attr("box");
           var tiles = $(".contents > div.selected").find(".pieces span");
           for (var k = 0; k < tiles.length; k++) {
-            if (
-              tiles.eq(k).attr("int") == box &&
-              !tiles.eq(k).hasClass("cached")
-            ) {
+            if (tiles.eq(k).attr("int") == box) {
               tiles.eq(k).addClass("cached");
               //
               $(this).addClass(tiles.eq(k).attr("class"));
