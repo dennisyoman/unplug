@@ -915,20 +915,35 @@ var resetElem = function (elem) {
   }
   var cardsArr = [];
   var stylesArr = [];
+  var classArr = [];
   elem.find(".grids > div").each(function () {
     stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
-    cardsArr.push($(this).removeClass("selected").removeAttr("style").clone());
+    classArr.push($(this).attr("class") ? $(this).attr("class") : false);
+    cardsArr.push(
+      $(this).removeClass("selected").removeAttr("style class").clone()
+    );
   });
 
   elem.find(".grids").empty();
+  var styleID = 0;
+
   for (var i = 0; i < originArr.length; i++) {
     for (var k = 0; k < cardsArr.length; k++) {
       var tempElem = cardsArr[k];
-      if (stylesArr[k] != false) {
-        tempElem.attr("style", stylesArr[k]);
-      }
+      console.log("lll");
       if (originArr[i] == tempElem.find(">div").attr("ans")) {
-        elem.find(".grids").append(cardsArr[k]);
+        if (stylesArr[styleID] != false) {
+          tempElem.attr("style", stylesArr[styleID]);
+        }
+        if (classArr[styleID] != false) {
+          var oriClass = tempElem.attr("class")
+            ? tempElem.attr("class") + " "
+            : "";
+          tempElem.attr("class", oriClass + classArr[styleID]);
+        }
+        styleID++;
+        elem.find(".grids").append(tempElem.clone());
+        //break;
       }
     }
   }
