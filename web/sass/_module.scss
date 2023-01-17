@@ -6959,11 +6959,33 @@
       > * {
         pointer-events: none;
       }
+      @include transition(all, 0.3s);
     }
 
     > * {
       pointer-events: auto;
       align-self: end;
+    }
+
+    &.ladybug {
+      animation: climbing 0.6s infinite;
+      &.end {
+        animation: flyaway 5s 1 both;
+        > img {
+          @include opacity(0);
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 40px;
+          height: 40px;
+          @include translate(-50%, -100%);
+          background: url("../DATA/PT/BOOK8/IMAGES/ladybug_fly.png") no-repeat center center;
+          background-size: contain;
+        }
+      }
     }
   }
 

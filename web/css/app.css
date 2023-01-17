@@ -618,6 +618,48 @@
   }
 }
 
+@-webkit-keyframes climbing {
+  from {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+  50% {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+  }
+  to {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+}
+
+@keyframes climbing {
+  from {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+  50% {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+  }
+  to {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+}
+
+@-webkit-keyframes flyaway {
+  to {
+    margin-top: -500px;
+  }
+}
+
+@keyframes flyaway {
+  to {
+    margin-top: -500px;
+  }
+}
+
 .module_order {
   position: relative;
   top: 0;
@@ -8889,6 +8931,10 @@
   -webkit-filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426);
           filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426);
   z-index: 10;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
 }
 
 .module_if .piece.selected > * {
@@ -8900,6 +8946,37 @@
   -ms-flex-item-align: end;
       -ms-grid-row-align: end;
       align-self: end;
+}
+
+.module_if .piece.ladybug {
+  -webkit-animation: climbing 0.6s infinite;
+          animation: climbing 0.6s infinite;
+}
+
+.module_if .piece.ladybug.end {
+  -webkit-animation: flyaway 5s 1 both;
+          animation: flyaway 5s 1 both;
+}
+
+.module_if .piece.ladybug.end > img {
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+
+.module_if .piece.ladybug.end::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  -webkit-animation-fill-mode: forwards;
+  background: url("../DATA/PT/BOOK8/IMAGES/ladybug_fly.png") no-repeat center center;
+  background-size: contain;
 }
 
 .module_if .diceresult {

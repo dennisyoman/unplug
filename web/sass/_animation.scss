@@ -264,3 +264,20 @@
     @include opacity(0.5);
   }
 }
+
+@keyframes climbing {
+  from {
+    @include rotate(-3deg);
+  }
+  50% {
+    @include rotate(3deg);
+  }
+  to {
+    @include rotate(-3deg);
+  }
+}
+@keyframes flyaway {
+  to {
+    margin-top: -500px;
+  }
+}
