@@ -8873,7 +8873,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid #ff0000;
 }
 
 .module_if .sensorArea > .sensor.selected {
