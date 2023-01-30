@@ -3256,7 +3256,19 @@
     right: 5px;
     width: 30px;
     height: 30px;
-    background: url("../DATA/IMAGES/common/btn_story.png") no-repeat center center;
+    background: url("../DATA/IMAGES/common/player_play.png") no-repeat center center;
+    background-size: 100% 100%;
+  }
+  .pausebtn {
+    display: none;
+    position: absolute;
+    //pointer-events: auto;
+    z-index: -1;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: url("../DATA/IMAGES/common/player_pause.png") no-repeat center center;
     background-size: 100% 100%;
   }
   .contents {
@@ -3468,6 +3480,10 @@
               display: block;
               pointer-events: auto;
               z-index: 10;
+            }
+            .pausebtn {
+              pointer-events: auto;
+              z-index: 11;
             }
           }
 
@@ -6096,6 +6112,415 @@
   }
 }
 
+.module_counter {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+    .fingers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 150px;
+      height: 150px;
+      background: #fff;
+      border: 3px solid #eb6463;
+      @include borderRadius(8px);
+      overflow: hidden;
+      display: none;
+      > span {
+        width: 75px;
+        height: 103px;
+        position: absolute;
+        z-index: 1;
+        transform-origin: bottom center;
+        overflow: hidden;
+        &.f1 {
+          > img {
+            margin-left: -75px;
+          }
+          > span {
+            &:nth-child(2) {
+              top: 5px;
+              left: 43px;
+            }
+          }
+        }
+        &.f2 {
+          > img {
+            margin-left: -150px;
+          }
+          > span {
+            &:nth-child(2) {
+              top: 0;
+              left: 45px;
+            }
+            &:nth-child(3) {
+              top: 0;
+              left: 30px;
+            }
+          }
+        }
+        &.f3 {
+          > img {
+            margin-left: -225px;
+          }
+          > span {
+            &:nth-child(2) {
+              top: 0;
+              left: 45px;
+            }
+            &:nth-child(3) {
+              top: 0;
+              left: 30px;
+            }
+            &:nth-child(4) {
+              top: 0;
+              left: 15px;
+            }
+          }
+        }
+        &.f4 {
+          > img {
+            margin-left: -300px;
+          }
+          > span {
+            &:nth-child(2) {
+              top: 9px;
+              left: 49px;
+            }
+            &:nth-child(3) {
+              top: 4px;
+              left: 35px;
+            }
+            &:nth-child(4) {
+              top: 4px;
+              left: 21px;
+            }
+            &:nth-child(5) {
+              top: 12px;
+              left: 9px;
+            }
+          }
+        }
+        &.f5 {
+          > img {
+            margin-left: -375px;
+          }
+          > span {
+            &:nth-child(2) {
+              top: 26px;
+              left: 59px;
+            }
+            &:nth-child(3) {
+              top: 9px;
+              left: 49px;
+            }
+            &:nth-child(4) {
+              top: 4px;
+              left: 35px;
+            }
+            &:nth-child(5) {
+              top: 4px;
+              left: 21px;
+            }
+            &:nth-child(6) {
+              top: 12px;
+              left: 9px;
+            }
+          }
+        }
+        &:nth-child(1) {
+          @include rotate(225deg);
+          top: -115px;
+          left: 120px;
+          > span {
+            transform: rotate(-225deg) scale(0.8);
+          }
+        }
+        &:nth-child(2) {
+          @include rotate(-45deg);
+          top: 55px;
+          left: 120px;
+          > span {
+            transform: rotate(45deg) scale(0.8);
+          }
+        }
+        &:nth-child(3) {
+          @include rotate(45deg);
+          top: 55px;
+          left: -50px;
+          > span {
+            transform: rotate(-45deg) scale(0.8);
+          }
+        }
+        &:nth-child(4) {
+          @include rotate(135deg);
+          top: -115px;
+          left: -50px;
+          > span {
+            transform: rotate(-135deg) scale(0.8);
+          }
+        }
+        > img {
+          height: 100%;
+          width: 450px;
+          margin-left: 0;
+        }
+        > span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          font-size: 12px;
+          width: 15px;
+          height: 15px;
+          line-height: 15px;
+          text-align: center;
+          background: #eb6463;
+          @include borderRadius(15px);
+          color: #fff;
+        }
+      }
+    }
+
+    .puzzle {
+      position: relative;
+      z-index: 1;
+
+      &.withBG {
+        padding: 20px;
+        background: #fff;
+        @include borderRadius(10px);
+        @include boxShadow(1px 1px 6px rgba(0, 0, 0, 0.2));
+      }
+
+      .subject {
+        position: relative;
+        .stickers {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          cursor: pointer;
+          span {
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            //background: rgba(255, 0, 0, 0.1);
+            > img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+        .sensors {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+
+          span {
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            //background: rgba(255, 255, 0, 0.3);
+            pointer-events: auto;
+            cursor: pointer;
+
+            &.selected {
+              &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 80%;
+                height: 80%;
+                background: url("../DATA/IMAGES/common/finger2.png") no-repeat top center;
+                background-size: contain;
+              }
+              &::after {
+                content: "";
+                font-size: 18px;
+                width: 30px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -15px;
+                margin-top: -20px;
+                font-family: "Gfont-bold";
+              }
+              &.seq1 {
+                &::after {
+                  content: "1";
+                }
+              }
+              &.seq2 {
+                &::after {
+                  content: "2";
+                }
+              }
+              &.seq3 {
+                &::after {
+                  content: "3";
+                }
+              }
+              &.seq4 {
+                &::after {
+                  content: "4";
+                }
+              }
+              &.seq5 {
+                &::after {
+                  content: "5";
+                }
+              }
+              &.seq6 {
+                &::after {
+                  content: "6";
+                }
+              }
+              &.seq7 {
+                &::after {
+                  content: "7";
+                }
+              }
+              &.seq8 {
+                &::after {
+                  content: "8";
+                }
+              }
+              &.seq9 {
+                &::after {
+                  content: "9";
+                }
+              }
+              &.seq10 {
+                &::after {
+                  content: "10";
+                }
+              }
+              &.seq11 {
+                &::after {
+                  content: "11";
+                }
+              }
+              &.seq12 {
+                &::after {
+                  content: "12";
+                }
+              }
+              &.seq13 {
+                &::after {
+                  content: "13";
+                }
+              }
+              &.seq14 {
+                &::after {
+                  content: "14";
+                }
+              }
+              &.seq15 {
+                &::after {
+                  content: "15";
+                }
+              }
+              &.seq16 {
+                &::after {
+                  content: "16";
+                }
+              }
+              &.seq17 {
+                &::after {
+                  content: "17";
+                }
+              }
+              &.seq18 {
+                &::after {
+                  content: "18";
+                }
+              }
+              &.seq19 {
+                &::after {
+                  content: "19";
+                }
+              }
+              &.seq20 {
+                &::after {
+                  content: "20";
+                }
+              }
+            }
+          }
+        }
+        .counters {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 3;
+
+          span {
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            pointer-events: auto;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #eb6463;
+            @include borderRadius(8px);
+            background: #fff;
+            font-size: 30px;
+            text-align: center;
+            line-height: 46px;
+            color: $text;
+            font-family: "Gfont-bold";
+            &.disable {
+              pointer-events: none;
+            }
+            &.wrong {
+              color: #eb6463;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .module_decode {
   position: relative;
   top: 0;
@@ -6906,6 +7331,20 @@
     top: 0;
     left: 0;
     z-index: 2;
+    &.blue {
+      > .sensor {
+        &.selected {
+          border-color: #0088ff;
+        }
+        > span {
+          background: #0088ff;
+
+          &::after {
+            border-color: #0088ff transparent transparent transparent;
+          }
+        }
+      }
+    }
     > .sensor {
       pointer-events: auto;
       cursor: pointer;
@@ -6918,6 +7357,35 @@
       &.selected {
         border: 2px solid #ff0000;
         @include borderRadius(100%);
+        border: none;
+      }
+      > span {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: #ff0000;
+        left: calc(50% - 1px);
+        bottom: 50%;
+        z-index: 1;
+        @include scale(0.9);
+        &.c2c {
+          @include scale(1);
+          bottom: 50%;
+          &::after {
+            display: none;
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: calc(50% - 4px);
+          bottom: 0;
+          border-style: solid;
+          border-width: 4px 4px 0 4px;
+          border-color: #ff0000 transparent transparent transparent;
+        }
       }
     }
   }
@@ -6927,6 +7395,13 @@
     top: 0;
     left: 0;
     z-index: 2;
+    &.blue {
+      > .hinter {
+        &.selected {
+          border-color: #0088ff;
+        }
+      }
+    }
     > .hinter {
       pointer-events: auto;
       cursor: pointer;

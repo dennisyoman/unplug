@@ -325,7 +325,7 @@ var showSlider = function (boolean) {
     }
 
     //
-    selectedElem.find(".grids").hide();
+    selectedElem.find(".grids,.griddeco").hide();
     selectedElem
       .find(".gridSlider")
       .addClass("active")
@@ -356,7 +356,7 @@ var showSlider = function (boolean) {
       selectedElem.find(".gridSlider > .next").show();
     }
   } else {
-    selectedElem.find(".grids").show();
+    selectedElem.find(".grids,.griddeco").show();
     selectedElem
       .find(".gridSlider")
       .removeClass("active")

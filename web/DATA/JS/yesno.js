@@ -447,7 +447,11 @@ var initPieces = function (boolean) {
 var endGame = function () {
   console.log("game over");
   rootSoundEffect($show);
-  $(".sideTool > div.btn_check").show();
+  if ($(".contents > div.selected").find(".subject").hasClass("noanswer")) {
+    $(".sideTool > div.btn_check").hide();
+  } else {
+    $(".sideTool > div.btn_check").show();
+  }
 };
 
 var bingo = function () {

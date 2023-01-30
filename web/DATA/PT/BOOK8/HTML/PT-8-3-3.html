@@ -1,0 +1,323 @@
+<div id="module_wrapper" class="module_counter">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>饕餮的午餐</b>：請根據數隻的結果決定物品。</p>
+          <img src="./DATA/PT/BOOK8/IMAGES/PT-8-3-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle" style="max-width: 250px">
+        <div class="subject">
+          <div class="sensors" id="s1">
+            <span style="width: 46px; height: 83px; top: 20px; left: 0px" />
+            <span style="width: 46px; height: 83px; top: 20px; left: 100px" />
+            <span style="width: 46px; height: 83px; top: 20px; left: 203px" />
+          </div>
+          <div class="counters">
+            <span
+              class="wow slideInUp"
+              style="top: 130px; left: 97px"
+              onClick="getFingerCount($(this),$('#s1'))"
+              >?</span
+            >
+          </div>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK8/IMAGES/PT-8-3-3-1.png"
+          />
+        </div>
+      </div>
+      <div class="fingers" style="top: 75px; left: 222px">
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>數隻決定2種配料</b>：請根據數隻的結果決定配料。</p>
+          <img src="./DATA/PT/BOOK8/IMAGES/PT-8-3-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle" style="max-width: 350px">
+        <div class="subject">
+          <div class="sensors" id="s2" sticker_area="f2">
+            <span
+              style="width: 50px; height: 50px; top: 5px; left: 187px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i1.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 5px; left: 283px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i2.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 111px; left: 303px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i3.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 111px; left: 234px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i4.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 111px; left: 154px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i5.png"
+            />
+          </div>
+          <div class="sensors" id="s3" sticker_area="f3">
+            <span
+              style="width: 50px; height: 50px; top: 5px; left: 187px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i1.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 5px; left: 283px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i2.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 111px; left: 303px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i3.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 111px; left: 234px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i4.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 111px; left: 154px"
+              sticker="./DATA/PT/BOOK8/IMAGES/i5.png"
+            />
+          </div>
+          <div class="stickers">
+            <span
+              style="width: 50px; height: 50px; top: 64px; left: 13px"
+              id="f2"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 64px; left: 64px"
+              id="f3"
+            />
+          </div>
+          <div class="counters">
+            <span
+              class="wow slideInUp"
+              style="top: 180px; left: 10px"
+              onClick="getFingerCount($(this),$('#s2'))"
+              >?</span
+            >
+            <span
+              class="wow slideInUp"
+              style="top: 180px; left: 70px"
+              onClick="getFingerCount($(this),$('#s3'))"
+              >?</span
+            >
+          </div>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK8/IMAGES/PT-8-3-3-2.png"
+          />
+        </div>
+      </div>
+      <div class="fingers" style="top: 75px; left: 222px">
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>數隻決定你的漢堡</b>：請根據數隻的結果決定你的漢堡。</p>
+          <img src="./DATA/PT/BOOK8/IMAGES/PT-8-3-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle" style="max-width: 250px">
+        <div class="subject">
+          <div class="sensors" id="s4" sticker_area="f4,f8">
+            <span
+              style="width: 60px; height: 30px; top: 0px; left: 26px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h1.png"
+            />
+            <span
+              style="width: 60px; height: 30px; top: 0px; left: 98px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h2.png"
+            />
+            <span
+              style="width: 60px; height: 30px; top: 0px; left: 169px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h3.png"
+            />
+          </div>
+          <div class="sensors" id="s5" sticker_area="f5">
+            <span
+              style="width: 50px; height: 50px; top: 47px; left: 0px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h4.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 47px; left: 59px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h5.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 47px; left: 123px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h6.png"
+            />
+            <span
+              style="width: 50px; height: 50px; top: 47px; left: 186px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h7.png"
+            />
+          </div>
+          <div class="sensors" id="s6" sticker_area="f6">
+            <span
+              style="width: 60px; height: 30px; top: 113px; left: 8px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h8.png"
+            />
+            <span
+              style="width: 60px; height: 30px; top: 113px; left: 95px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h9.png"
+            />
+            <span
+              style="width: 60px; height: 30px; top: 113px; left: 174px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h10.png"
+            />
+          </div>
+          <div class="sensors" id="s7" sticker_area="f7">
+            <span
+              style="width: 30px; height: 30px; top: 170px; left: 10px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h11.png"
+            />
+            <span
+              style="width: 30px; height: 30px; top: 170px; left: 58px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h12.png"
+            />
+            <span
+              style="width: 30px; height: 30px; top: 170px; left: 106px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h13.png"
+            />
+            <span
+              style="width: 30px; height: 30px; top: 170px; left: 155px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h14.png"
+            />
+            <span
+              style="width: 30px; height: 30px; top: 170px; left: 203px"
+              sticker="./DATA/PT/BOOK8/IMAGES/h15.png"
+            />
+          </div>
+
+          <div class="stickers">
+            <span
+              style="
+                width: 80px;
+                height: 18px;
+                top: 116px;
+                left: 304px;
+                transform: rotate(180deg);
+              "
+              id="f4"
+            />
+            <span
+              style="width: 80px; height: 30px; top: 92px; left: 304px"
+              id="f6"
+            />
+            <span
+              style="width: 80px; height: 25px; top: 86px; left: 304px"
+              id="f7"
+            />
+            <span
+              style="width: 80px; height: 27px; top: 77px; left: 304px"
+              id="f5"
+            />
+            <span
+              style="width: 80px; height: 18px; top: 69px; left: 304px"
+              id="f8"
+            />
+          </div>
+          <div class="counters">
+            <span
+              class="wow slideInUp"
+              style="top: -12px; left: -60px"
+              onClick="getFingerCount($(this),$('#s4'))"
+              >?</span
+            >
+            <span
+              class="wow slideInUp"
+              style="top: 45px; left: -60px"
+              onClick="getFingerCount($(this),$('#s5'))"
+              >?</span
+            >
+            <span
+              class="wow slideInUp"
+              style="top: 104px; left: -60px"
+              onClick="getFingerCount($(this),$('#s6'))"
+              >?</span
+            >
+            <span
+              class="wow slideInUp"
+              style="top: 163px; left: -60px"
+              onClick="getFingerCount($(this),$('#s7'))"
+              >?</span
+            >
+          </div>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK8/IMAGES/PT-8-3-3-3.png"
+          />
+        </div>
+      </div>
+      <div class="fingers" style="top: 75px; left: 222px">
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+        <span
+          ><img class="wow bounceInUp" src="./DATA/PT/BOOK8/IMAGES/fingers.png"
+        /></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

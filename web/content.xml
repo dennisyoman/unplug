@@ -302,7 +302,9 @@
     <section section="1" name="熱身活動" html="PT/BOOK8/HTML/PT-8-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK8/HTML/PT-8-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / Counter" html="PT/BOOK8/HTML/PT-8-3-3.html" js="JS/yesno.js" image="IMAGES/UNITS/logic.png" skin="">
+    <section section="3" name="一起玩遊戲 / Counter" html="PT/BOOK8/HTML/PT-8-3-3.html" js="JS/counter.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲② / Counter" html="PT/BOOK8/HTML/PT-8-3-3-2.html" js="JS/counter2.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>

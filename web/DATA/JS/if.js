@@ -196,6 +196,9 @@ var resetElem = function (elem) {
   //reset sensorArea
   if (elem.find(".sensorArea").length > 0) {
     elem.find(".sensorArea .sensor").each(function () {
+      if ($(this).hasClass("withPath") || $(this).hasClass("withArrow")) {
+        $(this).empty();
+      }
       $(this)
         .unbind()
         .bind("click", function () {
@@ -206,6 +209,10 @@ var resetElem = function (elem) {
           var HA = piece.attr("ha")
             ? elem.find("#" + piece.attr("ha"))
             : elem.find(".hintArea");
+          //來源物件
+          var fromElem = SA.find(
+            ".sensor[name='" + piece.attr("location") + "']"
+          );
           //
           if (piece.length > 0) {
             var neighbor = SA.find(
@@ -223,6 +230,34 @@ var resetElem = function (elem) {
                 SA.find(".sensor[name='" + automove + "']")
                   .delay(600)
                   .queue(function () {
+                    //是否要加上箭頭
+                    if ($(this).hasClass("withArrow")) {
+                      addArrow(
+                        SA.find(
+                          ".sensor[name='" + piece.attr("location") + "']"
+                        ),
+                        $(this)
+                      );
+                    }
+                    //是否要加上箭頭
+                    if ($(this).hasClass("withArrow")) {
+                      addArrow(
+                        SA.find(
+                          ".sensor[name='" + piece.attr("location") + "']"
+                        ),
+                        $(this)
+                      );
+                    }
+                    //是否要加上路徑
+                    if ($(this).hasClass("withPath")) {
+                      addPath(
+                        SA.find(
+                          ".sensor[name='" + piece.attr("location") + "']"
+                        ),
+                        $(this)
+                      );
+                    }
+                    //
                     var pX = parseInt(SA.css("left"));
                     var pY = parseInt(SA.css("top"));
                     var oX = parseInt($(this).css("left"));
@@ -253,6 +288,7 @@ var resetElem = function (elem) {
                         });
                       rootSoundEffect($chimes);
                     }
+
                     $(this).dequeue();
                   });
               } else {
@@ -300,6 +336,15 @@ var resetElem = function (elem) {
               piece.css("left", pX + oX + ww / 2).css("top", pY + oY + hh / 2);
               rootSoundEffect($show);
               piece.attr("location", $(this).attr("name"));
+
+              //是否要加上箭頭
+              if ($(this).hasClass("withArrow")) {
+                addArrow(fromElem, $(this));
+              }
+              //是否要加上路徑
+              if ($(this).hasClass("withPath")) {
+                addPath(fromElem, $(this));
+              }
 
               //是否需要換軌道
               var switcher = $(this).attr("switcher");
@@ -388,6 +433,66 @@ var resetElem = function (elem) {
     appendDice("", 1);
   }
   $(".diceresult").html("?").show();
+};
+
+var addArrow = function (from, to) {
+  //加上箭頭
+  to.empty();
+  var tempRotateAngle = from.css("rotate");
+  from.css("rotate", "0deg");
+  to.css("rotate", "0deg");
+  var fy = parseInt(from.css("top"));
+  var fx = parseInt(from.css("left"));
+  var fw = parseInt(from.css("width")) / stageRatioReal;
+  var fh = parseInt(from.css("height")) / stageRatioReal;
+  var ty = parseInt(to.css("top"));
+  var tx = parseInt(to.css("left"));
+  var tw = parseInt(to.css("width")) / stageRatioReal;
+  var th = parseInt(to.css("height")) / stageRatioReal;
+
+  var len = Math.sqrt(
+    (fy + fh / 2 - ty - th / 2) * (fy + fh / 2 - ty - th / 2) +
+      (fx + fw / 2 - tx - tw / 2) * (fx + fw / 2 - tx - tw / 2)
+  );
+
+  var myPath = `<span style="height:${len}px;"></span>`;
+  //
+  var rotateAngle =
+    Math.atan2(fy + fh / 2 - ty - th / 2, fx + fw / 2 - tx - tw / 2) *
+      (180 / Math.PI) +
+    90;
+  from.css("rotate", tempRotateAngle);
+  to.css("rotate", rotateAngle + "deg").append(myPath);
+};
+
+var addPath = function (from, to) {
+  //加上箭頭
+  to.empty();
+  var tempRotateAngle = from.css("rotate");
+  from.css("rotate", "0deg");
+  to.css("rotate", "0deg");
+  var fy = parseInt(from.css("top"));
+  var fx = parseInt(from.css("left"));
+  var fw = parseInt(from.css("width")) / stageRatioReal;
+  var fh = parseInt(from.css("height")) / stageRatioReal;
+  var ty = parseInt(to.css("top"));
+  var tx = parseInt(to.css("left"));
+  var tw = parseInt(to.css("width")) / stageRatioReal;
+  var th = parseInt(to.css("height")) / stageRatioReal;
+
+  var len = Math.sqrt(
+    (fy + fh / 2 - ty - th / 2) * (fy + fh / 2 - ty - th / 2) +
+      (fx + fw / 2 - tx - tw / 2) * (fx + fw / 2 - tx - tw / 2)
+  );
+
+  var myPath = `<span class="c2c" style="height:${len}px;"></span>`;
+  //
+  var rotateAngle =
+    Math.atan2(fy + fh / 2 - ty - th / 2, fx + fw / 2 - tx - tw / 2) *
+      (180 / Math.PI) +
+    90;
+  from.css("rotate", tempRotateAngle);
+  to.css("rotate", rotateAngle + "deg").append(myPath);
 };
 
 var resetTool = function () {

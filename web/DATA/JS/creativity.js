@@ -98,11 +98,10 @@ $(document).ready(function () {
       var seq = itemElem.eq(k).attr("ans");
       var audioPath =
         audioBaseUrl + "B" + bid + "L" + lid + "_voice_story_" + seq + ".mp3";
-      itemElem
-        .eq(k)
-        .append(
-          `<span class="storybtn wow bounceInLeft" onClick="rootSoundEffectName('${audioPath}')"><audio preload="auto" src="${audioPath}" /></span>`
-        );
+      itemElem.eq(k).append(
+        `<span class="storybtn wow bounceInLeft" onClick="playStory('${audioPath}',true)"><audio preload="auto" src="${audioPath}" /></span>
+          <span class="pausebtn" onClick="playStory('${audioPath}',false)"/>`
+      );
     }
   });
 
@@ -120,6 +119,33 @@ $(document).ready(function () {
     .text(getLessonName());
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
+
+var playStory = function (url, boolean) {
+  var sameAudio = false;
+  for (let k = 0; k < $SFXNameAr.length; k++) {
+    if (url == $SFXNameAr[k]) {
+      if (currentAudio == $SFXAr[k]) {
+        sameAudio = true;
+      }
+    }
+  }
+
+  if (boolean) {
+    if (sameAudio) {
+      currentAudio.play();
+    } else {
+      rootSoundEffectName(url);
+    }
+    $(".contents > div.selected .storyline > div.selected")
+      .find(".pausebtn")
+      .show();
+  } else {
+    currentAudio.pause();
+    $(".contents > div.selected .storyline > div.selected")
+      .find(".pausebtn")
+      .hide();
+  }
+};
 
 var setSequence = function (tar) {
   rootSoundEffect($click);
@@ -171,6 +197,7 @@ var showSlider = function (boolean) {
     }
     //
     selectedElem.find(".grid4").hide();
+
     selectedElem
       .find(".gridSlider")
       .addClass("active")
@@ -209,6 +236,8 @@ var playSeq = 0;
 var slideDistance = 350;
 
 var switchSlider = function (direction) {
+  $(".contents > div.selected .storyline").find(".pausebtn").hide();
+  currentAudio.currentTime = 0;
   resetAudio();
   var selectedElem = $(".contents > div.selected");
   var storyline = selectedElem.find(".storyline");
