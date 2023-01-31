@@ -189,6 +189,10 @@ var matchBeads = function () {
         });
         beadElem.addClass("done");
         rootSoundEffect($pop);
+        //sync?
+        if (headElem.attr("sync")) {
+          $("#" + headElem.attr("sync")).html(headElem.html());
+        }
       } else {
         //與起點不合
         alertmsg = "請選出正確的起點。";
@@ -210,6 +214,11 @@ var matchBeads = function () {
         });
         beadElem.addClass("done");
         rootSoundEffect($pop);
+        //sync?
+
+        if (numElem.attr("sync")) {
+          $("#" + numElem.attr("sync")).html(numElem.html());
+        }
       } else {
         //確認與第一次的body有無符合
         if (
@@ -223,9 +232,14 @@ var matchBeads = function () {
           beadElem.addClass("done");
           rootSoundEffect($pop);
           numElem.text(parseInt(numElem.text()) + 1);
+          //sync?
+
+          if (numElem.attr("sync")) {
+            $("#" + numElem.attr("sync")).html(numElem.html());
+          }
         } else {
           //與第一次的body不符合
-          alertmsg = "與已選取的組合不同。";
+          alertmsg = "與已選取的珠子組合不同。";
           beadElem.find("img.selected").removeClass("selected");
           rootSoundEffect($stupid);
 
@@ -249,6 +263,37 @@ var matchBeads = function () {
   $(".sideTool > div.btn_check").removeClass("active").show();
 };
 
+var applyBead = function (source) {
+  alertmsg = "";
+  var numElem = $(".contents > div.selected .object .answer > span.num");
+  var headElem = $(".contents > div.selected .object .answer > span.head");
+  var bodyElem = $(".contents > div.selected .object .answer > span.body");
+  //
+  var beadElem = $(
+    ".contents > div.selected .object .sensors > span >img:not(.done)"
+  ).eq(0);
+  if (beadElem.attr("src") == source.attr("src")) {
+    beadElem.addClass("done");
+    rootSoundEffect($pop);
+  } else {
+    alertmsg = "珠子放錯了喔。";
+    rootSoundEffect($wrong);
+    $(".alert").remove();
+    $(".contents > div.selected").append(
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+    );
+  }
+
+  if (
+    alertmsg == "" &&
+    $(".contents > div.selected .object .sensors > span >img:not(.done)")
+      .length == 0
+  ) {
+    rootSoundEffect($chimes);
+    bingo($(".contents > div.selected").find(".object"));
+  }
+};
+
 var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
@@ -260,6 +305,10 @@ var bingo = function (tar) {
     .queue(function () {
       $(".resultIcon").remove();
       $(this).dequeue().remove();
+      //是否要自動往下跳一關
+      if ($(".tabs > span.selected").attr("autonext")) {
+        openContent(parseInt($(".tabs > span.selected").attr("autonext")));
+      }
     });
 };
 
@@ -307,34 +356,55 @@ var resetElem = function (elem) {
   elem.find(".done").removeClass("done");
   //head
   var tempElem = elem.find(".answer .head");
-  tempElem.empty();
-  if (tempElem.attr("default")) {
-    var arr = tempElem.attr("default").split(",");
-    for (var i = 0; i < arr.length; i++) {
-      var item = arr[i].split("^");
-      tempElem.append(
-        `<img width="${item[0]}" src="${item[1]}" style="${item[2]}" />`
-      );
+  tempElem.each(function () {
+    $(this).empty();
+    //sync?
+    if (tempElem.attr("sync")) {
+      $("#" + tempElem.attr("sync")).html(tempElem.html());
     }
-  }
+    if ($(this).attr("default")) {
+      var arr = $(this).attr("default").split(",");
+      for (var i = 0; i < arr.length; i++) {
+        var item = arr[i].split("^");
+        $(this).append(
+          `<img width="${item[0]}" src="${item[1]}" style="${item[2]}"  onClick="applyBead($(this))"/>`
+        );
+      }
+    }
+  });
   //body
   tempElem = elem.find(".answer .body");
-  tempElem.empty();
-  if (tempElem.attr("default")) {
-    var arr = tempElem.attr("default").split(",");
-    for (var i = 0; i < arr.length; i++) {
-      var item = arr[i].split("^");
-      tempElem.append(
-        `<img width="${item[0]}" src="${item[1]}" style="${item[2]}" />`
-      );
+  tempElem.each(function () {
+    $(this).empty();
+    //sync?
+    if (tempElem.attr("sync")) {
+      $("#" + tempElem.attr("sync")).html(tempElem.html());
     }
-  }
+    if ($(this).attr("default")) {
+      var arr = $(this).attr("default").split(",");
+      for (var i = 0; i < arr.length; i++) {
+        var item = arr[i].split("^");
+        $(this).append(
+          `<img width="${item[0]}" src="${item[1]}" style="${item[2]}" onClick="applyBead($(this))"/>`
+        );
+      }
+    }
+  });
+
   //num
   tempElem = elem.find(".answer .num");
-  tempElem.empty();
-  if (tempElem.attr("default")) {
-    tempElem.text(tempElem.attr("default"));
-  }
+  tempElem.each(function () {
+    $(this).empty();
+    //sync?
+    if (tempElem.attr("sync")) {
+      $("#" + tempElem.attr("sync")).html(tempElem.html());
+    }
+    //
+    if ($(this).attr("default")) {
+      $(this).text($(this).attr("default"));
+    }
+  });
+
   //
   $(".smoke").remove();
   $(".resultIcon").remove();

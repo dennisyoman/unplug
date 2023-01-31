@@ -6552,12 +6552,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     z-index: 99;
     transform-origin: center center;
-    margin-left: -40px;
-    margin-top: -40px;
+    margin-left: -60px;
+    margin-top: -60px;
 
     > img {
       width: 100%;
@@ -6593,6 +6593,13 @@
             justify-content: center;
             align-items: center;
 
+            &.hid {
+              img {
+                pointer-events: none;
+                @include opacity(0);
+              }
+            }
+
             img {
               height: auto;
               pointer-events: auto;
@@ -6601,6 +6608,7 @@
               &.done {
                 filter: drop-shadow(0px 0px 3px #ff0000);
                 pointer-events: none;
+                @include opacity(1);
               }
             }
           }
@@ -6637,6 +6645,13 @@
           &.hid {
             @include opacity(0);
             &.done {
+              @include opacity(1);
+            }
+          }
+          &.show {
+            img {
+              pointer-events: auto;
+              cursor: pointer;
               @include opacity(1);
             }
           }

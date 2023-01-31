@@ -8376,13 +8376,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   z-index: 99;
   -webkit-transform-origin: center center;
           transform-origin: center center;
-  margin-left: -40px;
-  margin-top: -40px;
+  margin-left: -60px;
+  margin-top: -60px;
 }
 
 .module_bead .smoke > img,
@@ -8445,6 +8445,14 @@
           align-items: center;
 }
 
+.module_bead .contents .object .subject .sensors > span.hid img {
+  pointer-events: none;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+
 .module_bead .contents .object .subject .sensors > span img {
   height: auto;
   pointer-events: auto;
@@ -8458,6 +8466,10 @@
   -webkit-filter: drop-shadow(0px 0px 3px #ff0000);
           filter: drop-shadow(0px 0px 3px #ff0000);
   pointer-events: none;
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
 }
 
 .module_bead .contents .object .answer {
@@ -8524,6 +8536,15 @@
 }
 
 .module_bead .contents .object .answer > span.hid.done {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.module_bead .contents .object .answer > span.show img {
+  pointer-events: auto;
+  cursor: pointer;
   opacity: 1 !important;
   -moz-opacity: 1 !important;
   -khtml-opacity: 1 !important;
