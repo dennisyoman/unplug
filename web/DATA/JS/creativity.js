@@ -237,7 +237,9 @@ var slideDistance = 350;
 
 var switchSlider = function (direction) {
   $(".contents > div.selected .storyline").find(".pausebtn").hide();
-  currentAudio.currentTime = 0;
+  if (currentAudio) {
+    currentAudio.currentTime = 0;
+  }
   resetAudio();
   var selectedElem = $(".contents > div.selected");
   var storyline = selectedElem.find(".storyline");
