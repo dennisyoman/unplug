@@ -315,7 +315,9 @@
     </section>
     <section section="3" name="一起玩遊戲 / Repeat until" html="PT/BOOK8/HTML/PT-8-4-3.html" js="JS/if.js" image="IMAGES/UNITS/link.png" skin="">
     </section>
-    <section section="4" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-4-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    <section section="4" name="一起玩遊戲② / Repeat until" html="PT/BOOK8/HTML/PT-8-4-3-2.html" js="JS/if.js" image="IMAGES/UNITS/layers.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK8/HTML/PT-8-4-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
 </root>
