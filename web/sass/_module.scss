@@ -370,7 +370,6 @@
                 opacity: 0;
                 -moz-opacity: 0;
                 -khtml-opacity: 0;
-                filter: alpha(0);
               }
             }
           }
@@ -1052,9 +1051,6 @@
         .cta {
           margin-top: 5px;
           margin-left: 15px;
-          &.disable {
-            //@include opacity(0);
-          }
         }
       }
     }
@@ -1380,9 +1376,6 @@
       &.single {
         @include borderRadius(0px);
         border: 3px solid #2d8066;
-      }
-
-      &.single {
       }
 
       &.wrong {
@@ -2891,7 +2884,7 @@
         pointer-events: none;
         padding: 5px 15px;
         > span {
-          display: inline-block;
+          display: block;
           cursor: pointer;
           margin: 0 2px;
           float: left;
@@ -6848,9 +6841,6 @@
         }
       }
 
-      .canvas {
-      }
-
       .subject {
         position: relative;
         .sensors {
@@ -7342,8 +7332,6 @@
               display: none;
             }
           }
-          &.s5 {
-          }
         }
       }
       &.mycard {
@@ -7632,6 +7620,216 @@
     display: none;
   }
 }
+
+.module_neverstop {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    //top: 40px;
+    width: calc(100% - 40px);
+    //height: calc(100% - 80px);
+
+    > div {
+      //flex-direction: column;
+      gap: 30px;
+    }
+  }
+  .subject {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gridArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    .grids {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      > span {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        //pointer-events: auto;
+        //background: rgba(0, 255, 0, 0.2);
+
+        &.end {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 5%;
+            left: 10%;
+            width: 80%;
+            height: 74%;
+            background: #b1d8f3;
+            @include opacity(0);
+            @include transition(opacity, 0.6s);
+          }
+        }
+
+        &.selected {
+          &.end {
+            &::after {
+              @include opacity(1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .cards {
+    position: relative;
+    z-index: 2;
+    &.selected {
+      > span {
+        pointer-events: none;
+      }
+    }
+    > span {
+      pointer-events: auto;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      display: block;
+      width: 150px;
+      height: 37px;
+      background: url("../DATA/PT/BOOK8/IMAGES/PT-8-4-3-2-btn.png") no-repeat center center;
+      background-size: 150px 38px;
+      margin-top: -5px;
+      &::before {
+        content: "重複　　　直到";
+        color: #fff;
+        font-size: 12px;
+        line-height: 33px;
+        position: relative;
+        left: 10px;
+      }
+      &.up {
+        &::after {
+          display: block;
+          @include rotate(-90deg);
+        }
+      }
+      &.right {
+        &::after {
+          display: block;
+          @include rotate(0deg);
+        }
+      }
+      &.left {
+        &::after {
+          display: block;
+          @include rotate(-180deg);
+        }
+      }
+      &.down {
+        &::after {
+          display: block;
+          @include rotate(90deg);
+        }
+      }
+      &.selected {
+        z-index: 2;
+        filter: drop-shadow(0px 0px 2px $main) drop-shadow(0px 0px 4px $orange) drop-shadow(0px 0px 6px $main);
+        @include scale(1.1);
+      }
+      &::after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        z-index: 1;
+        top: 8px;
+        left: 47px;
+        background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center center;
+        background-size: 100% auto;
+        display: none;
+      }
+    }
+  }
+
+  .ladybug {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    z-index: 9;
+    animation: climbing 0.6s infinite;
+    transform-origin: top left;
+    @include transition(all, 0.8s);
+    > img {
+      @include transform(translate(-50%, -50%) rotate(0deg));
+    }
+
+    &.right {
+      > img {
+        @include transform(translate(-50%, -50%) rotate(90deg));
+      }
+    }
+    &.left {
+      > img {
+        @include transform(translate(-50%, -50%) rotate(-90deg));
+      }
+    }
+    &.down {
+      > img {
+        @include transform(translate(-50%, -50%) rotate(180deg));
+      }
+    }
+    &.end {
+      animation: flyaway 5s 1 both;
+      > img {
+        @include opacity(0);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        @include translate(-50%, -50%);
+        background: url("../DATA/PT/BOOK8/IMAGES/ladybug_fly.png") no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
 .module_yesno {
   position: relative;
   top: 0;
@@ -9366,15 +9564,6 @@
         border: 3px solid $light;
         background: #fff;
         @include borderRadius(20px);
-
-        &:first-child {
-          //@include borderRadius(8px 0 0 8px);
-        }
-
-        &:last-child {
-          //border: none;
-          //@include borderRadius(0 8px 8px 0);
-        }
       }
       .box {
         width: 100%;

@@ -3,26 +3,15 @@
   height: 100%;
   position: relative;
 }
-
 .login_wrapper .login-container {
   position: relative;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
 .login_wrapper .input {
   z-index: 15 !important;
   font-size: 12px;
@@ -33,7 +22,6 @@
   transform: translate3d(0, 0, 0);
   margin-top: 20px;
 }
-
 .login_wrapper .input .showpw {
   position: absolute;
   top: 46px;
@@ -49,16 +37,14 @@
   -khtml-opacity: 0.4 !important;
   filter: alpha(opacity=40) !important;
 }
-
 .login_wrapper .input .showpw.active {
   opacity: 1 !important;
   -moz-opacity: 1 !important;
   -khtml-opacity: 1 !important;
   filter: alpha(opacity=100) !important;
 }
-
-.login_wrapper input[name="username"],
-.login_wrapper input[name="password"] {
+.login_wrapper input[name=username],
+.login_wrapper input[name=password] {
   font-size: 12px;
   line-height: 30px;
   height: 30px;
@@ -76,13 +62,12 @@
   -webkit-border-radius: 15px;
   margin-bottom: 10px;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
-.login_wrapper input[name="password"] {
+.login_wrapper input[name=password] {
   margin-bottom: 20px;
 }
-
 .login_wrapper #ok {
   cursor: pointer;
   z-index: 20 !important;
@@ -99,9 +84,9 @@
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 .login_wrapper .error {
   width: 100%;
   font-size: 12px;
@@ -110,65 +95,53 @@
   z-index: 1;
   text-align: center;
 }
-
 .login_wrapper .temp {
   position: absolute;
   right: 0px;
   bottom: -7px;
 }
-
 .login_wrapper .temp img {
   width: 582px;
   height: auto;
 }
-
 .login_wrapper .warm {
   position: absolute;
   right: 0px;
   top: 40px;
 }
-
 .login_wrapper .warm img {
   width: 91px;
   height: auto;
 }
-
 .login_wrapper .bomber {
   position: absolute;
   left: 50px;
   bottom: 0;
-  -webkit-transform-origin: bottom center;
-          transform-origin: bottom center;
+  transform-origin: bottom center;
 }
-
 .login_wrapper .bomber img {
   width: 52px;
   height: auto;
 }
-
 .login_wrapper .eye {
   position: absolute;
   left: 50%;
   top: 90px;
   margin-left: -21.5px;
 }
-
 .login_wrapper .eye img {
   width: 43px;
   height: auto;
 }
-
 .login_wrapper .glogo {
   position: absolute;
   top: 8px;
   left: 30px;
 }
-
 .login_wrapper .glogo img {
   width: auto;
   height: 20px;
 }
-
 .login_wrapper .copyright {
   position: absolute;
   bottom: 5px;
@@ -180,6 +153,7 @@
   font-weight: bold;
   z-index: 1;
   text-align: center;
+  -ms-transform: scale(0.8);
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
   letter-spacing: 0.02em;

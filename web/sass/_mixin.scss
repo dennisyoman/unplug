@@ -72,6 +72,13 @@
   -webkit-animation-fill-mode: forwards;
 }
 
+@mixin transform($var) {
+  -ms-transform: $var;
+  -webkit-transform: $var;
+  transform: $var;
+  -webkit-animation-fill-mode: forwards;
+}
+
 @mixin transformOrigin($varx, $vary) {
   -ms-transform-origin: $varx $vary;
   -webkit-transform-origin: $varx $vary;

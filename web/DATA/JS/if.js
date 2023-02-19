@@ -71,6 +71,7 @@ $(document).ready(function () {
 });
 
 var lowlaged = false;
+var isMoving = false;
 
 var bingo = function () {
   rootSoundEffect($correct);
@@ -202,6 +203,10 @@ var resetElem = function (elem) {
       $(this)
         .unbind()
         .bind("click", function () {
+          if (isMoving) {
+            return false;
+          }
+
           var piece = elem.find(".piece.selected");
           var SA = piece.attr("sa")
             ? elem.find("#" + piece.attr("sa"))
@@ -224,8 +229,10 @@ var resetElem = function (elem) {
             //先判斷是否要自動移動到下一個點
             var automove = $(this).attr("automove");
             if (automove) {
+              isMoving = true;
               if (myname != piece.attr("location")) {
                 piece.removeClass("end");
+
                 //
                 SA.find(".sensor[name='" + automove + "']")
                   .delay(600)
@@ -268,6 +275,7 @@ var resetElem = function (elem) {
                       .css("left", pX + oX + ww / 2)
                       .css("top", pY + oY + hh / 2);
                     rootSoundEffect($show);
+
                     piece.attr("location", $(this).attr("name"));
                     //自動爬到終點
 
@@ -283,10 +291,13 @@ var resetElem = function (elem) {
                         )
                         .delay(1500)
                         .queue(function () {
+                          isMoving = false;
                           $(".resultIcon").remove();
                           $(this).dequeue();
                         });
                       rootSoundEffect($chimes);
+                    } else {
+                      isMoving = false;
                     }
 
                     $(this).dequeue();
@@ -300,6 +311,7 @@ var resetElem = function (elem) {
                   SA.find(".sensor[name='" + nei + "']")
                     .delay(10)
                     .queue(function () {
+                      isMoving = false;
                       $(this).click().dequeue();
                     });
                 }
@@ -309,6 +321,7 @@ var resetElem = function (elem) {
             //是否是鄰近格子
             if (neighbors.indexOf(myname) >= 0 || $(this).hasClass("start")) {
               piece.removeClass("end");
+
               //
               //是否點在crossroads上
               if (
@@ -322,6 +335,8 @@ var resetElem = function (elem) {
                 console.log(allowArr, currentDice);
                 if (allowArr.indexOf(currentDice) < 0) {
                   rootSoundEffect($stupid);
+                  isMoving = false;
+
                   //不能走這邊
                   return false;
                 }
@@ -332,9 +347,10 @@ var resetElem = function (elem) {
               var oY = parseInt($(this).css("top"));
               var ww = parseInt($(this).css("width")) / stageRatioReal;
               var hh = parseInt($(this).css("height")) / stageRatioReal;
-              console.log(oX, oY, ww, hh);
+              //console.log(oX, oY, ww, hh);
               piece.css("left", pX + oX + ww / 2).css("top", pY + oY + hh / 2);
               rootSoundEffect($show);
+
               piece.attr("location", $(this).attr("name"));
 
               //是否要加上箭頭
@@ -384,7 +400,9 @@ var resetElem = function (elem) {
                   )
                   .delay(1500)
                   .queue(function () {
+                    isMoving = false;
                     $(".resultIcon").remove();
+
                     $(this).dequeue();
                   });
                 rootSoundEffect($chimes);
@@ -395,8 +413,10 @@ var resetElem = function (elem) {
               if (automove) {
                 SA.find(".sensor[name='" + automove + "']").clearQueue();
               }
+              isMoving = false;
             }
           } else {
+            isMoving = false;
             rootSoundEffect($stupid);
           }
 
@@ -413,6 +433,7 @@ var resetElem = function (elem) {
       var SA = $(this).attr("sa")
         ? elem.find("#" + $(this).attr("sa"))
         : elem.find(".sensorArea");
+      isMoving = false;
       SA.find(".sensor.start").click();
       $(this).removeClass("selected");
     });

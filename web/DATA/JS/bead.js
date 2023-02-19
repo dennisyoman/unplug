@@ -239,7 +239,7 @@ var matchBeads = function () {
           }
         } else {
           //與第一次的body不符合
-          alertmsg = "與已選取的珠子組合不同。";
+          alertmsg = "與已選取的組合不同。";
           beadElem.find("img.selected").removeClass("selected");
           rootSoundEffect($stupid);
 
@@ -276,7 +276,7 @@ var applyBead = function (source) {
     beadElem.addClass("done");
     rootSoundEffect($pop);
   } else {
-    alertmsg = "珠子放錯了喔。";
+    alertmsg = "放錯了喔。";
     rootSoundEffect($wrong);
     $(".alert").remove();
     $(".contents > div.selected").append(

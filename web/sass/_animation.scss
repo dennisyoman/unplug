@@ -279,5 +279,6 @@
 @keyframes flyaway {
   to {
     margin-top: -500px;
+    @include opacity(0);
   }
 }
