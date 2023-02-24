@@ -238,6 +238,7 @@ body {
       right: 50%;
       @include translate(50%, 0);
       margin-left: 0px;
+      margin-right: 0;
       &.upper {
         top: 10px;
       }

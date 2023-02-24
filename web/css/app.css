@@ -11209,6 +11209,7 @@ body {
   transform: translate(50%, 0);
   -webkit-animation-fill-mode: forwards;
   margin-left: 0px;
+  margin-right: 0;
 }
 .root > .units .units-title.upper {
   top: 10px;
