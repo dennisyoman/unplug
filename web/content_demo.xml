@@ -1,0 +1,28 @@
+<root>
+  <lesson sid="PT" bid="2" lid="2">
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK2/HTML/PT-2-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 平面的解構法" html="PT/BOOK2/HTML/PT-2-2-3.html" js="JS/mop.js" image="IMAGES/UNITS/flat.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲 / 平面的解構法的運用" html="PT/BOOK2/HTML/PT-2-2-4.html" js="JS/irobot.js" image="IMAGES/UNITS/flat2.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK2/HTML/PT-2-2-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="5" lid="1">
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK5/HTML/PT-5-1-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 輸入與輸出" html="PT/BOOK5/HTML/PT-5-1-3.html" js="JS/ant.js" image="IMAGES/UNITS/link.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK5/HTML/PT-5-1-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="7" lid="3">
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK7/HTML/PT-7-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 分類樹" html="PT/BOOK7/HTML/PT-7-3-3.html" js="JS/yesno.js" image="IMAGES/UNITS/yesno.png" skin="">
+    </section>
+    <section section="4" name="編程時間 / 演算法" html="PT/BOOK7/HTML/PT-7-3-4.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+</root>

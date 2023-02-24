@@ -93,7 +93,13 @@ $(document).ready(function () {
   $("#backToGEO")
     .unbind()
     .bind("click", function () {
-      backToGEO();
+      if (demomode) {
+        //回首頁
+        window.location.reload();
+      } else {
+        //登出
+        backToGEO();
+      }
     });
 
   resizeScreen();
@@ -171,6 +177,7 @@ let pieceArr = ["red", "green", "blue", "orange", "purple"];
 var currentAudio;
 var currentAudioTrack;
 let countDownDefault = [0, 0, 0, 0];
+var demomode = false;
 //標籤
 var tags = [];
 //
@@ -219,7 +226,7 @@ let getContent = function () {
   let ssid = sid;
   let bbid = bid;
   let llid = lid;
-  let xpath = "./content.xml";
+  let xpath = demomode ? "./content_demo.xml" : "./content.xml";
 
   $.ajax({
     type: "GET",
@@ -249,6 +256,9 @@ let createUnits = function () {
       let ssid = $(this).attr("sid");
       let bbid = $(this).attr("bid");
       let llid = $(this).attr("lid");
+      //demo mode
+
+      ////
       if (ssid == sid && bbid == bid && llid == lid) {
         let amount = $(this).find("section").length;
 
@@ -337,6 +347,9 @@ let loadContainer = function (id, section) {
       let ssid = $(this).attr("sid");
       let bbid = $(this).attr("bid");
       let llid = $(this).attr("lid");
+      //demo mode
+
+      ////
       if (ssid == sid && bbid == bid && llid == lid) {
         htmlPath = $(this)
           .find("section:eq(" + (uid - 1) + ")")
@@ -551,7 +564,7 @@ let reCheckLogin = function (encodedToken) {
 };
 
 let getSeriesXML = function () {
-  let xpath = "./series.xml";
+  let xpath = demomode ? "./series_demo.xml" : "./series.xml";
 
   $.ajax({
     type: "GET",

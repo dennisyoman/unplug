@@ -37,10 +37,17 @@ $(document).ready(function () {
 });
 
 var ok = function () {
+  demomode = false;
   //fullscreen
   if (testmode) {
     getSeriesXML();
   } else {
     checkLogin();
   }
+};
+
+var demo = function () {
+  //demo mode
+  demomode = true;
+  getSeriesXML();
 };

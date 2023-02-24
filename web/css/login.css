@@ -69,6 +69,8 @@
   margin-bottom: 20px;
 }
 .login_wrapper #ok {
+  min-width: 120px;
+  text-align: center;
   cursor: pointer;
   z-index: 20 !important;
   font-size: 12px;
@@ -76,6 +78,29 @@
   height: 30px;
   border: 3px solid #f58d83;
   background: #eb6154;
+  line-height: 24px;
+  color: #fff;
+  padding: 0 15px;
+  font-family: Gfont-Bold;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.login_wrapper #demo {
+  min-width: 120px;
+  margin-top: 10px;
+  margin-bottom: -40px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 20 !important;
+  font-size: 12px;
+  display: inline-block;
+  height: 30px;
+  border: 3px solid #ffcd37;
+  background: #f9b900;
   line-height: 24px;
   color: #fff;
   padding: 0 15px;

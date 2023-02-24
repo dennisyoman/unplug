@@ -1,0 +1,13 @@
+<root>
+  <series name="動手玩思維" sid="PT" img="PT_series.jpg">
+    <book name="體驗課1" bid="2" img="PT_book2_demo.jpg">
+      <lesson lid="2">幫忙做家事</lesson>
+    </book>
+    <book name="體驗課2" bid="5" img="PT_book5_demo.jpg">
+      <lesson lid="1">螞蟻艾歐</lesson>
+    </book>
+    <book name="體驗課3" bid="7" img="PT_book7_demo.jpg">
+      <lesson lid="3">分類樹</lesson>
+    </book>
+  </series>
+</root>

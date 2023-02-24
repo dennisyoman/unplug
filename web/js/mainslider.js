@@ -148,6 +148,7 @@ var createLessons = function () {
                                     <div class="swiper-container swiper-lesson">
                                     <div class="swiper-wrapper">`;
               var amount = $(this).find("lesson").length;
+
               var counter = 0;
               for (var k = 0; k < Math.ceil(amount / 8); k++) {
                 LessonHTML += '<div class="swiper-slide">';
@@ -163,12 +164,10 @@ var createLessons = function () {
                     LessonHTML += `<div lid="${llid}" onclick="getAllXML('${llid}')">`;
 
                     switch (llid) {
-                      case "1C":
-                        LessonHTML += `<span class="front multiC">UNIT 1<br/>Conversation</span>`;
-                        break;
                       default:
                         LessonHTML += `<span class="front">L${i + 1}</span>`;
                     }
+
                     LessonHTML += `<span class="main">${lessonName}</span>
                     </div>`;
                   }
