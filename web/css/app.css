@@ -8920,6 +8920,11 @@
 .module_calculus .contents .grid18 > div .cardItem {
   width: 80px;
 }
+.module_calculus .contents .grid18 > div .cardItem::after {
+  -ms-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
 .module_calculus .contents .gridSlider {
   width: 100%;
   height: 100%;
@@ -9290,7 +9295,7 @@
   line-height: 19px;
   font-size: 12px;
   display: inline-block;
-  border: 3px solid #87caab;
+  border: 3px solid #fff;
   position: relative;
   background: #fff;
   border-radius: 8px;

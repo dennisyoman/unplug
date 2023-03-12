@@ -48,5 +48,11 @@
       <lesson lid="3">怪獸數隻</lesson>
       <lesson lid="4">不達目標不罷休</lesson>
     </book>
+    <book name="Book 9" bid="9" img="PT_book9.jpg">
+      <lesson lid="1">數字變變變</lesson>
+      <lesson lid="2">真的假的？</lesson>
+      <lesson lid="3">神奇的硬幣</lesson>
+      <lesson lid="4">And與Or</lesson>
+    </book>
   </series>
 </root>

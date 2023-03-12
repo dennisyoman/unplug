@@ -1,0 +1,196 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>小小畫家</b
+            >：如何調出正確顏色？請把正確的卡片圈選起來。點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="grids grid6 wow fadeIn">
+        <div>
+          <div
+            class="cardItem A l4"
+            ans="A"
+            title="加紅色"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B l4"
+            ans="B"
+            title="加藍色"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem C l4"
+            ans="C"
+            title="加黃色"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem D l4"
+            ans="D"
+            title="不加紅色"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem E l4"
+            ans="E"
+            title="不加藍色"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem F l4"
+            ans="F"
+            title="不加黃色"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="framesMulti wow bounceInUp" ans="A,B,F">
+        <span class="ref"
+          ><img
+            style="width: 40px; margin-top: -7px; margin-left: 5px"
+            src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-1-ref.png"
+        /></span>
+        <span class="cta orange" onClick="checkAnswerMulti()">CHECK</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>奶茶與T/F</b
+            >：如何做出正確奶茶？請把正確的卡片圈選起來。點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="grids grid6 wow fadeIn">
+        <div>
+          <div
+            class="cardItem A l4"
+            ans="A"
+            title="加冰塊"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem B l4"
+            ans="B"
+            title="加珍珠"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem C l4"
+            ans="C"
+            title="裝袋子"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem D l4"
+            ans="D"
+            title="不加冰塊"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem E l4"
+            ans="E"
+            title="不加珍珠"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div
+            class="cardItem F l4"
+            ans="F"
+            title="不裝袋子"
+            onClick="toggleMe($(this))"
+          >
+            <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="framesMulti wow bounceInUp" ans="A,B,F">
+        <span class="ref"
+          ><img
+            style="width: 40px; margin-top: -7px; margin-left: 5px"
+            src="./DATA/PT/BOOK9/IMAGES/PT-9-4-5-2-ref.png"
+        /></span>
+        <span class="cta orange" onClick="checkAnswerMulti()">CHECK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

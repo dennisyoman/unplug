@@ -9099,6 +9099,9 @@
 
         .cardItem {
           width: 80px;
+          &::after {
+            @include scale(0.8);
+          }
         }
       }
     }
@@ -9488,7 +9491,7 @@
         line-height: 19px;
         font-size: 12px;
         display: inline-block;
-        border: 3px solid $l3;
+        border: 3px solid #fff;
         position: relative;
         background: #fff;
         @include borderRadius(8px);

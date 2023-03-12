@@ -527,6 +527,11 @@ var toggleMe = function (tar) {
 
   $(".contents > div.selected .framesMulti > div").remove();
   var cta = $(".contents > div.selected .framesMulti").find("> .cta");
+  //是否有ref圖
+  if ($(".contents > div.selected .framesMulti").find("> .ref").length > 0) {
+    cta = $(".contents > div.selected .framesMulti").find("> .ref");
+  }
+
   var selectedGrid = $(".contents > div.selected .grids > div.selected");
   selectedGrid.each(function () {
     $(
@@ -604,6 +609,10 @@ var showAnswer = function (boolean) {
       var ansArr = frame.attr("ans").split(",");
       frame.find(" > div").remove();
       var cta = frame.find("> .cta");
+      //是否有ref圖
+      if (frame.find("> .ref").length > 0) {
+        cta = frame.find("> .ref");
+      }
       for (var i = 0; i < ansArr.length; i++) {
         $(`<div ans="${ansArr[i]}">${ansArr[i]}</div>`).insertBefore(cta);
       }
