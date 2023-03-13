@@ -130,10 +130,13 @@ var handleDrag = function (ev) {
         `<div id="cardAvatar" class="cardAvatar"></div>`
       );
       $($elem).clone().appendTo("#cardAvatar");
-      $($elem).addClass("cached");
-      //是否有正確位置參數fp
-      if ($($elem).attr("fp") || $($elem).attr("sp") || $($elem).attr("ap")) {
-        $($elem).addClass("semiTransparent");
+      //是否可以重複拖曳
+      if (!$($elem).hasClass("repeat")) {
+        $($elem).addClass("cached");
+        //是否有正確位置參數fp
+        if ($($elem).attr("fp") || $($elem).attr("sp") || $($elem).attr("ap")) {
+          $($elem).addClass("semiTransparent");
+        }
       }
       var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
       var caHeight = parseInt($($elem).css("height")) / stageRatioReal;
@@ -514,7 +517,9 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".showAnswer").removeClass("showAnswer");
-  elem.find(".cached").removeClass("cached semiTransparent positionBingo");
+  elem.find(".cached").removeClass("cached");
+  elem.find(".semiTransparent").removeClass("semiTransparent");
+  elem.find(".positionBingo").removeClass("positionBingo");
   elem.find(".disable").removeClass("disable");
   //shuffle toy
   if (!elem.find(".toys").hasClass("noShuffle")) {

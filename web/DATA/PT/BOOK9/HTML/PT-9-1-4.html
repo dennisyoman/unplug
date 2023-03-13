@@ -1,0 +1,300 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>資料分類</b>：請將變數適當分類。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle wow fadeInRight" style="max-width: 250px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK9/IMAGES/PT-9-1-4-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            class="ans"
+            src="./DATA/PT/BOOK9/IMAGES/PT-9-1-4-1A.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>點選畫面上的物品，並嘗試判斷出正確的句子。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle wow fadeIn" style="max-width: 380px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK9/IMAGES/PT-9-1-4-2.png"
+          />
+          <div style="text-align: center; margin-top: 20px">
+            <span
+              style="
+                display: inline-block;
+                background: #fff;
+                padding: 0 10px;
+                line-height: 30px;
+              "
+              >名字</span
+            >
+            <span
+              style="display: inline-block; padding: 0 10px; line-height: 30px"
+              >有</span
+            >
+            <span
+              style="
+                display: inline-block;
+                background: #fff;
+                padding: 0px 15px;
+                line-height: 30px;
+                border-radius: 15px;
+              "
+              >幾個</span
+            >
+            <span
+              style="
+                display: inline-block;
+                background: #fff;
+                padding: 0 10px;
+                line-height: 30px;
+              "
+              >物品</span
+            >
+          </div>
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            class="ans"
+            src="./DATA/PT/BOOK9/IMAGES/PT-9-1-4-2.png"
+          />
+          <div style="text-align: center; margin-top: 20px">
+            <span
+              style="
+                display: inline-block;
+                background: #fff;
+                padding: 0 10px;
+                line-height: 30px;
+              "
+              id="sname"
+              >名字</span
+            >
+            <span
+              style="display: inline-block; padding: 0 10px; line-height: 30px"
+              >有</span
+            >
+            <span
+              style="
+                display: inline-block;
+                background: #fff;
+                padding: 0px 15px;
+                line-height: 30px;
+                border-radius: 15px;
+              "
+              id="samount"
+              >幾個</span
+            >
+            <span
+              style="
+                display: inline-block;
+                background: #fff;
+                padding: 0 10px;
+                line-height: 30px;
+              "
+              id="sitem"
+              >物品</span
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        id="tempSensor"
+        style="position: absolute; z-index: 2; top: 0; left: 0"
+      >
+        <span
+          style="
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ff0000;
+            top: 33px;
+            left: 127px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Kitty');$('#samount').text('3本');$('#sitem').text('課本');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 61px;
+            height: 76px;
+            border: 2px solid #ff0000;
+            top: 39px;
+            left: 232px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Kitty');$('#samount').text('1個');$('#sitem').text('水壺');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 43px;
+            height: 67px;
+            border: 2px solid #ff0000;
+            top: 49px;
+            left: 308px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('James');$('#samount').text('1支');$('#sitem').text('鉛筆');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 85px;
+            height: 77px;
+            border: 2px solid #ff0000;
+            top: 49px;
+            left: 349px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('James');$('#samount').text('2本');$('#sitem').text('課本');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 68px;
+            height: 43px;
+            border: 2px solid #ff0000;
+            top: 36px;
+            left: 421px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('James');$('#samount').text('2顆');$('#sitem').text('糖果');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 56px;
+            height: 45px;
+            border: 2px solid #ff0000;
+            top: 145px;
+            left: 122px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Mary');$('#samount').text('2支');$('#sitem').text('鉛筆');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 56px;
+            height: 45px;
+            border: 2px solid #ff0000;
+            top: 188px;
+            left: 115px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Mary');$('#samount').text('2顆');$('#sitem').text('糖果');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 108px;
+            height: 63px;
+            border: 2px solid #ff0000;
+            top: 152px;
+            left: 178px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Mary');$('#samount').text('1盒');$('#sitem').text('蠟筆');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 52px;
+            height: 89px;
+            border: 2px solid #ff0000;
+            top: 141px;
+            left: 315px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Michael');$('#samount').text('1個');$('#sitem').text('水壺');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 62px;
+            height: 30px;
+            border: 2px solid #ff0000;
+            top: 181px;
+            left: 385px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Michael');$('#samount').text('3支');$('#sitem').text('鉛筆');"
+        />
+        <span
+          style="
+            position: absolute;
+            width: 114px;
+            height: 47px;
+            border: 2px solid #ff0000;
+            top: 137px;
+            left: 385px;
+            border-radius: 100%;
+            pointer-events: auto;
+            opacity: 0;
+          "
+          onClick="$(this).parent().children().css('opacity','0');$(this).css('opacity','1');$('#sname').text('Michael');$('#samount').text('1個');$('#sitem').text('手提袋');"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
