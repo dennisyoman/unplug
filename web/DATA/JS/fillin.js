@@ -192,21 +192,54 @@ var resetElem = function (elem) {
         .attr("fillin", "")
         .unbind()
         .bind("click", function () {
-          var option = elem.find(".options .option.selected");
-          if (
-            option.length > 0 &&
-            option.attr("fillin") != $(this).attr("fillin")
-          ) {
-            var fillin = option.attr("fillin");
-            $(this)
-              .removeClass("wrong")
-              .attr("fillin", fillin)
-              .empty()
-              .append(option.find(".fillin").html());
-            rootSoundEffect($pop);
+          var options = elem.find(".options");
+          var option = options.find(".option.selected");
+          //判斷是否要自動輪替選項
+          if (options.hasClass("loop")) {
+            ////自動輪替
+            if (option.attr("fillin") == $(this).attr("fillin")) {
+              //////與選項相同
+              option.removeClass("selected");
+              if (option.next().length > 0) {
+                option = option.next();
+              } else {
+                option = options.find(".option").eq(0);
+              }
+              option.addClass("selected");
+              var fillin = option.attr("fillin");
+              $(this)
+                .removeClass("wrong")
+                .attr("fillin", fillin)
+                .empty()
+                .append(option.find(".fillin").html());
+              rootSoundEffect($pop);
+            } else {
+              //////與選項不同
+              var fillin = option.attr("fillin");
+              $(this)
+                .removeClass("wrong")
+                .attr("fillin", fillin)
+                .empty()
+                .append(option.find(".fillin").html());
+              rootSoundEffect($pop);
+            }
           } else {
-            $(this).removeClass("wrong").empty().attr("fillin", "");
-            rootSoundEffect($show);
+            ////人工選擇
+            if (
+              option.length > 0 &&
+              option.attr("fillin") != $(this).attr("fillin")
+            ) {
+              var fillin = option.attr("fillin");
+              $(this)
+                .removeClass("wrong")
+                .attr("fillin", fillin)
+                .empty()
+                .append(option.find(".fillin").html());
+              rootSoundEffect($pop);
+            } else {
+              $(this).removeClass("wrong").empty().attr("fillin", "");
+              rootSoundEffect($show);
+            }
           }
           //
           $(".sideTool > div.btn_answer").removeClass("active");

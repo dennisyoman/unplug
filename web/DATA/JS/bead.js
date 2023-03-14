@@ -98,6 +98,11 @@ var trigHammer = function () {
     handleDrag(ev);
     $elem = null;
   });
+  mc.on("tap", function (ev) {
+    define$Elem(ev);
+    handleDrag(ev);
+    $elem = null;
+  });
   mc.on("pan", function (ev) {
     if ($elem == null) {
       define$Elem(ev);
