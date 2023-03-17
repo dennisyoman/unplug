@@ -307,7 +307,8 @@ var handleDrag = function (ev) {
       var frameElem = $(".contents > div.selected .cardArea").children();
       var gotit = false;
       frameElem.each(function () {
-        if ($(this).hasClass("selected")) {
+        if ($(this).hasClass("selected") && !$(this).hasClass("occupy")) {
+          $(this).addClass("occupy");
           gotit = true;
         }
       });
@@ -316,6 +317,7 @@ var handleDrag = function (ev) {
         //check order status
         checkStatus();
       } else {
+        rootSoundEffect($stupid);
         var src1 = $("#cardAvatar").find("img").attr("src");
         $(".contents > div.selected")
           .find(".toys > div")
@@ -498,6 +500,7 @@ var openContent = function (id) {
 
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
+  elem.find(".occupy").removeClass("occupy");
   elem.find(".done").removeClass("done");
   elem.find(".wrong").removeClass("wrong");
   //reset piece
