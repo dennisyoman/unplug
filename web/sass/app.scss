@@ -406,6 +406,30 @@ body {
           }
         }
       }
+      &.demo {
+        //display:none;
+        right: 47px;
+        bottom: 4px;
+        width: 64px;
+        height: 32px;
+        background: $l1;
+        background-size: 28px 28px;
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        border: 3px solid #fccf4a;
+        @include borderRadius(16px);
+        &::after {
+          content: "Play Demo";
+          white-space: nowrap;
+          font-size: 12px;
+          font-weight: bold;
+          color: $bg;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.7);
+        }
+      }
 
       &.confirm-power {
         display: none;

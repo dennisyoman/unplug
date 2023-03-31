@@ -11369,6 +11369,31 @@ body {
 .root .basic-tools span.power.active .confirm-power {
   display: inline-block;
 }
+.root .basic-tools span.demo {
+  right: 47px;
+  bottom: 4px;
+  width: 64px;
+  height: 32px;
+  background: #f9b900;
+  background-size: 28px 28px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  border: 3px solid #fccf4a;
+  border-radius: 16px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+}
+.root .basic-tools span.demo::after {
+  content: "Play Demo";
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffedbc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+}
 .root .basic-tools span.confirm-power {
   display: none;
   right: -7px;

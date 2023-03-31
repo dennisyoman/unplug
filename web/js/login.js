@@ -47,6 +47,10 @@ var ok = function () {
 };
 
 var demo = function () {
+  $("#main").empty();
+  //20230331 updated
+  $("#demo").hide();
+  sid = bid = lid = uid = pid = sectionID = null;
   //demo mode
   demomode = true;
   getSeriesXML();

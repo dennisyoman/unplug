@@ -43,6 +43,11 @@ $(document).ready(function () {
         );
 
         console.log("load and goto Unit selection");
+
+        //20230331 updated
+        if (!demomode) {
+          $("#demo").show();
+        }
         //clean widgets
         $("#widget").empty();
         //clean canvas
@@ -75,6 +80,7 @@ $(document).ready(function () {
         createSeries();
         $("#return").hide();
       }
+
       //resetAudio
       resetAudio();
       resetPanel();
@@ -335,6 +341,8 @@ let toLogin = function () {
 };
 
 let loadContainer = function (id, section) {
+  //20230331 updated
+  $("#demo").hide();
   pid = 0;
   //gpObj = {};
   uid = id;
@@ -387,6 +395,8 @@ let loadContainer = function (id, section) {
 };
 
 let loadContainerInside = function (htmlPath, jsPath, p) {
+  //20230331 updated
+  $("#demo").hide();
   pid = p;
   console.log("pid:" + pid);
   let script_arr = [
