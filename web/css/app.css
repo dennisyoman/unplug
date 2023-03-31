@@ -11370,6 +11370,7 @@ body {
   display: inline-block;
 }
 .root .basic-tools span.demo {
+  display: none;
   right: 47px;
   bottom: 4px;
   width: 64px;

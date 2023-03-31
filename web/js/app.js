@@ -464,6 +464,10 @@ let loadMainSlider = function () {
     script_arr,
     "./js/"
   );
+  //20230331 updated
+  if (!demomode) {
+    $("#demo").show();
+  }
 };
 
 let getTimeStamp = function () {
