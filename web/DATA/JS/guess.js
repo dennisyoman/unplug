@@ -294,6 +294,8 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  elem.find(".active").removeClass("active");
+  //
   elem.find(".grids").show();
   elem.find(".grids-dots").remove();
   var eventsLength = elem.find(".grids > div").length - 2;

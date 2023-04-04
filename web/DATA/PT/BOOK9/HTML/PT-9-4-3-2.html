@@ -1,0 +1,199 @@
+<div id="module_wrapper" class="module_guess">
+  <div class="tabs">
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK9/HTML/PT-9-4-3.html','JS/fillin.js',0)"
+      >示範一</span
+    >
+    <span class="demo">示範二</span>
+    <span class="demo">示範三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_erase"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div></div>
+    <!--示範二-->
+    <div class="wow fadeIn">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>按圖索魚</b>：根據特徵描述以及訂定好的T或F，畫出符合條件的魚。
+          </p>
+          <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-1-intro2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids">
+        <div style="position: absolute; top: 100px; left: 144px">
+          <div
+            style="height: 60px; border: none; margin-bottom: 8px"
+            class="cardItem canvas"
+            onClick="opanCanvas($(this))"
+          >
+            <div class="des">
+              <img
+                class="wow fadeInDown"
+                data-wow-delay=".4s"
+                src="./DATA/IMAGES/common/board_draw.png"
+              />作圖區
+            </div>
+            <canvas width="330" height="180"></canvas>
+          </div>
+          <div
+            style="height: 60px; border: none; margin-bottom: 8px"
+            class="cardItem canvas"
+            onClick="opanCanvas($(this))"
+          >
+            <div class="des">
+              <img
+                class="wow fadeInDown"
+                data-wow-delay=".4s"
+                src="./DATA/IMAGES/common/board_draw.png"
+              />作圖區
+            </div>
+            <canvas width="330" height="180"></canvas>
+          </div>
+          <div
+            style="height: 60px; border: none; margin-bottom: 8px"
+            class="cardItem canvas"
+            onClick="opanCanvas($(this))"
+          >
+            <div class="des">
+              <img
+                class="wow fadeInDown"
+                data-wow-delay=".4s"
+                src="./DATA/IMAGES/common/board_draw.png"
+              />作圖區
+            </div>
+            <canvas width="330" height="180"></canvas>
+          </div>
+        </div>
+        <img
+          height="250"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-2-1.png"
+        />
+      </div>
+    </div>
+
+    <!--示範三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>海中的魚</b>：點擊之後，魚會自動游到符合特徵的區域。</p>
+          <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <img
+          class="wow fadeInLeft"
+          height="200"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-3-1.png"
+          style="position: absolute; top: 18px; left: 200px; z-index: 2"
+        />
+        <img
+          class="wow fadeInRight"
+          height="200"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-3-2.png"
+          style="position: absolute; top: 18px; left: 284px; z-index: 1"
+        />
+        <img
+          class="wow fadeInUp"
+          height="200"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-3-3.png"
+          style="position: absolute; top: 110px; left: 242px; z-index: 3"
+        />
+        <img
+          class="fish fish1"
+          height="25"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/fish1.png"
+          style="top: 110px; left: 40px"
+          onClick="$(this).toggleClass('active');rootSoundEffect($show);"
+        />
+        <img
+          class="fish fish2"
+          height="22"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/fish2.png"
+          style="top: 150px; left: 60px"
+          onClick="$(this).toggleClass('active');rootSoundEffect($show);"
+        />
+        <img
+          class="fish fish3"
+          height="22"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/fish3.png"
+          style="top: 190px; left: 40px"
+          onClick="$(this).toggleClass('active');rootSoundEffect($show);"
+        />
+        <img
+          class="fish fish4"
+          height="25"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/fish4.png"
+          style="top: 230px; left: 60px"
+          onClick="$(this).toggleClass('active');rootSoundEffect($show);"
+        />
+        <img
+          class="fish fish5"
+          height="14"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/fish5.png"
+          style="top: 270px; left: 40px"
+          onClick="$(this).toggleClass('active');rootSoundEffect($show);"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .fish {
+    position: absolute;
+    z-index: 10;
+    pointer-events: auto;
+    cursor: pointer;
+    animation-name: float;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  .fish.active {
+    transition: all 1.5s;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  }
+  .fish1.active {
+    top: 50px !important;
+    left: 240px !important;
+  }
+  .fish2.active {
+    top: 50px !important;
+    left: 360px !important;
+  }
+  .fish3.active {
+    top: 80px !important;
+    left: 300px !important;
+  }
+  .fish4.active {
+    top: 210px !important;
+    left: 150px !important;
+  }
+  .fish5.active {
+    top: 250px !important;
+    left: 290px !important;
+  }
+</style>

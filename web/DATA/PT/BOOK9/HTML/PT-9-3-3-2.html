@@ -1,0 +1,511 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <!--<div class="btn_check"></div>-->
+  </div>
+
+  <div id="contents" class="contents">
+    <!--示範一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>隨機數與模式辨別</b
+            >：使用兩枚硬幣，找出可能的情況。點擊空白的硬幣，觀察各種可能的情況。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 200px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            tar="#row1_1"
+            style="width: 33px; height: 34px; top: 155px; left: 67px"
+            ans="blue"
+          />
+          <span
+            class="sensor"
+            tar="#row1_1"
+            style="width: 34px; height: 34px; top: 155px; left: 111px"
+            ans="blue"
+          />
+        </div>
+        <div class="note" style="width: 225px">
+          <div style="top: 45px; left: 166px">
+            <span>1</span>
+            <span>1</span>
+          </div>
+          <div style="top: 102px; left: 166px">
+            <span>2</span>
+            <span>0</span>
+          </div>
+          <div class="row" id="row1_1" style="top: 157px; left: 166px">
+            <span ans="0"></span>
+            <span ans="2"></span>
+          </div>
+        </div>
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-3-3-2-1.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="blue">
+          <span class="fillin">
+            <div
+              style="
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                background: #5f89c6;
+              "
+            ></div>
+          </span>
+        </div>
+        <div class="option" fillin="red">
+          <span class="fillin">
+            <div
+              style="
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                background: #e94318;
+              "
+            ></div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>隨機數與模式辨別</b
+            >：使用三枚硬幣，找出可能的情況。點擊空白的硬幣，觀察各種可能的情況。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 250px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 47px; left: 16px"
+            ans="blue"
+            tar="#row2_1"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 47px; left: 60px"
+            ans="blue"
+            tar="#row2_1"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 47px; left: 103px"
+            ans="blue"
+            tar="#row2_1"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 100px; left: 16px"
+            ans="red"
+            tar="#row2_2"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 100px; left: 60px"
+            ans="blue"
+            tar="#row2_2"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 100px; left: 103px"
+            ans="blue"
+            tar="#row2_2"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 154px; left: 16px"
+            ans="red"
+            tar="#row2_3"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 154px; left: 60px"
+            ans="red"
+            tar="#row2_3"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 154px; left: 103px"
+            ans="blue"
+            tar="#row2_3"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 206px; left: 16px"
+            ans="red"
+            tar="#row2_4"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 206px; left: 60px"
+            ans="red"
+            tar="#row2_4"
+          />
+          <span
+            class="sensor"
+            style="width: 33px; height: 33px; top: 206px; left: 103px"
+            ans="red"
+            tar="#row2_4"
+          />
+        </div>
+
+        <div class="note" style="width: 220px">
+          <div class="row" id="row2_1" style="top: 45px; left: 160px">
+            <span ans="0"></span>
+            <span ans="3"></span>
+          </div>
+          <div class="row" id="row2_2" style="top: 102px; left: 160px">
+            <span ans="1"></span>
+            <span ans="2"></span>
+          </div>
+          <div class="row" id="row2_3" style="top: 157px; left: 160px">
+            <span ans="2"></span>
+            <span ans="1"></span>
+          </div>
+          <div class="row" id="row2_4" style="top: 207px; left: 160px">
+            <span ans="3"></span>
+            <span ans="0"></span>
+          </div>
+        </div>
+
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-3-3-2-2.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="blue">
+          <span class="fillin">
+            <div
+              style="
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                background: #5f89c6;
+              "
+            ></div>
+          </span>
+        </div>
+        <div class="option" fillin="red">
+          <span class="fillin">
+            <div
+              style="
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                background: #e94318;
+              "
+            ></div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>隨機數與模式辨別</b
+            >：使用四枚硬幣，找出可能的情況。點擊空白的硬幣，觀察各種可能的情況。<br />可能的情況都找出來後，將其排序並整理記錄。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 250px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 52px; left: 28px"
+            ans="blue"
+            tar="#row3_1"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 52px; left: 57px"
+            ans="blue"
+            tar="#row3_1"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 52px; left: 88px"
+            ans="blue"
+            tar="#row3_1"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 52px; left: 117px"
+            ans="blue"
+            tar="#row3_1"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 94px; left: 28px"
+            ans="red"
+            tar="#row3_2"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 94px; left: 57px"
+            ans="blue"
+            tar="#row3_2"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 94px; left: 88px"
+            ans="blue"
+            tar="#row3_2"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 94px; left: 117px"
+            ans="blue"
+            tar="#row3_2"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 135px; left: 28px"
+            ans="red"
+            tar="#row3_3"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 135px; left: 57px"
+            ans="red"
+            tar="#row3_3"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 135px; left: 88px"
+            ans="blue"
+            tar="#row3_3"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 135px; left: 117px"
+            ans="blue"
+            tar="#row3_3"
+          />
+
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 175px; left: 28px"
+            ans="red"
+            tar="#row3_4"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 175px; left: 57px"
+            ans="red"
+            tar="#row3_4"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 175px; left: 88px"
+            ans="red"
+            tar="#row3_4"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 175px; left: 117px"
+            ans="blue"
+            tar="#row3_4"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 217px; left: 28px"
+            ans="red"
+            tar="#row3_5"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 217px; left: 57px"
+            ans="red"
+            tar="#row3_5"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 217px; left: 88px"
+            ans="red"
+            tar="#row3_5"
+          />
+          <span
+            class="sensor"
+            style="width: 22px; height: 22px; top: 217px; left: 117px"
+            ans="red"
+            tar="#row3_5"
+          />
+        </div>
+
+        <div class="note" style="width: 327px">
+          <div class="row" id="row3_1" style="top: 48px; left: 166px">
+            <span ans="0"></span>
+            <span ans="4"></span>
+          </div>
+          <div class="row" id="row3_2" style="top: 90px; left: 166px">
+            <span ans="1"></span>
+            <span ans="3"></span>
+          </div>
+          <div class="row" id="row3_3" style="top: 132px; left: 166px">
+            <span ans="2"></span>
+            <span ans="2"></span>
+          </div>
+          <div class="row" id="row3_4" style="top: 174px; left: 166px">
+            <span ans="3"></span>
+            <span ans="1"></span>
+          </div>
+          <div class="row" id="row3_5" style="top: 216px; left: 166px">
+            <span ans="4"></span>
+            <span ans="0"></span>
+          </div>
+        </div>
+
+        <div class="swifter wow bounceInRight">
+          <div style="top: 56px; left: 460px">
+            <span
+              class="movedown"
+              onClick="moveRow('#row3_1','#row3_2')"
+            ></span>
+          </div>
+          <div style="top: 97px; left: 460px">
+            <span class="moveup" onClick="moveRow('#row3_2','#row3_1')"></span>
+            <span
+              class="movedown"
+              onClick="moveRow('#row3_2','#row3_3')"
+            ></span>
+          </div>
+          <div style="top: 138px; left: 460px">
+            <span class="moveup" onClick="moveRow('#row3_3','#row3_2')"></span>
+            <span
+              class="movedown"
+              onClick="moveRow('#row3_3','#row3_4')"
+            ></span>
+          </div>
+          <div style="top: 179px; left: 460px">
+            <span class="moveup" onClick="moveRow('#row3_4','#row3_3')"></span>
+            <span
+              class="movedown"
+              onClick="moveRow('#row3_4','#row3_5')"
+            ></span>
+          </div>
+          <div style="top: 220px; left: 460px">
+            <span class="moveup" onClick="moveRow('#row3_5','#row3_4')"></span>
+          </div>
+        </div>
+
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-3-3-2-3.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="blue">
+          <span class="fillin">
+            <div
+              style="
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                background: #5f89c6;
+              "
+            ></div>
+          </span>
+        </div>
+        <div class="option" fillin="red">
+          <span class="fillin">
+            <div
+              style="
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                background: #e94318;
+              "
+            ></div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .module_fillin .note {
+    position: absolute;
+    z-index: 10;
+  }
+  .module_fillin .note > div {
+    width: 100%;
+    position: absolute;
+    display: flex;
+  }
+  .module_fillin .note > div span {
+    width: 100%;
+    font-size: 30px;
+    line-height: 1;
+    text-align: center;
+  }
+  .module_fillin .swifter {
+    position: absolute;
+    z-index: 15;
+    width: 31px;
+    display: none;
+  }
+
+  .module_fillin .swifter > div {
+    width: 100%;
+    position: absolute;
+    display: flex;
+  }
+  .module_fillin .swifter > div span {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    pointer-events: auto;
+    cursor: pointer;
+    border: 1px solid #87caac;
+    border-radius: 100%;
+    background: #fff url("../DATA/IMAGES/common/route.png") no-repeat center
+      center;
+    background-size: auto 80%;
+  }
+  .module_fillin .swifter > div span.movedown {
+    margin-left: 1px;
+    background-image: url("../DATA/IMAGES/common/route_reverse.png");
+  }
+</style>

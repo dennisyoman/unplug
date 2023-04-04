@@ -1,0 +1,389 @@
+<div id="module_wrapper" class="module_if">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>樑上的淑女蟲</b
+            >：點擊其中一個出發點後，瓢蟲自行往上爬，遇到橫樑就換方向，只能往
+            (上、左、右)三個方向。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject" style="margin-top: -20px">
+        <div class="piece ladybug" style="margin-top: 20px">
+          <img
+            width="40px"
+            height="40px"
+            src="./DATA/PT/BOOK8/IMAGES/ladybug.png"
+          />
+        </div>
+        <div class="sensorArea blue">
+          <span
+            class="sensor start"
+            style="width: 20px; height: 20px; top: 265px; left: 130px"
+            name="1"
+            neighbor="2,3,4,5,6"
+          />
+
+          <span
+            class="sensor"
+            style="width: 20px; height: 20px; top: 238px; left: 5px"
+            name="2"
+            neighbor=""
+            automove="7"
+          />
+          <span
+            class="sensor"
+            style="width: 20px; height: 20px; top: 238px; left: 68px"
+            name="3"
+            neighbor=""
+            automove="8"
+          />
+          <span
+            class="sensor"
+            style="width: 20px; height: 20px; top: 238px; left: 130px"
+            name="4"
+            neighbor=""
+            automove="16"
+          />
+          <span
+            class="sensor"
+            style="width: 20px; height: 20px; top: 238px; left: 193px"
+            name="5"
+            neighbor=""
+            automove="9"
+          />
+          <span
+            class="sensor"
+            style="width: 20px; height: 20px; top: 238px; left: 256px"
+            name="6"
+            neighbor=""
+            automove="10"
+          />
+
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 214px; left: 5px"
+            name="7"
+            neighbor="8"
+            automove="14"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 214px; left: 68px"
+            name="8"
+            neighbor="7"
+            automove="15"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 215px; left: 193px"
+            name="9"
+            neighbor="10"
+            automove="11"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 215px; left: 256px"
+            name="10"
+            neighbor="9"
+            automove="12"
+          />
+
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 205px; left: 193px"
+            name="11"
+            neighbor="12"
+            automove="17"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 205px; left: 256px"
+            name="12"
+            neighbor="11"
+            automove="21"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 193px; left: 5px"
+            name="14"
+            neighbor="15"
+            automove="22"
+          />
+
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 193px; left: 68px"
+            name="15"
+            neighbor="14"
+            automove="18"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 193px; left: 130px"
+            name="16"
+            neighbor="17"
+            automove="19"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 193px; left: 193px"
+            name="17"
+            neighbor="16"
+            automove="20"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 177px; left: 68px"
+            name="18"
+            neighbor="19"
+            automove="23"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 177px; left: 130px"
+            name="19"
+            neighbor="18"
+            automove="27"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 177px; left: 193px"
+            name="20"
+            neighbor="21"
+            automove="25"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 177px; left: 256px"
+            name="21"
+            neighbor="20"
+            automove="29"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 161px; left: 5px"
+            name="22"
+            neighbor="23"
+            automove="34"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 161px; left: 68px"
+            name="23"
+            neighbor="22"
+            automove="26"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 163px; left: 130px"
+            name="24"
+            neighbor="25"
+            automove="27"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 163px; left: 193px"
+            name="25"
+            neighbor="24"
+            automove="28"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 138px; left: 68px"
+            name="26"
+            neighbor="27"
+            automove="30"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 138px; left: 130px"
+            name="27"
+            neighbor="26"
+            automove="31"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 138px; left: 193px"
+            name="28"
+            neighbor="29"
+            automove="32"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 138px; left: 256px"
+            name="29"
+            neighbor="28"
+            automove="33"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 122px; left: 68px"
+            name="30"
+            neighbor="31"
+            automove="35"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 122px; left: 130px"
+            name="31"
+            neighbor="30"
+            automove="36"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 122px; left: 193px"
+            name="32"
+            neighbor="33"
+            automove="37"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 122px; left: 256px"
+            name="33"
+            neighbor="32"
+            automove="41"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 108px; left: 5px"
+            name="34"
+            neighbor="35"
+            automove="42"
+          />
+
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 108px; left: 68px"
+            name="35"
+            neighbor="34"
+            automove="38"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 108px; left: 130px"
+            name="36"
+            neighbor="37"
+            automove="39"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 108px; left: 193px"
+            name="37"
+            neighbor="36"
+            automove="40"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 95px; left: 68px"
+            name="38"
+            neighbor="39"
+            automove="43"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 95px; left: 130px"
+            name="39"
+            neighbor="38"
+            automove="44"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 95px; left: 193px"
+            name="40"
+            neighbor="41"
+            automove="45"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 95px; left: 256px"
+            name="41"
+            neighbor="40"
+            automove="50"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 75px; left: 5px"
+            name="42"
+            neighbor="43"
+            automove="46"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 75px; left: 68px"
+            name="43"
+            neighbor="42"
+            automove="47"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 75px; left: 130px"
+            name="44"
+            neighbor="45"
+            automove="48"
+          />
+          <span
+            class="sensor withPath"
+            style="width: 20px; height: 10px; top: 75px; left: 193px"
+            name="45"
+            neighbor="44"
+            automove="49"
+          />
+          <span
+            class="sensor end withPath"
+            style="width: 20px; height: 10px; top: 49px; left: 5px"
+            name="46"
+            neighbor=""
+          />
+          <span
+            class="sensor end withPath"
+            style="width: 20px; height: 10px; top: 49px; left: 68px"
+            name="47"
+            neighbor=""
+          />
+          <span
+            class="sensor end withPath"
+            style="width: 20px; height: 10px; top: 49px; left: 130px"
+            name="48"
+            neighbor=""
+          />
+          <span
+            class="sensor end withPath"
+            style="width: 20px; height: 10px; top: 49px; left: 193px"
+            name="49"
+            neighbor=""
+          />
+          <span
+            class="sensor end withPath"
+            style="width: 20px; height: 10px; top: 49px; left: 256px"
+            name="50"
+            neighbor=""
+          />
+        </div>
+        <img
+          height="250px"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-1-1.png"
+          class="wow fadeInDown"
+        />
+      </div>
+
+      <div class="assetsPreload"></div>
+    </div>
+  </div>
+</div>

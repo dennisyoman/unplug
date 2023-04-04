@@ -1,0 +1,222 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK9/HTML/PT-9-4-3-2.html','JS/guess.js',1)"
+      >示範二</span
+    >
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK9/HTML/PT-9-4-3-2.html','JS/guess.js',2)"
+      >示範三</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>按圖索魚</b>：仔細觀察比對，在框框裡寫上 T（Ture真）或
+            F（False假）。
+          </p>
+          <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 250px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 113px; left: 128px"
+            ans="true"
+          />
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 113px; left: 208px"
+            ans="true"
+          />
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 113px; left: 287px"
+            ans="false"
+          />
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 181px; left: 128px"
+            ans="false"
+          />
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 181px; left: 208px"
+            ans="false"
+          />
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 181px; left: 287px"
+            ans="true"
+          />
+        </div>
+        <div class="presetArea">
+          <span
+            class="sensor"
+            style="width: 78px; height: 40px; top: 3px; left: 128px"
+            ><p style="font-size: 15px">有斑點</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 40px; top: 3px; left: 208px"
+            ><p style="font-size: 15px">是紅色</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 40px; top: 3px; left: 287px"
+            ><p style="font-size: 15px">有尾巴</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 45px; left: 128px"
+            ><p style="font-size: 40px; font-weight: bold">T</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 45px; left: 208px"
+            ><p style="font-size: 40px; font-weight: bold">F</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 45px; left: 287px"
+            ><p style="font-size: 40px; font-weight: bold">F</p></span
+          >
+        </div>
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-1-1.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="true">
+          <span class="fillin">
+            <p style="font-size: 40px; font-weight: bold">T</p>
+          </span>
+        </div>
+        <div class="option" fillin="false">
+          <span class="fillin">
+            <p style="font-size: 40px; font-weight: bold">F</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 示範二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>按圖索魚</b>：根據特徵描述以及訂定好的T或F，畫出符合條件的魚。
+          </p>
+          <img src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-1-intro2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 250px">
+        <div class="presetArea">
+          <span
+            class="sensor"
+            style="width: 78px; height: 40px; top: 3px; left: 128px"
+            ><p style="font-size: 15px">有斑點</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 40px; top: 3px; left: 208px"
+            ><p style="font-size: 15px">是紅色</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 40px; top: 3px; left: 287px"
+            ><p style="font-size: 15px">圓尾巴</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 45px; left: 128px"
+            ><p style="font-size: 40px; font-weight: bold">T</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 45px; left: 208px"
+            ><p style="font-size: 40px; font-weight: bold">F</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 45px; left: 287px"
+            ><p style="font-size: 40px; font-weight: bold">F</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 113px; left: 128px"
+            ><p style="font-size: 40px; font-weight: bold">T</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 113px; left: 208px"
+            ><p style="font-size: 40px; font-weight: bold">T</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 113px; left: 287px"
+            ><p style="font-size: 40px; font-weight: bold">T</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 181px; left: 128px"
+            ><p style="font-size: 40px; font-weight: bold">F</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 181px; left: 208px"
+            ><p style="font-size: 40px; font-weight: bold">T</p></span
+          >
+          <span
+            class="sensor"
+            style="width: 78px; height: 67px; top: 181px; left: 287px"
+            ><p style="font-size: 40px; font-weight: bold">F</p></span
+          >
+        </div>
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT/BOOK9/IMAGES/PT-9-4-3-1-2.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="true">
+          <span class="fillin">
+            <p style="font-size: 40px; font-weight: bold">T</p>
+          </span>
+        </div>
+        <div class="option" fillin="false">
+          <span class="fillin">
+            <p style="font-size: 40px; font-weight: bold">F</p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
