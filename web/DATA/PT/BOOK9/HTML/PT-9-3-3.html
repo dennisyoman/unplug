@@ -21,10 +21,19 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div style="width: 401px; height: 100px" class="puzzle wow fadeInDown">
+      <div style="width: 401px; height: 225px" class="puzzle wow fadeInDown">
         <div class="canvas">
-          <canvas width="401" height="100"></canvas>
+          <canvas width="401" height="225"></canvas>
         </div>
+        <span id="r1" style="top: 126px; left: 1px" onClick="rand($(this),7,13)"
+          >?</span
+        >
+        <span
+          id="r2"
+          style="top: 126px; left: 211px"
+          onClick="rand($(this),14,19)"
+          >?</span
+        >
         <div class="subject">
           <img src="./DATA/PT/BOOK9/IMAGES/PT-9-3-3-1-0.png" />
         </div>
@@ -70,3 +79,27 @@
 
   <div class="assetsPreload"></div>
 </div>
+
+<style>
+  #r1,
+  #r2 {
+    position: absolute;
+    z-index: 10;
+    font-size: 12px;
+    line-height: 22px;
+    height: 22px;
+    text-align: center;
+    font-weight: bold;
+    width: 40px;
+    pointer-events: auto;
+    cursor: pointer;
+    padding-right: 5px;
+  }
+</style>
+<script>
+  var rand = function (tar, min, max) {
+    rootSoundEffect($key);
+    var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    tar.text(num);
+  };
+</script>
