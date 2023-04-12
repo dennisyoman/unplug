@@ -54,5 +54,11 @@
       <lesson lid="3">神奇的硬幣</lesson>
       <lesson lid="4">And與Or</lesson>
     </book>
+    <book name="Book 10" bid="10" img="PT_book10.jpg">
+      <lesson lid="1">醫生的藥櫃</lesson>
+      <lesson lid="2">堆疊奇技</lesson>
+      <lesson lid="3">旅行海鷗</lesson>
+      <lesson lid="4">井底的青蛙</lesson>
+    </book>
   </series>
 </root>

@@ -926,6 +926,9 @@ var resetElem = function (elem) {
   var stylesArr = [];
   var classArr = [];
   elem.find(".grids > div").each(function () {
+    //update start 2023/04/12
+    $(this).removeClass("selected");
+    //end
     stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
     classArr.push($(this).attr("class") ? $(this).attr("class") : false);
     cardsArr.push(
@@ -939,7 +942,7 @@ var resetElem = function (elem) {
   for (var i = 0; i < originArr.length; i++) {
     for (var k = 0; k < cardsArr.length; k++) {
       var tempElem = cardsArr[k];
-      console.log("lll");
+
       if (originArr[i] == tempElem.find(">div").attr("ans")) {
         if (stylesArr[styleID] != false) {
           tempElem.attr("style", stylesArr[styleID]);
@@ -950,6 +953,7 @@ var resetElem = function (elem) {
             : "";
           tempElem.attr("class", oriClass + classArr[styleID]);
         }
+
         styleID++;
         elem.find(".grids").append(tempElem.clone());
         //break;
