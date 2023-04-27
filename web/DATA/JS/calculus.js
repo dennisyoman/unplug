@@ -962,6 +962,7 @@ var resetElem = function (elem) {
   }
 
   elem.find(".grids").show();
+  elem.find(".griddeco").show();
   //
   if (elem.find(".frames").length > 0) {
     updateFrame();

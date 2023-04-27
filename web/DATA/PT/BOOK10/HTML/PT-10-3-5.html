@@ -1,0 +1,151 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>搜尋寶藏</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l3 cards" ans="A" title="兌換現金">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l3 cards" ans="B" title="發現寶藏">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l3 cards" ans="C" title="收集資料">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l3 cards" ans="D" title="前往地點">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l3 cards" ans="E" title="研究地圖">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l3 cards" ans="F" title="準備工具">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="F"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div ans="C"></div>
+        <div ans="E"></div>
+        <div class="end" ans="D"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>F-B</span>
+        <span>B-A</span>
+        <span>B-C</span>
+        <span>B-E</span>
+        <span>B-D</span>
+        <span>D=6</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>書寫地址</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l3 cards" ans="A" title="xx區">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l3 cards" ans="B" title="xx號">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l3 cards" ans="C" title="xx縣市">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l3 cards" ans="D" title="xx路">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l3 cards" ans="E" title="xx樓">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l3 cards" ans="F" title="xx段">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="A"></div>
+        <div ans="B"></div>
+        <div ans="D"></div>
+        <div ans="E"></div>
+        <div ans="C"></div>
+        <div class="end" ans="F"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>C-F</span>
+        <span>A-C</span>
+        <span>B-C</span>
+        <span>D-C</span>
+        <span>E-C</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
