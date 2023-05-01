@@ -1,0 +1,244 @@
+<div id="module_wrapper" class="module_stacknqueue">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>Stack</b
+            >：依照數字順序將球投入管中。再將球從管中拿出來，依順序擺回盒子中。
+          </p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject">
+        <div class="stack multisteps" style="height: 300px; width: 400px">
+          <div class="clone"></div>
+          <div id="g1" class="balls">
+            <span
+              des="g2_3"
+              style="top: 205px; left: 12px; background: #e5450d"
+            ></span>
+            <span
+              des="g2_2"
+              style="top: 205px; left: 76px; background: #f1a600"
+            ></span>
+            <span
+              des="g2_1"
+              style="top: 205px; left: 141px; background: #76a8db"
+            ></span>
+          </div>
+          <div id="g2" class="balls">
+            <span
+              des="g3_1"
+              style="top: 176px; left: 302px; background: #76a8db"
+            ></span>
+            <span
+              des="g3_2"
+              style="top: 218px; left: 302px; background: #f1a600"
+            ></span>
+            <span
+              des="g3_3"
+              style="top: 260px; left: 302px; background: #e5450d"
+            ></span>
+          </div>
+          <div id="g3" class="balls">
+            <span
+              style="
+                top: 205px;
+                left: 471px;
+                background: #76a8db;
+                pointer-events: none;
+              "
+            ></span>
+            <span
+              style="
+                top: 205px;
+                left: 534px;
+                background: #f1a600;
+                pointer-events: none;
+              "
+            ></span>
+            <span
+              style="
+                top: 205px;
+                left: 599px;
+                background: #e5450d;
+                pointer-events: none;
+              "
+            ></span>
+          </div>
+          <img
+            style="width: 650px"
+            src="./DATA/PT/BOOK10/IMAGES/PT-10-2-3-1.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>頂球絕技</b>：點擊彩球之後，彩球會照順序路徑，飛行至水管中落下。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject">
+        <div class="stack" style="height: 300px; width: 300px">
+          <div class="clone"></div>
+          <div id="g5" class="balls shaking">
+            <span
+              des="g4_6"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 46px;
+                left: 143px;
+                background: #f08631;
+              "
+            ></span>
+            <span
+              des="g4_5"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 71px;
+                left: 143px;
+                background: #77bd46;
+              "
+            ></span>
+            <span
+              des="g4_4"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 96px;
+                left: 143px;
+                background: #e94a3c;
+              "
+            ></span>
+            <span
+              des="g4_3"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 121px;
+                left: 143px;
+                background: #00a8eb;
+              "
+            ></span>
+            <span
+              des="g4_2"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 146px;
+                left: 143px;
+                background: #f7d55f;
+              "
+            ></span>
+            <span
+              des="g4_1"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 171px;
+                left: 143px;
+                background: #b970ab;
+              "
+            ></span>
+          </div>
+          <div id="g4" class="balls">
+            <span
+              des="g5_6"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 140px;
+                left: 89px;
+                background: #b970ab;
+              "
+            ></span>
+            <span
+              des="g5_5"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 165px;
+                left: 89px;
+                background: #f7d55f;
+              "
+            ></span>
+            <span
+              des="g5_4"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 190px;
+                left: 89px;
+                background: #00a8eb;
+              "
+            ></span>
+            <span
+              des="g5_3"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 215px;
+                left: 89px;
+                background: #e94a3c;
+              "
+            ></span>
+            <span
+              des="g5_2"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 240px;
+                left: 89px;
+                background: #77bd46;
+              "
+            ></span>
+            <span
+              des="g5_1"
+              style="
+                width: 25px;
+                height: 25px;
+                top: 265px;
+                left: 89px;
+                background: #f08631;
+              "
+            ></span>
+          </div>
+
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-2-3-2-1.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .step2 {
+    margin-left: -450px;
+  }
+</style>

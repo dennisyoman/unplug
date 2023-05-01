@@ -1,0 +1,122 @@
+<div id="module_wrapper" class="module_herb">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>生病的莊子</b>：依照各種要求，執行任務。</p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-1-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject">
+        <div class="closet wow fadeInLeft">
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h1.png" pname="荷葉"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h2.png" pname="白果"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h3.png" pname="蔥白"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h4.png" pname="菊花"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h5.png" pname="人參"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h6.png" pname="龍眼"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h7.png" pname="紫蘇葉"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h8.png" pname="雞蛋花"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h9.png" pname="梅花"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h10.png" pname="核桃仁"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h11.png" pname="紅景天"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h12.png" pname="九里香"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h13.png" pname="榕樹葉"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h14.png" pname="辣椒"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h15.png" pname="玫瑰花"></div>
+          <div pimg="./DATA/PT/BOOK10/IMAGES/h16.png" pname="乾薑"></div>
+          <div pimg="" pname="" new="true"></div>
+          <div pimg="" pname="" new="true"></div>
+          <div pimg="" pname="" new="true"></div>
+          <div pimg="" pname="" new="true"></div>
+        </div>
+        <div class="tasks">
+          <div class="task wow slideInRight">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-1-3-1-1.png" />
+            <p style="position: absolute; top: 66px; left: 30px; z-index: 2">
+              請從藥櫃裡找出這3樣藥材
+            </p>
+            <div class="demand">
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h8.png" aiid="8"></div>
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h13.png" aiid="13"></div>
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h2.png" aiid="2"></div>
+            </div>
+          </div>
+          <div class="task wow slideInRight">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-1-3-1-2.png" />
+            <p
+              style="
+                position: absolute;
+                top: 32px;
+                left: 118px;
+                width: 160px;
+                z-index: 2;
+              "
+            >
+              啊！發現了幾個<span style="color: #e71f10">新的藥材</span
+              >，請把他們也放進藥櫃裡吧！
+            </p>
+            <div class="newHerbs">
+              <div
+                style="top: -85px; left: 50px"
+                onClick="inCloset($(this))"
+                nname="新藥材1"
+              >
+                <img src="./DATA/PT/BOOK10/IMAGES/h17.png" />
+              </div>
+              <div
+                style="top: -85px; left: 120px"
+                onClick="inCloset($(this))"
+                nname="新藥材2"
+              >
+                <img src="./DATA/PT/BOOK10/IMAGES/h18.png" />
+              </div>
+              <div
+                style="top: -85px; left: 190px"
+                onClick="inCloset($(this))"
+                nname="新藥材3"
+              >
+                <img src="./DATA/PT/BOOK10/IMAGES/h19.png" />
+              </div>
+            </div>
+            <div class="demand clickable">
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h17.png" aiid="17"></div>
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h18.png" aiid="18"></div>
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h19.png" aiid="19"></div>
+            </div>
+          </div>
+          <div class="task wow slideInRight">
+            <img src="./DATA/PT/BOOK10/IMAGES/PT-10-1-3-1-3.png" />
+            <p style="position: absolute; top: 35px; left: 26px; z-index: 2">
+              請從藥櫃裡找出這3樣藥材
+            </p>
+            <div class="demand">
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h11.png" aiid="11"></div>
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h3.png" aiid="3"></div>
+              <div iimg="./DATA/PT/BOOK10/IMAGES/h18.png" aiid="18"></div>
+            </div>
+          </div>
+          <span class="cta green wow bounceIn" onClick="nextTask()">Next</span>
+        </div>
+      </div>
+    </div>
+
+    <div></div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>

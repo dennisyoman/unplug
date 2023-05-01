@@ -1,0 +1,114 @@
+<div id="module_wrapper" class="module_stacknqueue">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK10/HTML/PT-10-2-4-2.html','JS/fillin.js',2)"
+      >任務二</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>Queue</b>：點擊顧客，觀察每個人排完隊的順序。</p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-2-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject">
+        <div class="queue">
+          <div class="customers" onClick="moveQueue($(this))">
+            <span dir="left" custom="C" style="top: 86px; left: 99px"></span>
+            <span dir="left" custom="D" style="top: 86px; left: 156px"></span>
+            <span dir="left" style="top: 86px; left: 213px"></span>
+            <span dir="left" style="top: 86px; left: 270px"></span>
+            <span dir="left" style="top: 86px; left: 327px"></span>
+            <span dir="down" style="top: 86px; left: 384px"></span>
+            <span dir="right" style="top: 18px; left: 384px"></span>
+            <span dir="right" style="top: 18px; left: 327px"></span>
+            <span dir="right" style="top: 18px; left: 270px"></span>
+            <span dir="right" style="top: 18px; left: 213px"></span>
+            <span dir="right" custom="B" style="top: 18px; left: 156px"></span>
+            <span dir="down" custom="A" style="top: 18px; left: 99px"></span>
+          </div>
+          <img
+            style="width: 450px"
+            src="./DATA/PT/BOOK10/IMAGES/PT-10-2-4-1.png"
+          />
+          <div class="notice">
+            <span></span>最先排完隊，再來是<span></span>、<span></span>、<span
+            ></span>。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro" style="display: none">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>Queue</b>：點擊顧客，觀察每個人排完隊的順序。</p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-2-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="subject">
+        <div class="queue">
+          <div class="customers" onClick="moveQueue($(this))">
+            <span dir="down" style="top: 190px; left: 390px"></span>
+            <span dir="down" style="top: 134px; left: 390px"></span>
+            <span dir="down" style="top: 81px; left: 390px"></span>
+            <span dir="right" style="top: 20px; left: 390px"></span>
+            <span dir="up" custom="B" style="top: 20px; left: 317px"></span>
+            <span dir="right" style="top: 81px; left: 317px"></span>
+            <span dir="right" style="top: 81px; left: 241px"></span>
+            <span dir="right" style="top: 81px; left: 172px"></span>
+            <span dir="up" style="top: 81px; left: 98px"></span>
+            <span dir="left" style="top: 134px; left: 98px"></span>
+            <span dir="left" custom="C" style="top: 134px; left: 172px"></span>
+            <span dir="left" style="top: 134px; left: 241px"></span>
+            <span dir="up" custom="D" style="top: 134px; left: 317px"></span>
+            <span dir="right" style="top: 190px; left: 317px"></span>
+            <span dir="right" style="top: 190px; left: 241px"></span>
+            <span dir="right" style="top: 190px; left: 172px"></span>
+            <span dir="right" style="top: 190px; left: 98px"></span>
+            <span dir="down" style="top: 190px; left: 22px"></span>
+            <span dir="down" style="top: 134px; left: 22px"></span>
+            <span dir="down" style="top: 81px; left: 22px"></span>
+            <span dir="left" style="top: 20px; left: 22px"></span>
+            <span dir="left" style="top: 20px; left: 98px"></span>
+            <span dir="left" custom="A" style="top: 20px; left: 172px"></span>
+            <span dir="down" style="top: 20px; left: 241px"></span>
+          </div>
+          <img
+            style="width: 450px"
+            src="./DATA/PT/BOOK10/IMAGES/PT-10-2-4-2.png"
+          />
+          <div class="notice" style="margin-left: -50px; margin-top: -35px">
+            <span></span>最先排完隊，再來是<span></span>、<span></span>、<span
+            ></span>。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .step2 {
+    margin-left: -450px;
+  }
+</style>

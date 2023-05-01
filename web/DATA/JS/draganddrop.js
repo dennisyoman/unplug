@@ -216,6 +216,10 @@ var checkCollision = function (ev) {
 };
 
 var checkStatus = function () {
+  // var itemTop2 = $("#cardAvatar").get(0).style.top;
+  //var itemLeft2 = $("#cardAvatar").get(0).style.left;
+  //console.log(itemTop2 + "," + itemLeft2 + "^");
+
   //是否有正確位置參數fp
   if ($("#cardAvatar > div").attr("fp")) {
     var itemFP = $("#cardAvatar > div").attr("fp").split("^");
@@ -223,7 +227,6 @@ var checkStatus = function () {
     var itemH = $("#cardAvatar").get(0).style.height;
     var itemTop = $("#cardAvatar").get(0).style.top;
     var itemLeft = $("#cardAvatar").get(0).style.left;
-    console.log(itemTop, itemLeft);
     var gotRight = false;
     for (var k = 0; k < itemFP.length; k++) {
       var tempFP = itemFP[k].split(",");
@@ -255,13 +258,14 @@ var checkStatus = function () {
     rootSoundEffect($pop);
   }
   //是否有黏性位置sp
+
   if ($("#cardAvatar > div").attr("sp")) {
     var itemSP = $("#cardAvatar > div").attr("sp").split("^");
     var itemW = $("#cardAvatar").get(0).style.width;
     var itemH = $("#cardAvatar").get(0).style.height;
     var itemTop = $("#cardAvatar").get(0).style.top;
     var itemLeft = $("#cardAvatar").get(0).style.left;
-    console.log(itemTop, itemLeft);
+    console.log(itemTop + "," + itemLeft);
     var gotRight = false;
     for (var k = 0; k < itemSP.length; k++) {
       var tempSP = itemSP[k].split(",");

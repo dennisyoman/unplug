@@ -7093,6 +7093,222 @@
   }
 }
 
+.module_herb {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+  }
+  .subject {
+    display: flex;
+  }
+  .closet {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    > div {
+      width: 25%;
+      height: 0;
+      padding-top: 23%;
+      position: relative;
+      background: #222 url("../DATA/PT/BOOK10/IMAGES/closet.png") no-repeat center center;
+      background-size: 100% 100%;
+
+      //filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));
+      > img {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        pointer-events: auto;
+        cursor: pointer;
+        filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.5));
+        animation: growing 1s infinite;
+        &:hover {
+          animation: none;
+          @include scale(1.3);
+        }
+      }
+      .pname {
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        color: #fff;
+        @include scale(0.5);
+      }
+      .pid {
+        position: absolute;
+        z-index: 3;
+        top: 0px;
+        left: 3px;
+        font-size: 12px;
+        text-align: left;
+        color: #fff;
+        @include scale(0.7);
+      }
+    }
+  }
+  .tasks {
+    width: 300px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    flex-direction: column;
+    .cta {
+      display: none;
+    }
+
+    .newHerbs {
+      position: relative;
+      margin-top: 70px;
+      > div {
+        pointer-events: auto;
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        z-index: 2;
+        &.selected {
+          display: none;
+        }
+
+        animation: growing 1s infinite;
+        &:hover {
+          animation: none;
+          @include scale(1.3);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .task {
+      display: none;
+      position: relative;
+      pointer-events: auto;
+      margin-bottom: 30px;
+
+      > p {
+        font-size: 12px;
+      }
+      &.selected {
+        display: block;
+      }
+      > img {
+        width: 100%;
+        height: auto;
+      }
+      .demand {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        > div {
+          font-size: 12px;
+          line-height: 15px;
+          .iimg {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-top: -8px;
+            margin-right: 5px;
+            background: #6897bd;
+            @include borderRadius(100%);
+            > img {
+              width: 180%;
+              height: 180%;
+              object-fit: contain;
+              margin-left: -40%;
+              margin-top: -50%;
+              filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.6));
+            }
+          }
+          .iid {
+            border-bottom: 1px solid $text;
+            width: 30px;
+            height: 15px;
+            text-align: center;
+            display: inline-block;
+          }
+
+          &.done {
+            animation-name: growingLarge;
+            animation-duration: 0.6s;
+          }
+        }
+      }
+    }
+  }
+
+  .hint {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    text-align: left;
+    padding: 10px 10px 10px;
+    background: #fff;
+    border: 2px solid $l4;
+    @include borderRadius(5px);
+    z-index: 2;
+
+    p {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 5px;
+      span {
+        display: inline-block;
+        height: 15px;
+        color: $main;
+        border-bottom: 1px solid #333;
+        min-width: 25px;
+      }
+    }
+  }
+}
+
 .module_if {
   position: relative;
   top: 0;
@@ -9733,6 +9949,10 @@
       flex-wrap: wrap;
       gap: 10px;
       position: relative;
+      > span {
+        //background: rgba(255, 0, 0, 0.2);
+        pointer-events: auto;
+      }
     }
     .toys {
       width: 100%;
@@ -10168,6 +10388,288 @@
         .cta {
           @include scale(0.8);
           margin-left: -18px;
+        }
+      }
+    }
+  }
+}
+
+.module_stacknqueue {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    .subject {
+      .stack {
+        position: relative;
+        display: flex;
+        align-items: end;
+        @include transition(all, 0.6s);
+
+        &.nextstep {
+          margin-left: -470px;
+        }
+
+        > img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .clone {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 3;
+        transition-timing-function: linear !important;
+        > span {
+          position: absolute;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border: 1px dashed transparent;
+          @include borderRadius(100%);
+          top: 0 !important;
+          left: 0 !important;
+          animation-name: throwUp;
+          animation-timing-function: linear;
+
+          &::after {
+            content: "";
+            width: 40%;
+            height: 25%;
+            position: absolute;
+            @include borderRadius(100%);
+            z-index: 2;
+            top: 13%;
+            right: 12%;
+            @include rotate(30deg);
+            background: rgba(255, 255, 255, 0.3);
+          }
+          &::before {
+            content: "";
+            width: 55%;
+            height: 45%;
+            position: absolute;
+            @include borderRadius(100%);
+            z-index: 2;
+            top: 8%;
+            right: 8%;
+            @include rotate(30deg);
+            background: rgba(255, 255, 255, 0.2);
+          }
+          @keyframes throwUp {
+            from {
+              margin-top: 0;
+            }
+
+            40% {
+              margin-top: -200px;
+            }
+            60% {
+              margin-top: -200px;
+            }
+
+            100% {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+      .balls {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 2;
+
+        &.active {
+          > span.active {
+            cursor: pointer;
+            pointer-events: auto;
+          }
+        }
+
+        &.shaking {
+          > span.active {
+            animation: skewing 1s infinite;
+            &:nth-child(2) {
+              animation-delay: -0.15s;
+            }
+            &:nth-child(3) {
+              animation-delay: -0.3s;
+            }
+            &:nth-child(4) {
+              animation-delay: -0.45s;
+            }
+            &:nth-child(5) {
+              animation-delay: -0.6s;
+            }
+            &:nth-child(6) {
+              animation-delay: -0.75s;
+            }
+          }
+        }
+
+        > span {
+          position: absolute;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border: 1px dashed transparent;
+
+          &::after {
+            content: "";
+            width: 40%;
+            height: 25%;
+            position: absolute;
+            @include borderRadius(100%);
+            z-index: 2;
+            top: 13%;
+            right: 12%;
+            @include rotate(30deg);
+            background: rgba(255, 255, 255, 0.3);
+          }
+          &::before {
+            content: "";
+            width: 55%;
+            height: 45%;
+            position: absolute;
+            @include borderRadius(100%);
+            z-index: 2;
+            top: 8%;
+            right: 8%;
+            @include rotate(30deg);
+            background: rgba(255, 255, 255, 0.2);
+          }
+
+          @include borderRadius(100%);
+
+          &:not(.active) {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: $text;
+          }
+        }
+      }
+      .queue {
+        position: relative;
+        .customers {
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          pointer-events: auto;
+          cursor: pointer;
+          > span {
+            pointer-events: auto;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            @include borderRadius(100%);
+            background: #cae3f6;
+            > img {
+              width: 130%;
+              height: 130%;
+              object-fit: contain;
+              margin-left: -15%;
+              margin-top: -15%;
+            }
+            > span {
+              position: absolute;
+              z-index: 2;
+              top: 50%;
+              left: 50%;
+              font-size: 16px;
+              font-family: "Gfont-bold";
+              color: #fff;
+              width: 20px;
+              height: 20px;
+              text-align: center;
+              line-height: 20px;
+              margin-left: -10px;
+              margin-top: -10px;
+              filter: drop-shadow(0px 0px 1px #81a6d7) drop-shadow(0px 0px 1px #81a6d7) drop-shadow(0px 0px 1px #81a6d7)
+                drop-shadow(0px 0px 1px #81a6d7);
+            }
+            &.left {
+              animation: queueLeft ease 0.5s;
+            }
+            &.right {
+              animation: queueRight ease 0.5s;
+              > img {
+                @include rotate(180deg);
+              }
+            }
+            &.up {
+              animation: queueUp ease 0.5s;
+              > img {
+                @include rotate(90deg);
+              }
+            }
+            &.down {
+              animation: queueDown ease 0.5s;
+              > img {
+                @include rotate(-90deg);
+              }
+            }
+            @keyframes queueLeft {
+              from {
+                margin-left: 50px;
+              }
+
+              to {
+                margin-left: 0;
+              }
+            }
+            @keyframes queueRight {
+              from {
+                margin-left: -50px;
+              }
+
+              to {
+                margin-left: 0;
+              }
+            }
+            @keyframes queueUp {
+              from {
+                margin-top: 50px;
+              }
+
+              to {
+                margin-top: 0;
+              }
+            }
+            @keyframes queueDown {
+              from {
+                margin-top: -50px;
+              }
+
+              to {
+                margin-top: 0px;
+              }
+            }
+          }
+        }
+        .notice {
+          margin-top: 30px;
+          width: 100%;
+          font-size: 12px;
+          line-height: 18px;
+          text-align: center;
+          > span {
+            height: 18px;
+            margin: 0 2px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 30px;
+            border-bottom: 1px solid $text;
+          }
         }
       }
     }
