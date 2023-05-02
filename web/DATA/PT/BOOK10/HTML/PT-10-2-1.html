@@ -1,0 +1,178 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>資料整理</b>：畫一畫，你會怎麼歸類？</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div style="margin-left: 100px">
+        <div
+          class="sensorArea checkonchange"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            style="
+              position: absolute;
+              width: 215px;
+              height: 49px;
+              top: 30px;
+              left: 104px;
+            "
+            group="A"
+          />
+
+          <span
+            style="
+              position: absolute;
+              width: 143px;
+              height: 49px;
+              top: 81px;
+              left: 176px;
+            "
+            group="B"
+          />
+
+          <span
+            style="
+              position: absolute;
+              width: 215px;
+              height: 49px;
+              top: 133px;
+              left: 104px;
+            "
+            group="C"
+          />
+        </div>
+        <img
+          width="320"
+          height="auto"
+          src="./DATA/PT/BOOK10/IMAGES/PT-10-2-1-1.png"
+        />
+      </div>
+
+      <div class="toys noShuffle step2" style="width: 200px; bottom: 90px">
+        <div
+          class="toy middle cards"
+          ap="98,324"
+          sp="98,324^98,396^98,467^148,396^148,467^202,324^202,396^202,467"
+          group="A"
+        >
+          <img src="./DATA/PT/BOOK10/IMAGES/a1.png" />
+        </div>
+        <div
+          class="toy middle cards"
+          ap="98,396"
+          sp="98,324^98,396^98,467^148,396^148,467^202,324^202,396^202,467"
+          group="A"
+        >
+          <img src="./DATA/PT/BOOK10/IMAGES/a2.png" />
+        </div>
+        <div
+          class="toy middle cards"
+          ap="148,396"
+          sp="98,324^98,396^98,467^148,396^148,467^202,324^202,396^202,467"
+          group="B"
+        >
+          <img src="./DATA/PT/BOOK10/IMAGES/a3.png" />
+        </div>
+        <div
+          class="toy middle cards"
+          ap="148,467"
+          sp="98,324^98,396^98,467^148,396^148,467^202,324^202,396^202,467"
+          group="B"
+        >
+          <img src="./DATA/PT/BOOK10/IMAGES/a4.png" />
+        </div>
+        <div
+          class="toy middle cards"
+          ap="202,324"
+          sp="98,324^98,396^98,467^148,396^148,467^202,324^202,396^202,467"
+          group="C"
+        >
+          <img src="./DATA/PT/BOOK10/IMAGES/a5.png" />
+        </div>
+        <div
+          class="toy middle cards"
+          ap="202,396"
+          sp="98,324^98,396^98,467^148,396^148,467^202,324^202,396^202,467"
+          group="C"
+        >
+          <img src="./DATA/PT/BOOK10/IMAGES/a6.png" />
+        </div>
+      </div>
+
+      <div class="extra wow slideInUp">
+        今天在2E裡面找到了儲存的東西，你覺得最有可能是甚麼？
+        <span
+          style="top: 0; left: 306px"
+          onClick="extraCheck($(this))"
+          ans="true"
+        ></span>
+        <span
+          style="top: 0; left: 346px"
+          onClick="extraCheck($(this))"
+          ans="false"
+        ></span>
+        <span
+          style="top: 0; left: 385px"
+          onClick="extraCheck($(this))"
+          ans="false"
+        ></span>
+        <img
+          width="100"
+          height="auto"
+          src="./DATA/PT/BOOK10/IMAGES/PT-10-2-1-2.png"
+        />
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+<script>
+  var extraCheck = function (tar) {
+    if (tar.attr("ans") == "true") {
+      tar.addClass("selected");
+      rootSoundEffect($right);
+    } else {
+      rootSoundEffect($wrong);
+    }
+  };
+</script>
+<style>
+  .extra {
+    position: absolute;
+    top: 270px;
+    left: 100px;
+    font-size: 12px;
+  }
+  .extra > span {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    border: 2px solid transparent;
+    border-radius: 100%;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .extra > span.selected {
+    border: 2px solid #ff0000;
+  }
+</style>

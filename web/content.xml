@@ -376,7 +376,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="10" lid="2">
-
+    <section section="1" name="熱身活動" html="PT/BOOK10/HTML/PT-10-2-1.html" js="JS/draganddrop.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK10/HTML/PT-10-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / Stack" html="PT/BOOK10/HTML/PT-10-2-3.html" js="JS/stacknqueue.js" image="IMAGES/UNITS/layers.png" skin="">
@@ -387,7 +387,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="10" lid="3">
-
+    <section section="1" name="熱身活動" html="PT/BOOK10/HTML/PT-10-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK10/HTML/PT-10-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / Set" html="PT/BOOK10/HTML/PT-10-3-3.html" js="JS/seagull.js" image="IMAGES/UNITS/euler.png" skin="">
