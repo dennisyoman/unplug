@@ -5340,6 +5340,243 @@
   }
 }
 
+.module_seagull {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .smoke,
+  .resultIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 140px;
+    z-index: 99;
+    transform-origin: center center;
+    margin-left: -70px;
+    margin-top: -70px;
+
+    &.small {
+      width: 80px;
+      height: 80px;
+      margin-left: -40px;
+      margin-top: -40px;
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+
+    .quiz {
+      width: 180px;
+      font-size: 12px;
+      line-height: 24px;
+      margin-left: 20px;
+      p {
+        margin-bottom: 10px;
+        span {
+          pointer-events: auto;
+          cursor: pointer;
+          background: #fff;
+          display: inline-block;
+          height: 16px;
+          line-height: 16px;
+          vertical-align: middle;
+          border-bottom: 1px solid $text;
+          text-align: center;
+          padding: 0 15px;
+
+          &.wrong {
+            border-color: #ff0000;
+            color: #ff0000;
+          }
+        }
+      }
+    }
+
+    .map {
+      position: relative;
+      .tracker {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        .seagull {
+          position: absolute;
+          z-index: 10;
+          display: none;
+
+          &.flying {
+            display: block;
+            transition: all 0.8s;
+          }
+
+          > img {
+            width: 50px;
+            height: 20px;
+            animation: climbing 0.5s infinite;
+          }
+        }
+
+        .locations {
+          position: absolute;
+
+          z-index: 2;
+          > div {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+
+            .markers {
+              position: absolute;
+              left: -40px;
+              top: -33px;
+              width: 80px;
+              display: flex;
+              justify-content: space-between;
+              > span {
+                width: 14px;
+                height: 7px;
+                background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left center;
+                background-size: 84px 7px;
+
+                &.active {
+                  animation: bounceIn 0.6s 1;
+                  &.r {
+                    background-position: left -14px center;
+                  }
+                  &.o {
+                    background-position: left -28px center;
+                  }
+                  &.y {
+                    background-position: left -42px center;
+                  }
+                  &.g {
+                    background-position: left -56px center;
+                  }
+                  &.b {
+                    background-position: left -70px center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .start {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
+
+          &.disable {
+            > span {
+              pointer-events: none;
+            }
+          }
+          > img {
+            position: absolute;
+            z-index: 0;
+          }
+          > span {
+            pointer-events: auto;
+            cursor: pointer;
+            position: absolute;
+            z-index: 1;
+            &.selected {
+              pointer-events: none;
+              background: rgba(255, 237, 188, 0.7);
+            }
+          }
+        }
+      }
+
+      .subject {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        span {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          pointer-events: auto;
+          cursor: pointer;
+          //background: rgba(255, 5, 5, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &::after {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid transparent;
+            @include borderRadius(100%);
+          }
+
+          &.disable {
+            pointer-events: none;
+            background: rgba(189, 225, 214, 0.7);
+            &::after {
+              display: none;
+            }
+          }
+
+          &.selected {
+            &.g {
+              &::after {
+                border-color: #80c157;
+              }
+            }
+            &.y {
+              &::after {
+                border-color: #f8b62d;
+              }
+            }
+            &.b {
+              &::after {
+                border-color: #3dafe5;
+              }
+            }
+            &.r {
+              &::after {
+                border-color: #e9504f;
+              }
+            }
+            &.o {
+              &::after {
+                border-color: #ea5514;
+              }
+            }
+          }
+        }
+      }
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
 .module_laser {
   position: relative;
   top: 0;
@@ -10493,6 +10730,12 @@
           > span.active {
             cursor: pointer;
             pointer-events: auto;
+          }
+
+          &.disable {
+            > span.active {
+              pointer-events: none;
+            }
           }
         }
 

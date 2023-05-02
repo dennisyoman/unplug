@@ -5364,6 +5364,218 @@
   height: 100%;
 }
 
+.module_seagull {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_seagull.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+.module_seagull .smoke,
+.module_seagull .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  z-index: 99;
+  transform-origin: center center;
+  margin-left: -70px;
+  margin-top: -70px;
+}
+.module_seagull .smoke.small,
+.module_seagull .resultIcon.small {
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+.module_seagull .smoke > img,
+.module_seagull .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.module_seagull .contents {
+  width: calc(100% - 40px);
+}
+.module_seagull .contents .quiz {
+  width: 180px;
+  font-size: 12px;
+  line-height: 24px;
+  margin-left: 20px;
+}
+.module_seagull .contents .quiz p {
+  margin-bottom: 10px;
+}
+.module_seagull .contents .quiz p span {
+  pointer-events: auto;
+  cursor: pointer;
+  background: #fff;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  padding: 0 15px;
+}
+.module_seagull .contents .quiz p span.wrong {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+.module_seagull .contents .map {
+  position: relative;
+}
+.module_seagull .contents .map .tracker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_seagull .contents .map .tracker .seagull {
+  position: absolute;
+  z-index: 10;
+  display: none;
+}
+.module_seagull .contents .map .tracker .seagull.flying {
+  display: block;
+  transition: all 0.8s;
+}
+.module_seagull .contents .map .tracker .seagull > img {
+  width: 50px;
+  height: 20px;
+  animation: climbing 0.5s infinite;
+}
+.module_seagull .contents .map .tracker .locations {
+  position: absolute;
+  z-index: 2;
+}
+.module_seagull .contents .map .tracker .locations > div {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+.module_seagull .contents .map .tracker .locations > div .markers {
+  position: absolute;
+  left: -40px;
+  top: -33px;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span {
+  width: 14px;
+  height: 7px;
+  background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left center;
+  background-size: 84px 7px;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span.active {
+  animation: bounceIn 0.6s 1;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span.active.r {
+  background-position: left -14px center;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span.active.o {
+  background-position: left -28px center;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span.active.y {
+  background-position: left -42px center;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span.active.g {
+  background-position: left -56px center;
+}
+.module_seagull .contents .map .tracker .locations > div .markers > span.active.b {
+  background-position: left -70px center;
+}
+.module_seagull .contents .map .tracker .start {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.module_seagull .contents .map .tracker .start.disable > span {
+  pointer-events: none;
+}
+.module_seagull .contents .map .tracker .start > img {
+  position: absolute;
+  z-index: 0;
+}
+.module_seagull .contents .map .tracker .start > span {
+  pointer-events: auto;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+}
+.module_seagull .contents .map .tracker .start > span.selected {
+  pointer-events: none;
+  background: rgba(255, 237, 188, 0.7);
+}
+.module_seagull .contents .map .subject {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.module_seagull .contents .map .subject span {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.module_seagull .contents .map .subject span::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid transparent;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+.module_seagull .contents .map .subject span.disable {
+  pointer-events: none;
+  background: rgba(189, 225, 214, 0.7);
+}
+.module_seagull .contents .map .subject span.disable::after {
+  display: none;
+}
+.module_seagull .contents .map .subject span.selected.g::after {
+  border-color: #80c157;
+}
+.module_seagull .contents .map .subject span.selected.y::after {
+  border-color: #f8b62d;
+}
+.module_seagull .contents .map .subject span.selected.b::after {
+  border-color: #3dafe5;
+}
+.module_seagull .contents .map .subject span.selected.r::after {
+  border-color: #e9504f;
+}
+.module_seagull .contents .map .subject span.selected.o::after {
+  border-color: #ea5514;
+}
+.module_seagull .contents .map > img {
+  width: 100%;
+  height: 100%;
+}
+
 .module_laser {
   position: relative;
   top: 0;
@@ -10280,6 +10492,9 @@
 .module_stacknqueue .contents .subject .balls.active > span.active {
   cursor: pointer;
   pointer-events: auto;
+}
+.module_stacknqueue .contents .subject .balls.active.disable > span.active {
+  pointer-events: none;
 }
 .module_stacknqueue .contents .subject .balls.shaking > span.active {
   animation: skewing 1s infinite;

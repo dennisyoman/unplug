@@ -1,0 +1,317 @@
+<div id="module_wrapper" class="module_seagull">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>哪一隻海鷗去了最多地方？</b>：依據海鷗行蹤表格，回答下方的題目。
+          </p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div style="width: 263px; height: 250px" class="map">
+        <div class="subject">
+          <div>
+            <span
+              class="r"
+              type="tree"
+              style="top: 27px; left: 73px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="r"
+              type="house"
+              style="top: 27px; left: 111px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="r"
+              type="tree"
+              style="top: 27px; left: 149px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="r"
+              type="ship"
+              style="top: 27px; left: 188px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="r"
+              type="rock"
+              style="top: 27px; left: 226px; width: 35px; height: 41px"
+            ></span>
+          </div>
+          <div>
+            <span
+              class="o"
+              type="tree"
+              style="top: 72px; left: 73px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="o"
+              type="sink"
+              style="top: 72px; left: 111px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="o"
+              type="rock"
+              style="top: 72px; left: 149px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="o"
+              type="tree"
+              style="top: 72px; left: 188px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="o"
+              type="cage"
+              style="top: 72px; left: 226px; width: 35px; height: 41px"
+            ></span>
+          </div>
+          <div>
+            <span
+              class="y"
+              type="rock"
+              style="top: 116px; left: 73px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="y"
+              type="mountain"
+              style="top: 116px; left: 111px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="y"
+              type="tree"
+              style="top: 116px; left: 149px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="y"
+              type="house"
+              style="top: 116px; left: 188px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="y"
+              type="ship"
+              style="top: 116px; left: 226px; width: 35px; height: 41px"
+            ></span>
+          </div>
+          <div>
+            <span
+              class="g"
+              type="sink"
+              style="top: 161px; left: 73px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="g"
+              type="house"
+              style="top: 161px; left: 111px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="g"
+              type="house"
+              style="top: 161px; left: 149px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="g"
+              type="ship"
+              style="top: 161px; left: 188px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="g"
+              type="house"
+              style="top: 161px; left: 226px; width: 35px; height: 41px"
+            ></span>
+          </div>
+          <div>
+            <span
+              class="b"
+              type="tree"
+              style="top: 206px; left: 73px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="b"
+              type="cage"
+              style="top: 206px; left: 111px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="b"
+              type="cage"
+              style="top: 206px; left: 149px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="b"
+              type="cage"
+              style="top: 206px; left: 188px; width: 35px; height: 41px"
+            ></span>
+            <span
+              class="b"
+              type="cage"
+              style="top: 206px; left: 226px; width: 35px; height: 41px"
+            ></span>
+          </div>
+        </div>
+
+        <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-3-1.png" />
+      </div>
+      <div class="quiz wow fadeInRight">
+        <p>
+          去最多地方的是：<span
+            ans="黃海鷗"
+            str="紅海鷗^橘海鷗^黃海鷗^綠海鷗^藍海鷗"
+          ></span
+          >，<br />一共去了<span ans="5" str="1^2^3^4^5">5</span>個地方。
+        </p>
+        <p>
+          去最少地方的是：<span
+            ans="藍海鷗"
+            str="紅海鷗^橘海鷗^黃海鷗^綠海鷗^藍海鷗"
+          ></span
+          >，<br />一共去了<span ans="2" str="1^2^3^4^5">5</span>個地方。
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>請記錄海鷗的行蹤</b>：點擊海鷗，判斷哪個地點有最多海鷗來過。</p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div style="width: 210px; height: 270px" class="map">
+        <div class="tracker">
+          <span class="seagull">
+            <img src="./DATA/PT/BOOK10/IMAGES/seagull.png" />
+          </span>
+          <div class="locations">
+            <div type="tree" style="top: 28px; left: 48px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+            <div type="house" style="top: 28px; left: 160px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+            <div type="rock" style="top: 100px; left: 48px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+            <div type="cage" style="top: 100px; left: 160px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+            <div type="ship" style="top: 169px; left: 48px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+            <div type="sink" style="top: 169px; left: 160px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+            <div type="mountain" style="top: 240px; left: 48px">
+              <div class="markers">
+                <span class="r"></span>
+                <span class="o"></span>
+                <span class="y"></span>
+                <span class="g"></span>
+                <span class="b"></span>
+              </div>
+            </div>
+          </div>
+          <div class="start">
+            <span
+              trip="tree^house^tree^ship^rock"
+              seagull="r"
+              onClick="makeTrip($(this))"
+              style="width: 50px; height: 40px; top: 225px; left: 125px"
+            ></span>
+            <span
+              trip="tree^sink^rock^tree^cage"
+              seagull="o"
+              onClick="makeTrip($(this))"
+              style="width: 50px; height: 40px; top: 225px; left: 190px"
+            ></span>
+            <span
+              trip="rock^mountain^tree^house^ship"
+              seagull="y"
+              onClick="makeTrip($(this))"
+              style="width: 50px; height: 40px; top: 225px; left: 251px"
+            ></span>
+            <span
+              trip="sink^house^house^ship^house"
+              seagull="g"
+              onClick="makeTrip($(this))"
+              style="width: 50px; height: 40px; top: 225px; left: 313px"
+            ></span>
+            <span
+              trip="tree^cage^cage^cage^cage"
+              seagull="b"
+              onClick="makeTrip($(this))"
+              style="width: 50px; height: 40px; top: 225px; left: 375px"
+            ></span>
+            <img
+              class="wow slideInLeft"
+              style="width: 300px; height: auto; top: 225px; left: 125px"
+              src="./DATA/PT/BOOK10/IMAGES/seagulls.png"
+            />
+          </div>
+        </div>
+        <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-3-2.png" />
+      </div>
+      <div class="quiz wow fadeInRight" style="width: 100px">
+        <p>
+          地點<span ans="沙灘" str="沙灘^海上屋^礁岩^鳥籠^郵輪^沈船^小島"></span
+          ><br />有最多海鷗來過。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

@@ -97,6 +97,14 @@ var cloneMe = function (tar) {
           .css("top")
       );
     $(this).dequeue();
+    //
+    $(".contents > div.selected")
+      .find(".balls")
+      .addClass("disable")
+      .delay(duration)
+      .queue(function () {
+        $(this).removeClass("disable").dequeue();
+      });
   });
 
   cloner
@@ -174,6 +182,7 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".active").removeClass("active");
+  elem.find(".disable").removeClass("disable");
   //stack
   elem
     .find(".balls")
