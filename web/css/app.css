@@ -11098,6 +11098,12 @@
   width: 100%;
   height: 100%;
 }
+.module_lantern .contents .puzzle.showAnswer .subject > .sub {
+  display: none;
+}
+.module_lantern .contents .puzzle.showAnswer .subject > .ans {
+  display: block;
+}
 .module_lantern .contents .puzzle .subject {
   position: absolute;
   top: 0;
@@ -11112,6 +11118,9 @@
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
+}
+.module_lantern .contents .puzzle .subject > .ans {
+  display: none;
 }
 .module_lantern .contents .puzzle .subject > img {
   width: 100%;

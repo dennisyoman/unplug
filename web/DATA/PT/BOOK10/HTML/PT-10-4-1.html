@@ -1,0 +1,193 @@
+<div id="module_wrapper" class="module_lantern">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>動物的訊息</b
+            >：請根據提示上的顏色、喜歡的食物和平均重量，猜一猜這個標籤應該是哪一個動物呢？
+          </p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 348px; height: 250px" class="puzzle wow bounceInUp">
+        <div class="subject">
+          <span
+            class="colour"
+            ans="green"
+            mode="blue^yellow^black"
+            style="top: 22px; left: 160px; width: 22px; height: 22px"
+          ></span>
+          <span
+            class="colour"
+            ans="skin"
+            mode="blue^yellow^black"
+            style="top: 111px; left: 160px; width: 22px; height: 22px"
+          ></span>
+          <span
+            class="colour"
+            ans="yellow"
+            mode="blue^yellow^black"
+            style="top: 201px; left: 160px; width: 22px; height: 22px"
+          ></span>
+          <span
+            class="foodtype"
+            ans="all"
+            mode="meat^vegi^fish^all"
+            style="top: 18px; left: 231px; width: 27px; height: 27px"
+          ></span>
+          <span
+            class="foodtype"
+            ans="vegi"
+            mode="meat^vegi^fish^all"
+            style="top: 107px; left: 231px; width: 27px; height: 27px"
+          ></span>
+          <span
+            class="foodtype"
+            ans="vegi"
+            mode="meat^vegi^fish^all"
+            style="top: 197px; left: 231px; width: 27px; height: 27px"
+          ></span>
+          <span
+            class="num"
+            ans="n2"
+            mode="n2^n3^n4"
+            style="top: 18px; left: 291px; width: 27px; height: 27px"
+          ></span>
+          <span
+            class="num"
+            ans="n4"
+            mode="n2^n3^n4"
+            style="top: 107px; left: 291px; width: 27px; height: 27px"
+          ></span>
+          <span
+            class="num"
+            ans="n4"
+            mode="n2^n3^n4"
+            style="top: 197px; left: 291px; width: 27px; height: 27px"
+          ></span>
+          <img class="ans" src="./DATA/PT/BOOK10/IMAGES/PT-10-4-1-1A.png" />
+          <img class="sub" src="./DATA/PT/BOOK10/IMAGES/PT-10-4-1-1.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .colour {
+    border-radius: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .colour.wrong::after {
+    position: relative;
+    z-index: 5;
+    content: "";
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+    background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: bounceIn;
+    animation-duration: 1s;
+  }
+  .colour.blue {
+    background: #314b89;
+    border: 1px solid #333;
+  }
+  .colour.yellow {
+    background: #fac86a;
+    border: 1px solid #333;
+  }
+  .colour.black {
+    background: #333;
+    border: 1px solid #333;
+  }
+  .foodtype {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+  .foodtype.wrong::after {
+    position: relative;
+    z-index: 5;
+    content: "";
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+    background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: bounceIn;
+    animation-duration: 1s;
+  }
+  .foodtype.meat {
+    background: url("../DATA/PT/BOOK10/IMAGES/foods.png") no-repeat left -27px center;
+    background-size: 108px 27px;
+  }
+  .foodtype.vegi {
+    background: url("../DATA/PT/BOOK10/IMAGES/foods.png") no-repeat left -54px center;
+    background-size: 108px 27px;
+  }
+  .foodtype.fish {
+    background: url("../DATA/PT/BOOK10/IMAGES/foods.png") no-repeat left center;
+    background-size: 108px 27px;
+  }
+  .foodtype.all {
+    background: url("../DATA/PT/BOOK10/IMAGES/foods.png") no-repeat left -81px center;
+    background-size: 108px 27px;
+  }
+  .num {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.7em;
+  }
+  .num.wrong::after {
+    position: relative;
+    z-index: 5;
+    content: "";
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+    background: url("../DATA/IMAGES/common/icon_wrong.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: bounceIn;
+    animation-duration: 1s;
+  }
+  .num.n1::before {
+    content: "1";
+  }
+  .num.n2::before {
+    content: "2";
+  }
+  .num.n3::before {
+    content: "3";
+  }
+  .num.n4::before {
+    content: "4";
+  }
+  .num.n5::before {
+    content: "5";
+  }
+</style>

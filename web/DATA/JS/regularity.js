@@ -90,7 +90,7 @@ $(document).ready(function () {
 var showAnswer = function (boolean) {
   if (boolean) {
     //秀出答案圖片
-    //$(".contents > div.selected .puzzle").addClass("showAnswer");
+    $(".contents > div.selected .puzzle").addClass("showAnswer");
     $(".contents > div.selected .puzzle .subject")
       .find("span")
       .each(function () {

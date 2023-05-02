@@ -150,7 +150,7 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected")
       .find(".quiz span")
       .each(function () {
-        $(this).removeClass("wrong").text($(this).attr("ans"));
+        $(this).removeClass("wrong").html($(this).attr("ans"));
       });
   } else {
     $(".sideTool > div.btn_replay").click();
@@ -163,7 +163,7 @@ var checkAnswer = function () {
   $(".contents > div.selected")
     .find(".quiz span")
     .each(function () {
-      if ($(this).attr("ans") != $(this).text()) {
+      if ($(this).attr("ans") != $(this).html()) {
         $(this).addClass("wrong");
         gotWrong = true;
       }
@@ -246,16 +246,16 @@ var resetElem = function (elem) {
         rootSoundEffect($key);
         //
         var options = $(this).attr("str").split("^");
-        var currOption = $(this).text();
+        var currOption = $(this).html();
         var Oid = options.indexOf(currOption);
         if (Oid == -1) {
-          $(this).text(options[0]);
+          $(this).html(options[0]);
         } else {
           Oid += 1;
           if (Oid >= options.length) {
             Oid = 0;
           }
-          $(this).text(options[Oid]);
+          $(this).html(options[Oid]);
         }
       });
   });

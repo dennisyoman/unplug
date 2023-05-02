@@ -392,12 +392,13 @@
     </section>
     <section section="3" name="一起玩遊戲 / Set" html="PT/BOOK10/HTML/PT-10-3-3.html" js="JS/seagull.js" image="IMAGES/UNITS/euler.png" skin="">
     </section>
-
+    <section section="4" name="一起玩遊戲② / Dict" html="PT/BOOK10/HTML/PT-10-3-4.html" js="JS/regularity.js" image="IMAGES/UNITS/guess.png" skin="">
+    </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK10/HTML/PT-10-3-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="10" lid="4">
-
+    <section section="1" name="熱身活動" html="PT/BOOK10/HTML/PT-10-4-1.html" js="JS/regularity.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK10/HTML/PT-10-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
 

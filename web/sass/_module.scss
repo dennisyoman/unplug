@@ -11335,6 +11335,17 @@
       width: 100%;
       height: 100%;
 
+      &.showAnswer {
+        .subject {
+          > .sub {
+            display: none;
+          }
+          > .ans {
+            display: block;
+          }
+        }
+      }
+
       .subject {
         position: absolute;
         top: 0;
@@ -11347,6 +11358,9 @@
           background: #fff;
           padding: 20px;
           @include borderRadius(8px);
+        }
+        > .ans {
+          display: none;
         }
 
         > img {
