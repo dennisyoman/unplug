@@ -73,6 +73,7 @@ $(document).ready(function () {
 
 var duration = 800;
 var cloneMe = function (tar) {
+  tar.removeClass("active");
   var aim = tar.attr("des").split("_");
   var cloner = $(".contents > div.selected").find(".stack > .clone");
   cloner.css("transition", "all " + 0 + "ms");
@@ -97,14 +98,8 @@ var cloneMe = function (tar) {
           .css("top")
       );
     $(this).dequeue();
+    $(".contents > div.selected").find(".balls").addClass("disable");
     //
-    $(".contents > div.selected")
-      .find(".balls")
-      .addClass("disable")
-      .delay(duration)
-      .queue(function () {
-        $(this).removeClass("disable").dequeue();
-      });
   });
 
   cloner
@@ -130,7 +125,7 @@ var cloneMe = function (tar) {
         }
       }
       //
-
+      $(".contents > div.selected").find(".balls").removeClass("disable");
       $(this).empty().dequeue();
     });
 };
@@ -193,7 +188,6 @@ var resetElem = function (elem) {
         $(this).prev().length < 1 ||
         ($(this).prev().length > 0 && !$(this).prev().hasClass("active"))
       ) {
-        $(this).removeClass("active");
         rootSoundEffect($bouncing);
         $(".sideTool > div.btn_replay").show();
         //clone
@@ -202,6 +196,7 @@ var resetElem = function (elem) {
         rootSoundEffect($stupid);
       }
     });
+
   //reset stack & balls
   elem.find(".stack").removeClass("nextstep");
   elem
