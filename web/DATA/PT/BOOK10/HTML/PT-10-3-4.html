@@ -74,7 +74,142 @@
         </div>
       </div>
     </div>
-    <div></div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>手機買魚</b
+            >：海鷗用手機購買新鮮的魚，但是網站的頁面並不好閱讀，請幫忙整理。
+          </p>
+          <img src="./DATA/PT/BOOK10/IMAGES/PT-10-3-4-2-1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="width: 500px; height: 240px" class="puzzle">
+        <div class="subject wow bounceInUp" style="text-align: center">
+          <span
+            class="colour"
+            ans="blue"
+            defaultClass="blue"
+            mode="blue"
+            style="
+              top: 228px;
+              left: 83px;
+              width: 18px;
+              height: 18px;
+              border-radius: 3px;
+            "
+          ></span>
+          <span
+            class="colour"
+            ans="red"
+            defaultClass="red"
+            mode="red"
+            style="
+              top: 228px;
+              left: 258px;
+              width: 18px;
+              height: 18px;
+              border-radius: 3px;
+            "
+          ></span>
+          <span
+            class="colour"
+            ans="yellow"
+            defaultClass="yellow"
+            mode="yellow"
+            style="
+              top: 228px;
+              left: 433px;
+              width: 18px;
+              height: 18px;
+              border-radius: 3px;
+            "
+          ></span>
+          <span
+            class="num"
+            ans="n3"
+            mode="n1^n2^n3^n4^n5"
+            style="top: 0px; left: 234px; width: 45px; height: 18px"
+          ></span>
+          <span
+            class="num"
+            ans="n3"
+            mode="n1^n2^n3^n4^n5"
+            style="top: 228px; left: 123px; width: 18px; height: 18px"
+          ></span>
+          <span
+            class="num"
+            ans="n5"
+            mode="n1^n2^n3^n4^n5"
+            style="top: 228px; left: 298px; width: 18px; height: 18px"
+          ></span>
+          <span
+            class="num"
+            ans="n4"
+            mode="n1^n2^n3^n4^n5"
+            style="top: 228px; left: 473px; width: 18px; height: 18px"
+          ></span>
+
+          <span
+            class="foodtype"
+            ans="fish1"
+            mode="fish1^fish2^fish3"
+            style="top: 227px; left: 3px; width: 43px; height: 37px"
+          ></span>
+          <span
+            class="foodtype"
+            ans="fish2"
+            mode="fish1^fish2^fish3"
+            style="top: 227px; left: 179px; width: 43px; height: 37px"
+          ></span>
+          <span
+            class="foodtype"
+            ans="fish3"
+            mode="fish1^fish2^fish3"
+            style="top: 227px; left: 353px; width: 43px; height: 37px"
+          ></span>
+
+          <p
+            style="
+              line-height: 24px;
+              font-size: 12px;
+              margin-bottom: -24px;
+              position: relative;
+              z-index: 1;
+            "
+          >
+            一共有________種魚
+          </p>
+          <img
+            style="width: 350px; height: auto"
+            src="./DATA/PT/BOOK10/IMAGES/PT-10-3-4-2-1.png"
+          />
+
+          <div
+            style="
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              margin-top: 20px;
+              z-index: 0;
+            "
+          >
+            <img
+              style="width: 150px; height: 50px"
+              src="./DATA/PT/BOOK10/IMAGES/PT-10-3-4-2-2.png"
+            /><img
+              style="width: 150px; height: 50px"
+              src="./DATA/PT/BOOK10/IMAGES/PT-10-3-4-2-2.png"
+            /><img
+              style="width: 150px; height: 50px"
+              src="./DATA/PT/BOOK10/IMAGES/PT-10-3-4-2-2.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="assetsPreload"></div>
@@ -88,7 +223,9 @@
     justify-content: center;
   }
   .colour.wrong::after {
-    position: relative;
+    position: absolute;
+    top: 10%;
+    left: 10%;
     z-index: 5;
     content: "";
     display: inline-block;
@@ -102,6 +239,14 @@
   }
   .colour.green {
     background: #74b748;
+    border: 1px solid #333;
+  }
+  .colour.blue {
+    background: #006d9d;
+    border: 1px solid #333;
+  }
+  .colour.red {
+    background: #e15359;
     border: 1px solid #333;
   }
   .colour.yellow {
@@ -119,7 +264,9 @@
     border-radius: 8px;
   }
   .foodtype.wrong::after {
-    position: relative;
+    position: absolute;
+    top: 10%;
+    left: 10%;
     z-index: 5;
     content: "";
     display: inline-block;
@@ -147,15 +294,33 @@
     background: url("../DATA/PT/BOOK10/IMAGES/foods.png") no-repeat left -81px center;
     background-size: 108px 27px;
   }
+  .foodtype.fish1 {
+    background: url("../DATA/PT/BOOK10/IMAGES/fish1.png") no-repeat center
+      center;
+    background-size: contain;
+  }
+  .foodtype.fish2 {
+    background: url("../DATA/PT/BOOK10/IMAGES/fish2.png") no-repeat center
+      center;
+    background-size: contain;
+  }
+  .foodtype.fish3 {
+    background: url("../DATA/PT/BOOK10/IMAGES/fish3.png") no-repeat center
+      center;
+    background-size: contain;
+  }
   .num {
     display: flex !important;
     align-items: center;
     justify-content: center;
     border-radius: 2px;
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 100%;
   }
   .num.wrong::after {
-    position: relative;
+    position: absolute;
+    top: 10%;
+    left: 10%;
     z-index: 5;
     content: "";
     display: inline-block;
@@ -168,7 +333,7 @@
     animation-duration: 1s;
   }
   .num::before {
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
   .num.n1::before {
     content: "1";
