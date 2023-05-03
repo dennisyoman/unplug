@@ -57,15 +57,18 @@ $(document).ready(function () {
       });
       //resize blocks
       $(".blocks > div").each(function () {
-        var size = $(this).attr("size");
-        for (var i = 0; i < size; i++) {
-          $(this)
-            .find("img")
-            .attr(
-              "style",
-              "width:" + parseInt(size) * bw + "px;height:" + bh + "px"
-            );
-        }
+        var size = $(this).attr("size").split(",");
+
+        $(this)
+          .find("img")
+          .attr(
+            "style",
+            "width:" +
+              parseInt(size[0]) * bw +
+              "px;height:" +
+              parseInt(size[1]) * bh +
+              "px"
+          );
       });
 
       //init
@@ -100,8 +103,8 @@ var lastPosY = 0;
 var isDragging = false;
 var $elem = null;
 //
-var bw = 35;
-var bh = 28;
+var bw = 20;
+var bh = 20;
 var buffer = 0;
 var blockCount = 0;
 
@@ -145,7 +148,10 @@ var handleDrag = function (ev) {
             $(this).removeAttr("link").removeClass("disable selected");
           }
         });
+        $("#cardAvatar").attr("link", link);
         $($elem).remove();
+      } else {
+        $($elem).addClass("disable");
       }
     }
   }
@@ -175,17 +181,23 @@ var handleDrag = function (ev) {
     if ($($elem).hasClass("draggable")) {
       var gridElem = $(".contents > div.selected .grids");
       var rowElem = gridElem.find(">.row");
+      var row1Elem = gridElem.find(">.row.zone1");
+      var row2Elem = gridElem.find(">.row.zone2");
       var gridSelected = rowElem.find("> span.selected");
+      var grid1Selected = row1Elem.find("> span.selected");
+      var grid2Selected = row2Elem.find("> span.selected");
 
       //checkCollision true
-      var tempSize = parseInt($("#cardAvatar").attr("size"));
+      var tempSize = $("#cardAvatar").attr("size").split(",");
+      tempSize = tempSize[0] * tempSize[1];
       if (
-        gridSelected.length == tempSize &&
+        (grid1Selected.length == tempSize ||
+          grid2Selected.length == tempSize) &&
         $(".contents > div.selected .grids > .row > span.selected.disable")
           .length < 1
       ) {
         //check order status
-        checkOrderStatus();
+        checkOrderStatus($($elem));
       } else {
         //有觸發感應
         if (gridSelected.length > 0) {
@@ -207,6 +219,14 @@ var handleDrag = function (ev) {
           .queue(function () {
             $(this).remove().dequeue();
           });
+
+        $($elem).removeClass("disable");
+        //
+        console.log($("#cardAvatar").attr("link"));
+        $(".contents > div.selected .blocks")
+          .find(">div[link='" + $("#cardAvatar").attr("link") + "']")
+          .removeAttr("link")
+          .removeClass("disable");
       }
     }
     //then
@@ -216,21 +236,24 @@ var handleDrag = function (ev) {
 };
 
 var checkCollision = function (ev) {
-  var lastW = parseInt($($elem).attr("size")) * bw * stageRatioReal;
+  var size = $($elem).attr("size").split(",");
+  var lastW = parseInt(size[0]) * bw * stageRatioReal;
+  var lastH = parseInt(size[1]) * bh * stageRatioReal;
   var lastX = ev.center.x - lastW / 2;
-  var lastY = ev.center.y;
+  var lastY = ev.center.y - lastH / 2;
 
   var gridElem = $(".contents > div.selected .grids > .row > span");
   gridElem.each(function () {
     var oriX = $(this).offset().left;
     var oriW = $(this).width();
     var oriY = $(this).offset().top;
-    var oriH = oriY + $(this).height();
+    var oriH = $(this).height();
+
     if (
       lastX < oriX + oriW / 2 - buffer &&
       lastX > oriX - lastW + oriW / 2 + buffer &&
-      lastY >= oriY + buffer &&
-      lastY <= oriH - buffer
+      lastY > oriY - lastH + oriH / 2 + buffer &&
+      lastY < oriY + oriH / 2 - buffer
     ) {
       $(this).addClass("selected");
     } else {
@@ -239,7 +262,7 @@ var checkCollision = function (ev) {
   });
 };
 
-var checkOrderStatus = function () {
+var checkOrderStatus = function (tar) {
   //place the block
   blockCount += 1;
   var gridElem = $(".contents > div.selected .grids");
@@ -261,89 +284,36 @@ var checkOrderStatus = function () {
       .removeClass("selected")
       .addClass("disable")
       .attr("link", blockCount);
+    //
+    tar.attr("link", blockCount);
+    $(".contents > div.selected .blocks")
+      .find(">div[link='" + $("#cardAvatar").attr("link") + "']")
+      .attr("link", blockCount);
   });
 
-  //有無重複的row
-  var repeatRow = false;
-  var rowComboArr = [];
-  rowElem.each(function (index) {
-    if ($(this).find(">span").length == $(this).find(">span.disable").length) {
-      var currArray = [];
-      for (var i = 0; i < $(this).find(">span").length; i++) {
-        currArray.push($(this).find(">span").eq(i).attr("link"));
-      }
-      var NewArray = currArray.filter(function (element, index, self) {
-        return index === self.indexOf(element);
-      });
-      for (var i = 0; i < currArray.length; i++) {
-        for (var k = 0; k < NewArray.length; k++) {
-          if (currArray[i] == NewArray[k]) {
-            currArray[i] = k;
-          }
-        }
-      }
-      //
-      var exsit = false;
-      for (var i = 0; i < rowComboArr.length; i++) {
-        if (currArray.join("^") == rowComboArr[i].join("^")) {
-          exsit = true;
-        }
-      }
-
-      if (!exsit) {
-        rowComboArr.push(currArray);
-      } else {
-        repeatRow = true;
-      }
-    }
-  });
+  $("#cardAvatar")
+    .attr("link", blockCount)
+    .removeAttr("id")
+    .addClass("draggable onboard");
 
   //
-  if (!repeatRow) {
-    $("#cardAvatar")
-      .attr("link", blockCount)
-      .removeAttr("id")
-      .addClass("draggable onboard");
-
-    //
-    rootSoundEffect($pop);
-    $(".sideTool > div.btn_replay").show();
-    //確定是否完成
-    if (
-      gridElem.find(".row > span").length ==
-      gridElem.find(".row > span.disable").length
-    ) {
-      rootSoundEffect($chimes);
-      var uniq = new Date().getTime();
-      gridElem.append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
-      );
-      $(".smoke")
-        .delay(1500)
-        .queue(function () {
-          $(".resultIcon").remove();
-          $(this).dequeue().remove();
-        });
-    }
-  } else {
-    //gridElem.find("p").css("opacity", 1);
-    var alert = `<p>兩列<b>不可以</b>使用一樣的組合方式<p>`;
-    $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`
-    );
-    rootSoundEffect($surprise);
-    //fail place block
-    gridSpan.removeClass("selected disable");
-
+  rootSoundEffect($pop);
+  $(".sideTool > div.btn_replay").show();
+  //確定是否完成
+  if (
+    gridElem.find(".row > span").length ==
+    gridElem.find(".row > span.disable").length
+  ) {
     var uniq = new Date().getTime();
-    $("#cardAvatar").find("img").css("opacity", 0);
-    $("#cardAvatar").append(
-      `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+    rootSoundEffect($chimes);
+    gridElem.append(
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
     );
-    $("#cardAvatar")
-      .delay(800)
+    $(".smoke")
+      .delay(1500)
       .queue(function () {
-        $(this).remove().dequeue();
+        $(".resultIcon").remove();
+        $(this).dequeue().remove();
       });
   }
 };
@@ -363,6 +333,7 @@ var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".disable").removeClass("disable");
   elem.find(".grids > .row > span").removeAttr("link");
+  elem.find(".blocks > div").removeAttr("link");
   //elem.find("p").css("opacity", 1);
   $(".alert").remove();
 

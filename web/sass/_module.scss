@@ -11174,6 +11174,7 @@
     display: none;
   }
   .resultIcon {
+    pointer-events: none;
     position: absolute;
     width: 120px;
     height: 120px;
@@ -11190,6 +11191,7 @@
   }
 
   .smoke {
+    pointer-events: none;
     position: absolute;
     top: 50%;
     left: 50%;
