@@ -401,7 +401,7 @@
     <section section="1" name="熱身活動" html="PT/BOOK10/HTML/PT-10-4-1.html" js="JS/regularity.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK10/HTML/PT-10-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 串列" html="PT/BOOK10/HTML/PT-10-4-3.html" js="JS/fillin.js" image="IMAGES/UNITS/minimum.png" skin="">
+    <section section="3" name="一起玩遊戲 / 串列" html="PT/BOOK10/HTML/PT-10-4-3.html" js="JS/safe.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="4" name="一起玩遊戲② / 空間的預規劃" html="PT/BOOK10/HTML/PT-10-4-4.html" js="JS/suitcase.js" image="IMAGES/UNITS/organize.png" skin="">
     </section>

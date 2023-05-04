@@ -636,3 +636,38 @@ input {
 i {
   font-style: italic !important;
 }
+#keyboard {
+  z-index: 99999;
+  bottom: 10px;
+  #gatekeeper {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    #keypad {
+      width: 70%;
+      .shift,
+      .delete,
+      .space,
+      .enter,
+      .capslock {
+        display: none;
+      }
+      .backspace {
+        width: 26%;
+      }
+      > button {
+        font-size: 20px;
+        width: 13%;
+      }
+    }
+    #numpad {
+      width: 30%;
+      .submit {
+        display: none;
+      }
+      > button {
+        font-size: 20px;
+      }
+    }
+  }
+}

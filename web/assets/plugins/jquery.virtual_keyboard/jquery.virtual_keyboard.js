@@ -1,5 +1,5 @@
 /**
- * Created by Ing. Ernesto Pérez Amigo on 02/10/2015.
+ * Created by Ing. Ernesto P�rez Amigo on 02/10/2015.
  */
 (function ($) {
   //Clase Mensajear
@@ -11,7 +11,7 @@
     var elementoDOM = $(elemento);
     var language = [];
     var $layout = $("<div id='keyboard' class='row'/>");
-    var _this = this; //almacenaremos el this para poder manipularlo después sin entrar en conflicto
+    var _this = this; //almacenaremos el this para poder manipularlo despu�s sin entrar en conflicto
     var optionsKeyboard = $.extend(
       {
         // Opciones del teclado y sus valores x defecto
@@ -39,7 +39,7 @@
     /* Metodos Privados */
     /********************/
     initKeyboard = function () {
-      $("#kw").append($layout);
+      $("body").append($layout);
 
       language = languages[optionsKeyboard.language][optionsKeyboard.type];
 
@@ -106,19 +106,17 @@
           }
       });
 
-      $layout.append(
-        "<div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 row' id='gatekeeper' />"
-      );
+      $layout.append("<div id='gatekeeper' />");
 
       $("<div/>", {
         id: "keypad",
-        class: "col-md-9 " + optionsKeyboard.theme,
+        class: optionsKeyboard.theme,
         html: keys.join(""),
       }).appendTo("div#gatekeeper");
 
       $("<div/>", {
         id: "numpad",
-        class: "col-md-3 " + optionsKeyboard.theme,
+        class: optionsKeyboard.theme,
         html: keys1.join(""),
       }).appendTo("div#gatekeeper");
 
@@ -130,13 +128,13 @@
 
     hideKeyboard = function () {
       if (!$layout.is(":hidden")) {
-        $layout.hide();
+        $layout.slideUp(optionsKeyboard.close_speed);
       }
     };
 
     showKeyboard = function () {
       if ($layout.is(":hidden")) {
-        $layout.fadeIn();
+        $layout.slideDown(optionsKeyboard.open_speed);
       }
     };
 
@@ -463,43 +461,41 @@
       en_US: {
         gatekeeper: [
           //{d: 'div', u: ''},
-          { d: "q", u: "Q" },
-          { d: "w", u: "W" },
-          { d: "e", u: "E" },
-          { d: "r", u: "R" },
-          { d: "t", u: "T" },
-          { d: "y", u: "Y" },
-          { d: "u", u: "U" },
-          { d: "i", u: "I" },
-          { d: "o", u: "O" },
-          { d: "p", u: "P" },
-          { d: "backspace", u: "&larr;" }, // Backspace
-
-          { d: "capslock", u: "&udarr; CapsLock" }, // Caps lock
           { d: "a", u: "A" },
-          { d: "s", u: "S" },
+          { d: "b", u: "B" },
+          { d: "c", u: "C" },
           { d: "d", u: "D" },
+          { d: "e", u: "E" },
           { d: "f", u: "F" },
           { d: "g", u: "G" },
           { d: "h", u: "H" },
+          { d: "i", u: "I" },
           { d: "j", u: "J" },
           { d: "k", u: "K" },
           { d: "l", u: "L" },
-          { d: "shift", u: "&DoubleUpArrow; Shift" }, // Left shift
-          { d: "z", u: "Z" },
-          { d: "x", u: "X" },
-          { d: "c", u: "C" },
-          { d: "v", u: "V" },
-          { d: "b", u: "B" },
-          { d: "n", u: "N" },
           { d: "m", u: "M" },
+          { d: "n", u: "N" },
+          { d: "o", u: "O" },
+          { d: "p", u: "P" },
+          { d: "q", u: "Q" },
+          { d: "r", u: "R" },
+          { d: "s", u: "S" },
+          { d: "t", u: "T" },
+          { d: "u", u: "U" },
+          { d: "v", u: "V" },
+          { d: "w", u: "W" },
+          { d: "x", u: "X" },
+          { d: "y", u: "Y" },
+          { d: "z", u: "Z" },
+
+          { d: "backspace", u: "&larr; Delete" }, // Backspace
+          { d: "capslock", u: "&udarr; CapsLock" }, // Caps lock
+          { d: "shift", u: "&DoubleUpArrow; Shift" }, // Left shift
           { d: "delete", u: "&rarr; Del" }, // Delete
           { d: "enter", u: "&crarr; Enter" },
-
           { d: "space", u: "Space" }, // Space
 
           { d: "divisor", u: "divisor" }, // row divisor
-
           //{d: 'backspace', u: 'BackSpace'},   // Backspace
 
           { d: "7", u: "7" },
@@ -518,7 +514,7 @@
     };
   };
 
-  // Esta función genera la instancia de nuestra Clase
+  // Esta funci�n genera la instancia de nuestra Clase
   $.fn.keyboard = function (options) {
     return this.each(function () {
       var oElemento = $(this);
@@ -527,7 +523,7 @@
       // hacemos un return para evitar generarla nuevamente
       if (oElemento.data("pluginKeyboard")) return;
 
-      // aquí generamos el objeto donde ingresamos el parametro
+      // aqu� generamos el objeto donde ingresamos el parametro
       // "this" que sera nuestro elemento
       var oKeyboard = new Keyboard(oElemento, options);
       oKeyboard.init();
