@@ -150,7 +150,11 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected")
       .find(".quiz span")
       .each(function () {
-        $(this).removeClass("wrong").html($(this).attr("ans"));
+        if ($(this).attr("type") && $(this).attr("type") == "img") {
+          $(this).removeClass("wrong").addClass($(this).attr("ans"));
+        } else {
+          $(this).removeClass("wrong").html($(this).attr("ans"));
+        }
       });
   } else {
     $(".sideTool > div.btn_replay").click();
@@ -163,9 +167,16 @@ var checkAnswer = function () {
   $(".contents > div.selected")
     .find(".quiz span")
     .each(function () {
-      if ($(this).attr("ans") != $(this).html()) {
-        $(this).addClass("wrong");
-        gotWrong = true;
+      if ($(this).attr("type") && $(this).attr("type") == "img") {
+        if (!$(this).hasClass($(this).attr("ans"))) {
+          $(this).addClass("wrong");
+          gotWrong = true;
+        }
+      } else {
+        if ($(this).attr("ans") != $(this).html()) {
+          $(this).addClass("wrong");
+          gotWrong = true;
+        }
       }
     });
   if (gotWrong) {
@@ -238,6 +249,7 @@ var resetElem = function (elem) {
   elem.find(".quiz span").each(function () {
     $(this)
       .empty()
+      .removeClass()
       .unbind()
       .bind("click", function () {
         $(".sideTool > div.btn_answer").removeClass("active");
@@ -246,16 +258,34 @@ var resetElem = function (elem) {
         rootSoundEffect($key);
         //
         var options = $(this).attr("str").split("^");
-        var currOption = $(this).html();
-        var Oid = options.indexOf(currOption);
-        if (Oid == -1) {
-          $(this).html(options[0]);
-        } else {
-          Oid += 1;
-          if (Oid >= options.length) {
-            Oid = 0;
+        if ($(this).attr("type") && $(this).attr("type") == "img") {
+          //使用class
+          var currOption = $(this).attr("class");
+
+          var Oid = options.indexOf(currOption);
+          if (Oid == -1) {
+            $(this).removeClass().addClass(options[0]);
+          } else {
+            Oid += 1;
+            if (Oid >= options.length) {
+              Oid = 0;
+            }
+            $(this).removeClass().addClass(options[Oid]);
           }
-          $(this).html(options[Oid]);
+        } else {
+          //使用html字串
+          var currOption = $(this).html();
+
+          var Oid = options.indexOf(currOption);
+          if (Oid == -1) {
+            $(this).html(options[0]);
+          } else {
+            Oid += 1;
+            if (Oid >= options.length) {
+              Oid = 0;
+            }
+            $(this).html(options[Oid]);
+          }
         }
       });
   });

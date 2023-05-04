@@ -175,10 +175,17 @@
     border: none !important;
   }
   .blocks {
-    width: 200px;
+    width: 210px;
   }
   .blocks > div {
     display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .blocks > div > img {
+    float: left;
   }
   .blocks > div.disable {
     pointer-events: none;

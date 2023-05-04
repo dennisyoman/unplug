@@ -5400,6 +5400,57 @@
           text-align: center;
           padding: 0 15px;
 
+          &.rs {
+            &::after {
+              content: "";
+              display: inline-block;
+              width: 28px;
+              height: 14px;
+              background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left -28px center;
+              background-size: 168px 14px;
+            }
+          }
+          &.os {
+            &::after {
+              content: "";
+              display: inline-block;
+              width: 28px;
+              height: 14px;
+              background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left -56px center;
+              background-size: 168px 14px;
+            }
+          }
+          &.ys {
+            &::after {
+              content: "";
+              display: inline-block;
+              width: 28px;
+              height: 14px;
+              background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left -84px center;
+              background-size: 168px 14px;
+            }
+          }
+          &.gs {
+            &::after {
+              content: "";
+              display: inline-block;
+              width: 28px;
+              height: 14px;
+              background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left -112px center;
+              background-size: 168px 14px;
+            }
+          }
+          &.bs {
+            &::after {
+              content: "";
+              display: inline-block;
+              width: 28px;
+              height: 14px;
+              background: url("../DATA/PT/BOOK10/IMAGES/PT-10-3-3-2-marker.png") no-repeat left -140px center;
+              background-size: 168px 14px;
+            }
+          }
+
           &.wrong {
             border-color: #ff0000;
             color: #ff0000;

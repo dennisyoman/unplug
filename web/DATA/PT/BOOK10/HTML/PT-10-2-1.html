@@ -1,14 +1,13 @@
 <div id="module_wrapper" class="module_box">
   <div class="tabs">
+    <span>任務一</span>
     <span>任務二</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_answer"></div>
     <div class="btn_replay"></div>
-    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -116,6 +115,27 @@
           <img src="./DATA/PT/BOOK10/IMAGES/a6.png" />
         </div>
       </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>資料整理</b
+            >：今天在2E裡面找到了儲存的東西，你覺得最有可能是甚麼？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div style="margin-left: 100px">
+        <img
+          width="320"
+          height="auto"
+          src="./DATA/PT/BOOK10/IMAGES/PT-10-2-1-1.png"
+        />
+      </div>
 
       <div class="extra wow slideInUp">
         今天在2E裡面找到了儲存的東西，你覺得最有可能是甚麼？
@@ -151,7 +171,7 @@
       tar.addClass("selected");
       rootSoundEffect($right);
     } else {
-      rootSoundEffect($wrong);
+      rootSoundEffect($tryagain);
     }
   };
 </script>

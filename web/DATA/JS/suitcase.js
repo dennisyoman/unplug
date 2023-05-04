@@ -104,7 +104,7 @@ var isDragging = false;
 var $elem = null;
 //
 var bw = 20;
-var bh = 20;
+var bh = 20.5;
 var buffer = 0;
 var blockCount = 0;
 
