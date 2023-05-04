@@ -1,6 +1,3 @@
-/**
- * Created by Ing. Ernesto P�rez Amigo on 02/10/2015.
- */
 (function ($) {
   //Clase Mensajear
   var Keyboard = function (elemento, opciones) {
