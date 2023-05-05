@@ -76,17 +76,21 @@ $(document).ready(function () {
 var openPanel = function () {
   rootSoundEffect($key);
   $("#inputpanel").toggleClass("selected");
+  $("#hint").css("top", "94px").css("left", "84px");
 };
 
-var setCode = function (str) {
+var setCode = function (str, tar) {
   rootSoundEffect($beep);
+  $("#hint").css("top", "160px").css("left", "260px");
   $("#jvk").val(str);
 };
 
 var checkCode = function () {
+  $("#hint").addClass("selected");
   var gotit = true;
   var code = $("#jvk").val();
   if (code == "pya5") {
+    $("#ic2").addClass("selected");
     var no = 2;
     $("#jvk").val("No." + no);
     $(".contents > div.selected")
@@ -96,6 +100,8 @@ var checkCode = function () {
       .siblings(".selected")
       .removeClass("selected");
   } else if (code == "a5ex") {
+    $("#ic1").addClass("selected");
+
     var no = 9;
     $("#jvk").val("No." + no);
     $(".contents > div.selected")
@@ -105,6 +111,7 @@ var checkCode = function () {
       .siblings(".selected")
       .removeClass("selected");
   } else if (code == "v83w") {
+    $("#ic3").addClass("selected");
     var no = 19;
     $("#jvk").val("No." + no);
     $(".contents > div.selected")
@@ -114,6 +121,7 @@ var checkCode = function () {
       .siblings(".selected")
       .removeClass("selected");
   } else if (code == "e67h") {
+    $("#ic4").addClass("selected");
     var no = 30;
     $("#jvk").val("No." + no);
     $(".contents > div.selected")
@@ -147,6 +155,8 @@ var checkCode = function () {
 
   if (gotit) {
     rootSoundEffect($good);
+    $("#inputpanel").toggleClass("selected");
+    $("#hint").css("top", "94px").css("left", "84px");
   } else {
     rootSoundEffect($surprise);
     $("#jvk").val("error!");

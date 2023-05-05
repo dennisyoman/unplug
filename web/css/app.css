@@ -7347,6 +7347,21 @@
   height: 100%;
   object-fit: contain;
 }
+.module_safe .hint {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url("../DATA/IMAGES/common/finger2.png") no-repeat center center;
+  background-size: contain;
+  z-index: 1000;
+  filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.3));
+  animation: floating;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+.module_safe .hint.selected {
+  display: none;
+}
 .module_safe .inputpanel {
   position: absolute;
   z-index: 888;
@@ -7369,6 +7384,10 @@
   -ms-transform: scale(0.8);
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
+}
+.module_safe .inputpanel .cta.selected {
+  pointer-events: none !important;
+  opacity: 0.3;
 }
 .module_safe .inputpanel #jvk {
   pointer-events: auto;
