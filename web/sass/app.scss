@@ -418,6 +418,14 @@ body {
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         border: 3px solid #fccf4a;
         @include borderRadius(16px);
+        &.real {
+          background: $l2;
+          border-color: #84c0f8;
+          &::after {
+            content: "Stop Demo";
+            color: #fff;
+          }
+        }
         &::after {
           content: "Play Demo";
           white-space: nowrap;

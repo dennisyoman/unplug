@@ -12444,6 +12444,14 @@ body {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
 }
+.root .basic-tools span.demo.real {
+  background: #80a6d7;
+  border-color: #84c0f8;
+}
+.root .basic-tools span.demo.real::after {
+  content: "Stop Demo";
+  color: #fff;
+}
 .root .basic-tools span.demo::after {
   content: "Play Demo";
   white-space: nowrap;

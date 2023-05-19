@@ -52,6 +52,10 @@ var demo = function () {
   $("#demo").hide();
   sid = bid = lid = uid = pid = sectionID = null;
   //demo mode
-  demomode = true;
+  if ($("#demo").hasClass("real")) {
+    demomode = false;
+  } else {
+    demomode = true;
+  }
   getSeriesXML();
 };

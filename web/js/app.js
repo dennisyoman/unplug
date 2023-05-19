@@ -47,6 +47,10 @@ $(document).ready(function () {
         //20230331 updated
         if (!demomode) {
           $("#demo").show();
+          $("#demo").removeClass("real");
+        } else {
+          $("#demo").show();
+          $("#demo").addClass("real");
         }
         //clean widgets
         $("#widget").empty();
@@ -343,6 +347,7 @@ let toLogin = function () {
 let loadContainer = function (id, section) {
   //20230331 updated
   $("#demo").hide();
+
   pid = 0;
   //gpObj = {};
   uid = id;
@@ -397,6 +402,7 @@ let loadContainer = function (id, section) {
 let loadContainerInside = function (htmlPath, jsPath, p) {
   //20230331 updated
   $("#demo").hide();
+
   pid = p;
   console.log("pid:" + pid);
   let script_arr = [
@@ -467,6 +473,10 @@ let loadMainSlider = function () {
   //20230331 updated
   if (!demomode) {
     $("#demo").show();
+    $("#demo").removeClass("real");
+  } else {
+    $("#demo").show();
+    $("#demo").addClass("real");
   }
 };
 
