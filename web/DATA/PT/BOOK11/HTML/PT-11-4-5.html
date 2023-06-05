@@ -1,0 +1,147 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>拼圖的拼法</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="翻正面">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="找出邊角">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="找到對應形狀">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="倒出拼圖">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="完成">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="拼外框">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="D"></div>
+        <div ans="A"></div>
+        <div ans="B"></div>
+        <div ans="C"></div>
+        <div ans="F"></div>
+        <div class="end" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>D=1</span>
+        <span>A=2</span>
+        <span>B-F</span>
+        <span>C-E</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>整理抽屜</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="找出考卷">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="找出書本">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="找出文具">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="將考卷疊齊">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="將書本疊齊">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="收拾文具">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="E"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div ans="C"></div>
+        <div class="end" ans="F"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>A-D</span>
+        <span>B-E</span>
+        <span>C-F</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

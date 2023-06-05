@@ -1,0 +1,424 @@
+<div id="module_wrapper" class="module_greedy">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>山洞裡的探險家：</b
+            >輪流選走寶石礦，直到背包滿了為止。看最後誰的鑽石比較多。
+          </p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject" style="width: 260px; margin-left: -300px">
+        <div class="itemArea">
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 19px; left: 34px"
+            diamond="2"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d8.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 19px; left: 92px"
+            diamond="2"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d2.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 19px; left: 149px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 47px; left: 111px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 60px; height: 28px; top: 47px; left: 168px"
+            diamond="3"
+            long="3"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d10.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 73px; left: 34px"
+            diamond="2"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d8.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 73px; left: 149px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 100px; left: 34px"
+            diamond="2"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d8.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 100px; left: 92px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 100px; height: 28px; top: 100px; left: 149px"
+            diamond="5"
+            long="5"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d12.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 154px; left: 15px"
+            diamond="2"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d2.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 154px; left: 53px"
+            diamond="2"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d2.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 154px; left: 111px"
+            diamond="1"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d1.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 154px; left: 149px"
+            diamond="1"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d1.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 182px; left: 34px"
+            diamond="2"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d2.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 60px; height: 28px; top: 182px; left: 92px"
+            diamond="3"
+            long="3"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d10.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 182px; left: 188px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+        </div>
+        <img
+          width="100%"
+          height="auto"
+          src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-1.png"
+        />
+        <div class="ansArea" style="left: 320px; width: 200px; top: 50px">
+          <div
+            class="backpack wow fadeInRight selected"
+            style="margin-bottom: 20px"
+          >
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
+          <div
+            class="backpack wow fadeInRight"
+            data-wow-delay=".3s"
+            style="margin-bottom: 20px"
+          >
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
+          <div class="backpack wow fadeInRight" data-wow-delay=".6s">
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>山洞裡的探險家：</b
+            >輪流選走寶石礦，直到背包滿了為止。看最後誰的鑽石比較多。
+          </p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject" style="width: 260px; margin-left: -300px">
+        <div class="itemArea">
+          <span
+            class="item"
+            style="width: 60px; height: 28px; top: 19px; left: 34px"
+            diamond="6"
+            long="3"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d11.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 19px; left: 168px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 47px; left: 92px"
+            diamond="6"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d4.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 47px; left: 130px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 47px; left: 207px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 73px; left: 53px"
+            diamond="4"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d6.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 73px; left: 130px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 73px; left: 188px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d5.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 100px; left: 72px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 127px; left: 34px"
+            diamond="3"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d3.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 127px; left: 111px"
+            diamond="8"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d9.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 127px; left: 207px"
+            diamond="2"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d2.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 154px; left: 72px"
+            diamond="2"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d8.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 182px; left: 34px"
+            diamond="1"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d1.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 40px; height: 28px; top: 182px; left: 130px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 20px; height: 28px; top: 182px; left: 188px"
+            diamond="4"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d6.png" />
+          </span>
+        </div>
+        <img
+          width="100%"
+          height="auto"
+          src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-1.png"
+        />
+        <div class="ansArea" style="left: 320px; width: 200px; top: 50px">
+          <div
+            class="backpack wow fadeInRight selected"
+            style="margin-bottom: 20px"
+          >
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
+          <div
+            class="backpack wow fadeInRight"
+            data-wow-delay=".3s"
+            style="margin-bottom: 20px"
+          >
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
+          <div class="backpack wow fadeInRight" data-wow-delay=".6s">
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

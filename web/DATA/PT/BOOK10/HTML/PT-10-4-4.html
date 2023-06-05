@@ -179,7 +179,7 @@
   }
   .blocks > div {
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid transparent;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -190,5 +190,8 @@
   .blocks > div.disable {
     pointer-events: none;
     opacity: 0.3 !important;
+  }
+  .cardAvatar.draggable.onboard > img {
+    clip-path: inset(1px 1px 1px 1px);
   }
 </style>

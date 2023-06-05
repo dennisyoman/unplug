@@ -1,0 +1,155 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>床鋪換季</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l3 cards" ans="A" title="放進收納袋">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l3 cards" ans="B" title="抽去空氣">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l3 cards" ans="C" title="疊放整齊">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l3 cards" ans="D" title="準備整理">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l3 cards" ans="E" title="疊放整齊">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l3 cards" ans="F" title="收集棉被">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="D"></div>
+        <div ans="F"></div>
+        <div ans="C"></div>
+        <div ans="A"></div>
+        <div ans="B"></div>
+        <div class="end" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>節省空間</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 wow fadeInLeft" style="margin-top: -20px">
+        <div>
+          <div class="cardItem A l3 cards" ans="A" title="彈簧">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l3 cards" ans="B" title="寶特瓶">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l3 cards" ans="C" title="花瓶">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l3 cards" ans="D" title="小狗">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l3 cards" ans="E" title="日光燈">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l3 cards" ans="F" title="訊息">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-3-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp" style="bottom: 12px">
+        <div style="margin-top: -13px; margin-left: 90px" ans="A"></div>
+        <div style="margin-top: -13px" ans="B"></div>
+        <div style="margin-top: -13px" ans="F"></div>
+        <div style="position: absolute; top: 13px; left: 315px" ans="C"></div>
+        <div style="position: absolute; top: 13px; left: 344px" ans="D"></div>
+        <div style="position: absolute; top: 13px; left: 373px" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+        <span class="crossroads" style="top: 0px; left: 228px"
+          >可以壓扁?
+          <img
+            style="top: 0px; left: 65px; height: 10px"
+            src="./DATA/IMAGES/common/positive1.png"
+          />
+          <img
+            style="top: 15px; left: 65px; height: 10px"
+            src="./DATA/IMAGES/common/negative2.png"
+          />
+        </span>
+      </div>
+      <div class="condition">
+        <span>A=1^2^3</span>
+        <span>B=1^2^3</span>
+        <span>F=1^2^3</span>
+        <span>C=4^5^6</span>
+        <span>D=4^5^6</span>
+        <span>E=4^5^6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

@@ -408,4 +408,48 @@
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK10/HTML/PT-10-4-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
+  <lesson sid="PT" bid="11" lid="1">
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-1-1.html" js="JS/suitcase.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-1-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 貪婪法" html="PT/BOOK11/HTML/PT-11-1-3.html" js="JS/greedy.js" image="IMAGES/UNITS/diamond.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲② / 貪婪法②" html="PT/BOOK11/HTML/PT-11-1-4.html" js="JS/greedy.js" image="IMAGES/UNITS/money.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK11/HTML/PT-11-1-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="11" lid="2">
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-2-1.html" js="JS/draganddrop.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / Sort" html="PT/BOOK11/HTML/PT-11-2-3.html" js="JS/stacknqueue.js" image="IMAGES/UNITS/layers.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲② / Sort②" html="PT/BOOK11/HTML/PT-11-2-4.html" js="JS/stacknqueue.js" image="IMAGES/UNITS/order.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK11/HTML/PT-11-2-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="11" lid="3">
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 資料壓縮" html="PT/BOOK11/HTML/PT-11-3-3.html" js="JS/seagull.js" image="IMAGES/UNITS/euler.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲② / 資料壓縮②" html="PT/BOOK11/HTML/PT-11-3-4.html" js="JS/regularity.js" image="IMAGES/UNITS/guess.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK11/HTML/PT-11-3-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT" bid="11" lid="4">
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-4-1.html" js="JS/regularity.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 分治法" html="PT/BOOK11/HTML/PT-11-4-3.html" js="JS/safe.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲② / 分治法②" html="PT/BOOK11/HTML/PT-11-4-4.html" js="JS/suitcase.js" image="IMAGES/UNITS/organize.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT/BOOK11/HTML/PT-11-4-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
 </root>

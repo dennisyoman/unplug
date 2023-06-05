@@ -8828,6 +8828,213 @@
   position: relative;
 }
 
+.module_greedy {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_greedy.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+.module_greedy .hint {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  text-align: left;
+  z-index: 2;
+}
+.module_greedy .hint p {
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 5px;
+}
+.module_greedy .hint p span {
+  display: inline-block;
+  height: 15px;
+  color: #eb6154;
+  border-bottom: 1px solid #333;
+  min-width: 25px;
+}
+.module_greedy .smoke,
+.module_greedy .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  transform-origin: center center;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+.module_greedy .smoke > img,
+.module_greedy .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.module_greedy .subject {
+  position: relative;
+  z-index: 1;
+}
+.module_greedy .senseArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_greedy .senseArea > .sensor {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border: 3px solid transparent;
+}
+.module_greedy .senseArea > .sensor.selected {
+  border-color: #eb6154;
+}
+.module_greedy .itemArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_greedy .itemArea > .item {
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.module_greedy .itemArea > .item img {
+  width: 100%;
+  height: 100%;
+}
+.module_greedy .itemArea > .item.selected {
+  display: none;
+}
+.module_greedy .des {
+  margin-top: 20px;
+}
+.module_greedy .des span {
+  display: inline-block;
+  text-align: center;
+  min-width: 50px;
+  border-bottom: 1px solid #000;
+  color: #ff8426;
+  height: 24px;
+}
+.module_greedy .ansArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_greedy .ansArea .backpack {
+  display: flex;
+  align-items: center;
+}
+.module_greedy .ansArea .backpack .bag {
+  width: 30px;
+  height: 45px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 2;
+}
+.module_greedy .ansArea .backpack .grids {
+  width: 120px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+.module_greedy .ansArea .backpack .grids > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.module_greedy .ansArea .backpack .grids > span {
+  width: 20px;
+  height: 28px;
+  flex: none;
+}
+.module_greedy .ansArea .backpack .grids > span > img {
+  height: 100%;
+  width: auto;
+  animation: bounceIn 1 ease 1s;
+}
+.module_greedy .ansArea .backpack .sum {
+  width: 50px;
+  height: 28px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 28px;
+  font-family: "Gfont-Bold";
+}
+.module_greedy .ansArea .backpack .sum::after {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url("../DATA/PT/BOOK11/IMAGES/diamond.png") no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.module_greedy .ansArea .backpack.selected {
+  filter: drop-shadow(0px 0px 7px #f9b900);
+}
+.module_greedy .ansArea .backpack.selected .bag {
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+.module_greedy .moneyArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+}
+.module_greedy .moneyArea.selected {
+  display: block;
+}
+.module_greedy .moneyArea .money {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.module_greedy .moneyArea .money > img {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  margin-left: -93%;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+}
+.module_greedy .moneyArea .money > img:first-child {
+  margin-left: 0;
+  margin-top: 0;
+}
+
 .module_calculus {
   position: relative;
   top: 0;

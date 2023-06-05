@@ -49,6 +49,13 @@ $(document).ready(function () {
         });
 
       //build grid
+
+      if ($(".grids").attr("bw")) {
+        bw = parseInt($(".grids").attr("bw"));
+      }
+      if ($(".grids").attr("bh")) {
+        bh = parseInt($(".grids").attr("bh"));
+      }
       $(".grids > .row").each(function () {
         var size = $(this).attr("size");
         for (var i = 0; i < size; i++) {
@@ -136,6 +143,9 @@ var handleDrag = function (ev) {
       $("#contents").append(`<div id="cardAvatar" class="cardAvatar"></div>`);
       $($elem).find(">img").clone().appendTo("#cardAvatar");
       $("#cardAvatar").attr("size", $($elem).attr("size"));
+      if ($($elem).attr("exclude")) {
+        $("#cardAvatar").attr("exclude", $($elem).attr("exclude"));
+      }
       //移動已放上的方塊
       if ($($elem).hasClass("onboard")) {
         //clean linked blocks and remove this
@@ -190,6 +200,10 @@ var handleDrag = function (ev) {
       //checkCollision true
       var tempSize = $("#cardAvatar").attr("size").split(",");
       tempSize = tempSize[0] * tempSize[1];
+      console.log($("#cardAvatar").attr("exclude"));
+      if ($("#cardAvatar").attr("exclude")) {
+        tempSize -= $("#cardAvatar").attr("exclude").split("^").length;
+      }
       if (
         (grid1Selected.length == tempSize ||
           grid2Selected.length == tempSize) &&
@@ -260,6 +274,16 @@ var checkCollision = function (ev) {
       $(this).removeClass("selected");
     }
   });
+  //exclude
+  if ($($elem).attr("exclude")) {
+    var excludeGrids = $($elem).attr("exclude").split("^");
+    var gggg = $(".contents > div.selected .grids").find(
+      ".row > span.selected"
+    );
+    for (var k = 0; k < excludeGrids.length; k++) {
+      gggg.eq(excludeGrids[k] - 1).removeClass("selected");
+    }
+  }
 };
 
 var checkOrderStatus = function (tar) {
@@ -268,17 +292,20 @@ var checkOrderStatus = function (tar) {
   var gridElem = $(".contents > div.selected .grids");
   var rowElem = gridElem.find(">.row");
   var gridSpan = rowElem.find("> span.selected");
-  var intx = "";
-  var inty = "";
+  var intx = 9999999;
+  var inty = 9999999;
   //gridElem.find("p").css("opacity", 0);
   $(".alert").remove();
   gridSpan.each(function () {
-    if (intx == "") {
-      intx = $(this).offset().left - $("#module_wrapper").offset().left;
-      inty = $(this).offset().top - $("#module_wrapper").offset().top;
-      $("#cardAvatar").get(0).style.top = inty / stageRatioReal + "px";
-      $("#cardAvatar").get(0).style.left = intx / stageRatioReal + "px";
-    }
+    intx = Math.min(
+      intx,
+      $(this).offset().left - $("#module_wrapper").offset().left
+    );
+    inty = Math.min(
+      inty,
+      $(this).offset().top - $("#module_wrapper").offset().top
+    );
+
     //
     $(this)
       .removeClass("selected")
@@ -290,6 +317,8 @@ var checkOrderStatus = function (tar) {
       .find(">div[link='" + $("#cardAvatar").attr("link") + "']")
       .attr("link", blockCount);
   });
+  $("#cardAvatar").get(0).style.top = inty / stageRatioReal + "px";
+  $("#cardAvatar").get(0).style.left = intx / stageRatioReal + "px";
 
   $("#cardAvatar")
     .attr("link", blockCount)
