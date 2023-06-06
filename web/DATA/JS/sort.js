@@ -71,6 +71,85 @@ $(document).ready(function () {
 });
 
 var lowlaged = false;
+var swingSpeed = 800;
+
+var getStartFish = function () {
+  var startFish = null;
+  var fishArea = $(".contents > div.selected").find(".fishArea");
+  var fishes = $(".contents > div.selected").find(".fishArea > .fish");
+  fishes.removeClass("start selected");
+  /*
+  fishes.each(function () {
+    if (startFish == null) {
+      startFish = $(this);
+    } else {
+      if (parseInt($(this).attr("intY")) > parseInt(startFish.attr("intY"))) {
+        startFish = $(this);
+      }
+    }
+  });*/
+  fishArea.delay(swingSpeed).queue(function () {
+    var fishArr = new Array();
+    fishes.each(function () {
+      if (fishArr.length < 1) {
+        fishArr.push($(this));
+      } else {
+        var insertID = -1;
+        for (var i = 0; i < fishArr.length; i++) {
+          if (parseInt($(this).css("top")) > parseInt(fishArr[i].css("top"))) {
+            insertID = i;
+            break;
+          }
+        }
+        if (insertID < 0) {
+          fishArr.push($(this));
+        } else {
+          fishArr.splice(insertID, 0, $(this));
+        }
+      }
+    });
+
+    for (var i = 0; i < fishArr.length - 1; i++) {
+      if (
+        parseInt(fishArr[i].find("span").text()) >
+        parseInt(fishArr[i + 1].find("span").text())
+      ) {
+        startFish = fishArr[i];
+        break;
+      }
+    }
+
+    if (startFish != null) {
+      //有適合的魚
+      startFish.addClass("start");
+      startFish.delay(swingSpeed).queue(function () {
+        getUpperFish(startFish);
+        startFish.addClass("selected").dequeue();
+      });
+      console.log("還有可以換的魚");
+      rootSoundEffect($help);
+    } else {
+      //全部完成，沒有起始魚
+      console.log("done");
+      rootSoundEffect($correct);
+      var uniq = new Date().getTime();
+
+      $(".contents > div.selected")
+        .find(".subject")
+        .append(
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+        );
+      $(".smoke")
+        .delay(1500)
+        .queue(function () {
+          $(".resultIcon").remove();
+          $(this).dequeue().remove();
+        });
+    }
+    //
+    fishArea.dequeue();
+  });
+};
 
 var getUpperFish = function (startFish) {
   var otherFishes = $(".contents > div.selected").find(
@@ -122,6 +201,8 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  $("#module_wrapper").find(".fishArea").clearQueue();
+  $("#module_wrapper").find(".fishArea .fish").clearQueue();
   elem.find(".selected").removeClass("selected");
   elem.find(".resultIcon").remove();
   elem.find(".smoke").remove();
@@ -138,17 +219,15 @@ var resetElem = function (elem) {
   }
 
   var fishes = elem.find(".fishArea > .fish");
-  var startFish = null;
+
   fishes.each(function () {
     //建立隨機的魚
     if ($(this).hasClass("random")) {
       var fishID = randomID[0];
       randomID.shift();
-      var size = groupSize;
-      $(this).attr(
-        "style",
-        "width: " + fishID * size + "px; height: " + fishID * size + "px"
-      );
+      var size = groupSize * parseInt(fishID);
+      size = size < 20 ? 20 : size;
+      $(this).attr("style", "width: " + size + "px; height: " + size + "px");
       $(this)
         .find("img")
         .attr("src", "./DATA/PT/BOOK11/IMAGES/fish" + fishID + ".png");
@@ -163,14 +242,6 @@ var resetElem = function (elem) {
       .css("top", intY + "px")
       .css("left", intX + "px");
 
-    //找到最下方的魚
-    if (startFish == null) {
-      startFish = $(this);
-    } else {
-      if (parseInt($(this).attr("intY")) > parseInt(startFish.attr("intY"))) {
-        startFish = $(this);
-      }
-    }
     //點魚
     $(this)
       .unbind()
@@ -187,7 +258,7 @@ var resetElem = function (elem) {
           if (fish1.hasClass("start")) {
             fish1.removeClass("selected");
             fish2.removeClass("selected");
-            fish1.delay(800).queue(function () {
+            fish1.delay(swingSpeed).queue(function () {
               getUpperFish(fish1);
               fish1.addClass("selected").dequeue();
             });
@@ -195,24 +266,21 @@ var resetElem = function (elem) {
           if (fish2.hasClass("start")) {
             fish1.removeClass("selected");
             fish2.removeClass("selected");
-            fish2.delay(800).queue(function () {
+            fish2.delay(swingSpeed).queue(function () {
               getUpperFish(fish2);
               fish2.addClass("selected").dequeue();
             });
           }
-          rootSoundEffect($show);
+          rootSoundEffect($water);
         } else {
-          //上面沒有魚
-          rootSoundEffect($wrong);
+          //準備換起始魚
+          getStartFish();
         }
       });
   });
-  //
-  startFish.addClass("start");
-  startFish.delay(800).queue(function () {
-    getUpperFish(startFish);
-    startFish.addClass("selected").dequeue();
-  });
+
+  //找到適合的魚
+  getStartFish();
 
   //sort
   var nums = [
