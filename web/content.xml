@@ -423,9 +423,9 @@
     <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-2-1.html" js="JS/draganddrop.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / Sort" html="PT/BOOK11/HTML/PT-11-2-3.html" js="JS/stacknqueue.js" image="IMAGES/UNITS/layers.png" skin="">
+    <section section="3" name="一起玩遊戲 / Sort" html="PT/BOOK11/HTML/PT-11-2-3.html" js="JS/sort.js" image="IMAGES/UNITS/layers.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲② / Sort②" html="PT/BOOK11/HTML/PT-11-2-4.html" js="JS/stacknqueue.js" image="IMAGES/UNITS/order.png" skin="">
+    <section section="4" name="一起玩遊戲② / Sort②" html="PT/BOOK11/HTML/PT-11-2-4.html" js="JS/sort.js" image="IMAGES/UNITS/order.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK11/HTML/PT-11-2-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
