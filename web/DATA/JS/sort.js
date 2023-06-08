@@ -44,6 +44,12 @@ $(document).ready(function () {
           resetElem($(".contents > div.selected"));
         });
 
+      $(".sideTool > div.btn_check")
+        .unbind()
+        .bind("click", function () {
+          checkAnswer();
+        });
+
       //init
 
       $(this)
@@ -73,23 +79,77 @@ $(document).ready(function () {
 var lowlaged = false;
 var swingSpeed = 800;
 
-var getStartFish = function () {
-  var startFish = null;
+var checkAnswer = function () {
   var fishArea = $(".contents > div.selected").find(".fishArea");
-  var fishes = $(".contents > div.selected").find(".fishArea > .fish");
-  fishes.removeClass("start selected");
-  /*
+  var fishes = fishArea.find("> .fish");
+  var fishArr = new Array();
+  var bingo = true;
+
+  //找出高低排序
+
   fishes.each(function () {
-    if (startFish == null) {
-      startFish = $(this);
+    if (fishArr.length < 1) {
+      fishArr.push($(this));
     } else {
-      if (parseInt($(this).attr("intY")) > parseInt(startFish.attr("intY"))) {
-        startFish = $(this);
+      var insertID = -1;
+      for (var i = 0; i < fishArr.length; i++) {
+        if (parseInt($(this).css("top")) > parseInt(fishArr[i].css("top"))) {
+          insertID = i;
+          break;
+        }
+      }
+      if (insertID < 0) {
+        fishArr.push($(this));
+      } else {
+        fishArr.splice(insertID, 0, $(this));
       }
     }
-  });*/
+  });
+
+  for (var i = 0; i < fishArr.length - 1; i++) {
+    if (
+      parseInt(fishArr[i].find("span").text()) >
+      parseInt(fishArr[i + 1].find("span").text())
+    ) {
+      bingo = false;
+      break;
+    }
+  }
+
+  if (bingo) {
+    rootSoundEffect($chimes);
+    var uniq = new Date().getTime();
+    $(".contents > div.selected")
+      .find(".subject")
+      .append(
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+      );
+  } else {
+    //排序有錯誤
+    rootSoundEffect($tryagain);
+    $(".contents > div.selected")
+      .find(".subject")
+      .append(
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`
+      );
+  }
+  $(".resultIcon")
+    .delay(1500)
+    .queue(function () {
+      $(".smoke").remove();
+      $(this).dequeue().remove();
+    });
+};
+
+var getNextFish = function () {
+  $(".changefish").hide();
+  var fishArea = $(".contents > div.selected").find(".fishArea");
+  var fishes = fishArea.find("> .fish");
+  fishes.removeClass("selected");
+  var fishArr = new Array();
+
+  //找出高低排序
   fishArea.delay(swingSpeed).queue(function () {
-    var fishArr = new Array();
     fishes.each(function () {
       if (fishArr.length < 1) {
         fishArr.push($(this));
@@ -109,42 +169,95 @@ var getStartFish = function () {
       }
     });
 
-    for (var i = 0; i < fishArr.length - 1; i++) {
-      if (
-        parseInt(fishArr[i].find("span").text()) >
-        parseInt(fishArr[i + 1].find("span").text())
-      ) {
-        startFish = fishArr[i];
-        break;
+    var startID = 0;
+    if (fishArea.find("> .fish.start").length > 0) {
+      //已經有起始的魚,找出他上面那兩隻
+      for (var i = 0; i < fishArr.length; i++) {
+        if (
+          fishArea.find("> .fish.start").find("span").text() ==
+          fishArr[i].find("span").text()
+        ) {
+          fishArr[i].removeClass("start");
+          if (i >= fishArr.length - 2) {
+            startID = 0;
+          } else {
+            startID = i + 1;
+          }
+
+          break;
+        }
       }
     }
 
-    if (startFish != null) {
-      //有適合的魚
-      startFish.addClass("start");
-      startFish.delay(swingSpeed).queue(function () {
-        getUpperFish(startFish);
-        startFish.addClass("selected").dequeue();
-      });
-      console.log("還有可以換的魚");
-      rootSoundEffect($help);
-    } else {
-      //全部完成，沒有起始魚
-      console.log("done");
-      rootSoundEffect($correct);
-      var uniq = new Date().getTime();
+    //找到最下面兩隻魚
+    fishArr[startID + 1].addClass("selected");
+    fishArr[startID].addClass("start selected");
+    rootSoundEffect($key);
 
-      $(".contents > div.selected")
-        .find(".subject")
+    fishArea.dequeue();
+    $(".changefish").show();
+  });
+};
+
+var getNextMatch = function () {
+  var fishArea = $(".contents > div.selected").find(".fishArea");
+  var fishes = fishArea.find("> .fish");
+  var fishArr = new Array();
+
+  //找出高低排序
+  fishArea.delay(swingSpeed).queue(function () {
+    fishes.each(function () {
+      if (fishArr.length < 1) {
+        fishArr.push($(this));
+      } else {
+        var insertID = -1;
+        for (var i = 0; i < fishArr.length; i++) {
+          if (parseInt($(this).css("top")) > parseInt(fishArr[i].css("top"))) {
+            insertID = i;
+            break;
+          }
+        }
+        if (insertID < 0) {
+          fishArr.push($(this));
+        } else {
+          fishArr.splice(insertID, 0, $(this));
+        }
+      }
+    });
+
+    //找出startfish
+    var startID = 0;
+    if (fishArea.find("> .fish.start").length > 0) {
+      //已經有起始的魚,找出他上面那兩隻
+      for (var i = 0; i < fishArr.length; i++) {
+        if (
+          fishArea.find("> .fish.start").find("span").text() ==
+          fishArr[i].find("span").text()
+        ) {
+          startID = i;
+          break;
+        }
+      }
+    }
+    if (startID == fishArr.length - 1) {
+      //無法再往上移動了
+      var uniq = new Date().getTime();
+      rootSoundEffect($good);
+      fishArea
+        .find("> .fish.start")
         .append(
-          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+          `<div class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
         );
       $(".smoke")
         .delay(1500)
         .queue(function () {
-          $(".resultIcon").remove();
           $(this).dequeue().remove();
         });
+      fishArr[startID].addClass("start");
+    } else {
+      //找到下一組match
+      fishArr[startID + 1].addClass("selected");
+      fishArr[startID].addClass("start selected");
     }
     //
     fishArea.dequeue();
@@ -211,13 +324,14 @@ var resetElem = function (elem) {
 
   if (elem.find(".fishArea").attr("random")) {
     var randomID = elem.find(".fishArea").attr("random").split(",");
-    var groupSize = elem.find(".fishArea").attr("size");
-
     if (randomID.length > 0) {
       shuffle(randomID);
     }
   }
 
+  var groupSize = elem.find(".fishArea").attr("size")
+    ? elem.find(".fishArea").attr("size")
+    : 4;
   var fishes = elem.find(".fishArea > .fish");
 
   fishes.each(function () {
@@ -225,14 +339,16 @@ var resetElem = function (elem) {
     if ($(this).hasClass("random")) {
       var fishID = randomID[0];
       randomID.shift();
-      var size = groupSize * parseInt(fishID);
-      size = size < 20 ? 20 : size;
-      $(this).attr("style", "width: " + size + "px; height: " + size + "px");
       $(this)
         .find("img")
         .attr("src", "./DATA/PT/BOOK11/IMAGES/fish" + fishID + ".png");
       $(this).find("span").text(fishID);
     }
+
+    //調整魚的大小
+    var size = groupSize * parseInt($(this).find("span").text());
+    size = size < 20 ? 20 : size;
+    $(this).attr("style", "width: " + size + "px; height: " + size + "px");
 
     //移動到預設位子
     var intY = $(this).attr("intY");
@@ -246,41 +362,29 @@ var resetElem = function (elem) {
     $(this)
       .unbind()
       .bind("click", function () {
-        var fish1 = $(this);
-        var fish2 = $(this).siblings(".selected");
-        if (fish2.length > 0) {
-          //上面有魚
+        var fish1 = $(".contents > div.selected").find(".fishArea .fish.start");
+        var fish2 = fish1.siblings(".selected");
+        if (
+          parseInt(fish1.find("span").text()) >
+          parseInt(fish2.find("span").text())
+        ) {
+          //可以交換位子
           var XY1 = [fish1.css("top"), fish1.css("left")];
           var XY2 = [fish2.css("top"), fish2.css("left")];
-          fish1.css("top", XY2[0]).css("left", XY2[1]);
-          fish2.css("top", XY1[0]).css("left", XY1[1]);
-          //
-          if (fish1.hasClass("start")) {
-            fish1.removeClass("selected");
-            fish2.removeClass("selected");
-            fish1.delay(swingSpeed).queue(function () {
-              getUpperFish(fish1);
-              fish1.addClass("selected").dequeue();
-            });
-          }
-          if (fish2.hasClass("start")) {
-            fish1.removeClass("selected");
-            fish2.removeClass("selected");
-            fish2.delay(swingSpeed).queue(function () {
-              getUpperFish(fish2);
-              fish2.addClass("selected").dequeue();
-            });
-          }
+          fish1.removeClass("selected").css("top", XY2[0]).css("left", XY2[1]);
+          fish2.removeClass("selected").css("top", XY1[0]).css("left", XY1[1]);
           rootSoundEffect($water);
+
+          getNextMatch();
         } else {
-          //準備換起始魚
-          getStartFish();
+          //不能交換位子
+          rootSoundEffect($wrong);
         }
       });
   });
 
   //找到適合的魚
-  getStartFish();
+  getNextFish();
 
   //sort
   var nums = [
@@ -423,6 +527,7 @@ var resetElem = function (elem) {
     .click();
   //
   $(".sideTool > div.btn_replay").show();
+  $(".sideTool > div.btn_check").show();
 };
 
 var resetTool = function () {

@@ -9093,6 +9093,18 @@
   position: relative;
   z-index: 1;
 }
+.module_sort .subject .changefish {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 9;
+  top: 80%;
+  left: -40px;
+  width: 30px;
+  height: 30px;
+  background: url("../DATA/IMAGES/common/btn_changefish.png") no-repeat center center;
+  background-size: 100% 100%;
+}
 .module_sort .sortArea {
   position: absolute;
   top: 0;
@@ -9214,7 +9226,7 @@
 }
 .module_sort .fishArea .fish.selected {
   pointer-events: auto;
-  filter: drop-shadow(0px 0px 4px #f9b900);
+  filter: drop-shadow(0px 0px 2px #f9b900) drop-shadow(0px 0px 4px #f9b900);
 }
 .module_sort .fishArea .fish > img {
   width: 100%;
