@@ -96,6 +96,15 @@ var showAnswer = function (boolean) {
     var sensors = $(".contents > div.selected .sensorArea");
     var options = $(".contents > div.selected .options");
     sensors.find(".sensor").each(function () {
+      if (
+        $(this).attr("opt") &&
+        $(".contents > div.selected").find(".options." + $(this).attr("opt"))
+          .length > 0
+      ) {
+        options = $(".contents > div.selected").find(
+          ".options." + $(this).attr("opt")
+        );
+      }
       var fillin = options
         .find(".option[fillin='" + $(this).attr("ans") + "'] .fillin")
         .html();
@@ -180,7 +189,9 @@ var resetElem = function (elem) {
           }
         });
     });
-    elem.find(".options .option").eq(0).addClass("selected");
+    elem.find(".options").each(function () {
+      $(this).find(".option").eq(0).addClass("selected");
+    });
   }
 
   //sensorArea
@@ -193,6 +204,13 @@ var resetElem = function (elem) {
         .unbind()
         .bind("click", function () {
           var options = elem.find(".options");
+          if (
+            $(this).attr("opt") &&
+            elem.find(".options." + $(this).attr("opt")).length > 0
+          ) {
+            console.log(".options." + $(this).attr("opt"));
+            options = elem.find(".options." + $(this).attr("opt"));
+          }
           var option = options.find(".option.selected");
           //判斷是否要自動輪替選項
           if (options.hasClass("loop")) {

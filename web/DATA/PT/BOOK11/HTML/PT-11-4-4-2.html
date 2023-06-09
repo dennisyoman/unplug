@@ -1,0 +1,63 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK11/HTML/PT-11-4-4.html','JS/poker.js',0)"
+      >任務一</span
+    >
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div></div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>哇！撲克牌不小心混在一起了，該怎麼整理呢？</p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-4-2-A.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <img
+        class="des"
+        height="100"
+        width="auto"
+        src="./DATA/PT/BOOK11/IMAGES/PT-11-4-4-2-A.jpg"
+        style="pointer-events: auto; cursor: pointer"
+        onClick="trigBtn()"
+      />
+
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight">
+          <div class="cardItem n1 l4" title="討論作法">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-4-2-A.jpg" />
+          </div>
+          <div class="cardItem n2 l4" title="統一作法">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-4-2-B.jpg" />
+          </div>
+          <div class="cardItem n3 l4" title="分配工作">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-4-2-C.jpg" />
+          </div>
+          <div class="cardItem n4 l4" title="整理完成">
+            <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-4-2-D.jpg" />
+          </div>
+        </div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
