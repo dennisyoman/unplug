@@ -1,0 +1,300 @@
+<div id="module_wrapper" class="module_poker">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>零食福袋：</b>將這些零食公平的分裝成零食福袋！</p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject">
+        <div class="sensorArea">
+          <div class="sensorGroup" ques="ques1">
+            <span
+              class="sensor hasImg"
+              style="
+                width: 36px;
+                height: 109px;
+                top: 47px;
+                left: 1px;
+                z-index: 1;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/drink1.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 35px;
+                height: 90px;
+                top: 64px;
+                left: 181px;
+                z-index: 2;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/drink2.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 52px;
+                height: 92px;
+                top: 55px;
+                left: 51px;
+                z-index: 1;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/drink3.png"
+            /></span>
+          </div>
+          <div class="sensorGroup" ques="ques2">
+            <span
+              class="sensor hasImg"
+              style="
+                width: 53px;
+                height: 66px;
+                top: 107px;
+                left: 78px;
+                z-index: 3;
+                transform: rotate(-50deg);
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/snack1.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 79px;
+                height: 93px;
+                top: 51px;
+                left: 111px;
+                z-index: 1;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/snack2.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 53px;
+                height: 63px;
+                top: 98px;
+                left: 35px;
+                z-index: 2;
+                transform: rotate(68deg);
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/snack3.png"
+            /></span>
+          </div>
+          <div class="sensorGroup" ques="ques3">
+            <span
+              class="sensor hasImg"
+              style="
+                width: 31px;
+                height: 20px;
+                top: 137px;
+                left: 200px;
+                z-index: 4;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/sweet1.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 46px;
+                height: 92px;
+                top: 63px;
+                left: 217px;
+                z-index: 3;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/sweet2.png"
+            /></span>
+          </div>
+        </div>
+        <img
+          class="wow fadeIn"
+          style="width: 400px; height: 204px"
+          src="./DATA/PT/BOOK11/IMAGES/PT-11-4-3-1.png"
+        />
+        <div class="question" style="position: absolute; z-index: 2">
+          <div id="ques1" style="position: absolute; top: 141px; left: 358px">
+            <p><span style="border: none" ans="3"></span></p>
+          </div>
+          <div id="ques2" style="position: absolute; top: 164px; left: 358px">
+            <p><span style="border: none" ans="3"></span></p>
+          </div>
+          <div id="ques3" style="position: absolute; top: 186px; left: 358px">
+            <p><span style="border: none" ans="2"></span></p>
+          </div>
+          <div
+            id="ques4"
+            style="position: absolute; top: 215px; left: 298px; width: 135px"
+          >
+            <p>
+              一共可以裝<span
+                style="background: #fff; pointer-events: auto; cursor: pointer"
+                onClick="addupMe($(this),3)"
+                ans="2"
+              ></span
+              >個福袋
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro" style="display: none">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>零食福袋：</b>將這些零食公平的分裝成零食福袋！</p>
+          <img src="./DATA/PT/BOOK11/IMAGES/PT-11-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject">
+        <div class="sensorArea">
+          <div class="sensorGroup" ques="ques1">
+            <span
+              class="sensor hasImg"
+              style="
+                width: 36px;
+                height: 109px;
+                top: 47px;
+                left: 1px;
+                z-index: 1;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/drink1.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 35px;
+                height: 90px;
+                top: 64px;
+                left: 181px;
+                z-index: 2;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/drink2.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 52px;
+                height: 92px;
+                top: 55px;
+                left: 51px;
+                z-index: 1;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/drink3.png"
+            /></span>
+          </div>
+          <div class="sensorGroup" ques="ques2">
+            <span
+              class="sensor hasImg"
+              style="
+                width: 53px;
+                height: 66px;
+                top: 107px;
+                left: 78px;
+                z-index: 3;
+                transform: rotate(-50deg);
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/snack1.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 79px;
+                height: 93px;
+                top: 51px;
+                left: 111px;
+                z-index: 1;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/snack2.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 53px;
+                height: 63px;
+                top: 98px;
+                left: 35px;
+                z-index: 2;
+                transform: rotate(68deg);
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/snack3.png"
+            /></span>
+          </div>
+          <div class="sensorGroup" ques="ques3">
+            <span
+              class="sensor hasImg"
+              style="
+                width: 31px;
+                height: 20px;
+                top: 137px;
+                left: 200px;
+                z-index: 4;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/sweet1.png"
+            /></span>
+            <span
+              class="sensor hasImg"
+              style="
+                width: 46px;
+                height: 92px;
+                top: 63px;
+                left: 217px;
+                z-index: 3;
+              "
+              ><img src="./DATA/PT/BOOK11/IMAGES/sweet2.png"
+            /></span>
+          </div>
+        </div>
+        <img
+          class="wow fadeIn"
+          style="width: 450px; height: 247px"
+          src="./DATA/PT/BOOK11/IMAGES/PT-11-4-3-2.png"
+        />
+        <div class="question" style="position: absolute; z-index: 2">
+          <div id="ques1" style="position: absolute; top: 161px; left: 406px">
+            <p><span style="border: none" ans="12"></span></p>
+          </div>
+          <div id="ques2" style="position: absolute; top: 183px; left: 406px">
+            <p><span style="border: none" ans="21"></span></p>
+          </div>
+          <div id="ques3" style="position: absolute; top: 204px; left: 406px">
+            <p><span style="border: none" ans="23"></span></p>
+          </div>
+          <div
+            id="ques4"
+            style="position: absolute; top: 232px; left: 346px; width: 135px"
+          >
+            <p>
+              一共可以裝<span
+                style="background: #fff; pointer-events: auto; cursor: pointer"
+                onClick="addupMe($(this),23)"
+                ans="12"
+              ></span
+              >個福袋
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

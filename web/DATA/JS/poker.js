@@ -58,6 +58,7 @@ $(document).ready(function () {
         .bind("click", function () {
           resetElem($(".contents > div.selected"));
           $(".sideTool > div.btn_answer").removeClass("active");
+          rootSoundEffect($show);
         });
 
       //init
@@ -121,11 +122,30 @@ var checkAnswer = function () {
   }
 };
 
+var addupMe = function (tar, max) {
+  var amount = tar.text();
+  if (amount == "") {
+    amount = 1;
+  } else {
+    amount = parseInt(amount) + 1;
+  }
+  amount = amount > max ? 0 : amount;
+  tar.text(amount);
+};
+
 var showAnswer = function (boolean) {
   if (boolean) {
-    rootSoundEffect($help);
+    $(".contents > div.selected")
+      .find(".sensorArea > .sensorGroup >.sensor")
+      .click();
+    //answer question input
+    $(".contents > div.selected")
+      .find(".question > div")
+      .each(function () {
+        $(this).find("> p > span").text($(this).find("> p > span").attr("ans"));
+      });
     //
-    $(".contents > div.selected").find(".sensorArea > .sensorGroup").click();
+    rootSoundEffect($help);
   } else {
     $(".sideTool > div.btn_replay").click();
   }
@@ -149,13 +169,20 @@ var resetElem = function (elem) {
   elem.find(".question > div > div").empty();
   resetTool();
 
-  elem.find(".sensorArea > .sensorGroup").each(function () {
+  elem.find(".sensorArea > .sensorGroup > .sensor").each(function () {
     $(this)
       .unbind()
       .bind("click", function () {
-        if (!$(this).hasClass("selected")) {
+        if (
+          !$(this).parent().hasClass("selected") &&
+          !$(this).hasClass("selected")
+        ) {
           $(this).addClass("selected");
-          var quesID = $(this).attr("ques");
+          if ($(this).parent().hasClass("chained")) {
+            $(this).parent().addClass("selected");
+          }
+
+          var quesID = $(this).parent().attr("ques");
           var quesTarget = elem.find("#" + quesID);
           var quesTargetP =
             quesTarget.find(">p > span").text() != ""
@@ -163,8 +190,11 @@ var resetElem = function (elem) {
               : 0;
           quesTargetP = parseInt(quesTargetP) + 1;
           quesTarget.find(">p > span").text(quesTargetP);
-          var quesTargetD = quesTarget.find(">div");
-          quesTargetD.append($(this).attr("icon"));
+          //有沒有icon
+          if ($(this).parent().attr("icon")) {
+            var quesTargetD = quesTarget.find(">div");
+            quesTargetD.append($(this).parent().attr("icon"));
+          }
           //
           rootSoundEffect($key);
           $(".sideTool > div.btn_check").show();

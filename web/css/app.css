@@ -9338,7 +9338,10 @@
   z-index: 1;
   display: flex;
 }
-.module_poker .subject .question > div {
+.module_poker .subject .question {
+  pointer-events: auto;
+}
+.module_poker .subject .question > div.mode1 {
   padding: 8px;
   background: #fff;
   border: 2px solid #ea80b0;
@@ -9347,6 +9350,15 @@
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   margin-bottom: 10px;
+}
+.module_poker .subject .question > div.mode1 > div {
+  margin-top: 10px;
+}
+.module_poker .subject .question > div.mode1 > div * {
+  display: inline-block;
+  font-size: 12px;
+  font-family: "Gfont-Bold";
+  margin-right: 10px;
 }
 .module_poker .subject .question > div > p {
   font-size: 12px;
@@ -9365,15 +9377,6 @@
 .module_poker .subject .question > div > p > span.number {
   color: #1c9b64;
 }
-.module_poker .subject .question > div > div {
-  margin-top: 10px;
-}
-.module_poker .subject .question > div > div * {
-  display: inline-block;
-  font-size: 12px;
-  font-family: "Gfont-Bold";
-  margin-right: 10px;
-}
 .module_poker .subject .sensorArea {
   position: absolute;
   top: 0;
@@ -9385,21 +9388,19 @@
   top: 0;
   left: 0;
   z-index: 1;
-  pointer-events: auto;
-  opacity: 0 !important;
-  -moz-opacity: 0 !important;
-  -khtml-opacity: 0 !important;
-  filter: alpha(opacity=0) !important;
 }
-.module_poker .subject .sensorArea > .sensorGroup.selected {
+.module_poker .subject .sensorArea > .sensorGroup.selected > .sensor {
   opacity: 1 !important;
   -moz-opacity: 1 !important;
   -khtml-opacity: 1 !important;
   filter: alpha(opacity=100) !important;
   pointer-events: none;
 }
-.module_poker .subject .sensorArea > .sensorGroup.selected > .sensor {
-  pointer-events: none;
+.module_poker .subject .sensorArea > .sensorGroup.selected > .sensor.hasImg {
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 .module_poker .subject .sensorArea > .sensorGroup.forced {
   opacity: 1 !important;
@@ -9415,6 +9416,34 @@
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   pointer-events: auto;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_poker .subject .sensorArea > .sensorGroup > .sensor.hasImg {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+  border: none;
+}
+.module_poker .subject .sensorArea > .sensorGroup > .sensor.hasImg img {
+  width: 100%;
+  height: 100%;
+}
+.module_poker .subject .sensorArea > .sensorGroup > .sensor.selected {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+  pointer-events: none;
+}
+.module_poker .subject .sensorArea > .sensorGroup > .sensor.selected.hasImg {
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 
 .module_calculus {
