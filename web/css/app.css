@@ -9224,9 +9224,17 @@
   cursor: pointer;
   border: 2px solid #c5d9ee;
 }
+.module_sort .fishArea .fish.autosize {
+  border: none;
+  aspect-ratio: auto;
+  background: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
 .module_sort .fishArea .fish.selected {
   pointer-events: auto;
-  filter: drop-shadow(0px 0px 2px #f9b900) drop-shadow(0px 0px 4px #f9b900);
+  filter: drop-shadow(0px 0px 4px #f9b900) drop-shadow(0px 0px 8px #eb6154);
 }
 .module_sort .fishArea .fish > img {
   width: 100%;

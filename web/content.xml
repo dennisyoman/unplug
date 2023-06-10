@@ -420,7 +420,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="11" lid="2">
-    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-2-1.html" js="JS/draganddrop.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-2-1.html" js="JS/poker.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-2-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / Sort" html="PT/BOOK11/HTML/PT-11-2-3.html" js="JS/sort.js" image="IMAGES/UNITS/layers.png" skin="">
@@ -431,7 +431,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="11" lid="3">
-    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-3-1.html" js="JS/sort.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-3-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 資料壓縮" html="PT/BOOK11/HTML/PT-11-3-3.html" js="JS/fillin.js" image="IMAGES/UNITS/logic.png" skin="">
@@ -440,7 +440,7 @@
     </section>
   </lesson>
   <lesson sid="PT" bid="11" lid="4">
-    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-4-1.html" js="JS/regularity.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT/BOOK11/HTML/PT-11-4-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT/BOOK11/HTML/PT-11-4-2.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 分治法" html="PT/BOOK11/HTML/PT-11-4-3.html" js="JS/poker.js" image="IMAGES/UNITS/classify.png" skin="">

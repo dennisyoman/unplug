@@ -9220,9 +9220,16 @@
       cursor: pointer;
       border: 2px solid #c5d9ee;
 
+      &.autosize {
+        border: none;
+        aspect-ratio: auto;
+        background: none;
+        @include borderRadius(0);
+      }
+
       &.selected {
         pointer-events: auto;
-        filter: drop-shadow(0px 0px 2px $l1) drop-shadow(0px 0px 4px $l1);
+        filter: drop-shadow(0px 0px 4px $l1) drop-shadow(0px 0px 8px $main);
       }
 
       > img {

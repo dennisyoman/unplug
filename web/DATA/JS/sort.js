@@ -346,9 +346,11 @@ var resetElem = function (elem) {
     }
 
     //調整魚的大小
-    var size = groupSize * parseInt($(this).find("span").text());
-    size = size < 20 ? 20 : size;
-    $(this).attr("style", "width: " + size + "px; height: " + size + "px");
+    if (!$(this).hasClass("autosize")) {
+      var size = groupSize * parseInt($(this).find("span").text());
+      size = size < 20 ? 20 : size;
+      $(this).attr("style", "width: " + size + "px; height: " + size + "px");
+    }
 
     //移動到預設位子
     var intY = $(this).attr("intY");

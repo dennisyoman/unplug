@@ -137,6 +137,7 @@ var showAnswer = function (boolean) {
   if (boolean) {
     $(".contents > div.selected")
       .find(".sensorArea > .sensorGroup >.sensor")
+      .removeClass("selected")
       .click();
     //answer question input
     $(".contents > div.selected")
