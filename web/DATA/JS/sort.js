@@ -142,6 +142,9 @@ var checkAnswer = function () {
 };
 
 var getNextFish = function () {
+  if ($(event.target).hasClass("changefish")) {
+    $(event.target).addClass("visited");
+  }
   $(".changefish").hide();
   var fishArea = $(".contents > div.selected").find(".fishArea");
   var fishes = fishArea.find("> .fish");
@@ -254,6 +257,8 @@ var getNextMatch = function () {
           $(this).dequeue().remove();
         });
       fishArr[startID].addClass("start");
+      //
+      getNextFish();
     } else {
       //找到下一組match
       fishArr[startID + 1].addClass("selected");
@@ -319,6 +324,7 @@ var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".resultIcon").remove();
   elem.find(".smoke").remove();
+  elem.find(".changefish").removeClass("visited");
 
   //fish
 

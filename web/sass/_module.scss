@@ -9031,7 +9031,8 @@
         height: 100%;
         margin-left: -93%;
 
-        filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+        filter: drop-shadow(-1px -1px rgba(0, 0, 0, 0.5)) drop-shadow(1px 1px rgba(0, 0, 0, 0.5))
+          drop-shadow(-1px 1px rgba(0, 0, 0, 0.5)) drop-shadow(1px -1px rgba(0, 0, 0, 0.5));
         &:first-child {
           margin-left: 0;
           margin-top: 0;
@@ -9108,6 +9109,60 @@
       height: 30px;
       background: url("../DATA/IMAGES/common/btn_changefish.png") no-repeat center center;
       background-size: 100% 100%;
+
+      &.horizon {
+        &::before {
+          transform: translate(-111%, -50%) scale(0.7) rotate(-90deg);
+        }
+      }
+      &.visited {
+        &::before,
+        &::after {
+          @include opacity(0);
+        }
+      }
+      &.visited:hover,
+      &.visited:focus&.visited:active {
+        &::before,
+        &::after {
+          @include opacity(1);
+        }
+      }
+
+      &::before {
+        content: "點擊可以切換下一組進行交換";
+        font-size: 12px;
+        position: absolute;
+        line-height: 30px;
+        padding: 0 5px;
+        background: $main;
+        color: #fff;
+        white-space: nowrap;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        transform: translate(-105%, 0) scale(0.7);
+        transform-origin: right center;
+
+        transition: all 0.3s;
+        pointer-events: none;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        left: -9px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 3px 0 3px 4px;
+        border-color: transparent transparent transparent $main;
+        transform: rotate(0deg);
+
+        transition: all 0.3s;
+        pointer-events: none;
+      }
     }
   }
 
