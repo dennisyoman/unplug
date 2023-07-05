@@ -128,6 +128,7 @@ var openContent = function (id) {
 
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
+  elem.find(".visited").removeClass("visited");
   elem.find(".resultIcon").remove();
   elem.find(".smoke").remove();
   elem.find(".des .price span").text("");

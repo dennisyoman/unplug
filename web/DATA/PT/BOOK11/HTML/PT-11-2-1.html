@@ -1,181 +1,183 @@
-<div id="module_wrapper" class="module_poker">
+<div id="module_wrapper" class="module_greedy">
   <div class="tabs">
-    <span>任務一</span>
+    <span>學習單</span>
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT/BOOK11/HTML/PT-11-2-1-2.html','JS/poker.js',1)"
+      >延伸練習</span
+    >
   </div>
 
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_answer" onClick="unbindSensor()"></div>
     <div class="btn_replay"></div>
-    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
-    <!--任務一-->
+    <!--學習單-->
     <div>
       <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p><b>貪婪法：</b><br />選出最好的組合。</p>
+          <p>
+            <b>山洞裡的冒險家：</b
+            ><br />在每一個山洞裡，你可以挑走1個最好的寶石礦，但是不可以往回走。
+          </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="subject wow fadeInDown" style="width: 350px; display: block">
-        <div class="sensorArea">
-          <div class="sensorGroup" ques="ques1">
-            <span
-              class="sensor"
-              style="width: 46px; height: 46px; top: 156px; left: 5px"
-              ans="1"
-              occupy="1"
-              bonus="4"
-              onClick="fillbag($(this));"
-            />
-            <span
-              class="sensor"
-              style="width: 46px; height: 46px; top: 156px; left: 123px"
-              ans="1"
-              occupy="3"
-              bonus="2"
-              onClick="fillbag($(this));"
-            />
-            <span
-              class="sensor"
-              style="width: 46px; height: 46px; top: 156px; left: 301px"
-              ans="1"
-              occupy="4"
-              bonus="3"
-              onClick="fillbag($(this));"
-            />
-            <span
-              class="sensor"
-              style="width: 46px; height: 46px; top: 156px; left: 64px"
-              ans="0"
-              occupy="2"
-              bonus="1"
-              onClick="fillbag($(this));"
-            />
-            <span
-              class="sensor"
-              style="width: 46px; height: 46px; top: 156px; left: 182px"
-              ans="0"
-              occupy="8"
-              bonus="4"
-              onClick="fillbag($(this));"
-            />
-            <span
-              class="sensor"
-              style="width: 46px; height: 46px; top: 156px; left: 241px"
-              ans="0"
-              occupy="6"
-              bonus="3"
-              onClick="fillbag($(this));"
-            />
-          </div>
+      <div class="subject" style="width: 260px; margin-left: -300px">
+        <div class="itemArea">
+          <span
+            class="item"
+            style="width: 110px; height: 30px; top: 41px; left: 19px"
+            diamond="5"
+            long="5"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d12.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 44px; height: 30px; top: 72px; left: 64px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 44px; height: 30px; top: 92px; left: 175px"
+            diamond="4"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d7.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 22px; height: 30px; top: 92px; left: 228px"
+            diamond="1"
+            long="1"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d1.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 66px; height: 30px; top: 141px; left: 22px"
+            diamond="9"
+            long="3"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d13.png" />
+          </span>
+          <span
+            class="item"
+            style="width: 44px; height: 30px; top: 141px; left: 101px"
+            diamond="2"
+            long="2"
+          >
+            <img src="./DATA/PT/BOOK11/IMAGES/d8.png" />
+          </span>
         </div>
-        <img
-          height="auto"
-          width="250"
-          src="./DATA/PT/BOOK11/IMAGES/PT-11-2-1-2.png"
-        />
-        <img
-          class="wow bounceInUp"
-          height="auto"
-          width="350"
-          src="./DATA/PT/BOOK11/IMAGES/PT-11-2-1-1.png"
-        />
-        <div
-          class="question"
-          style="position: absolute; z-index: 2; top: 0; left: 0"
-        >
-          <div id="ques1" style="position: absolute; top: 124px; left: 210px">
-            <p><span style="border: none" ans="9"></span></p>
-          </div>
+        <div class="covers">
+          <span
+            onClick="openCave($(this))"
+            style="width: 138px; height: 80px; top: 29px; left: 5px"
+          >
+          </span>
+          <span
+            onClick="openCave($(this))"
+            style="width: 90px; height: 45px; top: 85px; left: 167px"
+          >
+          </span>
+          <span
+            onClick="openCave($(this))"
+            style="width: 137px; height: 52px; top: 130px; left: 13px"
+          >
+          </span>
         </div>
-        <div id="occupyArea" class="occupyArea" style="top: 0; left: 0">
-          <span style="width: 32px; height: 32px; top: 4px; left: 111px" />
-          <span style="width: 32px; height: 32px; top: 39px; left: 111px" />
-          <span style="width: 32px; height: 32px; top: 74px; left: 111px" />
-          <span style="width: 32px; height: 32px; top: 110px; left: 111px" />
-          <span style="width: 32px; height: 32px; top: 4px; left: 147px" />
-          <span style="width: 32px; height: 32px; top: 39px; left: 147px" />
-          <span style="width: 32px; height: 32px; top: 74px; left: 147px" />
-          <span style="width: 32px; height: 32px; top: 110px; left: 147px" />
+
+        <img
+          width="100%"
+          height="auto"
+          src="./DATA/PT/BOOK11/IMAGES/PT-11-2-1-3.png"
+        />
+        <div class="ansArea" style="left: 320px; width: 200px; top: 50px">
+          <div
+            class="backpack wow fadeInRight selected"
+            style="margin-bottom: 20px"
+          >
+            <img class="bag" src="./DATA/PT/BOOK11/IMAGES/backpack.png" />
+            <div class="grids">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <img src="./DATA/PT/BOOK11/IMAGES/PT-11-1-3-1-2.png" />
+            </div>
+            <div class="sum">0</div>
+          </div>
         </div>
       </div>
     </div>
+    <!--延伸練習-->
   </div>
 
   <div class="assetsPreload"></div>
 </div>
 <style>
-  .module_poker .occupyArea {
+  .module_greedy .covers {
     position: absolute;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 5;
   }
-  .module_poker .occupyArea > span {
+  .module_greedy .covers > span {
     position: absolute;
+    top: 0;
+    left: 0;
+    background: #935749;
     pointer-events: auto;
   }
-  .module_poker .occupyArea > span::before {
-    content: "";
+  .module_greedy .covers > span::before {
+    content: "Click to Open";
+    white-space: nowrap;
+    font-size: 12px;
     position: absolute;
-    width: 3px;
-    height: 3px;
-    background: rgba(255, 0, 0, 0);
-    transform: rotate(45deg);
-    top: 0px;
-    left: 0px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  .module_poker .occupyArea > span.selected::before {
-    width: 30px;
-    background: #eb6154;
-    top: 15px;
-    left: 2px;
-    transition: all 0.3s;
+  .module_greedy .covers > span.selected {
+    display: none;
+  }
+  .module_greedy .covers > span.selected.visited {
+    opacity: 0.5;
+    display: block;
+  }
+  .module_greedy .covers > span.selected::before {
+    content: "";
   }
 </style>
 <script>
-  var unbindSensor = function () {
-    $(".contents > div.selected")
-      .find(".sensorArea > .sensorGroup >.sensor")
-      .unbind();
-  };
-  var fillbag = function (tar) {
-    unbindSensor();
-    $(".sideTool > div.btn_replay").show();
-    $(".sideTool > div.btn_check").show();
-
-    tar.removeClass("selected");
-    var maxOccupy = 8;
-    var occupyAmount = 0;
-    var bonusAmount = 0;
-    tar
-      .parent()
-      .find(".sensor.selected")
-      .each(function () {
-        occupyAmount += parseInt($(this).attr("occupy"));
-        bonusAmount += parseInt($(this).attr("bonus"));
-      });
-    if (occupyAmount + parseInt(tar.attr("occupy")) <= maxOccupy) {
-      tar.addClass("selected");
-      occupyAmount += parseInt(tar.attr("occupy"));
-      bonusAmount += parseInt(tar.attr("bonus"));
-      rootSoundEffect($key);
-    } else {
-      rootSoundEffect($stupid);
-    }
-    for (var i = 0; i < maxOccupy; i++) {
-      if (i < occupyAmount) {
-        $("#occupyArea").find(">span").eq(i).addClass("selected");
+  var openCave = function (tar) {
+    if (tar.prev().length > 0) {
+      if (tar.prev().hasClass("selected")) {
+        tar.addClass("selected");
+        tar.prev().addClass("visited");
+        rootSoundEffect($show);
       } else {
-        $("#occupyArea").find(">span").eq(i).removeClass("selected");
+        rootSoundEffect($wrong);
+      }
+    } else {
+      if (tar.hasClass("visited")) {
+        rootSoundEffect($wrong);
+      } else {
+        tar.addClass("selected");
+        rootSoundEffect($show);
       }
     }
-
-    $("#" + tar.parent().attr("ques"))
-      .find("> p > span")
-      .text(bonusAmount);
   };
 </script>
