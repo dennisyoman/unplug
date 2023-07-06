@@ -86,7 +86,6 @@ var checkAnswer = function () {
   var bingo = true;
 
   //找出高低排序
-
   fishes.each(function () {
     if (fishArr.length < 1) {
       fishArr.push($(this));
@@ -106,13 +105,37 @@ var checkAnswer = function () {
     }
   });
 
-  for (var i = 0; i < fishArr.length - 1; i++) {
-    if (
-      parseInt(fishArr[i].find("span").text()) >
-      parseInt(fishArr[i + 1].find("span").text())
-    ) {
-      bingo = false;
-      break;
+  if ($(".contents > div.selected").find(".subject").hasClass("moveonce")) {
+    //只針對起始魚
+    if (fishArea.find("> .fish.start").length > 0) {
+      //已經有起始的魚,找出他上面那兩隻
+      for (var i = 0; i < fishArr.length; i++) {
+        if (
+          fishArea.find("> .fish.start").find("span").text() ==
+          fishArr[i].find("span").text()
+        ) {
+          var tempID = i;
+          if (tempID != fishArr.length - 1) {
+            if (
+              parseInt(fishArr[tempID].find("span").text()) >
+              parseInt(fishArr[tempID + 1].find("span").text())
+            )
+              bingo = false;
+          }
+          break;
+        }
+      }
+    }
+  } else {
+    //針對整個排列
+    for (var i = 0; i < fishArr.length - 1; i++) {
+      if (
+        parseInt(fishArr[i].find("span").text()) >
+        parseInt(fishArr[i + 1].find("span").text())
+      ) {
+        bingo = false;
+        break;
+      }
     }
   }
 
@@ -142,9 +165,6 @@ var checkAnswer = function () {
 };
 
 var getNextFish = function () {
-  if ($(event.target).hasClass("changefish")) {
-    $(event.target).addClass("visited");
-  }
   $(".changefish").hide();
   var fishArea = $(".contents > div.selected").find(".fishArea");
   var fishes = fishArea.find("> .fish");
@@ -198,7 +218,11 @@ var getNextFish = function () {
     rootSoundEffect($key);
 
     fishArea.dequeue();
-    $(".changefish").show();
+    if ($(".contents > div.selected").find(".subject").hasClass("moveonce")) {
+      //不顯示換組按鈕
+    } else {
+      $(".changefish").show();
+    }
   });
 };
 
@@ -258,7 +282,11 @@ var getNextMatch = function () {
         });
       fishArr[startID].addClass("start");
       //
-      getNextFish();
+      if ($(".contents > div.selected").find(".subject").hasClass("moveonce")) {
+        //不主動找下一組魚
+      } else {
+        getNextFish();
+      }
     } else {
       //找到下一組match
       fishArr[startID + 1].addClass("selected");
@@ -381,7 +409,14 @@ var resetElem = function (elem) {
           var XY2 = [fish2.css("top"), fish2.css("left")];
           fish1.removeClass("selected").css("top", XY2[0]).css("left", XY2[1]);
           fish2.removeClass("selected").css("top", XY1[0]).css("left", XY1[1]);
-          rootSoundEffect($water);
+
+          if (
+            $(".contents > div.selected").find(".subject").hasClass("notfish")
+          ) {
+            rootSoundEffect($show);
+          } else {
+            rootSoundEffect($water);
+          }
 
           getNextMatch();
         } else {
