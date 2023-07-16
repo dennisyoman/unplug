@@ -266,8 +266,12 @@
           transform: rotateX(-50deg);
           top: 0;
           left: 0;
-          -webkit-transition: top 0.5s, left 0.5s;
-          transition: top 0.5s, left 0.5s;
+          -webkit-transition:
+            top 0.5s,
+            left 0.5s;
+          transition:
+            top 0.5s,
+            left 0.5s;
 
           > img {
             position: absolute;
@@ -8714,8 +8718,12 @@
     pointer-events: none;
 
     &.automove {
-      transition: top 0.5s, left 0.5s;
-      -webkit-transition: top 0.8s ease-out, left 0.8s ease-in;
+      transition:
+        top 0.5s,
+        left 0.5s;
+      -webkit-transition:
+        top 0.8s ease-out,
+        left 0.8s ease-in;
     }
     .toy {
       width: 100% !important;
@@ -11224,8 +11232,12 @@
     }
 
     &.automove {
-      transition: top 0.5s, left 0.5s;
-      -webkit-transition: top 0.8s ease-out, left 0.8s ease-in;
+      transition:
+        top 0.5s,
+        left 0.5s;
+      -webkit-transition:
+        top 0.8s ease-out,
+        left 0.8s ease-in;
     }
     .toy {
       width: 100% !important;

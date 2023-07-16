@@ -1,0 +1,153 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>bug的由來</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInLeft">
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="檢查零件">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="紀錄狀況">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="出現錯誤">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="發現bug">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="清除bug">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="檢查線路">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div ans="C"></div>
+        <div ans="E"></div>
+        <div class="end" ans="F"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>B=1</span>
+        <span>A=2</span>
+        <span>F=6</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>失敗了，怎麼辦？</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="grids grid12 withArrow wow fadeInLeft"
+        style="justify-content: start; margin-left: 40px"
+      >
+        <div>
+          <div class="cardItem A l1 cards" ans="A" title="思考原因">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l1 cards" ans="B" title="求助大人">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l1 cards" ans="C" title="摔壞鍋子">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l1 cards" ans="D" title="再試一次">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l1 cards" ans="E" title="大哭">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l1 cards" ans="F" title="成功的荷包蛋">
+            <img src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp" style="bottom: 3px">
+        <span class="ref"
+          ><img
+            style="width: 90px; margin-top: 0px; margin-left: 5px"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-1-5-2-ref.png"
+        /></span>
+        <div ans="E"></div>
+        <div ans="F"></div>
+        <div ans="B"></div>
+        <div ans="A"></div>
+        <div ans="D" style="position: absolute; top: 31px; left: 304px"></div>
+        <div ans="C" style="position: absolute; top: 31px; left: 333px"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>E=1</span>
+        <span>C=6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

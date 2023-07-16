@@ -66,5 +66,11 @@
       <lesson lid="3">圖畫變文字</lesson>
       <lesson lid="4">問題大分小</lesson>
     </book>
+    <book name="Book 12" bid="12" img="PT_book12.jpg">
+      <lesson lid="1">除錯大師</lesson>
+      <lesson lid="2">分工合作</lesson>
+      <lesson lid="3">分類與決策</lesson>
+      <lesson lid="4">解密小將</lesson>
+    </book>
   </series>
 </root>
