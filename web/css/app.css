@@ -9114,7 +9114,7 @@
   -khtml-opacity: 0 !important;
   filter: alpha(opacity=0) !important;
 }
-.module_sort .subject .changefish.visited:focus::before, .module_sort .subject .changefish.visited:focus::after, .module_sort .subject .changefish.visited:hover::before, .module_sort .subject .changefish.visited:hover::after, .module_sort .subject .changefish.visited:active::before, .module_sort .subject .changefish.visited:active::after {
+.module_sort .subject .changefish.visited:hover::before, .module_sort .subject .changefish.visited:hover::after, .module_sort .subject .changefish.visited:focus::before, .module_sort .subject .changefish.visited:focus::after, .module_sort .subject .changefish.visited:active::before, .module_sort .subject .changefish.visited:active::after {
   opacity: 1 !important;
   -moz-opacity: 1 !important;
   -khtml-opacity: 1 !important;
@@ -13086,6 +13086,7 @@ body {
   display: none;
 }
 .root .basic-tools span.power {
+  display: none;
   right: 10px;
   bottom: 4px;
   width: 32px;

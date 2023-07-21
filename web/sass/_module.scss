@@ -9130,7 +9130,8 @@
         }
       }
       &.visited:hover,
-      &.visited:focus&.visited:active {
+      &.visited:focus,
+      &.visited:active {
         &::before,
         &::after {
           @include opacity(1);

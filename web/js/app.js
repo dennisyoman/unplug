@@ -50,8 +50,11 @@ $(document).ready(function () {
           $("#demo").removeClass("real");
         } else {
           $("#demo").show();
+
           $("#demo").addClass("real");
         }
+        //20230719 updated
+        $("#power").show();
         //clean widgets
         $("#widget").empty();
         //clean canvas
@@ -478,6 +481,8 @@ let loadMainSlider = function () {
     $("#demo").show();
     $("#demo").addClass("real");
   }
+  //20230719 updated
+  $("#power").show();
 };
 
 let getTimeStamp = function () {
