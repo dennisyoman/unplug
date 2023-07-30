@@ -42,6 +42,7 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).toggleClass("active");
           if ($(this).hasClass("active")) {
+            $(".sideTool > div.btn_replay").show();
             showAnswer(true);
           } else {
             showAnswer(false);
@@ -51,6 +52,13 @@ $(document).ready(function () {
         .unbind()
         .bind("click", function () {
           checkAnswer();
+        });
+      $(".sideTool > div.btn_replay")
+        .unbind()
+        .bind("click", function () {
+          $(this).hide();
+          $(".sideTool > div.btn_answer").removeClass("active");
+          showAnswer(false);
         });
 
       //init
@@ -88,14 +96,14 @@ var trigMe = function (tar) {
       if (frame.find(">span").length < answerArr.length) {
         //還有欄位
         rootSoundEffect($pop);
+        $(".sideTool > div.btn_replay").show();
         frame.append(tar.clone());
+        if (frame.find(".indicator").length > 0) {
+          updateIndicator(frame);
+        }
       } else {
         //答案已滿
         rootSoundEffect($wrong);
-        /* $(".alert").remove();
-        $(".contents > div.selected").append(
-          `<div class="alert wow bounceInUp" onclick="$(this).remove()">欄位已滿</div>`
-        );*/
       }
     }
   }
@@ -349,6 +357,7 @@ var showAnswer = function (boolean) {
           for (var k = 0; k < codeItems.length; k++) {
             if (codeItems.eq(k).attr("iid") == answerArr[i]) {
               $(this).append(codeItems.eq(k).clone());
+              break;
             }
           }
         }

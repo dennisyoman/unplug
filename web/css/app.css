@@ -1321,6 +1321,357 @@
   margin-left: 15px;
 }
 
+.module_debug {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_debug .alert {
+  top: 240px;
+  left: 25px;
+}
+.module_debug .alert::after {
+  right: -9px;
+  top: 16px;
+  transform: rotate(90deg);
+}
+.module_debug .smoke,
+.module_debug .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  z-index: 99;
+  transform-origin: center center;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+.module_debug .smoke > img,
+.module_debug .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.module_debug.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+.module_debug .subject {
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+}
+.module_debug .TFArea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_debug .TFArea > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+.module_debug .TFArea > span.selected {
+  animation-name: bounceIn;
+  animation-duration: 1s;
+  border-color: #eb6154;
+}
+.module_debug .flowerArea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_debug .flowerArea > span {
+  pointer-events: auto;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: url("../DATA/PT/BOOK12/IMAGES/PT-12-1-3-3.png") no-repeat top left 30px;
+  background-size: 150px 30px;
+  display: inline-block;
+}
+.module_debug .flowerArea > span.b {
+  background-position: top left -90px;
+}
+.module_debug .flowerArea > span.r {
+  background-position: top left;
+}
+.module_debug .flowerArea > span.o {
+  background-position: top left -30px;
+}
+.module_debug .flowerArea > span.g {
+  background-position: top left -60px;
+}
+.module_debug .flowerArea > span.p {
+  background-position: top left -120px;
+}
+.module_debug .flowerArea > span.active {
+  filter: drop-shadow(0px 0px 4px #eb6154) drop-shadow(0px 0px 4px #eb6154);
+}
+.module_debug .flowerArea > span.selected::after {
+  content: "";
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  position: absolute;
+  z-index: 2;
+  border: 2px solid #eb6154;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+.module_debug .sensorArea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.module_debug .sensorArea .piece {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 0;
+  height: 0;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.module_debug .sensorArea .piece img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -ms-transform: translate(-50%, 20%);
+  -webkit-transform: translate(-50%, 20%);
+  transform: translate(-50%, 20%);
+  -webkit-animation-fill-mode: forwards;
+}
+.module_debug .sensorArea > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.module_debug .sensorArea > div > span {
+  position: absolute;
+  z-index: 2;
+}
+.module_debug .sensorArea > div > span.done {
+  background: rgba(255, 255, 255, 0.4);
+}
+.module_debug .sensorArea > div > span > span {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center center;
+  background-size: contain;
+  z-index: 2;
+  pointer-events: auto;
+}
+.module_debug .sensorArea > div > span > span.r {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.module_debug .sensorArea > div > span > span.l {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.module_debug .sensorArea > div > span > span.u {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+.module_debug .sensorArea > div > span > span.d {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.module_debug .answer {
+  margin-top: 20px;
+  position: relative;
+}
+.module_debug .answer .arrows {
+  white-space: nowrap;
+  display: flex;
+  position: relative;
+}
+.module_debug .answer .arrows.done > span {
+  pointer-events: none;
+}
+.module_debug .answer .arrows > span {
+  pointer-events: auto;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+.module_debug .answer .arrows > span::before {
+  content: "";
+  width: 60%;
+  height: 60%;
+  background: url("../DATA/PT/BOOK12/IMAGES/arrow.png") no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 1;
+}
+.module_debug .answer .arrows > span.d::before {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.module_debug .answer .arrows > span.u::before {
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.module_debug .answer .arrows > span.l::before {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.module_debug .answer .arrows > span.selected::after {
+  animation-name: bounceIn;
+  animation-duration: 1s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  border: 2px solid #eb6154;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+.module_debug .answer .arrows > span.done::before {
+  opacity: 0.3 !important;
+  -moz-opacity: 0.3 !important;
+  -khtml-opacity: 0.3 !important;
+  filter: alpha(opacity=30) !important;
+}
+.module_debug .answer .flowers {
+  white-space: nowrap;
+  display: flex;
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+.module_debug .answer .flowers.done > span {
+  pointer-events: none;
+}
+.module_debug .answer .flowers > span {
+  pointer-events: auto;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background: url("../DATA/PT/BOOK12/IMAGES/PT-12-1-3-3.png") no-repeat top left 30px;
+  background-size: 150px 30px;
+  display: inline-block;
+  margin-right: 45px;
+}
+.module_debug .answer .flowers > span.b {
+  background-position: top left -90px;
+}
+.module_debug .answer .flowers > span.r {
+  background-position: top left;
+}
+.module_debug .answer .flowers > span.o {
+  background-position: top left -30px;
+}
+.module_debug .answer .flowers > span.g {
+  background-position: top left -60px;
+}
+.module_debug .answer .flowers > span.p {
+  background-position: top left -120px;
+}
+.module_debug .answer .flowers > span::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: url("../DATA/PT/BOOK12/IMAGES/arrow.png") no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: 8px;
+  left: 45px;
+  z-index: 1;
+}
+.module_debug .answer .flowers > span:last-child {
+  margin-right: 0;
+}
+.module_debug .answer .flowers > span:last-child::after {
+  display: none;
+}
+.module_debug .answer .flowers > span.active {
+  filter: drop-shadow(0px 0px 4px #eb6154) drop-shadow(0px 0px 4px #eb6154);
+}
+.module_debug .answer .pagination {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  gap: 10px;
+}
+.module_debug .answer .pagination span {
+  pointer-events: auto;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  -ms-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  margin: 5px;
+}
+.module_debug .answer .pagination span img {
+  width: 20px;
+  height: 20px;
+}
+.module_debug .answer .pagination span:last-child {
+  -ms-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.module_debug .answer .pagination span.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 .module_layers {
   position: relative;
   top: 0;
@@ -6950,10 +7301,7 @@
   top: 0;
   left: 0;
   z-index: 5;
-  opacity: 0 !important;
-  -moz-opacity: 0 !important;
-  -khtml-opacity: 0 !important;
-  filter: alpha(opacity=0) !important;
+  background: #ff0000;
 }
 .module_decode .contents .check {
   position: relative;
@@ -7050,9 +7398,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #00ff00;
 }
 .module_decode .contents .puzzle .items.selected {
   border: 3px dashed #333333;
+}
+.module_decode .contents .puzzle .items.selected .indicator {
+  display: block;
+}
+.module_decode .contents .puzzle .items.noclick > * {
+  pointer-events: none;
 }
 .module_decode .contents .puzzle .items > span {
   min-width: 0;
@@ -7088,6 +7443,36 @@
   -moz-opacity: 1 !important;
   -khtml-opacity: 1 !important;
   filter: alpha(opacity=100) !important;
+}
+.module_decode .contents .puzzle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+}
+.module_decode .contents .puzzle .indicator > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: #ea7fae;
+  border: 1px solid transparent;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  opacity: 0;
+}
+.module_decode .contents .puzzle .indicator > span.done {
+  opacity: 0.7;
+}
+.module_decode .contents .puzzle .indicator > span.next {
+  border-color: #00ff00;
+  background: transparent;
+  opacity: 1;
+}
+.module_decode .contents .puzzle .indicators {
+  display: none;
 }
 .module_decode .contents .puzzle .ans {
   display: none;

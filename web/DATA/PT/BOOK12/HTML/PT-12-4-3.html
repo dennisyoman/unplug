@@ -1,0 +1,1201 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>破解密碼</b>：參考提示圖表來破解密碼。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow fadeInLeft"
+        style="width: 240px; padding: 0; margin-top: -6px"
+      >
+        <div class="items">
+          <span style="top: 23px; left: 9px" iid="n" onClick="trigMe($(this))"
+            >n</span
+          >
+          <span style="top: 23px; left: 43px" iid="t" onClick="trigMe($(this))"
+            >t</span
+          >
+          <span style="top: 23px; left: 78px" iid="l" onClick="trigMe($(this))"
+            >l</span
+          >
+          <span style="top: 23px; left: 113px" iid="e" onClick="trigMe($(this))"
+            >e</span
+          >
+          <span style="top: 23px; left: 147px" iid="i" onClick="trigMe($(this))"
+            >i</span
+          >
+          <span style="top: 23px; left: 182px" iid="o" onClick="trigMe($(this))"
+            >o</span
+          >
+          <span style="top: 110px; left: 9px" iid="w" onClick="trigMe($(this))"
+            >w</span
+          >
+          <span style="top: 110px; left: 43px" iid="n" onClick="trigMe($(this))"
+            >n</span
+          >
+          <span style="top: 110px; left: 78px" iid="i" onClick="trigMe($(this))"
+            >i</span
+          >
+          <span
+            style="top: 110px; left: 113px"
+            iid="k"
+            onClick="trigMe($(this))"
+            >k</span
+          >
+          <span
+            style="top: 110px; left: 147px"
+            iid="t"
+            onClick="trigMe($(this))"
+            >t</span
+          >
+          <span
+            style="top: 110px; left: 182px"
+            iid="e"
+            onClick="trigMe($(this))"
+            >e</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-1-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInRight" style="width: 200px">
+        <div
+          class="items noclick"
+          ans="l,i,t,t,l,e"
+          style="top: 31px; left: 133px; width: 62px; height: 20px"
+          onClick="addIndicator($(this),'.indicator1')"
+        ></div>
+        <div
+          class="items noclick"
+          ans="k,i,t,e"
+          style="top: 95px; left: 98px; width: 94px; height: 20px"
+          onClick="addIndicator($(this),'.indicator2')"
+        ></div>
+        <div
+          class="items noclick"
+          ans="t,w,i,n"
+          style="top: 117px; left: 98px; width: 94px; height: 20px"
+          onClick="addIndicator($(this),'.indicator3')"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-1-2.png"
+          />
+        </div>
+        <div class="indicators">
+          <div class="indicator indicator1" style="top: 3px; left: -122px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 19px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 37px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 55px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 73px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 91px"
+            ></span>
+          </div>
+          <div class="indicator indicator2" style="top: 3px; left: -87px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 19px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 37px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 55px"
+            ></span>
+          </div>
+          <div class="indicator indicator3" style="top: 3px; left: -87px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 19px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 37px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 55px"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務一 -->
+    <div style="flex-direction: column">
+      <div stype="display:none" class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>破解密碼</b>：參考提示圖表來破解密碼。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow fadeInDown"
+        style="width: 360px; padding: 0; margin: 20px auto"
+      >
+        <div class="items">
+          <span style="top: 22px; left: 9px" iid="y" onClick="trigMe($(this))"
+            >y</span
+          >
+          <span style="top: 22px; left: 41px" iid="z" onClick="trigMe($(this))"
+            >z</span
+          >
+          <span style="top: 22px; left: 73px" iid="a" onClick="trigMe($(this))"
+            >a</span
+          >
+          <span style="top: 22px; left: 106px" iid="b" onClick="trigMe($(this))"
+            >b</span
+          >
+          <span style="top: 22px; left: 139px" iid="c" onClick="trigMe($(this))"
+            >c</span
+          >
+          <span style="top: 22px; left: 171px" iid="d" onClick="trigMe($(this))"
+            >d</span
+          >
+          <span style="top: 22px; left: 204px" iid="e" onClick="trigMe($(this))"
+            >e</span
+          >
+          <span style="top: 22px; left: 236px" iid="f" onClick="trigMe($(this))"
+            >f</span
+          >
+          <span style="top: 22px; left: 269px" iid="g" onClick="trigMe($(this))"
+            >g</span
+          >
+          <span style="top: 22px; left: 302px" iid="h" onClick="trigMe($(this))"
+            >h</span
+          >
+          <span style="top: 22px; left: 334px" iid="i" onClick="trigMe($(this))"
+            >i</span
+          >
+
+          <span style="top: 82px; left: 9px" iid="j" onClick="trigMe($(this))"
+            >j</span
+          >
+          <span style="top: 82px; left: 41px" iid="k" onClick="trigMe($(this))"
+            >k</span
+          >
+          <span style="top: 82px; left: 73px" iid="l" onClick="trigMe($(this))"
+            >l</span
+          >
+          <span style="top: 82px; left: 106px" iid="m" onClick="trigMe($(this))"
+            >m</span
+          >
+          <span style="top: 82px; left: 139px" iid="n" onClick="trigMe($(this))"
+            >n</span
+          >
+          <span style="top: 82px; left: 171px" iid="o" onClick="trigMe($(this))"
+            >o</span
+          >
+          <span style="top: 82px; left: 204px" iid="p" onClick="trigMe($(this))"
+            >p</span
+          >
+          <span style="top: 82px; left: 236px" iid="q" onClick="trigMe($(this))"
+            >q</span
+          >
+          <span style="top: 82px; left: 269px" iid="r" onClick="trigMe($(this))"
+            >r</span
+          >
+          <span style="top: 82px; left: 302px" iid="s" onClick="trigMe($(this))"
+            >s</span
+          >
+          <span style="top: 82px; left: 334px" iid="t" onClick="trigMe($(this))"
+            >t</span
+          >
+
+          <span style="top: 143px; left: 9px" iid="u" onClick="trigMe($(this))"
+            >u</span
+          >
+          <span style="top: 143px; left: 41px" iid="v" onClick="trigMe($(this))"
+            >v</span
+          >
+          <span style="top: 143px; left: 73px" iid="w" onClick="trigMe($(this))"
+            >w</span
+          >
+          <span
+            style="top: 143px; left: 106px"
+            iid="x"
+            onClick="trigMe($(this))"
+            >x</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-2-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInUp" style="width: 360px">
+        <div
+          class="items noclick"
+          ans="s,c,h,o,o,l"
+          style="top: -6px; left: 103px; width: 67px; height: 20px"
+          onClick="addIndicator($(this),'.indicator1')"
+        ></div>
+        <div
+          class="items noclick"
+          ans="m,o,n,s,t,e,r"
+          style="top: -6px; left: 302px; width: 59px; height: 20px"
+          onClick="addIndicator($(this),'.indicator2')"
+        ></div>
+        <div
+          class="items noclick"
+          ans="f,r,i,e,n,d"
+          style="top: 32px; left: 103px; width: 67px; height: 20px"
+          onClick="addIndicator($(this),'.indicator3')"
+        ></div>
+        <div
+          class="items noclick"
+          ans="h,a,p,p,y"
+          style="top: 32px; left: 272px; width: 88px; height: 20px"
+          onClick="addIndicator($(this),'.indicator4')"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-2-2.png"
+          />
+        </div>
+        <div class="indicators">
+          <div class="indicator indicator1" style="top: 4px; left: -104px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 15px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 30px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 45px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 60px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 75px"
+            ></span>
+          </div>
+          <div class="indicator indicator2" style="top: 4px; left: -120px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 15px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 30px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 45px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 60px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 75px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 90px"
+            ></span>
+          </div>
+          <div class="indicator indicator3" style="top: 4px; left: -104px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 15px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 30px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 45px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 60px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 75px"
+            ></span>
+          </div>
+          <div class="indicator indicator4" style="top: 4px; left: -90px">
+            <span style="width: 13px; height: 13px; top: 0px; left: 0px"></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 15px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 30px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 45px"
+            ></span>
+            <span
+              style="width: 13px; height: 13px; top: 0px; left: 60px"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>破解密碼</b>：根據右側的提示，點擊棋盤內相對應的文字。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow fadeInLeft"
+        style="width: 250px; padding: 0; margin-right: 40px"
+      >
+        <div class="items">
+          <span
+            style="top: 27px; left: 28px"
+            iid="q"
+            onClick="trigMeAll($(this))"
+            >q</span
+          >
+          <span
+            style="top: 27px; left: 67px"
+            iid="w"
+            onClick="trigMeAll($(this))"
+            >w</span
+          >
+          <span
+            style="top: 27px; left: 105px"
+            iid="e"
+            onClick="trigMeAll($(this))"
+            >e</span
+          >
+          <span
+            style="top: 27px; left: 144px"
+            iid="r"
+            onClick="trigMeAll($(this))"
+            >r</span
+          >
+          <span
+            style="top: 27px; left: 182px"
+            iid="t"
+            onClick="trigMeAll($(this))"
+            >t</span
+          >
+          <span
+            style="top: 27px; left: 220px"
+            iid="y"
+            onClick="trigMeAll($(this))"
+            >y</span
+          >
+
+          <span
+            style="top: 66px; left: 28px"
+            iid="a"
+            onClick="trigMeAll($(this))"
+            >a</span
+          >
+          <span
+            style="top: 66px; left: 67px"
+            iid="s"
+            onClick="trigMeAll($(this))"
+            >s</span
+          >
+          <span
+            style="top: 66px; left: 105px"
+            iid="d"
+            onClick="trigMeAll($(this))"
+            >d</span
+          >
+          <span
+            style="top: 66px; left: 144px"
+            iid="f"
+            onClick="trigMeAll($(this))"
+            >f</span
+          >
+          <span
+            style="top: 66px; left: 182px"
+            iid="g"
+            onClick="trigMeAll($(this))"
+            >g</span
+          >
+          <span
+            style="top: 66px; left: 220px"
+            iid="h"
+            onClick="trigMeAll($(this))"
+            >h</span
+          >
+
+          <span
+            style="top: 104px; left: 28px"
+            iid="z"
+            onClick="trigMeAll($(this))"
+            >z</span
+          >
+          <span
+            style="top: 104px; left: 67px"
+            iid="c"
+            onClick="trigMeAll($(this))"
+            >c</span
+          >
+          <span
+            style="top: 104px; left: 105px"
+            iid="v"
+            onClick="trigMeAll($(this))"
+            >v</span
+          >
+          <span
+            style="top: 104px; left: 144px"
+            iid="b"
+            onClick="trigMeAll($(this))"
+            >b</span
+          >
+          <span
+            style="top: 104px; left: 182px"
+            iid="n"
+            onClick="trigMeAll($(this))"
+            >n</span
+          >
+          <span
+            style="top: 104px; left: 220px"
+            iid="m"
+            onClick="trigMeAll($(this))"
+            >m</span
+          >
+
+          <span
+            style="top: 143px; left: 28px"
+            iid="y"
+            onClick="trigMeAll($(this))"
+            >y</span
+          >
+          <span
+            style="top: 143px; left: 67px"
+            iid="t"
+            onClick="trigMeAll($(this))"
+            >t</span
+          >
+          <span
+            style="top: 143px; left: 105px"
+            iid="u"
+            onClick="trigMeAll($(this))"
+            >u</span
+          >
+          <span
+            style="top: 143px; left: 144px"
+            iid="i"
+            onClick="trigMeAll($(this))"
+            >i</span
+          >
+          <span
+            style="top: 143px; left: 182px"
+            iid="o"
+            onClick="trigMeAll($(this))"
+            >o</span
+          >
+          <span
+            style="top: 143px; left: 220px"
+            iid="p"
+            onClick="trigMeAll($(this))"
+            >p</span
+          >
+
+          <span
+            style="top: 181px; left: 28px"
+            iid="a"
+            onClick="trigMeAll($(this))"
+            >a</span
+          >
+          <span
+            style="top: 181px; left: 67px"
+            iid="d"
+            onClick="trigMeAll($(this))"
+            >d</span
+          >
+          <span
+            style="top: 181px; left: 105px"
+            iid="h"
+            onClick="trigMeAll($(this))"
+            >h</span
+          >
+          <span
+            style="top: 181px; left: 144px"
+            iid="j"
+            onClick="trigMeAll($(this))"
+            >j</span
+          >
+          <span
+            style="top: 181px; left: 182px"
+            iid="k"
+            onClick="trigMeAll($(this))"
+            >k</span
+          >
+          <span
+            style="top: 181px; left: 220px"
+            iid="l"
+            onClick="trigMeAll($(this))"
+            >l</span
+          >
+
+          <span
+            style="top: 220px; left: 28px"
+            iid="o"
+            onClick="trigMeAll($(this))"
+            >o</span
+          >
+          <span
+            style="top: 220px; left: 67px"
+            iid="z"
+            onClick="trigMeAll($(this))"
+            >z</span
+          >
+          <span
+            style="top: 220px; left: 105px"
+            iid="d"
+            onClick="trigMeAll($(this))"
+            >d</span
+          >
+          <span
+            style="top: 220px; left: 144px"
+            iid="u"
+            onClick="trigMeAll($(this))"
+            >u</span
+          >
+          <span
+            style="top: 220px; left: 182px"
+            iid="b"
+            onClick="trigMeAll($(this))"
+            >b</span
+          >
+          <span
+            style="top: 220px; left: 220px"
+            iid="c"
+            onClick="trigMeAll($(this))"
+            >c</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-3-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInRight" style="width: 140px">
+        <div
+          class="items noclick"
+          ans="h"
+          style="
+            top: 33px;
+            left: 12px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="e"
+          style="
+            top: 33px;
+            left: 40px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="l"
+          style="
+            top: 33px;
+            left: 68px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="p"
+          style="
+            top: 33px;
+            left: 96px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="n"
+          style="
+            top: 105px;
+            left: 12px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="a"
+          style="
+            top: 105px;
+            left: 40px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="m"
+          style="
+            top: 105px;
+            left: 68px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="e"
+          style="
+            top: 105px;
+            left: 96px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="b"
+          style="
+            top: 177px;
+            left: 12px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="o"
+          style="
+            top: 177px;
+            left: 40px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="o"
+          style="
+            top: 177px;
+            left: 68px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="k"
+          style="
+            top: 177px;
+            left: 96px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-3-2.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務三 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>破解密碼</b>：根據右側的提示，點擊棋盤內相對應的文字。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow fadeInLeft"
+        style="width: 250px; padding: 0; margin-right: 40px"
+      >
+        <div class="items">
+          <span
+            style="top: 27px; left: 28px"
+            iid="g"
+            onClick="trigMeAll($(this))"
+            >g</span
+          >
+          <span
+            style="top: 27px; left: 67px"
+            iid="q"
+            onClick="trigMeAll($(this))"
+            >q</span
+          >
+          <span
+            style="top: 27px; left: 105px"
+            iid="e"
+            onClick="trigMeAll($(this))"
+            >e</span
+          >
+          <span
+            style="top: 27px; left: 144px"
+            iid="r"
+            onClick="trigMeAll($(this))"
+            >r</span
+          >
+          <span
+            style="top: 27px; left: 182px"
+            iid="s"
+            onClick="trigMeAll($(this))"
+            >s</span
+          >
+          <span
+            style="top: 27px; left: 220px"
+            iid="i"
+            onClick="trigMeAll($(this))"
+            >i</span
+          >
+
+          <span
+            style="top: 66px; left: 28px"
+            iid="o"
+            onClick="trigMeAll($(this))"
+            >o</span
+          >
+          <span
+            style="top: 66px; left: 67px"
+            iid="f"
+            onClick="trigMeAll($(this))"
+            >f</span
+          >
+          <span
+            style="top: 66px; left: 105px"
+            iid="l"
+            onClick="trigMeAll($(this))"
+            >l</span
+          >
+          <span
+            style="top: 66px; left: 144px"
+            iid="t"
+            onClick="trigMeAll($(this))"
+            >t</span
+          >
+          <span
+            style="top: 66px; left: 182px"
+            iid="p"
+            onClick="trigMeAll($(this))"
+            >p</span
+          >
+          <span
+            style="top: 66px; left: 220px"
+            iid="d"
+            onClick="trigMeAll($(this))"
+            >d</span
+          >
+
+          <span
+            style="top: 104px; left: 28px"
+            iid="h"
+            onClick="trigMeAll($(this))"
+            >h</span
+          >
+          <span
+            style="top: 104px; left: 67px"
+            iid="v"
+            onClick="trigMeAll($(this))"
+            >v</span
+          >
+          <span
+            style="top: 104px; left: 105px"
+            iid="k"
+            onClick="trigMeAll($(this))"
+            >k</span
+          >
+          <span
+            style="top: 104px; left: 144px"
+            iid="b"
+            onClick="trigMeAll($(this))"
+            >b</span
+          >
+          <span
+            style="top: 104px; left: 182px"
+            iid="c"
+            onClick="trigMeAll($(this))"
+            >c</span
+          >
+          <span
+            style="top: 104px; left: 220px"
+            iid="m"
+            onClick="trigMeAll($(this))"
+            >m</span
+          >
+
+          <span
+            style="top: 143px; left: 28px"
+            iid="z"
+            onClick="trigMeAll($(this))"
+            >z</span
+          >
+          <span
+            style="top: 143px; left: 67px"
+            iid="r"
+            onClick="trigMeAll($(this))"
+            >r</span
+          >
+          <span
+            style="top: 143px; left: 105px"
+            iid="a"
+            onClick="trigMeAll($(this))"
+            >a</span
+          >
+          <span
+            style="top: 143px; left: 144px"
+            iid="w"
+            onClick="trigMeAll($(this))"
+            >w</span
+          >
+          <span
+            style="top: 143px; left: 182px"
+            iid="o"
+            onClick="trigMeAll($(this))"
+            >o</span
+          >
+          <span
+            style="top: 143px; left: 220px"
+            iid="k"
+            onClick="trigMeAll($(this))"
+            >k</span
+          >
+
+          <span
+            style="top: 181px; left: 28px"
+            iid="k"
+            onClick="trigMeAll($(this))"
+            >k</span
+          >
+          <span
+            style="top: 181px; left: 67px"
+            iid="x"
+            onClick="trigMeAll($(this))"
+            >x</span
+          >
+          <span
+            style="top: 181px; left: 105px"
+            iid="j"
+            onClick="trigMeAll($(this))"
+            >j</span
+          >
+          <span
+            style="top: 181px; left: 144px"
+            iid="p"
+            onClick="trigMeAll($(this))"
+            >p</span
+          >
+          <span
+            style="top: 181px; left: 182px"
+            iid="e"
+            onClick="trigMeAll($(this))"
+            >e</span
+          >
+          <span
+            style="top: 181px; left: 220px"
+            iid="s"
+            onClick="trigMeAll($(this))"
+            >s</span
+          >
+
+          <span
+            style="top: 220px; left: 28px"
+            iid="s"
+            onClick="trigMeAll($(this))"
+            >s</span
+          >
+          <span
+            style="top: 220px; left: 67px"
+            iid="i"
+            onClick="trigMeAll($(this))"
+            >i</span
+          >
+          <span
+            style="top: 220px; left: 105px"
+            iid="u"
+            onClick="trigMeAll($(this))"
+            >u</span
+          >
+          <span
+            style="top: 220px; left: 144px"
+            iid="p"
+            onClick="trigMeAll($(this))"
+            >p</span
+          >
+          <span
+            style="top: 220px; left: 182px"
+            iid="n"
+            onClick="trigMeAll($(this))"
+            >n</span
+          >
+          <span
+            style="top: 220px; left: 220px"
+            iid="c"
+            onClick="trigMeAll($(this))"
+            >c</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-4-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInRight" style="width: 140px">
+        <div
+          class="items noclick"
+          ans="d"
+          style="
+            top: 33px;
+            left: 12px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="e"
+          style="
+            top: 33px;
+            left: 40px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="s"
+          style="
+            top: 33px;
+            left: 68px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="k"
+          style="
+            top: 33px;
+            left: 96px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="c"
+          style="
+            top: 103px;
+            left: 12px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="o"
+          style="
+            top: 103px;
+            left: 40px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="d"
+          style="
+            top: 103px;
+            left: 68px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="e"
+          style="
+            top: 103px;
+            left: 96px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="n"
+          style="
+            top: 172px;
+            left: 12px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="o"
+          style="
+            top: 172px;
+            left: 40px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="s"
+          style="
+            top: 172px;
+            left: 68px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="e"
+          style="
+            top: 172px;
+            left: 96px;
+            width: 25px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-4-3-4-2.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<script>
+  var addIndicator = function (tar, indicator) {
+    if (tar.find(".indicator").length == 0) {
+      tar.append(
+        $(".contents > div.selected")
+          .find(indicator)
+          .clone()
+          .wrap("<h5/>")
+          .parent()
+          .html()
+      );
+    }
+    //
+    updateIndicator(tar);
+  };
+  var updateIndicator = function (tar) {
+    var indicator = tar.find(".indicator");
+    var filled = tar.find("> span");
+    indicator.find("> span").each(function (index) {
+      $(this).removeClass();
+      if (index < filled.length) {
+        $(this).addClass("done");
+      } else if (index == filled.length) {
+        $(this).addClass("next");
+      }
+    });
+  };
+
+  var trigMeAll = function (tar) {
+    var frame = $(".contents > div.selected").find(".puzzle .items");
+    //
+    if (tar.parent().parent().hasClass("code")) {
+      if (frame.length > 0) {
+        var gotAnswer = false;
+        frame.each(function () {
+          var answerArr = $(this).attr("ans").split(",");
+          if ($(this).attr("ans") == tar.attr("iid")) {
+            gotAnswer = true;
+            $(this).html(tar.clone());
+            $(".sideTool > div.btn_replay").show();
+          }
+        });
+
+        if (gotAnswer) {
+          rootSoundEffect($pop);
+        } else {
+          rootSoundEffect($wrong);
+        }
+      }
+    }
+    //
+    $(".sideTool > div.btn_answer").removeClass("active");
+  };
+</script>
