@@ -7382,8 +7382,11 @@
           top: 0;
           left: 0;
           z-index: 5;
-          background: #ff0000;
-          //@include opacity(0);
+          background: transparent;
+          color: transparent;
+          * {
+            @include opacity(0);
+          }
         }
       }
     }
@@ -7469,7 +7472,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #00ff00;
+        //background: #00ff00;
 
         &.selected {
           border: 3px dashed #333333;

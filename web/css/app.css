@@ -7301,7 +7301,14 @@
   top: 0;
   left: 0;
   z-index: 5;
-  background: #ff0000;
+  background: transparent;
+  color: transparent;
+}
+.module_decode .contents .code .items > span * {
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
 }
 .module_decode .contents .check {
   position: relative;
@@ -7398,7 +7405,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #00ff00;
 }
 .module_decode .contents .puzzle .items.selected {
   border: 3px dashed #333333;
