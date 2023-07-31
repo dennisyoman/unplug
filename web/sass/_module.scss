@@ -7385,7 +7385,53 @@
           background: transparent;
           color: transparent;
           * {
-            @include opacity(0);
+            opacity: 0;
+            &.lines {
+              opacity: 1;
+            }
+          }
+          .lines {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            left: 0;
+            top: -5px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            > span {
+              opacity: 1;
+              width: 5px;
+              height: 5px;
+              border-radius: 100%;
+
+              &.line1 {
+                background-color: $l1;
+              }
+              &.line2 {
+                background-color: $l2;
+              }
+              &.line3 {
+                background-color: $l3;
+              }
+              &.line4 {
+                background-color: $l4;
+              }
+            }
+          }
+
+          &.selected {
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border: 2px solid $second;
+              border-radius: 100%;
+            }
           }
         }
       }
@@ -7506,12 +7552,70 @@
             position: absolute;
             z-index: 1;
             pointer-events: auto;
-            @include opacity(0);
+            @include opacity(0.3);
             &.selected {
               @include opacity(0.3);
             }
             &.done {
               @include opacity(1);
+            }
+          }
+        }
+        .arrowSteps {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+
+          span {
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            pointer-events: auto;
+            //background: rgba(255, 0, 0, 0.05);
+
+            &.selected {
+              &::before {
+                display: block;
+              }
+            }
+            &.done {
+              &::before {
+                display: block;
+              }
+            }
+            &::before {
+              content: "";
+              width: 5px;
+              height: 5px;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              border-radius: 100%;
+              margin-left: -2.5px;
+              display: none;
+              animation-name: bounceIn;
+              animation-duration: 1s;
+            }
+            &.line1 {
+              &::before {
+                background: $l1;
+              }
+            }
+            &.line2 {
+              &::before {
+                background: $l2;
+              }
+            }
+            &.line3 {
+              &::before {
+                background: $l3;
+              }
+            }
+            &.line4 {
+              &::before {
+                background: $l4;
+              }
             }
           }
         }

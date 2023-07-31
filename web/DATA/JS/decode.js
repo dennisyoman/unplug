@@ -45,7 +45,8 @@ $(document).ready(function () {
             $(".sideTool > div.btn_replay").show();
             showAnswer(true);
           } else {
-            showAnswer(false);
+            //showAnswer(false);
+            resetElem($(".contents > div.selected"));
           }
         });
       $(".sideTool > div.btn_check")
@@ -58,7 +59,7 @@ $(document).ready(function () {
         .bind("click", function () {
           $(this).hide();
           $(".sideTool > div.btn_answer").removeClass("active");
-          showAnswer(false);
+          resetElem($(".contents > div.selected"));
         });
 
       //init
@@ -270,7 +271,76 @@ var checkAnswer = function () {
       kids.addClass("wrong");
     }
   });
+
+  //arrowSteps
+  if ($(".contents > div.selected .arrowSteps").length > 0) {
+    var arrowSteps = $(".contents > div.selected .arrowSteps");
+    var lines = $(".contents > div.selected .code .lines");
+    var resetSeq = arrowSteps.find(">span").length;
+
+    for (var k = 0; k < arrowSteps.find(">span").length; k++) {
+      if ((lineAnsArr = lines.find("> span[seq='" + k + "']").length > 0)) {
+        var lineAnsArr = lines
+          .find("> span[seq='" + k + "']")
+          .parent()
+          .parent()
+          .attr("ans")
+          .split(",");
+        console.log(lineAnsArr);
+        if (lineAnsArr.indexOf(k.toString()) < 0) {
+          getWrong = true;
+          resetSeq = k;
+          console.log(resetSeq);
+          break;
+        }
+      } else {
+        getWrong = true;
+        console.log(resetSeq);
+        break;
+      }
+    }
+
+    arrowSteps.find(">span").each(function () {
+      var seq = $(this).index();
+      if (parseInt(seq) >= parseInt(resetSeq)) {
+        $(this).removeClass("done");
+      }
+    });
+    lines.find("> span").each(function () {
+      var seq = $(this).attr("seq");
+      if (parseInt(seq) >= parseInt(resetSeq)) {
+        $(this).remove();
+      } else if (parseInt(seq) == parseInt(resetSeq) - 1) {
+        $(this)
+          .parent()
+          .parent()
+          .addClass("selected")
+          .siblings(".selected")
+          .removeClass("selected");
+      }
+    });
+    $(".contents > div.selected .puzzle .items")
+      .find("> span")
+      .each(function () {
+        $(this).removeClass("wrong");
+        var seq = $(this).attr("seq");
+        if (parseInt(seq) >= parseInt(resetSeq)) {
+          $(this).remove();
+        }
+      });
+    //一開始就錯了
+    if (resetSeq == 0) {
+      lines.remove();
+      $(".contents > div.selected .code > .items > span").removeClass(
+        "selected"
+      );
+      $(".contents > div.selected .puzzle > .items > span").remove();
+    }
+  }
+
+  //
   if (getWrong) {
+    //
     rootSoundEffect($wrong);
     $(".contents > div.selected .puzzle").append(
       `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`
@@ -409,6 +479,143 @@ var showAnswer = function (boolean) {
     }
   }
 };
+
+var addIndicator = function (tar, indicator) {
+  if (tar.find(".indicator").length == 0) {
+    tar.append(
+      $(".contents > div.selected")
+        .find(indicator)
+        .clone()
+        .wrap("<h5/>")
+        .parent()
+        .html()
+    );
+  }
+  //
+  updateIndicator(tar);
+};
+var updateIndicator = function (tar) {
+  var indicator = tar.find(".indicator");
+  var filled = tar.find("> span");
+  indicator.find("> span").each(function (index) {
+    $(this).removeClass();
+    if (index < filled.length) {
+      $(this).addClass("done");
+    } else if (index == filled.length) {
+      $(this).addClass("next");
+    }
+  });
+};
+
+var trigMeAll = function (tar) {
+  var frame = $(".contents > div.selected").find(".puzzle .items");
+  //
+  if (tar.parent().parent().hasClass("code")) {
+    if (frame.length > 0) {
+      var gotAnswer = false;
+      frame.each(function () {
+        var answerArr = $(this).attr("ans").split(",");
+        if ($(this).attr("ans") == tar.attr("iid")) {
+          gotAnswer = true;
+          $(this).html(tar.clone());
+          $(".sideTool > div.btn_replay").show();
+        }
+      });
+
+      if (gotAnswer) {
+        rootSoundEffect($pop);
+      } else {
+        rootSoundEffect($wrong);
+      }
+    }
+  }
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
+
+var trigMeSequence = function (tar) {
+  var currArrowStepDone = $(".contents > div.selected").find(
+    ".puzzle .arrowSteps > span.done"
+  );
+  var currArrowStep = $(".contents > div.selected")
+    .find(".puzzle .arrowSteps > span")
+    .eq(currArrowStepDone.length);
+  var currItem = $(".contents > div.selected").find(
+    ".code .items >span.selected"
+  );
+  if (currItem.length == 0) {
+    //第一次
+    currItem = $(".contents > div.selected").find(".code .items >span.start");
+    //
+    $(".contents > div.selected .puzzle > .items > span").remove();
+  }
+
+  //確認是否在目前的item周邊
+  if (
+    Math.abs(currItem.index() - tar.index()) == 1 ||
+    Math.abs(currItem.index() - tar.index()) == 6
+  ) {
+    if (currItem.index() % 6 == 0 && currItem.index() - tar.index() == 1) {
+      //wrong
+      rootSoundEffect($wrong);
+    } else if (
+      currItem.index() % 6 == 5 &&
+      currItem.index() - tar.index() == -1
+    ) {
+      //wrong
+      rootSoundEffect($wrong);
+    } else {
+      //correct
+
+      //確認是否到最後
+      if (
+        $(".contents > div.selected").find(
+          ".puzzle .arrowSteps > span:not(.done)"
+        ).length > 0
+      ) {
+        if (currItem.hasClass("start")) {
+          $(".contents > div.selected .puzzle")
+            .find("> .items")
+            .eq(0)
+            .append(currItem.clone());
+          currItem.append(
+            `<div class="lines"><span class="line1"></span></div>`
+          );
+        }
+        //上字
+        $(".contents > div.selected .puzzle")
+          .find("> .items")
+          .eq(parseInt(currArrowStep.attr("itemIndex")))
+          .append(tar.clone().attr("seq", currArrowStep.index()));
+        rootSoundEffect($pop);
+        //
+
+        if (tar.find(".lines").length == 0) {
+          tar.append(`<div class="lines"></div>`);
+        }
+        tar
+          .find(".lines")
+          .append(
+            `<span seq="${currArrowStep.index()}" class="${currArrowStep.attr(
+              "class"
+            )}"></span>`
+          );
+        tar.addClass("selected").siblings(".selected").removeClass("selected");
+        //擺最後
+        currArrowStep.addClass("done");
+      } else {
+        rootSoundEffect($wrong);
+      }
+      //
+    }
+  } else {
+    rootSoundEffect($wrong);
+  }
+
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+};
+//
 var lowlaged = false;
 
 var openContent = function (id) {
@@ -450,6 +657,9 @@ var resetElem = function (elem) {
         .siblings(".selected")
         .removeClass("selected");
     });
+
+  //reset lines in codes
+  elem.find(".code .items > span").find(".lines").remove();
 
   $(".smoke").remove();
   $(".resultIcon").remove();
