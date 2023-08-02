@@ -83,10 +83,12 @@ var toggleCheese = function () {
 
 var togglePoke = function () {
   $(".contents > div.selected").find(".btn_poke").toggleClass("active");
+  $(".contents > div.selected").find(".btn_draw").removeClass("active");
 };
 
 var toggleDraw = function () {
   $(".contents > div.selected").find(".btn_draw").toggleClass("active");
+  $(".contents > div.selected").find(".btn_poke").removeClass("active");
 };
 
 var openContent = function (id) {
