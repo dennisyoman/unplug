@@ -12502,6 +12502,7 @@
 }
 .module_strategy .selectionArea .sensorArea {
   position: relative;
+  margin: 0 auto;
 }
 .module_strategy .selectionArea .sensorArea > span {
   position: absolute;
