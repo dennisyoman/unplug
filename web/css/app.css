@@ -12384,6 +12384,7 @@
   position: relative;
 }
 .module_cheese .encryption .cheeseLid {
+  pointer-events: auto;
   position: absolute;
   top: 0;
   left: 0;
@@ -12393,9 +12394,30 @@
   transform: rotate(5deg) translateX(110%);
   transition: transform 1s;
 }
+.module_cheese .encryption .cheeseLid .hole {
+  position: absolute;
+  z-index: 1;
+}
+.module_cheese .encryption .cheeseLid .hole > span {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  background: #c4a620;
+  border-radius: 100%;
+  top: 0;
+  left: 0;
+}
+.module_cheese .encryption .cheeseLid .hole.poked > span {
+  background: transparent;
+}
 .module_cheese .encryption .cheeseLid > img {
   width: 100%;
   height: 100%;
+}
+.module_cheese .encryption canvas {
+  position: absolute;
+  z-index: 1;
+  pointer-events: auto;
 }
 .module_cheese .encryption.active .cheeseLid {
   transform: translateX(0);

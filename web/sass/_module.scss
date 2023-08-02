@@ -12573,6 +12573,7 @@
   .encryption {
     position: relative;
     .cheeseLid {
+      pointer-events: auto;
       position: absolute;
       top: 0;
       left: 0;
@@ -12581,10 +12582,37 @@
       z-index: 5;
       transform: rotate(5deg) translateX(110%);
       transition: transform 1s;
+
+      .hole {
+        position: absolute;
+        z-index: 1;
+        > span {
+          position: absolute;
+          pointer-events: auto;
+          cursor: pointer;
+          background: #c4a620;
+          //background: rgba(255, 0, 0, 0.2);
+          border-radius: 100%;
+          top: 0;
+          left: 0;
+        }
+
+        &.poked {
+          > span {
+            background: transparent;
+          }
+        }
+      }
       > img {
         width: 100%;
         height: 100%;
       }
+    }
+
+    canvas {
+      position: absolute;
+      z-index: 1;
+      pointer-events: auto;
     }
 
     &.active {
