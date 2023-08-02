@@ -487,7 +487,7 @@
     </section>
     <section section="3" name="一起玩遊戲 / 密碼" html="PT/BOOK12/HTML/PT-12-4-3.html" js="JS/decode.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲② / 密碼" html="PT/BOOK12/HTML/PT-12-4-4.html" js="JS/poker.js" image="IMAGES/UNITS/guess.png" skin="">
+    <section section="4" name="一起玩遊戲② / 密碼" html="PT/BOOK12/HTML/PT-12-4-4.html" js="JS/cheese.js" image="IMAGES/UNITS/guess.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT/BOOK12/HTML/PT-12-4-5.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
