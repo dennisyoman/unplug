@@ -429,6 +429,9 @@ var resetElem = function (elem) {
       .bind("click", function () {
         $(this).toggleClass("selected");
         rootSoundEffect($key);
+        $(".sideTool > .btn_replay").show();
+        $(".sideTool > .btn_check").show();
+        $(".sideTool > .btn_answer").removeClass("active");
       });
   });
 
