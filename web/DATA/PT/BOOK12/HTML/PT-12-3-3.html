@@ -1,0 +1,420 @@
+<div id="module_wrapper" class="module_strategy">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>認識食物的種類：</b>請根據老師的指示，找出正確的卡片。</p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="categoryArea">
+        <div class="category" style="margin-top: 50px"></div>
+
+        <div class="food-cards">
+          <div><img src="./DATA/PT/BOOK12/IMAGES/q1.png" /></div>
+          <div><img src="./DATA/PT/BOOK12/IMAGES/q2.png" /></div>
+          <div><img src="./DATA/PT/BOOK12/IMAGES/q3.png" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>安排晚餐：</b>請問哪一個組合比較適合當晚餐？</p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="selectionArea">
+        <div class="sensorArea wow fadeInDown" style="width: 350px">
+          <span
+            cat="c4"
+            style="width: 26px; height: 49px; top: 28px; left: 13px"
+          ></span>
+          <span
+            cat="c3"
+            style="width: 51px; height: 49px; top: 28px; left: 49px"
+          ></span>
+          <span
+            cat="c5"
+            style="width: 39px; height: 34px; top: 78px; left: 28px"
+          ></span>
+          <span
+            cat="c6"
+            style="width: 30px; height: 30px; top: 79px; left: 73px"
+          ></span>
+          <span
+            cat="c1"
+            style="width: 37px; height: 33px; top: 31px; left: 132px"
+          ></span>
+          <span
+            cat="c4"
+            style="width: 37px; height: 33px; top: 31px; left: 181px"
+          ></span>
+          <span
+            cat="c2"
+            style="width: 48px; height: 37px; top: 70px; left: 130px"
+          ></span>
+          <span
+            cat="c5"
+            style="width: 37px; height: 33px; top: 72px; left: 181px"
+          ></span>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-3.png" />
+        </div>
+
+        <div
+          class="selection wow fadeInDown"
+          style="width: 270px; margin-top: 30px"
+        >
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-3S.png" />
+          <p class="wow bounceInLeft" data-wow-delay="1s">
+            我選擇<span ans="B" onClick="setSelection(['A','B','C','D'])"></span
+            >餐比較均衡
+          </p>
+        </div>
+
+        <div class="syncArea wow fadeIn" style="width: 350px">
+          <span
+            class="c1"
+            style="width: 26px; height: 44px; top: 1px; left: 1px"
+          ></span>
+          <span
+            class="c1"
+            style="width: 26px; height: 44px; top: 9px; left: 16px"
+          ></span>
+          <span
+            class="c1"
+            style="width: 26px; height: 44px; top: 1px; left: 31px"
+          ></span>
+          <span
+            class="c2"
+            style="width: 26px; height: 44px; top: 1px; left: 62px"
+          ></span>
+          <span
+            class="c2"
+            style="width: 26px; height: 44px; top: 9px; left: 77px"
+          ></span>
+          <span
+            class="c2"
+            style="width: 26px; height: 44px; top: 1px; left: 92px"
+          ></span>
+          <span
+            class="c3"
+            style="width: 26px; height: 44px; top: 2px; left: 125px"
+          ></span>
+          <span
+            class="c3"
+            style="width: 26px; height: 44px; top: 2px; left: 151px"
+          ></span>
+          <span
+            class="c4"
+            style="width: 26px; height: 44px; top: 2px; left: 187px"
+          ></span>
+          <span
+            class="c4"
+            style="width: 26px; height: 44px; top: 2px; left: 212px"
+          ></span>
+          <span
+            class="c5"
+            style="width: 26px; height: 44px; top: 1px; left: 247px"
+          ></span>
+          <span
+            class="c5"
+            style="width: 26px; height: 44px; top: 9px; left: 262px"
+          ></span>
+          <span
+            class="c5"
+            style="width: 26px; height: 44px; top: 1px; left: 277px"
+          ></span>
+          <span
+            class="c6"
+            style="width: 26px; height: 44px; top: 4px; left: 323px"
+          ></span>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-2.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>安排晚餐：</b>請問哪一個組合比較適合當晚餐？</p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="selectionArea">
+        <div class="sensorArea wow fadeInDown" style="width: 350px">
+          <span
+            cat="c4"
+            style="width: 26px; height: 49px; top: 31px; left: 11px"
+          ></span>
+          <span
+            cat="c5"
+            style="width: 33px; height: 49px; top: 31px; left: 41px"
+          ></span>
+          <span
+            cat="c3"
+            style="width: 29px; height: 50px; top: 31px; left: 75px"
+          ></span>
+          <span
+            cat="c1"
+            style="width: 43px; height: 26px; top: 85px; left: 35px"
+          ></span>
+          <span
+            cat="c1"
+            style="width: 37px; height: 30px; top: 29px; left: 147px"
+          ></span>
+          <span
+            cat="c5"
+            style="width: 32px; height: 28px; top: 30px; left: 189px"
+          ></span>
+          <span
+            cat="c6"
+            style="width: 38px; height: 29px; top: 59px; left: 128px"
+          ></span>
+          <span
+            cat="c3"
+            style="width: 40px; height: 26px; top: 62px; left: 169px"
+          ></span>
+          <span
+            cat="c1"
+            style="width: 43px; height: 23px; top: 88px; left: 134px"
+          ></span>
+          <span
+            cat="c2"
+            style="width: 34px; height: 24px; top: 86px; left: 187px"
+          ></span>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-4.png" />
+        </div>
+
+        <div
+          class="selection wow fadeInDown"
+          style="width: 220px; margin-top: 30px"
+        >
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-4S.png" />
+          <p class="wow bounceInLeft" data-wow-delay="1s">
+            我選擇<span ans="B" onClick="setSelection(['A','B','C','D'])"></span
+            >餐比較均衡
+          </p>
+        </div>
+
+        <div class="syncArea wow fadeIn" style="width: 350px">
+          <span
+            class="c1"
+            style="width: 26px; height: 44px; top: 1px; left: 1px"
+          ></span>
+          <span
+            class="c1"
+            style="width: 26px; height: 44px; top: 9px; left: 16px"
+          ></span>
+          <span
+            class="c1"
+            style="width: 26px; height: 44px; top: 1px; left: 31px"
+          ></span>
+          <span
+            class="c2"
+            style="width: 26px; height: 44px; top: 1px; left: 62px"
+          ></span>
+          <span
+            class="c2"
+            style="width: 26px; height: 44px; top: 9px; left: 77px"
+          ></span>
+          <span
+            class="c2"
+            style="width: 26px; height: 44px; top: 1px; left: 92px"
+          ></span>
+          <span
+            class="c3"
+            style="width: 26px; height: 44px; top: 2px; left: 125px"
+          ></span>
+          <span
+            class="c3"
+            style="width: 26px; height: 44px; top: 2px; left: 151px"
+          ></span>
+          <span
+            class="c4"
+            style="width: 26px; height: 44px; top: 2px; left: 187px"
+          ></span>
+          <span
+            class="c4"
+            style="width: 26px; height: 44px; top: 2px; left: 212px"
+          ></span>
+          <span
+            class="c5"
+            style="width: 26px; height: 44px; top: 1px; left: 247px"
+          ></span>
+          <span
+            class="c5"
+            style="width: 26px; height: 44px; top: 9px; left: 262px"
+          ></span>
+          <span
+            class="c5"
+            style="width: 26px; height: 44px; top: 1px; left: 277px"
+          ></span>
+          <span
+            class="c6"
+            style="width: 26px; height: 44px; top: 4px; left: 323px"
+          ></span>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-2.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務三 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>動物接力賽：</b>根據分組名單，哪組最有可能在接力賽獲勝？</p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-5.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="selectionArea toStep2">
+        <div
+          class="sensorArea wow fadeInDown"
+          style="width: 240px; margin-top: 30px"
+        >
+          <span
+            class="shape1"
+            style="top: 66px; left: 18px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 66px; left: 55px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape3"
+            style="top: 66px; left: 93px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 66px; left: 131px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 66px; left: 169px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape3"
+            style="top: 66px; left: 207px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 112px; left: 18px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 112px; left: 55px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape3"
+            style="top: 112px; left: 93px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 112px; left: 131px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 112px; left: 169px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape3"
+            style="top: 112px; left: 207px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 158px; left: 18px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 158px; left: 55px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 158px; left: 93px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape3"
+            style="top: 158px; left: 131px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 158px; left: 169px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 158px; left: 207px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape2"
+            style="top: 207px; left: 18px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 207px; left: 55px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape3"
+            style="top: 207px; left: 93px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 207px; left: 131px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 207px; left: 169px; width: 35px; height: 35px"
+          ></span>
+          <span
+            class="shape1"
+            style="top: 207px; left: 207px; width: 35px; height: 35px"
+          ></span>
+          <img
+            class="shape1"
+            style="margin-bottom: 10px"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-5.png"
+          />
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-3-3-5S.png" />
+        </div>
+        <div
+          class="selection wow fadeIn"
+          style="width: 300px; margin-top: 10px"
+        >
+          <p class="wow bounceInLeft" data-wow-delay="1s">
+            根據這一份分組名單，第<span
+              ans="4"
+              onClick="setSelection(['1','2','3','4'])"
+            ></span
+            >組最有可能獲勝
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

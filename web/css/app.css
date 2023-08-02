@@ -12363,6 +12363,268 @@
   pointer-events: none;
 }
 
+.module_strategy {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_strategy.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+.module_strategy .resultIcon {
+  pointer-events: none;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -60px;
+  z-index: 999;
+}
+.module_strategy .resultIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.module_strategy .smoke {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  z-index: 999;
+  transform-origin: center center;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+.module_strategy .smoke > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.module_strategy .categoryArea .category {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+.module_strategy .categoryArea .category > div {
+  pointer-events: auto;
+  cursor: pointer;
+  width: 80px;
+  height: 74px;
+  background: url("../DATA/PT/BOOK12/IMAGES/PT-12-3-3-1.png") no-repeat center center;
+  background-size: 480px 74px;
+  position: relative;
+}
+.module_strategy .categoryArea .category > div.c1 {
+  background-position: top left;
+}
+.module_strategy .categoryArea .category > div.c2 {
+  background-position: top left -80px;
+}
+.module_strategy .categoryArea .category > div.c3 {
+  background-position: top left -160px;
+}
+.module_strategy .categoryArea .category > div.c4 {
+  background-position: top left -240px;
+}
+.module_strategy .categoryArea .category > div.c5 {
+  background-position: top left -320px;
+}
+.module_strategy .categoryArea .category > div.c6 {
+  background-position: top left -400px;
+}
+.module_strategy .categoryArea .category > div.selected::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url("../DATA/IMAGES/common/finger2.png") no-repeat center center;
+  background-size: contain;
+  top: 60%;
+  left: 50%;
+  animation: floating 1s infinite;
+}
+.module_strategy .categoryArea .food-cards {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+  margin-top: 30px;
+}
+.module_strategy .categoryArea .food-cards > div {
+  width: 150px;
+  height: 80px;
+  margin: 10px;
+  border: 1px solid #87caab;
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.module_strategy .categoryArea .food-cards > div.done > img {
+  display: block;
+}
+.module_strategy .categoryArea .food-cards > div::after {
+  content: "（放置處）";
+  font-size: 12px;
+  color: #87caab;
+}
+.module_strategy .categoryArea .food-cards > div > img {
+  position: absolute;
+  z-index: 2;
+  width: 96%;
+  height: 96%;
+  top: 2%;
+  left: 2%;
+  display: none;
+  object-fit: contain;
+  animation: bounceIn 1s;
+}
+.module_strategy .selectionArea .sensorArea {
+  position: relative;
+}
+.module_strategy .selectionArea .sensorArea > span {
+  position: absolute;
+  z-index: 1;
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+}
+.module_strategy .selectionArea .sensorArea > span.selected {
+  background: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+.module_strategy .selectionArea .sensorArea > span.selected.shape1 {
+  pointer-events: auto;
+  background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape1.png") no-repeat center center;
+  background-size: 50% auto;
+}
+.module_strategy .selectionArea .sensorArea > span.selected.shape2 {
+  pointer-events: auto;
+  background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape2.png") no-repeat center center;
+  background-size: 50% auto;
+}
+.module_strategy .selectionArea .sensorArea > span.selected.shape3 {
+  pointer-events: auto;
+  background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape3.png") no-repeat center center;
+  background-size: 50% auto;
+}
+.module_strategy .selectionArea .sensorArea > img {
+  width: 100%;
+  height: auto;
+}
+.module_strategy .selectionArea .selection {
+  display: none;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+.module_strategy .selectionArea .selection > img {
+  width: 100%;
+  height: auto;
+}
+.module_strategy .selectionArea .selection p {
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  border: 2px solid #87caab;
+  padding: 2px 20px;
+  border-radius: 14px;
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+}
+.module_strategy .selectionArea .selection p span {
+  display: inline-block;
+  min-width: 30px;
+  background: #ffffff;
+  pointer-events: auto;
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 0 3px;
+  height: 18px;
+  font-family: "Gfont-bold";
+}
+.module_strategy .selectionArea .syncArea {
+  position: relative;
+  margin-top: 30px;
+  transition: transform 0.6s;
+}
+.module_strategy .selectionArea .syncArea > span {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  animation: fadeIn 0.6s;
+}
+.module_strategy .selectionArea .syncArea > span.selected {
+  display: block;
+}
+.module_strategy .selectionArea .syncArea > span.c1 {
+  background: #fdce00;
+}
+.module_strategy .selectionArea .syncArea > span.c2 {
+  background: #64a991;
+}
+.module_strategy .selectionArea .syncArea > span.c3 {
+  background: #ea4e19;
+}
+.module_strategy .selectionArea .syncArea > span.c4 {
+  background: #4c5d58;
+}
+.module_strategy .selectionArea .syncArea > span.c5 {
+  background: #535aa6;
+}
+.module_strategy .selectionArea .syncArea > span.c6 {
+  background: #9e69a9;
+}
+.module_strategy .selectionArea .syncArea > img {
+  width: 100%;
+  height: auto;
+}
+.module_strategy .selectionArea.step2 .sensorArea {
+  display: none;
+}
+.module_strategy .selectionArea.step2 .selection {
+  display: block;
+}
+.module_strategy .selectionArea.step2 .syncArea {
+  margin-top: 10px;
+  transform: scale(0.7);
+}
+.module_strategy .selectionArea.toStep2 .sensorArea {
+  display: block;
+}
+.module_strategy .selectionArea.toStep2 .selection {
+  display: block;
+}
+.module_strategy .selectionArea.toStep2 .syncArea {
+  margin-top: 10px;
+  transform: scale(0.7);
+}
+
 .module_organize {
   position: relative;
   top: 0;
@@ -12484,6 +12746,7 @@
   border: 3px solid #fff;
   display: inline-flex;
   margin-right: auto;
+  z-index: 1;
 }
 .module_organize .grids .row > span {
   flex: none;
@@ -12498,11 +12761,23 @@
 .module_organize .grids .row > span:last-child {
   border: none;
 }
+.module_organize .grids .row > span.disable, .module_organize .grids .row > span.disablePermanent {
+  background: rgba(0, 0, 0, 0.1);
+}
 .module_organize .grids p {
   margin-top: 5px;
   font-size: 12px;
   line-height: 1.5;
   color: #294197;
+}
+.module_organize .grids .ans {
+  display: none;
+}
+.module_organize .grids.showanswer .sub {
+  display: none;
+}
+.module_organize .grids.showanswer .ans {
+  display: block;
 }
 
 .module_lantern {

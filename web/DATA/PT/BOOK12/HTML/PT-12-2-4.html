@@ -1,0 +1,291 @@
+<div id="module_wrapper" class="module_organize">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分工合作：</b
+            >兄弟倆決定根據自己的專長分工合作。哥哥和弟弟一起完成兩扇大門的翻新。
+          </p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="grids"
+        bw="12"
+        bh="36"
+        style="width: 432px; margin-top: 50px"
+        zones="zone1,zone2"
+      >
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 0cqi; left: 48px"
+          ans="A=1,A=9,C=9,C=17"
+        ></div>
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 36px; left: 48px"
+        ></div>
+        <div
+          class="row"
+          zone="zone2"
+          size="32"
+          style="position: absolute; top: 73px; left: 48px"
+          ans="B=1,B=5,D=13,D=21"
+        ></div>
+        <div
+          class="row"
+          zone="zone2"
+          size="32"
+          style="position: absolute; top: 108px; left: 48px"
+        ></div>
+        <img class="ans" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-1A.png" />
+        <img class="sub" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-1.png" />
+      </div>
+      <div class="blocks" style="width: 432px; margin-top: 10px">
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務一 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>分工合作：</b>今天弟弟遲到了，比哥哥晚10
+            分鐘才開始，請問時間應該如何分配？
+          </p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="grids"
+        bw="12"
+        bh="36"
+        style="width: 432px; margin-top: 50px"
+        zones="zone1,zone2"
+      >
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 0cqi; left: 48px"
+          ans="A=1,A=9,C=9,C=17"
+        ></div>
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 36px; left: 48px"
+        ></div>
+        <div
+          class="row"
+          zone="zone2"
+          size="32"
+          style="position: absolute; top: 73px; left: 48px"
+          dp="0,1,2,3,4,5,6,7,8,9"
+          ans="B=11,B=19,D=15,D=23^B=11,B=15,D=19,D=23"
+        ></div>
+        <div
+          class="row"
+          zone="zone2"
+          size="32"
+          dp="0,1,2,3,4,5,6,7,8,9"
+          style="position: absolute; top: 108px; left: 48px"
+        ></div>
+        <img class="ans" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-2A.png" />
+        <img class="sub" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-2.png" />
+      </div>
+      <div class="blocks" style="width: 432px; margin-top: 10px">
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>分工合作：</b>請依序貼上粉刷三扇所需要的時間。</p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="grids"
+        bw="12"
+        bh="36"
+        style="width: 432px; margin-top: 50px"
+        zones="zone1,zone2"
+      >
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 0cqi; left: 48px"
+          ans="A=1,A=9,A=17,C=9,C=17,C=25"
+        ></div>
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 36px; left: 48px"
+        ></div>
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 73px; left: 48px"
+        ></div>
+        <div
+          class="row"
+          zone="zone2"
+          size="32"
+          style="position: absolute; top: 108px; left: 48px"
+          ans="B=1,B=5,B=9,D=13,D=21,D=29"
+        ></div>
+        <img class="ans" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-3A.png" />
+        <img class="sub" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-4-3.png" />
+      </div>
+      <div class="blocks" style="width: 550px; margin-top: 10px">
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .grids {
+    background: none !important;
+    padding: 0 !important;
+  }
+  .row {
+    border: none !important;
+  }
+  .row > span {
+    border: none !important;
+  }
+
+  .blocks {
+    margin-top: 30px;
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .blocks > div {
+    display: inline-block;
+    margin: 10px;
+  }
+  .blocks > div > img {
+    float: left;
+  }
+  .blocks > div.disable {
+    pointer-events: none;
+    opacity: 0.3 !important;
+  }
+</style>
