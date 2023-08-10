@@ -382,7 +382,6 @@ var checkAnswer = function () {
     var bestMatchAmount = 0;
     var nearestID = 0;
     for (var a = 0; a < ansArr.length; a++) {
-      //console.log("- answer -");
       var tempAns = ansArr[a].split(",");
       var cards = $("#module_wrapper").find(
         ".cardAvatar.onboard[zone='" + rowElem.attr("zone") + "']"
@@ -426,15 +425,21 @@ var checkAnswer = function () {
       console.log(cardsArray);
       //踢掉錯誤的
       for (var k = 0; k < cardsArray.length; k++) {
+        var killCardArr = cardsArray[k].split("=");
+        var slugKill = killCardArr[0];
+        var positionKill = parseInt(killCardArr[1]);
         if (tempAns.indexOf(cardsArray[k]) < 0) {
           //找到錯誤cardsArray[k]
-          var killCardArr = cardsArray[k].split("=");
-          var slugKill = killCardArr[0];
-          var positionKill = parseInt(killCardArr[1]);
           $("#module_wrapper")
-            .find(".cardAvatar.onboard[slug='" + slugKill + "']")
+            .find(
+              ".cardAvatar.onboard[slug='" +
+                slugKill +
+                "'][zone='" +
+                rowElem.attr("zone") +
+                "']"
+            )
             .each(function () {
-              if ($(this).attr("zone") == rowElem.attr("zone")) {
+              if (!$(this).attr("bingo")) {
                 var position =
                   rowElem
                     .find(">span[link='" + $(this).attr("link") + "']")
@@ -455,6 +460,30 @@ var checkAnswer = function () {
                 }
               }
             });
+        } else {
+          $("#module_wrapper")
+            .find(
+              ".cardAvatar.onboard[slug='" +
+                slugKill +
+                "'][zone='" +
+                rowElem.attr("zone") +
+                "']"
+            )
+            .each(function () {
+              var position =
+                rowElem
+                  .find(">span[link='" + $(this).attr("link") + "']")
+                  .eq(0)
+                  .index() + 1;
+              if (positionKill == position) {
+                //一次只對一個就停止
+                $(this).attr("bingo", "true");
+                return false;
+              }
+            });
+          //重整tempAns
+          var matchId = tempAns.indexOf(cardsArray[k]);
+          tempAns.splice(matchId, 1);
         }
       }
     }

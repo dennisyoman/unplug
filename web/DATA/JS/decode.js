@@ -603,6 +603,7 @@ var trigMeSequence = function (tar) {
         tar.addClass("selected").siblings(".selected").removeClass("selected");
         //擺最後
         currArrowStep.addClass("done");
+        $(".sideTool > div.btn_replay").show();
       } else {
         rootSoundEffect($wrong);
       }
@@ -652,6 +653,17 @@ var resetElem = function (elem) {
     .find(".puzzle .items")
     .unbind()
     .bind("click", function () {
+      if ($(this).find("div.reset").length < 1) {
+        $(this).append(`<div class="reset"></div>`);
+        $(this)
+          .find("div.reset")
+          .click(function (e) {
+            //e.stopPropagation();
+            rootSoundEffect($show);
+            $(this).parent().empty();
+          });
+      }
+
       $(this)
         .toggleClass("selected")
         .siblings(".selected")

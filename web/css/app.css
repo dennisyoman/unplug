@@ -1481,6 +1481,7 @@
 .module_debug .sensorArea > div > span {
   position: absolute;
   z-index: 2;
+  mix-blend-mode: multiply;
 }
 .module_debug .sensorArea > div > span.done {
   background: rgba(255, 255, 255, 0.4);
@@ -1491,7 +1492,7 @@
   height: 50%;
   background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center center;
   background-size: contain;
-  z-index: 2;
+  z-index: 210;
   pointer-events: auto;
 }
 .module_debug .sensorArea > div > span > span.r {
@@ -7451,8 +7452,24 @@
 .module_decode .contents .puzzle .items.selected .indicator {
   display: block;
 }
+.module_decode .contents .puzzle .items.selected .reset {
+  display: block;
+}
 .module_decode .contents .puzzle .items.noclick > * {
   pointer-events: none;
+}
+.module_decode .contents .puzzle .items .reset {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 14px;
+  height: 14px;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+  background: url("../DATA/IMAGES/common/btn_replay.png") no-repeat center center;
+  background-size: contain;
+  display: none;
 }
 .module_decode .contents .puzzle .items > span {
   min-width: 0;
@@ -12603,17 +12620,17 @@
 }
 .module_strategy .selectionArea .sensorArea > span.selected.shape1 {
   pointer-events: auto;
-  background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape1.png") no-repeat center center;
+  background: rgba(255, 237, 188, 0.6) url("../DATA/PT/BOOK12/IMAGES/shape1.png") no-repeat center center;
   background-size: 50% auto;
 }
 .module_strategy .selectionArea .sensorArea > span.selected.shape2 {
   pointer-events: auto;
-  background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape2.png") no-repeat center center;
+  background: rgba(255, 237, 188, 0.6) url("../DATA/PT/BOOK12/IMAGES/shape2.png") no-repeat center center;
   background-size: 50% auto;
 }
 .module_strategy .selectionArea .sensorArea > span.selected.shape3 {
   pointer-events: auto;
-  background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape3.png") no-repeat center center;
+  background: rgba(255, 237, 188, 0.6) url("../DATA/PT/BOOK12/IMAGES/shape3.png") no-repeat center center;
   background-size: 50% auto;
 }
 .module_strategy .selectionArea .sensorArea > img {

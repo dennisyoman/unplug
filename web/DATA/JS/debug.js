@@ -263,7 +263,11 @@ var checkAnswer = function () {
   if ($(".contents > div.selected .flowers").length > 0) {
     $(".alert").remove();
     //第一步驟：底下花的排序是否正確
+    var hinter = "排序規律不正確喔～";
     $(".contents > div.selected .flowers > span").each(function () {
+      if ($(this).attr("class") == "" || $(this).attr("class") == "wrong") {
+        hinter = "先完成此處花朵的排序規律";
+      }
       if (!$(this).hasClass($(this).attr("ans"))) {
         $(this).addClass("wrong");
       }
@@ -273,7 +277,7 @@ var checkAnswer = function () {
       bingo($(".contents > div.selected .answer"), false);
       $(".contents > div.selected").append(
         `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
-          <p>規律不正確喔～</p>
+          <p>${hinter}</p>
         </div>`
       );
     } else {

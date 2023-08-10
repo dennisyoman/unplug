@@ -222,16 +222,31 @@ var resetElem = function (elem) {
       .unbind()
       .bind("click", function () {
         rootSoundEffect($key);
-        var cat = $(this).attr("cat");
-        $(this).toggleClass("selected");
-        elem
-          .find(
-            ".selectionArea .syncArea > span[class='" +
-              cat +
-              "']:not(.selected)"
-          )
-          .eq(0)
-          .addClass("selected");
+        $(this).addClass("selected");
+        if ($(this).hasClass("shape1")) {
+          $(this).removeClass("shape1").addClass("shape2");
+        } else if ($(this).hasClass("shape2")) {
+          $(this).removeClass("shape2").addClass("shape3");
+        } else if ($(this).hasClass("shape3")) {
+          $(this).removeClass("shape3").addClass("shape1");
+        }
+
+        //
+        if ($(this).attr("cat")) {
+          var catArr = $(this).attr("cat").split(",");
+
+          for (var m = 0; m < catArr.length; m++) {
+            elem
+              .find(
+                ".selectionArea .syncArea > span[class='" +
+                  catArr[m] +
+                  "']:not(.selected)"
+              )
+              .eq(0)
+              .addClass("selected");
+          }
+        }
+
         //是否完成點擊
 
         if (

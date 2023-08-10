@@ -1209,6 +1209,7 @@
       > span {
         position: absolute;
         z-index: 2;
+        mix-blend-mode: multiply;
 
         &.done {
           background: rgba(255, 255, 255, 0.4);
@@ -1220,7 +1221,7 @@
           height: 50%;
           background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center center;
           background-size: contain;
-          z-index: 2;
+          z-index: 210;
           pointer-events: auto;
 
           &.r {
@@ -7525,12 +7526,29 @@
           .indicator {
             display: block;
           }
+          .reset {
+            display: block;
+          }
         }
 
         &.noclick {
           > * {
             pointer-events: none;
           }
+        }
+
+        .reset {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          width: 14px;
+          height: 14px;
+          z-index: 2;
+          pointer-events: auto;
+          cursor: pointer;
+          background: url("../DATA/IMAGES/common/btn_replay.png") no-repeat center center;
+          background-size: contain;
+          display: none;
         }
 
         > span {
@@ -12818,17 +12836,17 @@
           pointer-events: none;
           &.shape1 {
             pointer-events: auto;
-            background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape1.png") no-repeat center center;
+            background: rgba(255, 237, 188, 0.6) url("../DATA/PT/BOOK12/IMAGES/shape1.png") no-repeat center center;
             background-size: 50% auto;
           }
           &.shape2 {
             pointer-events: auto;
-            background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape2.png") no-repeat center center;
+            background: rgba(255, 237, 188, 0.6) url("../DATA/PT/BOOK12/IMAGES/shape2.png") no-repeat center center;
             background-size: 50% auto;
           }
           &.shape3 {
             pointer-events: auto;
-            background: rgba(255, 237, 188, 0.7) url("../DATA/PT/BOOK12/IMAGES/shape3.png") no-repeat center center;
+            background: rgba(255, 237, 188, 0.6) url("../DATA/PT/BOOK12/IMAGES/shape3.png") no-repeat center center;
             background-size: 50% auto;
           }
         }
