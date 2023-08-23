@@ -378,7 +378,15 @@ var checkAnswer = function () {
   for (var z = 0; z < zoneArr.length; z++) {
     var rowElem = gridElem.find(">.row[zone='" + zoneArr[z] + "']");
     var zoneCorrect = false;
-    var ansArr = rowElem.eq(0).attr("ans").split("^");
+    if (!rowElem.eq(0).attr("ansID")) {
+      var ansArr = rowElem.eq(0).attr("ans").split("^");
+    } else {
+      var ansArr = $(".contents > div.selected")
+        .find(rowElem.eq(0).attr("ansID"))
+        .text()
+        .split("^");
+    }
+
     var bestMatchAmount = 0;
     var nearestID = 0;
     for (var a = 0; a < ansArr.length; a++) {
