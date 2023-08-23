@@ -12816,6 +12816,11 @@
 .module_organize .cardAvatar.onboard {
   z-index: 99;
 }
+.module_organize .cardAvatar.error {
+  filter: drop-shadow(0px 0px 2px #ff8426) drop-shadow(0px 0px 4px #ff8426) drop-shadow(0px 0px 8px #ff8426);
+  animation-name: headShake;
+  animation-duration: 0.7s;
+}
 .module_organize .cardAvatar > img {
   height: 30px;
   width: auto;

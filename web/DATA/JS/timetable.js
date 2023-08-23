@@ -381,10 +381,9 @@ var checkAnswer = function () {
     if (!rowElem.eq(0).attr("ansID")) {
       var ansArr = rowElem.eq(0).attr("ans").split("^");
     } else {
-      var ansArr = $(".contents > div.selected")
-        .find(rowElem.eq(0).attr("ansID"))
-        .text()
-        .split("^");
+      var ansArr = $.trim(
+        $(".contents > div.selected").find(rowElem.eq(0).attr("ansID")).text()
+      ).split("^");
     }
 
     var bestMatchAmount = 0;
@@ -404,8 +403,7 @@ var checkAnswer = function () {
             .index() + 1;
         cardsArray.push($(this).attr("slug") + "=" + position);
       });
-      //console.log(tempAns);
-      //console.log(cardsArray);
+
       var matchAmount = 0;
       for (var k = 0; k < cardsArray.length; k++) {
         if (tempAns.indexOf(cardsArray[k]) >= 0) {
@@ -429,8 +427,7 @@ var checkAnswer = function () {
       allCorrect = false;
       //錯誤,以最接近的答案為主要整理方向
       var tempAns = ansArr[nearestID].split(",");
-      console.log(tempAns);
-      console.log(cardsArray);
+
       //踢掉錯誤的
       for (var k = 0; k < cardsArray.length; k++) {
         var killCardArr = cardsArray[k].split("=");
@@ -454,7 +451,9 @@ var checkAnswer = function () {
                     .eq(0)
                     .index() + 1;
                 if (positionKill == position) {
+                  /*
                   //restore block
+
                   $(".contents > div.selected .blocks")
                     .find(">div[link='" + $(this).attr("link") + "']")
                     .removeAttr("link")
@@ -464,7 +463,8 @@ var checkAnswer = function () {
                     .removeAttr("link")
                     .removeClass("disable");
                   //kill card
-                  $(this).remove();
+                  $(this).remove();*/
+                  $(this).addClass("error");
                 }
               }
             });
@@ -529,6 +529,7 @@ var openContent = function (id) {
 
 var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
+  elem.find(".error").removeClass("error");
   elem.find(".disable").removeClass("disable");
   elem.find(".grids > .row > span").removeAttr("link");
   elem.find(".blocks > div").removeAttr("link");

@@ -13043,6 +13043,11 @@
     &.onboard {
       z-index: 99;
     }
+    &.error {
+      filter: drop-shadow(0px 0px 2px $orange) drop-shadow(0px 0px 4px $orange) drop-shadow(0px 0px 8px $orange);
+      animation-name: headShake;
+      animation-duration: 0.7s;
+    }
     > img {
       height: 30px;
       width: auto;
