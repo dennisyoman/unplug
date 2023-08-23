@@ -431,11 +431,29 @@ var resetElem = function (elem) {
     $(this)
       .unbind()
       .bind("click", function () {
-        $(this).toggleClass("selected");
-        rootSoundEffect($key);
-        $(".sideTool > .btn_replay").show();
-        $(".sideTool > .btn_check").show();
-        $(".sideTool > .btn_answer").removeClass("active");
+        var ready = true;
+        $(".contents > div.selected .flowers > span").each(function () {
+          if ($(this).attr("class") == "" || $(this).attr("class") == "wrong") {
+            ready = false;
+          }
+        });
+
+        if (ready) {
+          $(this).toggleClass("selected");
+          rootSoundEffect($key);
+          $(".sideTool > .btn_replay").show();
+          $(".sideTool > .btn_check").show();
+          $(".sideTool > .btn_answer").removeClass("active");
+        } else {
+          //第一步驟就錯了
+          rootSoundEffect($surprise);
+          var hinter = "先完成此處花朵的排序規律";
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
+          <p>${hinter}</p>
+        </div>`
+          );
+        }
       });
   });
 
