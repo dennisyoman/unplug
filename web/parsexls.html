@@ -27,7 +27,7 @@
             });
             workbook.SheetNames.forEach(function (sheetName) {
               console.log(sheetName);
-              if (sheetName == "PT12-2-4 示範") {
+              if (sheetName == "PT12-2-4 任務二") {
                 var output = "";
                 // Here is your object
                 var excelRows = XLSX.utils.sheet_to_row_object_array(
@@ -35,7 +35,7 @@
                 );
                 //Add the data rows from Excel file.
                 for (var i = 0; i < excelRows.length; i++) {
-                  output += `B=${excelRows[i].B1},B=${excelRows[i].B2},D=${excelRows[i].D1},D=${excelRows[i].D2}^`;
+                  output += `B=${excelRows[i].B1},B=${excelRows[i].B2},B=${excelRows[i].B3},D=${excelRows[i].D1},D=${excelRows[i].D2},D=${excelRows[i].D3}^`;
                 }
                 jQuery("#xlx_json").val(output);
               }

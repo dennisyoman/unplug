@@ -1,0 +1,466 @@
+<div id="module_wrapper" class="module_debug">
+  <div class="tabs">
+    <span>路線一</span>
+    <span>路線二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 路線一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>修改箭頭指令</b
+            >：走到終點且不能被閃電擊中，請找出多餘的箭頭。可能有多個多餘的箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <div class="subject wow slideInDown">
+          <div class="sensorArea" style="left: 50px" rowMax="5" colMax="7">
+            <div>
+              <span
+                class="start"
+                style="top: 1px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 1px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 1px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="end"
+                style="top: 1px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 29px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 29px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 29px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 58px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 58px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 58px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 86px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 86px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 114px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 114px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 114px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 114px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 142px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 142px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 142px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+
+            <div class="piece wow bounceInDown">
+              <img
+                style="width: 30px"
+                src="./DATA/IMAGES/common/piece_blue.png"
+              />
+            </div>
+          </div>
+          <img
+            style="width: 280px"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-2-1-1.png"
+          />
+        </div>
+        <div class="answer">
+          <div class="arrows wow slideInUp">
+            <span class="d"></span>
+            <span class="d"></span>
+            <span class="d"></span>
+            <span class="d"></span>
+            <span class="d"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r ans"></span>
+            <span class="u"></span>
+            <span class="u"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="u"></span>
+            <span class="u"></span>
+            <span class="l ans"></span>
+            <span class="u"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 路線二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>修改箭頭指令</b
+            >：走到終點且不能被閃電擊中，請找出多餘的箭頭。可能有多個多餘的箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <div class="subject wow slideInDown">
+          <div class="sensorArea" style="left: 10px" rowMax="5" colMax="7">
+            <div>
+              <span
+                class="start"
+                style="top: 1px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 1px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 1px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 1px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="end"
+                style="top: 1px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 29px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 29px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 29px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 29px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 58px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 58px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 58px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 58px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 86px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 86px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 86px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 114px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 114px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 114px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 114px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 114px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+            <div>
+              <span
+                style="top: 142px; left: 1px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 36px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 71px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 105px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 140px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 142px; left: 175px; width: 34px; height: 29px"
+              ></span>
+              <span
+                class="shocked"
+                style="top: 142px; left: 210px; width: 34px; height: 29px"
+              ></span>
+              <span
+                style="top: 142px; left: 245px; width: 34px; height: 29px"
+              ></span>
+            </div>
+
+            <div class="piece wow bounceInDown">
+              <img
+                style="width: 30px"
+                src="./DATA/IMAGES/common/piece_red.png"
+              />
+            </div>
+          </div>
+          <img
+            style="width: 280px"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-2-1-1.png"
+          />
+        </div>
+        <div class="answer">
+          <div class="arrows wow slideInUp">
+            <span class="d"></span>
+            <span class="d"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r ans"></span>
+            <span class="d"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="u"></span>
+            <span class="u"></span>
+            <span class="u"></span>
+            <span class="u ans"></span>
+            <span class="r"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

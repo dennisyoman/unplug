@@ -86,6 +86,8 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
+var gotError = false;
+
 var pieceMove = function () {
   var isEnd = false;
   var piece = $(".contents > div.selected .sensorArea > .piece").eq(0);
@@ -100,8 +102,15 @@ var pieceMove = function () {
     if (currArrow.next().length > 0) {
       nextArrow = currArrow.next();
     } else {
-      //end
+      //箭頭走完了
       isEnd = true;
+      //check if has end sensor
+      if (sensors.find(">div >span.end").length > 0) {
+        if (!currGrid.hasClass("end")) {
+          //沒有踩在終點
+          gotError = true;
+        }
+      }
     }
   }
 
@@ -111,11 +120,25 @@ var pieceMove = function () {
       $(".contents > div.selected .sensorArea >div >span:not(.done)").length ==
       0
     ) {
-      //correct
-      bingo($(".contents > div.selected .subject"), true);
+      //全部走完
+      if (!gotError) {
+        bingo($(".contents > div.selected .subject"), true);
+      } else {
+        //gotError
+        bingo($(".contents > div.selected .subject"), false);
+      }
     } else {
-      //wrong
-      bingo($(".contents > div.selected .subject"), false);
+      if (sensors.find(">div >span.end").length > 0) {
+        if (!gotError) {
+          bingo($(".contents > div.selected .subject"), true);
+        } else {
+          //gotError
+          bingo($(".contents > div.selected .subject"), false);
+        }
+      } else {
+        //沒有全部走完
+        bingo($(".contents > div.selected .subject"), false);
+      }
     }
   } else {
     if (nextArrow.hasClass("selected")) {
@@ -142,7 +165,12 @@ var pieceMove = function () {
       }
 
       nextGrid = sensors.find("> div").eq(rowID).find(">span").eq(colID);
-      if (rowID >= 0 && rowID <= 3 && colID >= 0 && colID <= 4) {
+      if (
+        rowID >= 0 &&
+        rowID <= parseInt(sensors.attr("rowMax")) &&
+        colID >= 0 &&
+        colID <= parseInt(sensors.attr("colMax"))
+      ) {
         var pX =
           parseInt(nextGrid.css("left")) +
           parseInt(nextGrid.css("width")) / 2 / stageRatioReal;
@@ -159,7 +187,13 @@ var pieceMove = function () {
           .append(`<span class="${dirClass}"></span>`);
         currArrow.removeClass("curr");
         nextArrow.addClass("curr").addClass("done");
-        rootSoundEffect($show);
+        //是否被電到
+        if (nextGrid.hasClass("shocked")) {
+          gotError = true;
+          rootSoundEffect($beam);
+        } else {
+          rootSoundEffect($show);
+        }
       } else {
         currGrid.removeClass("curr");
         nextGrid.addClass("curr");
@@ -240,6 +274,8 @@ var flowerMove = function () {
 };
 
 var checkAnswer = function () {
+  gotError = false;
+
   $(".sideTool > .btn_check").hide();
   //找出錯誤
   if ($(".contents > div.selected .sensorArea").length > 0) {
@@ -327,17 +363,13 @@ var showAnswer = function (boolean) {
 
     //找出錯誤
     if ($(".contents > div.selected .sensorArea").length > 0) {
-      $(".contents > div.selected .arrows >span.ans")
-        .addClass("selected")
-        .siblings(".selected")
-        .removeClass("selected");
+      $(".contents > div.selected .arrows >span").removeClass("selected");
+      $(".contents > div.selected .arrows >span.ans").addClass("selected");
     }
     //找出標註錯誤的訊息
     if ($(".contents > div.selected .TFArea").length > 0) {
-      $(".contents > div.selected .TFArea >span.ans")
-        .addClass("selected")
-        .siblings(".selected")
-        .removeClass("selected");
+      $(".contents > div.selected .TFArea >span").removeClass("selected");
+      $(".contents > div.selected .TFArea >span.ans").addClass("selected");
     }
     //找出錯誤 花系列
     if ($(".contents > div.selected .flowers").length > 0) {
@@ -400,10 +432,7 @@ var resetElem = function (elem) {
     .find(".arrows > span")
     .unbind()
     .bind("click", function () {
-      $(this)
-        .addClass("selected")
-        .siblings(".selected")
-        .removeClass("selected");
+      $(this).toggleClass("selected");
       rootSoundEffect($key);
       $(".sideTool > .btn_replay").show();
       $(".sideTool > .btn_check").show();

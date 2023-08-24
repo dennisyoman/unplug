@@ -139,6 +139,14 @@
             }
             &:nth-child(5) {
               animation-delay: 0.4s;
+              > span.front {
+                background: $light;
+                padding-left: 45px !important;
+                justify-content: left !important;
+                &::before {
+                  left: 0px;
+                }
+              }
             }
             &:nth-child(6) {
               animation-delay: 0.5s;
@@ -198,8 +206,7 @@
                 height: 30px;
                 width: 45px;
                 @include transition(all, 0.3s);
-                background: url("../images/login/eye.png") center center
-                  no-repeat;
+                background: url("../images/login/eye.png") center center no-repeat;
                 background-size: 20px 8px;
                 vertical-align: middle;
                 flex: none;

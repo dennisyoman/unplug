@@ -1,0 +1,783 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span>題目一</span>
+    <span>題目二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>破解密碼</b>：根據箭頭提示，依序點擊正確的格子。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow fadeInLeft"
+        style="width: 250px; padding: 17px 0 0 17px; margin-right: 40px"
+      >
+        <div class="items">
+          <span
+            style="top: 27px; left: 28px"
+            iid="x"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >x</span
+          >
+          <span
+            style="top: 27px; left: 67px"
+            iid="u"
+            ans="3"
+            onClick="trigMeSequence($(this))"
+            >u</span
+          >
+          <span
+            style="top: 27px; left: 105px"
+            iid="n"
+            ans="4"
+            onClick="trigMeSequence($(this))"
+            >n</span
+          >
+          <span
+            style="top: 27px; left: 144px"
+            iid="g"
+            ans="5"
+            onClick="trigMeSequence($(this))"
+            >g</span
+          >
+          <span
+            style="top: 27px; left: 182px"
+            iid="r"
+            ans="6"
+            onClick="trigMeSequence($(this))"
+            >r</span
+          >
+          <span
+            style="top: 27px; left: 220px"
+            iid="y"
+            ans="7"
+            onClick="trigMeSequence($(this))"
+            >y</span
+          >
+
+          <span
+            style="top: 66px; left: 28px"
+            class="start"
+            iid="I"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >I</span
+          >
+          <span
+            style="top: 66px; left: 67px"
+            iid="h"
+            ans="2"
+            onClick="trigMeSequence($(this))"
+            >h</span
+          >
+          <span
+            style="top: 66px; left: 105px"
+            iid="e"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >e</span
+          >
+          <span
+            style="top: 66px; left: 144px"
+            iid="c"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >c</span
+          >
+          <span
+            style="top: 66px; left: 182px"
+            iid="p"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >p</span
+          >
+          <span
+            style="top: 66px; left: 220px"
+            iid="w"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >w</span
+          >
+
+          <span
+            style="top: 104px; left: 28px"
+            iid="a"
+            ans="0"
+            onClick="trigMeSequence($(this))"
+            >a</span
+          >
+          <span
+            style="top: 104px; left: 67px"
+            iid="m"
+            ans="1"
+            onClick="trigMeSequence($(this))"
+            >m</span
+          >
+          <span
+            style="top: 104px; left: 105px"
+            iid="l"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >l</span
+          >
+          <span
+            style="top: 104px; left: 144px"
+            iid="d"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >d</span
+          >
+          <span
+            style="top: 104px; left: 182px"
+            iid="g"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >g</span
+          >
+          <span
+            style="top: 104px; left: 220px"
+            iid="j"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >j</span
+          >
+
+          <span
+            style="top: 143px; left: 28px"
+            iid="q"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >q</span
+          >
+          <span
+            style="top: 143px; left: 67px"
+            iid="k"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >k</span
+          >
+          <span
+            style="top: 143px; left: 105px"
+            iid="i"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >i</span
+          >
+          <span
+            style="top: 143px; left: 144px"
+            iid="f"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >f</span
+          >
+          <span
+            style="top: 143px; left: 182px"
+            iid="d"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >d</span
+          >
+          <span
+            style="top: 143px; left: 220px"
+            iid="a"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >a</span
+          >
+
+          <span
+            style="top: 181px; left: 28px"
+            iid="y"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >y</span
+          >
+          <span
+            style="top: 181px; left: 67px"
+            iid="e"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >e</span
+          >
+          <span
+            style="top: 181px; left: 105px"
+            iid="k"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >k</span
+          >
+          <span
+            style="top: 181px; left: 144px"
+            iid="u"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >u</span
+          >
+          <span
+            style="top: 181px; left: 182px"
+            iid="a"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >a</span
+          >
+          <span
+            style="top: 181px; left: 220px"
+            iid="d"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >d</span
+          >
+
+          <span
+            style="top: 220px; left: 28px"
+            iid="b"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >b</span
+          >
+          <span
+            style="top: 220px; left: 67px"
+            iid="s"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >s</span
+          >
+          <span
+            style="top: 220px; left: 105px"
+            iid="t"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >t</span
+          >
+          <span
+            style="top: 220px; left: 144px"
+            iid="o"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >o</span
+          >
+          <span
+            style="top: 220px; left: 182px"
+            iid="e"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >e</span
+          >
+          <span
+            style="top: 220px; left: 220px"
+            iid="v"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >v</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK12/IMAGES/PT-12-5-1-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInRight" style="width: 140px">
+        <div
+          class="items noclick"
+          ans="I"
+          style="
+            top: 116px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="a,m"
+          style="
+            top: 139px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="h,u,n,g,r,y"
+          style="
+            top: 162px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div class="subject">
+          <div class="arrowSteps">
+            <!-- line1的唯一個字母正好是起點，所以itemIndex從1開始 -->
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 9px; height: 25px; top: 12px; left: 10px"
+            ></span>
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 20px; height: 25px; top: 12px; left: 22px"
+            ></span>
+
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 9px; height: 25px; top: 37px; left: 10px"
+            ></span>
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 9px; height: 25px; top: 37px; left: 23px"
+            ></span>
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 16px; height: 25px; top: 37px; left: 36px"
+            ></span>
+
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 16px; height: 25px; top: 37px; left: 57px"
+            ></span>
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 16px; height: 25px; top: 37px; left: 78px"
+            ></span>
+
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 16px; height: 25px; top: 37px; left: 99px"
+            ></span>
+          </div>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-5-1-1-2.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div style="display: none" class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>破解密碼</b>：根據箭頭提示，依序點擊正確的格子。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow fadeInLeft"
+        style="width: 250px; padding: 17px 0 0 17px; margin-right: 40px"
+      >
+        <div class="items">
+          <span
+            style="top: 27px; left: 28px"
+            iid="x"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >x</span
+          >
+          <span
+            style="top: 27px; left: 67px"
+            iid="u"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >u</span
+          >
+          <span
+            style="top: 27px; left: 105px"
+            iid="n"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >n</span
+          >
+          <span
+            style="top: 27px; left: 144px"
+            iid="g"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >g</span
+          >
+          <span
+            style="top: 27px; left: 182px"
+            iid="r"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >r</span
+          >
+          <span
+            style="top: 27px; left: 220px"
+            iid="y"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >y</span
+          >
+
+          <span
+            style="top: 66px; left: 28px"
+            iid="I"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >I</span
+          >
+          <span
+            style="top: 66px; left: 67px"
+            class="start"
+            iid="H"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >H</span
+          >
+          <span
+            style="top: 66px; left: 105px"
+            iid="e"
+            ans="0"
+            onClick="trigMeSequence($(this))"
+            >e</span
+          >
+          <span
+            style="top: 66px; left: 144px"
+            iid="c"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >c</span
+          >
+          <span
+            style="top: 66px; left: 182px"
+            iid="p"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >p</span
+          >
+          <span
+            style="top: 66px; left: 220px"
+            iid="w"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >w</span
+          >
+
+          <span
+            style="top: 104px; left: 28px"
+            iid="a"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >a</span
+          >
+          <span
+            style="top: 104px; left: 67px"
+            iid="m"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >m</span
+          >
+          <span
+            style="top: 104px; left: 105px"
+            iid="l"
+            ans="1"
+            onClick="trigMeSequence($(this))"
+            >l</span
+          >
+          <span
+            style="top: 104px; left: 144px"
+            iid="d"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >d</span
+          >
+          <span
+            style="top: 104px; left: 182px"
+            iid="g"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >g</span
+          >
+          <span
+            style="top: 104px; left: 220px"
+            iid="j"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >j</span
+          >
+
+          <span
+            style="top: 143px; left: 28px"
+            iid="q"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >q</span
+          >
+          <span
+            style="top: 143px; left: 67px"
+            iid="k"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >k</span
+          >
+          <span
+            style="top: 143px; left: 105px"
+            iid="i"
+            ans="2"
+            onClick="trigMeSequence($(this))"
+            >i</span
+          >
+          <span
+            style="top: 143px; left: 144px"
+            iid="f"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >f</span
+          >
+          <span
+            style="top: 143px; left: 182px"
+            iid="t"
+            ans="10"
+            onClick="trigMeSequence($(this))"
+            >t</span
+          >
+          <span
+            style="top: 143px; left: 220px"
+            iid="a"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >a</span
+          >
+
+          <span
+            style="top: 181px; left: 28px"
+            iid="y"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >y</span
+          >
+          <span
+            style="top: 181px; left: 67px"
+            iid="e"
+            ans="4"
+            onClick="trigMeSequence($(this))"
+            >e</span
+          >
+          <span
+            style="top: 181px; left: 105px"
+            iid="k"
+            ans="3"
+            onClick="trigMeSequence($(this))"
+            >k</span
+          >
+          <span
+            style="top: 181px; left: 144px"
+            iid="u"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >u</span
+          >
+          <span
+            style="top: 181px; left: 182px"
+            iid="a"
+            ans="9"
+            onClick="trigMeSequence($(this))"
+            >a</span
+          >
+          <span
+            style="top: 181px; left: 220px"
+            iid="d"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >d</span
+          >
+
+          <span
+            style="top: 220px; left: 28px"
+            iid="b"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >b</span
+          >
+          <span
+            style="top: 220px; left: 67px"
+            iid="s"
+            ans="5"
+            onClick="trigMeSequence($(this))"
+            >s</span
+          >
+          <span
+            style="top: 220px; left: 105px"
+            iid="t"
+            ans="6"
+            onClick="trigMeSequence($(this))"
+            >t</span
+          >
+          <span
+            style="top: 220px; left: 144px"
+            iid="o"
+            ans="7"
+            onClick="trigMeSequence($(this))"
+            >o</span
+          >
+          <span
+            style="top: 220px; left: 182px"
+            iid="e"
+            ans="8"
+            onClick="trigMeSequence($(this))"
+            >e</span
+          >
+          <span
+            style="top: 220px; left: 220px"
+            iid="v"
+            ans=""
+            onClick="trigMeSequence($(this))"
+            >v</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT/BOOK12/IMAGES/PT-12-5-1-4.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInRight" style="width: 140px">
+        <div
+          class="items noclick"
+          ans="H,e"
+          style="
+            top: 116px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="l,i,k,e,s"
+          style="
+            top: 139px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="t,o"
+          style="
+            top: 162px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div
+          class="items noclick"
+          ans="e,a,t"
+          style="
+            top: 184px;
+            left: 10px;
+            width: 119px;
+            height: 20px;
+            pointer-events: none;
+          "
+        ></div>
+        <div class="subject">
+          <div class="arrowSteps">
+            <span
+              class="line1"
+              itemIndex="0"
+              style="width: 18px; height: 25px; top: 12px; left: 10px"
+            ></span>
+
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 9px; height: 25px; top: 37px; left: 10px"
+            ></span>
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 8px; height: 25px; top: 37px; left: 23px"
+            ></span>
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 10px; height: 25px; top: 37px; left: 34px"
+            ></span>
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 16px; height: 25px; top: 37px; left: 49px"
+            ></span>
+            <span
+              class="line2"
+              itemIndex="1"
+              style="width: 8px; height: 25px; top: 37px; left: 69px"
+            ></span>
+
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 17px; height: 25px; top: 64px; left: 10px"
+            ></span>
+            <span
+              class="line3"
+              itemIndex="2"
+              style="width: 18px; height: 25px; top: 64px; left: 31px"
+            ></span>
+
+            <span
+              class="line4"
+              itemIndex="3"
+              style="width: 17px; height: 25px; top: 89px; left: 10px"
+            ></span>
+            <span
+              class="line4"
+              itemIndex="3"
+              style="width: 9px; height: 25px; top: 89px; left: 31px"
+            ></span>
+            <span
+              class="line4"
+              itemIndex="3"
+              style="width: 9px; height: 25px; top: 89px; left: 44px"
+            ></span>
+          </div>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT/BOOK12/IMAGES/PT-12-5-1-1-3.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

@@ -121,6 +121,14 @@
 .ms_wrapper .lessons > .swiper-container > .swiper-wrapper > .swiper-slide > div:nth-child(5) {
   animation-delay: 0.4s;
 }
+.ms_wrapper .lessons > .swiper-container > .swiper-wrapper > .swiper-slide > div:nth-child(5) > span.front {
+  background: #ccb284;
+  padding-left: 45px !important;
+  justify-content: left !important;
+}
+.ms_wrapper .lessons > .swiper-container > .swiper-wrapper > .swiper-slide > div:nth-child(5) > span.front::before {
+  left: 0px;
+}
 .ms_wrapper .lessons > .swiper-container > .swiper-wrapper > .swiper-slide > div:nth-child(6) {
   animation-delay: 0.5s;
 }

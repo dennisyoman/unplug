@@ -274,12 +274,13 @@ var checkAnswer = function () {
 
   //arrowSteps
   if ($(".contents > div.selected .arrowSteps").length > 0) {
+    console.log("start here");
     var arrowSteps = $(".contents > div.selected .arrowSteps");
     var lines = $(".contents > div.selected .code .lines");
     var resetSeq = arrowSteps.find(">span").length;
 
     for (var k = 0; k < arrowSteps.find(">span").length; k++) {
-      if ((lineAnsArr = lines.find("> span[seq='" + k + "']").length > 0)) {
+      if (lines.find("> span[seq='" + k + "']").length > 0) {
         var lineAnsArr = lines
           .find("> span[seq='" + k + "']")
           .parent()
@@ -445,6 +446,10 @@ var showAnswer = function (boolean) {
         }
       });
     }
+    if ($(".contents > div.selected .arrowSteps").length > 0) {
+      //check btn hide
+      $(".sideTool > div.btn_check").hide();
+    }
   } else {
     if ($(".contents > div.selected .puzzle").find(".ans").length > 0) {
       $(".contents > div.selected .puzzle").removeClass("showAnswer");
@@ -566,6 +571,7 @@ var trigMeSequence = function (tar) {
       rootSoundEffect($wrong);
     } else {
       //correct
+      $(".sideTool > div.btn_check").show();
 
       //確認是否到最後
       if (
@@ -573,6 +579,7 @@ var trigMeSequence = function (tar) {
           ".puzzle .arrowSteps > span:not(.done)"
         ).length > 0
       ) {
+        //如果是第一個
         if (currItem.hasClass("start")) {
           $(".contents > div.selected .puzzle")
             .find("> .items")

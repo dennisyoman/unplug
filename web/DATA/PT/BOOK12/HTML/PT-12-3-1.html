@@ -1,0 +1,161 @@
+<div id="module_wrapper" class="module_organize">
+  <div class="tabs">
+    <span>任務</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>除舊布新：</b>請依序貼上哥哥和弟弟一起翻新兩扇大門的工作順序。
+          </p>
+          <img src="./DATA/PT/BOOK12/IMAGES/PT-12-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="grids"
+        bw="12"
+        bh="37"
+        style="width: 432px; margin-top: 50px"
+        zones="zone1"
+      >
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 1px; left: 48px"
+          ans="A=1,C=9,B=9,D=13"
+        ></div>
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 37px; left: 48px"
+        ></div>
+        <div
+          class="row"
+          zone="zone1"
+          size="32"
+          style="position: absolute; top: 74px; left: 48px"
+        ></div>
+
+        <img class="ans" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-3-3A.png" />
+        <img class="sub" src="./DATA/PT/BOOK12/IMAGES/PT-12-2-3-3.png" />
+        <img
+          class="wow bounceIn"
+          style="
+            position: absolute;
+            top: 30px;
+            left: -60px;
+            width: 25px;
+            height: auto;
+          "
+          src="./DATA/PT/BOOK12/IMAGES/hint1.jpg"
+        />
+        <img
+          class="wow bounceIn"
+          style="
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 25px;
+            height: auto;
+          "
+          src="./DATA/PT/BOOK12/IMAGES/hint2.jpg"
+        />
+        <img
+          class="wow bounceIn"
+          style="
+            position: absolute;
+            top: 55px;
+            left: -60px;
+            width: 25px;
+            height: auto;
+          "
+          src="./DATA/PT/BOOK12/IMAGES/hint3.jpg"
+        />
+        <img
+          class="wow bounceIn"
+          style="
+            position: absolute;
+            top: 55px;
+            left: -30px;
+            width: 25px;
+            height: auto;
+          "
+          src="./DATA/PT/BOOK12/IMAGES/hint4.jpg"
+        />
+      </div>
+      <div class="blocks" style="width: 432px; margin-top: 10px">
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="8,1" class="draggable wow bounceIn" slug="A">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_1.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="B">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_2.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="C">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_3.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+        <div size="4,1" class="draggable wow bounceIn" slug="D">
+          <img src="./DATA/PT/BOOK12/IMAGES/sticker_4.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .grids {
+    background: none !important;
+    padding: 0 !important;
+  }
+  .row {
+    border: none !important;
+  }
+  .row > span {
+    border: none !important;
+  }
+
+  .blocks {
+    margin-top: 30px;
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .blocks > div {
+    display: inline-block;
+    margin: 10px;
+  }
+  .blocks > div > img {
+    float: left;
+  }
+  .blocks > div.disable {
+    pointer-events: none;
+    opacity: 0.3 !important;
+  }
+</style>
