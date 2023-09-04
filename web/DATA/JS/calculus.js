@@ -664,6 +664,10 @@ var checkAnswer = function () {
           //match[1] 要相鄰 match[0]
           var ans = cond.split("&");
           cond = "&";
+        } else if (cond.indexOf("*") != -1) {
+          //match[0]不能再match[1]之間
+          var ans = cond.split("*");
+          cond = "*";
         }
 
         //開始判斷
@@ -703,6 +707,41 @@ var checkAnswer = function () {
             }
 
             break;
+          case "*":
+            //A不能再B之間
+            var anss = ans[1].split("^");
+            var anss_seq = [-1, -1];
+            var gotit = false;
+            selectedElem.find(".frames > div").each(function (index) {
+              var tempAns = $(this).text();
+              if (anss[0] == tempAns) {
+                anss_seq[0] = index + 1;
+              }
+              if (anss[1] == tempAns) {
+                anss_seq[1] = index + 1;
+              }
+            });
+
+            if (
+              (parseInt(match[0]) < parseInt(anss_seq[0]) &&
+                parseInt(match[0]) > parseInt(anss_seq[1])) ||
+              (parseInt(match[0]) < parseInt(anss_seq[1]) &&
+                parseInt(match[0]) > parseInt(anss_seq[0]))
+            ) {
+              console.log("new if");
+              console.log(ans[0]);
+              console.log(match[0]);
+              console.log(anss[0]);
+              console.log(anss_seq[0]);
+              console.log(anss[1]);
+              console.log(anss_seq[1]);
+              targets[0].addClass("wrong");
+              alert += `<p><b>${targets[0].text()}</b>不能在<b>${
+                anss[0]
+              }</b>和<b>${anss[1]}</b>之間<p>`;
+            }
+            break;
+
           case "-":
             //A必須在B之前
             if (match[0] >= match[1]) {
