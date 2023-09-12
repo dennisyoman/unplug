@@ -402,7 +402,7 @@ var resetElem = function (elem) {
           dataArr[0]
         }" link="${blockCount}" style="top: ${inty / stageRatioReal}px; left: ${
           intx / stageRatioReal
-        }px;"><img src="./DATA/PT/BOOK1/IMAGES/block${
+        }px;"><img src="./DATA/PT/BOOK${bid}/IMAGES/block${
           dataArr[0]
         }.png" style="width:${bw * parseInt(dataArr[0])};height:${bh}"></div>`;
         //
