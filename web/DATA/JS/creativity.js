@@ -97,7 +97,14 @@ $(document).ready(function () {
     for (var k = 0; k < itemElem.length; k++) {
       var seq = itemElem.eq(k).attr("ans");
       var audioPath =
-        audioBaseUrl + "B" + bid + "L" + lid + "_voice_story_" + seq + ".mp3";
+        audioBaseUrl +
+        "B" +
+        parseInt(bid) +
+        "L" +
+        lid +
+        "_voice_story_" +
+        seq +
+        ".mp3";
       itemElem.eq(k).append(
         `<span class="storybtn wow bounceInLeft" onClick="playStory('${audioPath}',true)"><audio preload="auto" src="${audioPath}" /></span>
           <span class="pausebtn" onClick="playStory('${audioPath}',false)"/>`

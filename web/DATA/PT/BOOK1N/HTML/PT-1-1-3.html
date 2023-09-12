@@ -1,0 +1,153 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>上學前的準備</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="A cards cardItem" ans="A" title="穿襪子">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="B cards cardItem" ans="B" title="換好衣服">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="C cards cardItem" ans="C" title="起床">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="D cards cardItem" ans="D" title="刷牙">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="E cards cardItem" ans="E" title="穿鞋">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="F cards cardItem" ans="F" title="整理書包">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-1-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="C"></div>
+        <div ans="D"></div>
+        <div ans="B"></div>
+        <div ans="F"></div>
+        <div ans="A"></div>
+        <div class="end" ans="E"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+
+      <div class="condition">
+        <span>C=1</span>
+        <span>A-E</span>
+        <span>B-E</span>
+        <span>B-F</span>
+        <span>D-B</span>
+        <span>D-F</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>換衣服</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-intro.jpg" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid6 withArrow wow fadeInDown">
+        <div>
+          <div class="A cards cardItem" ans="A" title="換褲子/裙子">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="B cards cardItem" ans="B" title="找到上衣">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="C cards cardItem" ans="C" title="穿外套">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="D cards cardItem" ans="D" title="換上衣">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="E cards cardItem" ans="E" title="折睡衣">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="F cards cardItem" ans="F" title="脫睡衣">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-3-2-F.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="B"></div>
+        <div ans="F"></div>
+        <div ans="D"></div>
+        <div ans="A"></div>
+        <div ans="E"></div>
+        <div class="end" ans="C"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>C=6</span>
+        <span>B-D</span>
+        <span>B-E</span>
+        <span>F-D</span>
+        <span>F-E</span>
+        <span>D-E</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

@@ -1,0 +1,317 @@
+<div id="module_wrapper" class="module_order">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+    <span>任務四</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            將正確的箭頭元素放到對應的框框中，引導黃帝從起點(Start)前往蚩尤所在地(End)。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="4" col="4" intRX="50" intRZ="0">
+          <div class="man king" intX="3" intY="1">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK1N/IMAGES/king.png"
+            />
+          </div>
+          <div class="man ghost" intX="1" intY="3">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK1N/IMAGES/ghost.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <img
+              width="240"
+              height="240"
+              src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-1.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="l" />
+          <div ans="l" />
+          <div ans="u" />
+          <div class="end" ans="u" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            避開濃霧區，將正確的箭頭元素放到對應的框框中，引導黃帝從起點(Start)前往蚩尤所在地(End)。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="4" col="4" intRX="50" intRZ="0">
+          <div class="man king" intX="1" intY="3">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK1N/IMAGES/king.png"
+            />
+          </div>
+          <div class="man ghost" intX="4" intY="2">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK1N/IMAGES/ghost.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="barrier">
+              <span pX="1" pY="2" />
+              <span pX="2" pY="2" />
+              <span pX="3" pY="2" />
+              <span pX="2" pY="4" />
+              <span pX="3" pY="4" />
+              <span pX="4" pY="4" />
+            </div>
+            <img
+              width="240"
+              height="240"
+              src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-2.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="r" />
+          <div ans="r" />
+          <div ans="r" />
+          <div class="end" ans="d" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            避開障礙區，將正確的箭頭元素放到對應的框框中，引導黃帝從起點(Start)前往蚩尤所在地(End)。點選右邊
+            <img
+              src="./DATA/IMAGES/common/btn_answer.png"
+              height="30"
+              width="30"
+            />
+            可以得到參考答案。
+          </p>
+          <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="4" col="4" intRX="50" intRZ="0">
+          <div class="man king" intX="3" intY="3">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK1N/IMAGES/king.png"
+            />
+          </div>
+          <div class="man ghost" intX="1" intY="1">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK1N/IMAGES/ghost.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="barrier">
+              <span pX="1" pY="4" />
+              <span pX="2" pY="2" />
+              <span pX="2" pY="3" />
+              <span pX="4" pY="1" />
+              <span pX="4" pY="2" />
+              <span pX="4" pY="4" />
+            </div>
+            <img
+              width="240"
+              height="240"
+              src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-3.png"
+            />
+          </div>
+        </div>
+        <div class="frames wow bounceInLeft" data-wow-delay="1s">
+          <div class="start" ans="d" />
+          <div ans="d" />
+          <div ans="l" />
+          <div class="end" ans="l" />
+          <span class="cta orange" onClick="goFight()">CHECK</span>
+        </div>
+        <div class="cards">
+          <div class="u wow bounceInUp" data-wow-delay="1s" ans="u">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="r wow bounceInUp" data-wow-delay="1.1s" ans="r">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="d wow bounceInUp" data-wow-delay="1.2s" ans="d">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+          <div class="l wow bounceInUp" data-wow-delay="1.3s" ans="l">
+            <img src="./DATA/IMAGES/common/arrow1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            黃帝依照左邊框框的移動方向，從起點(Start)前往蚩尤所在地(End)，請把黃帝沿路會經過的地方圈起來。
+          </p>
+          <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="world3D">
+        <div class="stage rotater" row="5" col="4" intRX="50" intRZ="0">
+          <div class="man king" intX="4" intY="4">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".2s"
+              src="./DATA/PT/BOOK1N/IMAGES/king.png"
+            />
+          </div>
+          <div class="man ghost" intX="1" intY="1">
+            <img
+              class="wow bounceInDown"
+              data-wow-delay=".4s"
+              src="./DATA/PT/BOOK1N/IMAGES/ghost.png"
+            />
+          </div>
+          <div class="ground" mt="1">
+            <div class="items">
+              <span pX="3" pY="1" ans="bush" />
+              <span pX="4" pY="1" ans="bush" />
+              <span pX="2" pY="2" ans="tent" />
+              <span pX="3" pY="2" ans="bush" />
+              <span pX="4" pY="2" ans="bush" />
+              <span pX="2" pY="3" ans="forest" />
+              <span pX="3" pY="3" ans="forest" />
+              <span pX="1" pY="4" ans="river" />
+              <span pX="2" pY="4" ans="forest" />
+              <span pX="3" pY="4" ans="forest" />
+              <span pX="1" pY="5" ans="river" />
+              <span pX="2" pY="5" ans="river" />
+              <span pX="3" pY="5" ans="wheat" />
+              <span pX="4" pY="5" ans="wheat" />
+            </div>
+            <img
+              width="240"
+              height="300"
+              src="./DATA/PT/BOOK1N/IMAGES/PT-1-1-2-4.png"
+            />
+          </div>
+        </div>
+        <div
+          class="frames small wow bounceInLeft fixAnswer"
+          data-wow-delay="1s"
+        >
+          <div class="solid u start" ans="u" />
+          <div class="solid l" ans="l" />
+          <div class="solid l" ans="l" />
+          <div class="solid l" ans="l" />
+          <div class="solid d" ans="d" />
+          <div class="solid d" ans="d" />
+          <div class="solid d" ans="d" />
+          <div class="solid d end" ans="d" />
+        </div>
+        <div class="lights">
+          <div class="wow bounceInUp ans" data-wow-delay="1.5s" ans="river">
+            <img src="./DATA/IMAGES/common/card_river.jpg" />
+          </div>
+          <div class="wow bounceInUp ans" data-wow-delay="1.4s" ans="wheat">
+            <img src="./DATA/IMAGES/common/card_wheat.jpg" />
+          </div>
+          <div class="wow bounceInUp" data-wow-delay="1.3s" ans="forest">
+            <img src="./DATA/IMAGES/common/card_forest.jpg" />
+          </div>
+          <div class="wow bounceInUp" data-wow-delay="1.2s" ans="bush">
+            <img src="./DATA/IMAGES/common/card_bush.jpg" />
+          </div>
+          <div class="wow bounceInUp" data-wow-delay="1.1s" ans="tent">
+            <img src="./DATA/IMAGES/common/card_tent.jpg" />
+          </div>
+          <span class="cta orange wow bounceInUp" data-wow-delay="1s"
+            >CHECK</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

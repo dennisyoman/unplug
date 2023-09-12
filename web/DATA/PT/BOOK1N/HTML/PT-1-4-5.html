@@ -1,0 +1,160 @@
+<div id="module_wrapper" class="module_calculus">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_playorder"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>做做運動</b>：排出自己的運動順序，建立演算法！</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid12 wow fadeIn">
+        <div>
+          <div class="cardItem A l4" ans="A" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4" ans="B" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4" ans="C" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4" ans="D" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4" ans="E" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4" ans="F" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-F.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem G l4" ans="G" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-G.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem H l4" ans="H" onClick="pickMe($(this))">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-1-H.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+
+      <div
+        class="framesMulti repeatAnswer wow bounceInUp"
+        ans="A,C,A,D,A,C,A,D,B,G,B,D,B,E,B,D"
+        multiAns="A,C,A,D,A,C,A,D,B,G,B,D,B,E,B,D;A,C,A,D,A,C,A,D,B,F,B,D,B,H,B,D"
+      >
+        <span class="cta" onClick="fixAnswer()">修正</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>製作南瓜沙拉</b
+            >：依照合理的準備流程拖曳圖片來排序，建立演算法！點擊圖片，可以查看圖片說明。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="grids grid12 withArrow wow fadeInDown">
+        <div>
+          <div class="cardItem A l4 cards" ans="A" title="南瓜去皮挖子">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-A.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem B l4 cards" ans="B" title="將食材攪拌均勻">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-B.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem C l4 cards" ans="C" title="紅蘿蔔切丁">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-C.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem D l4 cards" ans="D" title="紅蘿蔔削皮">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-D.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem E l4 cards" ans="E" title="將食材蒸熟">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-E.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem F l4 cards" ans="F" title="加入沙拉醬">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-F.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem G l4 cards" ans="G" title="將蛋去殼切片">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-G.jpg" />
+          </div>
+        </div>
+        <div>
+          <div class="cardItem H l4 cards" ans="H" title="準備乾淨的沙拉盆">
+            <img src="./DATA/PT/BOOK1N/IMAGES/PT-1-4-5-2-H.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="gridSlider">
+        <div class="storyline wow slideInRight"></div>
+        <span class="btn prev" onClick="switchSlider(-1)" />
+        <span class="btn next" onClick="switchSlider(1)" />
+      </div>
+      <div class="frames wow bounceInUp">
+        <div class="start" ans="H"></div>
+        <div ans="A"></div>
+        <div ans="D"></div>
+        <div ans="C"></div>
+        <div ans="E"></div>
+        <div ans="G"></div>
+        <div ans="F"></div>
+        <div class="end" ans="B"></div>
+        <span class="cta orange" onClick="checkAnswer()">CHECK</span>
+      </div>
+      <div class="condition">
+        <span>B=8</span>
+        <span>F=7</span>
+        <span>E-G</span>
+        <span>A-E</span>
+        <span>C-E</span>
+        <span>D-C</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
