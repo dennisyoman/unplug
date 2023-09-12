@@ -397,6 +397,8 @@ var resetElem = function (elem) {
             inty = tarSpan.offset().top - $("#module_wrapper").offset().top;
           }
         }
+        console.log("ccdcdcdc");
+        console.log(bid);
 
         var tempBlock = `<div class="cardAvatar onboard" size="${
           dataArr[0]
