@@ -125,11 +125,11 @@ var checkAnswer = function () {
 
 var foodsArr = [
   ["c1", ["w1", "w2", "w3", "w4", "w5", "w6", "w7", "w8", "w9", "w10", "w11"]],
-  ["c2", ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9"]],
+  ["c2", ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v9"]],
   ["c3", ["q1", "q2", "q3", "q4", "q5", "q6"]],
   ["c4", ["m1", "m2", "m3"]],
   ["c5", ["f1", "f2", "f3", "f4", "f5", "f6", "f7"]],
-  ["c6", ["o1", "o2", "o3", "o4"]],
+  ["c6", ["o1", "v8", "o3", "o4"]],
 ];
 
 var setSelection = function (options) {
@@ -154,6 +154,12 @@ var resetElem = function (elem) {
   elem.find(".selected").removeClass("selected");
   elem.find(".done").removeClass("done");
   $(".alert").remove();
+  //shuffle foodsArr
+  for (var i = 0; i < foodsArr.length; i++) {
+    var tempArr = foodsArr[i][1];
+    shuffle(tempArr);
+    foodsArr[i][1] = tempArr;
+  }
 
   //category
   if (elem.find(".categoryArea").length > 0) {
