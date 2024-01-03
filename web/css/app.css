@@ -7311,6 +7311,12 @@
 .module_decode .contents .code .items > span *.lines {
   opacity: 1;
 }
+.module_decode .contents .code .items > span.done * {
+  opacity: 1;
+}
+.module_decode .contents .code .items > span.done *.lines {
+  opacity: 1;
+}
 .module_decode .contents .code .items > span .lines {
   position: absolute;
   width: 100%;

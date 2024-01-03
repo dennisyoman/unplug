@@ -164,7 +164,6 @@ var trigMeHash = function (tar) {
         <img
           width="20"
           height="auto"
-          style="opacity:1;"
           src="./DATA/PT/BOOK2/IMAGES/hash_${tar.attr("seq")}.png"
       />`);
         rootSoundEffect($show);
@@ -179,7 +178,6 @@ var trigMeHash = function (tar) {
       <img
         width="20"
         height="auto"
-        style="opacity:1;"
         src="./DATA/PT/BOOK2/IMAGES/hash_${tar.attr("seq")}.png"
     />`);
       rootSoundEffect($show);

@@ -7392,6 +7392,14 @@
               opacity: 1;
             }
           }
+          &.done {
+            * {
+              opacity: 1;
+              &.lines {
+                opacity: 1;
+              }
+            }
+          }
           .lines {
             position: absolute;
             width: 100%;
