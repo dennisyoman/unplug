@@ -131,68 +131,83 @@ $(document).ready(function () {
 });
 
 var moveSheep = function (sheep) {
-  $(".alert").hide();
-  //
-  if (!sheep.hasClass("choise")) {
-    $(".sheeps .pending").removeClass("pending");
-    $(".sheeps .choise").removeClass("choise");
-    $(".sheeps .jumpLTR").removeClass("jumpLTR");
-    $(".sheeps .jumpRTL").removeClass("jumpRTL");
-    $(".sheeps .LTR").removeClass("LTR");
-    $(".sheeps .RTL").removeClass("RTL");
-    var className = sheep.attr("cur");
-    //點在羊上面
-    //往右
-    if (
-      sheep.next().length > 0 &&
-      !sheep.next().hasClass("b") &&
-      !sheep.next().hasClass("w")
-    ) {
-      //右移1格
-      sheep.addClass("pending");
-      sheep.next().addClass("choise LTR");
-    } else if (
-      sheep.next().next().length > 0 &&
-      !sheep.next().next().hasClass("b") &&
-      !sheep.next().next().hasClass("w")
-    ) {
-      //右移2格
-      sheep.addClass("pending");
-      sheep.next().next().addClass("choise jumpLTR");
-    }
-    //往左
-    if (
-      sheep.prev().length > 0 &&
-      !sheep.prev().hasClass("b") &&
-      !sheep.prev().hasClass("w")
-    ) {
-      //左移1格
-      sheep.addClass("pending");
-      sheep.prev().addClass("choise RTL");
-    } else if (
-      sheep.prev().prev().length > 0 &&
-      !sheep.prev().prev().hasClass("b") &&
-      !sheep.prev().prev().hasClass("w")
-    ) {
-      //左移2格
-      sheep.addClass("pending");
-      sheep.prev().prev().addClass("choise jumpRTL");
-    }
+  console.log(lastSheep);
+  if (lastSheep != sheep.attr("cur")) {
+    $(".alert").hide();
+    //
+    if (!sheep.hasClass("choise")) {
+      $(".sheeps .pending").removeClass("pending");
+      $(".sheeps .choise").removeClass("choise");
+      $(".sheeps .jumpLTR").removeClass("jumpLTR");
+      $(".sheeps .jumpRTL").removeClass("jumpRTL");
+      $(".sheeps .LTR").removeClass("LTR");
+      $(".sheeps .RTL").removeClass("RTL");
+      var className = sheep.attr("cur");
+      //點在羊上面
+      //往右
+      if (
+        sheep.next().length > 0 &&
+        !sheep.next().hasClass("b") &&
+        !sheep.next().hasClass("w")
+      ) {
+        //右移1格
+        sheep.addClass("pending");
+        sheep.next().addClass("choise LTR");
+        //移動成立
+        lastSheep = sheep.attr("cur");
+      } else if (
+        sheep.next().next().length > 0 &&
+        !sheep.next().next().hasClass("b") &&
+        !sheep.next().next().hasClass("w")
+      ) {
+        //右移2格
+        sheep.addClass("pending");
+        sheep.next().next().addClass("choise jumpLTR");
+        //移動成立
+        lastSheep = sheep.attr("cur");
+      }
+      //往左
+      if (
+        sheep.prev().length > 0 &&
+        !sheep.prev().hasClass("b") &&
+        !sheep.prev().hasClass("w")
+      ) {
+        //左移1格
+        sheep.addClass("pending");
+        sheep.prev().addClass("choise RTL");
+        //移動成立
+        lastSheep = sheep.attr("cur");
+      } else if (
+        sheep.prev().prev().length > 0 &&
+        !sheep.prev().prev().hasClass("b") &&
+        !sheep.prev().prev().hasClass("w")
+      ) {
+        //左移2格
+        sheep.addClass("pending");
+        sheep.prev().prev().addClass("choise jumpRTL");
+        //移動成立
+        lastSheep = sheep.attr("cur");
+      }
 
-    if ($(".sheeps .choise").length == 0) {
-      //無法移動
-      rootSoundEffect($stupid);
-    } else if ($(".sheeps .choise").length == 1) {
-      moveSheep($(".sheeps .choise"));
+      if ($(".sheeps .choise").length == 0) {
+        //無法移動
+        rootSoundEffect($stupid);
+      } else if ($(".sheeps .choise").length == 1) {
+        moveSheep($(".sheeps .choise"));
+      }
+    } else {
+      var className = $(".sheeps .pending").attr("cur");
+
+      //選擇方向
+      sheep.addClass(className).attr("cur", className);
+      $(".sheeps .pending").removeClass().removeAttr("cur");
+      $(".sheeps .choise").removeClass("choise");
+      rootSoundEffect($show);
+      checkAns();
     }
   } else {
-    var className = $(".sheeps .pending").attr("cur");
-    //選擇方向
-    sheep.addClass(className).attr("cur", className);
-    $(".sheeps .pending").removeClass().removeAttr("cur");
-    $(".sheeps .choise").removeClass("choise");
-    rootSoundEffect($show);
-    checkAns();
+    console.log("same colour");
+    rootSoundEffect($wrong);
   }
 };
 var checkcheck = function () {
@@ -298,6 +313,7 @@ var showAnswer = function (boolean) {
 
 var lowlaged = false;
 var sheepStep;
+var lastSheep = "";
 
 var openContent = function (id) {
   resetAudio();
@@ -311,6 +327,7 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  lastSheep = "";
   resetTool();
   sheepStep = 0;
   //sheeps
