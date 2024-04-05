@@ -3918,6 +3918,53 @@
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+.module_creativity .contents .grid2 {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto 0;
+  padding-top: 30px;
+}
+.module_creativity .contents .grid2.showAnswer > div img.ans {
+  display: block;
+}
+.module_creativity .contents .grid2.showAnswer .storybtn {
+  display: block;
+}
+.module_creativity .contents .grid2 > div {
+  width: 200px;
+  height: auto;
+  flex: 0 0 200px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+.module_creativity .contents .grid2 > div .storybtn {
+  z-index: 2;
+  pointer-events: auto;
+}
+.module_creativity .contents .grid2 > div .pausebtn {
+  z-index: 3;
+  pointer-events: auto;
+}
+.module_creativity .contents .grid2 > div img {
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.module_creativity .contents .grid2 > div img.ans {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
 .module_creativity .contents .gridSlider {
   width: 100%;
   height: 100%;
@@ -11427,9 +11474,43 @@
   flex-wrap: wrap;
   gap: 10px;
   position: relative;
+  z-index: 1;
 }
 .module_box .contents .sensorArea > span {
   pointer-events: auto;
+}
+.module_box .contents .arrowArea {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+.module_box .contents .arrowArea > span {
+  pointer-events: auto;
+  position: relative;
+}
+.module_box .contents .arrowArea > span::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center;
+  background-size: 100% 100%;
+  display: none;
+  animation: arrowup 0.3s both;
+}
+@keyframes arrowup {
+  0% {
+    margin-left: -6px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+.module_box .contents .arrowArea > span.active::after {
+  display: block;
+}
+.module_box .contents .arrowArea > span.disabled {
+  pointer-events: none;
 }
 .module_box .contents .toys {
   width: 100%;
@@ -11442,6 +11523,13 @@
   bottom: 0;
   left: 0;
   flex-wrap: wrap;
+}
+.module_box .contents .toys.toys_rectangle .toy img {
+  object-position: center center;
+}
+.module_box .contents .toys.toys_rectangle .toy.positionBingo::after {
+  bottom: 50%;
+  margin-bottom: -15px;
 }
 .module_box .contents .toys .toy {
   width: 90px;
@@ -11629,6 +11717,13 @@
 }
 .module_box .hint.showAnswer .ans {
   display: block;
+}
+.module_box img.simplyDrag {
+  position: absolute;
+  z-index: 2;
+  left: 5%;
+  top: 90%;
+  pointer-events: auto;
 }
 
 .module_pairing {

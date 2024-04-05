@@ -442,15 +442,21 @@ var showAnswer = function (boolean) {
         $("#module_wrapper").append(itemsArr[k]);
       }
     }
+
+    //if arrowArea fixed
+    $(".contents > div.selected")
+      .find(".arrowArea.fixed > span")
+      .addClass("active disabled");
+    //if arrowArea
   } else {
     toys.removeClass("cached semiTransparent positionBingo");
     $(".cardAvatarDie").remove();
+    //if arrowArea fixed
+    $(".contents > div.selected")
+      .find(".arrowArea.fixed > span")
+      .removeClass("active disabled");
+    //if arrowArea
   }
-};
-
-var toggleHint = function (tar) {
-  rootSoundEffect($key);
-  tar.toggleClass("showAnswer");
 };
 
 var checkAnswer = function () {
@@ -490,79 +496,6 @@ var checkAnswer = function () {
   }
 };
 
-var showSpecificAnswer = function (str) {
-  rootSoundEffect($help);
-  //
-  var arr = str.split(",");
-  //取消錯誤的
-  for (var i = 0; i < arr.length; i++) {
-    var sid = parseInt(arr[i]);
-    var tar = $(".cardAvatarDie.s" + sid);
-    if (tar.length > 0) {
-    }
-    $(".cardAvatarDie.s" + sid + ":not('.right')").click();
-  }
-  //補上缺少的
-  var containers = $(".contents > div.selected .sensorArea").children();
-  var toys = $(".contents > div.selected .toys > .toy");
-  var ansArray = new Array();
-  for (var j = 0; j < arr.length; j++) {
-    var sid = parseInt(arr[j]);
-    if ($(".cardAvatarDie.s" + sid).length == 0) {
-      //排位子
-      containers.each(function (index) {
-        if (sid == index) {
-          var deltaContainerX = $("#module_wrapper").offset().left;
-          var deltaContainerY = $("#module_wrapper").offset().top;
-          var oX = 5;
-          var oY = 30;
-          if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
-          if ($(this).attr("oY")) oY = parseInt($(this).attr("oY"));
-          var oriX =
-            $(this).offset().left / stageRatioReal -
-            deltaContainerX / stageRatioReal;
-          var oriW = $(this).width() / stageRatioReal;
-          var oriY =
-            $(this).offset().top / stageRatioReal -
-            deltaContainerY / stageRatioReal;
-          var oriH = $(this).height() / stageRatioReal;
-          ansArray.push([]);
-          for (var i = 0; i < toys.length; i++) {
-            if (
-              toys.eq(i).attr("group") &&
-              $(this).attr("group") &&
-              toys.eq(i).attr("group") == $(this).attr("group")
-            ) {
-              //
-              toys.eq(i).addClass("cached");
-              var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
-
-              if (oX + caWidth > oriW) {
-                oX = 5;
-                oY += caWidth;
-              }
-              ansArray[ansArray.length - 1].push(
-                `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caWidth}px;top:${
-                  oriY + oY
-                }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`
-              );
-              //
-              oX += caWidth;
-            }
-          }
-        }
-      });
-
-      for (var i = 0; i < ansArray.length; i++) {
-        var itemsArr = ansArray[i];
-        for (var k = 0; k < itemsArr.length; k++) {
-          $("#module_wrapper").append(itemsArr[k]);
-        }
-      }
-    }
-  }
-};
-
 var openContent = function (id) {
   resetAudio();
   resetTool();
@@ -582,6 +515,12 @@ var resetElem = function (elem) {
   elem.find(".positionBingo").removeClass("positionBingo");
   elem.find(".disable").removeClass("disable");
   elem.find(".simplyDrag").removeAttr("style");
+
+  //if arrowArea fixed
+  elem.find(".arrowArea.fixed > span").removeClass("active disabled");
+
+  //if arrowArea
+  elem.find(".arrowArea:not('.fixed')").empty();
 
   //shuffle toy
   if (!elem.find(".toys").hasClass("noShuffle")) {
@@ -605,6 +544,7 @@ var resetElem = function (elem) {
       $(this).show().dequeue();
     });
   $(".contain").remove();
+
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();

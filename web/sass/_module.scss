@@ -3758,6 +3758,63 @@
         }
       }
     }
+    .grid2 {
+      width: 500px;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 0 auto 0;
+      padding-top: 30px;
+
+      &.showAnswer {
+        > div {
+          img {
+            &.ans {
+              display: block;
+            }
+          }
+        }
+        .storybtn {
+          display: block;
+        }
+      }
+
+      > div {
+        width: 200px;
+        height: auto;
+        flex: 0 0 200px;
+        position: relative;
+
+        cursor: pointer;
+        z-index: 1;
+        .storybtn {
+          z-index: 2;
+          pointer-events: auto;
+        }
+        .pausebtn {
+          z-index: 3;
+          pointer-events: auto;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          z-index: 1;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+          &.ans {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+          }
+        }
+      }
+    }
     .gridSlider {
       width: 100%;
       height: 100%;
@@ -11622,9 +11679,48 @@
       flex-wrap: wrap;
       gap: 10px;
       position: relative;
+      z-index: 1;
       > span {
         //background: rgba(255, 0, 0, 0.2);
         pointer-events: auto;
+      }
+    }
+    .arrowArea {
+      width: 100%;
+      position: relative;
+      z-index: 3;
+      > span {
+        //background: rgba(0, 255, 0, 0.1);
+        pointer-events: auto;
+        position: relative;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 100%;
+          display: none;
+          background: url("../DATA/IMAGES/common/icon_arrow_black.png") no-repeat center;
+          background-size: 100% 100%;
+          display: none;
+          animation: arrowup 0.3s both;
+        }
+        @keyframes arrowup {
+          0% {
+            margin-left: -6px;
+          }
+          100% {
+            margin-left: 0;
+          }
+        }
+
+        &.active {
+          &::after {
+            display: block;
+          }
+        }
+        &.disabled {
+          pointer-events: none;
+        }
       }
     }
     .toys {
@@ -11638,6 +11734,20 @@
       bottom: 0;
       left: 0;
       flex-wrap: wrap;
+
+      &.toys_rectangle {
+        .toy {
+          img {
+            object-position: center center;
+          }
+          &.positionBingo {
+            &::after {
+              bottom: 50%;
+              margin-bottom: -15px;
+            }
+          }
+        }
+      }
 
       .toy {
         width: 90px;
@@ -11826,6 +11936,13 @@
         display: block;
       }
     }
+  }
+  img.simplyDrag {
+    position: absolute;
+    z-index: 2;
+    left: 5%;
+    top: 90%;
+    pointer-events: auto;
   }
 }
 

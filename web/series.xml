@@ -80,4 +80,12 @@
       <lesson lid="5">解密小將學習單</lesson>
     </book>
   </series>
+  <series name="跨領域的運算思維" subtitle="動手玩思維" sid="PT2" img="PT2_series.jpg">
+    <book name="Book 1" bid="1" img="PT2_book1.jpg">
+      <lesson lid="1">文字拼圖</lesson>
+      <lesson lid="2">單字排排站</lesson>
+      <lesson lid="3">容量組合</lesson>
+      <lesson lid="4">繽紛的世界</lesson>
+    </book>
+  </series>
 </root>

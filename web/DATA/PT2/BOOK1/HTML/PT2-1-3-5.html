@@ -1,0 +1,463 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>水杯迷宮</b
+            >：察杯子連接的細節，找出杯子接到水的順序。<br />1.將貼紙依序貼在格子中。<br />2.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 65px;
+              height: 45px;
+              top: 30px;
+              left: 23px;
+            "
+            group="a"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 65px;
+              height: 45px;
+              top: 30px;
+              left: 129px;
+            "
+            group="b"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 65px;
+              height: 45px;
+              top: 30px;
+              left: 235px;
+            "
+            group="c"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 65px;
+              height: 45px;
+              top: 119px;
+              left: 90px;
+            "
+            group="d"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 65px;
+              height: 45px;
+              top: 119px;
+              left: 197px;
+            "
+            group="e"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 65px;
+              height: 45px;
+              top: 119px;
+              left: 306px;
+            "
+            group="f"
+          />
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 23px;
+              height: 13px;
+              top: 47px;
+              left: 97px;
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 23px;
+              height: 13px;
+              top: 92px;
+              left: 81px;
+              transform: rotate(45deg);
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 23px;
+              height: 13px;
+              top: 47px;
+              left: 205px;
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 23px;
+              height: 13px;
+              top: 136px;
+              left: 165px;
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 23px;
+              height: 13px;
+              top: 92px;
+              left: 296px;
+              transform: rotate(45deg);
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 23px;
+              height: 13px;
+              top: 136px;
+              left: 272px;
+            "
+          />
+        </div>
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1.png"
+        />
+        <img
+          width="auto"
+          height="170"
+          class="simplyDrag wow bounceInUp"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 180px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          ap="88,62"
+          group="a"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          ap="88,168"
+          group="b"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          ap="177,128"
+          group="d"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          ap="88,274"
+          group="c"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          ap="177,236"
+          group="e"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1E.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1F.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1G.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          ap="177,344"
+          group="f"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1H.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1I.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="88,62^88,168^88,274^177,128^177,236^177,344"
+          style="width: 65px; height: 50px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-1J.png" />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>水壺充水計劃</b
+            >：每走一格地圖消耗一格水。如何規劃課表，在水喝完前抵達飲水機呢？<br />1.從Start開始，將貼紙依情境順序貼上來。<br />2.做出箭頭依情境將貼紙排出順序。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 75px;
+              height: 64px;
+              top: 20px;
+              left: 35px;
+            "
+            group="a"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 75px;
+              height: 64px;
+              top: 20px;
+              left: 151px;
+            "
+            group="b"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 75px;
+              height: 64px;
+              top: 20px;
+              left: 266px;
+            "
+            group="c"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 75px;
+              height: 64px;
+              top: 119px;
+              left: 266px;
+            "
+            group="d"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 75px;
+              height: 64px;
+              top: 119px;
+              left: 151px;
+            "
+            group="e"
+          />
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 24px;
+              height: 12px;
+              top: 46px;
+              left: 118px;
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 24px;
+              height: 12px;
+              top: 46px;
+              left: 233px;
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 24px;
+              height: 12px;
+              top: 95px;
+              left: 292px;
+              transform: rotate(90deg);
+            "
+          />
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 24px;
+              height: 12px;
+              top: 145px;
+              left: 233px;
+              transform: rotate(180deg);
+            "
+          />
+        </div>
+        <img
+          width="auto"
+          height="195"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2.png"
+        />
+        <img
+          width="auto"
+          height="180"
+          class="simplyDrag wow bounceInUp"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 180px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="77,78^77,194^77,309^177,309^177,194"
+          ap="77,78"
+          group="a"
+          style="width: 75px; height: 75px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="77,78^77,194^77,309^177,309^177,194"
+          ap="77,194"
+          group="b"
+          style="width: 75px; height: 75px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="77,78^77,194^77,309^177,309^177,194"
+          ap="177,309"
+          group="d"
+          style="width: 75px; height: 75px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="77,78^77,194^77,309^177,309^177,194"
+          ap="77,309"
+          group="c^e"
+          style="width: 75px; height: 75px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="77,78^77,194^77,309^177,309^177,194"
+          ap="177,194"
+          group="e^c"
+          style="width: 75px; height: 75px"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-5-2E.png" />
+        </div>
+      </div>
+    </div>
+    <div class="assetsPreload"></div>
+  </div>
+</div>
