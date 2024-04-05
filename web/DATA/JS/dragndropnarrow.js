@@ -460,6 +460,59 @@ var showAnswer = function (boolean) {
 };
 
 var checkAnswer = function () {
+  //是否有答案條件
+  var matchedAnswers = $(".contents > div.selected").find(
+    ".condition .matched"
+  );
+  if (matchedAnswers.length > 0) {
+    var sensors = $(".contents > div.selected").find(".sensorArea > span");
+    var tempSeq = [];
+    for (var k = 0; k < sensors.length; k++) {
+      tempSeq.push(
+        $(".cardAvatarDie.s" + k)
+          .find(".cards")
+          .eq(0)
+          .attr("cid")
+          ? $(".cardAvatarDie.s" + k)
+              .find(".cards")
+              .eq(0)
+              .attr("cid")
+          : ""
+      );
+    }
+    //看看跟哪一個標準答案最接近
+    var defaultAns = 0;
+    var maxMiss = 999;
+    for (var p = 0; p < matchedAnswers.length; p++) {
+      var tempArr = matchedAnswers.eq(p).text().split(",");
+      var miss = 0;
+      for (var o = 0; o < tempArr.length; o++) {
+        if (tempArr[o].toUpperCase() != tempSeq[o].toUpperCase()) {
+          miss++;
+        }
+      }
+      //比較錯誤率，已獲得最接近的答案
+      if (miss < maxMiss) {
+        maxMiss = miss;
+        defaultAns = p;
+      }
+    }
+    //正確給right,錯誤拿掉right
+    var refSeq = matchedAnswers.eq(defaultAns).text().split(",");
+    for (var k = 0; k < sensors.length; k++) {
+      if (
+        $(".cardAvatarDie.s" + k)
+          .find(".cards")
+          .eq(0)
+          .attr("cid")
+          .toUpperCase() == refSeq[k].toUpperCase()
+      ) {
+        $(".cardAvatarDie.s" + k).addClass("right");
+      } else {
+        $(".cardAvatarDie.s" + k).removeClass("right");
+      }
+    }
+  }
   //把錯誤的放回原位
   if ($(".cardAvatarDie:not('.right')").length > 0) {
     $(".cardAvatarDie:not('.right')").click();
@@ -486,13 +539,32 @@ var checkAnswer = function () {
     if (newBingo) {
       rootSoundEffect($correct);
     }
-  }
-  //全對
-  if (
-    $(".cardAvatarDie.right").length ==
-    $(".contents > div.selected").find(".toys > div").length
-  ) {
-    bingo();
+
+    //全對
+    if (
+      $(".cardAvatarDie.right").length ==
+      $(".contents > div.selected").find(".sensorArea > span").length
+    ) {
+      //是否有箭頭需要點選
+      if ($(".contents > div.selected").find(".arrowArea").length > 0) {
+        if (
+          $(".contents > div.selected").find(".arrowArea > span").length ==
+          $(".contents > div.selected").find(".arrowArea > span.active").length
+        ) {
+          //全部箭頭點了
+          bingo();
+        } else {
+          //還有箭頭沒點
+          rootSoundEffect($stupid);
+          var alertmsg = "點擊全部虛線箭頭，變成實線箭頭";
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+          );
+        }
+      } else {
+        bingo();
+      }
+    }
   }
 };
 

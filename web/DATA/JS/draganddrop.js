@@ -484,7 +484,7 @@ var checkAnswer = function () {
   //全對
   if (
     $(".cardAvatarDie.right").length ==
-    $(".contents > div.selected").find(".toys > div").length
+    $(".contents > div.selected").find(".sensorArea > span").length
   ) {
     bingo();
   }

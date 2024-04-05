@@ -11944,6 +11944,12 @@
     top: 90%;
     pointer-events: auto;
   }
+  .condition {
+    display: none;
+  }
+  .alert {
+    bottom: 5px;
+  }
 }
 
 .module_pairing {

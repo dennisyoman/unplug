@@ -11725,6 +11725,12 @@
   top: 90%;
   pointer-events: auto;
 }
+.module_box .condition {
+  display: none;
+}
+.module_box .alert {
+  bottom: 5px;
+}
 
 .module_pairing {
   position: relative;
