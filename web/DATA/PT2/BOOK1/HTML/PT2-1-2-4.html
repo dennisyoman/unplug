@@ -1,0 +1,364 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span class="demo" style="display: none">示範一2</span>
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-2-4-2.html','JS/tictactoe.js',1)"
+      >示範二</span
+    >
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-2-4-2.html','JS/tictactoe.js',2)"
+      >任務一</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>陣列配對</b
+            >：陣列就像一個大抽屜，可以把同一類物品整齊地收納並儲存，方便我們整理。<br />*
+            請完成空白處
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <span
+        class="btn next"
+        style="top: 240px; left: 510px"
+        onClick="openContent(1);"
+      />
+      <div class="code wow fadeInDown">
+        <div class="items">
+          <span style="top: 44px; left: 77px" iid="t1" onClick="trigMe($(this))"
+            >pain</span
+          >
+          <span
+            style="top: 44px; left: 132px"
+            iid="t2"
+            onClick="trigMe($(this))"
+            >joy</span
+          >
+          <span
+            style="top: 44px; left: 180px"
+            iid="t3"
+            onClick="trigMe($(this))"
+            >fear</span
+          >
+          <span
+            style="top: 44px; left: 229px"
+            iid="t4"
+            onClick="trigMe($(this))"
+            >view</span
+          >
+          <span
+            style="top: 44px; left: 285px"
+            iid="t5"
+            onClick="trigMe($(this))"
+            >do</span
+          >
+          <span
+            style="top: 44px; left: 331px"
+            iid="t6"
+            onClick="trigMe($(this))"
+            >play</span
+          >
+
+          <span
+            style="top: 108px; left: 80px"
+            iid="a1"
+            onClick="trigMe($(this))"
+            >full</span
+          >
+          <span
+            style="top: 108px; left: 185px"
+            iid="a2"
+            onClick="trigMe($(this))"
+            >less</span
+          >
+          <span
+            style="top: 108px; left: 299px"
+            iid="a3"
+            onClick="trigMe($(this))"
+            >er</span
+          >
+
+          <span
+            style="top: 130px; left: 108px"
+            iid="n0"
+            onClick="trigMe($(this))"
+            >0</span
+          >
+          <span
+            style="top: 130px; left: 216px"
+            iid="n1"
+            onClick="trigMe($(this))"
+            >1</span
+          >
+          <span
+            style="top: 130px; left: 324px"
+            iid="n2"
+            onClick="trigMe($(this))"
+            >2</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="400px"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-4-1-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInUp">
+        <div
+          class="items"
+          ans="t2"
+          style="top: 7px; left: 233px; width: 50px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="t2,a2"
+          style="top: 65px; left: 217px; width: 70px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n1"
+          style="top: 66px; left: 344px; width: 25px; height: 25px"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="400px"
+            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-4-2-1.png"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- 示範一2 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>陣列配對</b
+            >：陣列就像一個大抽屜，可以把同一類物品整齊地收納並儲存，方便我們整理。<br />*
+            播放題目音檔後，完成答案
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <span
+        class="btn prev"
+        style="top: 240px; left: 90px"
+        onClick="openContent(0);"
+      />
+      <div class="code wow fadeInDown">
+        <div class="items">
+          <span style="top: 72px; left: 80px" iid="c1" onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: #e60012;
+              "
+            ></span
+          ></span>
+          <span
+            style="top: 72px; left: 130px"
+            iid="c5"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: #f08300;
+              "
+            ></span
+          ></span>
+          <span
+            style="top: 72px; left: 180px"
+            iid="c3"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: #fdd000;
+              "
+            ></span
+          ></span>
+          <span
+            style="top: 72px; left: 232px"
+            iid="c4"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: #91c422;
+              "
+            ></span
+          ></span>
+          <span
+            style="top: 72px; left: 282px"
+            iid="c5"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: #27bcee;
+              "
+            ></span
+          ></span>
+          <span
+            style="top: 72px; left: 333px"
+            iid="c6"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: #7964aa;
+              "
+            ></span
+          ></span>
+
+          <span
+            style="top: 130px; left: 108px"
+            iid="n0"
+            onClick="trigMe($(this))"
+            >0</span
+          >
+          <span
+            style="top: 130px; left: 216px"
+            iid="n1"
+            onClick="trigMe($(this))"
+            >1</span
+          >
+          <span
+            style="top: 130px; left: 324px"
+            iid="n2"
+            onClick="trigMe($(this))"
+            >2</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="400px"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-4-1-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInUp">
+        <div
+          class="items"
+          ans="c1"
+          style="top: 9px; left: 18px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 9px; left: 52px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 9px; left: 119px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 9px; left: 154px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 9px; left: 221px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 9px; left: 255px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 9px; left: 323px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 9px; left: 357px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 64px; left: 18px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 64px; left: 52px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 64px; left: 119px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 64px; left: 154px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 64px; left: 221px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 64px; left: 255px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="c1"
+          style="top: 64px; left: 323px; width: 25px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="n0"
+          style="top: 64px; left: 357px; width: 25px; height: 25px"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="400px"
+            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-4-2-2.png"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- 示範二 -->
+    <!-- 任務一 -->
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

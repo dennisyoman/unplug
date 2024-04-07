@@ -95,24 +95,6 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
-/*
-cards attr黏性位置座標sp : 接近位置放置時會主動靠齊的座標(多個, 以^區分)
-cards attr參考答案座標ap : 解答的座標(只有一個)
-cards attr直接解答座標fp : 放對會直接顯示正確的座標(多個, 以^區分)
-cards attr所屬的群組group : 多個, 以^區分
-
-.toys.noShuffle 卡片不隨機
-.toys.toys_rectangle 卡片是滿版長方形,正確符號要放正中間(否則是玩具，符號會放在中下方)
-
-.cards.repeat 卡片可以重複使用
-
-.sensorArea.checkonchange 移動後馬上執行check
-
-.sensorArea.nocheckbtn 不需要check
-
-.simplyDrag : 單純移動的物件
-*/
-
 var lowlaged = false;
 var lastPosX = 0;
 var lastPosY = 0;
@@ -142,6 +124,7 @@ var trigHammer = function () {
 
 var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
+    $(".alert").remove();
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
@@ -188,11 +171,6 @@ var handleDrag = function (ev) {
         ) + "px";
       checkCollision(ev);
     }
-    //simply drag
-    if ($($elem).hasClass("simplyDrag")) {
-      $($elem).get(0).style.top = ev.deltaY / stageRatioReal + lastPosY + "px";
-      $($elem).get(0).style.left = ev.deltaX / stageRatioReal + lastPosX + "px";
-    }
   }
 
   if (ev.isFinal) {
@@ -220,11 +198,6 @@ var handleDrag = function (ev) {
         $("#cardAvatar").remove();
       }
     }
-    //simply drag
-    if ($($elem).hasClass("simplyDrag")) {
-      lastPosX = 0;
-      lastPosY = 0;
-    }
     //then
     isDragging = false;
     $elem = null;
@@ -249,44 +222,6 @@ var checkCollision = function (ev) {
 };
 
 var checkStatus = function () {
-  //是否有正確位置參數fp，正確的話會馬上告知
-  if ($("#cardAvatar > div").attr("fp")) {
-    var itemFP = $("#cardAvatar > div").attr("fp").split("^");
-    var itemW = $("#cardAvatar").get(0).style.width;
-    var itemH = $("#cardAvatar").get(0).style.height;
-    var itemTop = $("#cardAvatar").get(0).style.top;
-    var itemLeft = $("#cardAvatar").get(0).style.left;
-    var gotRight = false;
-    for (var k = 0; k < itemFP.length; k++) {
-      var tempFP = itemFP[k].split(",");
-      if (
-        parseInt(itemTop) > parseInt(tempFP[0]) - parseInt(itemH) / 2 &&
-        parseInt(itemTop) < parseInt(tempFP[0]) + parseInt(itemH) / 2 &&
-        parseInt(itemLeft) > parseInt(tempFP[1]) - parseInt(itemW) / 2 &&
-        parseInt(itemLeft) < parseInt(tempFP[1]) + parseInt(itemW) / 2
-      ) {
-        rootSoundEffect($correct);
-        $("#cardAvatar").addClass("positionBingo right");
-        $("#cardAvatar").get(0).style.top = tempFP[0] + "px";
-        $("#cardAvatar").get(0).style.left = tempFP[1] + "px";
-        var src1 = $("#cardAvatar").find("img").attr("src");
-        $(".contents > div.selected")
-          .find(".toys > div")
-          .each(function () {
-            if (src1 == $(this).find("img").attr("src")) {
-              $(this).addClass("positionBingo");
-            }
-          });
-        gotRight = true;
-      }
-    }
-    if (!gotRight) {
-      rootSoundEffect($pop);
-    }
-  } else {
-    rootSoundEffect($pop);
-  }
-
   //是否有黏性位置sp
   if ($("#cardAvatar > div").attr("sp")) {
     var itemSP = $("#cardAvatar > div").attr("sp").split("^");
@@ -332,6 +267,7 @@ var checkStatus = function () {
   $("#cardAvatar")
     .unbind()
     .bind("click", function () {
+      $(".alert").remove();
       var src1 = $(this).find("img").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
@@ -347,222 +283,123 @@ var checkStatus = function () {
     .addClass("cardAvatarDie")
     .css("pointer-events", "auto")
     .css("cursor", "pointer");
-  //是否直接驗收
-  if ($(".contents > div.selected .sensorArea").hasClass("checkonchange")) {
-    $(".sideTool > div.btn_check").click();
-  }
   //
   $(".sideTool > div.btn_replay").show();
-  if (
-    !$(".contents > div.selected .sensorArea").hasClass("checkonchange") &&
-    !$(".contents > div.selected .sensorArea").hasClass("nocheckbtn")
-  ) {
-    $(".sideTool > div.btn_check").show();
-  }
+  $(".sideTool > div.btn_check").show();
 };
 
 var showAnswer = function (boolean) {
-  var containers = $(".contents > div.selected .sensorArea").children();
-  var toys = $(".contents > div.selected .toys > .toy");
+  $(".alert").remove();
   if (boolean) {
     //秀出答案
-    $(".contents > div.selected").find(".selected").removeClass("selected");
-    $(".contents > div.selected")
-      .find(".cached")
-      .removeClass("cached semiTransparent positionBingo");
-    $(".contents > div.selected").find(".disable").removeClass("disable");
-    $(".cardAvatarDie").remove();
-    rootSoundEffect($help);
-    //排位子
-    var ansArray = [];
-
-    containers.each(function (index) {
-      var deltaContainerX = $("#module_wrapper").offset().left;
-      var deltaContainerY = $("#module_wrapper").offset().top;
-      var oX = 5;
-      var oY = 30;
-      if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
-      if ($(this).attr("oY")) oY = parseInt($(this).attr("oY"));
-      var oriX =
-        $(this).offset().left / stageRatioReal -
-        deltaContainerX / stageRatioReal;
-      var oriW = $(this).width() / stageRatioReal;
-      var oriY =
-        $(this).offset().top / stageRatioReal -
-        deltaContainerY / stageRatioReal;
-      var oriH = $(this).height() / stageRatioReal;
-      ansArray.push([]);
-      for (var i = 0; i < toys.length; i++) {
-        //取得物件所屬groups
-        var toyGroups = [];
-        if (toys.eq(i).attr("group")) {
-          toyGroups = toys.eq(i).attr("group").split("^");
-        }
-        if (
-          (toys.eq(i).attr("group") &&
-            $(this).attr("group") &&
-            toyGroups.indexOf($(this).attr("group")) != -1) ||
-          (toys.eq(i).attr("ap") && !toys.eq(i).attr("group"))
-        ) {
-          //
-          toys.eq(i).addClass("cached");
-          var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
-          var caHeight = parseInt(toys.eq(i).css("height")) / stageRatioReal;
-
-          if (oX + caWidth > oriW) {
-            oX = 5;
-            if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
-            oY += caHeight;
-          }
-          //答案預設位置
-          var ansTop = oriY + oY;
-          var ansLeft = oriX + oX;
-          if (toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto") {
-            var ap = toys.eq(i).attr("ap").split(",");
-            ansTop = ap[0];
-            ansLeft = ap[1];
-          }
-          //
-          ansArray[ansArray.length - 1].push(
-            `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
-              .eq(i)
-              .prop("outerHTML")}</div>`
-          );
-          //
-          oX += caWidth;
-        }
-      }
+    var toys = $(".contents > div.selected .toys");
+    var targets = $(".contents > div.selected .frames > div");
+    targets.each(function () {
+      $(this).find(">div").remove();
+      var pre = $(this).attr("pre");
+      var preArr = pre.split(",");
+      var img1 = toys.find(".cards[cid='" + preArr[0] + "'] > img").attr("src");
+      var img2 = toys.find(".cards[cid='" + preArr[1] + "'] > img").attr("src");
+      var combo = `<div
+                style="
+                  position: absolute;
+                  z-index: 1;
+                  width: 100%;
+                  height: 100%;
+                  top:0;left:0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+              <img width="50%" src="${img1}" onerror="this.style.display='none'">
+              <img width="50%" src="${img2}" onerror="this.style.display='none'">
+              </div>`;
+      $(this).attr("ans", pre).addClass("disable").append(combo);
     });
-
-    for (var i = 0; i < ansArray.length; i++) {
-      var itemsArr = ansArray[i];
-      for (var k = 0; k < itemsArr.length; k++) {
-        $("#module_wrapper").append(itemsArr[k]);
-      }
-    }
-
-    //if arrowArea fixed
-    $(".contents > div.selected")
-      .find(".arrowArea.fixed > span")
-      .addClass("active disabled");
-    //if arrowArea
+    //
+    rootSoundEffect($help);
   } else {
-    toys.removeClass("cached semiTransparent positionBingo");
-    $(".cardAvatarDie").remove();
-    //if arrowArea fixed
-    $(".contents > div.selected")
-      .find(".arrowArea.fixed > span")
-      .removeClass("active disabled");
-    //if arrowArea
+    $(".sideTool > div.btn_replay").click();
   }
 };
 
 var checkAnswer = function () {
-  //是否有答案條件
-  var matchedAnswers = $(".contents > div.selected").find(
-    ".condition .matched"
-  );
-  if (matchedAnswers.length > 0) {
-    var sensors = $(".contents > div.selected").find(".sensorArea > span");
-    var tempSeq = [];
-    for (var k = 0; k < sensors.length; k++) {
-      tempSeq.push(
-        $(".cardAvatarDie.s" + k)
-          .find(".cards")
-          .eq(0)
-          .attr("cid")
-          ? $(".cardAvatarDie.s" + k)
-              .find(".cards")
-              .eq(0)
-              .attr("cid")
-          : ""
+  $(".alert").remove();
+  //一定要完成組合
+  if ($(".cardAvatarDie").length == 2) {
+    var target = $(".contents > div.selected .frames > div:not('.disable')").eq(
+      0
+    );
+    var ans =
+      $(".s0").find(".cards").attr("cid") +
+      "," +
+      $(".s1").find(".cards").attr("cid");
+    //先確認答案沒有出現過
+    var ansDoneArr = [];
+    for (
+      var i = 0;
+      i < $(".contents > div.selected .frames > div.disable").length;
+      i++
+    ) {
+      ansDoneArr.push(
+        $(".contents > div.selected .frames > div.disable").eq(i).attr("ans")
       );
     }
-    //看看跟哪一個標準答案最接近
-    var defaultAns = 0;
-    var maxMiss = 999;
-    for (var p = 0; p < matchedAnswers.length; p++) {
-      var tempArr = matchedAnswers.eq(p).text().split(",");
-      var miss = 0;
-      for (var o = 0; o < tempArr.length; o++) {
-        if (tempArr[o].toUpperCase() != tempSeq[o].toUpperCase()) {
-          miss++;
-        }
+    if (ansDoneArr.indexOf(ans) < 0) {
+      //沒出現過
+      if ($(".cardAvatarDie:not('.right')").length > 0) {
+        var alertmsg = "新組合";
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom: 104px;
+        left: 193px;" onclick="$(this).remove()">${alertmsg}</div>`
+        );
+        rootSoundEffect($wrong);
       }
-      //比較錯誤率，已獲得最接近的答案
-      if (miss < maxMiss) {
-        maxMiss = miss;
-        defaultAns = p;
+      if ($(".cardAvatarDie.right").length == 2) {
+        var alertmsg = "新字";
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom: 104px;
+        left: 198px;" onclick="$(this).remove()">${alertmsg}</div>`
+        );
+        bingo(target);
       }
-    }
-    //正確給right,錯誤拿掉right
-    var refSeq = matchedAnswers.eq(defaultAns).text().split(",");
-    for (var k = 0; k < sensors.length; k++) {
-      if (
-        $(".cardAvatarDie.s" + k)
-          .find(".cards")
-          .eq(0)
-          .attr("cid")
-          .toUpperCase() == refSeq[k].toUpperCase()
-      ) {
-        $(".cardAvatarDie.s" + k).addClass("right");
-      } else {
-        $(".cardAvatarDie.s" + k).removeClass("right");
-      }
-    }
-  }
-  //把錯誤的放回原位
-  if ($(".cardAvatarDie:not('.right')").length > 0) {
-    $(".cardAvatarDie:not('.right')").click();
-    rootSoundEffect($stupid);
-  }
-  //只顯示對的
-  if ($(".cardAvatarDie.right").length > 0) {
-    var newBingo = false;
-    //加上正確符號
-    $(".cardAvatarDie.right").each(function () {
-      var src1 = $(this).find("img").attr("src");
-      $(".contents > div.selected")
-        .find(".toys > div")
-        .each(function () {
-          if (
-            src1 == $(this).find("img").attr("src") &&
-            !$(this).hasClass("positionBingo")
-          ) {
-            $(this).addClass("positionBingo");
-            newBingo = true;
-          }
-        });
-    });
-    if (newBingo) {
-      rootSoundEffect($correct);
-    }
+      var img1 = $(".s0").find("img").attr("src");
+      var img2 = $(".s1").find("img").attr("src");
 
-    //全對
-    if (
-      $(".cardAvatarDie.right").length ==
-      $(".contents > div.selected").find(".sensorArea > span").length
-    ) {
-      //是否有箭頭需要點選
-      if ($(".contents > div.selected").find(".arrowArea").length > 0) {
-        if (
-          $(".contents > div.selected").find(".arrowArea > span").length ==
-          $(".contents > div.selected").find(".arrowArea > span.active").length
-        ) {
-          //全部箭頭點了
-          bingo();
-        } else {
-          //還有箭頭沒點
-          rootSoundEffect($stupid);
-          var alertmsg = "點擊全部虛線箭頭，變成實線箭頭";
-          $(".contents > div.selected").append(
-            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
-          );
-        }
-      } else {
-        bingo();
-      }
+      var combo = `<div
+                style="
+                  position: absolute;
+                  z-index: 1;
+                  width: 100%;
+                  height: 100%;
+                  top:0;left:0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+              <img width="50%" src="${img1}" onerror="this.style.display='none'">
+              <img width="50%" src="${img2}" onerror="this.style.display='none'">
+              </div>`;
+      target.attr("ans", ans).addClass("disable").append(combo);
+    } else {
+      //出現過
+      var alertmsg = "組合不能重複";
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" style="bottom: 104px;
+        left: 175px;" onclick="$(this).remove()">${alertmsg}</div>`
+      );
+      rootSoundEffect($stupid);
     }
+  } else {
+    //沒有完成組合
+    var alertmsg = "缺少部件";
+    $(".contents > div.selected").append(
+      `<div class="alert wow bounceInUp" style="bottom: 104px;
+        left: 187px;" onclick="$(this).remove()">${alertmsg}</div>`
+    );
+    rootSoundEffect($stupid);
   }
 };
 
@@ -585,12 +422,12 @@ var resetElem = function (elem) {
   elem.find(".positionBingo").removeClass("positionBingo");
   elem.find(".disable").removeClass("disable");
   elem.find(".simplyDrag").removeAttr("style");
-
-  //if arrowArea fixed
-  elem.find(".arrowArea.fixed > span").removeClass("active disabled");
-
-  //if arrowArea
-  elem.find(".arrowArea:not('.fixed')").empty();
+  //清掉組合
+  $(".contents > div.selected .frames > div")
+    .removeClass("disable")
+    .removeAttr("ans")
+    .find(">div")
+    .remove();
 
   //shuffle toy
   if (!elem.find(".toys").hasClass("noShuffle")) {
@@ -614,11 +451,11 @@ var resetElem = function (elem) {
       $(this).show().dequeue();
     });
   $(".contain").remove();
-
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
   $(".cardAvatarDie").remove();
+  $(".alert").remove();
   //
   $(".sideTool > div.btn_answer").show();
 };
@@ -627,10 +464,10 @@ var resetTool = function () {
   $(".sideTool > div").removeClass("active").hide();
 };
 
-var bingo = function () {
+var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
-  $("#module_wrapper").append(
+  tar.append(
     `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
   );
   $(".smoke")

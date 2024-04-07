@@ -106,6 +106,13 @@ var trigMe = function (tar) {
         //答案已滿
         rootSoundEffect($wrong);
       }
+    } else {
+      //沒選到欄位
+      var alertmsg = "請先選擇作答欄位";
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      );
+      rootSoundEffect($stupid);
     }
   }
   if (tar.parent().parent().hasClass("puzzle")) {
@@ -642,6 +649,7 @@ var resetElem = function (elem) {
   elem.find(".done").removeClass("done");
   elem.find(".selected").removeClass("selected");
   elem.find(".wrong").removeClass("wrong");
+  $(".alert").remove();
   //
   if (elem.find(".ans").length > 0) {
     $(".sideTool > div.btn_answer").removeClass("active").show();
@@ -675,7 +683,9 @@ var resetElem = function (elem) {
         .toggleClass("selected")
         .siblings(".selected")
         .removeClass("selected");
-    });
+    })
+    .eq(0)
+    .click();
 
   //reset lines in codes
   elem.find(".code .items > span").find(".lines").remove();
