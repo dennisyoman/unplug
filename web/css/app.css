@@ -7804,12 +7804,12 @@
   cursor: pointer;
 }
 .module_decode .btn.prev {
-  background: url("../DATA/IMAGES/common/btn_prev2.png") no-repeat center center;
+  background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
   background-size: 100% 100%;
   margin-left: -35px;
 }
 .module_decode .btn.next {
-  background: url("../DATA/IMAGES/common/btn_next2.png") no-repeat center center;
+  background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
   background-size: 100% 100%;
   margin-left: 10px;
 }
@@ -11554,12 +11554,12 @@
   cursor: pointer;
 }
 .module_character .btn.prev {
-  background: url("../DATA/IMAGES/common/btn_prev2.png") no-repeat center center;
+  background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
   background-size: 100% 100%;
   margin-left: -35px;
 }
 .module_character .btn.next {
-  background: url("../DATA/IMAGES/common/btn_next2.png") no-repeat center center;
+  background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
   background-size: 100% 100%;
   margin-left: 10px;
 }
@@ -12003,6 +12003,25 @@
 .module_box .alert::after {
   left: calc(50% - 5px);
   top: -9px;
+}
+.module_box .btn {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.module_box .btn.prev {
+  background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+  background-size: 100% 100%;
+  margin-left: -35px;
+}
+.module_box .btn.next {
+  background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+  background-size: 100% 100%;
+  margin-left: 10px;
 }
 
 .module_pairing {

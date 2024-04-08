@@ -7942,12 +7942,12 @@
     pointer-events: auto;
     cursor: pointer;
     &.prev {
-      background: url("../DATA/IMAGES/common/btn_prev2.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
       background-size: 100% 100%;
       margin-left: -35px;
     }
     &.next {
-      background: url("../DATA/IMAGES/common/btn_next2.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
       background-size: 100% 100%;
       margin-left: 10px;
     }
@@ -11770,12 +11770,12 @@
     pointer-events: auto;
     cursor: pointer;
     &.prev {
-      background: url("../DATA/IMAGES/common/btn_prev2.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
       background-size: 100% 100%;
       margin-left: -35px;
     }
     &.next {
-      background: url("../DATA/IMAGES/common/btn_next2.png") no-repeat center center;
+      background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
       background-size: 100% 100%;
       margin-left: 10px;
     }
@@ -12251,6 +12251,25 @@
     &::after {
       left: calc(50% - 5px);
       top: -9px;
+    }
+  }
+  .btn {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    pointer-events: auto;
+    cursor: pointer;
+    &.prev {
+      background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+      background-size: 100% 100%;
+      margin-left: -35px;
+    }
+    &.next {
+      background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+      background-size: 100% 100%;
+      margin-left: 10px;
     }
   }
 }
