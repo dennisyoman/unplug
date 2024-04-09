@@ -93,18 +93,26 @@ var trigMe = function (tar) {
   //
   if (tar.parent().parent().hasClass("code")) {
     if (frame.length > 0) {
+      //必須利用ans來限定答案數量
       var answerArr = frame.attr("ans").split(",");
-      if (frame.find(">span").length < answerArr.length) {
-        //還有欄位
-        rootSoundEffect($pop);
-        $(".sideTool > div.btn_replay").show();
-        frame.append(tar.clone());
-        if (frame.find(".indicator").length > 0) {
-          updateIndicator(frame);
+      if (!frame.hasClass("autoClean")) {
+        if (frame.find(">span").length < answerArr.length) {
+          //還有欄位
+          rootSoundEffect($pop);
+          $(".sideTool > div.btn_replay").show();
+          frame.append(tar.clone());
+          if (frame.find(".indicator").length > 0) {
+            updateIndicator(frame);
+          }
+        } else {
+          //答案已滿
+          rootSoundEffect($wrong);
         }
       } else {
-        //答案已滿
-        rootSoundEffect($wrong);
+        //欄位自動取代
+        rootSoundEffect($pop);
+        $(".sideTool > div.btn_replay").show();
+        frame.empty().append(tar.clone());
       }
     } else {
       //沒選到欄位
@@ -127,6 +135,7 @@ var trigMe = function (tar) {
   }
   //
   $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
 };
 
 var trigMeHash = function (tar) {
@@ -202,6 +211,7 @@ var trigMeHash = function (tar) {
   }
   //
   $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
 };
 
 var trigMeCheck = function (tar) {
@@ -209,6 +219,7 @@ var trigMeCheck = function (tar) {
   rootSoundEffect($show);
   //
   $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
 };
 
 var checkAnswer = function () {
@@ -543,6 +554,7 @@ var trigMeAll = function (tar) {
   }
   //
   $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
 };
 
 var trigMeSequence = function (tar) {
@@ -629,6 +641,7 @@ var trigMeSequence = function (tar) {
 
   //
   $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
 };
 //
 var lowlaged = false;

@@ -1,0 +1,594 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-4-3.html','JS/dragndropnarrow.js',0)"
+      >示範一</span
+    >
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-4-3.html','JS/dragndropnarrow.js',2)"
+      >示範二</span
+    >
+    <span>任務一</span>
+    <span style="display: none">任務一2</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div></div>
+    <!-- 示範二 -->
+    <div></div>
+    <!-- 任務一 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>觀察顏色</b>：試著用蠟筆畫出不同深淺的顏色。</p>
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-crayon.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <span
+        class="btn next"
+        style="top: 144px; left: 530px"
+        onClick="openContent(3);"
+      />
+      <div class="puzzle wow fadeInDown" style="margin-top: 50px">
+        <div
+          class="items autoSizeChild"
+          ans="c1"
+          style="top: 10px; left: 9px; width: 208px; height: 48px"
+        ></div>
+        <div
+          class="items autoSizeChild"
+          ans="c2"
+          style="top: 10px; left: 233px; width: 208px; height: 48px"
+        ></div>
+        <div
+          class="items autoSizeChild"
+          ans="c3"
+          style="top: 72px; left: 9px; width: 208px; height: 48px"
+        ></div>
+        <div
+          class="items autoSizeChild"
+          ans="c4"
+          style="top: 72px; left: 233px; width: 208px; height: 48px"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="450px"
+            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3.png"
+          />
+        </div>
+      </div>
+      <div class="code wow bounceInUp">
+        <div class="items">
+          <span
+            style="top: 18px; left: 19px; width: 35px; height: 76px"
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c1.png"
+          /></span>
+        </div>
+        <div class="items">
+          <span
+            style="top: 18px; left: 67px; width: 35px; height: 76px"
+            iid="c2"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c2.png"
+          /></span>
+        </div>
+        <div class="items">
+          <span
+            style="top: 18px; left: 115px; width: 35px; height: 76px"
+            iid="c3"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c3.png"
+          /></span>
+        </div>
+        <div class="items">
+          <span
+            style="top: 18px; left: 163px; width: 35px; height: 76px"
+            iid="c4"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c4.png"
+          /></span>
+        </div>
+        <div class="items">
+          <span
+            style="top: 18px; left: 210px; width: 35px; height: 76px"
+            iid="c5"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c5.png"
+          /></span>
+        </div>
+        <div class="items">
+          <span
+            style="top: 18px; left: 258px; width: 35px; height: 76px"
+            iid="c6"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c6.png"
+          /></span>
+        </div>
+        <div class="items">
+          <span
+            style="top: 18px; left: 307px; width: 35px; height: 76px"
+            iid="c7"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="190px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-c7.png"
+          /></span>
+        </div>
+        <img
+          height="auto"
+          width="320px"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-3-crayon.png"
+        />
+      </div>
+    </div>
+    <!-- 任務一2 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>從色環選出一個最能代表你的顏色。</p>
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <span
+        class="btn prev"
+        style="top: 160px; left: 75px"
+        onClick="openContent(2);"
+      />
+      <div class="code">
+        <div class="items">
+          <span
+            style="
+              top: 112px;
+              left: -97px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(9deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-9deg);
+                background: #d86924;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 118px;
+              left: -80px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(27deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-27deg);
+                background: #f29600;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 129px;
+              left: -65px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(45deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-45deg);
+                background: #feb811;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 144px;
+              left: -53px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(63deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-63deg);
+                background: #faed00;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 162px;
+              left: -48px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(81deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-81deg);
+                background: #e5e300;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 181px;
+              left: -48px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(99deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-99deg);
+                background: #b3d235;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 199px;
+              left: -53px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(118deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-118deg);
+                background: #8dc21f;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 213px;
+              left: -64px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(136deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-136deg);
+                background: #00913a;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 225px;
+              left: -79px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(154deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-154deg);
+                background: #219e63;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 230px;
+              left: -97px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(172deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(-172deg);
+                background: #00a199;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 230px;
+              left: -115px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-172deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(172deg);
+                background: #3ba5b9;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 225px;
+              left: -133px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-154deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(154deg);
+                background: #1dade5;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 214px;
+              left: -150px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-136deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(136deg);
+                background: #009bdb;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 198px;
+              left: -159px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-118deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(118deg);
+                background: #007ac0;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 180px;
+              left: -166px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-100deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(100deg);
+                background: #004da0;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 162px;
+              left: -166px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-82deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(82deg);
+                background: #182987;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 144px;
+              left: -160px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-64deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(64deg);
+                background: #523291;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 129px;
+              left: -149px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-46deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(46deg);
+                background: #5f1985;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 118px;
+              left: -134px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-27deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(27deg);
+                background: #a40b5e;
+              "
+            ></span
+          ></span>
+          <span
+            style="
+              top: 112px;
+              left: -116px;
+              width: 8px;
+              height: 9px;
+              transform: rotate(-9deg);
+            "
+            iid="c1"
+            onClick="trigMe($(this))"
+            ><span
+              style="
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                transform: rotate(9deg);
+                background: #c30d23;
+              "
+            ></span
+          ></span>
+        </div>
+      </div>
+      <div class="puzzle wow fadeInUp">
+        <div
+          class="items autoSizeChild autoClean"
+          ans="c1"
+          style="top: 81px; left: 295px; width: 65px; height: 27px"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="450px"
+            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-4.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
