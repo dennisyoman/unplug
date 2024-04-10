@@ -112,7 +112,11 @@ var trigMe = function (tar) {
         //欄位自動取代
         rootSoundEffect($pop);
         $(".sideTool > div.btn_replay").show();
-        frame.empty().append(tar.clone());
+        frame.children().not($("div.reset")).remove();
+        frame.append(tar.clone());
+        if (frame.find(".indicator").length > 0) {
+          updateIndicator(frame);
+        }
       }
     } else {
       //沒選到欄位
