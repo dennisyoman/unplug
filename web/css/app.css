@@ -7807,12 +7807,12 @@
   cursor: pointer;
 }
 .module_decode .btn.prev {
-  background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+  background: url("../DATA/IMAGES/common/btn_prev3.png") no-repeat center center;
   background-size: 100% 100%;
   margin-left: -35px;
 }
 .module_decode .btn.next {
-  background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+  background: url("../DATA/IMAGES/common/btn_next3.png") no-repeat center center;
   background-size: 100% 100%;
   margin-left: 10px;
 }
