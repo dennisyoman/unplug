@@ -1410,6 +1410,7 @@ let defaultSizer = function () {
 };
 
 //共用音效控制
+let $fill = new Audio("./sfx/fill.mp3");
 let $chimes = new Audio("./sfx/chimes.mp3");
 let $correct = new Audio("./sfx/correct.mp3");
 let $fail = new Audio("./sfx/fail.mp3");
@@ -1434,6 +1435,7 @@ let $lava = new Audio("./sfx/lava.mp3");
 //combine
 var sfxLowLagged = 0;
 let $SFXAr = [
+  $fill,
   $chimes,
   $correct,
   $fail,
