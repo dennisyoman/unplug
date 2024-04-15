@@ -583,6 +583,15 @@
 .module_capacity .steps .step:nth-child(6) .seq::before {
   content: "Step 6";
 }
+.module_capacity .steps .step:nth-child(7) .seq::before {
+  content: "Step 7";
+}
+.module_capacity .steps .step:nth-child(8) .seq::before {
+  content: "Step 8";
+}
+.module_capacity .steps .step:nth-child(9) .seq::before {
+  content: "Step 9";
+}
 .module_capacity .steps .step .seq {
   font-size: 12px;
   background: #66bf97;
