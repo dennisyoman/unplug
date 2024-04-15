@@ -102,6 +102,10 @@ var showAnswer = function (boolean) {
     $(".sideTool > div.btn_replay").show();
     $(".sideTool > div.btn_check").hide();
     rootSoundEffect($help);
+    //
+    if ($(".contents > div.selected").find(".btn").length > 0) {
+      $(".contents > div.selected").find(".btn").fadeIn();
+    }
   } else {
     $(".sideTool > div.btn_replay").click();
   }
@@ -137,6 +141,10 @@ var checkAnswer = function (boolean) {
       });
     //
     rootSoundEffect($chimes);
+    //
+    if ($(".contents > div.selected").find(".btn").length > 0) {
+      $(".contents > div.selected").find(".btn").fadeIn();
+    }
   }
 };
 var lowlaged = false;
@@ -153,6 +161,9 @@ var openContent = function (id) {
 };
 
 var resetElem = function (elem) {
+  if (elem.find(".btn").length > 0) {
+    elem.find(".btn").hide();
+  }
   elem.find(".showAnswer").removeClass("showAnswer");
   elem.find(".selected").removeClass("selected");
   elem.find(".wrong").removeClass("wrong");

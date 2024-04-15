@@ -5824,6 +5824,25 @@
   -khtml-opacity: 0 !important;
   filter: alpha(opacity=0) !important;
 }
+.module_regularity .btn {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.module_regularity .btn.prev {
+  background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+  background-size: 100% 100%;
+  margin-left: -35px;
+}
+.module_regularity .btn.next {
+  background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+  background-size: 100% 100%;
+  margin-left: 10px;
+}
 .module_regularity .smoke,
 .module_regularity .resultIcon {
   position: absolute;
@@ -6155,6 +6174,23 @@
 }
 .module_regularity .contents .puzzle .subject > span.red {
   background: #e9504f;
+}
+.module_regularity .contents .puzzle .subject > span.square {
+  border-width: 1px;
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+.module_regularity .contents .puzzle .subject > span.pink {
+  background: #f9d3e3;
+  border-color: #ea6094;
+}
+.module_regularity .contents .puzzle .subject > span.blue {
+  background: #bae3f9;
+  border-color: #59c3e1;
 }
 .module_regularity .contents .puzzle .subject > span.wrong {
   border-color: #f9b900;

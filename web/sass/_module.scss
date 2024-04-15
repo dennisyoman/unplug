@@ -5856,6 +5856,26 @@
   height: 100%;
   @include opacity(0);
 
+  .btn {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    pointer-events: auto;
+    cursor: pointer;
+    &.prev {
+      background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+      background-size: 100% 100%;
+      margin-left: -35px;
+    }
+    &.next {
+      background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+      background-size: 100% 100%;
+      margin-left: 10px;
+    }
+  }
+
   .smoke,
   .resultIcon {
     position: absolute;
@@ -6190,6 +6210,20 @@
           }
           &.red {
             background: #e9504f;
+          }
+
+          &.square {
+            border-width: 1px;
+            @include rotate(0deg);
+            @include borderRadius(8px);
+          }
+          &.pink {
+            background: #f9d3e3;
+            border-color: #ea6094;
+          }
+          &.blue {
+            background: #bae3f9;
+            border-color: #59c3e1;
           }
 
           &.wrong {

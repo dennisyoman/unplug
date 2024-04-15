@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_box">
+<div id="module_wrapper" class="module_regularity">
   <div class="tabs">
     <span>任務一</span>
   </div>
@@ -12,139 +12,78 @@
   </div>
 
   <div id="contents" class="contents">
-    <!-- 任務一 -->
     <div>
+      <span
+        class="btn next"
+        style="top: 145px; left: 490px"
+        onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-2-1-2.html','JS/character2.js',0)"
+      />
       <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>部件對對碰</b>：這些部件可以拼成新的字，看你能拚出幾種組合呢?
+            <b>部件對對碰</b
+            >：根據課堂規則，將零件卡片著色。接著使用卡片拼出文字，並討論哪些是真實存在的國字?
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="wow fadeIn" style="text-align: center">
-        <div
-          class="sensorArea"
-          style="position: absolute; z-index: 2; height: 100%"
-        >
+      <div style="width: 400px; height: 212px" class="puzzle wow flipInX">
+        <div class="subject" style="transform: scale(1.5)">
           <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 36px;
-              height: 50px;
-              top: 65px;
-              left: 89px;
-            "
-            group="a"
-          />
+            class="square"
+            ans="pink"
+            mode="pink^blue"
+            style="top: 78px; left: 53px; width: auto; height: auto"
+            ><img
+              style="width: 36px; height: 50px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0A.png"
+          /></span>
           <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 36px;
-              height: 50px;
-              top: 65px;
-              left: 130px;
-            "
-            group="b"
-          />
-        </div>
-        <img
-          width="auto"
-          height="180"
-          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-3-1-1.png"
-        />
-        <div
-          class="frames wow slideInUp"
-          style="display: flex; gap: 5px; margin-top: 20px"
-        >
-          <div style="position: relative" pre="1,2">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="1,5">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="4,2">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="4,3">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="4,5">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="6,3">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="6,5">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-          <div style="position: relative" pre="6,2">
-            <img width="50" src="./DATA/PT2/BOOK1/IMAGES/PT2-1-1-2-frame.png" />
-          </div>
-        </div>
-      </div>
-      <div
-        class="toys toys_rectangle noShuffle wow bounceIn"
-        style="width: 150px; left: auto; right: 170px; bottom: 150px"
-      >
-        <div
-          class="toy cards"
-          sp="99,191^99,233"
-          group="a"
-          cid="1"
-          style="width: 36px; height: 50px"
-        >
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-1A.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="99,191^99,233"
-          group="b"
-          cid="2"
-          style="width: 36px; height: 50px"
-        >
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-1B.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="99,191^99,233"
-          group="b"
-          cid="3"
-          style="width: 36px; height: 50px"
-        >
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-1C.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="99,191^99,233"
-          group="a"
-          cid="4"
-          style="width: 36px; height: 50px"
-        >
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-1D.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="99,191^99,233"
-          group="b"
-          cid="5"
-          style="width: 36px; height: 50px"
-        >
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-1E.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="99,191^99,233"
-          group="a"
-          cid="6"
-          style="width: 36px; height: 50px"
-        >
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-1F.png" />
+            class="square"
+            ans="blue"
+            mode="pink^blue"
+            style="top: 78px; left: 99px; width: auto; height: auto"
+            ><img
+              style="width: 36px; height: 50px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0B.png"
+          /></span>
+          <span
+            class="square"
+            ans="blue"
+            mode="pink^blue"
+            style="top: 78px; left: 145px; width: auto; height: auto"
+            ><img
+              style="width: 36px; height: 50px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0C.png"
+          /></span>
+          <span
+            class="square"
+            ans="pink"
+            mode="pink^blue"
+            style="top: 78px; left: 191px; width: auto; height: auto"
+            ><img
+              style="width: 36px; height: 50px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0D.png"
+          /></span>
+          <span
+            class="square"
+            ans="blue"
+            mode="pink^blue"
+            style="top: 78px; left: 237px; width: auto; height: auto"
+            ><img
+              style="width: 36px; height: 50px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0E.png"
+          /></span>
+          <span
+            class="square"
+            ans="pink"
+            mode="pink^blue"
+            style="top: 78px; left: 286px; width: auto; height: auto"
+            ><img
+              style="width: 36px; height: 50px"
+              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0F.png"
+          /></span>
         </div>
       </div>
     </div>
