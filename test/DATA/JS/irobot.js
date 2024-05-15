@@ -274,7 +274,10 @@ var checkCollision = function (ev) {
 
 var checkMopStatus = function () {
   var mopgroup = $($elem).parent();
-  if (mopgroup.find(">span").length == mopgroup.find(">span.onmop").length) {
+  if (
+    mopgroup.find(">span").length == mopgroup.find(">span.onmop").length &&
+    mopgroup.find(">span[preset='1']").attr("ans") == 1
+  ) {
     //
     drawArrow();
     //全部區域完成
