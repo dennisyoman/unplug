@@ -276,7 +276,7 @@ var checkMopStatus = function () {
   var mopgroup = $($elem).parent();
   if (
     mopgroup.find(">span").length == mopgroup.find(">span.onmop").length &&
-    mopgroup.find(">span[preset='1']").attr("ans") == 1
+    mopgroup.find(">span[force='1']").attr("ans") == 1
   ) {
     //
     drawArrow();
