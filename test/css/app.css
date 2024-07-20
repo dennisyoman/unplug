@@ -7843,6 +7843,9 @@
   border: 2px solid #1c9b64;
   border-radius: 100%;
 }
+.module_decode .contents .code .items > span.selected.hid::after {
+  display: none;
+}
 .module_decode .contents .check {
   position: relative;
   z-index: 2;
@@ -7959,6 +7962,13 @@
 }
 .module_decode .contents .puzzle .items.selected .reset {
   display: block;
+}
+.module_decode .contents .puzzle .items.selected.hid {
+  background: none;
+}
+.module_decode .contents .puzzle .items.selected.hid .reset,
+.module_decode .contents .puzzle .items.selected.hid .indicator {
+  display: none;
 }
 .module_decode .contents .puzzle .items.noclick > * {
   pointer-events: none;
@@ -12115,6 +12125,7 @@
   z-index: 1;
 }
 .module_box .contents .sensorArea > span {
+  background: rgba(255, 0, 0, 0.2);
   pointer-events: auto;
 }
 .module_box .contents .arrowArea {
@@ -12123,6 +12134,7 @@
   z-index: 3;
 }
 .module_box .contents .arrowArea > span {
+  background: rgba(0, 255, 0, 0.1);
   pointer-events: auto;
   position: relative;
 }
@@ -12356,11 +12368,11 @@
 .module_box .hint.showAnswer .ans {
   display: block;
 }
-.module_box img.simplyDrag {
+.module_box .ref.simplyDrag {
   position: absolute;
   z-index: 2;
   left: 5%;
-  top: 90%;
+  top: 75%;
   pointer-events: auto;
 }
 .module_box .condition {

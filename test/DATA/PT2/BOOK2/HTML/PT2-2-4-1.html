@@ -1,0 +1,209 @@
+<div id="module_wrapper" class="module_capacity">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div style="flex-direction: column">
+      <div class="intro wow fadeIn">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>容量組合</b
+            >：容量的變化可以用加法、減法來計算。現在我們有兩個量杯，透過兩個量杯之間的容量加減，得到我們想要的容量。
+          </p>
+          <img
+            style="width: 400px"
+            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-intro.png"
+          />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="cupsArea" style="margin-top: 105px" ans="4">
+        <span
+          class="cup cup1 simplyDrag sensor wow bounceInDown"
+          ap="58,54"
+          cap="5"
+          fill="0"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+        </span>
+        <span
+          class="cup cup2 simplyDrag sensor wow bounceInDown"
+          ap="88,154"
+          cap="3"
+          fill="0"
+        >
+          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+        </span>
+        <span
+          class="sensor refill"
+          style="width: 50px; height: 50px; top: -9px; left: 304px"
+        ></span>
+        <span
+          class="sensor pour"
+          style="width: 87px; height: 40px; top: 102px; left: 271px"
+        ></span>
+        <img
+          style="width: 400px"
+          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-bg.png"
+        />
+        <span
+          style="position: absolute; bottom: -12px; left: 53px; font-size: 12px"
+          >5單位容器</span
+        >
+        <span
+          style="
+            position: absolute;
+            bottom: -12px;
+            left: 142px;
+            font-size: 12px;
+          "
+          >3單位容器</span
+        >
+        <span
+          style="
+            position: absolute;
+            bottom: -18px;
+            left: 297px;
+            font-size: 12px;
+          "
+          >倒水區</span
+        >
+        <span
+          style="
+            position: absolute;
+            bottom: 134px;
+            left: 311px;
+            font-size: 12px;
+          "
+          >裝水區</span
+        >
+        <span
+          style="position: absolute; top: 8px; left: 0px; font-size: 12px"
+          class="wow slideInLeft"
+          >使用5單位的杯子和3單位的杯子量出<span style="color: #eb6154">4</span
+          >單位的水</span
+        >
+      </div>
+      <div
+        class="steps"
+        style="transform: scale(0.6); transform-origin: top center"
+      >
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+        <div class="step">
+          <span class="seq" />
+          <span class="cup cup1" cap="5" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup1.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+          <span class="cup cup2" cap="3" fill="0">
+            <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-3-3-1-cup2.png" />
+          </span>
+          <span class="capacity"></span>
+          <span class="unit">單位</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

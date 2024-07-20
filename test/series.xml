@@ -81,5 +81,11 @@
       <lesson lid="3">容量組合</lesson>
       <lesson lid="4">繽紛的世界</lesson>
     </book>
+    <book name="Book 2" bid="2" img="PT2_book2.jpg">
+      <lesson lid="1">善解文意</lesson>
+      <lesson lid="2">破解鏡中手札</lesson>
+      <lesson lid="3">乘法表預測術</lesson>
+      <lesson lid="4">天有風雲</lesson>
+    </book>
   </series>
 </root>

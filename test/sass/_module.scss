@@ -7993,6 +7993,11 @@
               border: 2px solid $second;
               border-radius: 100%;
             }
+            &.hid {
+              &::after {
+                display: none;
+              }
+            }
           }
         }
       }
@@ -8122,6 +8127,13 @@
           }
           .reset {
             display: block;
+          }
+          &.hid {
+            background: none;
+            .reset,
+            .indicator {
+              display: none;
+            }
           }
         }
 
@@ -12404,7 +12416,7 @@
       position: relative;
       z-index: 1;
       > span {
-        //background: rgba(255, 0, 0, 0.2);
+        background: rgba(255, 0, 0, 0.2);
         pointer-events: auto;
       }
     }
@@ -12413,7 +12425,7 @@
       position: relative;
       z-index: 3;
       > span {
-        //background: rgba(0, 255, 0, 0.1);
+        background: rgba(0, 255, 0, 0.1);
         pointer-events: auto;
         position: relative;
 
@@ -12660,11 +12672,11 @@
       }
     }
   }
-  img.simplyDrag {
+  .ref.simplyDrag {
     position: absolute;
     z-index: 2;
     left: 5%;
-    top: 90%;
+    top: 75%;
     pointer-events: auto;
   }
   .condition {

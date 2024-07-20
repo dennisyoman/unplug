@@ -555,6 +555,7 @@ var checkAnswer = function () {
           //還有箭頭沒點
           rootSoundEffect($stupid);
           var alertmsg = "點擊全部虛線箭頭，變成實線箭頭";
+          $(".alert").remove();
           $(".contents > div.selected").append(
             `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
           );
