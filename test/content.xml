@@ -589,7 +589,7 @@
     </section>
   </lesson>
   <lesson sid="PT2" bid="2" lid="2">
-    <section section="1" name="熱身活動" html="PT2/BOOK2/HTML/PT2-2-2-1.html" js="JS/regularity.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <!-- <section section="1" name="熱身活動" html="PT2/BOOK2/HTML/PT2-2-2-1.html" js="JS/regularity.js" image="IMAGES/UNITS/warmup.png" skin=""/>-->
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK2/HTML/PT2-2-2-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 鏡像密語" html="PT2/BOOK2/HTML/PT2-2-2-3.html" js="JS/decode.js" image="IMAGES/UNITS/match.png" skin="">
@@ -600,24 +600,24 @@
     </section>
   </lesson>
   <lesson sid="PT2" bid="2" lid="3">
-    <section section="1" name="熱身活動" html="PT2/BOOK2/HTML/PT2-2-3-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+     <!-- <section section="1" name="熱身活動" html="PT2/BOOK2/HTML/PT2-2-3-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>-->
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK2/HTML/PT2-2-3-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 乘法表填空" html="PT2/BOOK2/HTML/PT2-2-3-3.html" js="JS/capacity.js" image="IMAGES/UNITS/counter.png" skin="">
+     <!-- <section section="3" name="一起玩遊戲 / 乘法表填空" html="PT2/BOOK2/HTML/PT2-2-3-3.html" js="JS/capacity.js" image="IMAGES/UNITS/counter.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 圖表判讀" html="PT2/BOOK2/HTML/PT2-2-3-4.html" js="JS/capacity.js" image="IMAGES/UNITS/counter.png" skin="">
-    </section>
+    </section>-->
     <section section="5" name="編程時間 / 演算法" html="PT2/BOOK2/HTML/PT2-2-3-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT2" bid="2" lid="4">
-    <section section="1" name="熱身活動" html="PT2/BOOK2/HTML/PT2-2-4-1.html" js="JS/capacity.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+     <!-- <section section="1" name="熱身活動" html="PT2/BOOK2/HTML/PT2-2-4-1.html" js="JS/capacity.js" image="IMAGES/UNITS/warmup.png" skin=""/>-->
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK2/HTML/PT2-2-4-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 走吧！放風箏！" html="PT2/BOOK2/HTML/PT2-2-4-3.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/pairing.png" skin="">
+     <!-- <section section="3" name="一起玩遊戲 / 走吧！放風箏！" html="PT2/BOOK2/HTML/PT2-2-4-3.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/pairing.png" skin="">
     </section>
     <section section="4" name="一起玩遊戲 / 百變的雲" html="PT2/BOOK2/HTML/PT2-2-4-4.html" js="JS/character.js" image="IMAGES/UNITS/rgb.png" skin="">
-    </section>
+    </section>-->
     <section section="5" name="編程時間 / 演算法" html="PT2/BOOK2/HTML/PT2-2-4-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
