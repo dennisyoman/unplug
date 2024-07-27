@@ -1,16 +1,10 @@
-<div id="module_wrapper" class="module_character">
+<div id="module_wrapper" class="module_fillin">
   <div class="tabs">
-    <span class="demo">示範一</span>
-    <span class="demo" style="display: none">示範一2</span>
+    <span>任務一</span>
+    <span>任務二</span>
     <span
-      class="demo"
-      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-4-4-2.html','JS/decode.js',1)"
-      >任務一</span
-    >
-    <span
-      class="demo"
-      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-4-4-2.html','JS/decode.js',2)"
-      >任務二</span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK2/HTML/PT2-2-4-4-2.html','JS/fillin.js',2)"
+      >任務三</span
     >
   </div>
 
@@ -18,127 +12,161 @@
 
   <div class="sideTool">
     <div class="btn_answer"></div>
-    <div class="btn_check"></div>
     <div class="btn_replay"></div>
+    <div class="btn_check"></div>
   </div>
 
   <div id="contents" class="contents">
-    <!-- 示範 -->
+    <!--任務一-->
     <div>
       <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p><b>印刷三原色</b>：請仔細觀察，將下面空白處填入正確的顏色。</p>
-          <img style="margin-top: -60px" src="./DATA/IMAGES/UNITS/rgb.png" />
+          <p>
+            <b>百變的雲：</b
+            ><br />下雨好像跟天上的雲有關係，多多紀錄了最近窗外的雲跟下雨的情況。
+          </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <span
-        class="btn next"
-        style="top: 144px; left: 540px"
-        onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-4-4-2.html','JS/decode.js',0)"
-      />
-      <div>
-        <div class="container">
-          <div class="textCombo wow slideInDown">
-            <span
-              style="width: 40px; top: 99px; left: 76px"
-              class="textFrame"
-              ans="1"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1A.png"
-            /></span>
-            <span
-              style="width: 40px; top: 99px; left: 123px"
-              class="textFrame"
-              ans="2"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1H.png"
-            /></span>
-            <span
-              style="width: 68px; top: 85px; left: 223px"
-              class="textFrame"
-              ans="4"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1B.png"
-            /></span>
-            <span
-              style="width: 128px; top: 24px; left: 224px"
-              class="textFrame"
-              ans="3"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1C.png"
-            /></span>
-            <span
-              style="width: 68px; top: 85px; left: 284px"
-              class="textFrame"
-              ans="5"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1D.png"
-            /></span>
-            <span
-              style="width: 58px; top: 96px; left: 258px"
-              class="textFrame"
-              ans="6"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1E.png"
-            /></span>
-            <span
-              style="width: 103px; top: 92px; left: 188px"
-              class="textFrame"
-              ans="7"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1F.png"
-            /></span>
-            <span
-              style="width: 103px; top: 92px; left: 284px"
-              class="textFrame"
-              ans="8"
-              ><img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1G.png"
-            /></span>
-            <img
-              style="width: 450px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-4-1.png"
-            />
-          </div>
-          <div class="textParts">
-            <span
-              style="width: 38px; height: 38px; top: -138px; left: 77px"
-              class="partSensor"
-              pid="1"
-            />
-            <span
-              style="width: 38px; height: 38px; top: -138px; left: 124px"
-              class="partSensor"
-              pid="2"
-            />
-            <span
-              style="width: 83px; height: 50px; top: -200px; left: 244px"
-              class="partSensor"
-              pid="3"
-            />
-            <span
-              style="width: 45px; height: 33px; top: -150px; left: 226px"
-              class="partSensor"
-              pid="4"
-            />
-            <span
-              style="width: 45px; height: 33px; top: -150px; left: 303px"
-              class="partSensor"
-              pid="5"
-            />
-            <span
-              style="width: 45px; height: 33px; top: -120px; left: 265px"
-              class="partSensor"
-              pid="6"
-            />
-            <span
-              style="width: 72px; height: 75px; top: -107px; left: 192px"
-              class="partSensor"
-              pid="7"
-            />
-            <span
-              style="width: 72px; height: 75px; top: -107px; left: 311px"
-              class="partSensor"
-              pid="8"
-            />
-          </div>
+      <div class="subject" style="width: 270px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 87px; left: 53px"
+            ans="1"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 87px; left: 146px"
+            ans="0"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 87px; left: 239px"
+            ans="1"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 190px; left: 53px"
+            ans="0"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 190px; left: 146px"
+            ans="1"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 190px; left: 239px"
+            ans="1"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 294px; left: 53px"
+            ans="0"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 294px; left: 146px"
+            ans="0"
+          />
+          <span
+            class="sensor"
+            style="width: 12px; height: 12px; top: 294px; left: 239px"
+            ans="1"
+          />
+        </div>
+        <img
+          class="wow flipInX"
+          style="width: 100%; transform-origin: top center"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-4-1-1.png"
+        />
+        <img
+          class="wow flipInX"
+          data-wow-delay=".2s"
+          style="width: 100%; transform-origin: top center"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-4-1-2.png"
+        />
+        <img
+          class="wow flipInX"
+          data-wow-delay=".4s"
+          style="width: 100%; transform-origin: top center"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-4-1-3.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="1">
+          <span class="fillin"
+            ><img
+              style="width: 8px; height: auto"
+              src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+        </div>
+        <div class="option" fillin="0">
+          <span class="fillin"></span>
         </div>
       </div>
     </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>百變的雲：</b
+            ><br />試著預測看看，下面你覺得會下雨的打勾，覺得不會下雨的打叉。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject" style="width: 450px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 3px; left: 2px"
+            ans="0"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 3px; left: 166px"
+            ans="1"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 30px; top: 3px; left: 329px"
+            ans="1"
+          />
+        </div>
+        <img
+          class="wow flipInX"
+          style="width: 100%; transform-origin: top center"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-4-2.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="1">
+          <span class="fillin"
+            ><img
+              style="width: 24px; height: auto"
+              src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+        </div>
+        <div class="option" fillin="0">
+          <span class="fillin"
+            ><img
+              style="width: 24px; height: auto"
+              src="./DATA/IMAGES/common/icon_wrong_blue.png"
+          /></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div></div>
   </div>
 
   <div class="assetsPreload"></div>

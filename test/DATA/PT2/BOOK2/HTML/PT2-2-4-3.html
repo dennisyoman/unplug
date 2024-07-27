@@ -1,12 +1,13 @@
-<div id="module_wrapper" class="module_box">
+<div id="module_wrapper" class="module_fillin">
   <div class="tabs">
     <span class="demo">示範一</span>
-    <span class="demo" style="display: none">示範一2</span>
     <span class="demo">示範二</span>
     <span
-      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-4-3-2.html','JS/decode.js',2)"
-      >任務一</span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK2/HTML/PT2-2-4-3-2.html','JS/timetable.js',2)"
+      >示範三</span
     >
+    <span class="demo">示範四</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
@@ -18,386 +19,350 @@
   </div>
 
   <div id="contents" class="contents">
-    <!-- 示範一 -->
-    <div>
-      <div class="intro">
-        <div>
-          <h3>How to play?</h3>
-          <p><b>發現顏色</b>：仔細觀察環裡的顏色，利用貼紙將色相環完成。</p>
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1.png" />
-          <span class="cta" onClick="switchIntro()">START</span>
-        </div>
-      </div>
-      <span
-        class="btn next"
-        style="top: 126px; left: 447px"
-        onClick="openContent(1);"
-      />
-
-      <div class="wow bounceIn" style="margin-bottom: 45px">
-        <div
-          class="sensorArea"
-          style="position: absolute; z-index: 2; height: 100%"
-        >
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 33px;
-              height: 33px;
-              top: -1px;
-              left: 116px;
-            "
-            group="a"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 40px;
-              height: 39px;
-              top: 23px;
-              left: 167px;
-            "
-            group="b"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 34px;
-              height: 35px;
-              top: 115px;
-              left: 198px;
-            "
-            group="c"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 38px;
-              height: 34px;
-              top: 189px;
-              left: 144px;
-            "
-            group="d"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 32px;
-              height: 34px;
-              top: 171px;
-              left: 27px;
-            "
-            group="e"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 31px;
-              height: 37px;
-              top: 144px;
-              left: 9px;
-            "
-            group="f"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 40px;
-              height: 39px;
-              top: 48px;
-              left: 4px;
-            "
-            group="g"
-          />
-        </div>
-        <img
-          width="auto"
-          height="230"
-          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1.png"
-        />
-      </div>
-
-      <div class="toys wow slideInRight" style="bottom: 5px">
-        <div class="toy middle cards" group="a" sp="14,319" ap="14,319">
-          <img
-            style="width: 37px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0A.png"
-          />
-        </div>
-        <div class="toy middle cards" group="b" sp="41,372" ap="41,372">
-          <img
-            style="width: 42px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0B.png"
-          />
-        </div>
-        <div class="toy middle cards" group="c" sp="131,404" ap="131,404">
-          <img
-            style="width: 30.5px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0C.png"
-          />
-        </div>
-        <div class="toy middle cards" group="d" sp="204,347" ap="204,347">
-          <img
-            style="width: 41px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0D.png"
-          />
-        </div>
-        <div class="toy middle cards" group="e" sp="186,226" ap="186,226">
-          <img
-            style="width: 42px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0E.png"
-          />
-        </div>
-        <div class="toy middle cards" group="f" sp="161,210" ap="161,210">
-          <img
-            style="width: 37px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0F.png"
-          />
-        </div>
-        <div class="toy middle cards" group="g" sp="66,210" ap="66,210">
-          <img
-            style="width: 38px"
-            src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-0G.png"
-          />
-        </div>
-      </div>
-    </div>
-    <!-- 示範一2 -->
-    <div>
-      <div class="intro">
-        <div>
-          <h3>How to play?</h3>
-          <p><b>發現顏色</b>：把下方的玩具貼紙，貼在色相環對相的顏色旁邊。</p>
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1-intro.png" />
-          <span class="cta" onClick="switchIntro()">START</span>
-        </div>
-      </div>
-      <span
-        class="btn prev"
-        style="top: 126px; left: 188px"
-        onClick="openContent(0);"
-      />
-
-      <div class="wow bounceIn" style="margin-bottom: 45px">
-        <div
-          class="sensorArea"
-          style="position: absolute; z-index: 2; height: 100%"
-        >
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 69px;
-              height: 75px;
-              top: 146px;
-              left: 146px;
-            "
-            group="a"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 71px;
-              height: 61px;
-              top: 159px;
-              left: 22px;
-            "
-            group="b"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 59px;
-              height: 57px;
-              top: 30px;
-              left: 159px;
-            "
-            group="c"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 54px;
-              height: 56px;
-              top: 1px;
-              left: 88px;
-            "
-            group="d"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 54px;
-              height: 67px;
-              top: 10px;
-              left: 35px;
-            "
-            group="e"
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 198px;
-              height: 210px;
-              top: 11px;
-              left: 21px;
-              z-index: 0;
-            "
-            group="wrong"
-          />
-        </div>
-        <img
-          width="auto"
-          height="230"
-          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1-intro.png"
-        />
-      </div>
-
-      <div class="toys wow slideInRight" style="bottom: 5px">
-        <div class="toy middle cards" group="a" ap="165,348">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1A.png" />
-        </div>
-        <div class="toy middle cards" group="b" ap="167,255">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1B.png" />
-        </div>
-        <div class="toy middle cards" group="c" ap="69,350">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1C.png" />
-        </div>
-        <div class="toy middle cards" group="d" ap="42,282">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1D.png" />
-        </div>
-        <div class="toy middle cards" group="e" ap="68,237">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-1E.png" />
-        </div>
-      </div>
-    </div>
-    <!-- 示範二 -->
+    <!--示範一-->
     <div>
       <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>觀察顏色</b>：將物品依照顏色深淺排序。<br />*
-            深到淺或是淺到深都可以
+            <b>走吧！放風箏！：</b
+            ><br />多多收到一只美麗的大風箏，但是風箏需要足夠的風才能起飛。請根據過往的風速紀錄預測適合放風箏的月份。
           </p>
+          <img src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-3-1-intro.png" />
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-
-      <div class="wow fadeIn">
-        <div
-          class="sensorArea"
-          style="position: absolute; z-index: 2; height: 100%"
-        >
+      <div class="subject wow bounceInUp" style="height: 200px">
+        <div class="sensorArea">
           <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 49px;
-              height: 56px;
-              top: 23px;
-              left: 23px;
-            "
+            class="sensor"
+            style="width: 40px; height: 24px; top: 76px; left: 125px"
+            ans="1"
           />
           <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 49px;
-              height: 56px;
-              top: 23px;
-              left: 81px;
-            "
+            class="sensor"
+            style="width: 40px; height: 24px; top: 76px; left: 219px"
+            ans="2"
           />
           <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 49px;
-              height: 56px;
-              top: 23px;
-              left: 140px;
-            "
+            class="sensor"
+            style="width: 40px; height: 24px; top: 76px; left: 313px"
+            ans="3"
           />
           <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 49px;
-              height: 56px;
-              top: 23px;
-              left: 198px;
-            "
-          />
-          <span
-            oX="0"
-            oY="0"
-            style="
-              position: absolute;
-              width: 49px;
-              height: 56px;
-              top: 23px;
-              left: 258px;
-            "
+            class="sensor"
+            style="width: 40px; height: 24px; top: 153px; left: 305px"
+            ans="4"
           />
         </div>
         <img
+          height="100%"
           width="auto"
-          height="100"
-          src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-2.png"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-3-1-2.png"
         />
       </div>
-      <div class="toys wow slideInRight" style="bottom: 5px">
-        <div class="toy middle cards" ap="136,237" cid="A">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-2A.png" />
+
+      <div class="options loop">
+        <div class="option" fillin="1">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">1</p></span
+          >
         </div>
-        <div class="toy middle cards" ap="136,296" cid="B">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-2B.png" />
+        <div class="option" fillin="2">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">2</p></span
+          >
         </div>
-        <div class="toy middle cards" ap="136,180" cid="C">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-2C.png" />
+        <div class="option" fillin="3">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">3</p></span
+          >
         </div>
-        <div class="toy middle cards" ap="136,414" cid="D">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-2D.png" />
+        <div class="option" fillin="4">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">4</p></span
+          >
         </div>
-        <div class="toy middle cards" ap="136,353" cid="E">
-          <img src="./DATA/PT2/BOOK1/IMAGES/PT2-1-4-3-2E.png" />
+        <div class="option" fillin="5">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">5</p></span
+          >
         </div>
-      </div>
-      <div class="condition">
-        <span class="matched">C,A,B,E,D</span>
-        <span class="matched">D,E,B,A,C</span>
       </div>
     </div>
-    <div class="assetsPreload"></div>
+
+    <!--示範二-->
+    <div>
+      <div class="intro" style="display: none">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>走吧！放風箏！：</b
+            ><br />多多收到一只美麗的大風箏，但是風箏需要足夠的風才能起飛。請根據過往的風速紀錄預測適合放風箏的月份。
+          </p>
+          <img src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow bounceInUp" style="height: 250px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 38px"
+            ans="4"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 69px"
+            ans="5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 101px"
+            ans="5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 132px"
+            ans="5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 163px"
+            ans="5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 195px"
+            ans="4"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 226px"
+            ans="5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 258px"
+            ans="5"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 289px"
+            ans="8"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 320px"
+            ans="8"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 351px"
+            ans="7"
+          />
+          <span
+            class="sensor"
+            style="width: 30px; height: 35px; top: 162px; left: 382px"
+            ans="6"
+          />
+          <span
+            class="sensor"
+            style="width: 47px; height: 25px; top: 218px; left: 173px"
+            ans="9,10"
+          />
+        </div>
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-3-1-1.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="1">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">1</p></span
+          >
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">2</p></span
+          >
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">3</p></span
+          >
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">4</p></span
+          >
+        </div>
+        <div class="option" fillin="5">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">5</p></span
+          >
+        </div>
+        <div class="option" fillin="6">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">6</p></span
+          >
+        </div>
+        <div class="option" fillin="7">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">7</p></span
+          >
+        </div>
+        <div class="option" fillin="8">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">8</p></span
+          >
+        </div>
+        <div class="option" fillin="9">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">9</p></span
+          >
+        </div>
+        <div class="option" fillin="10">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">10</p></span
+          >
+        </div>
+        <div class="option" fillin="11">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">11</p></span
+          >
+        </div>
+        <div class="option" fillin="12">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">12</p></span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!--示範三-->
+    <div></div>
+
+    <!--示範四-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>走吧！放風箏！：</b
+            ><br />請觀察過去幾天雷陣雨出現的規律，幫多多分析哪一天出去放風箏比較好。
+          </p>
+          <img src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow bounceInUp" style="height: 250px">
+        <div class="sensorArea">
+          <span
+            class="sensor"
+            style="width: 47px; height: 25px; top: 222px; left: 150px"
+            ans="C"
+          />
+        </div>
+        <div class="presetArea">
+          <div class="sensor" style="top: 40px; left: 25px">
+            <div
+              class="trigger"
+              style="
+                position: absolute;
+                width: 61px;
+                height: 30px;
+                top: 11px;
+                left: 223px;
+              "
+            ></div>
+            <div
+              class="rectangle"
+              style="
+                position: absolute;
+                width: 62px;
+                height: 169px;
+                top: 0;
+                left: 64px;
+              "
+            ></div>
+          </div>
+          <div class="sensor" style="top: 40px; left: 89px">
+            <div
+              class="trigger"
+              style="
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                top: 11px;
+                left: 223px;
+              "
+            ></div>
+            <div
+              class="rectangle"
+              style="
+                position: absolute;
+                width: 62px;
+                height: 169px;
+                top: 0;
+                left: -65px;
+              "
+            ></div>
+            <div
+              class="rectangle"
+              style="
+                position: absolute;
+                width: 93px;
+                height: 169px;
+                top: 0;
+                left: 64px;
+              "
+            ></div>
+          </div>
+        </div>
+        <img
+          height="100%"
+          width="auto"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-4-3-3-1.png"
+        />
+      </div>
+
+      <div class="options loop">
+        <div class="option" fillin="A">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">A</p></span
+          >
+        </div>
+        <div class="option" fillin="B">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">B</p></span
+          >
+        </div>
+        <div class="option" fillin="C">
+          <span class="fillin"
+            ><p style="font-size: 14px; font-family: 'Gfont-Bold'">C</p></span
+          >
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="assetsPreload"></div>
 </div>
+
+<style>
+  .module_fillin .presetArea .sensor .trigger {
+    pointer-events: auto;
+  }
+  .module_fillin .presetArea .sensor .rectangle {
+    pointer-events: auto;
+    background: rgba(100, 255, 255, 0.3);
+    display: none;
+  }
+  .module_fillin .presetArea .sensor .trigger:hover ~ .rectangle {
+    display: block;
+  }
+</style>

@@ -105,8 +105,9 @@ var showAnswer = function (boolean) {
           ".options." + $(this).attr("opt")
         );
       }
+      var answerArr = $(this).attr("ans").split(",");
       var fillin = options
-        .find(".option[fillin='" + $(this).attr("ans") + "'] .fillin")
+        .find(".option[fillin='" + answerArr[0] + "'] .fillin")
         .html();
       $(this)
         .removeClass("wrong")
@@ -124,7 +125,14 @@ var showAnswer = function (boolean) {
 var checkAnswer = function () {
   var sensors = $(".contents > div.selected .sensorArea");
   sensors.find(".sensor").each(function () {
-    if ($(this).attr("ans") != $(this).attr("fillin")) {
+    var answerArr = $(this).attr("ans").split(",");
+    var gotit = false;
+    for (var i = 0; i < answerArr.length; i++) {
+      if (answerArr[i] == $(this).attr("fillin")) {
+        gotit = true;
+      }
+    }
+    if (!gotit) {
       $(this).addClass("wrong");
     }
   });

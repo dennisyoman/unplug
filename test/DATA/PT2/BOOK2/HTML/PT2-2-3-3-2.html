@@ -1,0 +1,138 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span
+      class="demo"
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK2/HTML/PT2-2-3-3.html','JS/fillin.js',0)"
+      >示範</span
+    >
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK2/HTML/PT2-2-3-3.html','JS/fillin.js',1)"
+      >任務一</span
+    >
+    <span>任務二</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範 -->
+    <div></div>
+    <!-- 任務一 -->
+    <div></div>
+    <!-- 任務二 -->
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>乘法表填空</b>：說一說，這張乘法表有甚麼規律？</p>
+          <img src="./DATA/PT2/BOOK2/IMAGES/PT2-2-3-3-3-1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="code wow bounceInDown" style="width: 150px">
+        <div class="items">
+          <span
+            style="top: 132px; left: 66px"
+            iid="n0"
+            onClick="trigMe($(this))"
+            >0</span
+          >
+
+          <span
+            style="top: 101px; left: 35px"
+            iid="n1"
+            onClick="trigMe($(this))"
+            >1</span
+          >
+
+          <span
+            style="top: 101px; left: 66px"
+            iid="n2"
+            onClick="trigMe($(this))"
+            >2</span
+          >
+
+          <span
+            style="top: 101px; left: 99px"
+            iid="n3"
+            onClick="trigMe($(this))"
+            >3</span
+          >
+          <span style="top: 68px; left: 35px" iid="n4" onClick="trigMe($(this))"
+            >4</span
+          >
+
+          <span style="top: 68px; left: 66px" iid="n5" onClick="trigMe($(this))"
+            >5</span
+          >
+
+          <span style="top: 68px; left: 99px" iid="n6" onClick="trigMe($(this))"
+            >6</span
+          >
+          <span style="top: 35px; left: 35px" iid="n7" onClick="trigMe($(this))"
+            >7</span
+          >
+
+          <span style="top: 35px; left: 66px" iid="n8" onClick="trigMe($(this))"
+            >8</span
+          >
+
+          <span style="top: 35px; left: 99px" iid="n9" onClick="trigMe($(this))"
+            >9</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-3-3-3-2.png"
+        />
+      </div>
+      <div class="puzzle wow fadeIn" style="width: 400px">
+        <div
+          class="items autoClean"
+          ans="n3"
+          style="top: 38px; left: 142px; width: 15px; height: 19px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n8"
+          style="top: 90px; left: 256px; width: 15px; height: 19px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n0"
+          style="top: 142px; left: 104px; width: 15px; height: 19px"
+        ></div>
+        <div
+          class="items"
+          ans="n2,n3,n8"
+          style="top: 116px; left: 279px; width: 33px; height: 19px"
+        ></div>
+        <div
+          class="items"
+          ans="n2,n5,n5"
+          style="top: 142px; left: 279px; width: 33px; height: 19px"
+        ></div>
+        <div
+          class="items"
+          ans="n2,n7,n0"
+          style="top: 221px; left: 203px; width: 33px; height: 19px"
+        ></div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-3-3-3-1.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>

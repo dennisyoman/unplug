@@ -89,6 +89,10 @@ $(document).ready(function () {
 });
 
 var trigMe = function (tar) {
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
+  //
   var frame = $(".contents > div.selected").find(".puzzle .items.selected");
   //
   if (tar.parent().parent().hasClass("code")) {
@@ -137,12 +141,13 @@ var trigMe = function (tar) {
     tar.remove();
     window.event.stopPropagation();
   }
-  //
-  $(".sideTool > div.btn_answer").removeClass("active");
-  $(".alert").remove();
 };
 
 var trigMeHash = function (tar) {
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
+  //
   var frame = $(".contents > div.selected").find(".puzzle .items.selected");
   //
   if (tar.parent().parent().hasClass("code")) {
@@ -213,9 +218,6 @@ var trigMeHash = function (tar) {
     tar.remove();
     window.event.stopPropagation();
   }
-  //
-  $(".sideTool > div.btn_answer").removeClass("active");
-  $(".alert").remove();
 };
 
 var trigMeCheck = function (tar) {
@@ -535,6 +537,10 @@ var updateIndicator = function (tar) {
 };
 
 var trigMeAll = function (tar) {
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
+  //
   var frame = $(".contents > div.selected").find(".puzzle .items");
   //
   if (tar.parent().parent().hasClass("code")) {
@@ -556,12 +562,13 @@ var trigMeAll = function (tar) {
       }
     }
   }
-  //
-  $(".sideTool > div.btn_answer").removeClass("active");
-  $(".alert").remove();
 };
 
 var trigMeSequence = function (tar) {
+  //
+  $(".sideTool > div.btn_answer").removeClass("active");
+  $(".alert").remove();
+  //
   var currArrowStepDone = $(".contents > div.selected").find(
     ".puzzle .arrowSteps > span.done"
   );
@@ -642,10 +649,6 @@ var trigMeSequence = function (tar) {
   } else {
     rootSoundEffect($wrong);
   }
-
-  //
-  $(".sideTool > div.btn_answer").removeClass("active");
-  $(".alert").remove();
 };
 //
 var lowlaged = false;
