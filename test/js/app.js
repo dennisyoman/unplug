@@ -119,6 +119,7 @@ $(document).ready(function () {
   Wow.init();
   //init
   toLogin();
+  var sizerElement = new Hammer($("#root").get(0));
 
   //是否支援localstorge
   if (typeof Storage !== "undefined") {

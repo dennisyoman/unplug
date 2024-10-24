@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_regularity">
+<div id="module_wrapper" class="module_decode">
   <div class="tabs">
     <span>任務一</span>
   </div>
@@ -7,83 +7,106 @@
 
   <div class="sideTool">
     <div class="btn_answer"></div>
-    <div class="btn_replay"></div>
     <div class="btn_check"></div>
+    <div class="btn_replay"></div>
   </div>
 
   <div id="contents" class="contents">
-    <div>
-      <span
-        class="btn next"
-        style="top: 145px; left: 490px"
-        onClick="event.stopPropagation();loadContainerInside('PT2/BOOK1/HTML/PT2-1-2-1-2.html','JS/character2.js',0)"
-      />
+    <div style="flex-direction: column">
       <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>部件對對碰</b
-            >：根據課堂規則，將零件卡片著色。接著使用卡片拼出文字，並討論哪些是真實存在的國字?
+            <b>善解文意</b
+            >：<br />1.請根據課堂中的分類規則，將有用到的特徵填入以下句子。<br />2.根據提示想想這些句子適合何種商品？
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div style="width: 400px; height: 212px" class="puzzle wow flipInX">
-        <div class="subject" style="transform: scale(1.5)">
+
+      <div class="code wow fadeIn" style="width: 400px">
+        <div class="items">
           <span
-            class="square"
-            ans="pink"
-            mode="pink^blue"
-            style="top: 78px; left: 53px; width: auto; height: auto"
-            ><img
-              style="width: 36px; height: 50px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0A.png"
-          /></span>
+            style="top: 26px; left: 20px; width: 72px"
+            iid="A"
+            onClick="trigMe($(this))"
+            >A</span
+          >
           <span
-            class="square"
-            ans="blue"
-            mode="pink^blue"
-            style="top: 78px; left: 99px; width: auto; height: auto"
-            ><img
-              style="width: 36px; height: 50px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0B.png"
-          /></span>
+            style="top: 26px; left: 117px; width: 72px"
+            iid="B"
+            onClick="trigMe($(this))"
+            >B</span
+          >
           <span
-            class="square"
-            ans="blue"
-            mode="pink^blue"
-            style="top: 78px; left: 145px; width: auto; height: auto"
-            ><img
-              style="width: 36px; height: 50px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0C.png"
-          /></span>
+            style="top: 26px; left: 214px; width: 72px"
+            iid="C"
+            onClick="trigMe($(this))"
+            >C</span
+          >
           <span
-            class="square"
-            ans="pink"
-            mode="pink^blue"
-            style="top: 78px; left: 191px; width: auto; height: auto"
-            ><img
-              style="width: 36px; height: 50px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0D.png"
-          /></span>
-          <span
-            class="square"
-            ans="blue"
-            mode="pink^blue"
-            style="top: 78px; left: 237px; width: auto; height: auto"
-            ><img
-              style="width: 36px; height: 50px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0E.png"
-          /></span>
-          <span
-            class="square"
-            ans="pink"
-            mode="pink^blue"
-            style="top: 78px; left: 286px; width: auto; height: auto"
-            ><img
-              style="width: 36px; height: 50px"
-              src="./DATA/PT2/BOOK1/IMAGES/PT2-1-2-1-1-0F.png"
-          /></span>
+            style="top: 26px; left: 308px; width: 72px"
+            iid="D"
+            onClick="trigMe($(this))"
+            >D</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK2/IMAGES/PT2-2-2-1-1.png"
+        />
+      </div>
+      <div class="puzzle wow fadeIn" style="width: 400px">
+        <div
+          class="items"
+          ans="D"
+          style="top: 28px; left: 194px; width: 48px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="A"
+          style="top: 55px; left: 194px; width: 48px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="D"
+          style="top: 83px; left: 194px; width: 48px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="C"
+          style="top: 110px; left: 194px; width: 48px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="A"
+          style="top: 138px; left: 194px; width: 48px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="C"
+          style="top: 165px; left: 194px; width: 48px; height: 25px"
+        ></div>
+        <div
+          class="items"
+          ans="D"
+          style="top: 192px; left: 194px; width: 48px; height: 25px"
+        ></div>
+
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK2/IMAGES/PT2-2-2-1-2.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK2/IMAGES/PT2-2-2-1-2A.png"
+          />
         </div>
       </div>
     </div>
