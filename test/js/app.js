@@ -1459,6 +1459,7 @@ let $SFXAr = [
   $lava,
 ];
 let $SFXNameAr = [
+  "$fill",
   "chimes",
   "correct",
   "fail",
