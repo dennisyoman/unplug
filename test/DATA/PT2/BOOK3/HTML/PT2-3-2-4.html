@@ -1,0 +1,656 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>設計珠寶盒</b
+            >：這是個珠寶盒設計謎題，請找出對應的顏色，並排出解答的順序。<br />1.將貼紙依序貼在格子中。<br />2.選擇正確的顏色及答案。<br />3.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 135px;
+              height: 50px;
+              top: 20px;
+              left: 23px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 135px;
+              height: 50px;
+              top: 42px;
+              left: 205px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 135px;
+              height: 50px;
+              top: 76px;
+              left: 23px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 135px;
+              height: 50px;
+              top: 99px;
+              left: 205px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 135px;
+              height: 50px;
+              top: 134px;
+              left: 23px;
+            "
+            group="e"
+          ></span>
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 46px;
+              left: 167px;
+              transform: rotate(45deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 76px;
+              left: 167px;
+              transform: rotate(135deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 108px;
+              left: 167px;
+              transform: rotate(45deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 138px;
+              left: 167px;
+              transform: rotate(135deg);
+            "
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1.png"
+        />
+      </div>
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 180px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="78,76^100,258^134,76^157,258^192,76"
+          ap="78,76"
+          group="a"
+          cid="A"
+          style="width: 135px; height: 55px"
+        >
+          <div
+            onClick="switchColor($(this))"
+            class="sticker-color"
+            style="top: 28px; left: 38px"
+            ans="0"
+          ></div>
+          <div
+            onClick="switchLetter($(this))"
+            class="sticker-letter"
+            style="top: 26px; left: 92px"
+            ans="0"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,76^100,258^134,76^157,258^192,76"
+          ap="192,76"
+          group="e"
+          cid="B"
+          style="width: 135px; height: 55px"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,76^100,258^134,76^157,258^192,76"
+          ap="100,258"
+          group="b"
+          cid="C"
+          style="width: 135px; height: 55px"
+        >
+          <div
+            onClick="switchColor($(this))"
+            class="sticker-color"
+            style="top: 28px; left: 38px"
+            ans="1"
+          ></div>
+          <div
+            onClick="switchLetter($(this))"
+            class="sticker-letter"
+            style="top: 26px; left: 92px"
+            ans="3"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,76^100,258^134,76^157,258^192,76"
+          ap="134,76"
+          group="c"
+          cid="D"
+          style="width: 135px; height: 55px"
+        >
+          <div
+            onClick="switchColor($(this))"
+            class="sticker-color"
+            style="top: 28px; left: 38px"
+            ans="2"
+          ></div>
+          <div
+            onClick="switchLetter($(this))"
+            class="sticker-letter"
+            style="top: 26px; left: 92px"
+            ans="2"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,76^100,258^134,76^157,258^192,76"
+          ap="157,258"
+          group="d"
+          cid="E"
+          style="width: 135px; height: 55px"
+        >
+          <div
+            onClick="switchColor($(this))"
+            class="sticker-color"
+            style="top: 29px; left: 15px"
+            ans="3"
+          ></div>
+          <div
+            onClick="switchLetter($(this))"
+            class="sticker-letter"
+            style="top: 27px; left: 69px"
+            ans="1"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-1E.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>俄羅斯娃娃</b
+            >：根據提示判斷娃娃的大小關係，並排出解答的順序。<br />1.將貼紙依序貼在格子中。<br />2.選擇正確的顏色及答案。<br />3.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 130px;
+              height: 60px;
+              top: 17px;
+              left: 23px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 130px;
+              height: 60px;
+              top: 47px;
+              left: 207px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 130px;
+              height: 60px;
+              top: 97px;
+              left: 23px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 130px;
+              height: 60px;
+              top: 127px;
+              left: 207px;
+            "
+            group="d"
+          ></span>
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 50px;
+              left: 167px;
+              transform: rotate(45deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 94px;
+              left: 167px;
+              transform: rotate(135deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 32px;
+              height: 16px;
+              top: 139px;
+              left: 167px;
+              transform: rotate(45deg);
+            "
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2.png"
+        />
+      </div>
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 180px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="71,76^102,260^152,76^182,260"
+          ap="71,76"
+          group="a"
+          cid="A"
+          style="width: 130px; height: 70px"
+        >
+          <div
+            onClick="switchLetter2($(this))"
+            class="sticker-letter"
+            style="top: 34px; left: 48px"
+            ans="4"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,76^102,260^152,76^182,260"
+          ap="182,260"
+          group="d"
+          cid="B"
+          style="width: 130px; height: 70px"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,76^102,260^152,76^182,260"
+          ap="102,260"
+          group="b"
+          cid="C"
+          style="width: 130px; height: 70px"
+        >
+          <div
+            onClick="switchLetter2($(this))"
+            class="sticker-letter"
+            style="top: 34px; left: 48px"
+            ans="2"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,76^102,260^152,76^182,260"
+          ap="152,76"
+          group="c"
+          cid="D"
+          style="width: 130px; height: 70px"
+        >
+          <div
+            onClick="switchPattern($(this))"
+            class="sticker-color"
+            style="top: 8px; left: 64px; width: 36px; height: 21px"
+            ans="3"
+          ></div>
+          <div
+            onClick="switchLetter2($(this))"
+            class="sticker-letter"
+            style="top: 42px; left: 11px"
+            ans="1"
+          ></div>
+          <div
+            onClick="switchLetter2($(this))"
+            class="sticker-letter"
+            style="top: 42px; left: 50px"
+            ans="3"
+          ></div>
+          <div
+            onClick="switchLetter2($(this))"
+            class="sticker-letter"
+            style="top: 42px; left: 91px"
+            ans="0"
+          ></div>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2D.png" />
+        </div>
+      </div>
+      <div class="condition">
+        <span class="matched">A,C,D,B</span>
+        <span class="matched">A,D,C,B</span>
+        <span class="matched">D,C,A,B</span>
+        <span class="matched">D,A,C,B</span>
+        <span class="matched">C,D,A,B</span>
+        <span class="matched">C,A,D,B</span>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+  <style>
+    .cardAvatar .sticker-color,
+    .cardAvatar .sticker-letter {
+      display: flex;
+    }
+    .sticker-color {
+      position: absolute;
+      width: 34px;
+      height: 19px;
+      z-index: 2;
+      border-radius: 4px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #eb6154;
+      opacity: 1;
+    }
+    .sticker-letter {
+      position: absolute;
+      border-radius: 4px;
+      width: 19px;
+      height: 13px;
+      z-index: 2;
+      font-size: 12px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #eb6154;
+    }
+    [sc],
+    [sl],
+    [sl2],
+    [sp] {
+      border-color: rgba(0, 0, 0, 0);
+    }
+  </style>
+  <script>
+    let stickerColors = ["#A688BD", "#FFF100", "#5CB531", "#59C3E1"];
+    let switchColor = (item) => {
+      event.stopPropagation();
+      var sc = item.attr("sc");
+      if (sc == undefined) {
+        sc = 0;
+      } else {
+        sc = parseInt(sc);
+        sc += 1;
+        if (sc > stickerColors.length - 1) {
+          sc = 0;
+        }
+      }
+      item.attr("sc", sc);
+      item.css("background", stickerColors[sc]);
+      rootSoundEffect($key);
+    };
+    let stickerLetters = ["A", "B", "D", "E"];
+    let switchLetter = (item) => {
+      event.stopPropagation();
+      var sl = item.attr("sl");
+      if (sl == undefined) {
+        sl = 0;
+      } else {
+        sl = parseInt(sl);
+        sl += 1;
+        if (sl > stickerLetters.length - 1) {
+          sl = 0;
+        }
+      }
+      item.attr("sl", sl);
+      item.html(stickerLetters[sl]);
+      rootSoundEffect($key);
+    };
+    let stickerLetters2 = ["紅", "藍", "綠", "白", "黃"];
+    let switchLetter2 = (item) => {
+      event.stopPropagation();
+      var sl2 = item.attr("sl2");
+      if (sl2 == undefined) {
+        sl2 = 0;
+      } else {
+        sl2 = parseInt(sl2);
+        sl2 += 1;
+        if (sl2 > stickerLetters2.length - 1) {
+          sl2 = 0;
+        }
+      }
+      item.attr("sl2", sl2);
+      item.html(stickerLetters2[sl2]);
+      rootSoundEffect($key);
+    };
+    let stickerPatterns = [
+      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgA.jpg" />',
+      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgB.jpg" />',
+      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgC.jpg" />',
+      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgD.jpg" />',
+    ];
+    let switchPattern = (item) => {
+      event.stopPropagation();
+      var sp = item.attr("sp");
+      if (sp == undefined) {
+        sp = 0;
+      } else {
+        sp = parseInt(sp);
+        sp += 1;
+        if (sp > stickerPatterns.length - 1) {
+          sp = 0;
+        }
+      }
+      item.attr("sp", sp);
+      item.html(stickerPatterns[sp]);
+      rootSoundEffect($key);
+    };
+
+    //dynamic function for this html only
+    var withinShowAnswer = function (boolean) {
+      var mid = $(".tabs > span.selected").index();
+      if (mid == 0) {
+        $(".cardAvatar .sticker-color").each(function () {
+          var sc = parseInt($(this).attr("ans"));
+          $(this).attr("sc", sc);
+          $(this).css("background", stickerColors[sc]);
+        });
+        $(".cardAvatar .sticker-letter").each(function () {
+          var sl = parseInt($(this).attr("ans"));
+          $(this).attr("sl", sl);
+          $(this).html(stickerLetters[sl]);
+        });
+      } else if (mid == 1) {
+        $(".cardAvatar .sticker-color").each(function () {
+          var sp = parseInt($(this).attr("ans"));
+          $(this).attr("sp", sp);
+          $(this).html(stickerPatterns[sp]);
+        });
+        $(".cardAvatar .sticker-letter").each(function () {
+          var sl2 = parseInt($(this).attr("ans"));
+          $(this).attr("sl2", sl2);
+          $(this).html(stickerLetters2[sl2]);
+        });
+      }
+    };
+    var withinCheckAnswer = function () {
+      var mid = $(".tabs > span.selected").index();
+      var allpass = true;
+      if (mid == 0) {
+        var items = $(".cardAvatarDie.right").find(".sticker-letter");
+        items.each(function () {
+          if ($(this).attr("sl") != $(this).attr("ans")) {
+            $(this).removeAttr("sl");
+            allpass = false;
+          }
+        });
+        var items = $(".cardAvatarDie.right").find(".sticker-color");
+        items.each(function () {
+          if ($(this).attr("sc") != $(this).attr("ans")) {
+            $(this).removeAttr("sc");
+            allpass = false;
+          }
+        });
+      } else if (mid == 1) {
+        var items = $(".cardAvatarDie.right").find(".sticker-letter");
+        items.each(function () {
+          if ($(this).attr("sl2") != $(this).attr("ans")) {
+            $(this).removeAttr("sl2");
+            allpass = false;
+          }
+        });
+        var items = $(".cardAvatarDie.right").find(".sticker-color");
+        items.each(function () {
+          if ($(this).attr("sp") != $(this).attr("ans")) {
+            $(this).removeAttr("sp");
+            allpass = false;
+          }
+        });
+      }
+      console.log("allpass:", allpass);
+      if (!allpass) {
+        rootSoundEffect($stupid);
+        var alertmsg = "顏色或答案錯誤";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        );
+        throw "wrong answer";
+        //中斷之後的js
+      }
+    };
+  </script>
+</div>

@@ -87,5 +87,11 @@
       <lesson lid="3">乘法表預測術</lesson>
       <lesson lid="4">天有風雲</lesson>
     </book>
+    <book name="Book 3" bid="3" img="PT2_book3.jpg">
+      <lesson lid="1">形形聲聲</lesson>
+      <lesson lid="2">位置推理</lesson>
+      <lesson lid="3">天秤中的智慧</lesson>
+      <lesson lid="4">影子奇探</lesson>
+    </book>
   </series>
 </root>

@@ -808,6 +808,7 @@ $.getComponent = function (
   js_path,
   noloading
 ) {
+  resetDynamicFunctions();
   let delayTime = 50;
   let chamount = $(comp_holder).length;
   if (noloading) {
@@ -1804,9 +1805,7 @@ var getHighestDepthCanvas = function (tar) {
     $("#canvas-board").attr("zindex", nextZIndex);
   }
 };
-var afterDice = function (points) {
-  console.log(points);
-};
+
 let showError = function (msg) {
   alert(msg);
 };
@@ -1821,4 +1820,22 @@ window.onload = function () {
   }
   resizeScreen();
   //onerror="this.style.display='none'"
+};
+
+// Dynamic Functions
+
+var afterDice, withinCheckAnswer, withinShowAnswer, withinResetElem;
+var resetDynamicFunctions = function () {
+  afterDice = function (points) {
+    console.log("init afterDice:", points);
+  };
+  withinCheckAnswer = function () {
+    console.log("init afterCheckAnswer");
+  };
+  withinShowAnswer = function (boolean) {
+    console.log("init afterShowAnswer:", boolean);
+  };
+  withinResetElem = function () {
+    console.log("init afterResetElem");
+  };
 };

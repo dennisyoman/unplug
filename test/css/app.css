@@ -12152,7 +12152,6 @@
   z-index: 3;
 }
 .module_box .contents .arrowArea > span {
-  background: rgba(0, 255, 0, 0.1);
   pointer-events: auto;
   position: relative;
 }

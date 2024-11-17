@@ -332,11 +332,11 @@ var checkStatus = function () {
   $("#cardAvatar")
     .unbind()
     .bind("click", function () {
-      var src1 = $(this).find("img").attr("src");
+      var src1 = $(this).find("img:not(.sticker)").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
         .each(function () {
-          if (src1 == $(this).find("img").attr("src")) {
+          if (src1 == $(this).find("img:not(.sticker)").attr("src")) {
             $(this).removeClass("cached semiTransparent positionBingo");
           }
         });
@@ -445,7 +445,8 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected")
       .find(".arrowArea.fixed > span")
       .addClass("active disabled");
-    //if arrowArea
+
+    withinShowAnswer(boolean);
   } else {
     toys.removeClass("cached semiTransparent positionBingo");
     $(".cardAvatarDie").remove();
@@ -453,7 +454,6 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected")
       .find(".arrowArea.fixed > span")
       .removeClass("active disabled");
-    //if arrowArea
   }
 };
 
@@ -481,9 +481,11 @@ var checkAnswer = function () {
     //看看跟哪一個標準答案最接近
     var defaultAns = 0;
     var maxMiss = 999;
+
     for (var p = 0; p < matchedAnswers.length; p++) {
       var tempArr = matchedAnswers.eq(p).text().split(",");
       var miss = 0;
+
       for (var o = 0; o < tempArr.length; o++) {
         if (tempArr[o].toUpperCase() != tempSeq[o].toUpperCase()) {
           miss++;
@@ -495,10 +497,12 @@ var checkAnswer = function () {
         defaultAns = p;
       }
     }
+
     //正確給right,錯誤拿掉right
     var refSeq = matchedAnswers.eq(defaultAns).text().split(",");
     for (var k = 0; k < sensors.length; k++) {
       if (
+        $(".cardAvatarDie.s" + k).length > 0 &&
         $(".cardAvatarDie.s" + k)
           .find(".cards")
           .eq(0)
@@ -543,6 +547,10 @@ var checkAnswer = function () {
       $(".cardAvatarDie.right").length ==
       $(".contents > div.selected").find(".sensorArea > span").length
     ) {
+      //判斷卡片上的選擇有沒有正確
+      ////dymamic function here
+      withinCheckAnswer();
+
       //是否有箭頭需要點選
       if ($(".contents > div.selected").find(".arrowArea").length > 0) {
         if (
