@@ -7762,6 +7762,21 @@
 .module_decode .contents {
   width: calc(100% - 40px);
 }
+.module_decode .contents:has(.puzzle .items.selected) .code .items > span {
+  border-radius: 100%;
+  animation: bgblinking 1s both infinite;
+}
+@keyframes bgblinking {
+  0% {
+    background: rgba(255, 0, 0, 0);
+  }
+  50% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0);
+  }
+}
 .module_decode .contents .code {
   display: flex;
   flex-direction: column;

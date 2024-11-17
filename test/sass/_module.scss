@@ -7909,6 +7909,23 @@
   }
   .contents {
     width: calc(100% - 40px);
+    &:has(.puzzle .items.selected) {
+      .code .items > span {
+        border-radius: 100%;
+        animation: bgblinking 1s both infinite;
+      }
+    }
+    @keyframes bgblinking {
+      0% {
+        background: rgba(255, 0, 0, 0);
+      }
+      50% {
+        background: rgba(255, 0, 0, 0.1);
+      }
+      100% {
+        background: rgba(255, 0, 0, 0);
+      }
+    }
     .code {
       display: flex;
       flex-direction: column;
@@ -7935,6 +7952,7 @@
           left: 0;
           z-index: 5;
           background: transparent;
+          //visibility used
           //background: rgba(255, 0, 0, 0.2);
           color: transparent;
           * {
@@ -8084,6 +8102,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        //visibility used
         //background: rgba(0, 255, 0, 0.1);
 
         &.selected {
