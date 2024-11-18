@@ -646,7 +646,7 @@
      <section section="1" name="熱身活動" html="PT2/BOOK3/HTML/PT2-3-3-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK3/HTML/PT2-3-3-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="3" name="一起玩遊戲 / 天平的推理" html="PT2/BOOK3/HTML/PT2-3-3-3.html" js="JS/fillin.js" image="IMAGES/UNITS/euler.png" skin="">
+    <section section="3" name="一起玩遊戲 / 天平的推理" html="PT2/BOOK3/HTML/PT2-3-3-3.html" js="JS/decode.js" image="IMAGES/UNITS/euler.png" skin="">
     </section>
     <section section="4" name="一起玩遊戲 / 重量推理" html="PT2/BOOK3/HTML/PT2-3-3-4.html" js="JS/decode.js" image="IMAGES/UNITS/layers.png" skin="">
     </section>

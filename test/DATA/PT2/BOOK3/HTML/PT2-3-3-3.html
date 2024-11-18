@@ -1,0 +1,92 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span>任務一</span>
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK3/HTML/PT2-3-3-3-2.html','JS/fillin.js',2)"
+      >任務二</span
+    >
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK3/HTML/PT2-3-3-3-2.html','JS/fillin.js',3)"
+      >任務三</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>天平的推理</b>：依照提示推理出球的關係，以及球擺放的位置。</p>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="puzzle wow fadeInDown" style="width: 350px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-3-3-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-3-3-1A.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>天平的推理</b>：依照提示，推理出球擺放的位置。</p>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="puzzle wow fadeInDown" style="width: 350px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-3-3-2.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-3-3-2A.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //dynamic function for this html only
+    var withinCheckAnswer = function () {
+      $(".contents > div.selected .btn.next").show();
+    };
+    var withinResetElem = function () {
+      $(".btn.next").hide();
+    };
+  </script>
+</div>

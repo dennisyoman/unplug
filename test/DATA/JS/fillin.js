@@ -112,7 +112,7 @@ var showAnswer = function (boolean) {
       $(this)
         .removeClass("wrong")
         .empty()
-        .attr("fillin", $(this).attr("ans"))
+        .attr("fillin", answerArr[0])
         .append(fillin);
     });
     rootSoundEffect($help);
@@ -124,6 +124,25 @@ var showAnswer = function (boolean) {
 
 var checkAnswer = function () {
   var sensors = $(".contents > div.selected .sensorArea");
+
+  //是否不能重複 .sensor.unique
+  if (sensors.hasClass("unique")) {
+    var fillInArr = [];
+    sensors.find(".sensor").each(function () {
+      fillInArr.push($(this).attr("fillin"));
+    });
+    if (fillInArr.length != $.unique(fillInArr).length) {
+      //有重複的
+      rootSoundEffect($stupid);
+      var alertmsg = "答案不能重複";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      );
+      throw "repeat answer";
+    }
+  }
+
   sensors.find(".sensor").each(function () {
     var answerArr = $(this).attr("ans").split(",");
     var gotit = false;
@@ -136,6 +155,8 @@ var checkAnswer = function () {
       $(this).addClass("wrong");
     }
   });
+
+  //
   if (sensors.find(".sensor.wrong").length > 0) {
     rootSoundEffect($stupid);
   } else {
