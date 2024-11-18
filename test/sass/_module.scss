@@ -12458,7 +12458,8 @@
       > span {
         //for visibility use
         //background: rgba(255, 0, 0, 0.2);
-        pointer-events: auto;
+        //pointer-events: auto;
+        //z-index: 1;
       }
     }
     .arrowArea {

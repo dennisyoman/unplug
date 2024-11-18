@@ -97,8 +97,8 @@ $(document).ready(function () {
 
 /*
 cards attr黏性位置座標sp : 接近位置放置時會主動靠齊的座標(多個, 以^區分)
-cards attr參考答案座標ap : 解答的座標(只有一個)
-cards attr直接解答座標fp : 放對會直接顯示正確的座標(多個, 以^區分)
+cards attr參考答案座標ap : 解答的座標(只有一個才能用ap)
+cards attr直接解答座標fp : 放對位置會發光(多個, 以^區分)
 cards attr所屬的群組group : 多個, 以^區分
 
 .toys.noShuffle 卡片不隨機
@@ -531,7 +531,8 @@ var checkAnswer = function () {
         .each(function () {
           if (
             src1 == $(this).find("img").attr("src") &&
-            !$(this).hasClass("positionBingo")
+            !$(this).hasClass("positionBingo") &&
+            !$(this).hasClass("repeat")
           ) {
             $(this).addClass("positionBingo");
             newBingo = true;
@@ -547,10 +548,6 @@ var checkAnswer = function () {
       $(".cardAvatarDie.right").length ==
       $(".contents > div.selected").find(".sensorArea > span").length
     ) {
-      //判斷卡片上的選擇有沒有正確
-      ////dymamic function here
-      withinCheckAnswer();
-
       //是否有箭頭需要點選
       if ($(".contents > div.selected").find(".arrowArea").length > 0) {
         if (
@@ -558,6 +555,9 @@ var checkAnswer = function () {
           $(".contents > div.selected").find(".arrowArea > span.active").length
         ) {
           //全部箭頭點了
+          //判斷卡片上的選擇有沒有正確
+          ////dymamic function here
+          withinCheckAnswer();
           bingo();
         } else {
           //還有箭頭沒點
@@ -569,6 +569,9 @@ var checkAnswer = function () {
           );
         }
       } else {
+        //判斷卡片上的選擇有沒有正確
+        ////dymamic function here
+        withinCheckAnswer();
         bingo();
       }
     }

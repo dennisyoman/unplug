@@ -1,0 +1,206 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span class="demo">示範一</span>
+    <span>任務一</span>
+    <span style="display: none">任務一2</span>
+    <span class="demo">示範二</span>
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK3/HTML/PT2-3-2-3-2.html','JS/fillin.js',3)"
+      >任務二</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>包裝禮物</b>：空格裡面應該要分別填入什麼字？</p>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="wow flipInX"
+        style="width: 200px; transform-origin: bottom center"
+        data-wow-delay="1s"
+      >
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-1-intro.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInDown" style="width: 550px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-1A.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務一 -->
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>包裝禮物</b
+            >：判斷每個禮物應該放在哪個顏色的盒子裡？<br />1.依照提示，將盒子上色。<br />2.依照提示，將禮物跟正確的盒子連線。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <span
+        class="btn next wow bounceInRight"
+        style="top: 205px; left: 460px"
+        onClick="openContent(2);"
+      />
+      <div class="code wow fadeInDown" style="width: 300px; margin: 15px auto">
+        <div class="items">
+          <span
+            style="width: 34px; top: 24px; left: 26px"
+            iid="A"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="100%"
+              src="./DATA/PT2/BOOK3/IMAGES/box-red.png"
+          /></span>
+          <span
+            style="width: 34px; top: 24px; left: 109px"
+            iid="B"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="100%"
+              src="./DATA/PT2/BOOK3/IMAGES/box-yellow.png"
+          /></span>
+          <span
+            style="width: 34px; top: 24px; left: 144px"
+            iid="C"
+            onClick="trigMe($(this))"
+            ><img
+              height="auto"
+              width="100%"
+              src="./DATA/PT2/BOOK3/IMAGES/box-green.png"
+          /></span>
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-2-1H.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInUp" style="width: 300px">
+        <div
+          class="items"
+          ans="A"
+          style="top: 18px; left: 35px; width: 60px; height: 48px"
+        ></div>
+        <div
+          class="items"
+          ans="C"
+          style="top: 18px; left: 121px; width: 60px; height: 48px"
+        ></div>
+        <div
+          class="items"
+          ans="B"
+          style="top: 18px; left: 207px; width: 60px; height: 48px"
+        ></div>
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-2-1.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務一2 -->
+    <div style="flex-direction: column">
+      <div class="intro" style="display: none">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>包裝禮物</b
+            >：判斷每個禮物應該放在哪個顏色的盒子裡？<br />1.依照提示，將盒子上色。<br />2.依照提示，將禮物跟正確的盒子連線。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="wow fadeInDown" style="width: 300px; margin: 15px auto">
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-2-2H.png"
+        />
+      </div>
+      <div class="puzzle wow fadeInUp" style="width: 300px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-2-2.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-2-2A.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 示範二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>位置推理</b>：順序的英文要怎麼唸？</p>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-3-1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="wow fadeInUp" style="width: 400px" data-wow-delay="1s">
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-3-3-1.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //dynamic function for this html only
+    var withinCheckAnswer = function () {
+      $(".contents > div.selected .btn.next").show();
+    };
+    var withinResetElem = function () {
+      $(".btn.next").hide();
+    };
+  </script>
+</div>

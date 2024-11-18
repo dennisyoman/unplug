@@ -143,6 +143,7 @@ var trigMe = function (tar) {
   }
 };
 
+//井字鍵盤數字使用,只屬於某一個遊戲
 var trigMeHash = function (tar) {
   //
   $(".sideTool > div.btn_answer").removeClass("active");
@@ -220,6 +221,7 @@ var trigMeHash = function (tar) {
   }
 };
 
+//顯示跟隱藏點擊物件,ans=1代表應該要被顯示
 var trigMeCheck = function (tar) {
   tar.removeClass("wrong").toggleClass("selected");
   rootSoundEffect($show);
@@ -387,6 +389,9 @@ var checkAnswer = function () {
         $(".resultIcon").remove();
         $(this).dequeue().remove();
       });
+
+    ////dymamic function here
+    withinCheckAnswer();
   }
 };
 
@@ -712,6 +717,9 @@ var resetElem = function (elem) {
 
   $(".smoke").remove();
   $(".resultIcon").remove();
+
+  ////dymamic function here
+  withinResetElem();
 };
 
 var resetTool = function () {
