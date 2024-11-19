@@ -106,6 +106,8 @@ cards attr所屬的群組group : 多個, 以^區分
 
 .cards.repeat 卡片可以重複使用
 
+.cards.stack 秀答案時，卡片用疊上去的，不計算位置空間
+
 .sensorArea.checkonchange 移動後馬上執行check
 
 .sensorArea.nocheckbtn 不需要check
@@ -409,10 +411,14 @@ var showAnswer = function (boolean) {
           var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
           var caHeight = parseInt(toys.eq(i).css("height")) / stageRatioReal;
 
+          //是否超過容器寬度
           if (oX + caWidth > oriW) {
             oX = 5;
             if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
-            oY += caHeight;
+            //是否是疊加stack的卡片
+            if (!toys.eq(i).hasClass("stack")) {
+              oY += caHeight;
+            }
           }
           //答案預設位置
           var ansTop = oriY + oY;
@@ -424,12 +430,14 @@ var showAnswer = function (boolean) {
           }
           //
           ansArray[ansArray.length - 1].push(
-            `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+            `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
               .eq(i)
               .prop("outerHTML")}</div>`
           );
-          //
-          oX += caWidth;
+          //是否是疊加stack的卡片
+          if (!toys.eq(i).hasClass("stack")) {
+            oX += caWidth;
+          }
         }
       }
     });

@@ -1,0 +1,177 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>影子推理</b
+            >：這裡有幾個淘氣的薑餅人，猜一猜，這些影子是由哪些薑餅人堆起的？
+          </p>
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow bounceIn" style="margin-bottom: 45px">
+        <div
+          class="sensorArea checkonchange"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 23px;
+              left: 16px;
+            "
+            group="a"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 23px;
+              left: 100px;
+            "
+            group="b"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 23px;
+              left: 179px;
+            "
+            group="c"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 130px;
+              left: 17px;
+            "
+            group="d"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 130px;
+              left: 100px;
+            "
+            group="e"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 130px;
+              left: 182px;
+            "
+            group="f"
+          />
+          <span group="湊齊正確答案數量用的" />
+          <span group="湊齊正確答案數量用的" />
+          <span group="湊齊正確答案數量用的" />
+          <span group="湊齊正確答案數量用的" />
+          <span group="湊齊正確答案數量用的" />
+        </div>
+        <img
+          width="auto"
+          height="220"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1.png"
+        />
+      </div>
+
+      <div class="toys wow slideInRight noShuffle" style="bottom: 5px">
+        <div
+          class="toy middle cards repeat stack"
+          group="b^d"
+          tid="A"
+          sp="50,213^51,296^50,376^159,214^159,296^158,379"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1A.png" />
+        </div>
+        <div
+          class="toy middle cards repeat stack"
+          group="a^e"
+          tid="B"
+          sp="50,213^51,296^50,376^159,214^159,296^158,379"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1B.png" />
+        </div>
+        <div
+          class="toy middle cards repeat stack"
+          group="c^d^f"
+          tid="C"
+          sp="50,213^51,296^50,376^159,214^159,296^158,379"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1C.png" />
+        </div>
+        <div
+          class="toy middle cards repeat stack"
+          group="b^e^f"
+          tid="D"
+          sp="50,213^51,296^50,376^159,214^159,296^158,379"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1D.png" />
+        </div>
+        <div
+          class="toy middle cards repeat stack"
+          group="c"
+          tid="E"
+          sp="50,213^51,296^50,376^159,214^159,296^158,379"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-4-4-1E.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+  <style>
+    .cardAvatar img {
+      transition: transform 0.3s;
+    }
+    .cardAvatar.s0 [tid="B"] img {
+      transform: rotate(180deg);
+    }
+    .cardAvatar.s3 [tid="A"] img {
+      transform: rotate(90deg);
+    }
+  </style>
+</div>

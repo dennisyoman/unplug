@@ -7909,10 +7909,11 @@
   }
   .contents {
     width: calc(100% - 40px);
-    &:has(.puzzle .items.selected) {
-      .code .items > span {
+    &:has(> div.selected .puzzle .items.selected) {
+      .code .items:not(.hid) > span {
         border-radius: 100%;
         animation: bgblinking 1s both infinite;
+        animation-delay: 1s;
       }
     }
     @keyframes bgblinking {
@@ -8222,6 +8223,7 @@
             position: absolute;
             z-index: 1;
             pointer-events: auto;
+            //for visibility use
             //background: rgba(255, 0, 0, 0.05);
 
             &.selected {
