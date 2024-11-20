@@ -465,210 +465,209 @@
         <span class="matched">C,A,D,B</span>
       </div>
     </div>
-
-    <div class="assetsPreload"></div>
   </div>
-  <style>
-    .cardAvatar .sticker-color,
-    .cardAvatar .sticker-letter {
-      display: flex;
-    }
-    .sticker-color {
-      position: absolute;
-      width: 34px;
-      height: 19px;
-      z-index: 2;
-      border-radius: 4px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background-image: linear-gradient(90deg, #eb6154 50%, transparent 50%),
-        linear-gradient(90deg, #eb6154 50%, transparent 50%),
-        linear-gradient(0deg, #eb6154 50%, transparent 50%),
-        linear-gradient(0deg, #eb6154 50%, transparent 50%);
-      background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-      background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
-      background-position: left top, right bottom, left bottom, right top;
-      animation: border-dance 0.6s infinite linear;
-      opacity: 1;
-    }
-    .sticker-letter {
-      position: absolute;
-      border-radius: 4px;
-      width: 19px;
-      height: 13px;
-      z-index: 2;
-      font-size: 12px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background-image: linear-gradient(90deg, #eb6154 50%, transparent 50%),
-        linear-gradient(90deg, #eb6154 50%, transparent 50%),
-        linear-gradient(0deg, #eb6154 50%, transparent 50%),
-        linear-gradient(0deg, #eb6154 50%, transparent 50%);
-      background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-      background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
-      background-position: left top, right bottom, left bottom, right top;
-      animation: border-dance 0.6s infinite linear;
-    }
-    [sc],
-    [sl],
-    [sl2],
-    [sp] {
-      background-image: unset;
-      background-repeat: unset;
-      background-size: unset;
-      background-position: unset;
-      animation: unset;
-    }
-  </style>
-  <script>
-    let stickerColors = ["#A688BD", "#FFF100", "#5CB531", "#59C3E1"];
-    let switchColor = (item) => {
-      event.stopPropagation();
-      var sc = item.attr("sc");
-      if (sc == undefined) {
-        sc = 0;
-      } else {
-        sc = parseInt(sc);
-        sc += 1;
-        if (sc > stickerColors.length - 1) {
-          sc = 0;
-        }
-      }
-      item.attr("sc", sc);
-      item.css("background", stickerColors[sc]);
-      rootSoundEffect($key);
-    };
-    let stickerLetters = ["A", "B", "D", "E"];
-    let switchLetter = (item) => {
-      event.stopPropagation();
-      var sl = item.attr("sl");
-      if (sl == undefined) {
-        sl = 0;
-      } else {
-        sl = parseInt(sl);
-        sl += 1;
-        if (sl > stickerLetters.length - 1) {
-          sl = 0;
-        }
-      }
-      item.attr("sl", sl);
-      item.html(stickerLetters[sl]);
-      rootSoundEffect($key);
-    };
-    let stickerLetters2 = ["紅", "藍", "綠", "白", "黃"];
-    let switchLetter2 = (item) => {
-      event.stopPropagation();
-      var sl2 = item.attr("sl2");
-      if (sl2 == undefined) {
-        sl2 = 0;
-      } else {
-        sl2 = parseInt(sl2);
-        sl2 += 1;
-        if (sl2 > stickerLetters2.length - 1) {
-          sl2 = 0;
-        }
-      }
-      item.attr("sl2", sl2);
-      item.html(stickerLetters2[sl2]);
-      rootSoundEffect($key);
-    };
-    let stickerPatterns = [
-      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgA.jpg" />',
-      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgB.jpg" />',
-      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgC.jpg" />',
-      '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgD.jpg" />',
-    ];
-    let switchPattern = (item) => {
-      event.stopPropagation();
-      var sp = item.attr("sp");
-      if (sp == undefined) {
-        sp = 0;
-      } else {
-        sp = parseInt(sp);
-        sp += 1;
-        if (sp > stickerPatterns.length - 1) {
-          sp = 0;
-        }
-      }
-      item.attr("sp", sp);
-      item.html(stickerPatterns[sp]);
-      rootSoundEffect($key);
-    };
-
-    //dynamic function for this html only
-    var withinShowAnswer = function (boolean) {
-      var mid = $(".tabs > span.selected").index();
-      if (mid == 0) {
-        $(".cardAvatar .sticker-color").each(function () {
-          var sc = parseInt($(this).attr("ans"));
-          $(this).attr("sc", sc);
-          $(this).css("background", stickerColors[sc]);
-        });
-        $(".cardAvatar .sticker-letter").each(function () {
-          var sl = parseInt($(this).attr("ans"));
-          $(this).attr("sl", sl);
-          $(this).html(stickerLetters[sl]);
-        });
-      } else if (mid == 1) {
-        $(".cardAvatar .sticker-color").each(function () {
-          var sp = parseInt($(this).attr("ans"));
-          $(this).attr("sp", sp);
-          $(this).html(stickerPatterns[sp]);
-        });
-        $(".cardAvatar .sticker-letter").each(function () {
-          var sl2 = parseInt($(this).attr("ans"));
-          $(this).attr("sl2", sl2);
-          $(this).html(stickerLetters2[sl2]);
-        });
-      }
-    };
-    var withinCheckAnswer = function () {
-      var mid = $(".tabs > span.selected").index();
-      var allpass = true;
-      if (mid == 0) {
-        var items = $(".cardAvatarDie.right").find(".sticker-letter");
-        items.each(function () {
-          if ($(this).attr("sl") != $(this).attr("ans")) {
-            $(this).removeAttr("sl");
-            allpass = false;
-          }
-        });
-        var items = $(".cardAvatarDie.right").find(".sticker-color");
-        items.each(function () {
-          if ($(this).attr("sc") != $(this).attr("ans")) {
-            $(this).removeAttr("sc");
-            allpass = false;
-          }
-        });
-      } else if (mid == 1) {
-        var items = $(".cardAvatarDie.right").find(".sticker-letter");
-        items.each(function () {
-          if ($(this).attr("sl2") != $(this).attr("ans")) {
-            $(this).removeAttr("sl2");
-            allpass = false;
-          }
-        });
-        var items = $(".cardAvatarDie.right").find(".sticker-color");
-        items.each(function () {
-          if ($(this).attr("sp") != $(this).attr("ans")) {
-            $(this).removeAttr("sp");
-            allpass = false;
-          }
-        });
-      }
-      console.log("allpass:", allpass);
-      if (!allpass) {
-        rootSoundEffect($stupid);
-        var alertmsg = "顏色或答案錯誤";
-        $(".alert").remove();
-        $(".contents > div.selected").append(
-          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
-        );
-        throw "wrong answer";
-        //中斷之後的js
-      }
-    };
-  </script>
+  <div class="assetsPreload"></div>
 </div>
+<style>
+  .cardAvatar .sticker-color,
+  .cardAvatar .sticker-letter {
+    display: flex;
+  }
+  .sticker-color {
+    position: absolute;
+    width: 34px;
+    height: 19px;
+    z-index: 2;
+    border-radius: 4px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(90deg, #eb6154 50%, transparent 50%),
+      linear-gradient(90deg, #eb6154 50%, transparent 50%),
+      linear-gradient(0deg, #eb6154 50%, transparent 50%),
+      linear-gradient(0deg, #eb6154 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+    background-position: left top, right bottom, left bottom, right top;
+    animation: border-dance 0.6s infinite linear;
+    opacity: 1;
+  }
+  .sticker-letter {
+    position: absolute;
+    border-radius: 4px;
+    width: 19px;
+    height: 13px;
+    z-index: 2;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(90deg, #eb6154 50%, transparent 50%),
+      linear-gradient(90deg, #eb6154 50%, transparent 50%),
+      linear-gradient(0deg, #eb6154 50%, transparent 50%),
+      linear-gradient(0deg, #eb6154 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+    background-position: left top, right bottom, left bottom, right top;
+    animation: border-dance 0.6s infinite linear;
+  }
+  [sc],
+  [sl],
+  [sl2],
+  [sp] {
+    background-image: unset;
+    background-repeat: unset;
+    background-size: unset;
+    background-position: unset;
+    animation: unset;
+  }
+</style>
+<script>
+  let stickerColors = ["#A688BD", "#FFF100", "#5CB531", "#59C3E1"];
+  let switchColor = (item) => {
+    event.stopPropagation();
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > stickerColors.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.css("background", stickerColors[sc]);
+    rootSoundEffect($key);
+  };
+  let stickerLetters = ["A", "B", "D", "E"];
+  let switchLetter = (item) => {
+    event.stopPropagation();
+    var sl = item.attr("sl");
+    if (sl == undefined) {
+      sl = 0;
+    } else {
+      sl = parseInt(sl);
+      sl += 1;
+      if (sl > stickerLetters.length - 1) {
+        sl = 0;
+      }
+    }
+    item.attr("sl", sl);
+    item.html(stickerLetters[sl]);
+    rootSoundEffect($key);
+  };
+  let stickerLetters2 = ["紅", "藍", "綠", "白", "黃"];
+  let switchLetter2 = (item) => {
+    event.stopPropagation();
+    var sl2 = item.attr("sl2");
+    if (sl2 == undefined) {
+      sl2 = 0;
+    } else {
+      sl2 = parseInt(sl2);
+      sl2 += 1;
+      if (sl2 > stickerLetters2.length - 1) {
+        sl2 = 0;
+      }
+    }
+    item.attr("sl2", sl2);
+    item.html(stickerLetters2[sl2]);
+    rootSoundEffect($key);
+  };
+  let stickerPatterns = [
+    '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgA.jpg" />',
+    '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgB.jpg" />',
+    '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgC.jpg" />',
+    '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgD.jpg" />',
+  ];
+  let switchPattern = (item) => {
+    event.stopPropagation();
+    var sp = item.attr("sp");
+    if (sp == undefined) {
+      sp = 0;
+    } else {
+      sp = parseInt(sp);
+      sp += 1;
+      if (sp > stickerPatterns.length - 1) {
+        sp = 0;
+      }
+    }
+    item.attr("sp", sp);
+    item.html(stickerPatterns[sp]);
+    rootSoundEffect($key);
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    var mid = $(".tabs > span.selected").index();
+    if (mid == 0) {
+      $(".cardAvatar .sticker-color").each(function () {
+        var sc = parseInt($(this).attr("ans"));
+        $(this).attr("sc", sc);
+        $(this).css("background", stickerColors[sc]);
+      });
+      $(".cardAvatar .sticker-letter").each(function () {
+        var sl = parseInt($(this).attr("ans"));
+        $(this).attr("sl", sl);
+        $(this).html(stickerLetters[sl]);
+      });
+    } else if (mid == 1) {
+      $(".cardAvatar .sticker-color").each(function () {
+        var sp = parseInt($(this).attr("ans"));
+        $(this).attr("sp", sp);
+        $(this).html(stickerPatterns[sp]);
+      });
+      $(".cardAvatar .sticker-letter").each(function () {
+        var sl2 = parseInt($(this).attr("ans"));
+        $(this).attr("sl2", sl2);
+        $(this).html(stickerLetters2[sl2]);
+      });
+    }
+  };
+  var withinCheckAnswer = function () {
+    var mid = $(".tabs > span.selected").index();
+    var allpass = true;
+    if (mid == 0) {
+      var items = $(".cardAvatarDie.right").find(".sticker-letter");
+      items.each(function () {
+        if ($(this).attr("sl") != $(this).attr("ans")) {
+          $(this).removeAttr("sl");
+          allpass = false;
+        }
+      });
+      var items = $(".cardAvatarDie.right").find(".sticker-color");
+      items.each(function () {
+        if ($(this).attr("sc") != $(this).attr("ans")) {
+          $(this).removeAttr("sc");
+          allpass = false;
+        }
+      });
+    } else if (mid == 1) {
+      var items = $(".cardAvatarDie.right").find(".sticker-letter");
+      items.each(function () {
+        if ($(this).attr("sl2") != $(this).attr("ans")) {
+          $(this).removeAttr("sl2");
+          allpass = false;
+        }
+      });
+      var items = $(".cardAvatarDie.right").find(".sticker-color");
+      items.each(function () {
+        if ($(this).attr("sp") != $(this).attr("ans")) {
+          $(this).removeAttr("sp");
+          allpass = false;
+        }
+      });
+    }
+    console.log("allpass:", allpass);
+    if (!allpass) {
+      rootSoundEffect($stupid);
+      var alertmsg = "顏色或答案錯誤";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      );
+      throw "wrong answer";
+      //中斷之後的js
+    }
+  };
+</script>

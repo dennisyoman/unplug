@@ -1,6 +1,7 @@
 <div id="module_wrapper" class="module_box">
   <div class="tabs">
     <span>任務一</span>
+    <span>任務二</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
@@ -302,58 +303,60 @@
       </div>
     </div>
 
-    <div class="assetsPreload"></div>
+    <!-- 任務一 -->
+    <div></div>
   </div>
-  <style>
-    #textboard .sensorArea > span::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 11px;
-      height: 100%;
-      background: rgba(255, 255, 255, 1);
-    }
-    #main:has(.s0) #textboard .sensorArea > span:nth-child(1)::after,
-    #main:has(.s1) #textboard .sensorArea > span:nth-child(2)::after,
-    #main:has(.s2) #textboard .sensorArea > span:nth-child(3)::after,
-    #main:has(.s3) #textboard .sensorArea > span:nth-child(4)::after,
-    #main:has(.s4) #textboard .sensorArea > span:nth-child(5)::after,
-    #main:has(.s5) #textboard .sensorArea > span:nth-child(6)::after,
-    #main:has(.s6) #textboard .sensorArea > span:nth-child(7)::after,
-    #main:has(.s7) #textboard .sensorArea > span:nth-child(8)::after,
-    #main:has(.s8) #textboard .sensorArea > span:nth-child(9)::after,
-    #main:has(.s9) #textboard .sensorArea > span:nth-child(10)::after,
-    #main:has(.s10) #textboard .sensorArea > span:nth-child(11)::after,
-    #main:has(.s11) #textboard .sensorArea > span:nth-child(12)::after,
-    #main:has(.s12) #textboard .sensorArea > span:nth-child(13)::after,
-    #main:has(.s13) #textboard .sensorArea > span:nth-child(14)::after,
-    #main:has(.s14) #textboard .sensorArea > span:nth-child(15)::after,
-    #main:has(.s15) #textboard .sensorArea > span:nth-child(16)::after,
-    #main:has(.s16) #textboard .sensorArea > span:nth-child(17)::after,
-    #main:has(.s17) #textboard .sensorArea > span:nth-child(18)::after,
-    #main:has(.s18) #textboard .sensorArea > span:nth-child(19)::after,
-    #main:has(.s19) #textboard .sensorArea > span:nth-child(20)::after {
-      background: rgba(255, 255, 255, 0);
-    }
-
-    #main .cardAvatarDie {
-      opacity: 0;
-      pointer-events: none !important;
-    }
-  </style>
-  <script>
-    //dynamic function for this html only
-    var withinCheckAnswer = function () {
-      console.log("fff");
-      var sid =
-        "s" + $(".contents > div.selected .sensorArea > .selected").index();
-      console.log(sid);
-      if ($("#main .cardAvatarDie." + sid).length > 1) {
-        $("#main .cardAvatarDie." + sid)
-          .eq(0)
-          .remove();
-      }
-    };
-  </script>
+  <div class="assetsPreload"></div>
 </div>
+<style>
+  #textboard .sensorArea > span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 11px;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+  }
+  #main:has(.s0) #textboard .sensorArea > span:nth-child(1)::after,
+  #main:has(.s1) #textboard .sensorArea > span:nth-child(2)::after,
+  #main:has(.s2) #textboard .sensorArea > span:nth-child(3)::after,
+  #main:has(.s3) #textboard .sensorArea > span:nth-child(4)::after,
+  #main:has(.s4) #textboard .sensorArea > span:nth-child(5)::after,
+  #main:has(.s5) #textboard .sensorArea > span:nth-child(6)::after,
+  #main:has(.s6) #textboard .sensorArea > span:nth-child(7)::after,
+  #main:has(.s7) #textboard .sensorArea > span:nth-child(8)::after,
+  #main:has(.s8) #textboard .sensorArea > span:nth-child(9)::after,
+  #main:has(.s9) #textboard .sensorArea > span:nth-child(10)::after,
+  #main:has(.s10) #textboard .sensorArea > span:nth-child(11)::after,
+  #main:has(.s11) #textboard .sensorArea > span:nth-child(12)::after,
+  #main:has(.s12) #textboard .sensorArea > span:nth-child(13)::after,
+  #main:has(.s13) #textboard .sensorArea > span:nth-child(14)::after,
+  #main:has(.s14) #textboard .sensorArea > span:nth-child(15)::after,
+  #main:has(.s15) #textboard .sensorArea > span:nth-child(16)::after,
+  #main:has(.s16) #textboard .sensorArea > span:nth-child(17)::after,
+  #main:has(.s17) #textboard .sensorArea > span:nth-child(18)::after,
+  #main:has(.s18) #textboard .sensorArea > span:nth-child(19)::after,
+  #main:has(.s19) #textboard .sensorArea > span:nth-child(20)::after {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  #main .cardAvatarDie {
+    opacity: 0;
+    pointer-events: none !important;
+  }
+</style>
+<script>
+  //dynamic function for this html only
+  var withinCheckAnswer = function () {
+    console.log("fff");
+    var sid =
+      "s" + $(".contents > div.selected .sensorArea > .selected").index();
+    console.log(sid);
+    if ($("#main .cardAvatarDie." + sid).length > 1) {
+      $("#main .cardAvatarDie." + sid)
+        .eq(0)
+        .remove();
+    }
+  };
+</script>
