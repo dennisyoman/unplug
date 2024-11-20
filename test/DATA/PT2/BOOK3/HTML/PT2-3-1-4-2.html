@@ -1,0 +1,244 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK3/HTML/PT2-3-1-4.html','JS/dragndropnarrow.js',0)"
+      >任務一</span
+    >
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div></div>
+
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>泡茶造詞</b
+            >：請根據瓶子上的提示，選出適合的茶包與熱水組合成字。<br />
+            1.將適合的茶包泡進茶壺組合成字。<br />
+            2.移動茶壺把水倒入對應的容器中。
+          </p>
+          <img width="150" src="./DATA/PT2/BOOK3/IMAGES/tea-pot.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow fadeIn" style="margin-top: 160px">
+        <div
+          class="sensorArea checkonchange"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 92px;
+              height: 64px;
+              top: -50px;
+              left: 155px;
+            "
+            group="0"
+            ans=""
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 28px;
+              height: 24px;
+              top: 93px;
+              left: 81px;
+            "
+            group="1"
+            ans="抱"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 28px;
+              height: 24px;
+              top: 96px;
+              left: 153px;
+            "
+            group="2"
+            ans="跑"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 28px;
+              height: 24px;
+              top: 93px;
+              left: 221px;
+            "
+            group="3"
+            ans="苞"
+          />
+          <span
+            oX="0"
+            oY="0"
+            style="
+              position: absolute;
+              width: 28px;
+              height: 24px;
+              top: 116px;
+              left: 291px;
+            "
+            group="4"
+            ans="飽"
+          />
+        </div>
+        <img
+          width="400"
+          height="auto"
+          src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2.png"
+        />
+      </div>
+
+      <div
+        class="toys wow bounceInDown"
+        style="bottom: auto; top: 30px; min-height: unset"
+      >
+        <div
+          class="toy cards teapot"
+          style="width: 100px; height: 55px"
+          group="1^2^3^4"
+          sp="229,166^232,237^230,305^252,375"
+        >
+          <img src="./DATA/PT2/BOOK3/IMAGES/tea-pot.png" />
+          <p>包</p>
+        </div>
+        <div class="toy middle cards repeat" group="0" text="苞">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2A.png" />
+        </div>
+        <div class="toy middle cards repeat" group="0" text="飽">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2B.png" />
+        </div>
+        <div class="toy middle cards repeat" group="0" text="刨">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2C.png" />
+        </div>
+        <div class="toy middle cards repeat" group="0" text="雹">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2D.png" />
+        </div>
+        <div class="toy middle cards repeat" group="0" text="跑">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2E.png" />
+        </div>
+        <div class="toy middle cards repeat" group="0" text="抱">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2F.png" />
+        </div>
+        <div class="toy middle cards repeat" group="0" text="包">
+          <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-2G.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+<style>
+  .toys .teapot {
+    position: absolute !important;
+    top: 82px;
+    left: 270px;
+  }
+
+  .teapot p {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 42px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .teapot.cached p {
+    display: none;
+  }
+  #main .cardAvatarDie {
+    pointer-events: none !important;
+  }
+  #main .cardAvatarDie img {
+    opacity: 0;
+  }
+</style>
+<script>
+  //dynamic function for this html only
+  var withinCheckAnswer = function () {
+    var sid = $(".contents > div.selected .sensorArea > .selected").index();
+
+    if (sid != 0) {
+      //移動的是茶壺
+      ////茶壺移到瓶子處
+      var ans = $(".contents > div.selected .sensorArea > .selected").attr(
+        "ans"
+      );
+      var teapotText = $(".toys .teapot p").text();
+
+      ////茶壺倒水，需要判斷是否正確
+      if (ans == teapotText) {
+        ////答對,留下ㄧ個分身,把多的分身刪掉
+        if ($("#main .cardAvatarDie.right.s" + sid).length > 1) {
+          $("#main .cardAvatarDie.right.s" + sid)
+            .eq(0)
+            .remove();
+        }
+        ////全對
+        if (
+          $(".cardAvatarDie.right").length ==
+          $(".contents > div.selected").find(".sensorArea > span").length - 1
+        ) {
+          bingo();
+        }
+      } else {
+        ////答錯,分身刪掉
+        rootSoundEffect($stupid);
+        if ($("#main .cardAvatarDie.s" + sid).length > 0) {
+          $("#main .cardAvatarDie.s" + sid).remove();
+        }
+      }
+      ////茶壺恢復原狀
+      $(".toys .teapot").removeClass("cached positionBingo semiTransparent");
+      $(".toys .teapot p").text("包");
+    } else {
+      console.log("移動的是茶包");
+      //移動的是茶包
+      ////茶包丟到茶壺
+      if ($("#main .cardAvatarDie.s0").length > 0) {
+        var textCombo = $("#main .cardAvatarDie.s0")
+          .eq(0)
+          .find(".toy")
+          .attr("text");
+        $(".toys .teapot p").text(textCombo);
+      }
+      ////本階段不管怎麼樣都要把分身刪掉
+      if ($("#main .cardAvatarDie:not(.right)").length > 0) {
+        $("#main .cardAvatarDie:not(.right)").remove();
+      }
+      if ($("#main .cardAvatarDie.s0").length > 0) {
+        $("#main .cardAvatarDie.s0").remove();
+      }
+      ////茶壺恢復原狀
+      $(".toys .teapot").removeClass("cached positionBingo semiTransparent");
+      rootSoundEffect($fill);
+    }
+  };
+</script>

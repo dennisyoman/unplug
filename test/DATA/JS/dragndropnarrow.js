@@ -466,7 +466,6 @@ var showAnswer = function (boolean) {
 };
 
 var checkAnswer = function () {
-  console.log("check");
   //是否有答案條件
   var matchedAnswers = $(".contents > div.selected").find(
     ".condition .matched"

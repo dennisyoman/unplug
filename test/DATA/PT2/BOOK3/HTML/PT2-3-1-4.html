@@ -1,7 +1,10 @@
 <div id="module_wrapper" class="module_box">
   <div class="tabs">
     <span>任務一</span>
-    <span>任務二</span>
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK3/HTML/PT2-3-1-4-2.html','JS/dragndropnarrow.js',1)"
+      >任務二</span
+    >
   </div>
 
   <div class="units-title wow bounceInRight"></div>
@@ -20,7 +23,7 @@
           <h3>How to play?</h3>
           <p>
             <b>字音識讀</b
-            >：你認識的字有哪些4，含有哪一個指定注音？並猜猜其他的字怎麼唸，為什麼？
+            >：你認識的字有哪些，含有哪一個指定注音？並猜猜其他的字怎麼唸，為什麼？
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
@@ -281,7 +284,7 @@
         />
       </div>
 
-      <div class="toys toys_rectangle wow slideInRight" style="bottom: 5px">
+      <div class="toys toys_rectangle wow bounceInUp" style="bottom: 5px">
         <div class="toy middle cards repeat" group="1^6^17">
           <img src="./DATA/PT2/BOOK3/IMAGES/PT2-3-1-4-1A.png" />
         </div>
@@ -349,10 +352,9 @@
 <script>
   //dynamic function for this html only
   var withinCheckAnswer = function () {
-    console.log("fff");
     var sid =
       "s" + $(".contents > div.selected .sensorArea > .selected").index();
-    console.log(sid);
+
     if ($("#main .cardAvatarDie." + sid).length > 1) {
       $("#main .cardAvatarDie." + sid)
         .eq(0)
