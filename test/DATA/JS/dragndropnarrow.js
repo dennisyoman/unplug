@@ -635,6 +635,8 @@ var resetElem = function (elem) {
     .delay(100)
     .queue(function () {
       $(this).show().dequeue();
+      ////dymamic function here
+      withinResetElem();
     });
   $(".contain").remove();
 
