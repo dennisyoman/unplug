@@ -66,28 +66,28 @@ $(document).ready(function () {
       deactiveLoading();
     });
   //add audio
-  //var audioBaseUrl = "https://et.ludodo.com.tw/UnplugFile/";
-  //var contentElem = $(".contents > div");
-  // contentElem.each(function () {
-  //   var itemElem = $(this).find(".grid2 > div");
-
-  //   for (var k = 0; k < itemElem.length; k++) {
-  //     var seq = k + 1;
-  //     var audioPath =
-  //       audioBaseUrl +
-  //       "B" +
-  //       parseInt(bid) +
-  //       "L" +
-  //       lid +
-  //       "_voice_story_" +
-  //       seq +
-  //       ".mp3";
-  //     itemElem.eq(k).append(
-  //       `<span class="storybtn wow bounceIn" onClick="playStory('${audioPath}',true,${k})"><audio preload="auto" src="${audioPath}" /></span>
-  //         <span class="pausebtn" onClick="playStory('${audioPath}',false,${k})"/>`
-  //     );
-  //   }
-  // });
+  var audioBaseUrl = "https://et.ludodo.com.tw/UnplugFile/";
+  var contentElem = $(".contents > div");
+  contentElem.each(function () {
+    var itemElem = $(this).find(".grid2 > div");
+    for (var k = 0; k < itemElem.length; k++) {
+      var seq = k + 1;
+      var audioPath =
+        audioBaseUrl +
+        "U3" +
+        "B" +
+        parseInt(bid) +
+        "L" +
+        lid +
+        "_voice_story_" +
+        seq +
+        ".mp3";
+      itemElem.eq(k).append(
+        `<span class="storybtn wow bounceIn" onClick="playStory('${audioPath}',true,${k})"><audio preload="auto" src="${audioPath}" /></span>
+           <span class="pausebtn" onClick="playStory('${audioPath}',false,${k})"/>`
+      );
+    }
+  });
 
   //assetsPreload img
   $("#module_wrapper")
