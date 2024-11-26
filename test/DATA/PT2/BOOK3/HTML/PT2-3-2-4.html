@@ -523,8 +523,8 @@
   }
 </style>
 <script>
-  let stickerColors = ["#A688BD", "#FFF100", "#5CB531", "#59C3E1"];
-  let switchColor = (item) => {
+  var stickerColors = ["#A688BD", "#FFF100", "#5CB531", "#59C3E1"];
+  var switchColor = (item) => {
     event.stopPropagation();
     var sc = item.attr("sc");
     if (sc == undefined) {
@@ -540,8 +540,8 @@
     item.css("background", stickerColors[sc]);
     rootSoundEffect($key);
   };
-  let stickerLetters = ["A", "B", "D", "E"];
-  let switchLetter = (item) => {
+  var stickerLetters = ["A", "B", "D", "E"];
+  var switchLetter = (item) => {
     event.stopPropagation();
     var sl = item.attr("sl");
     if (sl == undefined) {
@@ -557,8 +557,8 @@
     item.html(stickerLetters[sl]);
     rootSoundEffect($key);
   };
-  let stickerLetters2 = ["紅", "藍", "綠", "白", "黃"];
-  let switchLetter2 = (item) => {
+  var stickerLetters2 = ["紅", "藍", "綠", "白", "黃"];
+  var switchLetter2 = (item) => {
     event.stopPropagation();
     var sl2 = item.attr("sl2");
     if (sl2 == undefined) {
@@ -574,13 +574,13 @@
     item.html(stickerLetters2[sl2]);
     rootSoundEffect($key);
   };
-  let stickerPatterns = [
+  var stickerPatterns = [
     '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgA.jpg" />',
     '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgB.jpg" />',
     '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgC.jpg" />',
     '<img class="sticker" src="./DATA/PT2/BOOK3/IMAGES/PT2-3-2-4-2-imgD.jpg" />',
   ];
-  let switchPattern = (item) => {
+  var switchPattern = (item) => {
     event.stopPropagation();
     var sp = item.attr("sp");
     if (sp == undefined) {

@@ -274,9 +274,11 @@ var checkCollision = function (ev) {
 
 var checkMopStatus = function () {
   var mopgroup = $($elem).parent();
+  var firstFrame = $(".contents > div.selected").find(".frames > div").eq(0);
   if (
     mopgroup.find(">span").length == mopgroup.find(">span.onmop").length &&
-    mopgroup.find(">span[force='1']").attr("ans") == 1
+    mopgroup.find(">span[preset='" + firstFrame.text() + "']").attr("force") ==
+      1
   ) {
     //
     drawArrow();
