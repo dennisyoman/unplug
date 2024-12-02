@@ -34,6 +34,36 @@
       </div>
       <div class="puzzle wow fadeInUp" style="width: 300px">
         <div class="subject">
+          <div class="anscover">
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 14px; left: 55px; width: 10px; height: 23px"
+            ></span>
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 46px; left: 55px; width: 10px; height: 23px"
+            ></span>
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 80px; left: 55px; width: 10px; height: 23px"
+            ></span>
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 113px; left: 55px; width: 10px; height: 23px"
+            ></span>
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 147px; left: 55px; width: 10px; height: 23px"
+            ></span>
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 182px; left: 55px; width: 10px; height: 23px"
+            ></span>
+            <span
+              onclick="toggleCover($(this))"
+              style="top: 215px; left: 55px; width: 11px; height: 23px"
+            ></span>
+          </div>
           <img
             height="auto"
             width="100%"
@@ -52,3 +82,27 @@
   </div>
   <div class="assetsPreload"></div>
 </div>
+<style>
+  .anscover {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  .anscover > span {
+    position: absolute;
+    background: #fff;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .anscover > span.done {
+    opacity: 0;
+    pointer-events: auto;
+  }
+</style>
+<script>
+  var toggleCover = function (tar) {
+    tar.toggleClass("done");
+    rootSoundEffect($key);
+  };
+</script>

@@ -152,60 +152,61 @@
           />
         </div>
       </div>
-      <div class="code withBG wow fadeIn" style="width: 400px">
+      <div class="code wow fadeIn" style="width: 400px">
+        <div class="redarrows"></div>
         <div class="items">
           <span
             style="top: -161px; left: 49px"
             iid="n1"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >1</span
           >
           <span
             style="top: -161px; left: 109px"
             iid="n2"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >2</span
           >
           <span
             style="top: -161px; left: 168px"
             iid="n3"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >3</span
           >
           <span
             style="top: -106px; left: 49px"
             iid="n4"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >4</span
           >
           <span
             style="top: -106px; left: 109px"
             iid="n5"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >5</span
           >
           <span
             style="top: -106px; left: 168px"
             iid="n6"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >6</span
           >
           <span
             style="top: -51px; left: 49px"
             iid="n7"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >7</span
           >
           <span
             style="top: -51px; left: 109px"
             iid="n8"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >8</span
           >
           <span
             style="top: -51px; left: 168px"
             iid="n9"
-            onClick="trigMe($(this))"
+            onClick="trigMe($(this));createArrow($(this));"
             >9</span
           >
         </div>
@@ -220,3 +221,78 @@
 
   <div class="assetsPreload"></div>
 </div>
+<style>
+  .redarrows {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    pointer-events: auto;
+  }
+  .redarrows > span {
+    width: 2px;
+    height: 10px;
+    background: #ff0000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center top;
+  }
+  .redarrows > span::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 0;
+    left: -2px;
+    border-radius: 100%;
+    background: #ff0000;
+  }
+  .redarrows > span::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 14px 6px 0 6px;
+    border-color: #ff0000 transparent transparent transparent;
+  }
+</style>
+<script>
+  var createArrow = function (tar) {
+    var answerArr = $(".contents > div.selected")
+      .find(".puzzle .items.selected")
+      .attr("ans")
+      .split(",");
+    var redarrows = $(".contents > div.selected .code .redarrows");
+    var items = $(".contents > div.selected .code .items");
+    if (answerArr.length - 1 > redarrows.find(">span").length) {
+      if (items.find("span[start]").length > 0) {
+        var ox = parseInt(items.find("span[start]").css("left"));
+        var nx = parseInt(tar.css("left"));
+        var oy = parseInt(items.find("span[start]").css("top"));
+        var ny = parseInt(tar.css("top"));
+        var nh = Math.sqrt((ox - nx) * (ox - nx) + (oy - ny) * (oy - ny));
+        var nangle = (Math.atan2(ny - oy, nx - ox) * 180) / Math.PI - 90;
+        $(".contents > div.selected .code .redarrows").append(
+          `<span style="height:${nh}px;transform:translate(9px, 9px) rotate(${nangle}deg);${items
+            .find("span[start]")
+            .attr("style")}"></span>`
+        );
+      }
+      items.find("span[start]").removeAttr("start");
+      tar.attr("start", "");
+    }
+  };
+  var withinResetElem = function () {
+    $(".contents > div.selected .code .items > span").removeAttr("start");
+    $(".contents > div.selected .code .redarrows").empty();
+  };
+  var withinShowAnswer = function (boolean) {
+    $(".contents > div.selected .code .redarrows").empty();
+  };
+</script>

@@ -512,6 +512,8 @@ var showAnswer = function (boolean) {
       });
     }
   }
+  ////dymamic function here
+  withinShowAnswer(boolean);
 };
 
 var addIndicator = function (tar, indicator) {
