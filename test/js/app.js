@@ -808,7 +808,12 @@ $.getComponent = function (
   js_path,
   noloading
 ) {
-  resetDynamicFunctions();
+  if (!noloading) {
+    resetDynamicFunctions();
+    console.log("reset");
+  } else {
+    console.log("noreset");
+  }
   let delayTime = 50;
   let chamount = $(comp_holder).length;
   if (noloading) {
@@ -1826,6 +1831,7 @@ window.onload = function () {
 
 var afterDice, withinCheckAnswer, withinShowAnswer, withinResetElem;
 var resetDynamicFunctions = function () {
+  console.log("ddd");
   afterDice = function (points) {
     console.log("init afterDice:", points);
   };
