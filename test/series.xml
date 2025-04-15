@@ -93,5 +93,11 @@
       <lesson lid="3">天秤中的智慧</lesson>
       <lesson lid="4">影子奇探</lesson>
     </book>
+    <book name="Book 4" bid="4" img="PT2_book4.jpg">
+      <lesson lid="1">關鍵報告</lesson>
+      <lesson lid="2">單字偵探</lesson>
+      <lesson lid="3">超越計算機</lesson>
+      <lesson lid="4">浩瀚的畫布</lesson>
+    </book>
   </series>
 </root>
