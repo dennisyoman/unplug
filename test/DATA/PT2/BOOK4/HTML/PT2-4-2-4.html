@@ -18,8 +18,8 @@
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>看圖說故事</b
-            >：看故事圖片，把單字按照順序排出來。<br />1.將貼紙依序貼在格子中。<br />2.點擊虛線箭頭，變成實線箭頭。
+            <b>英文單字的變化規則</b
+            >：把有相同地方的單字分為一類，並找出這個相同的地方代表的意思和單字的中文。點擊卡片可以翻面。<br />1.點選相同的地方做切換。<br />2.找到對應的卡片放到分類區。
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
@@ -35,185 +35,150 @@
             oy="0"
             style="
               position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 32px;
-              left: 84px;
+              width: 97px;
+              height: 190px;
+              top: 0px;
+              left: 0px;
             "
-            group="a"
-          ></span>
-          <span
-            ox="0"
-            oy="0"
-            style="
-              position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 32px;
-              left: 227px;
-            "
-            group="b"
-          ></span>
-          <span
-            ox="0"
-            oy="0"
-            style="
-              position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 135px;
-              left: 227px;
-            "
-            group="c"
-          ></span>
-          <span
-            ox="0"
-            oy="0"
-            style="
-              position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 135px;
-              left: 84px;
-            "
-            group="d"
+            group=""
           ></span>
         </div>
         <div
-          class="arrowArea fixed"
-          style="position: absolute; z-index: 3; height: 100%"
+          class="typeArea"
+          onClick="swapGroup($(this))"
+          style="top: 219px; left: 11px"
+          gid="0"
+          text1="sub^bi^pre"
+          text2="下面的^兩個的^預先"
         >
           <span
-            onclick="$(this).toggleClass('active')"
-            style="
-              position: absolute;
-              width: 36px;
-              height: 14px;
-              top: 53px;
-              left: 187px;
-            "
+            class="text1"
+            style="top: 0px; left: 0px; width: 75px; height: 12px"
           ></span>
           <span
-            onclick="$(this).toggleClass('active')"
-            style="
-              position: absolute;
-              width: 36px;
-              height: 13px;
-              top: 103px;
-              left: 259px;
-              transform: rotate(90deg);
-            "
-          ></span>
-          <span
-            onclick="$(this).toggleClass('active')"
-            style="
-              position: absolute;
-              width: 36px;
-              height: 14px;
-              top: 156px;
-              left: 189px;
-              transform: rotate(180deg);
-            "
+            class="text2"
+            style="top: 44px; left: 0px; width: 75px; height: 12px"
           ></span>
         </div>
         <img
           width="auto"
-          height="225"
-          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1.png"
+          height="280"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2.png"
         />
+      </div>
+
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 200px; left: auto; right: 65px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          group="bi"
+          cid="A"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1A.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1A2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="pre"
+          cid="B"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1B.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1A2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="bi"
+          cid="C"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1C.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1C2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="pre"
+          cid="D"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1D.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1D2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="sub"
+          cid="E"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1E.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1E2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="sub"
+          cid="F"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1F.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1F2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="sub"
+          cid="G"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1G.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1G2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="bi"
+          cid="H"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1H.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1H2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="pre"
+          cid="I"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1I.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1I2.png"
+          />
+        </div>
       </div>
 
       <div class="ref simplyDrag wow bounceInUp">
         <img
           width="auto"
-          height="200"
-          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1R.png"
+          height="80"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1R.png"
+          src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-1RA.png"
         />
-      </div>
-      <div
-        class="toys toys_rectangle noShuffle wow slideInRight"
-        style="width: 210px; left: auto; right: 5px; bottom: auto"
-      >
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap=""
-          group="e"
-          cid="A"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1A.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap="78,113"
-          group="a"
-          cid="A2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1A2.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap=""
-          group="e"
-          cid="B"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1B.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap="181,113"
-          group="d"
-          cid="B2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1B2.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap=""
-          group="e"
-          cid="C"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1C.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap="181,256"
-          group="c"
-          cid="C2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1C2.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap=""
-          group="e"
-          cid="D"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1D.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="78,113^78,256^181,256^181,113"
-          ap="78,256"
-          group="b"
-          cid="D2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1D2.png" />
-        </div>
       </div>
     </div>
 
@@ -221,7 +186,10 @@
       <div class="intro">
         <div>
           <h3>How to play?</h3>
-          <p><b>看圖說故事</b>：看故事圖片，把單字貼紙貼在對應的空格裡。</p>
+          <p>
+            <b>英文單字的變化規則</b
+            >：把有相同地方的單字分為一類，並找出這個相同的地方代表的意思和單字的中文。點擊卡片可以翻面。<br />1.點選相同的地方做切換。<br />2.找到對應的卡片放到分類區。
+          </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
@@ -236,131 +204,221 @@
             oy="0"
             style="
               position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 39px;
-              left: 92px;
+              width: 97px;
+              height: 190px;
+              top: 0px;
+              left: 0px;
             "
-            group="a"
-          ></span>
-          <span
-            ox="0"
-            oy="0"
-            style="
-              position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 39px;
-              left: 294px;
-            "
-            group="b"
-          ></span>
-          <span
-            ox="0"
-            oy="0"
-            style="
-              position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 130px;
-              left: 294px;
-            "
-            group="c"
-          ></span>
-          <span
-            ox="0"
-            oy="0"
-            style="
-              position: absolute;
-              width: 100px;
-              height: 55px;
-              top: 130px;
-              left: 92px;
-            "
-            group="d"
+            group=""
           ></span>
         </div>
-
+        <div
+          class="typeArea"
+          onClick="swapGroup($(this))"
+          style="top: 219px; left: 11px"
+          gid="0"
+          text1="post^multi^auto"
+          text2="之後的^多^自動"
+        >
+          <span
+            class="text1"
+            style="top: 0px; left: 0px; width: 75px; height: 12px"
+          ></span>
+          <span
+            class="text2"
+            style="top: 44px; left: 0px; width: 75px; height: 12px"
+          ></span>
+        </div>
         <img
           width="auto"
-          height="225"
-          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2.png"
+          height="280"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2.png"
         />
+      </div>
+
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 200px; left: auto; right: 65px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          group="post"
+          cid="A"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2A.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2A2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="multi"
+          cid="B"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2B.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2A2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="post"
+          cid="C"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2C.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2C2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="multi"
+          cid="D"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2D.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2D2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="post"
+          cid="E"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2E.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2E2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="auto"
+          cid="F"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2F.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2F2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="auto"
+          cid="G"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2G.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2G2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="multi"
+          cid="H"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2H.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2H2.png"
+          />
+        </div>
+        <div
+          class="toy cards"
+          group="auto"
+          cid="I"
+          style="width: 90px; height: 50px"
+        >
+          <img
+            src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2I.png"
+            src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2I2.png"
+          />
+        </div>
       </div>
 
       <div class="ref simplyDrag wow bounceInUp">
         <img
           width="auto"
-          height="200"
-          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2R.png"
+          height="80"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2R.png"
+          src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2RA.png"
         />
-      </div>
-      <div
-        class="toys toys_rectangle noShuffle wow slideInRight"
-        style="width: 210px; left: auto; right: 5px; bottom: auto"
-      >
-        <div
-          class="toy cards"
-          sp="85,120^85,323^176,323^176,120"
-          ap=""
-          group="e"
-          cid="A"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2A.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="85,120^85,323^176,323^176,120"
-          ap="85,120"
-          group="a"
-          cid="A2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2A2.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="85,120^85,323^176,323^176,120"
-          ap="176,323"
-          group="c"
-          cid="B"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2B.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="85,120^85,323^176,323^176,120"
-          ap="85,323"
-          group="b"
-          cid="B2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2B2.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="85,120^85,323^176,323^176,120"
-          ap=""
-          group="e"
-          cid="C"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2C.png" />
-        </div>
-        <div
-          class="toy cards"
-          sp="85,120^85,323^176,323^176,120"
-          ap="176,120"
-          group="d"
-          cid="C2"
-          style="width: 100px; height: 60px"
-        >
-          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2C2.png" />
-        </div>
       </div>
     </div>
   </div>
   <div class="assetsPreload"></div>
 </div>
+
+<script>
+  //確認是否全部答對
+  var swapGroup = (tar) => {
+    var gid = parseInt(tar.attr("gid"));
+    var text1Arr = tar.attr("text1").split("^");
+    var text2Arr = tar.attr("text2").split("^");
+    tar.find(".text1").text(text1Arr[gid]);
+    tar.find(".text2").text(text2Arr[gid]);
+    $(".contents > div.selected .sensorArea > span").attr(
+      "group",
+      text1Arr[gid]
+    );
+    //
+    gid += 1;
+    if (gid >= text1Arr.length) {
+      gid = 0;
+    }
+    tar.attr("gid", gid);
+    rootSoundEffect($click);
+  };
+
+  //確認是否全部答對
+  var withinCheckAnswer = function (gotWrong) {
+    var group = $(".contents > div.selected .sensorArea > span").attr("group");
+    if (
+      $(`.contents > div.selected .toys .toy[group='${group}']`).length ==
+      $(".cardAvatarDie.right").length
+    ) {
+      if (gotWrong == 0) {
+        bingo();
+      } else {
+        //有錯誤的
+        rootSoundEffect($stupid);
+      }
+    }
+    die;
+  };
+
+  //點擊效果
+  var tapElem = function (tar) {
+    if ($(tar).hasClass("ref") || $(tar).hasClass("cards")) {
+      if ($(tar).find("img").attr("src2")) {
+        var src = $(tar).find("img").attr("src");
+        var src2 = $(tar).find("img").attr("src2");
+        $(tar).find("img").attr("src", src2);
+        $(tar).find("img").attr("src2", src);
+        rootSoundEffect($key);
+      }
+    }
+  };
+</script>
+<style>
+  .typeArea {
+    position: absolute;
+    z-index: 1;
+  }
+  .typeArea > span {
+    pointer-events: auto;
+    cursor: pointer;
+    position: absolute;
+    font-size: 12px;
+    line-height: 1;
+    color: #000;
+    text-align: center;
+
+    white-space: nowrap;
+  }
+</style>

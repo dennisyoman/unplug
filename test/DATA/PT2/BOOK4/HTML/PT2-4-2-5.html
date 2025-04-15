@@ -1,0 +1,366 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>看圖說故事</b
+            >：看故事圖片，把單字按照順序排出來。<br />1.將貼紙依序貼在格子中。<br />2.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 32px;
+              left: 84px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 32px;
+              left: 227px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 135px;
+              left: 227px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 135px;
+              left: 84px;
+            "
+            group="d"
+          ></span>
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 36px;
+              height: 14px;
+              top: 53px;
+              left: 187px;
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 36px;
+              height: 13px;
+              top: 103px;
+              left: 259px;
+              transform: rotate(90deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 36px;
+              height: 14px;
+              top: 156px;
+              left: 189px;
+              transform: rotate(180deg);
+            "
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="225"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 210px; left: auto; right: 5px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap=""
+          group="e"
+          cid="A"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap="78,113"
+          group="a"
+          cid="A2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1A2.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap=""
+          group="e"
+          cid="B"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap="181,113"
+          group="d"
+          cid="B2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1B2.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap=""
+          group="e"
+          cid="C"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap="181,256"
+          group="c"
+          cid="C2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1C2.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap=""
+          group="e"
+          cid="D"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="78,113^78,256^181,256^181,113"
+          ap="78,256"
+          group="b"
+          cid="D2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-1D2.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>看圖說故事</b>：看故事圖片，把單字貼紙貼在對應的空格裡。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 39px;
+              left: 92px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 39px;
+              left: 294px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 130px;
+              left: 294px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 100px;
+              height: 55px;
+              top: 130px;
+              left: 92px;
+            "
+            group="d"
+          ></span>
+        </div>
+
+        <img
+          width="auto"
+          height="225"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="200"
+          src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 210px; left: auto; right: 5px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="85,120^85,323^176,323^176,120"
+          ap=""
+          group="e"
+          cid="A"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="85,120^85,323^176,323^176,120"
+          ap="85,120"
+          group="a"
+          cid="A2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2A2.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="85,120^85,323^176,323^176,120"
+          ap="176,323"
+          group="c"
+          cid="B"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="85,120^85,323^176,323^176,120"
+          ap="85,323"
+          group="b"
+          cid="B2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2B2.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="85,120^85,323^176,323^176,120"
+          ap=""
+          group="e"
+          cid="C"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="85,120^85,323^176,323^176,120"
+          ap="176,120"
+          group="d"
+          cid="C2"
+          style="width: 100px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-5-2C2.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>

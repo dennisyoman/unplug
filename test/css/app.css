@@ -13966,6 +13966,185 @@
   display: none;
 }
 
+.module_basic {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_basic.loaded {
+  opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  -khtml-opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+.module_basic .contents .group .item {
+  position: relative;
+}
+.module_basic .contents .group .item .sensors {
+  position: absolute;
+  z-index: 1;
+}
+.module_basic .contents .group .item .sensors > * {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.module_basic .contents .group .item .sensors > *.word {
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #000;
+  text-align: center;
+}
+.module_basic .contents .group .item .sensors > *.paragraph {
+  text-align: left;
+  opacity: 0;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #000;
+  text-align: left;
+}
+.module_basic .contents .group .item .sensors > *.selected {
+  opacity: 1;
+}
+.module_basic .contents .navigation {
+  position: relative;
+}
+.module_basic .smoke,
+.module_basic .resultIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+  transform-origin: center center;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+.module_basic .smoke > img,
+.module_basic .resultIcon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.module_basic .cardAvatar {
+  position: absolute;
+  width: 110px;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+.module_basic .cardAvatar.positionBingo {
+  filter: drop-shadow(0px 0px 3px rgb(255, 174, 0));
+}
+.module_basic .cardAvatar.automove {
+  transition: top 0.5s, left 0.5s;
+  -webkit-transition: top 0.8s ease-out, left 0.8s ease-in;
+}
+.module_basic .cardAvatar .toy {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  z-index: 1;
+}
+.module_basic .cardAvatar .toy img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+.module_basic .cardAvatar .toy.flyout {
+  animation-name: flyout;
+  animation-iteration-count: 1;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+.module_basic .cardAvatar .toy.jumpin {
+  animation-name: jumpin;
+  animation-iteration-count: 1;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+@keyframes flyout {
+  0% {
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    top: 0;
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    top: -200px;
+  }
+}
+@keyframes jumpin {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -100px;
+    opacity: 1 !important;
+    -moz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+  }
+  100% {
+    top: -20px;
+    opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    filter: alpha(opacity=0) !important;
+  }
+}
+.module_basic .hint .ans {
+  display: none;
+}
+.module_basic .hint.showAnswer .sub {
+  display: none;
+}
+.module_basic .hint.showAnswer .ans {
+  display: block;
+}
+.module_basic .alert {
+  bottom: 5px;
+}
+.module_basic .alert::after {
+  left: calc(50% - 5px);
+  top: -9px;
+}
+.module_basic .btn {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.module_basic .btn.prev {
+  background: url("../DATA/IMAGES/common/btn_prev.png") no-repeat center center;
+  background-size: 100% 100%;
+  margin-left: -35px;
+}
+.module_basic .btn.next {
+  background: url("../DATA/IMAGES/common/btn_next.png") no-repeat center center;
+  background-size: 100% 100%;
+  margin-left: 10px;
+}
+
 .contents {
   pointer-events: none;
   position: relative;

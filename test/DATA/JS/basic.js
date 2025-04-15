@@ -97,16 +97,14 @@ $(document).ready(function () {
 
 /*
 cards attr黏性位置座標sp : 接近位置放置時會主動靠齊的座標(多個, 以^區分)
-cards attr參考答案座標ap : 解答的座標(只有一個才能用ap)
-cards attr直接解答座標fp : 放對位置會發光(多個, 以^區分)
+cards attr參考答案座標ap : 解答的座標(只有一個)
+cards attr直接解答座標fp : 放對會直接顯示正確的座標(多個, 以^區分)
 cards attr所屬的群組group : 多個, 以^區分
 
 .toys.noShuffle 卡片不隨機
 .toys.toys_rectangle 卡片是滿版長方形,正確符號要放正中間(否則是玩具，符號會放在中下方)
 
 .cards.repeat 卡片可以重複使用
-
-.cards.stack 秀答案時，卡片用疊上去的，不計算位置空間
 
 .sensorArea.checkonchange 移動後馬上執行check
 
@@ -139,17 +137,6 @@ var trigHammer = function () {
       define$Elem(ev);
     }
     handleDrag(ev);
-  });
-  //tap
-  mc.get("tap").set({
-    time: 250, // 最長點擊時間 (ms)
-    threshold: 10, // 最遠移動距離 (px)
-  });
-  mc.on("tap", function (ev) {
-    if ($elem == null) {
-      define$Elem(ev);
-    }
-    tapElem($elem);
   });
 };
 
@@ -203,6 +190,8 @@ var handleDrag = function (ev) {
     }
     //simply drag
     if ($($elem).hasClass("simplyDrag")) {
+      var deltaContainerX = $("#module_wrapper").offset().left;
+      var deltaContainerY = $("#module_wrapper").offset().top;
       $($elem).get(0).style.top = ev.deltaY / stageRatioReal + lastPosY + "px";
       $($elem).get(0).style.left = ev.deltaX / stageRatioReal + lastPosX + "px";
     }
@@ -345,11 +334,11 @@ var checkStatus = function () {
   $("#cardAvatar")
     .unbind()
     .bind("click", function () {
-      var src1 = $(this).find("img:not(.sticker)").attr("src");
+      var src1 = $(this).find("img").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
         .each(function () {
-          if (src1 == $(this).find("img:not(.sticker)").attr("src")) {
+          if (src1 == $(this).find("img").attr("src")) {
             $(this).removeClass("cached semiTransparent positionBingo");
           }
         });
@@ -375,231 +364,19 @@ var checkStatus = function () {
 };
 
 var showAnswer = function (boolean) {
-  var containers = $(".contents > div.selected .sensorArea").children();
-  var toys = $(".contents > div.selected .toys > .toy");
+  var sensors = $(
+    ".contents > div.selected .word,.contents > div.selected .paragraph"
+  );
   if (boolean) {
     //秀出答案
-    $(".contents > div.selected").find(".selected").removeClass("selected");
-    $(".contents > div.selected")
-      .find(".cached")
-      .removeClass("cached semiTransparent positionBingo");
-    $(".contents > div.selected").find(".disable").removeClass("disable");
-    $(".cardAvatarDie").remove();
+    sensors.addClass("selected");
     rootSoundEffect($help);
-    //排位子
-    var ansArray = [];
-
-    containers.each(function (index) {
-      var deltaContainerX = $("#module_wrapper").offset().left;
-      var deltaContainerY = $("#module_wrapper").offset().top;
-      var oX = 5;
-      var oY = 30;
-      if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
-      if ($(this).attr("oY")) oY = parseInt($(this).attr("oY"));
-      var oriX =
-        $(this).offset().left / stageRatioReal -
-        deltaContainerX / stageRatioReal;
-      var oriW = $(this).width() / stageRatioReal;
-      var oriY =
-        $(this).offset().top / stageRatioReal -
-        deltaContainerY / stageRatioReal;
-      var oriH = $(this).height() / stageRatioReal;
-      ansArray.push([]);
-      for (var i = 0; i < toys.length; i++) {
-        //取得物件所屬groups
-        var toyGroups = [];
-        if (toys.eq(i).attr("group")) {
-          toyGroups = toys.eq(i).attr("group").split("^");
-        }
-        if (
-          (toys.eq(i).attr("group") &&
-            $(this).attr("group") &&
-            toyGroups.indexOf($(this).attr("group")) != -1) ||
-          (toys.eq(i).attr("ap") && !toys.eq(i).attr("group"))
-        ) {
-          //
-          toys.eq(i).addClass("cached");
-          var caWidth = parseInt(toys.eq(i).css("width")) / stageRatioReal;
-          var caHeight = parseInt(toys.eq(i).css("height")) / stageRatioReal;
-
-          //是否超過容器寬度
-          if (oX + caWidth > oriW) {
-            oX = 5;
-            if ($(this).attr("oX")) oX = parseInt($(this).attr("oX"));
-            //是否是疊加stack的卡片
-            if (!toys.eq(i).hasClass("stack")) {
-              oY += caHeight;
-            }
-          }
-          //答案預設位置
-          var ansTop = oriY + oY;
-          var ansLeft = oriX + oX;
-          if (toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto") {
-            var ap = toys.eq(i).attr("ap").split(",");
-            ansTop = ap[0];
-            ansLeft = ap[1];
-          }
-          //
-          ansArray[ansArray.length - 1].push(
-            `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
-              .eq(i)
-              .prop("outerHTML")}</div>`
-          );
-          //是否是疊加stack的卡片
-          if (!toys.eq(i).hasClass("stack")) {
-            oX += caWidth;
-          }
-        }
-      }
-    });
-
-    for (var i = 0; i < ansArray.length; i++) {
-      var itemsArr = ansArray[i];
-      for (var k = 0; k < itemsArr.length; k++) {
-        $("#module_wrapper").append(itemsArr[k]);
-      }
-    }
-
-    //if arrowArea fixed
-    $(".contents > div.selected")
-      .find(".arrowArea.fixed > span")
-      .addClass("active disabled");
-
-    withinShowAnswer(boolean);
   } else {
-    toys.removeClass("cached semiTransparent positionBingo");
-    $(".cardAvatarDie").remove();
-    //if arrowArea fixed
-    $(".contents > div.selected")
-      .find(".arrowArea.fixed > span")
-      .removeClass("active disabled");
+    $(".sideTool > div.btn_replay").click();
   }
 };
 
-var checkAnswer = function () {
-  var gotWrong = $(".cardAvatarDie:not('.right')").length;
-  //是否有答案條件
-  var matchedAnswers = $(".contents > div.selected").find(
-    ".condition .matched"
-  );
-  if (matchedAnswers.length > 0) {
-    var sensors = $(".contents > div.selected").find(".sensorArea > span");
-    var tempSeq = [];
-    for (var k = 0; k < sensors.length; k++) {
-      tempSeq.push(
-        $(".cardAvatarDie.s" + k)
-          .find(".cards")
-          .eq(0)
-          .attr("cid")
-          ? $(".cardAvatarDie.s" + k)
-              .find(".cards")
-              .eq(0)
-              .attr("cid")
-          : ""
-      );
-    }
-    //看看跟哪一個標準答案最接近
-    var defaultAns = 0;
-    var maxMiss = 999;
-
-    for (var p = 0; p < matchedAnswers.length; p++) {
-      var tempArr = matchedAnswers.eq(p).text().split(",");
-      var miss = 0;
-
-      for (var o = 0; o < tempArr.length; o++) {
-        if (tempArr[o].toUpperCase() != tempSeq[o].toUpperCase()) {
-          miss++;
-        }
-      }
-      //比較錯誤率，已獲得最接近的答案
-      if (miss < maxMiss) {
-        maxMiss = miss;
-        defaultAns = p;
-      }
-    }
-
-    //正確給right,錯誤拿掉right
-    var refSeq = matchedAnswers.eq(defaultAns).text().split(",");
-    for (var k = 0; k < sensors.length; k++) {
-      if (
-        $(".cardAvatarDie.s" + k).length > 0 &&
-        $(".cardAvatarDie.s" + k)
-          .find(".cards")
-          .eq(0)
-          .attr("cid")
-          .toUpperCase() == refSeq[k].toUpperCase()
-      ) {
-        $(".cardAvatarDie.s" + k).addClass("right");
-      } else {
-        $(".cardAvatarDie.s" + k).removeClass("right");
-      }
-    }
-  }
-  //把錯誤的放回原位
-  if (gotWrong > 0) {
-    $(".cardAvatarDie:not('.right')").click();
-    rootSoundEffect($stupid);
-  }
-  //只顯示對的
-  if ($(".cardAvatarDie.right").length > 0) {
-    var newBingo = false;
-    //加上正確符號
-    $(".cardAvatarDie.right").each(function () {
-      var src1 = $(this).find("img").attr("src");
-      $(".contents > div.selected")
-        .find(".toys > div")
-        .each(function () {
-          if (
-            src1 == $(this).find("img").attr("src") &&
-            !$(this).hasClass("positionBingo") &&
-            !$(this).hasClass("repeat")
-          ) {
-            $(this).addClass("positionBingo");
-            newBingo = true;
-          }
-        });
-    });
-    if (newBingo) {
-      rootSoundEffect($correct);
-    }
-
-    //全對
-    if (
-      $(".cardAvatarDie.right").length ==
-      $(".contents > div.selected").find(".sensorArea > span").length
-    ) {
-      //是否有箭頭需要點選
-      if ($(".contents > div.selected").find(".arrowArea").length > 0) {
-        if (
-          $(".contents > div.selected").find(".arrowArea > span").length ==
-          $(".contents > div.selected").find(".arrowArea > span.active").length
-        ) {
-          //全部箭頭點了
-          //判斷卡片上的選擇有沒有正確
-          ////dymamic function here
-          withinCheckAnswer();
-          bingo();
-        } else {
-          //還有箭頭沒點
-          rootSoundEffect($stupid);
-          var alertmsg = "點擊全部虛線箭頭，變成實線箭頭";
-          $(".alert").remove();
-          $(".contents > div.selected").append(
-            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
-          );
-        }
-      } else {
-        //判斷卡片上的選擇有沒有正確
-        ////dymamic function here
-        withinCheckAnswer(gotWrong);
-        bingo();
-      }
-    } else {
-      ////dymamic function here
-      withinCheckAnswer(gotWrong);
-    }
-  }
-};
+var checkAnswer = function () {};
 
 var openContent = function (id) {
   resetAudio();
@@ -620,37 +397,6 @@ var resetElem = function (elem) {
   elem.find(".positionBingo").removeClass("positionBingo");
   elem.find(".disable").removeClass("disable");
   elem.find(".simplyDrag").removeAttr("style");
-
-  //if arrowArea fixed
-  elem.find(".arrowArea.fixed > span").removeClass("active disabled");
-
-  //if arrowArea
-  elem.find(".arrowArea:not('.fixed')").empty();
-
-  //shuffle toy
-  if (!elem.find(".toys").hasClass("noShuffle")) {
-    var toyArr = [];
-    elem.find(".toys > div").each(function () {
-      $(this).attr("ans", "").find("span").text("");
-      toyArr.push($(this).clone());
-    });
-
-    shuffle(toyArr);
-
-    elem.find(".toys").empty().hide();
-    for (var i = 0; i < toyArr.length; i++) {
-      elem.find(".toys").append(toyArr[i].clone());
-    }
-  }
-  elem
-    .find(".toys")
-    .delay(100)
-    .queue(function () {
-      $(this).show().dequeue();
-      ////dymamic function here
-      withinResetElem();
-    });
-  $(".contain").remove();
 
   //smoke effect
   $(".smoke").remove();
@@ -676,4 +422,11 @@ var bingo = function () {
       $(".resultIcon").remove();
       $(this).dequeue().remove();
     });
+};
+
+var toggleMeClass = (tar, classname) => {
+  tar.toggleClass(classname);
+  rootSoundEffect($key);
+  $(".sideTool > div.btn_answer").removeClass("active");
+  $(".sideTool > div.btn_replay").show();
 };
