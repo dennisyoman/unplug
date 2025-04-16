@@ -1,0 +1,130 @@
+<div id="module_wrapper" class="module_basic">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>星星連連看</b>：把天上特別亮的星星連在一起，猜一猜是甚麼星座？
+          </p>
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item wow bounceIn" id="D">
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="200"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-1A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="200" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-1.png" />
+          </div>
+        </div>
+        <div class="item wow bounceIn" id="C">
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="200"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-2A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="200" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-2.png" />
+          </div>
+        </div>
+        <div class="item wow bounceIn" id="B">
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="200"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-3A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="200" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-3.png" />
+          </div>
+        </div>
+        <div class="item wow bounceIn" id="A">
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="200"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-4A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="200" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-4.png" />
+          </div>
+        </div>
+      </div>
+      <div class="options wow bounceIn">
+        <div onclick="checkID('A')">
+          <img width="100" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-Q1.png" />
+        </div>
+        <div onclick="checkID('B')">
+          <img width="100" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-Q2.png" />
+        </div>
+        <div onclick="checkID('C')">
+          <img width="100" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-Q3.png" />
+        </div>
+        <div onclick="checkID('D')">
+          <img width="100" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-4-1-Q4.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .sensors {
+    width: 100%;
+    height: 100%;
+  }
+  .options {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .options > div {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+</style>
+<script>
+  var checkID = function (id) {
+    var item = $(".contents > div.selected .group .item.selected");
+    item.find(".sensors .photo").removeClass("selected");
+    if (item.attr("id") == id) {
+      //rootSoundEffect($right);
+      item.find(".sensors .photo").addClass("selected");
+      bingo();
+    } else {
+      rootSoundEffect($stupid);
+    }
+    $(".sideTool > div.btn_replay").show();
+  };
+  var withinResetElem = function () {};
+</script>

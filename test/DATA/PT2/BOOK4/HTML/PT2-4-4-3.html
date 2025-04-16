@@ -1,0 +1,184 @@
+<div id="module_wrapper" class="module_basic">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>璀璨夜空</b
+            >：從月亮上的斑點中，找到蟾蜍的輪廓。試著把斑點擦掉後比對看看。
+          </p>
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item wow fadeInUp">
+          <div
+            class="artboard"
+            strokeColour="#F9DEAC"
+            lineWidth="10"
+            style="
+              mask-image: url(./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-1A.png);
+              mask-size: auto 100%;
+            "
+          >
+            <canvas></canvas>
+          </div>
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="400"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-1A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="400" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>璀璨夜空</b
+            >：從月亮上的斑點中，找到兔子的輪廓。試著把斑點擦掉後比對看看。
+          </p>
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item wow fadeInUp">
+          <div
+            class="artboard"
+            strokeColour="#F9DEAC"
+            lineWidth="10"
+            style="
+              mask-image: url(./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-2A.png);
+              mask-size: auto 100%;
+            "
+          >
+            <canvas></canvas>
+          </div>
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="400"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-2A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="400" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>璀璨夜空</b
+            >：從月亮上的斑點中，找到螃蟹的輪廓。試著把斑點擦掉後比對看看。
+          </p>
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item wow fadeInUp">
+          <div
+            class="artboard"
+            strokeColour="#F9DEAC"
+            lineWidth="10"
+            style="
+              mask-image: url(./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-3A.png);
+              mask-size: auto 100%;
+            "
+          >
+            <canvas></canvas>
+          </div>
+          <div class="sensors">
+            <span
+              class="photo"
+              style="top: 0; left: 0; width: 100%; height: 100%"
+              ><img
+                width="400"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-3A.png"
+            /></span>
+          </div>
+          <div class="img">
+            <img width="400" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-4-3-1-3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .sensors {
+    width: 100%;
+    height: 100%;
+  }
+  .artboard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+  }
+  .artboard canvas {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+</style>
+<script>
+  var withincheckAnswer = function () {
+    var sensors = $(
+      ".contents > div.selected .photo,.contents > div.selected .word,.contents > div.selected .paragraph"
+    );
+    //秀出對比圖形
+    sensors.toggleClass("selected");
+    rootSoundEffect($help);
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var withinResetElem = function () {
+    var canvas = $("#module_wrapper").find("canvas");
+    canvas.each(function () {
+      $(this)[0]
+        .getContext("2d")
+        .clearRect(0, 0, $(this)[0].width, $(this)[0].height);
+    });
+    $(".sideTool > div.btn_check").show();
+    //
+    var items = $(".contents > div.selected").find(".artboard");
+    initCanvas(items);
+  };
+</script>

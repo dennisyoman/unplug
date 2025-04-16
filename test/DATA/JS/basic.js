@@ -365,7 +365,7 @@ var checkStatus = function () {
 
 var showAnswer = function (boolean) {
   var sensors = $(
-    ".contents > div.selected .word,.contents > div.selected .paragraph"
+    ".contents > div.selected .photo,.contents > div.selected .word,.contents > div.selected .paragraph"
   );
   if (boolean) {
     //秀出答案
@@ -376,7 +376,10 @@ var showAnswer = function (boolean) {
   }
 };
 
-var checkAnswer = function () {};
+var checkAnswer = function () {
+  ////dymamic function here
+  withincheckAnswer();
+};
 
 var openContent = function (id) {
   resetAudio();
@@ -402,8 +405,62 @@ var resetElem = function (elem) {
   $(".smoke").remove();
   $(".resultIcon").remove();
   $(".cardAvatarDie").remove();
+  //if has group
+  if (elem.find(".group").length > 0) {
+    elem.find(".group .item").eq(0).addClass("selected");
+    if (elem.find(".group .item").length > 1) {
+      elem.find(".navigation").remove();
+      var nav = `
+    <div class="navigation">
+      <span class="btn prev" onclick="prevItem()"></span>
+      <span class="page">1/${elem.find(".group .item").length}</span>
+      <span class="btn next" onclick="nextItem()"></span>
+    </div>`;
+      elem.append(nav);
+    } else {
+      elem.find(".navigation").remove();
+    }
+  }
   //
   $(".sideTool > div.btn_answer").show();
+
+  ////dymamic function here
+  withinResetElem();
+};
+
+var prevItem = function () {
+  var items = $(".contents > div.selected .group .item");
+  var index = $(".contents > div.selected .group .item.selected").index();
+  if (index > 0) {
+    index--;
+    items
+      .eq(index)
+      .addClass("selected")
+      .siblings(".selected")
+      .removeClass("selected");
+    //update page
+    $(".contents > div.selected .navigation .page").text(
+      index + 1 + "/" + items.length
+    );
+    rootSoundEffect($click);
+  }
+};
+var nextItem = function () {
+  var items = $(".contents > div.selected .group .item");
+  var index = $(".contents > div.selected .group .item.selected").index();
+  if (index < items.length - 1) {
+    index++;
+    items
+      .eq(index)
+      .addClass("selected")
+      .siblings(".selected")
+      .removeClass("selected");
+    //update page
+    $(".contents > div.selected .navigation .page").text(
+      index + 1 + "/" + items.length
+    );
+    rootSoundEffect($click);
+  }
 };
 
 var resetTool = function () {
@@ -429,4 +486,99 @@ var toggleMeClass = (tar, classname) => {
   rootSoundEffect($key);
   $(".sideTool > div.btn_answer").removeClass("active");
   $(".sideTool > div.btn_replay").show();
+};
+
+var initCanvas = function (tar) {
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  var startX, startY;
+  var ol = 0;
+  var ot = 0;
+  var intPoint = [0, 0];
+  var isDraw = false;
+  //setup size
+  tar.find("canvas").attr("width", tar.width() / newZoomRatio / 2);
+  tar.find("canvas").attr("height", tar.height() / newZoomRatio);
+  //canvas
+  var can = tar.find("canvas").get(0);
+  var cw = tar.find("canvas").attr("width");
+  var ch = tar.find("canvas").attr("height");
+  var ctx = can.getContext("2d");
+  ctx.strokeStyle = tar.attr("strokeColour")
+    ? tar.attr("strokeColour")
+    : "#1c9b64";
+  ctx.lineWidth = tar.attr("lineWidth") ? tar.attr("lineWidth") : 2;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  // Mouse Down Event
+  ["mousedown", "touchstart"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      $(".sideTool > div.btn_erase").removeClass("active").show();
+      isDraw = true;
+      newZoomRatio = stageRatioReal / stageRatioMain;
+
+      if (event.clientX) {
+        startX = (event.clientX - tar.offset().left) / newZoomRatio - ol;
+        startY = (event.clientY - tar.offset().top) / newZoomRatio - ot;
+      } else {
+        startX =
+          (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol;
+        startY =
+          (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot;
+      }
+      intPoint = [startX, startY];
+    });
+  });
+
+  // Mouse Move Event
+  ["mousemove", "touchmove"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      if (isDraw) {
+        if (event.clientX) {
+          drawLineBoard(
+            startX,
+            startY,
+            (event.clientX - tar.offset().left) / newZoomRatio - ol,
+            (event.clientY - tar.offset().top) / newZoomRatio - ot
+          );
+        } else {
+          drawLineBoard(
+            startX,
+            startY,
+            (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol,
+            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot
+          );
+        }
+      }
+    });
+  });
+
+  ["mouseup", "touchend"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      //first dot
+      if (intPoint[0] == startX && intPoint[1] == startY) {
+        ctx.arc(startX, startY, ctx.lineWidth / 2, 0, 2 * Math.PI, false);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
+        ctx.closePath();
+      }
+      isDraw = false;
+    });
+  });
+
+  ["mouseleave"].forEach(function (e) {
+    can.addEventListener(e, function (event) {
+      isDraw = false;
+    });
+  });
+
+  function drawLineBoard(x, y, stopX, stopY) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(stopX, stopY);
+    ctx.closePath();
+    ctx.stroke();
+    startX = stopX;
+    startY = stopY;
+  }
 };
