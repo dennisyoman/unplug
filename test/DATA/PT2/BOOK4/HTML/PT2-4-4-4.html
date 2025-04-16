@@ -109,8 +109,13 @@
     grid-template-columns: 1fr 1fr;
   }
   .options > div {
+    opacity: 1;
     cursor: pointer;
     pointer-events: auto;
+  }
+  .options > div:hover,
+  .options > div:focus {
+    opacity: 0.85;
   }
 </style>
 <script>
