@@ -3,7 +3,7 @@
     <span class="demo">示範</span>
     <span>任務一</span>
     <span>任務二</span>
-    <!--<span>任務三</span>-->
+    <span>任務三</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
@@ -228,6 +228,167 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>高斯怎麼想：</b
+            ><br />1.依順序點擊數字，分成兩兩一組進到分類框裡。<br />2.有沒有沒有分到組的數字？
+          </p>
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="candies">
+            <div class="options">
+              <span
+                group="1"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 27px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="2"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 57px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="3"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 87px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="4"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 118px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="5"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 149px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="6"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 179px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="7"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 209px; width: 15px; height: 15px"
+              ></span>
+            </div>
+            <div class="sensors">
+              <span
+                group="7"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 27px; width: 15px; height: 15px"
+                >7</span
+              >
+              <span
+                group="6"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 57px; width: 15px; height: 15px"
+                >6</span
+              >
+              <span
+                group="5"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 87px; width: 15px; height: 15px"
+                >5</span
+              >
+              <span
+                group="4"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 118px; width: 15px; height: 15px"
+                >4</span
+              >
+              <span
+                group="3"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 149px; width: 15px; height: 15px"
+                >3</span
+              >
+              <span
+                group="2"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 179px; width: 15px; height: 15px"
+                >2</span
+              >
+              <span
+                group="1"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 209px; width: 15px; height: 15px"
+                >1</span
+              >
+            </div>
+            <div class="img">
+              <img width="250" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-2.png" />
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 27px; left: 166px; width: 21px; height: 12px"
+                >8</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 27px; left: 232px; width: 21px; height: 12px"
+                >7</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 83px; left: 110px; width: 21px; height: 12px"
+                >8</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 83px; left: 176px; width: 21px; height: 12px"
+                >7</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 83px; left: 254px; width: 21px; height: 12px"
+                >2</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 80px; left: 341px; width: 41px; height: 12px"
+                >28</span
+              >
+            </div>
+            <div class="img">
+              <img width="400" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-4.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="assetsPreload"></div>
 </div>
@@ -306,8 +467,29 @@
     width: auto;
     margin: 0 auto;
   }
+  .item .candies {
+    animation: fadeInDown 0.6s;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .item .candies .options {
+    position: absolute;
+    z-index: 2;
+  }
+  .item .candies .options span {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    background: #fff;
+    opacity: 0;
+    z-index: 2;
+  }
+  .item .candies .options span:hover {
+    opacity: 0.3;
+  }
 </style>
 <script>
+  //示範,任務一,二
   var teamMe = function (tar) {
     var group = tar.attr("group");
     if (group) {
@@ -353,9 +535,42 @@
     $(".sideTool > div.btn_answer").removeClass("active");
     $(".sideTool > div.btn_replay").show();
   };
+  //任務三
+  var selectMe = function (tar) {
+    tar.addClass("selected").siblings(".selected").removeClass("selected");
+    rootSoundEffect($key);
+  };
+  //任務三
+  var fillMe = function (tar) {
+    var sensorSelected = tar
+      .parent()
+      .siblings(".sensors")
+      .find(" .filling.selected");
+    if (sensorSelected.length > 0) {
+      if (sensorSelected.attr("group") == tar.attr("group")) {
+        sensorSelected.addClass("showAnswer");
+        rootSoundEffect($pop);
+      } else {
+        rootSoundEffect($stupid);
+      }
+    } else {
+      rootSoundEffect($stupid);
+    }
+    //確認是否全部完成
+    var sensors = tar.parent().siblings(".sensors").find(" > span");
+    if (
+      tar.parent().siblings(".sensors").find(" .filling").length ==
+      tar.parent().siblings(".sensors").find(" .filling.showAnswer").length
+    ) {
+      rootSoundEffect($chimes);
+      tar.parent().parent().siblings(".dashboard").addClass("showAnswer");
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
 
   var withinResetElem = function () {
-    //重置teams
+    //重置teams(示範,任務一,二)
     var teams = $(".contents > div.selected .group .item.selected .teams");
     teams.empty();
     var digits = $(
@@ -364,5 +579,7 @@
     for (var k = 0; k < Math.floor(digits.length / 2); k++) {
       teams.append("<div></div>");
     }
+    //任務三
+    $(".contents > div.selected .group .item.selected .filling").eq(0).click();
   };
 </script>

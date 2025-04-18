@@ -368,6 +368,7 @@
 <script>
   var showCards = function (tar) {
     tar.parent().siblings(".options").addClass("selected");
+    tar.siblings(".sensors").find(".filling").eq(0).click();
     rootSoundEffect($show);
   };
   var selectMe = function (tar) {
