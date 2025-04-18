@@ -107,38 +107,49 @@ var showAnswer = function (boolean) {
 };
 var checkAnswer = function (boolean) {
   if (boolean) {
-    //檢查答案
-    var getWrong = false;
-    $(".contents > div.selected .puzzle .subject .items")
-      .find("span")
-      .each(function () {
-        $(this).removeClass("wrong");
-        if ($(this).hasClass("selected") && $(this).hasClass("ans")) {
-          $(this).addClass("wrong");
-          getWrong = true;
-        } else if (!$(this).hasClass("selected") && !$(this).hasClass("ans")) {
-          $(this).addClass("wrong");
-          getWrong = true;
-        }
-      });
-
-    if (getWrong) {
-      rootSoundEffect($stupid);
-    } else {
-      var uniq = new Date().getTime();
-      $(".contents > div.selected")
-        .find(".puzzle")
-        .append(
-          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
-        );
-      $(".smoke")
-        .delay(1500)
-        .queue(function () {
-          $(".resultIcon").remove();
-          $(this).dequeue().remove();
+    //確認是否只剩下一個
+    if (
+      $(".contents > div.selected .puzzle .subject .items").find(
+        "span:not(.selected)"
+      ).length == 1
+    ) {
+      //檢查答案
+      var getWrong = false;
+      $(".contents > div.selected .puzzle .subject .items")
+        .find("span")
+        .each(function () {
+          $(this).removeClass("wrong");
+          if (!$(this).hasClass("selected") && !$(this).hasClass("ans")) {
+            $(this).addClass("wrong");
+            getWrong = true;
+          }
         });
-      //
-      rootSoundEffect($chimes);
+
+      if (getWrong) {
+        rootSoundEffect($stupid);
+      } else {
+        var uniq = new Date().getTime();
+        $(".contents > div.selected")
+          .find(".puzzle")
+          .append(
+            `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+          );
+        $(".smoke")
+          .delay(1500)
+          .queue(function () {
+            $(".resultIcon").remove();
+            $(this).dequeue().remove();
+          });
+        //
+        rootSoundEffect($chimes);
+      }
+    } else {
+      rootSoundEffect($wrong);
+      var alertmsg = "只有一個選項能符合所有條件喔！";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      );
     }
   } else {
     $(".contents > div.selected .puzzle .subject .items")
@@ -216,6 +227,7 @@ var resetElem = function (elem) {
     goCommand(0);
   }
   //
+  $(".alert").remove();
   $(".sideTool > div.btn_check").hide();
 };
 

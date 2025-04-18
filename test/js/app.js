@@ -1829,9 +1829,11 @@ window.onload = function () {
 
 // Dynamic Functions
 
-var afterDice, withinCheckAnswer, withinShowAnswer, withinResetElem;
+var afterDice, withinCheckAnswer, withinShowAnswer, withinResetElem, tapElem;
 var resetDynamicFunctions = function () {
-  console.log("ddd");
+  tapElem = function (tar) {
+    console.log("init tapElem:", tar);
+  };
   afterDice = function (points) {
     console.log("init afterDice:", points);
   };
