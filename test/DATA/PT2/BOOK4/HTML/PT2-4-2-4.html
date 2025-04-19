@@ -362,14 +362,12 @@
 
   //點擊效果
   var tapElem = function (tar) {
-    if ($(tar).hasClass("ref") || $(tar).hasClass("cards")) {
-      if ($(tar).find("img").attr("src2")) {
-        var src = $(tar).find("img").attr("src");
-        var src2 = $(tar).find("img").attr("src2");
-        $(tar).find("img").attr("src", src2);
-        $(tar).find("img").attr("src2", src);
-        rootSoundEffect($key);
-      }
+    if ($(tar).find("img").attr("src2")) {
+      var src = $(tar).find("img").attr("src");
+      var src2 = $(tar).find("img").attr("src2");
+      $(tar).find("img").attr("src", src2);
+      $(tar).find("img").attr("src2", src);
+      rootSoundEffect($key);
     }
   };
 </script>
