@@ -149,6 +149,7 @@ var trigHammer = function () {
     if ($elem == null) {
       define$Elem(ev);
     }
+
     tapElem($elem);
   });
 };
