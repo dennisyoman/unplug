@@ -516,9 +516,10 @@ let checkLogin = function () {
       data: JSON.stringify({
         id: userID,
         pwd: hash,
-        courseType: "U",
+        courseType: "",
         timestamp: timestamp,
         sign: sign,
+        website: "U",
       }),
       async: false,
       contentType: "application/json; charset=utf-8",
@@ -592,7 +593,7 @@ let reCheckLogin = function (encodedToken) {
     },
   });
 };
-
+//update 2025/05/16
 let getSeriesXML = function () {
   let xpath = demomode ? "./series_demo.xml" : "./series.xml";
 
@@ -607,7 +608,69 @@ let getSeriesXML = function () {
     success: function (data) {
       console.log("Series:got");
       seriesXML = data;
-      loadMainSlider();
+      //如果不是測試也不是demo模式
+      if (!testmode && !demomode) {
+        $.ajax({
+          type: "GET",
+          url: "https://api01.giraffe.com.tw/api/ludodo/eteaching/get-member-course",
+          data: { token: uToken },
+          cache: false,
+          contentType: "application/json; charset=utf-8",
+          async: false,
+          timeout: 10000,
+          dataType: "xml",
+          success: function (dataOpened) {
+            // 會返回帳號可看的系列與冊數
+            console.log(dataOpened);
+            //處理對應課程
+            var bookOpenedObj = new Object();
+            $(dataOpened)
+              .find("series")
+              .each(function () {
+                var ssid = $(this).attr("sid");
+                var bidArr = [];
+                $(this)
+                  .find("book")
+                  .each(function () {
+                    bidArr.push($(this).attr("bid"));
+                  });
+                bookOpenedObj[ssid] = bidArr;
+              });
+
+            $(seriesXML)
+              .find("series")
+              .each(function () {
+                var ssid = $(this).attr("sid");
+                if (bookOpenedObj[ssid] == undefined) {
+                  //沒有對應到ssid,刪掉此series
+                  $(this).remove();
+                } else {
+                  console.log(bookOpenedObj[ssid]);
+                  //對應book
+                  $(this)
+                    .find("book")
+                    .each(function () {
+                      var bbid = $(this).attr("bid");
+                      if (bookOpenedObj[ssid].indexOf(bbid) < 0) {
+                        //沒有對應到bid,刪掉此book
+                        $(this).remove();
+                      }
+                    });
+                }
+              });
+            console.log("--result--");
+            console.log(seriesXML);
+            //開始
+            loadMainSlider();
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError);
+            console.log("Series:error");
+          },
+        });
+      } else {
+        loadMainSlider();
+      }
     },
     error: function (xhr, ajaxOptions, thrownError) {
       console.log(thrownError);
