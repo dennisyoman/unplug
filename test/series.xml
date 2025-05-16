@@ -1,6 +1,6 @@
 <root>
   <series name="動手玩思維" sid="PT" img="PT_series.jpg">
-    <book name="2023新版 Book 1" bid="1N" img="PT_book1N.jpg">
+    <book name="2023新版 Book 1" bid="1" img="PT_book1N.jpg">
       <lesson lid="1">日常中的程式</lesson>
       <lesson lid="2">把玩具分類</lesson>
       <lesson lid="3">啟發邏輯腦</lesson>
