@@ -97,7 +97,7 @@ $(document).ready(function () {
 
 /*
 cards attr黏性位置座標sp : 接近位置放置時會主動靠齊的座標(多個, 以^區分)
-cards attr參考答案座標ap : 解答的座標(只有一個才能用ap)
+cards attr參考答案座標ap : 解答的座標(多個, 以^區分)
 cards attr直接解答座標fp : 放對位置會發光(多個, 以^區分)
 cards attr所屬的群組group : 多個, 以^區分
 
@@ -436,19 +436,33 @@ var showAnswer = function (boolean) {
           var ansTop = oriY + oY;
           var ansLeft = oriX + oX;
           if (toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto") {
-            var ap = toys.eq(i).attr("ap").split(",");
-            ansTop = ap[0];
-            ansLeft = ap[1];
-          }
-          //
-          ansArray[ansArray.length - 1].push(
-            `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
-              .eq(i)
-              .prop("outerHTML")}</div>`
-          );
-          //是否是疊加stack的卡片
-          if (!toys.eq(i).hasClass("stack")) {
-            oX += caWidth;
+            var aps = toys.eq(i).attr("ap").split("^");
+            for (var a = 0; a < aps.length; a++) {
+              var ap = aps[a].split(",");
+              ansTop = ap[0];
+              ansLeft = ap[1];
+              //
+              ansArray[ansArray.length - 1].push(
+                `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+                  .eq(i)
+                  .prop("outerHTML")}</div>`
+              );
+              //是否是疊加stack的卡片
+              if (!toys.eq(i).hasClass("stack")) {
+                oX += caWidth;
+              }
+            }
+          } else {
+            //
+            ansArray[ansArray.length - 1].push(
+              `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+                .eq(i)
+                .prop("outerHTML")}</div>`
+            );
+            //是否是疊加stack的卡片
+            if (!toys.eq(i).hasClass("stack")) {
+              oX += caWidth;
+            }
           }
         }
       }
@@ -599,6 +613,9 @@ var checkAnswer = function () {
       ////dymamic function here
       withinCheckAnswer(gotWrong);
     }
+  } else {
+    ////dymamic function here
+    withinCheckAnswer(gotWrong);
   }
 };
 

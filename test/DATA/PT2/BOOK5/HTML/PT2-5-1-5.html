@@ -1,0 +1,389 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>機場奇緣</b
+            >：根據機場出境大廳螢幕的航班資訊，點選紙條上所有缺失的部分，選出你認為正確的答案。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 0px">
+        <div class="stains">
+          <span
+            style="top: 120px; left: 51px; width: 30px"
+            onClick="switchHour($(this))"
+            class="stain stain1"
+            ans="11"
+          ></span>
+          <span
+            style="top: 120px; left: 106px; width: 30px"
+            onClick="switchMin($(this))"
+            class="stain stain2"
+            ans="05"
+          ></span>
+          <span
+            style="top: 120px; left: 169px; width: 30px"
+            onClick="switchGate($(this))"
+            class="stain stain3"
+            ans="1"
+          ></span>
+          <span
+            style="top: 142px; left: 118px; width: 77px"
+            onClick="switchDes($(this))"
+            class="stain stain4"
+            ans="永夏王國"
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="225"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-1.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="150"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-1R.png"
+        />
+      </div>
+
+      <div class="toys"></div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>登機排序</b
+            >：請排出正確的登機順序。<br />1.將貼紙依序貼在格子中。<br />2.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 92px;
+              height: 64px;
+              top: 35px;
+              left: 76px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 92px;
+              height: 64px;
+              top: 35px;
+              left: 206px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 92px;
+              height: 64px;
+              top: 127px;
+              left: 206px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 92px;
+              height: 64px;
+              top: 127px;
+              left: 76px;
+            "
+            group="d"
+          ></span>
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 10px;
+              top: 61px;
+              left: 173px;
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 24px;
+              height: 10px;
+              top: 106px;
+              left: 240px;
+              transform: rotate(90deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 10px;
+              top: 156px;
+              left: 173px;
+              transform: rotate(180deg);
+            "
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="225"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-2.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="150"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-2R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 220px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="76,123^76,253^167,253^167,123"
+          ap="76,253"
+          group="b"
+          cid="A"
+          style="width: 95px; height: 80px"
+        >
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-2A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="76,123^76,253^167,253^167,123"
+          ap="167,123"
+          group="d"
+          cid="B"
+          style="width: 95px; height: 80px"
+        >
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-2B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="76,123^76,253^167,253^167,123"
+          ap="76,123"
+          group="a"
+          cid="C"
+          style="width: 95px; height: 80px"
+        >
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-2C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="76,123^76,253^167,253^167,123"
+          ap="167,253"
+          group="c"
+          cid="D"
+          style="width: 95px; height: 80px"
+        >
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-5-2D.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .stains {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .stains > span {
+    pointer-events: auto;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    z-index: 2;
+    background: rgba(255, 0, 0, 0.03);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1;
+    height: 12px;
+  }
+</style>
+<script>
+  var stickerHour = ["10", "11", "12", "13", "14", "15"];
+  var stickerMin = ["05", "20", "25", "30", "35", "45"];
+  var stickerGate = ["1", "2", "3", "4"];
+  var stickerDes = ["冰雪之國", "永夏王國", "遊樂島", "恐龍峽谷"];
+  var switchHour = (item) => {
+    event.stopPropagation();
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > stickerHour.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.text(stickerHour[sc]);
+    rootSoundEffect($key);
+    $(".sideTool > div.btn_check").show();
+  };
+  var switchMin = (item) => {
+    event.stopPropagation();
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > stickerMin.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.text(stickerMin[sc]);
+    rootSoundEffect($key);
+    $(".sideTool > div.btn_check").show();
+  };
+  var switchGate = (item) => {
+    event.stopPropagation();
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > stickerGate.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.text(stickerGate[sc]);
+    rootSoundEffect($key);
+    $(".sideTool > div.btn_check").show();
+  };
+  var switchDes = (item) => {
+    event.stopPropagation();
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > stickerDes.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.text(stickerDes[sc]);
+    rootSoundEffect($key);
+    $(".sideTool > div.btn_check").show();
+  };
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    var stains = $(".contents > div.selected").find(".stains > *");
+    if (stains.length > 0) {
+      stains.each(function () {
+        var ans = $(this).attr("ans");
+        $(this).html(ans);
+      });
+    }
+  };
+  var withinCheckAnswer = function () {
+    var stains = $(".contents > div.selected").find(".stains > *");
+    if (stains.length > 0) {
+      var allpass = true;
+      stains.each(function () {
+        var ans = $(this).attr("ans");
+        var ans2 = parseInt($(this).attr("sc"));
+        if ($(this).hasClass("stain1")) {
+          ans2 = stickerHour[ans2];
+        } else if ($(this).hasClass("stain2")) {
+          ans2 = stickerMin[ans2];
+        } else if ($(this).hasClass("stain3")) {
+          ans2 = stickerGate[ans2];
+        } else if ($(this).hasClass("stain4")) {
+          ans2 = stickerDes[ans2];
+        }
+        if (ans != ans2) {
+          $(this).removeAttr("sc").empty();
+          allpass = false;
+        }
+      });
+      console.log("allpass:", allpass);
+      if (!allpass) {
+        rootSoundEffect($stupid);
+        var alertmsg = "答案錯誤";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        );
+        throw "wrong answer";
+        //中斷之後的js
+      } else {
+        bingo();
+      }
+    }
+  };
+
+  var withinResetElem = function () {
+    var stains = $(".contents > div.selected").find(".stains > *");
+    if (stains.length > 0) {
+      stains.each(function () {
+        $(this).removeAttr("sc").empty();
+      });
+    }
+  };
+</script>

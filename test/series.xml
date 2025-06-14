@@ -99,5 +99,11 @@
       <lesson lid="3">超越計算機</lesson>
       <lesson lid="4">浩瀚的畫布</lesson>
     </book>
+    <book name="Book 5" bid="5" img="PT2_book5.jpg">
+      <lesson lid="1">記憶加速器</lesson>
+      <lesson lid="2">閱讀加速器</lesson>
+      <lesson lid="3">圖形愛表現</lesson>
+      <lesson lid="4">營養分析小老師</lesson>
+    </book>
   </series>
 </root>
