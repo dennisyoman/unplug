@@ -909,6 +909,15 @@ $.getComponent = function (
             //console.log("No js, all loading Finished.");
           }
         }
+        if (status == "error") {
+          if (
+            confirm(
+              "尚未完成本課，請選擇其他章節；或是double click畫面跳出loading"
+            )
+          ) {
+            deactiveLoading();
+          }
+        }
       });
       $(this).dequeue();
     });

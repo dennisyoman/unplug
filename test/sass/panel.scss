@@ -687,9 +687,18 @@
     * {
       pointer-events: none;
     }
+    &.compact {
+      transform: scale(0.6);
+      transform-origin: top left;
+      .tag_wrapper {
+        .type {
+          margin-left: 0;
+        }
+      }
+    }
     .tag_wrapper {
       position: relative;
-      min-width: 150px;
+      min-width: 50px;
       height: 36px;
       background-color: $main;
       padding: 3px 3px 3px 3px;
@@ -705,10 +714,10 @@
         }
       }
       &.c2 {
-        background-color: $second;
+        background-color: $l3;
 
         &::after {
-          border-color: transparent $second transparent transparent;
+          border-color: transparent $l3 transparent transparent;
         }
       }
       &.c3 {
@@ -719,10 +728,10 @@
         }
       }
       &.c4 {
-        background-color: $orange;
+        background-color: $l4;
 
         &::after {
-          border-color: transparent $orange transparent transparent;
+          border-color: transparent $l4 transparent transparent;
         }
       }
       &.c5 {

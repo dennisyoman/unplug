@@ -12459,8 +12459,8 @@
       z-index: 1;
       > span {
         //for visibility use
-        background: rgba(255, 0, 0, 0.2);
-        pointer-events: auto;
+        //background: rgba(255, 0, 0, 0.2);
+        //pointer-events: auto;
         z-index: 1;
       }
     }
@@ -12470,8 +12470,8 @@
       z-index: 3;
       > span {
         //for visibility use
-        background: rgba(0, 255, 0, 0.1);
-        pointer-events: auto;
+        //background: rgba(0, 255, 0, 0.1);
+        //pointer-events: auto;
         position: relative;
 
         &::after {

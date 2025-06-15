@@ -12160,8 +12160,6 @@
   z-index: 1;
 }
 .module_box .contents .sensorArea > span {
-  background: rgba(255, 0, 0, 0.2);
-  pointer-events: auto;
   z-index: 1;
 }
 .module_box .contents .arrowArea {
@@ -12170,8 +12168,6 @@
   z-index: 3;
 }
 .module_box .contents .arrowArea > span {
-  background: rgba(0, 255, 0, 0.1);
-  pointer-events: auto;
   position: relative;
 }
 .module_box .contents .arrowArea > span::after {
