@@ -13995,6 +13995,8 @@
 .module_basic .contents .group .item .sensors {
   position: absolute;
   z-index: 1;
+  top: 0;
+  left: 0;
 }
 .module_basic .contents .group .item .sensors > * {
   position: absolute;

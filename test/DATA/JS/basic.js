@@ -378,7 +378,7 @@ var showAnswer = function (boolean) {
 
 var checkAnswer = function () {
   ////dymamic function here
-  withincheckAnswer();
+  withinCheckAnswer();
 };
 
 var openContent = function (id) {

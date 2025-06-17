@@ -873,9 +873,9 @@ $.getComponent = function (
 ) {
   if (!noloading) {
     resetDynamicFunctions();
-    console.log("reset");
+    console.log("resetDynamicFunctions");
   } else {
-    console.log("noreset");
+    console.log("no resetDynamicFunctions");
   }
   let delayTime = 50;
   let chamount = $(comp_holder).length;
@@ -1902,6 +1902,7 @@ window.onload = function () {
 // Dynamic Functions
 
 var afterDice, withinCheckAnswer, withinShowAnswer, withinResetElem, tapElem;
+
 var resetDynamicFunctions = function () {
   tapElem = function (tar) {
     console.log("init tapElem:", tar);
@@ -1912,6 +1913,7 @@ var resetDynamicFunctions = function () {
   withinCheckAnswer = function () {
     console.log("init afterCheckAnswer");
   };
+
   withinShowAnswer = function (boolean) {
     console.log("init afterShowAnswer:", boolean);
   };

@@ -1,0 +1,712 @@
+<div id="module_wrapper" class="module_basic">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>統計與長條圖：</b
+            ><br />1.數一數每種海底生物有幾隻，把數量填入表格。<br />2.用方格貼紙由下往上貼。
+          </p>
+          <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-1-1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-top: 20px">
+          <div class="bigPicture">
+            <div class="sensors">
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 14px; left: 26px; width: 40px; height: 28px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 69px; left: 23px; width: 22px; height: 37px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 43px; left: 55px; width: 35px; height: 43px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 92px; left: 52px; width: 43px; height: 28px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 14px; left: 85px; width: 36px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 82px; left: 99px; width: 36px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 62px; left: 138px; width: 25px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 14px; left: 129px; width: 39px; height: 41px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 93px; left: 150px; width: 41px; height: 27px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 64px; left: 175px; width: 41px; height: 27px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 20px; left: 178px; width: 23px; height: 34px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 30px; left: 208px; width: 35px; height: 29px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 73px; left: 218px; width: 35px; height: 44px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 11px; left: 250px; width: 35px; height: 48px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 61px; left: 256px; width: 39px; height: 27px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 90px; left: 279px; width: 42px; height: 27px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 13px; left: 290px; width: 42px; height: 27px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 48px; left: 295px; width: 34px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 16px; left: 333px; width: 35px; height: 43px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 71px; left: 330px; width: 35px; height: 43px"
+              ></span>
+            </div>
+            <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-1-1.png" />
+          </div>
+          <div class="counter">
+            <div class="sensors">
+              <span
+                type="t1"
+                style="top: 28px; left: 53px; width: 79px; height: 20px"
+              ></span>
+              <span
+                type="t2"
+                style="top: 28px; left: 140px; width: 79px; height: 20px"
+              ></span>
+              <span
+                type="t3"
+                style="top: 28px; left: 228px; width: 79px; height: 20px"
+              ></span>
+              <span
+                type="t4"
+                style="top: 28px; left: 317px; width: 79px; height: 20px"
+              ></span>
+            </div>
+            <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-1-2.png" />
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t1"
+                style="top: 16px; left: 20px; width: 74px; height: 142px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t2"
+                style="top: 16px; left: 96px; width: 74px; height: 142px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t3"
+                style="top: 16px; left: 172px; width: 74px; height: 142px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t4"
+                style="top: 16px; left: 248px; width: 74px; height: 142px"
+              ></span>
+            </div>
+            <div class="img">
+              <img
+                width="360"
+                src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-1-3.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>統計與長條圖：</b
+            ><br />1.數一數每種幾何形有幾個，把數量填入表格。<br />2.用方格貼紙由下往上貼。
+          </p>
+          <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-2-1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-top: 20px">
+          <div class="bigPicture">
+            <div class="sensors">
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 38px; left: 14px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 86px; left: 14px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 15px; left: 45px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 62px; left: 45px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 38px; left: 76px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 86px; left: 76px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 15px; left: 107px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 62px; left: 107px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 38px; left: 138px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 86px; left: 138px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 15px; left: 169px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 62px; left: 169px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 38px; left: 200px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 86px; left: 200px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 15px; left: 231px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 62px; left: 231px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 38px; left: 262px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 86px; left: 262px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 15px; left: 292px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 62px; left: 292px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t3"
+                style="top: 38px; left: 323px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t2"
+                style="top: 86px; left: 323px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t1"
+                style="top: 15px; left: 354px; width: 30px; height: 30px"
+              ></span>
+              <span
+                onclick="pickMe($(this))"
+                type="t4"
+                style="top: 62px; left: 354px; width: 30px; height: 30px"
+              ></span>
+            </div>
+            <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-2-1.png" />
+          </div>
+          <div class="counter">
+            <div class="sensors">
+              <span
+                type="t1"
+                style="top: 28px; left: 53px; width: 79px; height: 20px"
+              ></span>
+              <span
+                type="t2"
+                style="top: 28px; left: 140px; width: 79px; height: 20px"
+              ></span>
+              <span
+                type="t3"
+                style="top: 28px; left: 228px; width: 79px; height: 20px"
+              ></span>
+              <span
+                type="t4"
+                style="top: 28px; left: 317px; width: 79px; height: 20px"
+              ></span>
+            </div>
+            <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-2-2.png" />
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t1"
+                style="top: 16px; left: 20px; width: 74px; height: 142px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t2"
+                style="top: 16px; left: 96px; width: 74px; height: 142px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t3"
+                style="top: 16px; left: 172px; width: 74px; height: 142px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t4"
+                style="top: 16px; left: 248px; width: 74px; height: 142px"
+              ></span>
+            </div>
+            <div class="img">
+              <img
+                width="360"
+                src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-2-3.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>統計與長條圖：</b
+            ><br />1.調查同學們最喜歡的課間活動，把人數填入表格。<br />2.用方格貼紙由下往上貼。
+          </p>
+          <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-3-2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-top: 20px">
+          <div class="counter">
+            <div class="sensors">
+              <span
+                onclick="addMe($(this),8)"
+                type="t1"
+                style="top: 28px; left: 53px; width: 79px; height: 20px"
+              ></span>
+              <span
+                onclick="addMe($(this),8)"
+                type="t2"
+                style="top: 28px; left: 140px; width: 79px; height: 20px"
+              ></span>
+              <span
+                onclick="addMe($(this),8)"
+                type="t3"
+                style="top: 28px; left: 228px; width: 79px; height: 20px"
+              ></span>
+              <span
+                onclick="addMe($(this),8)"
+                type="t4"
+                style="top: 28px; left: 317px; width: 79px; height: 20px"
+              ></span>
+            </div>
+            <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-3-2.png" />
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t1"
+                style="top: 23px; left: 15px; width: 55px; height: 151px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t2"
+                style="top: 23px; left: 72px; width: 55px; height: 151px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t3"
+                style="top: 23px; left: 129px; width: 55px; height: 151px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t4"
+                style="top: 23px; left: 187px; width: 55px; height: 151px"
+              ></span>
+            </div>
+            <div class="img">
+              <img
+                width="270"
+                src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-3-3.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>統計與長條圖：</b
+            ><br />1.調查同學們最喜歡的營養午餐菜色，把人數填入表格。<br />2.用方格貼紙由下往上貼。
+          </p>
+          <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-4-2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-top: 20px">
+          <div class="counter">
+            <div class="sensors">
+              <span
+                onclick="addMe($(this),8)"
+                type="t1"
+                style="top: 28px; left: 53px; width: 79px; height: 20px"
+              ></span>
+              <span
+                onclick="addMe($(this),8)"
+                type="t2"
+                style="top: 28px; left: 140px; width: 79px; height: 20px"
+              ></span>
+              <span
+                onclick="addMe($(this),8)"
+                type="t3"
+                style="top: 28px; left: 228px; width: 79px; height: 20px"
+              ></span>
+              <span
+                onclick="addMe($(this),8)"
+                type="t4"
+                style="top: 28px; left: 317px; width: 79px; height: 20px"
+              ></span>
+            </div>
+            <img width="400" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-4-2.png" />
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t1"
+                style="top: 23px; left: 15px; width: 55px; height: 151px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t2"
+                style="top: 23px; left: 72px; width: 55px; height: 151px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t3"
+                style="top: 23px; left: 129px; width: 55px; height: 151px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),8)"
+                type="t4"
+                style="top: 23px; left: 187px; width: 55px; height: 151px"
+              ></span>
+            </div>
+            <div class="img">
+              <img
+                width="270"
+                src="./DATA/PT2/BOOK5/IMAGES/PT2-5-3-3-4-3.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .item {
+    text-align: center;
+  }
+  .item > div {
+    position: relative;
+  }
+  .item > div.bigPicture {
+    margin: 0 auto;
+    margin-bottom: 5px;
+    animation: fadeInDown 0.6s;
+    pointer-events: auto;
+  }
+  .item > div.bigPicture.showAnswer {
+    display: none;
+  }
+  .item > div.bigPicture .sensors > span {
+    border: 2px solid transparent;
+    border-radius: 100%;
+  }
+  .item > div.bigPicture .sensors > span.selected {
+    border-color: #ff0000;
+  }
+  .item > div.counter {
+    margin: 0 auto;
+    margin-bottom: 5px;
+    animation: fadeInUp 0.6s;
+  }
+  .item > div.counter .sensors > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .item.selected > div.dashboard.showAnswer {
+    display: inline-block;
+  }
+  .item > div.dashboard {
+    animation: fadeInUp 0.6s;
+    display: none;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .item > div.dashboard .sensors > span {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .item > div.dashboard .sensors > span > span {
+    pointer-events: auto;
+    width: 100%;
+    pointer-events: auto;
+    animation: rotateInUpLeft 0.5s both;
+    transform-origin: center top;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .item > div.dashboard .sensors > span > span.t1 {
+    background: #eb6d8e;
+  }
+  .item > div.dashboard .sensors > span > span.t2 {
+    background: #f6bd60;
+  }
+  .item > div.dashboard .sensors > span > span.t3 {
+    background: #66bf97;
+  }
+  .item > div.dashboard .sensors > span > span.t4 {
+    background: #6bc4ef;
+  }
+</style>
+<script>
+  var pickMe = function (tar) {
+    var item = $(".contents > div.selected .group .item.selected");
+    if (item.length > 0) {
+      var bp = item.find(".bigPicture");
+      var counter = item.find(".counter");
+      var dashboard = item.find(".dashboard");
+      //counting
+      tar.toggleClass("selected");
+      var typ = tar.attr("type");
+      var theCounter = counter.find("span[type='" + typ + "']");
+      theCounter.text(bp.find("span[type='" + typ + "'].selected").length);
+
+      //check complete?
+      if (bp.find("span:not(.selected)").length == 0) {
+        dashboard.addClass("showAnswer");
+        bp.addClass("showAnswer");
+        rootSoundEffect($right);
+        $(".sideTool > div.btn_check").show();
+      } else {
+        rootSoundEffect($key);
+      }
+    }
+
+    //$(".sideTool > div.btn_answer").removeClass("active");
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var addMe = function (tar, max) {
+    var item = $(".contents > div.selected .group .item.selected");
+    if (item.length > 0) {
+      var counter = item.find(".counter");
+      var dashboard = item.find(".dashboard");
+      //adding
+      var digit = tar.text();
+      tar.addClass("selected");
+      if (digit == "") {
+        digit = 1;
+      } else {
+        digit = parseInt(tar.text()) + 1;
+        if (digit > max) {
+          digit = 1;
+        }
+      }
+      tar.text(digit);
+      rootSoundEffect($key);
+      //check complete?
+      if (counter.find("span:not(.selected)").length == 0) {
+        dashboard.addClass("showAnswer");
+        $(".sideTool > div.btn_check").show();
+      }
+    }
+
+    //$(".sideTool > div.btn_answer").removeClass("active");
+    $(".sideTool > div.btn_replay").show();
+  };
+  var stakeMe = function (tar, max) {
+    if (tar.find("span").length < max) {
+      tar.append(
+        "<span class='" +
+          tar.attr("type") +
+          "' onclick='removeMe(event, $(this))' style='flex:0 0 " +
+          100 / max +
+          "%'></span>"
+      );
+      rootSoundEffect($show);
+    } else {
+      rootSoundEffect($stupid);
+    }
+  };
+  var removeMe = function (event, tar) {
+    if (tar.next().length === 0) {
+      event.stopPropagation();
+      tar.remove();
+      rootSoundEffect($pop);
+    }
+  };
+
+  var withinResetElem = function () {
+    var sensors = $(".contents > div.selected .sensors > span");
+    sensors.removeClass("selected").empty();
+  };
+
+  var withinCheckAnswer = function () {
+    var item = $(".contents > div.selected .group .item.selected");
+    if (item.length > 0) {
+      var counter = item.find(".counter");
+      var dashboard = item.find(".dashboard");
+      //counting
+      var gotWrong = false;
+      counter.find(".sensors > span").each(function () {
+        var typ = $(this).attr("type");
+        var theDashboard = dashboard.find(
+          ".sensors > span[type='" + typ + "']"
+        );
+        if (parseInt($(this).text()) != theDashboard.find("span").length) {
+          gotWrong = true;
+        }
+      });
+
+      if (gotWrong) {
+        rootSoundEffect($wrong);
+      } else {
+        bingo();
+      }
+    }
+  };
+</script>

@@ -14320,6 +14320,8 @@
         .sensors {
           position: absolute;
           z-index: 1;
+          top: 0;
+          left: 0;
           > * {
             position: absolute;
             pointer-events: auto;
@@ -14327,6 +14329,7 @@
             transition: all 0.5s;
             //for visibility used
             //background: rgba(255, 0, 0, 0.2);
+
             &.word {
               text-align: center;
               white-space: nowrap;
