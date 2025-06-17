@@ -374,6 +374,8 @@ var showAnswer = function (boolean) {
   } else {
     $(".sideTool > div.btn_replay").click();
   }
+  ////dymamic function here
+  withinShowAnswer(boolean);
 };
 
 var checkAnswer = function () {

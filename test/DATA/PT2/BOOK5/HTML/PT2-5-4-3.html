@@ -1,0 +1,535 @@
+<div id="module_wrapper" class="module_basic">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>食尚達人：</b
+            >在超市中，有四種不同口味的牛奶，看完營樣標示後，完成表格和回答問題。<br />1.參考營樣標示製作卡片。<br />2.依照問題決定卡片的順序。<br />3.找出正確的答案。
+          </p>
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject">
+        <div class="img" style="width: 220px">
+          <img width="100%" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1.png" />
+          <img
+            class="simplyDrag"
+            width="100%"
+            src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1R.png"
+          />
+        </div>
+        <div class="charts wow fadeInLeft" style="width: 0px; top: 30px">
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 15px; height: 12px"
+                class="word"
+                >50</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 62px; height: 12px"
+                class="word"
+                >2.7</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 110px; height: 12px"
+                class="word"
+                >4.8</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 155px; height: 12px"
+                class="word"
+                >130</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1A.png" />
+          </div>
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 15px; height: 12px"
+                class="word"
+                >66</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 62px; height: 12px"
+                class="word"
+                >2</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 110px; height: 12px"
+                class="word"
+                >9.7</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 155px; height: 12px"
+                class="word"
+                >60</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1B.png" />
+          </div>
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 15px; height: 12px"
+                class="word"
+                >63</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 62px; height: 12px"
+                class="word"
+                >1.7</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 110px; height: 12px"
+                class="word"
+                >9.2</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 155px; height: 12px"
+                class="word"
+                >60</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1C.png" />
+          </div>
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 15px; height: 12px"
+                class="word"
+                >64</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 62px; height: 12px"
+                class="word"
+                >2.1</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 110px; height: 12px"
+                class="word"
+                >8.3</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 10px; left: 155px; height: 12px"
+                class="word"
+                >30</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1D.png" />
+          </div>
+        </div>
+      </div>
+      <div class="group wow fadeInUp" style="margin-top: 20px">
+        <div class="item">
+          <div class="sensors">
+            <span
+              onclick="switchMilk($(this))"
+              style="width: 60px; top: 19px; left: 46px; height: 15px"
+              class="word"
+              ans="高鈣低脂"
+            ></span>
+            <span
+              onclick="switchMilk($(this))"
+              style="width: 60px; top: 19px; left: 212px; height: 15px"
+              class="word"
+              ans="巧克力"
+            ></span>
+          </div>
+          <img width="300" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1-Q1.png" />
+        </div>
+        <div class="item">
+          <div class="sensors">
+            <span
+              onclick="switchMilk($(this))"
+              style="width: 60px; top: 19px; left: 46px; height: 15px"
+              class="word"
+              ans="高鈣低脂"
+            ></span>
+            <span
+              onclick="switchMilk($(this))"
+              style="width: 60px; top: 19px; left: 212px; height: 15px"
+              class="word"
+              ans="香蕉"
+            ></span>
+          </div>
+          <img width="300" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1-Q2.png" />
+        </div>
+        <div class="item">
+          <div class="sensors">
+            <span
+              onclick="switchMilk($(this))"
+              style="width: 60px; top: 32px; left: 46px; height: 15px"
+              class="word"
+              ans="高鈣低脂"
+            ></span>
+            <span
+              onclick="switchMilk($(this))"
+              style="width: 60px; top: 32px; left: 212px; height: 15px"
+              class="word"
+              ans="蘋果"
+            ></span>
+          </div>
+          <img width="300" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-1-Q3.png" />
+        </div>
+      </div>
+    </div>
+
+    <div style="flex-direction: column">
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>食尚達人：</b
+            >在超市中，有四種不同口味的洋芋片，看完營養成分和標示後，完成表格和回答問題。<br />1.參考營樣標示製作卡片。<br />2.依照問題決定卡片的順序。<br />3.找出正確的答案。
+          </p>
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject">
+        <div class="img" style="width: 220px">
+          <img width="100%" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2.png" />
+          <img
+            class="simplyDrag"
+            width="100%"
+            src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2R.png"
+          />
+        </div>
+        <div class="charts wow fadeInLeft" style="width: 0px; top: 30px">
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 15px; height: 12px"
+                class="word"
+                >530</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 62px; height: 12px"
+                class="word"
+                >5.0</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 110px; height: 12px"
+                class="word"
+                >469</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 162px; height: 12px"
+                class="word"
+                >2</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2A.png" />
+          </div>
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 15px; height: 12px"
+                class="word"
+                >550</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 62px; height: 12px"
+                class="word"
+                >5.0</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 110px; height: 12px"
+                class="word"
+                >547</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 162px; height: 12px"
+                class="word"
+                >4</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2B.png" />
+          </div>
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 15px; height: 12px"
+                class="word"
+                >538</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 62px; height: 12px"
+                class="word"
+                >5.0</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 110px; height: 12px"
+                class="word"
+                >577</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 162px; height: 12px"
+                class="word"
+                >3</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2C.png" />
+          </div>
+          <div class="simplyDrag">
+            <div class="sensors">
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 15px; height: 12px"
+                class="word"
+                >550</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 62px; height: 12px"
+                class="word"
+                >5.7</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 110px; height: 12px"
+                class="word"
+                >335</span
+              >
+              <span
+                onclick="toggleMe($(this))"
+                style="width: 30px; top: 5px; left: 162px; height: 12px"
+                class="word"
+                >3</span
+              >
+            </div>
+            <img width="206" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2D.png" />
+          </div>
+        </div>
+      </div>
+      <div class="group wow fadeInUp" style="margin-top: 20px">
+        <div class="item">
+          <div class="sensors">
+            <span
+              onclick="switchChip($(this))"
+              style="width: 60px; top: 19px; left: 27px; height: 15px"
+              class="word"
+              ans="原味"
+            ></span>
+          </div>
+          <img width="240" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2-Q1.png" />
+        </div>
+        <div class="item">
+          <div class="sensors">
+            <span
+              onclick="switchChip($(this))"
+              style="width: 60px; top: 19px; left: 25px; height: 15px"
+              class="word"
+              ans="低鈉椒鹽"
+            ></span>
+          </div>
+          <img width="300" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2-Q2.png" />
+        </div>
+        <div class="item">
+          <div class="sensors">
+            <span
+              onclick="switchChip($(this))"
+              style="width: 60px; top: 32px; left: 25px; height: 15px"
+              class="word"
+              ans="雞汁"
+            ></span>
+          </div>
+          <img width="300" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-3-2-Q3.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .subject {
+    display: flex;
+  }
+
+  .subject > .charts,
+  .subject > .img {
+    position: relative;
+  }
+  .subject > .img .simplyDrag {
+    top: 0%;
+    left: -130%;
+    animation: bounceInUp 1s;
+  }
+  .subject > .charts,
+  .subject > .charts > .simplyDrag {
+    height: auto;
+    left: 20px;
+  }
+  .subject > .charts > .simplyDrag:nth-child(2) {
+    top: 40px;
+  }
+  .subject > .charts > .simplyDrag:nth-child(3) {
+    top: 80px;
+  }
+  .subject > .charts > .simplyDrag:nth-child(4) {
+    top: 120px;
+  }
+
+  .item {
+    text-align: center;
+  }
+  .item > div {
+    position: relative;
+  }
+
+  .item.selected > div.dashboard.showAnswer {
+    display: inline-block;
+  }
+  .item > div.dashboard {
+    animation: fadeInUp 0.6s;
+    display: none;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .item > div.dashboard .sensors > span {
+    display: flex;
+    flex-direction: column;
+  }
+  .item > div.dashboard .sensors > span > span {
+    pointer-events: auto;
+    width: 100%;
+    pointer-events: auto;
+    animation: rotateInUpLeft 0.5s both;
+    transform-origin: center top;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+</style>
+<script>
+  milkArray = ["高鈣低脂", "蘋果", "巧克力", "香蕉"];
+  var switchMilk = (item) => {
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > milkArray.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.text(milkArray[sc]);
+    item.addClass("selected");
+    rootSoundEffect($key);
+    $(".sideTool > div.btn_check").show();
+  };
+
+  chipArray = ["原味", "雞汁", "海苔味", "低鈉椒鹽"];
+  var switchChip = (item) => {
+    var sc = item.attr("sc");
+    if (sc == undefined) {
+      sc = 0;
+    } else {
+      sc = parseInt(sc);
+      sc += 1;
+      if (sc > chipArray.length - 1) {
+        sc = 0;
+      }
+    }
+    item.attr("sc", sc);
+    item.text(chipArray[sc]);
+    item.addClass("selected");
+    rootSoundEffect($key);
+    $(".sideTool > div.btn_check").show();
+  };
+
+  var toggleMe = function (tar) {
+    event.stopPropagation();
+    tar.toggleClass("selected");
+    rootSoundEffect($pop);
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      var spans = $(".contents > div.selected .group .item .sensors > span");
+      if (spans.length > 0) {
+        spans.each(function () {
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+        });
+      }
+    }
+  };
+
+  var withinCheckAnswer = function () {
+    var spans = $(
+      ".contents > div.selected .group .item.selected .sensors > span"
+    );
+    if (spans.length > 0) {
+      var allpass = true;
+      spans.each(function () {
+        var ans = $(this).attr("ans");
+        var ans2 = $(this).text();
+        if (ans != ans2) {
+          $(this).removeAttr("sc").empty();
+          allpass = false;
+        }
+      });
+
+      if (!allpass) {
+        rootSoundEffect($stupid);
+        throw "wrong answer";
+        //中斷之後的js
+      } else {
+        bingo();
+      }
+    }
+  };
+
+  var withinResetElem = function () {};
+</script>
