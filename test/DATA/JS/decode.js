@@ -99,7 +99,24 @@ var trigMe = function (tar) {
     if (frame.length > 0) {
       //必須利用ans來限定答案數量
       var answerArr = frame.attr("ans").split(",");
-      if (!frame.hasClass("autoClean")) {
+      if (frame.hasClass("autoClean")) {
+        //欄位自動取代
+        rootSoundEffect($pop);
+        $(".sideTool > div.btn_replay").show();
+        frame.children().not($("div.reset")).remove();
+        frame.append(tar.clone());
+        if (frame.find(".indicator").length > 0) {
+          updateIndicator(frame);
+        }
+      } else if (frame.hasClass("unlimit")) {
+        //不限制答案數量
+        rootSoundEffect($pop);
+        $(".sideTool > div.btn_replay").show();
+        frame.append(tar.clone());
+        if (frame.find(".indicator").length > 0) {
+          updateIndicator(frame);
+        }
+      } else {
         if (frame.find(">span").length < answerArr.length) {
           //還有欄位
           rootSoundEffect($pop);
@@ -111,15 +128,6 @@ var trigMe = function (tar) {
         } else {
           //答案已滿
           rootSoundEffect($wrong);
-        }
-      } else {
-        //欄位自動取代
-        rootSoundEffect($pop);
-        $(".sideTool > div.btn_replay").show();
-        frame.children().not($("div.reset")).remove();
-        frame.append(tar.clone());
-        if (frame.find(".indicator").length > 0) {
-          updateIndicator(frame);
         }
       }
     } else {
@@ -262,32 +270,56 @@ var checkAnswer = function () {
   });
 
   //puzzle
+  ////答案不用照ans順序 : randomOrder
+  ////答案無限制數量 : unlimit
   var items = $(".contents > div.selected .puzzle").find(".items");
   items.each(function () {
     $(this).removeClass("selected");
     var kids = $(this).find(">span");
     kids.removeClass("wrong");
+    var kidArray = [];
+    for (var k = 0; k < kids.length; k++) {
+      kidArray.push({ key: kids.eq(k).attr("iid"), seq: k });
+    }
+    console.log(kidArray);
     var answerArr = $(this).attr("ans").split(",");
+    //ans是空值代表沒有答案
+    if ($(this).attr("ans") == "") {
+      answerArr = [];
+    }
+    console.log(answerArr);
     if (kids.length == answerArr.length) {
+      //答案不用照順序 : randomOrder
+      if ($(this).hasClass("randomOrder")) {
+        answerArr.sort();
+        kidArray.sort((a, b) => a.key.localeCompare(b.key));
+      }
+      //檢查是否正確
       for (var i = 0; i < answerArr.length; i++) {
-        console.log(answerArr[i], kids.eq(i).attr("iid"));
-        console.log("--");
-        if (answerArr[i] != kids.eq(i).attr("iid")) {
-          kids.eq(i).addClass("wrong");
+        if (answerArr[i] != kidArray[i].key) {
+          kids.eq(kidArray[i].seq).addClass("wrong");
+          //答案不用照順序的話,錯一個全錯
+          if ($(this).hasClass("randomOrder")) {
+            kids.addClass("wrong");
+          }
           getWrong = true;
         }
-        //如果code那邊就錯了
-        for (var k = 0; k < codeItems.length; k++) {
-          if (kids.eq(i).attr("iid") == codeItems.eq(k).attr("iid")) {
-            //如果code那邊就錯了 或是 圖案不同
-            if (
-              codeItems.eq(k).hasClass("wrong") ||
-              codeItems.eq(k).find("img").attr("src") !=
-                kids.eq(i).find("img").attr("src")
-            ) {
-              kids.eq(i).addClass("wrong");
-              getWrong = true;
+      }
+      //如果code那邊就錯了
+      for (var k = 0; k < codeItems.length; k++) {
+        if (kids.eq(i).attr("iid") == codeItems.eq(k).attr("iid")) {
+          //如果code那邊就錯了 或是 圖案不同
+          if (
+            codeItems.eq(k).hasClass("wrong") ||
+            codeItems.eq(k).find("img").attr("src") !=
+              kids.eq(i).find("img").attr("src")
+          ) {
+            kids.eq(i).addClass("wrong");
+            //答案不用照順序的話,錯一個全錯
+            if ($(this).hasClass("randomOrder")) {
+              kids.addClass("wrong");
             }
+            getWrong = true;
           }
         }
       }
