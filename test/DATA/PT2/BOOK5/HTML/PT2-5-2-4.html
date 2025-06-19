@@ -1,0 +1,581 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>訊息推理</b
+            >：選出幾個字詞，推理看看文章的內容。<br />1.找一個選擇欄位，填入幾個字詞。<br />2.選擇對應的推理欄位，看推理是否正確。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="code wow bounceInLeft" style="width: 350px">
+        <div class="items">
+          <span
+            style="height: 14px; top: 48px; left: 68px"
+            iid="n1"
+            onClick="trigMe2($(this))"
+            >Play</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 90px"
+            iid="n2"
+            onClick="trigMe2($(this))"
+            >swings</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 125px"
+            iid="n3"
+            onClick="trigMe2($(this))"
+            >picnic</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 156px"
+            iid="n4"
+            onClick="trigMe2($(this))"
+            >hat</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 172px"
+            iid="n5"
+            onClick="trigMe2($(this))"
+            >a yellow T-shirt</span
+          >
+          <span
+            style="height: 14px; top: 60px; left: 69px"
+            iid="n6"
+            onClick="trigMe2($(this))"
+            >and blue skirt</span
+          >
+          <span
+            style="height: 14px; top: 82px; left: 69px"
+            iid="n7"
+            onClick="trigMe2($(this))"
+            >in the park</span
+          >
+          <span
+            style="height: 14px; top: 108px; left: 68px"
+            iid="n8"
+            onClick="trigMe2($(this))"
+            >sun is shining</span
+          >
+          <span
+            style="height: 14px; top: 108px; left: 131px"
+            iid="n9"
+            onClick="trigMe2($(this))"
+            >sky is blue</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-2-4-1-1.png"
+        />
+      </div>
+      <div
+        class="puzzle wow bounceInRight"
+        style="width: 400px; margin-top: 30px"
+      >
+        <div
+          class="items unlimit randomOrder option1"
+          target="guess1"
+          ans="n7"
+          style="top: 46px; left: 59px; min-width: 99px; height: 17px"
+        ></div>
+
+        <div
+          class="items guess1"
+          target="option1"
+          text="Emily在公園裡"
+          ans=""
+          style="top: 67px; left: 59px; min-width: 240px; height: 17px"
+        ></div>
+
+        <div
+          class="items unlimit randomOrder option2"
+          target="guess2"
+          ans="n1,n2,n3"
+          style="top: 89px; left: 59px; min-width: 99px; height: 17px"
+        ></div>
+
+        <div
+          class="items guess2"
+          target="option2"
+          text="Emily在公園裡玩耍和野餐的事情"
+          ans=""
+          style="top: 111px; left: 59px; min-width: 240px; height: 17px"
+        ></div>
+        <div class="sensors">
+          <span
+            onClick="pickMe2($(this))"
+            ans="0"
+            style="top: 160px; left: 14px; width: 74px"
+          ></span>
+          <span
+            onClick="pickMe2($(this))"
+            ans="1"
+            style="top: 160px; left: 117px; width: 74px"
+          ></span>
+          <span
+            onClick="pickMe2($(this))"
+            ans="0"
+            style="top: 160px; left: 225px; width: 74px"
+          ></span>
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-2-4-1-2.png"
+        />
+      </div>
+    </div>
+
+    <!-- 任務1 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>訊息推理</b
+            >：選出幾個字詞，推理看看文章的內容。<br />1.找一個選擇欄位，填入幾個字詞。<br />2.選擇對應的推理欄位，看推理是否正確。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="code wow bounceInLeft" style="width: 350px">
+        <div class="items">
+          <span
+            style="height: 14px; top: 25px; left: 86px"
+            iid="n1"
+            onClick="trigMe2($(this))"
+            >Tom</span
+          >
+          <span
+            style="height: 14px; top: 25px; left: 111px"
+            iid="n2"
+            onClick="trigMe2($(this))"
+            >friends</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 83px"
+            iid="n3"
+            onClick="trigMe2($(this))"
+            >play games</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 142px"
+            iid="n4"
+            onClick="trigMe2($(this))"
+            >eat cake</span
+          >
+          <span
+            style="height: 14px; top: 48px; left: 189px"
+            iid="n5"
+            onClick="trigMe2($(this))"
+            >gifts</span
+          >
+
+          <span
+            style="height: 14px; top: 71px; left: 83px"
+            iid="n6"
+            onClick="trigMe2($(this))"
+            >at Tom’s house</span
+          >
+          <span
+            style="height: 14px; top: 94px; left: 85px"
+            iid="n7"
+            onClick="trigMe2($(this))"
+            >Summer</span
+          >
+          <span
+            style="height: 14px; top: 117px; left: 83px"
+            iid="n8"
+            onClick="trigMe2($(this))"
+            >Happy</span
+          >
+          <span
+            style="height: 14px; top: 117px; left: 119px"
+            iid="n9"
+            onClick="trigMe2($(this))"
+            >have a great time</span
+          >
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-2-4-2-1.png"
+        />
+      </div>
+      <div
+        class="puzzle wow bounceInRight"
+        style="width: 400px; margin-top: 30px"
+      >
+        <div
+          class="items unlimit randomOrder option1"
+          target="guess1"
+          ans="n1,n2"
+          style="top: 4px; left: 59px; min-width: 99px; height: 17px"
+        ></div>
+
+        <div
+          class="items guess1"
+          target="option1"
+          text="Tom和他朋友的事情。"
+          ans=""
+          style="top: 24px; left: 59px; min-width: 240px; height: 17px"
+        ></div>
+        <div
+          class="items unlimit randomOrder option2"
+          target="guess2"
+          ans="n4,n5"
+          style="top: 46px; left: 59px; min-width: 99px; height: 17px"
+        ></div>
+
+        <div
+          class="items guess2"
+          target="option2"
+          text="Tom和朋友一起過生日"
+          ans=""
+          style="top: 67px; left: 59px; min-width: 240px; height: 17px"
+        ></div>
+
+        <div
+          class="items unlimit randomOrder option3"
+          target="guess3"
+          ans="n6"
+          style="top: 89px; left: 59px; min-width: 99px; height: 17px"
+        ></div>
+
+        <div
+          class="items guess3"
+          target="option3"
+          text="一起過Tom的生日"
+          ans=""
+          style="top: 111px; left: 59px; min-width: 240px; height: 17px"
+        ></div>
+        <div class="sensors">
+          <span
+            onClick="pickMe2($(this))"
+            ans="1"
+            style="top: 160px; left: 14px; width: 74px"
+          ></span>
+          <span
+            onClick="pickMe2($(this))"
+            ans="0"
+            style="top: 160px; left: 117px; width: 74px"
+          ></span>
+          <span
+            onClick="pickMe2($(this))"
+            ans="0"
+            style="top: 160px; left: 225px; width: 74px"
+          ></span>
+        </div>
+        <img
+          height="auto"
+          width="100%"
+          src="./DATA/PT2/BOOK5/IMAGES/PT2-5-2-4-2-2.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .module_decode .contents .sensors {
+    position: absolute;
+    z-index: 5;
+  }
+  .module_decode .contents .sensors > span {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    aspect-ratio: 1;
+  }
+  .module_decode .contents .sensors > span[ans="0"].selected {
+    background: url("./DATA/IMAGES/common/icon_wrong.png") no-repeat center
+      center;
+    background-size: contain;
+  }
+  .module_decode .contents .sensors > span[ans="1"].selected {
+    background: url("./DATA/IMAGES/common/icon_true.png") no-repeat center
+      center;
+    background-size: contain;
+  }
+  .module_decode .contents .code .items > span {
+    min-height: unset;
+    min-width: unset;
+    border-radius: 3px !important;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+    opacity: 0;
+  }
+  .module_decode .contents .code .items > span:hover {
+    opacity: 1;
+  }
+  .module_decode .contents .puzzle .items {
+    justify-content: left;
+    padding: 0 5px;
+  }
+  .module_decode .contents .puzzle .items .reset.incheck {
+    background-image: url("../DATA/IMAGES/common/btn_check.png");
+    background-size: contain;
+  }
+  .module_decode .contents .puzzle .items[text] {
+  }
+  .module_decode .contents .puzzle .items > span {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0;
+  }
+  .module_decode .contents .puzzle .items > span::after {
+    content: ",";
+  }
+  .module_decode .contents .puzzle .items > span:last-child:after {
+    content: "";
+  }
+</style>
+<script>
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      rootSoundEffect($help);
+      $(".contents > div.selected").find(".wrong").removeClass("wrong");
+      //code
+      if ($(".contents > div.selected .puzzle").find(".items").length > 0) {
+        var items = $(".contents > div.selected .puzzle").find(".items");
+        items.removeClass("selected");
+        var codeItems = $(".contents > div.selected .code").find(
+          ".items > span"
+        );
+
+        //解答
+        items.each(function () {
+          $(this).empty();
+          if (!$(this).attr("text")) {
+            var answerArr = $(this).attr("ans").split(",");
+            for (var i = 0; i < answerArr.length; i++) {
+              for (var k = 0; k < codeItems.length; k++) {
+                if (codeItems.eq(k).attr("iid") == answerArr[i]) {
+                  $(this).append(codeItems.eq(k).clone());
+                  break;
+                }
+              }
+            }
+          } else {
+            $(this).append(`<span>${$(this).attr("text")}</span>`);
+          }
+        });
+      }
+      //story
+      $(".contents > div.selected")
+        .find(".sensors > span[ans=1]")
+        .addClass("selected")
+        .siblings(".selected")
+        .removeClass("selected");
+    } else {
+      withinResetElem();
+    }
+  };
+  var pickMe2 = function (tar) {
+    tar.addClass("selected").siblings(".selected").removeClass("selected");
+    if (tar.attr("ans") == 1) {
+      rootSoundEffect($right);
+    } else {
+      rootSoundEffect($wrong);
+    }
+  };
+  var trigMe2 = function (tar) {
+    //
+    $(".sideTool > div.btn_answer").removeClass("active");
+    $(".alert").remove();
+    //
+    var frame = $(".contents > div.selected").find(".puzzle .items.selected");
+    //
+    if (tar.parent().parent().hasClass("code")) {
+      if (frame.length > 0 && !frame.attr("text")) {
+        //必須利用ans來限定答案數量
+        var answerArr = frame.attr("ans").split(",");
+        if (frame.hasClass("autoClean")) {
+          //欄位自動取代
+          rootSoundEffect($pop);
+          $(".sideTool > div.btn_replay").show();
+          frame.children().not($("div.reset")).remove();
+          frame.append(tar.clone());
+          if (frame.find(".indicator").length > 0) {
+            updateIndicator(frame);
+          }
+        } else if (frame.hasClass("unlimit")) {
+          //不限制答案數量
+          rootSoundEffect($pop);
+          $(".sideTool > div.btn_replay").show();
+          frame.append(tar.clone());
+          if (frame.find(".indicator").length > 0) {
+            updateIndicator(frame);
+          }
+        } else {
+          if (frame.find(">span").length < answerArr.length) {
+            //還有欄位
+            rootSoundEffect($pop);
+            $(".sideTool > div.btn_replay").show();
+            frame.append(tar.clone());
+            if (frame.find(".indicator").length > 0) {
+              updateIndicator(frame);
+            }
+          } else {
+            //答案已滿
+            rootSoundEffect($wrong);
+          }
+        }
+      } else {
+        //沒選到欄位
+        var alertmsg = "找一個選擇欄位來填入文字";
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        );
+        rootSoundEffect($stupid);
+      }
+    }
+    if (tar.parent().parent().hasClass("puzzle")) {
+      rootSoundEffect($show);
+      tar
+        .parent()
+        .addClass("selected")
+        .siblings(".selected")
+        .removeClass("selected");
+      tar.remove();
+      window.event.stopPropagation();
+    }
+  };
+  var withinResetElem = function () {
+    //reset sub
+    var elem = $(".contents > div.selected");
+    elem.find(".puzzle .items").removeClass("selected").empty();
+    elem
+      .find(".puzzle .items")
+      .unbind()
+      .bind("click", function () {
+        if (!$(this).attr("text")) {
+          if ($(this).find("div.reset").length < 1) {
+            $(this).append(`<div class="reset"></div>`);
+            $(this)
+              .find("div.reset")
+              .click(function (e) {
+                //e.stopPropagation();
+                rootSoundEffect($show);
+                $(this).parent().empty();
+              });
+          }
+        } else {
+          if ($(this).find("div.incheck").length < 1) {
+            $(this).append(`<div class="reset incheck"></div>`);
+            $(this)
+              .find("div.incheck")
+              .click(function (e) {
+                e.stopPropagation();
+                //rootSoundEffect($show);
+                //$(this).parent().empty();
+                checkGuess($(this));
+              });
+          }
+        }
+
+        $(this)
+          .toggleClass("selected")
+          .siblings(".selected")
+          .removeClass("selected");
+      })
+      .eq(0)
+      .click();
+
+    $(".smoke").remove();
+    $(".resultIcon").remove();
+  };
+
+  var checkGuess = function (tar) {
+    //tar是正在用到的推理欄位
+    //找到所有選擇欄位及所有答案組合陣列
+    var items = $(".contents > div.selected .puzzle").find(
+      `.items:not([text])`
+    );
+    var answers = [];
+    for (var i = 0; i < items.length; i++) {
+      var tempArr = items.eq(i).attr("ans").split(",");
+      if (items.eq(i).attr("ans") == "") {
+        tempArr = [];
+      } else {
+        tempArr.sort();
+      }
+      answers.push(tempArr);
+    }
+
+    //找到此推理欄位對應的選擇欄位
+    var item = $(".contents > div.selected .puzzle").find(
+      `.items.${tar.parent().attr("target")}`
+    );
+    item.removeClass("selected");
+    var kids = item.find(">span");
+    kids.removeClass("wrong");
+    var kidArray = [];
+    for (var k = 0; k < kids.length; k++) {
+      kidArray.push(kids.eq(k).attr("iid"));
+    }
+    kidArray.sort();
+
+    //開始比對答案
+    var gotAnswer = false;
+    var ansIdx = -1;
+    for (var k = 0; k < answers.length; k++) {
+      if (answers[k].join(",") == kidArray.join(",")) {
+        gotAnswer = true;
+        ansIdx = k;
+      }
+    }
+    if (gotAnswer) {
+      var guessItemClass = items.eq(ansIdx).attr("target");
+      var guessText = $(".contents > div.selected .puzzle")
+        .find(`.items.${guessItemClass}`)
+        .attr("text");
+      tar
+        .parent()
+        .removeClass("selected")
+        .empty()
+        .append(`<span>${guessText}</span>`);
+      rootSoundEffect($chimes);
+      var uniq = new Date().getTime();
+      $(".contents > div.selected .puzzle").append(
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      );
+      $(".smoke")
+        .delay(1500)
+        .queue(function () {
+          $(".resultIcon").remove();
+          $(this).dequeue().remove();
+        });
+    } else {
+      kids.addClass("wrong");
+      rootSoundEffect($wrong);
+    }
+  };
+</script>
