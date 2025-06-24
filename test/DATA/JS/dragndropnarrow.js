@@ -479,8 +479,6 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected")
       .find(".arrowArea.fixed > span")
       .addClass("active disabled");
-
-    withinShowAnswer(boolean);
   } else {
     toys.removeClass("cached semiTransparent positionBingo");
     $(".cardAvatarDie").remove();
@@ -489,6 +487,7 @@ var showAnswer = function (boolean) {
       .find(".arrowArea.fixed > span")
       .removeClass("active disabled");
   }
+  withinShowAnswer(boolean);
 };
 
 var checkAnswer = function () {

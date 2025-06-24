@@ -45,17 +45,18 @@
         </div>
         <div
           class="typeArea"
-          onClick="swapGroup($(this))"
           style="top: 219px; left: 11px"
           gid="0"
           text1="sub^bi^pre"
           text2="下面的^兩個的^預先"
         >
           <span
+            onClick="swapGroup($(this))"
             class="text1"
             style="top: 0px; left: 0px; width: 75px; height: 12px"
           ></span>
           <span
+            onclick="$(this).addClass('selected')"
             class="text2"
             style="top: 44px; left: 0px; width: 75px; height: 12px"
           ></span>
@@ -155,6 +156,33 @@
       </div>
 
       <div class="ref simplyDrag wow bounceInUp">
+        <span class="meaning" style="top: 11px; left: 60px; width: 54px"
+          >_語言的</span
+        >
+        <span class="meaning" style="top: 11px; left: 151px; width: 54px"
+          >判斷</span
+        >
+        <span class="meaning" style="top: 11px; left: 256px; width: 54px"
+          >邊、側</span
+        >
+        <span class="meaning" style="top: 31px; left: 60px; width: 54px"
+          >看</span
+        >
+        <span class="meaning" style="top: 31px; left: 151px; width: 54px"
+          >標題_</span
+        >
+        <span class="meaning" style="top: 31px; left: 256px; width: 54px"
+          >標準_</span
+        >
+        <span class="meaning" style="top: 52px; left: 60px; width: 54px"
+          >海(洋)的</span
+        >
+        <span class="meaning" style="top: 52px; left: 151px; width: 54px"
+          >循環一圈_</span
+        >
+        <span class="meaning" style="top: 52px; left: 256px; width: 54px"
+          >歷史的</span
+        >
         <img
           width="auto"
           height="80"
@@ -196,17 +224,18 @@
         </div>
         <div
           class="typeArea"
-          onClick="swapGroup($(this))"
           style="top: 219px; left: 11px"
           gid="0"
           text1="post^multi^auto"
           text2="之後的^多^自動"
         >
           <span
+            onClick="swapGroup($(this))"
             class="text1"
             style="top: 0px; left: 0px; width: 75px; height: 12px"
           ></span>
           <span
+            onclick="$(this).addClass('selected')"
             class="text2"
             style="top: 44px; left: 0px; width: 75px; height: 12px"
           ></span>
@@ -308,11 +337,37 @@
       </div>
 
       <div class="ref simplyDrag wow bounceInUp">
+        <span class="meaning" style="top: 11px; left: 60px; width: 54px"
+          >出生的_</span
+        >
+        <span class="meaning" style="top: 11px; left: 167px; width: 54px"
+          >玩家</span
+        >
+        <span class="meaning" style="top: 11px; left: 256px; width: 54px"
+          >對焦</span
+        >
+        <span class="meaning" style="top: 31px; left: 60px; width: 54px"
+          >文化的</span
+        >
+        <span class="meaning" style="top: 31px; left: 167px; width: 54px"
+          >手術的</span
+        >
+        <span class="meaning" style="top: 31px; left: 256px; width: 54px"
+          >媒體_</span
+        >
+        <span class="meaning" style="top: 52px; left: 60px; width: 54px"
+          >戰爭</span
+        >
+        <span class="meaning" style="top: 52px; left: 167px; width: 54px"
+          >移動物體</span
+        >
+        <span class="meaning" style="top: 52px; left: 256px; width: 54px"
+          >領航員</span
+        >
         <img
           width="auto"
           height="80"
           src="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2R.png"
-          src2="./DATA/PT2/BOOK4/IMAGES/PT2-4-2-4-2RA.png"
         />
       </div>
     </div>
@@ -323,11 +378,11 @@
 <script>
   //確認是否全部答對
   var swapGroup = (tar) => {
-    var gid = parseInt(tar.attr("gid"));
-    var text1Arr = tar.attr("text1").split("^");
-    var text2Arr = tar.attr("text2").split("^");
-    tar.find(".text1").text(text1Arr[gid]);
-    tar.find(".text2").text(text2Arr[gid]);
+    var gid = parseInt(tar.parent().attr("gid"));
+    var text1Arr = tar.parent().attr("text1").split("^");
+    var text2Arr = tar.parent().attr("text2").split("^");
+    tar.addClass("selected").text(text1Arr[gid]);
+    tar.parent().find(".text2").removeClass("selected").text(text2Arr[gid]);
     $(".contents > div.selected .sensorArea > span").attr(
       "group",
       text1Arr[gid]
@@ -337,8 +392,10 @@
     if (gid >= text1Arr.length) {
       gid = 0;
     }
-    tar.attr("gid", gid);
+    tar.parent().attr("gid", gid);
     rootSoundEffect($click);
+    //
+    $(".sideTool > div.btn_answer").show();
   };
 
   //確認是否全部答對
@@ -360,13 +417,25 @@
     die;
   };
 
+  //show answer
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".contents > div.selected .typeArea > span").addClass("selected");
+      $(".contents > div.selected .meaning").addClass("selected");
+    } else {
+      $(".sideTool > div.btn_replay").click();
+    }
+  };
+
+  //reset
+  var withinResetElem = function () {
+    $(".sideTool > div.btn_answer").hide();
+  };
+
   //點擊效果
   var tapElem = function (tar) {
-    if ($(tar).find("img").attr("src2")) {
-      var src = $(tar).find("img").attr("src");
-      var src2 = $(tar).find("img").attr("src2");
-      $(tar).find("img").attr("src", src2);
-      $(tar).find("img").attr("src2", src);
+    if ($(tar).hasClass("meaning")) {
+      $(tar).addClass("selected");
       rootSoundEffect($key);
     }
   };
@@ -394,7 +463,26 @@
     line-height: 1;
     color: #000;
     text-align: center;
-
+    opacity: 0;
     white-space: nowrap;
+  }
+  .typeArea > span.selected {
+    opacity: 1;
+  }
+
+  .ref .meaning {
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 1;
+    pointer-events: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+  .ref .meaning.selected {
+    opacity: 1;
   }
 </style>
