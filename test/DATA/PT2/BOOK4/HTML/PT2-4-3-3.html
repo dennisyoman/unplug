@@ -4,6 +4,7 @@
     <span>任務一</span>
     <span>任務二</span>
     <span>任務三</span>
+    <span>任務四</span>
   </div>
 
   <div class="units-title wow bounceInRight"></div>
@@ -199,15 +200,33 @@
               <span
                 onclick="toggleMeClass($(this),'selected')"
                 class="word"
-                style="top: 125px; left: 217px; width: 72px; height: 12px"
-                >9</span
+                style="
+                  top: 120px;
+                  left: 217px;
+                  width: 112px;
+                  height: 12px;
+                  transform: scale(0.7);
+                  transform-origin: left top;
+                  white-space: normal;
+                  text-align: left;
+                "
+                >剛好可以兩個兩個分成一組(偶數)</span
               >
               <span
                 onclick="toggleMeClass($(this),'selected')"
                 class="word"
-                style="top: 150px; left: 217px; width: 72px; height: 12px"
-                >8</span
-              >
+                style="
+                  top: 145px;
+                  left: 217px;
+                  width: 112px;
+                  height: 12px;
+                  white-space: normal;
+                  text-align: left;
+                  transform: scale(0.7);
+                  transform-origin: top left;
+                "
+                >兩個兩個分成一組會剩一個數(奇數)
+              </span>
             </div>
             <div class="img">
               <img width="350" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-0.png" />
@@ -426,18 +445,290 @@
               <span
                 onclick="toggleMeClass($(this),'selected')"
                 class="word selected"
-                style="top: 126px; left: 346px; width: 47px; height: 15px"
+                style="
+                  top: 130px;
+                  left: 348px;
+                  width: 47px;
+                  height: 15px;
+                  transform: scale(0.7);
+                  transform-origin: top left;
+                "
+                >共有幾個數字
+              </span>
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="
+                  top: 121px;
+                  left: 470px;
+                  width: 83px;
+                  height: 15px;
+                  transform: scale(0.7);
+                  transform-origin: top left;
+                  text-align: left;
+                  white-space: normal;
+                "
+                >頭尾數字加起來是多少
+              </span>
+            </div>
+            <div class="img">
+              <img width="540" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-3.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>高斯怎麼想：</b
+            ><br />1.點擊對應的數字填入空格裡。<br />2.觀察圖示，計算正確的答案。
+          </p>
+          <img src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="candies">
+            <div class="options">
+              <span
+                group="1"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 27px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="2"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 57px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="3"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 87px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="4"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 118px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="5"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 149px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="6"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 179px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="7"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 209px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="8"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 240px; width: 15px; height: 15px"
+              ></span>
+              <span
+                group="9"
+                class="word"
+                onclick="fillMe($(this))"
+                style="top: 10px; left: 270px; width: 15px; height: 15px"
+              ></span>
+            </div>
+            <div class="sensors">
+              <span
+                group="9"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 27px; width: 15px; height: 15px"
+                >9</span
+              >
+              <span
+                group="8"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 57px; width: 15px; height: 15px"
+                >8</span
+              >
+              <span
+                group="7"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 87px; width: 15px; height: 15px"
                 >7</span
+              >
+              <span
+                group="6"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 118px; width: 15px; height: 15px"
+                >6</span
+              >
+              <span
+                group="5"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 149px; width: 15px; height: 15px"
+                >5</span
+              >
+              <span
+                group="4"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 179px; width: 15px; height: 15px"
+                >4</span
+              >
+              <span
+                group="3"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 209px; width: 15px; height: 15px"
+                >3</span
+              >
+              <span
+                group="2"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 240px; width: 15px; height: 15px"
+                >2</span
+              >
+              <span
+                group="1"
+                onclick="selectMe($(this))"
+                class="filling"
+                style="top: 63px; left: 270px; width: 15px; height: 15px"
+                >1</span
+              >
+            </div>
+            <div class="img">
+              <img
+                height="88.5"
+                src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-5.png"
+              />
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 15px; left: 86px; width: 36px; height: 15px"
+                >10</span
               >
               <span
                 onclick="toggleMeClass($(this),'selected')"
                 class="word selected"
-                style="top: 126px; left: 467px; width: 47px; height: 15px"
-                >8</span
+                style="top: 15px; left: 205px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 36px; left: 86px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 36px; left: 205px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 59px; left: 86px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 59px; left: 205px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 83px; left: 86px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 83px; left: 205px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 106px; left: 86px; width: 36px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 21px; left: 391px; width: 21px; height: 15px"
+                >9</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 21px; left: 446px; width: 21px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 69px; left: 366px; width: 21px; height: 15px"
+                >9</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 69px; left: 423px; width: 21px; height: 15px"
+                >10</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="
+                  top: 59px;
+                  left: 485px;
+                  width: 30px;
+                  height: 30px;
+                  line-height: 30px;
+                "
+                >2</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 120px; left: 365px; width: 36px; height: 15px"
+                >9</span
+              >
+              <span
+                onclick="toggleMeClass($(this),'selected')"
+                class="word selected"
+                style="top: 120px; left: 462px; width: 36px; height: 15px"
+                >10</span
               >
             </div>
             <div class="img">
-              <img width="540" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-3.png" />
+              <img width="540" src="./DATA/PT2/BOOK4/IMAGES/PT2-4-3-3-6.png" />
             </div>
           </div>
         </div>
