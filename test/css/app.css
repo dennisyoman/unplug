@@ -12168,6 +12168,7 @@
   z-index: 3;
 }
 .module_box .contents .arrowArea > span {
+  pointer-events: auto;
   position: relative;
 }
 .module_box .contents .arrowArea > span::after {

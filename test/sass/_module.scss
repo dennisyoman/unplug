@@ -8225,6 +8225,7 @@
             pointer-events: auto;
             //for visibility use
             //background: rgba(255, 0, 0, 0.05);
+            //
 
             &.selected {
               &::before {
@@ -12461,6 +12462,7 @@
         //for visibility use
         //background: rgba(255, 0, 0, 0.2);
         //pointer-events: auto;
+        //
         z-index: 1;
       }
     }
@@ -12471,7 +12473,8 @@
       > span {
         //for visibility use
         //background: rgba(0, 255, 0, 0.1);
-        //pointer-events: auto;
+        //
+        pointer-events: auto;
         position: relative;
 
         &::after {
@@ -14333,6 +14336,7 @@
         //for visibility used
         //background: rgba(255, 0, 0, 0.2);
         //opacity: 1 !important;
+        //
 
         &.word {
           text-align: center;
