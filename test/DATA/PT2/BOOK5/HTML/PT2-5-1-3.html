@@ -36,8 +36,32 @@
         style="width: 400px; margin-top: 30px"
       >
         <div class="subject">
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_1.MP3')"
+            style="top: 0px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_1.MP3"
+          /></span>
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_2.MP3')"
+            style="top: 100px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_2.MP3"
+          /></span>
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_3.MP3')"
+            style="top: 200px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_3.MP3"
+          /></span>
+
           <img
-            class="subject"
             height="auto"
             width="100%"
             src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-3-1.png"
@@ -45,7 +69,6 @@
         </div>
         <div class="ans">
           <img
-            class="ans"
             height="auto"
             width="100%"
             src="./DATA/PT2/BOOK5/IMAGES/PT2-5-1-3-1.png"
@@ -74,6 +97,30 @@
       </div>
       <div class="puzzle wow fadeInUp" style="width: 360px; margin-top: 30px">
         <div class="subject">
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_1.MP3')"
+            style="top: 62px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_1.MP3"
+          /></span>
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_2.MP3')"
+            style="top: 136px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_2.MP3"
+          /></span>
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_3.MP3')"
+            style="top: 208px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_1_3.MP3"
+          /></span>
           <img
             height="auto"
             width="100%"
@@ -110,6 +157,22 @@
       </div>
       <div class="puzzle wow fadeInUp" style="width: 300px; margin-top: 30px">
         <div class="subject">
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_2_1.MP3')"
+            style="top: 64px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_2_1.MP3"
+          /></span>
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_2_2.MP3')"
+            style="top: 141px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_2_2.MP3"
+          /></span>
           <img
             height="auto"
             width="100%"
@@ -146,6 +209,22 @@
       </div>
       <div class="puzzle wow fadeInUp" style="width: 315px; margin-top: 30px">
         <div class="subject">
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_3_1.MP3')"
+            style="top: 69px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_3_1.MP3"
+          /></span>
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_3_2.MP3')"
+            style="top: 148px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L1_playgame_3_2.MP3"
+          /></span>
           <img
             height="auto"
             width="100%"
@@ -164,3 +243,46 @@
   </div>
   <div class="assetsPreload"></div>
 </div>
+<style>
+  .audiobtn {
+    position: absolute;
+    pointer-events: auto;
+    z-index: 22;
+    width: 20px;
+    height: 20px;
+    background: url("./DATA/IMAGES/common/player_play.png") no-repeat center
+      center;
+    background-size: 100% 100%;
+  }
+  .audiobtn.selected {
+    background: url("../DATA/IMAGES/common/player_pause.png") no-repeat center
+      center;
+    background-size: 100% 100%;
+  }
+</style>
+<script>
+  var playStory = function (tar, url) {
+    tar.siblings(".audiobtn").removeClass("selected");
+    //
+    var sameAudio = false;
+    for (let k = 0; k < $SFXNameAr.length; k++) {
+      if (url == $SFXNameAr[k]) {
+        if (currentAudio == $SFXAr[k]) {
+          sameAudio = true;
+        }
+      }
+    }
+
+    if (!tar.hasClass("selected")) {
+      if (sameAudio) {
+        currentAudio.play();
+      } else {
+        rootSoundEffectName(url);
+      }
+      tar.addClass("selected");
+    } else {
+      currentAudio.pause();
+      tar.removeClass("selected");
+    }
+  };
+</script>

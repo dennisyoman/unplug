@@ -586,6 +586,19 @@
     display: flex;
     flex-direction: column-reverse;
   }
+  .item > div.dashboard .sensors > span.wrong::after {
+    content: "";
+    position: absolute;
+    z-index: 99;
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    background: url("./DATA/IMAGES/common/icon_wrong.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: bounceIn 1s both;
+  }
   .item > div.dashboard .sensors > span > span {
     pointer-events: auto;
     width: 100%;
@@ -669,6 +682,7 @@
     $(".sideTool > div.btn_replay").show();
   };
   var stakeMe = function (tar, max) {
+    tar.removeClass("wrong");
     if (tar.find("span").length < max) {
       tar.append(
         "<span class='" +
@@ -683,6 +697,7 @@
     }
   };
   var removeMe = function (event, tar) {
+    tar.parent().removeClass("wrong");
     if (tar.next().length === 0) {
       event.stopPropagation();
       tar.remove();
@@ -692,7 +707,7 @@
 
   var withinResetElem = function () {
     var sensors = $(".contents > div.selected .sensors > span");
-    sensors.removeClass("selected").empty();
+    sensors.removeClass("wrong selected").empty();
   };
 
   var withinCheckAnswer = function () {
@@ -709,6 +724,8 @@
         );
         if (parseInt($(this).text()) != theDashboard.find("span").length) {
           gotWrong = true;
+          //提示錯誤column
+          theDashboard.addClass("wrong");
         }
       });
 
