@@ -670,6 +670,7 @@
   </lesson>
   <!-- PT2 Book5  -->
   <lesson sid="PT2" bid="5" lid="1">
+    <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-1-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK5/HTML/PT2-5-1-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 順風耳任務" html="PT2/BOOK5/HTML/PT2-5-1-3.html" js="JS/decode.js" image="IMAGES/UNITS/guess.png" skin="">
@@ -704,6 +705,46 @@
     <section section="3" name="一起玩遊戲 / 食尚達人" html="PT2/BOOK5/HTML/PT2-5-4-3.html" js="JS/basic.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>
     <section section="4" name="編程時間 / 演算法" html="PT2/BOOK5/HTML/PT2-5-4-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <!-- PT2 Book6  -->
+  <lesson sid="PT2" bid="6" lid="1">
+    <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-1-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin="">
+    </section>
+    <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK6/HTML/PT2-6-1-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 廣告小寫手" html="PT2/BOOK6/HTML/PT2-6-1-3.html" js="JS/basic.js" image="IMAGES/UNITS/guess.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT2/BOOK6/HTML/PT2-6-1-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT2" bid="6" lid="2">
+   <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-2-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK6/HTML/PT2-6-2-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 主題與關鍵" html="PT2/BOOK6/HTML/PT2-6-2-3.html" js="JS/basic.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT2/BOOK6/HTML/PT2-6-2-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT2" bid="6" lid="3">
+     <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-3-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK6/HTML/PT2-6-3-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 公因數磁磚" html="PT2/BOOK6/HTML/PT2-6-3-3.html" js="JS/basic.js" image="IMAGES/UNITS/organize.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT2/BOOK6/HTML/PT2-6-3-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT2" bid="6" lid="4">
+    <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-4-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK6/HTML/PT2-6-4-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
+    </section>
+    <section section="3" name="一起玩遊戲 / 排碳足跡" html="PT2/BOOK6/HTML/PT2-6-4-3.html" js="JS/basic.js" image="IMAGES/UNITS/trade.png" skin="">
+    </section>
+    <section section="4" name="一起玩遊戲 / 減碳算一算" html="PT2/BOOK6/HTML/PT2-6-4-4.html" js="JS/basic.js" image="IMAGES/UNITS/counter.png" skin="">
+    </section>
+    <section section="5" name="編程時間 / 演算法" html="PT2/BOOK6/HTML/PT2-6-4-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
 </root>

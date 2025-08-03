@@ -105,5 +105,11 @@
       <lesson lid="3">圖形愛表現</lesson>
       <lesson lid="4">營養分析小老師</lesson>
     </book>
+    <book name="Book 6" bid="6" img="PT2_book6.jpg">
+      <lesson lid="1">語言的力量</lesson>
+      <lesson lid="2">閱讀有辦法</lesson>
+      <lesson lid="3">剛好的長度</lesson>
+      <lesson lid="4">減碳我也行</lesson>
+    </book>
   </series>
 </root>

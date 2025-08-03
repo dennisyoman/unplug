@@ -1,0 +1,221 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK6/HTML/PT2-6-2-3.html','JS/basic.js',0)"
+      class="demo"
+      >示範一</span
+    >
+    <span
+      onClick="event.stopPropagation();loadContainerInside('PT2/BOOK6/HTML/PT2-6-2-3.html','JS/basic.js',1)"
+      class="demo"
+      >示範二</span
+    >
+    <span>任務一</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 示範一 -->
+    <div></div>
+
+    <!-- 示範二 -->
+    <div></div>
+
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>主題與關鍵：</b>
+          </p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-2-3-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow bounceInLeft"
+        style="width: 230px; padding: 0; margin-right: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="trigMe($(this))"
+            iid="n1"
+            style="top: 40px; left: 62px; width: 30px; height: 14px"
+            >Friday</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n2"
+            style="top: 52px; left: 66px; width: 58px; height: 14px"
+            >enjoy nature</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n3"
+            style="top: 86px; left: 55px; width: 36px; height: 14px"
+            >Q Park</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n4"
+            style="top: 98px; left: 80px; width: 25px; height: 14px"
+            >8</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n5"
+            style="top: 109px; left: 88px; width: 39px; height: 14px"
+            >8:30</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n6"
+            style="top: 120px; left: 74px; width: 25px; height: 14px"
+            >3</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n7"
+            style="top: 132px; left: 44px; width: 25px; height: 14px"
+            >$200</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n8"
+            style="top: 155px; left: 25px; width: 89px; height: 14px"
+            >water bottle and hat</span
+          >
+        </div>
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-2-3-2-1.png" />
+      </div>
+      <div class="check">
+        <div class="items">
+          <span
+            onClick="trigMeCheck2($(this))"
+            group="c1"
+            style="top: -126px; left: 145px; width: 10px; height: 10px"
+          ></span>
+          <span
+            onClick="trigMeCheck2($(this))"
+            group="c1"
+            ans="1"
+            style="top: -111px; left: 145px; width: 10px; height: 10px"
+          ></span>
+          <span
+            onClick="trigMeCheck2($(this))"
+            group="c2"
+            ans="1"
+            style="top: -53px; left: 45px; width: 10px; height: 10px"
+          ></span>
+          <span
+            onClick="trigMeCheck2($(this))"
+            group="c2"
+            style="top: -37px; left: 45px; width: 10px; height: 10px"
+          ></span>
+        </div>
+      </div>
+      <div class="puzzle wow bounceInRight" style="width: 230px">
+        <div
+          class="items autoClean"
+          ans="n3"
+          style="top: 46px; left: 123px; width: 97px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n2"
+          style="top: 82px; left: 123px; width: 97px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n1"
+          style="top: 120px; left: 138px; width: 49px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n4"
+          style="top: 130px; left: 184px; width: 31px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n5"
+          style="top: 140px; left: 188px; width: 35px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n6"
+          style="top: 151px; left: 173px; width: 35px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n7"
+          style="top: 187px; left: 123px; width: 97px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n8"
+          style="top: 224px; left: 123px; width: 97px; height: 14px"
+        ></div>
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-2-3-2-2.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .module_decode .contents .check .items > span {
+    min-height: unset;
+    min-width: unset;
+    background: url("./DATA/IMAGES/common/icon_check.png") no-repeat center
+      center;
+    background-size: contain;
+  }
+  .module_decode .contents .code .items > span {
+    min-height: unset;
+    min-width: unset;
+    border-radius: 3px !important;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+    opacity: 0;
+  }
+  .module_decode .contents .code .items > span:hover {
+    opacity: 1;
+  }
+  .module_decode .contents .puzzle .items {
+    justify-content: left;
+    padding: 0px;
+  }
+  .module_decode .contents .puzzle .items > span {
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: left;
+    transform: scale(0.6);
+    transform-origin: left center;
+    min-width: unset;
+    min-height: unset;
+  }
+</style>
+<script>
+  var trigMeCheck2 = function (tar) {
+    var group = tar.attr("group");
+    tar.siblings(`[group="${group}"]`).removeClass("wrong selected");
+    tar.removeClass("wrong").toggleClass("selected");
+    rootSoundEffect($show);
+    //
+    $(".sideTool > div.btn_answer").removeClass("active");
+    $(".alert").remove();
+  };
+</script>
