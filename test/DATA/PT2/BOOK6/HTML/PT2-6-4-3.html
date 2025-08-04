@@ -1,0 +1,594 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>碳排足跡</b>：排出牛肉從養殖到販售的過程，並回答問題。</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 0px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 95px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 191px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 286px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 286px;
+            "
+            group="e"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 191px;
+            "
+            group="f"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 95px;
+            "
+            group="g"
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="140"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="100"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1R.png"
+        />
+      </div>
+
+      <div
+        class="toys toys_rectangle wow slideInRight"
+        style="width: 150px; left: auto; right: 50px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,57"
+          group="a"
+          cid="A"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,152"
+          group="b"
+          cid="B"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,248"
+          group="c"
+          cid="C"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,343"
+          group="d"
+          cid="D"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,343"
+          group="e"
+          cid="E"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1E.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,248"
+          group="f"
+          cid="F"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1F.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,152"
+          group="g"
+          cid="G"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1G.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>碳排足跡</b>：排出牛肉從養殖到販售的過程，並回答問題。</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 0px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 95px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 191px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 286px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 286px;
+            "
+            group="e"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 191px;
+            "
+            group="f"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 95px;
+            "
+            group="g"
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="140"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="100"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2R.png"
+        />
+      </div>
+
+      <div
+        class="toys toys_rectangle wow slideInRight"
+        style="width: 150px; left: auto; right: 50px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,57"
+          group="a"
+          cid="A"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,152"
+          group="b"
+          cid="B"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,248"
+          group="c"
+          cid="C"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,343"
+          group="d"
+          cid="D"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,343"
+          group="e"
+          cid="E"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2E.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,248"
+          group="f"
+          cid="F"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2F.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,152"
+          group="g"
+          cid="G"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-2G.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>碳排足跡</b>：排出冷氣機從生產到回收的過程，並回答問題。</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 0px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 95px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 191px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 0px;
+              left: 286px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 286px;
+            "
+            group="e"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 191px;
+            "
+            group="f"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 70px;
+              height: 59px;
+              top: 80px;
+              left: 95px;
+            "
+            group="g"
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="140"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-1.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="100"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3R.png"
+        />
+      </div>
+
+      <div
+        class="toys toys_rectangle wow slideInRight"
+        style="width: 150px; left: auto; right: 50px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,57"
+          group="a"
+          cid="A"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,152"
+          group="b"
+          cid="B"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,248"
+          group="c"
+          cid="C"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="90,343"
+          group="d"
+          cid="D"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,343"
+          group="e"
+          cid="E"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3E.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,248"
+          group="f"
+          cid="F"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3F.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="90,57^90,152^90,248^90,343^170,343^170,248^170,152"
+          ap="170,152"
+          group="g"
+          cid="G"
+          style="width: 70px; height: 60px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-3-3G.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
