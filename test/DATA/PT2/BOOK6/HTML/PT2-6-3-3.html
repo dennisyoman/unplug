@@ -1,0 +1,651 @@
+<div id="module_wrapper" class="module_organize">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三-1</span>
+    <span>任務三-2</span>
+    <span>任務三-3</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>公因數磁磚：</b
+            >有一面牆壁需要貼滿磁磚，而且要用同樣大小的磁磚來貼。<br />利用下方的磁磚操作，找出哪些磁磚可以貼滿，哪一個磁磚需要的數量最少。
+          </p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <div class="grids">
+          <div
+            class="row zone1"
+            size="6"
+            style="position: absolute; top: 25px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="6"
+            style="position: absolute; top: 45px; left: 54px"
+          ></div>
+          <img
+            width="165"
+            height="auto"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-1-bg.png"
+          />
+        </div>
+        <div class="blocks onekind">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 20px; position: relative">
+        <div class="sensors">
+          <span
+            onClick="revealMe($(this))"
+            style="top: 46px; left: 127px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 46px; left: 222px; width: 15px; height: 15px"
+            >12</span
+          ><span
+            onClick="revealMe($(this))"
+            style="top: 100px; left: 127px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 100px; left: 222px; width: 15px; height: 15px"
+            >3</span
+          >
+          <span
+            onClick="revealMe($(this))"
+            style="top: 160px; left: 127px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_wrong_blue.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 160px; left: 222px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_wrong_blue.png"
+          /></span>
+        </div>
+        <img
+          width="250"
+          height="auto"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-1.png"
+        />
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>公因數磁磚：</b
+            >試試看能自己找出能貼滿這一面牆壁的方法，可以貼滿的寫出用了多少片，不能貼版的打一個叉。
+          </p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <div class="grids">
+          <div
+            class="row zone1"
+            size="9"
+            style="position: absolute; top: 25px; left: 50px"
+          ></div>
+          <div
+            class="row zone1"
+            size="9"
+            style="position: absolute; top: 45px; left: 50px"
+          ></div>
+          <div
+            class="row zone1"
+            size="9"
+            style="position: absolute; top: 65px; left: 50px"
+          ></div>
+          <img
+            width="220"
+            height="auto"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-2-bg.png"
+          />
+        </div>
+        <div class="blocks onekind">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+          <div size="4,4" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t4.png" />
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 20px; position: relative">
+        <div class="sensors">
+          <span
+            onClick="revealMe($(this))"
+            style="top: 34px; left: 1px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 59px; left: 1px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_wrong_blue.png" /></span
+          ><span
+            onClick="revealMe($(this))"
+            style="top: 87px; left: 1px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 116px; left: 1px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_check.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 169px; left: -249px; width: 15px; height: 15px"
+            >27</span
+          >
+          <span
+            onClick="revealMe($(this))"
+            style="top: 169px; left: -213px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_wrong_blue.png"
+          /></span>
+          <span
+            onClick="revealMe($(this))"
+            style="top: 169px; left: -154px; width: 15px; height: 15px"
+            >3</span
+          >
+          <span
+            onClick="revealMe($(this))"
+            style="top: 169px; left: -77px; width: 15px; height: 15px"
+            ><img src="./DATA/IMAGES/common/icon_wrong_blue.png"
+          /></span>
+        </div>
+        <img
+          width="250"
+          height="auto"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-2.png"
+        />
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>公因數磁磚：</b>找出用哪些磁磚，可以用最少的數量貼滿這個牆壁。
+          </p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <div class="grids">
+          <div
+            class="row zone1"
+            size="14"
+            style="position: absolute; top: 30px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="14"
+            style="position: absolute; top: 50px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="14"
+            style="position: absolute; top: 70px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="14"
+            style="position: absolute; top: 90px; left: 54px"
+          ></div>
+          <img
+            width="325"
+            height="auto"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-3-bg.png"
+          />
+        </div>
+        <div class="blocks repeat">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+          <div size="4,4" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t4.png" />
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 20px; position: relative">
+        <div class="sensors">
+          <span
+            onClick="switchMe($(this))"
+            class="cover"
+            style="top: 30px; left: 1px; width: 124px; height: 86px"
+            >提示 1</span
+          >
+          <span
+            onClick="switchMe($(this))"
+            class="cover"
+            style="top: 30px; left: 125px; width: 124px; height: 86px"
+            >提示 2</span
+          >
+          <span
+            onClick="switchMe($(this))"
+            class="cover"
+            style="top: 115px; left: 1px; width: 124px; height: 86px"
+            >提示 3</span
+          >
+          <span
+            onClick="switchMe($(this))"
+            class="cover"
+            style="top: 115px; left: 125px; width: 124px; height: 86px"
+            >提示 4</span
+          >
+        </div>
+        <img
+          width="250"
+          height="auto"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-3.png"
+        />
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>公因數磁磚：</b>如何用最少的磁磚數量貼滿這面牆壁。</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="margin-top: 40px">
+        <div class="grids" bw="15" bh="15" style="background: none">
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 32px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 47px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 62px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 77px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 92px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 107px; left: 55px"
+          ></div>
+          <div class="sensors">
+            <span
+              class="hmb"
+              style="top: 125px; left: 220px; width: 24px; height: 15px"
+            ></span>
+          </div>
+          <img
+            width="333"
+            height="auto"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-4-bg.png"
+          />
+        </div>
+        <div class="blocks repeat" style="margin-top: 0">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+          <div size="4,4" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t4.png" />
+          </div>
+          <div size="5,5" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t5.png" />
+          </div>
+          <div size="6,6" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t6.png" />
+          </div>
+          <div size="8,8" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t8.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>公因數磁磚：</b>如何用最少的磁磚數量貼滿這面牆壁。</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="margin-top: 20px">
+        <div class="grids" bw="15" bh="15" style="background: none">
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 32px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 47px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 62px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 77px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 92px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 107px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 122px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 137px; left: 55px"
+          ></div>
+          <div class="sensors">
+            <span
+              class="hmb"
+              style="top: 152px; left: 220px; width: 24px; height: 15px"
+            ></span>
+          </div>
+          <img
+            width="333"
+            height="auto"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-5-bg.png"
+          />
+        </div>
+        <div class="blocks repeat" style="margin-top: 0">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+          <div size="4,4" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t4.png" />
+          </div>
+          <div size="5,5" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t5.png" />
+          </div>
+          <div size="6,6" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t6.png" />
+          </div>
+          <div size="8,8" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t8.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>公因數磁磚：</b>如何用最少的磁磚數量貼滿這面牆壁。</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro2.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="margin-top: 40px">
+        <div class="grids" bw="15" bh="15" style="background: none">
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 30px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 45px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 60px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 75px; left: 55px"
+          ></div>
+          <div
+            class="row zone1"
+            size="18"
+            style="position: absolute; top: 90px; left: 55px"
+          ></div>
+          <div class="sensors">
+            <span
+              class="hmb"
+              style="top: 105px; left: 220px; width: 24px; height: 15px"
+            ></span>
+          </div>
+          <img
+            width="333"
+            height="auto"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-6-bg.png"
+          />
+        </div>
+        <div class="blocks repeat" style="margin-top: 0">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+          <div size="4,4" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t4.png" />
+          </div>
+          <div size="5,5" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t5.png" />
+          </div>
+          <div size="6,6" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t6.png" />
+          </div>
+          <div size="8,8" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t8.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .grids {
+    position: relative;
+  }
+  .row {
+    border: none !important;
+  }
+  .row > span {
+    border: none !important;
+  }
+  .blocks {
+    width: 100%;
+  }
+  .blocks > div {
+    display: inline-block;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .blocks > div > img {
+    float: left;
+  }
+
+  .blocks > div.disable {
+    pointer-events: none;
+    opacity: 0.3 !important;
+  }
+  .blocks.repeat > div {
+    pointer-events: auto;
+    opacity: 1 !important;
+  }
+  .blocks.onekind:has(.disable) > div {
+    pointer-events: auto;
+    opacity: 1 !important;
+  }
+  .blocks.onekind:has(.disable) > div:not(.disable) {
+    pointer-events: none;
+    opacity: 0.3 !important;
+  }
+  .cardAvatar.draggable.onboard > img {
+    clip-path: inset(0px 0px 0px 0px);
+  }
+  .module_organize .blocks {
+    margin-top: 20px;
+    margin-right: 0px;
+    text-align: center;
+  }
+  .module_organize .sensors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .module_organize .sensors > span {
+    position: absolute;
+    pointer-events: auto;
+    color: transparent;
+    font-size: 12px;
+    display: grid;
+    place-content: center;
+    border: 1px solid #999;
+    background: #fff;
+    border-radius: 4px;
+  }
+  .module_organize .sensors > span.cover {
+    border-color: #66bf97;
+    color: #000000;
+    background: #fff;
+  }
+
+  .module_organize .sensors > span > * {
+    opacity: 0;
+  }
+
+  .module_organize .sensors > span.selected {
+    color: #000000;
+  }
+  .module_organize .sensors > span.cover.selected {
+    opacity: 0;
+  }
+  .module_organize .sensors > span.selected > * {
+    opacity: 1;
+  }
+  .module_organize .sensors > span img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transform: translate(5%, 5%);
+  }
+  .hmb {
+    border: none !important;
+    background: transparent !important;
+  }
+</style>
+
+<script>
+  var howManyBlocks = function () {
+    $("#module_wrapper")
+      .delay(810)
+      .queue(function () {
+        console.log($(".cardAvatar").length);
+        $(".contents > div.selected")
+          .find(".hmb")
+          .addClass("selected")
+          .html($(".cardAvatar").length);
+        $(this).dequeue();
+      });
+  };
+  var revealMe = function (tar) {
+    tar.addClass("selected");
+    rootSoundEffect($key);
+  };
+  var switchMe = function (tar) {
+    tar.toggleClass("selected");
+    rootSoundEffect($help);
+  };
+</script>

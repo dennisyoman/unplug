@@ -14027,8 +14027,10 @@
         display: inline-block;
         border: none;
         border-right: 1px solid rgba(255, 255, 255, 0.3);
+        //visibility used
         //background: rgba(255, 0, 0, 0.2);
         //pointer-events: auto;
+        //
 
         &.selected {
           background: $main;

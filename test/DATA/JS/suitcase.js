@@ -49,33 +49,51 @@ $(document).ready(function () {
         });
 
       //build grid
-
-      if ($(".grids").attr("bw")) {
-        bw = parseInt($(".grids").attr("bw"));
-      }
-      if ($(".grids").attr("bh")) {
-        bh = parseInt($(".grids").attr("bh"));
-      }
-      $(".grids > .row").each(function () {
-        var size = $(this).attr("size");
-        for (var i = 0; i < size; i++) {
-          $(this).append(`<span style="width:${bw}px;height:${bh}px;"/>`);
+      $(".grids").each(function () {
+        var bww = bw;
+        var bhh = bh;
+        if ($(this).attr("bw")) {
+          bww = parseInt($(this).attr("bw"));
         }
-      });
-      //resize blocks
-      $(".blocks > div").each(function () {
-        var size = $(this).attr("size").split(",");
-
+        if ($(this).attr("bh")) {
+          bhh = parseInt($(this).attr("bh"));
+        }
         $(this)
-          .find("img")
-          .attr(
-            "style",
-            "width:" +
-              parseInt(size[0]) * bw +
-              "px;height:" +
-              parseInt(size[1]) * bh +
-              "px"
-          );
+          .find(".row")
+          .each(function () {
+            var size = $(this).attr("size");
+            for (var i = 0; i < size; i++) {
+              $(this).append(`<span style="width:${bww}px;height:${bhh}px;"/>`);
+            }
+          });
+      });
+
+      //resize blocks
+      $(".blocks").each(function () {
+        var bww = bw;
+        var bhh = bh;
+        if ($(this).siblings(".grids").attr("bw")) {
+          var bww = parseInt($(this).siblings(".grids").attr("bw"));
+        }
+        if ($(this).siblings(".grids").attr("bh")) {
+          var bhh = parseInt($(this).siblings(".grids").attr("bh"));
+        }
+        $(this)
+          .find("> div")
+          .each(function () {
+            var size = $(this).attr("size").split(",");
+
+            $(this)
+              .find("img")
+              .attr(
+                "style",
+                "width:" +
+                  parseInt(size[0]) * bww +
+                  "px;height:" +
+                  parseInt(size[1]) * bhh +
+                  "px"
+              );
+          });
       });
 
       //init
@@ -246,6 +264,12 @@ var handleDrag = function (ev) {
     //then
     isDragging = false;
     $elem = null;
+    if (typeof howManyBlocks === "function") {
+      // 函式存在，可以安全呼叫
+      howManyBlocks();
+    } else {
+      console.log("howManyBlocks 函式不存在");
+    }
   }
 };
 
@@ -408,6 +432,17 @@ var resetElem = function (elem) {
         //
         $("#contents").append(tempBlock);
       });
+  }
+
+  if (elem.find(".grids").attr("bw")) {
+    bw = parseInt(elem.find(".grids").attr("bw"));
+  } else {
+    bw = 20;
+  }
+  if (elem.find(".grids").attr("bh")) {
+    bh = parseInt(elem.find(".grids").attr("bh"));
+  } else {
+    bh = 20.5;
   }
 };
 
