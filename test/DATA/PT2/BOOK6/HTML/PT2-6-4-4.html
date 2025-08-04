@@ -1,0 +1,444 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span class="demo">示範</span>
+    <span>任務一</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>減碳算一算：</b
+            ><br />先把物品做分類，在做生產與使用時的碳排放量分級：碳排放越多的填上越多氣體，並回答問題。
+          </p>
+
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="puzzle wow bounceInLeft" style="width: 230px">
+        <div
+          class="items unlimit randomOrder"
+          ans="a,d,f"
+          style="top: 36px; left: 36px; width: 91px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="b,c,e"
+          style="top: 36px; left: 131px; width: 91px; height: 14px"
+        ></div>
+
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-4-1-1.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 230px; padding: 0; margin-left: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="trigMe($(this))"
+            iid="a"
+            style="top: 84px; left: -250px; width: 14px; height: 14px"
+            >A</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="b"
+            style="top: 84px; left: -132px; width: 14px; height: 14px"
+            >B</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="c"
+            style="top: 135px; left: -250px; width: 14px; height: 14px"
+            >C</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="d"
+            style="top: 135px; left: -132px; width: 14px; height: 14px"
+            >D</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="e"
+            style="top: 188px; left: -250px; width: 14px; height: 14px"
+            >E</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="f"
+            style="top: 188px; left: -132px; width: 14px; height: 14px"
+            >F</span
+          >
+        </div>
+        <div class="circles">
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 95px; left: -201px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 95px; left: -182px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 108px; left: -201px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 108px; left: -182px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 108px; left: -163px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 94px; left: -82px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 94px; left: -63px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 108px; left: -82px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 108px; left: -63px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 108px; left: -44px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -201px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -182px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -201px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -182px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -163px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -82px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -63px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -82px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -63px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -44px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 199px; left: -201px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 199px; left: -182px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 213px; left: -201px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 213px; left: -182px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 213px; left: -163px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 199px; left: -82px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 199px; left: -63px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 213px; left: -82px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 213px; left: -63px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 213px; left: -44px; width: 17px; height: 12px"
+          ></span>
+        </div>
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-4-1-2.png" />
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>減碳算一算：</b
+            ><br />先把交通方式做分類，並做碳排放量的分級：碳排放越多的填上越多氣體。最後請規劃出50分鐘能從家裡到遊樂園的交通路線，並回答問題。
+          </p>
+
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="puzzle wow bounceInLeft"
+        style="width: 230px; margin-top: 20px"
+      >
+        <div
+          class="items unlimit randomOrder"
+          ans="a,c"
+          style="top: 12px; left: 36px; width: 91px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="b,d,e"
+          style="top: 12px; left: 131px; width: 91px; height: 14px"
+        ></div>
+
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-4-2-1.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 230px; padding: 0; margin-left: 20px; margin-top: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="trigMe($(this))"
+            iid="a"
+            style="top: 44px; left: -252px; width: 14px; height: 14px"
+            >A</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="b"
+            style="top: 44px; left: -129px; width: 14px; height: 14px"
+            >B</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="c"
+            style="top: 119px; left: -252px; width: 14px; height: 14px"
+            >C</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="d"
+            style="top: 119px; left: -129px; width: 14px; height: 14px"
+            >D</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="e"
+            style="top: 194px; left: -252px; width: 14px; height: 14px"
+            >E</span
+          >
+        </div>
+        <div class="circles">
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 73px; left: -204px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 73px; left: -185px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 86px; left: -204px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 86px; left: -185px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 86px; left: -166px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 73px; left: -80px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 73px; left: -61px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 86px; left: -80px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 86px; left: -61px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 86px; left: -42px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -204px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -185px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -203px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -185px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -166px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -80px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 147px; left: -61px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -80px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -61px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 160px; left: -42px; width: 17px; height: 12px"
+          ></span>
+
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 222px; left: -204px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 222px; left: -185px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 235px; left: -204px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 235px; left: -185px; width: 17px; height: 12px"
+          ></span>
+          <span
+            onClick="toggleMe($(this))"
+            style="top: 235px; left: -166px; width: 17px; height: 12px"
+          ></span>
+        </div>
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-4-2-2.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .module_decode .contents .code .items > span {
+    min-height: unset;
+    min-width: unset;
+    border-radius: 3px !important;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+  }
+
+  .module_decode .contents .code .circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .module_decode .contents .code .circles > span {
+    pointer-events: auto;
+    position: absolute;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+  .module_decode .contents .code .circles > span.selected {
+    background: #333333;
+  }
+
+  .module_decode .contents .puzzle .items {
+    padding: 0px;
+    cursor: pointer;
+  }
+  .module_decode .contents .puzzle .items > span {
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 1;
+    white-space: nowrap;
+    min-width: unset;
+    min-height: unset;
+  }
+</style>
+<script>
+  var toggleMe = function (tar) {
+    tar.toggleClass("selected");
+    rootSoundEffect($pop);
+    $(".sideTool > div.btn_replay").show();
+  };
+</script>

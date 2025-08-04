@@ -742,7 +742,7 @@
     </section>
     <section section="3" name="一起玩遊戲 / 排碳足跡" html="PT2/BOOK6/HTML/PT2-6-4-3.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/trade.png" skin="">
     </section>
-    <section section="4" name="一起玩遊戲 / 減碳算一算" html="PT2/BOOK6/HTML/PT2-6-4-4.html" js="JS/basic.js" image="IMAGES/UNITS/counter.png" skin="">
+    <section section="4" name="一起玩遊戲 / 減碳算一算" html="PT2/BOOK6/HTML/PT2-6-4-4.html" js="JS/decode.js" image="IMAGES/UNITS/counter.png" skin="">
     </section>
     <section section="5" name="編程時間 / 演算法" html="PT2/BOOK6/HTML/PT2-6-4-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
