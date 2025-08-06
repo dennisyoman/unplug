@@ -1,0 +1,394 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>公因數磁磚</b
+            >：要找出用最少的正方形磁磚貼滿牆壁，我會用的流程是？<br />1.將貼紙依序貼在格子中。<br />2.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 28px;
+              left: 35px;
+            "
+            group="a"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 28px;
+              left: 155px;
+            "
+            group="b"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 100px;
+              height: 79px;
+              top: 25px;
+              left: 275px;
+            "
+            group="c"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 141px;
+              left: 286px;
+            "
+            group="d"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 141px;
+              left: 155px;
+            "
+            group="e"
+          ></span>
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 33px;
+              height: 12px;
+              top: 56px;
+              left: 119px;
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 33px;
+              height: 12px;
+              top: 56px;
+              left: 241px;
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 34px;
+              height: 14px;
+              top: 116px;
+              left: 309px;
+              transform: rotate(90deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 34px;
+              height: 14px;
+              top: 116px;
+              left: 180px;
+              transform: rotate(-90deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 68px;
+              height: 20px;
+              top: 106px;
+              left: 233px;
+              transform: rotate(135deg);
+            "
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="225"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-1.png"
+        />
+      </div>
+
+      <div
+        class="toys toys_rectangle wow slideInRight"
+        style="width: 190px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="71,65^71,185^69,304^184,316^184,185"
+          ap="184,185"
+          group="e"
+          cid="A"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-1A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^69,304^184,316^184,185"
+          ap="71,185"
+          group="b"
+          cid="B"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-1B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^69,304^184,316^184,185"
+          ap="184,316"
+          group="d"
+          cid="C"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-1C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^69,304^184,316^184,185"
+          ap="71,65"
+          group="a"
+          cid="D"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-1D.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^69,304^184,316^184,185"
+          ap="69,304"
+          group="c"
+          cid="E"
+          style="width: 100px; height: 85px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-1E.png" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>我的每一步</b
+            >：要找出用最少的正方形磁磚貼滿這個牆壁，每一步的順序是？<br />1.將貼紙依序貼在格子中。<br />2.點擊虛線箭頭，變成實線箭頭。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div class="wow slideInLeft" style="margin-right: 170px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 28px;
+              left: 35px;
+            "
+            group="a"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 28px;
+              left: 157px;
+            "
+            group="b"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 28px;
+              left: 288px;
+            "
+            group="c"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 141px;
+              left: 288px;
+            "
+            group="d"
+          ></span>
+          <span
+            style="
+              position: absolute;
+              width: 78px;
+              height: 66px;
+              top: 141px;
+              left: 157px;
+            "
+            group="e"
+          ></span>
+        </div>
+        <div
+          class="arrowArea fixed"
+          style="position: absolute; z-index: 3; height: 100%"
+        >
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 33px;
+              height: 12px;
+              top: 56px;
+              left: 119px;
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 33px;
+              height: 12px;
+              top: 56px;
+              left: 241px;
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 34px;
+              height: 14px;
+              top: 116px;
+              left: 309px;
+              transform: rotate(90deg);
+            "
+          ></span>
+          <span
+            onclick="$(this).toggleClass('active')"
+            style="
+              position: absolute;
+              width: 33px;
+              height: 12px;
+              top: 168px;
+              left: 241px;
+              transform: rotate(180deg);
+            "
+          ></span>
+        </div>
+        <img
+          width="auto"
+          height="225"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2.png"
+        />
+      </div>
+
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="180"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2R.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 220px; left: auto; right: 40px; bottom: auto"
+      >
+        <div
+          class="toy cards"
+          sp="71,65^71,185^71,317^184,316^184,185"
+          ap="71,65"
+          group="a"
+          cid="A"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2A.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^71,317^184,316^184,185"
+          ap="184,316"
+          group="d"
+          cid="B"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2B.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^71,317^184,316^184,185"
+          ap="71,317"
+          group="c"
+          cid="C"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2C.png" />
+        </div>
+        <div
+          class="toy cards"
+          sp="71,65^71,185^71,317^184,316^184,185"
+          ap="184,185"
+          group="e"
+          cid="D"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2D.png" />
+        </div>
+
+        <div
+          class="toy cards"
+          sp="71,65^71,185^71,317^184,316^184,185"
+          ap="71,185"
+          group="b"
+          cid="E"
+          style="width: 78px; height: 78px"
+        >
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-5-2E.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
