@@ -670,7 +670,7 @@
   </lesson>
   <!-- PT2 Book5  -->
   <lesson sid="PT2" bid="5" lid="1">
-    <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-1-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-1-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK5/HTML/PT2-5-1-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 順風耳任務" html="PT2/BOOK5/HTML/PT2-5-1-3.html" js="JS/decode.js" image="IMAGES/UNITS/guess.png" skin="">
@@ -690,7 +690,7 @@
     </section>
   </lesson>
   <lesson sid="PT2" bid="5" lid="3">
-     <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-3-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+     <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-3-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK5/HTML/PT2-5-3-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 統計與長條圖" html="PT2/BOOK5/HTML/PT2-5-3-3.html" js="JS/basic.js" image="IMAGES/UNITS/order.png" skin="">
@@ -699,7 +699,7 @@
     </section>
   </lesson>
   <lesson sid="PT2" bid="5" lid="4">
-    <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-4-1.html" js="JS/fillin.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT2/BOOK5/HTML/PT2-5-4-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK5/HTML/PT2-5-4-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 食尚達人" html="PT2/BOOK5/HTML/PT2-5-4-3.html" js="JS/basic.js" image="IMAGES/UNITS/logic.png" skin="">

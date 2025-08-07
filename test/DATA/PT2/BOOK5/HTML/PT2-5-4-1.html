@@ -1,0 +1,213 @@
+<div id="module_wrapper" class="module_basic">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>統計與長條圖：</b
+            ><br />這是多多班上的數學考試的成績表，請做成長條圖並回答問題。<br />1.數一數個成績區間的人數，把數量填入表格。<br />2.用方格貼紙由下往上貼。
+          </p>
+          <img src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-1-1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-top: 20px">
+          <div class="bigPicture">
+            <img width="360" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-1-1.png" />
+          </div>
+          <div class="counter">
+            <div class="sensors">
+              <span type="t1">2</span>
+              <span type="t2">4</span>
+              <span type="t3">8</span>
+              <span type="t4">4</span>
+              <span type="t5">2</span>
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="sensors">
+              <span
+                onclick="stakeMe($(this),9)"
+                type="t1"
+                style="top: 30px; left: 30px; width: 62px; height: 126px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),9)"
+                type="t2"
+                style="top: 30px; left: 92px; width: 62px; height: 126px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),9)"
+                type="t3"
+                style="top: 30px; left: 154px; width: 62px; height: 126px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),9)"
+                type="t4"
+                style="top: 30px; left: 216px; width: 62px; height: 126px"
+              ></span>
+              <span
+                onclick="stakeMe($(this),9)"
+                type="t5"
+                style="top: 30px; left: 278px; width: 62px; height: 126px"
+              ></span>
+            </div>
+            <div class="img">
+              <img width="360" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-1-2.png" />
+            </div>
+            <div class="simplyDrag wow bounceInUp">
+              <img width="360" src="./DATA/PT2/BOOK5/IMAGES/PT2-5-4-1-3.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .item {
+    text-align: center;
+  }
+  .item > div {
+    position: relative;
+  }
+  .item > div.bigPicture {
+    margin: 0 auto;
+    margin-bottom: 5px;
+    animation: fadeInDown 0.6s;
+    pointer-events: auto;
+  }
+
+  .item > div.counter {
+    margin: 0 auto;
+    margin-bottom: 5px;
+    animation: fadeInUp 0.6s;
+    display: none;
+  }
+
+  .item > div.dashboard {
+    animation: fadeInUp 0.6s;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .item > div.dashboard .sensors > span {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .item > div.dashboard .sensors > span.wrong::after {
+    content: "";
+    position: absolute;
+    z-index: 99;
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    background: url("./DATA/IMAGES/common/icon_wrong.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: bounceIn 1s both;
+  }
+  .item > div.dashboard .sensors > span > span {
+    pointer-events: auto;
+    width: 100%;
+    pointer-events: auto;
+    animation: rotateInUpLeft 0.5s both;
+    transform-origin: center top;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .item > div.dashboard .sensors > span > span.t1 {
+    background: #eb6d8e;
+  }
+  .item > div.dashboard .sensors > span > span.t2 {
+    background: #f6bd60;
+  }
+  .item > div.dashboard .sensors > span > span.t3 {
+    background: #66bf97;
+  }
+  .item > div.dashboard .sensors > span > span.t4 {
+    background: #6bc4ef;
+  }
+  .item > div.dashboard .sensors > span > span.t5 {
+    background: #eb6d8e;
+  }
+  .simplyDrag {
+    bottom: 0;
+    left: 200px;
+  }
+</style>
+<script>
+  var stakeMe = function (tar, max) {
+    $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_check").show();
+    tar.removeClass("wrong");
+    if (tar.find("span").length < max) {
+      tar.append(
+        "<span class='" +
+          tar.attr("type") +
+          "' onclick='removeMe(event, $(this))' style='flex:0 0 " +
+          100 / max +
+          "%'></span>"
+      );
+      rootSoundEffect($show);
+    } else {
+      rootSoundEffect($stupid);
+    }
+  };
+  var removeMe = function (event, tar) {
+    tar.parent().removeClass("wrong");
+    if (tar.next().length === 0) {
+      event.stopPropagation();
+      tar.remove();
+      rootSoundEffect($pop);
+    }
+  };
+
+  var withinResetElem = function () {
+    var sensors = $(".contents > div.selected .dashboard .sensors > span");
+    sensors.removeClass("wrong selected").empty();
+  };
+
+  var withinCheckAnswer = function () {
+    var item = $(".contents > div.selected .group .item.selected");
+    if (item.length > 0) {
+      var counter = item.find(".counter");
+      var dashboard = item.find(".dashboard");
+      //counting
+      var gotWrong = false;
+      counter.find(".sensors > span").each(function () {
+        var typ = $(this).attr("type");
+        var theDashboard = dashboard.find(
+          ".sensors > span[type='" + typ + "']"
+        );
+        if (parseInt($(this).text()) != theDashboard.find("span").length) {
+          gotWrong = true;
+          //提示錯誤column
+          theDashboard.addClass("wrong");
+        }
+      });
+
+      if (gotWrong) {
+        rootSoundEffect($wrong);
+      } else {
+        bingo();
+      }
+    }
+  };
+</script>

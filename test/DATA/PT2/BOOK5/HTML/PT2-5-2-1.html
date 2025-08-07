@@ -1,0 +1,90 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>順風耳任務</b
+            >：聽完對話，依照分類寫下你聽到的訊息，再回答問題。<br />＊
+            可以使用標籤小工具
+            <img
+              style="border-radius: 100%; width: 35px; height: auto"
+              src="./DATA/IMAGES/common/btn_tag.png"
+            />
+          </p>
+          <img src="./DATA/IMAGES/common/tag-usage.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle wow fadeInUp" style="width: 380px; margin-top: 30px">
+        <div class="subject">
+          <span
+            class="audiobtn"
+            onClick="playStory($(this),'./DATA/PT2/BOOK5/AUDIO/U3B5L2_warming_1.mp3')"
+            style="top: 4px; left: -22px"
+            ><audio
+              preload="auto"
+              src="./DATA/PT2/BOOK5/AUDIO/U3B5L2_warming_1.mp3"
+          /></span>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT2/BOOK5/IMAGES/PT2-5-2-1-1.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+<style>
+  .audiobtn {
+    position: absolute;
+    pointer-events: auto;
+    z-index: 22;
+    width: 20px;
+    height: 20px;
+    background: url("./DATA/IMAGES/common/player_play.png") no-repeat center
+      center;
+    background-size: 100% 100%;
+  }
+  .audiobtn.selected {
+    background: url("../DATA/IMAGES/common/player_pause.png") no-repeat center
+      center;
+    background-size: 100% 100%;
+  }
+</style>
+<script>
+  var playStory = function (tar, url) {
+    tar.siblings(".audiobtn").removeClass("selected");
+    //
+    var sameAudio = false;
+    for (let k = 0; k < $SFXNameAr.length; k++) {
+      if (url == $SFXNameAr[k]) {
+        if (currentAudio == $SFXAr[k]) {
+          sameAudio = true;
+        }
+      }
+    }
+
+    if (!tar.hasClass("selected")) {
+      if (sameAudio) {
+        currentAudio.play();
+      } else {
+        rootSoundEffectName(url);
+      }
+      tar.addClass("selected");
+    } else {
+      currentAudio.pause();
+      tar.removeClass("selected");
+    }
+  };
+</script>
