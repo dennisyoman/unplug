@@ -85,12 +85,14 @@
 
       > .swiper-wrapper {
         //transform: none !important;
+        pointer-events: none;
 
         > .swiper-slide {
           width: 219px;
           width: auto;
           height: auto;
           display: block;
+          pointer-events: auto;
 
           > div {
             pointer-events: auto;
@@ -252,6 +254,7 @@
 
       > .swiper-wrapper {
         height: auto !important;
+        pointer-events: none;
         > .swiper-slide {
           text-align: center;
           font-size: 18px;
@@ -259,6 +262,7 @@
           //min-height: 170px;
           height: auto;
           display: inline-block;
+          pointer-events: auto;
 
           /* Center slide text vertically */
 

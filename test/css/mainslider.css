@@ -61,11 +61,15 @@
   height: 100%;
   min-height: 50px;
 }
+.ms_wrapper .lessons > .swiper-container > .swiper-wrapper {
+  pointer-events: none;
+}
 .ms_wrapper .lessons > .swiper-container > .swiper-wrapper > .swiper-slide {
   width: 219px;
   width: auto;
   height: auto;
   display: block;
+  pointer-events: auto;
 }
 .ms_wrapper .lessons > .swiper-container > .swiper-wrapper > .swiper-slide > div {
   pointer-events: auto;
@@ -226,6 +230,7 @@
 }
 .ms_wrapper .slider > .swiper-container > .swiper-wrapper {
   height: auto !important;
+  pointer-events: none;
 }
 .ms_wrapper .slider > .swiper-container > .swiper-wrapper > .swiper-slide {
   text-align: center;
@@ -233,6 +238,7 @@
   width: 170px;
   height: auto;
   display: inline-block;
+  pointer-events: auto;
   /* Center slide text vertically */
   position: relative;
 }
