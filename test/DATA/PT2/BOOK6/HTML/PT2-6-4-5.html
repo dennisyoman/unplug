@@ -176,7 +176,7 @@
               top: 116px;
               left: 78px;
             "
-            group="a^b^c"
+            group="d"
           ></span>
         </div>
 
@@ -207,10 +207,10 @@
           style="width: 92px; height: 70px"
         >
           <div
-            onClick="switchLetter($(this))"
+            onClick="switchLetterA($(this))"
             class="sticker-letter"
             style="top: 44px; left: 13px; width: 54px"
-            ans="0"
+            Gid="A"
           ></div>
           <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-5-2A.png" />
         </div>
@@ -218,15 +218,15 @@
           class="toy cards"
           sp="83,132^83,257^172,257^172,132"
           ap="172,132"
-          group="d^c"
+          group="c^d"
           cid="B"
           style="width: 92px; height: 70px"
         >
           <div
-            onClick="switchLetter($(this))"
+            onClick="switchLetterB($(this))"
             class="sticker-letter"
             style="top: 44px; left: 13px; width: 54px"
-            ans="1"
+            ans="0"
           ></div>
           <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-5-2B.png" />
         </div>
@@ -239,10 +239,10 @@
           style="width: 92px; height: 70px"
         >
           <div
-            onClick="switchLetter($(this))"
+            onClick="switchLetterC($(this))"
             class="sticker-letter"
             style="top: 26px; left: 5px; width: 54px"
-            ans="2"
+            ans="0"
           ></div>
           <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-5-2C.png" />
         </div>
@@ -255,10 +255,10 @@
           style="width: 92px; height: 70px"
         >
           <div
-            onClick="switchLetter($(this))"
+            onClick="switchLetterD($(this))"
             class="sticker-letter"
             style="top: 18px; left: 25px; width: 54px"
-            ans="3"
+            ans="0"
           ></div>
           <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-5-2D.png" />
         </div>
@@ -307,9 +307,12 @@
   }
 </style>
 <script>
-  var stickerLetters = ["塑膠盤", "魚肉", "帶環保袋", "走路"];
+  var stickerLettersA = ["塑膠盤", "禮盒"];
+  var stickerLettersB = ["牛肉", "魚肉"];
+  var stickerLettersC = ["空手", "帶環保袋"];
+  var stickerLettersD = ["走路", "搭公車", "騎機車"];
 
-  var switchLetter = (item) => {
+  var switchLetterA = (item) => {
     event.stopPropagation();
     var sl = item.attr("sl");
     if (sl == undefined) {
@@ -317,23 +320,93 @@
     } else {
       sl = parseInt(sl);
       sl += 1;
-      if (sl > stickerLetters.length - 1) {
+      if (sl > stickerLettersA.length - 1) {
         sl = 0;
       }
     }
     item.attr("sl", sl);
-    item.html(stickerLetters[sl]);
+    item.html(stickerLettersA[sl]);
+    rootSoundEffect($key);
+  };
+  var switchLetterB = (item) => {
+    event.stopPropagation();
+    var sl = item.attr("sl");
+    if (sl == undefined) {
+      sl = 0;
+    } else {
+      sl = parseInt(sl);
+      sl += 1;
+      if (sl > stickerLettersB.length - 1) {
+        sl = 0;
+      }
+    }
+    item.attr("sl", sl);
+    item.html(stickerLettersB[sl]);
+    rootSoundEffect($key);
+  };
+  var switchLetterC = (item) => {
+    event.stopPropagation();
+    var sl = item.attr("sl");
+    if (sl == undefined) {
+      sl = 0;
+    } else {
+      sl = parseInt(sl);
+      sl += 1;
+      if (sl > stickerLettersC.length - 1) {
+        sl = 0;
+      }
+    }
+    item.attr("sl", sl);
+    item.html(stickerLettersC[sl]);
+    rootSoundEffect($key);
+  };
+  var switchLetterD = (item) => {
+    event.stopPropagation();
+    var sl = item.attr("sl");
+    if (sl == undefined) {
+      sl = 0;
+    } else {
+      sl = parseInt(sl);
+      sl += 1;
+      if (sl > stickerLettersD.length - 1) {
+        sl = 0;
+      }
+    }
+    item.attr("sl", sl);
+    item.html(stickerLettersD[sl]);
     rootSoundEffect($key);
   };
 
+  var withinResetElem = function () {
+    var mid = $(".tabs > span.selected").index();
+
+    if (mid == 0) {
+      //第一單元沒有答案
+      $(".sideTool > div.btn_answer").css("visibility", "hidden");
+    } else {
+      //第二單元有答案
+      $(".sideTool > div.btn_answer").css("visibility", "visible");
+    }
+  };
   //dynamic function for this html only
   var withinShowAnswer = function (boolean) {
     var mid = $(".tabs > span.selected").index();
+
+    //第二單元秀答案
     if (mid == 1) {
       $(".cardAvatar .sticker-letter").each(function () {
         var sl = parseInt($(this).attr("ans"));
         $(this).attr("sl", sl);
-        $(this).html(stickerLetters[sl]);
+        var cid = $(this).parent().attr("cid");
+        if (cid == "A") {
+          $(this).html(stickerLettersA[0]);
+        } else if (cid == "B") {
+          $(this).html(stickerLettersB[0]);
+        } else if (cid == "C") {
+          $(this).html(stickerLettersC[0]);
+        } else if (cid == "D") {
+          $(this).html(stickerLettersD[0]);
+        }
       });
     }
   };
@@ -341,14 +414,16 @@
     var mid = $(".tabs > span.selected").index();
     var allpass = true;
     if (mid == 1) {
+      //第二單元確認答案
       var items = $(".cardAvatarDie.right").find(".sticker-letter");
       items.each(function () {
-        if ($(this).attr("sl") != $(this).attr("ans")) {
+        if (!$(this).attr("sl")) {
           $(this).removeAttr("sl");
           allpass = false;
         }
       });
     } else if (mid == 0) {
+      //第一單元確認答案
       console.log("測試容量是否正確");
       var sensors = $(".contents > div.selected").find(".sensorArea > span");
       for (var k = 0; k < sensors.length; k++) {
@@ -371,7 +446,7 @@
       rootSoundEffect($stupid);
       var alertmsg = "容量配置錯誤";
       if (mid == 1) {
-        alertmsg = "答案錯誤";
+        alertmsg = "請填入答案";
       }
       $(".alert").remove();
       $(".contents > div.selected").append(
