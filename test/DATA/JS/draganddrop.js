@@ -484,9 +484,27 @@ var checkAnswer = function () {
   //全對
   if (
     $(".cardAvatarDie.right").length ==
-    $(".contents > div.selected").find(".sensorArea > span").length
+    $(".contents > div.selected").find(".sensorArea > span:not([col])").length
   ) {
     bingo();
+  }
+
+  //sensorArea有col屬性
+  if (
+    $(".contents > div.selected").find(".sensorArea > span[col]").length > 0
+  ) {
+    var totalCols = 0;
+    //有col屬性
+    var cols = $(".contents > div.selected").find(".sensorArea > span[col]");
+
+    for (var i = 0; i < cols.length; i++) {
+      var col = cols.eq(i);
+      totalCols += parseInt(col.attr("col"));
+    }
+    if (totalCols == $(".cardAvatarDie.right").length) {
+      bingo();
+    }
+    console.log(totalCols);
   }
 };
 
