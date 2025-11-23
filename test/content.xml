@@ -728,7 +728,7 @@
     </section>
   </lesson>
   <lesson sid="PT2" bid="6" lid="3">
-    <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-3-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-3-1.html" js="JS/decode.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK6/HTML/PT2-6-3-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 公因數磁磚" html="PT2/BOOK6/HTML/PT2-6-3-3.html" js="JS/suitcase.js" image="IMAGES/UNITS/organize.png" skin="">
@@ -737,7 +737,7 @@
     </section>
   </lesson>
   <lesson sid="PT2" bid="6" lid="4">
-    <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-4-1.html" js="JS/basic.js" image="IMAGES/UNITS/warmup.png" skin=""/>
+    <section section="1" name="熱身活動" html="PT2/BOOK6/HTML/PT2-6-4-1.html" js="JS/suitcase.js" image="IMAGES/UNITS/warmup.png" skin=""/>
     <section section="2" name="故事創造者 / 創造力" html="PT2/BOOK6/HTML/PT2-6-4-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
     <section section="3" name="一起玩遊戲 / 排碳足跡" html="PT2/BOOK6/HTML/PT2-6-4-3.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/trade.png" skin="">

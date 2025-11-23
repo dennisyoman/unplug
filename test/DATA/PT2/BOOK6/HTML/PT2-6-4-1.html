@@ -1,0 +1,209 @@
+<div id="module_wrapper" class="module_organize">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>公因數磁磚：</b>這一面牆壁，用最少的磁磚填滿，應該怎麼填呢？</p>
+          <img src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div>
+        <div class="grids">
+          <div
+            class="row zone1"
+            size="10"
+            style="position: absolute; top: 30px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="10"
+            style="position: absolute; top: 50px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="10"
+            style="position: absolute; top: 70px; left: 54px"
+          ></div>
+          <div
+            class="row zone1"
+            size="10"
+            style="position: absolute; top: 90px; left: 54px"
+          ></div>
+          <img
+            width="255"
+            height="auto"
+            style="margin-top: -3px; margin-left: 20px"
+            src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-1-1.png"
+          />
+        </div>
+        <div class="blocks repeat">
+          <div size="1,1" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t1.png" />
+          </div>
+          <div size="2,2" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t2.png" />
+          </div>
+          <div size="3,3" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t3.png" />
+          </div>
+          <div size="4,4" class="draggable wow bounceIn">
+            <img src="./DATA/PT2/BOOK6/IMAGES/t4.png" />
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 20px; position: relative">
+        <div class="sensors">
+          <span
+            onClick="revealMe($(this))"
+            style="top: 2px; left: 171px; width: 43px; height: 15px"
+            >2</span
+          >
+          <span
+            onClick="revealMe($(this))"
+            style="top: 40px; left: 7px; width: 236px; height: 15px"
+            >4和10都可以寫成跟2有關的乘法。</span
+          >
+        </div>
+        <img
+          width="250"
+          height="auto"
+          src="./DATA/PT2/BOOK6/IMAGES/PT2-6-4-1-2.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .grids {
+    position: relative;
+    padding: 0px !important;
+    background: none !important;
+  }
+  .row {
+    border: none !important;
+  }
+  .row > span {
+    border: none !important;
+  }
+  .blocks {
+    width: 100%;
+  }
+  .blocks > div {
+    display: inline-block;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .blocks > div > img {
+    float: left;
+  }
+
+  .blocks > div.disable {
+    pointer-events: none;
+    opacity: 0.3 !important;
+  }
+  .blocks.repeat > div {
+    pointer-events: auto;
+    opacity: 1 !important;
+  }
+  .blocks.onekind:has(.disable) > div {
+    pointer-events: auto;
+    opacity: 1 !important;
+  }
+  .blocks.onekind:has(.disable) > div:not(.disable) {
+    pointer-events: none;
+    opacity: 0.3 !important;
+  }
+  .cardAvatar.draggable.onboard > img {
+    clip-path: inset(0px 0px 0px 0px);
+  }
+  .module_organize .blocks {
+    margin-top: 20px;
+    margin-right: 0px;
+    text-align: center;
+  }
+  .module_organize .sensors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .module_organize .sensors > span {
+    position: absolute;
+    pointer-events: auto;
+    color: transparent;
+    font-size: 12px;
+    display: grid;
+    place-content: center;
+    border: 1px solid #999;
+    background: #fff;
+    border-radius: 4px;
+  }
+  .module_organize .sensors > span.cover {
+    border-color: #66bf97;
+    color: #000000;
+    background: #fff;
+  }
+
+  .module_organize .sensors > span > * {
+    opacity: 0;
+  }
+
+  .module_organize .sensors > span.selected {
+    color: #000000;
+  }
+  .module_organize .sensors > span.cover.selected {
+    opacity: 0;
+  }
+  .module_organize .sensors > span.selected > * {
+    opacity: 1;
+  }
+  .module_organize .sensors > span img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transform: translate(5%, 5%);
+  }
+  .hmb {
+    border: none !important;
+    background: transparent !important;
+  }
+</style>
+
+<script>
+  var howManyBlocks = function () {
+    $("#module_wrapper")
+      .delay(810)
+      .queue(function () {
+        console.log($(".cardAvatar").length);
+        $(".contents > div.selected")
+          .find(".hmb")
+          .addClass("selected")
+          .html($(".cardAvatar").length);
+        $(this).dequeue();
+      });
+  };
+  var revealMe = function (tar) {
+    tar.addClass("selected");
+    rootSoundEffect($key);
+  };
+  var switchMe = function (tar) {
+    tar.toggleClass("selected");
+    rootSoundEffect($help);
+  };
+</script>

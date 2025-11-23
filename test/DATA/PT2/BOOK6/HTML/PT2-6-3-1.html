@@ -1,0 +1,157 @@
+<div id="module_wrapper" class="module_decode">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>主題與關鍵：</b
+            >試著閱讀這篇短文，根據問題找出關鍵資訊後回答問題。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div
+        class="code wow bounceInLeft"
+        style="width: 230px; padding: 0; margin-right: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="trigMe($(this))"
+            iid="n1"
+            style="top: 18px; left: 160px; width: 57px; height: 12px"
+            >Sunshine School</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n2"
+            style="top: 28px; left: 35px; width: 50px; height: 12px"
+            >November 15</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n3"
+            style="top: 59px; left: 91px; width: 70px; height: 12px"
+            >10:00 AM to 2:00 PM</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n4"
+            style="top: 68px; left: 111px; width: 36px; height: 12px"
+            >Room 237</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="n5"
+            style="top: 93px; left: 117px; width: 31px; height: 12px"
+            >NT$1000</span
+          >
+        </div>
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-1-1.png" />
+      </div>
+
+      <div class="puzzle wow bounceInRight" style="width: 230px">
+        <div
+          class="items randomOrder"
+          ans="n1,n4"
+          style="top: 33px; left: 10px; width: 210px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n2"
+          style="top: 64px; left: 10px; width: 210px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n3"
+          style="top: 97px; left: 10px; width: 210px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="n5"
+          style="top: 131px; left: 10px; width: 210px; height: 14px"
+        ></div>
+        <div
+          class="item"
+          style="top: 182px; left: 10px; width: 210px; height: 14px"
+        >
+          <textarea maxlength="80"></textarea>
+        </div>
+        <img width="230" src="./DATA/PT2/BOOK6/IMAGES/PT2-6-3-1-2.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .module_decode .contents .check .items > span {
+    min-height: unset;
+    min-width: unset;
+    background: url("./DATA/IMAGES/common/icon_check.png") no-repeat center
+      center;
+    background-size: contain;
+  }
+  .module_decode .contents .code .items > span {
+    min-height: unset;
+    min-width: unset;
+    border-radius: 3px !important;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+  }
+
+  .module_decode .contents .puzzle .items {
+    justify-content: left;
+    padding: 0px;
+  }
+  .module_decode .contents .puzzle .item {
+    position: absolute;
+    padding: 0px;
+    z-index: 10;
+  }
+  .module_decode .contents .puzzle .item textarea {
+    appearance: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+
+    border: none;
+    resize: none;
+    background: rgba(255, 255, 255, 0.5);
+
+    text-align: left;
+    vertical-align: top;
+  }
+  .module_decode .contents .puzzle .items > span {
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: left;
+    transform: scale(0.6);
+    transform-origin: left center;
+    min-width: unset;
+    min-height: unset;
+  }
+</style>
