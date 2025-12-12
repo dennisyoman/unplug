@@ -112,4 +112,12 @@
       <lesson lid="4">減碳我也行</lesson>
     </book>
   </series>
+  <series name="全運算思維＊實踐" subtitle="動手玩思維" sid="PT4" img="PT4_series.jpg">
+    <book name="Book 1" bid="1" img="PT4_book1.jpg">
+      <lesson lid="1">數據正規化評審員</lesson>
+      <lesson lid="2">關聯式圖書小管家</lesson>
+      <lesson lid="3">壓縮密碼動物村</lesson>
+      <lesson lid="4">二元搜尋樹太空站</lesson>
+    </book>
+  </series>
 </root>

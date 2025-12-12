@@ -905,12 +905,31 @@
 .widget > .zoomer * {
   pointer-events: none;
 }
+.widget > .zoomer:hover .edit,
+.widget > .zoomer:hover .erase,
+.widget > .zoomer:hover .eraseAll, .widget > .zoomer:active .edit,
+.widget > .zoomer:active .erase,
+.widget > .zoomer:active .eraseAll, .widget > .zoomer:has(.edit.active) .edit,
+.widget > .zoomer:has(.edit.active) .erase,
+.widget > .zoomer:has(.edit.active) .eraseAll, .widget > .zoomer:has(.erase.active) .edit,
+.widget > .zoomer:has(.erase.active) .erase,
+.widget > .zoomer:has(.erase.active) .eraseAll, .widget > .zoomer:has(.eraseAll.active) .edit,
+.widget > .zoomer:has(.eraseAll.active) .erase,
+.widget > .zoomer:has(.eraseAll.active) .eraseAll {
+  display: block;
+}
+.widget > .zoomer .edit,
+.widget > .zoomer .erase,
+.widget > .zoomer .eraseAll {
+  display: none;
+  z-index: 5;
+}
 .widget > .zoomer .edit {
   position: absolute;
   width: 20px;
   height: 20px;
   top: -5px;
-  left: -26px;
+  left: -20px;
   background: url("../DATA/IMAGES/common/btn_brush.png") no-repeat left top;
   background-size: 40px 20px;
   pointer-events: auto;
@@ -931,7 +950,7 @@
   width: 20px;
   height: 20px;
   top: 16px;
-  left: -26px;
+  left: -20px;
   background: url("../DATA/IMAGES/common/btn_erasor.png") no-repeat left top;
   background-size: 40px 20px;
   pointer-events: auto;
@@ -953,7 +972,7 @@
   width: 20px;
   height: 20px;
   top: 37px;
-  left: -26px;
+  left: -20px;
   background: url("../DATA/IMAGES/common/btn_erasor_all.png") no-repeat left top;
   background-size: 40px 20px;
   pointer-events: auto;
@@ -1052,7 +1071,7 @@
 }
 .widget > .zoomer .zoomer_wrapper .resizer {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   width: 20px;
   height: 20px;
   background: rgba(0, 0, 0, 0);
@@ -1088,6 +1107,7 @@
   -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  z-index: 0;
 }
 .widget > .zoomSensor {
   pointer-events: auto;

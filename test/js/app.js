@@ -71,6 +71,8 @@ $(document).ready(function () {
         }
         //start particle animation
         isPaused = false;
+        ////202512:清空main-keep並隱藏
+        $("#main-keep").empty().hide();
       } else if (lid != null) {
         removeUnits();
         console.log("return to Lesson selection");
@@ -302,6 +304,7 @@ let createUnits = function () {
                         <h3>${nameArr[0]}<span>${
               nameArr[1] ? nameArr[1] : ""
             }</span></h3></li>`;
+
             $("#icon-wrapper").append(iconHTML);
             if (amount > 5 && i == Math.ceil(amount / 2) - 1) {
               $("#icon-wrapper").append("<br />");
@@ -375,6 +378,10 @@ let loadContainer = function (id, section) {
         jsPath = $(this)
           .find("section:eq(" + (uid - 1) + ")")
           .attr("js");
+        ////202512:新增type屬性
+        type = $(this)
+          .find("section:eq(" + (uid - 1) + ")")
+          .attr("type");
 
         let script_arr = [
           /*jsPath*/
@@ -383,14 +390,56 @@ let loadContainer = function (id, section) {
         let style_arr = [
           /*cssPath*/
         ];
-        $.getComponent(
-          "./DATA/" + htmlPath,
-          "#main",
-          style_arr,
-          "./DATA/",
-          script_arr,
-          "./DATA/"
-        );
+        ////202512:檢查是否為固定頁
+        if (type == "keep") {
+          keeplizeElement("#main-keep");
+
+          ////202512:確認是否已存在main-keep
+          var sectionDiv =
+            ssid + "-" + bbid + "-" + llid + "-" + id + "-" + section;
+          if ($("#" + sectionDiv).length > 0) {
+            //已存在,顯示此區塊
+            console.warn("已存在此固定頁,顯示此區塊");
+            dekeeplizeElement("#" + sectionDiv);
+
+            //重新載入JS
+            $.getMultiScripts(script_arr, "./DATA/").done(function () {
+              // all scripts loaded
+              console.log("JS Loading Finished.");
+            });
+          } else {
+            //不存在,新增此區塊
+            console.warn("不存在此固定頁,新增此區塊");
+            $("#main-keep").append(
+              `<div id="${sectionDiv}" class="main"></div>`
+            );
+            $.getComponent(
+              "./DATA/" + htmlPath,
+              "#" + sectionDiv,
+              style_arr,
+              "./DATA/",
+              script_arr,
+              "./DATA/"
+            );
+          }
+
+          $("#main").empty();
+          $("#main-keep").show();
+          $("#" + sectionDiv).show();
+        } else {
+          //固定頁全部隱藏
+          console.warn("固定頁全部隱藏");
+          keeplizeElement("#main-keep");
+          //
+          $.getComponent(
+            "./DATA/" + htmlPath,
+            "#main",
+            style_arr,
+            "./DATA/",
+            script_arr,
+            "./DATA/"
+          );
+        }
 
         resetAudio();
         loadPanel();
@@ -401,6 +450,38 @@ let loadContainer = function (id, section) {
         isPaused = true;
       }
     });
+};
+////202512:固定頁元素樣式
+let keeplizeElement = function (name) {
+  $(name).find("#module_wrapper").attr("id", "module_wrapper_keep");
+  $(name).find("#contents").attr("id", "contents_keep");
+  $(name).find(".tabs").addClass("tabs_keep").removeClass("tabs");
+  $(name).find(".contents").addClass("contents_keep").removeClass("contents");
+  $(name).find(".sideTool").addClass("sideTool_keep").removeClass("sideTool");
+  $(name)
+    .find(".assetsPreload")
+    .addClass("assetsPreload_keep")
+    .removeClass("assetsPreload");
+  $("#main-keep").hide();
+  $("#main-keep").find(">*").hide();
+};
+////202512:取消固定頁元素樣式
+let dekeeplizeElement = function (name) {
+  $(name).find("#module_wrapper_keep").attr("id", "module_wrapper");
+  $(name).find("#contents_keep").attr("id", "contents");
+  $(name).find(".tabs_keep").addClass("tabs").removeClass("tabs_keep");
+  $(name)
+    .find(".contents_keep")
+    .addClass("contents")
+    .removeClass("contents_keep");
+  $(name)
+    .find(".sideTool_keep")
+    .addClass("sideTool")
+    .removeClass("sideTool_keep");
+  $(name)
+    .find(".assetsPreload_keep")
+    .addClass("assetsPreload")
+    .removeClass("assetsPreload_keep");
 };
 
 let loadContainerInside = function (htmlPath, jsPath, p) {
@@ -1156,6 +1237,13 @@ let makeDraggable = function (tar, stay, resizeTar) {
     }
     //ending
     if (ev.isFinal) {
+      ////202512
+      //reset edit buttons
+      $(firstElem).siblings(".edit").removeClass("active");
+      $(firstElem).siblings(".erase").removeClass("active");
+      $(firstElem).siblings(".eraseAll").removeClass("active");
+      $(firstElem).siblings(".drawer").removeClass("editable");
+
       $(".resizer").removeAttr("style");
       //
       if ($(firstElem).hasClass("canvas")) {
