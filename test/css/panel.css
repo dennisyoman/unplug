@@ -135,6 +135,11 @@
   background-image: url("../DATA/IMAGES/common/btn_zoom.png");
   position: relative;
 }
+.panel .main-panel .btn.btn_zoom.boxable {
+  background-image: url("../DATA/IMAGES/common/btn_box.png");
+  background-size: 60% auto;
+  background-color: #1c9b64;
+}
 .panel .main-panel .btn.btn_zoom > div {
   transform-origin: center bottom;
   position: absolute;
@@ -152,12 +157,28 @@
 .panel .main-panel .btn.btn_focus {
   background-image: url("../DATA/IMAGES/common/btn_focus.png");
 }
+.panel .main-panel .btn.btn_box {
+  margin: 0;
+  position: absolute;
+  background-image: url("../DATA/IMAGES/common/btn_box.png");
+  background-size: contain;
+  top: -35px;
+  right: 10px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 3;
+}
+.panel .main-panel .btn.btn_box.active {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+}
 .panel .main-panel .btn.disabled {
   pointer-events: none;
   opacity: 0.3 !important;
   -moz-opacity: 0.3 !important;
   -khtml-opacity: 0.3 !important;
   filter: alpha(opacity=30) !important;
+  display: none;
 }
 .panel .main-panel .pen_tool {
   position: absolute;
@@ -907,20 +928,26 @@
 }
 .widget > .zoomer:hover .edit,
 .widget > .zoomer:hover .erase,
-.widget > .zoomer:hover .eraseAll, .widget > .zoomer:active .edit,
+.widget > .zoomer:hover .eraseAll,
+.widget > .zoomer:hover .collect, .widget > .zoomer:active .edit,
 .widget > .zoomer:active .erase,
-.widget > .zoomer:active .eraseAll, .widget > .zoomer:has(.edit.active) .edit,
+.widget > .zoomer:active .eraseAll,
+.widget > .zoomer:active .collect, .widget > .zoomer:has(.edit.active) .edit,
 .widget > .zoomer:has(.edit.active) .erase,
-.widget > .zoomer:has(.edit.active) .eraseAll, .widget > .zoomer:has(.erase.active) .edit,
+.widget > .zoomer:has(.edit.active) .eraseAll,
+.widget > .zoomer:has(.edit.active) .collect, .widget > .zoomer:has(.erase.active) .edit,
 .widget > .zoomer:has(.erase.active) .erase,
-.widget > .zoomer:has(.erase.active) .eraseAll, .widget > .zoomer:has(.eraseAll.active) .edit,
+.widget > .zoomer:has(.erase.active) .eraseAll,
+.widget > .zoomer:has(.erase.active) .collect, .widget > .zoomer:has(.eraseAll.active) .edit,
 .widget > .zoomer:has(.eraseAll.active) .erase,
-.widget > .zoomer:has(.eraseAll.active) .eraseAll {
+.widget > .zoomer:has(.eraseAll.active) .eraseAll,
+.widget > .zoomer:has(.eraseAll.active) .collect {
   display: block;
 }
 .widget > .zoomer .edit,
 .widget > .zoomer .erase,
-.widget > .zoomer .eraseAll {
+.widget > .zoomer .eraseAll,
+.widget > .zoomer .collect {
   display: none;
   z-index: 5;
 }
@@ -989,6 +1016,20 @@
   -khtml-opacity: 1 !important;
   filter: alpha(opacity=100) !important;
 }
+.widget > .zoomer .collect {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0px;
+  left: -19px;
+  background: url("../DATA/IMAGES/common/btn_box.png") no-repeat center center;
+  background-size: 60% auto;
+  background-color: #1c9b64;
+  border-radius: 4px;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
 .widget > .zoomer.active {
   animation-name: doneCap;
   animation-duration: 0.6s;
@@ -1023,6 +1064,9 @@
 }
 .widget > .zoomer.active .zoomer_wrapper::after {
   display: block;
+}
+.widget > .zoomer.collectable .zoomer_wrapper::after {
+  display: none;
 }
 .widget > .zoomer .zoomer_wrapper {
   width: 100%;
@@ -1110,6 +1154,103 @@
   z-index: 0;
 }
 .widget > .zoomSensor {
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+}
+.widget > .boxer {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  pointer-events: auto;
+  top: 100vh;
+  left: 100vw;
+}
+.widget > .boxer * {
+  pointer-events: none;
+}
+.widget > .boxer:hover .collect, .widget > .boxer:active .collect {
+  display: block;
+}
+.widget > .boxer .collect {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: -19px;
+  background: url("../DATA/IMAGES/common/btn_box.png") no-repeat center center;
+  background-size: cover;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  display: none;
+  z-index: 5;
+}
+.widget > .boxer.active {
+  animation-name: doneCap;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+@keyframes doneCap {
+  from {
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  60% {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  80% {
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  95% {
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  to {
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.widget > .boxer .boxer_wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.widget > .boxer .boxer_wrapper .canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: top left;
+  z-index: 2;
+  transform: scale(1) !important;
+}
+.widget > .boxer .boxer_wrapper .canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.widget > .boxer .boxer_wrapper .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.widget > .boxSensor {
   pointer-events: auto;
   position: absolute;
   top: 0;

@@ -1,3 +1,61 @@
+// ---- PT4 ---
+.module_story {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include opacity(0);
+
+  &.loaded {
+    @include opacity(1);
+  }
+
+  .contents {
+    width: calc(100% - 40px);
+    &:has(> div.selected .puzzle .items.selected) {
+      .code .items:not(.hid) > span {
+        border-radius: 100%;
+        animation: bgblinking 1s both infinite;
+        animation-delay: 1s;
+      }
+    }
+    @keyframes bgblinking {
+      0% {
+        background: rgba(255, 0, 0, 0);
+      }
+      50% {
+        background: rgba(255, 0, 0, 0.1);
+      }
+      100% {
+        background: rgba(255, 0, 0, 0);
+      }
+    }
+
+    .storyboard {
+      position: relative;
+
+      .subject {
+        position: relative;
+        .sensors {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+
+          span {
+            position: absolute;
+            z-index: 1;
+            pointer-events: auto;
+            animation: bgblinking 1s both infinite;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+// ---- origin ---
 .module_capacity {
   position: relative;
   top: 0;
@@ -8111,9 +8169,9 @@
         &.selected {
           //border: 3px dashed #333333;
 
-          background-image: linear-gradient(90deg, black 50%, transparent 50%),
-            linear-gradient(90deg, black 50%, transparent 50%), linear-gradient(0deg, black 50%, transparent 50%),
-            linear-gradient(0deg, black 50%, transparent 50%);
+          background-image:
+            linear-gradient(90deg, black 50%, transparent 50%), linear-gradient(90deg, black 50%, transparent 50%),
+            linear-gradient(0deg, black 50%, transparent 50%), linear-gradient(0deg, black 50%, transparent 50%);
           background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
           background-size:
             10px 2px,
@@ -14371,9 +14429,9 @@
           color: transparent;
           text-align: center;
           background-color: #fff;
-          background-image: linear-gradient(90deg, black 50%, transparent 50%),
-            linear-gradient(90deg, black 50%, transparent 50%), linear-gradient(0deg, black 50%, transparent 50%),
-            linear-gradient(0deg, black 50%, transparent 50%);
+          background-image:
+            linear-gradient(90deg, black 50%, transparent 50%), linear-gradient(90deg, black 50%, transparent 50%),
+            linear-gradient(0deg, black 50%, transparent 50%), linear-gradient(0deg, black 50%, transparent 50%);
           background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
           background-size:
             10px 2px,
@@ -14914,6 +14972,11 @@
     }
     &.btn_check {
       background: url("../DATA/IMAGES/common/btn_check.png") no-repeat center center;
+      background-size: 100% 100%;
+    }
+    &.btn_discover {
+      display: block !important;
+      background: url("../DATA/IMAGES/common/btn_discover.png") no-repeat center center;
       background-size: 100% 100%;
     }
   }

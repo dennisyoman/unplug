@@ -139,6 +139,11 @@
 
       &.btn_zoom {
         background-image: url("../DATA/IMAGES/common/btn_zoom.png");
+        &.boxable {
+          background-image: url("../DATA/IMAGES/common/btn_box.png");
+          background-size: 60% auto;
+          background-color: #1c9b64;
+        }
         position: relative;
         > div {
           transform-origin: center bottom;
@@ -160,9 +165,27 @@
         background-image: url("../DATA/IMAGES/common/btn_focus.png");
       }
 
+      &.btn_box {
+        margin: 0;
+        position: absolute;
+        background-image: url("../DATA/IMAGES/common/btn_box.png");
+        background-size: contain;
+        top: -35px;
+        right: 10px;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 3;
+
+        &.active {
+          filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+        }
+      }
+
       &.disabled {
         pointer-events: none;
         @include opacity(0.3);
+        display: none;
       }
     }
 
@@ -957,13 +980,15 @@
     &:has(.eraseAll.active) {
       .edit,
       .erase,
-      .eraseAll {
+      .eraseAll,
+      .collect {
         display: block;
       }
     }
     .edit,
     .erase,
-    .eraseAll {
+    .eraseAll,
+    .collect {
       display: none;
       z-index: 5;
     }
@@ -1016,6 +1041,20 @@
         @include opacity(1);
       }
     }
+    .collect {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 0px;
+      left: -19px;
+      background: url("../DATA/IMAGES/common/btn_box.png") no-repeat center center;
+      background-size: 60% auto;
+      background-color: #1c9b64;
+      border-radius: 4px;
+      pointer-events: auto;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
     &.active {
       @keyframes doneCap {
         from {
@@ -1043,6 +1082,14 @@
       animation-name: doneCap;
       animation-duration: 0.6s;
       animation-fill-mode: both;
+    }
+
+    &.collectable {
+      .zoomer_wrapper {
+        &::after {
+          display: none;
+        }
+      }
     }
     .zoomer_wrapper {
       width: 100%;
@@ -1136,6 +1183,103 @@
     }
   }
   > .zoomSensor {
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+  }
+  > .boxer {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    pointer-events: auto;
+    //cursor: pointer;
+    top: 100vh;
+    left: 100vw;
+    * {
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:active {
+      .collect {
+        display: block;
+      }
+    }
+
+    .collect {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 0;
+      left: -19px;
+      background: url("../DATA/IMAGES/common/btn_box.png") no-repeat center center;
+      background-size: cover;
+      pointer-events: auto;
+      cursor: pointer;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      display: none;
+      z-index: 5;
+    }
+
+    &.active {
+      @keyframes doneCap {
+        from {
+          @include scale(1);
+        }
+        60% {
+          @include scale(1.2);
+        }
+        80% {
+          @include scale(0.9);
+        }
+        95% {
+          @include scale(1.05);
+        }
+        to {
+          @include scale(1);
+        }
+      }
+
+      animation-name: doneCap;
+      animation-duration: 0.6s;
+      animation-fill-mode: both;
+    }
+    .boxer_wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .canvas {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-origin: top left;
+        z-index: 2;
+        transform: scale(1) !important;
+
+        canvas {
+          width: 100% !important;
+          height: 100% !important;
+        }
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  > .boxSensor {
     pointer-events: auto;
     position: absolute;
     top: 0;

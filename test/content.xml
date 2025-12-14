@@ -2,9 +2,9 @@
   <lesson sid="PT" bid="1" lid="1">
     <section section="1" name="故事創造者 / 創造力" html="PT/BOOK1N/HTML/PT-1-1-1.html" js="JS/creativity.js" image="IMAGES/UNITS/creativity.png" skin="">
     </section>
-    <section section="2" name="一起玩遊戲 / 序列" html="PT/BOOK1N/HTML/PT-1-1-2.html" js="JS/order.js" image="IMAGES/UNITS/order.png" skin="" type="keep">
+    <section section="2" name="一起玩遊戲 / 序列" html="PT/BOOK1N/HTML/PT-1-1-2.html" js="JS/order.js" image="IMAGES/UNITS/order.png" skin="">
     </section>
-    <section section="3" name="編程時間 / 演算法" html="PT/BOOK1N/HTML/PT-1-1-3.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="" type="keep">
+    <section section="3" name="編程時間 / 演算法" html="PT/BOOK1N/HTML/PT-1-1-3.html" js="JS/calculus.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
   <lesson sid="PT" bid="1" lid="2">
@@ -749,15 +749,59 @@
   </lesson>
   <!-- PT4 Book1  -->
   <lesson sid="PT4" bid="1" lid="1">
-    <section section="2" name="情境故事" html="PT4/BOOK1/HTML/PT4-1-1-2.html" js="JS/creativity2.js" image="IMAGES/UNITS/creativity.png" skin="">
+    <section section="2" name="情境故事" html="PT4/BOOK1/HTML/PT4-1-1-2.html" js="JS/story.js" image="IMAGES/UNITS/story.png" skin="" type="keep">
     </section>
-    <section section="3" name="關鍵訊息" html="PT4/BOOK1/HTML/PT4-1-1-3.html" js="JS/basic.js" image="IMAGES/UNITS/guess.png" skin="" type="keep">
+    <section section="3" name="關鍵訊息" html="PT4/BOOK1/HTML/PT4-1-1-3.html" js="JS/decode.js" image="IMAGES/UNITS/creativity.png" skin="" type="keep">
     </section>
-    <section section="4" name="文生圖" html="PT4/BOOK1/HTML/PT4-1-1-4.html" js="JS/basic.js" image="IMAGES/UNITS/guess.png" skin="" type="keep">
+    <section section="4" name="文生圖" html="PT4/BOOK1/HTML/PT4-1-1-4.html" js="JS/fillin.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
     </section>
-    <section section="5" name="挑戰主題" html="PT4/BOOK1/HTML/PT4-1-1-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
+    <section section="5" name="挑戰主題" html="PT4/BOOK1/HTML/PT4-1-1-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/challenge.png" skin="">
     </section>
-    <section section="6" name="科學上的意義" html="PT4/BOOK1/HTML/PT4-1-1-6.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/calculus.png" skin="">
+    <section section="6" name="科學上的意義" html="PT4/BOOK1/HTML/PT4-1-1-6.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="7" name="練習" html="PT4/BOOK1/HTML/PT4-1-1-7.html" js="JS/decode.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT4" bid="1" lid="2">
+    <section section="2" name="情境故事" html="PT4/BOOK1/HTML/PT4-1-2-2.html" js="JS/decode.js" image="IMAGES/UNITS/story.png" skin="">
+    </section>
+    <section section="3" name="關鍵訊息" html="PT4/BOOK1/HTML/PT4-1-2-3.html" js="JS/basic.js" image="IMAGES/UNITS/creativity.png" skin="" type="keep">
+    </section>
+    <section section="4" name="文生圖" html="PT4/BOOK1/HTML/PT4-1-2-4.html" js="JS/basic.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
+    </section>
+    <section section="5" name="挑戰主題" html="PT4/BOOK1/HTML/PT4-1-2-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/challenge.png" skin="">
+    </section>
+    <section section="6" name="科學上的意義" html="PT4/BOOK1/HTML/PT4-1-2-6.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="7" name="練習" html="PT4/BOOK1/HTML/PT4-1-2-7.html" js="JS/decode.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT4" bid="1" lid="3">
+    <section section="2" name="情境故事" html="PT4/BOOK1/HTML/PT4-1-3-2.html" js="JS/decode.js" image="IMAGES/UNITS/story.png" skin="">
+    </section>
+    <section section="3" name="關鍵訊息" html="PT4/BOOK1/HTML/PT4-1-3-3.html" js="JS/basic.js" image="IMAGES/UNITS/creativity.png" skin="" type="keep">
+    </section>
+    <section section="4" name="文生圖" html="PT4/BOOK1/HTML/PT4-1-3-4.html" js="JS/basic.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
+    </section>
+    <section section="5" name="挑戰主題" html="PT4/BOOK1/HTML/PT4-1-3-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/challenge.png" skin="">
+    </section>
+    <section section="6" name="科學上的意義" html="PT4/BOOK1/HTML/PT4-1-3-6.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="7" name="練習" html="PT4/BOOK1/HTML/PT4-1-3-7.html" js="JS/decode.js" image="IMAGES/UNITS/calculus.png" skin="">
+    </section>
+  </lesson>
+  <lesson sid="PT4" bid="1" lid="4">
+    <section section="2" name="情境故事" html="PT4/BOOK1/HTML/PT4-1-4-2.html" js="JS/decode.js" image="IMAGES/UNITS/story.png" skin="">
+    </section>
+    <section section="3" name="關鍵訊息" html="PT4/BOOK1/HTML/PT4-1-4-3.html" js="JS/basic.js" image="IMAGES/UNITS/creativity.png" skin="" type="keep">
+    </section>
+    <section section="4" name="文生圖" html="PT4/BOOK1/HTML/PT4-1-4-4.html" js="JS/basic.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
+    </section>
+    <section section="5" name="挑戰主題" html="PT4/BOOK1/HTML/PT4-1-4-5.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/challenge.png" skin="">
+    </section>
+    <section section="6" name="科學上的意義" html="PT4/BOOK1/HTML/PT4-1-4-6.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/logic.png" skin="">
+    </section>
+    <section section="7" name="練習" html="PT4/BOOK1/HTML/PT4-1-4-7.html" js="JS/decode.js" image="IMAGES/UNITS/calculus.png" skin="">
     </section>
   </lesson>
 </root>

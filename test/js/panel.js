@@ -3,6 +3,7 @@ $(document).ready(function () {
   $("#main-panel")
     .unbind()
     .bind("compLoaded", function () {
+      checkPanelBtns();
       //btn
       $(".btn_intro")
         .unbind()
@@ -11,6 +12,7 @@ $(document).ready(function () {
           switchIntro();
           clickthen();
         });
+
       $(".btn_widget")
         .unbind()
         .bind("click", function () {
@@ -20,6 +22,7 @@ $(document).ready(function () {
           }
           clickthen();
         });
+
       $(".btn_erasor")
         .unbind()
         .bind("click", function () {
@@ -28,6 +31,7 @@ $(document).ready(function () {
           resetPanelBtns("btn_erasor");
           clickthen();
         });
+
       $(".btn_paletton")
         .unbind()
         .bind("click", function () {
@@ -52,7 +56,20 @@ $(document).ready(function () {
           }
           createZoomSensor();
         });
-      checkPanelBtns();
+
+      $(".btn_box")
+        .unbind()
+        .bind("click", function () {
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            resetPanelBtns("btn_box");
+            rootSoundEffect($show);
+          } else {
+            rootSoundEffect($good);
+          }
+          //createBoxSensor();
+        });
+
       $(".btn_focus")
         .unbind()
         .bind("click", function () {
@@ -211,6 +228,7 @@ var appendFinger = function (e) {
     );
   }
 };
+
 var appendCountdown = function (e) {
   e.stopPropagation();
 
@@ -227,6 +245,7 @@ var appendCountdown = function (e) {
     );
   }
 };
+
 var appendCounter = function (e) {
   e.stopPropagation();
 
@@ -243,6 +262,7 @@ var appendCounter = function (e) {
     );
   }
 };
+
 var appendDice = function (e, type) {
   if (e != "") {
     e.stopPropagation();
@@ -354,17 +374,288 @@ var createZoomSensor = function () {
   }
 };
 
-//zoom
+var createBoxSensor = function () {
+  if ($("#widget").children("#boxSensor").length < 1) {
+    $("#widget").append(`<div id="boxSensor" class="boxSensor"/>`);
+
+    trigBoxHammer();
+  } else {
+    $("#boxSensor").remove();
+  }
+};
+
+//zoom & box
 var canvasCord;
 var downCord = [];
 var upCord = [];
 var isZoomDragging = false;
 
+////box 暫時用不到，先保留 --- start
+/*
+var trigBoxHammer = function () {
+  //hammer
+  var myElement = document.getElementById("boxSensor");
+  var mc = new Hammer(myElement);
+  mc.get("pan").set({ threshold: 0, direction: Hammer.DIRECTION_ALL });
+  mc.on("pan", function (ev) {
+    handleBoxDrag(ev);
+  });
+};
+
+var handleBoxDrag = function (ev) {
+  var elem = ev.target;
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  if (!isZoomDragging && $(elem).hasClass("boxSensor")) {
+    isZoomDragging = true;
+
+    downCord = [
+      (ev.center.x - $("#root").offset().left) / newZoomRatio,
+      (ev.center.y - $("#root").offset().top) / newZoomRatio,
+    ];
+    appendBoxer();
+
+    //pre setup
+    $(".world3D > .stage,.voc,.visible,.sideTool > *").each(function () {
+      if ($(this).css("display") != "none") {
+        $(this).hide().addClass("bi");
+      }
+    });
+  }
+  if ($(elem).hasClass("boxSensor")) {
+    upCord = [
+      (ev.center.x - $("#root").offset().left) / newZoomRatio,
+      (ev.center.y - $("#root").offset().top) / newZoomRatio,
+    ];
+    //custom boxer
+    $("#boxer").css("top", Math.min(downCord[1], upCord[1]) + "px");
+    $("#boxer").css("left", Math.min(downCord[0], upCord[0]) + "px");
+    $("#boxer").css("height", Math.abs(downCord[1] - upCord[1]) + "px");
+    $("#boxer").css("width", Math.abs(downCord[0] - upCord[0]) + "px");
+    $("#boxer").attr("ih", Math.abs(downCord[1] - upCord[1]));
+    $("#boxer").attr("iw", Math.abs(downCord[0] - upCord[0]));
+  }
+
+  if (ev.isFinal) {
+    isZoomDragging = false;
+    //
+    if (
+      Math.abs(downCord[0] - upCord[0]) < 5 ||
+      Math.abs(downCord[1] - upCord[1]) < 5
+    ) {
+      $("#boxer").remove();
+    } else {
+      $("#boxSensor").css("pointer-events", "none");
+      //
+      renderBoxer();
+      //inactive btn
+      $(".btn_box").click();
+    }
+  }
+};
+
+var renderBoxer = function () {
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  //custom boxer
+  $("#boxer").css("top", Math.min(downCord[1], upCord[1]) + "px");
+  $("#boxer").css("left", Math.min(downCord[0], upCord[0]) + "px");
+  $("#boxer").css("height", Math.abs(downCord[1] - upCord[1]) + "px");
+  $("#boxer").css("width", Math.abs(downCord[0] - upCord[0]) + "px");
+  $("#boxer").attr("ih", Math.abs(downCord[1] - upCord[1]));
+  $("#boxer").attr("iw", Math.abs(downCord[0] - upCord[0]));
+
+  //pre setup
+  $(".wow.animated").removeClass("wow").removeClass("animated").addClass("wa");
+  $(".wow").removeClass("wow").addClass("w");
+  $("#root").css("overflow", "visible");
+  $("*:not(.card,.card *)").addClass("noAni");
+  $(".card.active:not(.flipback)").addClass("keepCardFace");
+  $(".card.active.flipback").addClass("keepCardback");
+  //
+
+  $("#main").css({
+    padding: "400px",
+    "margin-top": "-400px",
+    "margin-left": "-400px",
+  });
+  $("#main-keep").css({
+    padding: "400px",
+    "margin-top": "-400px",
+    "margin-left": "-400px",
+  });
+
+  //flipback
+  html2canvas(
+    $("#root").get(0),
+    //可以帶上寬高擷取你所需要的部分內容
+    {
+      x: Math.min(downCord[0], upCord[0]) * newZoomRatio,
+      y: Math.min(downCord[1], upCord[1]) * newZoomRatio,
+      width: Math.abs(downCord[0] - upCord[0]) * newZoomRatio,
+      height: Math.abs(downCord[1] - upCord[1]) * newZoomRatio,
+      scrollX: 0,
+      scrollY: 0,
+      scale: html2canvasScale,
+    }
+  ).then(function (canvas) {
+    var ctx = canvas.getContext("2d");
+
+    ctx.webkitImageSmoothingEnabled = true;
+    ctx.mozImageSmoothingEnabled = true;
+    ctx.imageSmoothingEnabled = true;
+    $("#boxer .canvas").css("transform", "scale(" + 1 / newZoomRatio + ")");
+    //create a new canvas
+    var newCanvas = document.createElement("canvas");
+    newCanvas.width = canvas.width;
+    newCanvas.height = canvas.height;
+
+    $("#boxer .canvas").empty().get(0).appendChild(canvas);
+
+    //finalize
+    $("#boxer .overlay").remove();
+    $("#boxer")
+      .addClass("active")
+      .attr("id", "")
+      .delay(80)
+      .queue(function () {
+        $(this).dequeue();
+        makeDraggable($(this), false, $(this));
+      });
+
+    //after setup
+    $(".wa").addClass("wow").addClass("animated").removeClass("wa");
+    $(".w").addClass("wow").removeClass("w");
+    $("#root").css("overflow", "hidden");
+    $(".noAni").removeClass("noAni");
+    $(".keepCardFace").removeClass("keepCardFace");
+    $(".keepCardback").removeClass("keepCardback");
+    $(".bi").show().removeClass("bi");
+    $("#main").css({
+      padding: "0px",
+      "margin-top": "0px",
+      "margin-left": "0px",
+    });
+    $("#main-keep").css({
+      padding: "0px",
+      "margin-top": "0px",
+      "margin-left": "0px",
+    });
+  });
+};
+
+var appendBoxer = function () {
+  if ($("#widget").children("#boxer").length < 1) {
+    $("#widget").append(`<div id="boxer" class="boxer"/>`);
+    $("#boxer").css("top", downCord[1] + "px");
+    $("#boxer").css("left", downCord[0] + "px");
+    var boxerHTML = `<div class="boxer_wrapper">
+            <div class="canvas"></div>
+            <div class="overlay"></div>
+            <div class="collect"></div>
+          </div>`;
+    $("#boxer").html(boxerHTML);
+    //js
+    $("#boxer")
+      .unbind()
+      .bind("mousedown", function (e) {
+        getHighestDepthWidget($(this));
+      })
+      .bind("touchstart", function (e) {
+        getHighestDepthWidget($(this));
+      });
+    getHighestDepthWidget($("#boxer"));
+
+    $("#boxer .collect")
+      .unbind()
+      .bind("click", function (e) {
+        //收進箱子裡面
+      });
+  }
+};
+*/
+////box 暫時用不到，先保留 --- end
+////202512:
+var cloneCanvasIntoBox = function (canvas) {
+  var newCanvas = document.createElement("canvas");
+  newCanvas.width = canvas.width;
+  newCanvas.height = canvas.height;
+  var ctx = newCanvas.getContext("2d");
+  ctx.drawImage(canvas, 0, 0);
+  var $item = $("<div>").addClass("canvas_item");
+  $(newCanvas).css({
+    width: newCanvas.width / 10 + "px",
+    height: newCanvas.height / 10 + "px",
+  });
+  $item.css({
+    width: newCanvas.width / 10 + "px",
+    height: newCanvas.height / 10 + "px",
+  });
+  $item.append(newCanvas);
+  $item.append(newCanvas);
+  //新增刪除按鈕
+  var $button_remove = $("<span>").addClass("button_remove");
+  $item.prepend($button_remove);
+  $(".canvas_list").prepend($item);
+
+  $item.find(".button_remove").click(function () {
+    //刪除
+    $item.remove();
+    rootSoundEffect($show);
+  });
+  $item.find("canvas").click(function () {
+    //新增到某處
+    cloneItemFromBox($(this));
+  });
+
+  //打開panel
+  if (!$(".btn_box").hasClass("active")) {
+    $(".btn_box").click();
+  }
+};
+////202512:
+var cloneItemFromBox = function (item) {
+  rootSoundEffect($pop);
+  var element = item.jquery ? item[0] : item;
+  var isCanvas =
+    element &&
+    (element.tagName === "CANVAS" || element instanceof HTMLCanvasElement);
+  console.log("tar is canvas:", isCanvas, item);
+
+  var target =
+    $("#main-keep > .main.selected").length > 0
+      ? $("#main-keep > .main.selected")
+      : $("#widget");
+
+  //開始clone
+  var newCanvas = document.createElement("canvas");
+  newCanvas.width = element.width;
+  newCanvas.height = element.height;
+  newCanvas.getContext("2d").drawImage(element, 0, 0);
+
+  var scaledWidth = newCanvas.width / 10;
+  var scaledHeight = newCanvas.height / 10;
+  var scaledSize = {
+    width: scaledWidth + "px",
+    height: scaledHeight + "px",
+    left: "30%",
+    top: "30%",
+  };
+
+  var $item = $("<div>")
+    .addClass("canvas_item")
+    .css(scaledSize)
+    .append($(newCanvas).css(scaledSize));
+
+  target.append($item);
+  makeDraggable($item, false, $item);
+};
+
+////zoom
+
 var trigZoomHammer = function () {
   //hammer
   var myElement = document.getElementById("zoomSensor");
   var mc = new Hammer(myElement);
-  mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
+  mc.get("pan").set({ threshold: 0, direction: Hammer.DIRECTION_ALL });
   mc.on("pan", function (ev) {
     handleZoomDrag(ev);
   });
@@ -410,81 +701,120 @@ var handleZoomDrag = function (ev) {
 
   if (ev.isFinal) {
     isZoomDragging = false;
-    $("#zoomSensor").css("pointer-events", "none");
-    //pre setup
-    $(".wow.animated")
-      .removeClass("wow")
-      .removeClass("animated")
-      .addClass("wa");
-    $(".wow").removeClass("wow").addClass("w");
-    $("#root").css("overflow", "visible");
-    $("*:not(.card,.card *)").addClass("noAni");
-    $(".card.active:not(.flipback)").addClass("keepCardFace");
-    $(".card.active.flipback").addClass("keepCardback");
-    //
-    console.log($("#main").css("top"));
-    $("#main").css({
-      padding: "400px",
-      "margin-top": "-400px",
-      "margin-left": "-400px",
-    });
-
-    //flipback
-    html2canvas(
-      $("#root").get(0),
-      //可以帶上寬高擷取你所需要的部分內容
-      {
-        x: Math.min(downCord[0], upCord[0]) * newZoomRatio,
-        y: Math.min(downCord[1], upCord[1]) * newZoomRatio,
-        width: Math.abs(downCord[0] - upCord[0]) * newZoomRatio,
-        height: Math.abs(downCord[1] - upCord[1]) * newZoomRatio,
-        scrollX: 0,
-        scrollY: 0,
-        scale: html2canvasScale,
-      }
-    ).then(function (canvas) {
-      var ctx = canvas.getContext("2d");
-
-      ctx.webkitImageSmoothingEnabled = true;
-      ctx.mozImageSmoothingEnabled = true;
-      ctx.imageSmoothingEnabled = true;
-      $("#zoomer .canvas").css("transform", "scale(" + 1 / newZoomRatio + ")");
-      //create a new canvas
-      var newCanvas = document.createElement("canvas");
-      newCanvas.width = canvas.width;
-      newCanvas.height = canvas.height;
-
-      $("#zoomer .canvas").empty().get(0).appendChild(canvas);
-      $("#zoomer .drawer").empty().get(0).appendChild(newCanvas);
-
-      //finalize
-      $("#zoomer .overlay").remove();
-      $("#zoomer")
-        .addClass("active")
-        .attr("id", "")
-        .delay(80)
-        .queue(function () {
-          $(this).dequeue();
-          makeDrawable($(this));
-          makeDraggable($(this), false, $(this));
-        });
+    if (
+      Math.abs(downCord[0] - upCord[0]) < 5 ||
+      Math.abs(downCord[1] - upCord[1]) < 5
+    ) {
+      $("#zoomer").remove();
+    } else {
+      $("#zoomSensor").css("pointer-events", "none");
+      renderZoomer();
       //inactive btn
       $(".btn_zoom").click();
-      //after setup
-      $(".wa").addClass("wow").addClass("animated").removeClass("wa");
-      $(".w").addClass("wow").removeClass("w");
-      $("#root").css("overflow", "hidden");
-      $(".noAni").removeClass("noAni");
-      $(".keepCardFace").removeClass("keepCardFace");
-      $(".keepCardback").removeClass("keepCardback");
-      $(".bi").show().removeClass("bi");
-      $("#main").css({
-        padding: "0px",
-        "margin-top": "0px",
-        "margin-left": "0px",
-      });
-    });
+    }
   }
+};
+////202512:
+var renderZoomer = function () {
+  if ($(".panel .btn_zoom").hasClass("boxable")) {
+    $("#zoomer").addClass("collectable");
+    $("#zoomer .eraseAll").remove();
+    $("#zoomer .erase").remove();
+    $("#zoomer .edit").remove();
+    $("#zoomer .resizer").remove();
+  } else {
+    $("#zoomer .collect").remove();
+  }
+
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  //custom zoomer
+  $("#zoomer").css("top", Math.min(downCord[1], upCord[1]) + "px");
+  $("#zoomer").css("left", Math.min(downCord[0], upCord[0]) + "px");
+  $("#zoomer").css("height", Math.abs(downCord[1] - upCord[1]) + "px");
+  $("#zoomer").css("width", Math.abs(downCord[0] - upCord[0]) + "px");
+  $("#zoomer").attr("ih", Math.abs(downCord[1] - upCord[1]));
+  $("#zoomer").attr("iw", Math.abs(downCord[0] - upCord[0]));
+  //pre setup
+  $(".wow.animated").removeClass("wow").removeClass("animated").addClass("wa");
+  $(".wow").removeClass("wow").addClass("w");
+  $("#root").css("overflow", "visible");
+  $("*:not(.card,.card *)").addClass("noAni");
+  $(".card.active:not(.flipback)").addClass("keepCardFace");
+  $(".card.active.flipback").addClass("keepCardback");
+  //
+
+  $("#main").css({
+    padding: "400px",
+    "margin-top": "-400px",
+    "margin-left": "-400px",
+  });
+  $("#main-keep").css({
+    padding: "400px",
+    "margin-top": "-400px",
+    "margin-left": "-400px",
+  });
+
+  //flipback
+  html2canvas(
+    $("#root").get(0),
+    //可以帶上寬高擷取你所需要的部分內容
+    {
+      x: Math.min(downCord[0], upCord[0]) * newZoomRatio,
+      y: Math.min(downCord[1], upCord[1]) * newZoomRatio,
+      width: Math.abs(downCord[0] - upCord[0]) * newZoomRatio,
+      height: Math.abs(downCord[1] - upCord[1]) * newZoomRatio,
+      scrollX: 0,
+      scrollY: 0,
+      scale: html2canvasScale,
+    }
+  ).then(function (canvas) {
+    rootSoundEffect($pop);
+    var ctx = canvas.getContext("2d");
+
+    ctx.webkitImageSmoothingEnabled = true;
+    ctx.mozImageSmoothingEnabled = true;
+    ctx.imageSmoothingEnabled = true;
+    $("#zoomer .canvas").css("transform", "scale(" + 1 / newZoomRatio + ")");
+    //create a new canvas
+    var newCanvas = document.createElement("canvas");
+    newCanvas.width = canvas.width;
+    newCanvas.height = canvas.height;
+
+    $("#zoomer .canvas").empty().get(0).appendChild(canvas);
+
+    $("#zoomer .drawer").empty().get(0).appendChild(newCanvas);
+
+    //finalize
+    $("#zoomer .overlay").remove();
+    $("#zoomer")
+      .addClass("active")
+      .attr("id", "")
+      .delay(80)
+      .queue(function () {
+        $(this).dequeue();
+        makeDrawable($(this));
+        makeDraggable($(this), false, $(this));
+      });
+
+    //after setup
+    $(".wa").addClass("wow").addClass("animated").removeClass("wa");
+    $(".w").addClass("wow").removeClass("w");
+    $("#root").css("overflow", "hidden");
+    $(".noAni").removeClass("noAni");
+    $(".keepCardFace").removeClass("keepCardFace");
+    $(".keepCardback").removeClass("keepCardback");
+    $(".bi").show().removeClass("bi");
+    $("#main").css({
+      padding: "0px",
+      "margin-top": "0px",
+      "margin-left": "0px",
+    });
+    $("#main-keep").css({
+      padding: "0px",
+      "margin-top": "0px",
+      "margin-left": "0px",
+    });
+  });
 };
 
 var makeDrawable = function (tar) {
@@ -609,13 +939,14 @@ var makeDrawable = function (tar) {
     startY = stopY;
   }
 };
-
+////202512:
 var appendZoomer = function () {
   if ($("#widget").children("#zoomer").length < 1) {
     $("#widget").append(`<div id="zoomer" class="zoomer"/>`);
     $("#zoomer").css("top", downCord[1] + "px");
     $("#zoomer").css("left", downCord[0] + "px");
     var zoomerHTML = `<div class="zoomer_wrapper">
+            <div class="collect"></div>
             <span class="edit"></span>
             <span class="erase"></span>
             <span class="eraseAll"></span>
@@ -675,6 +1006,12 @@ var appendZoomer = function () {
         var clearTar = $(this).siblings(".drawer").find("canvas");
         var cctx = clearTar.get(0).getContext("2d");
         cctx.clearRect(0, 0, clearTar.attr("width"), clearTar.attr("height"));
+      });
+    $("#zoomer .collect")
+      .unbind()
+      .bind("click", function (e) {
+        cloneCanvasIntoBox($(this).siblings(".canvas").find("canvas").get(0));
+        $(this).parent().parent().remove();
       });
   }
 };
@@ -739,6 +1076,7 @@ var appendTag = function (active) {
     }
   }
 };
+
 var appendTagPicker = function (active) {
   if (active) {
     if ($("#widget").children("#tagPicker").length == 0) {
@@ -816,5 +1154,31 @@ var setPen = function () {
     $("#painting").addClass("disabled");
   } else {
     $("#painting").removeClass("disabled");
+  }
+};
+
+var checkPanelBtns = function () {
+  //關閉截圖功能
+  if (
+    $("#module_wrapper").hasClass("module_order") ||
+    $("#module_wrapper").hasClass("module_flood") ||
+    $("#module_wrapper").hasClass("module_ant")
+  ) {
+    $(".btn_zoom").addClass("disabled");
+  } else {
+    $(".btn_zoom").removeClass("disabled");
+  }
+
+  ////202512:修改zoom造型功能
+  if ($("#module_wrapper").hasClass("module_story")) {
+    $(".btn_zoom").addClass("boxable");
+  } else {
+    $(".btn_zoom").removeClass("boxable");
+  }
+  ////202512:開啟box功能
+  if ($("#module_wrapper").hasClass("module_has_box")) {
+    $(".btn_box").removeClass("disabled");
+  } else {
+    $(".btn_box").addClass("disabled").removeClass("active");
   }
 };

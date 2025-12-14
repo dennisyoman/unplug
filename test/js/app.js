@@ -425,7 +425,7 @@ let loadContainer = function (id, section) {
 
           $("#main").empty();
           $("#main-keep").show();
-          $("#" + sectionDiv).show();
+          $("#" + sectionDiv).addClass("selected");
         } else {
           //固定頁全部隱藏
           console.warn("固定頁全部隱藏");
@@ -463,7 +463,7 @@ let keeplizeElement = function (name) {
     .addClass("assetsPreload_keep")
     .removeClass("assetsPreload");
   $("#main-keep").hide();
-  $("#main-keep").find(">*").hide();
+  $("#main-keep").find("> .main").removeClass("selected");
 };
 ////202512:取消固定頁元素樣式
 let dekeeplizeElement = function (name) {
@@ -511,18 +511,6 @@ let loadContainerInside = function (htmlPath, jsPath, p) {
   $("#main").show();
   //stop particle animation
   isPaused = true;
-};
-
-let checkPanelBtns = function () {
-  if (
-    $("#module_wrapper").hasClass("module_order") ||
-    $("#module_wrapper").hasClass("module_flood") ||
-    $("#module_wrapper").hasClass("module_ant")
-  ) {
-    $(".btn_zoom").addClass("disabled");
-  } else {
-    $(".btn_zoom").removeClass("disabled");
-  }
 };
 
 let loadPanel = function () {
@@ -910,7 +898,6 @@ $.getMultiScripts = function (arr, path) {
     $("body").append(sc);
     //
     console.log(scr + " is loaded.");
-    checkPanelBtns();
   });
   return {
     done: function (method) {
