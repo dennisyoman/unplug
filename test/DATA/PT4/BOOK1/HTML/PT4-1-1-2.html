@@ -1,0 +1,111 @@
+<div id="module_wrapper" class="module_story module_has_box">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>情境故事</b>：從故事中找出關鍵訊息，並使用小工具擷取下來保存。
+          </p>
+          <img
+            src="./DATA/IMAGES/common/btn_box.png"
+            height="100"
+            width="auto"
+          />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="storyboard wow fadeIn" style="width: 500px; margin-top: 7px">
+        <div class="subject">
+          <div class="sensors">
+            <span
+              onClick="boxMe($(this))"
+              style="top: 73px; left: 165px; width: 44px; height: 10px"
+              content="4台遙控車"
+            ></span>
+            <span
+              onClick="boxMe($(this))"
+              style="top: 189px; left: 86px; width: 72px; height: 10px"
+              content="4台遙控車"
+            ></span>
+            <span
+              onClick="boxMe($(this))"
+              style="top: 197px; left: 61px; width: 54px; height: 10px"
+              content="4台遙控車"
+            ></span>
+            <span
+              onClick="boxMe($(this))"
+              style="top: 214px; left: 61px; width: 105px; height: 10px"
+              content="4台遙控車"
+            ></span>
+            <span
+              onClick="boxMe($(this))"
+              style="top: 205px; left: 70px; width: 96px; height: 10px"
+              content="4台遙控車"
+            ></span>
+            <span
+              onClick="boxMe($(this))"
+              style="top: 239px; left: 79px; width: 44px; height: 10px"
+              content="4台遙控車"
+            ></span>
+          </div>
+          <div class="subject-deco">
+            <img src="./DATA/PT4/BOOK1/IMAGES/car1.png" />
+            <img src="./DATA/PT4/BOOK1/IMAGES/car2.png" />
+            <img src="./DATA/PT4/BOOK1/IMAGES/car3.png" />
+            <img src="./DATA/PT4/BOOK1/IMAGES/car4.png" />
+          </div>
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT4/BOOK1/IMAGES/PT4-1-1-2-1.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .subject-deco {
+    position: absolute;
+    bottom: 14px;
+    left: 29px;
+    display: flex;
+    width: 90%;
+    z-index: 2;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .subject-deco img {
+    height: 20px;
+    width: auto;
+    animation: car-move 0.2s linear infinite;
+  }
+  .subject-deco img:nth-child(even) {
+    animation: car-move 0.2s linear infinite -0.1s;
+  }
+  .subject-deco img:nth-child(2) {
+    margin-left: -42px;
+  }
+  .subject-deco img:nth-child(3) {
+    margin-left: -29px;
+  }
+  @keyframes car-move {
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+</style>
