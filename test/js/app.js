@@ -571,6 +571,7 @@ let toggleAttachment = function (element) {
   }
 
   if (!$(element).hasClass("active")) {
+    rootSoundEffect($help);
     $(element).addClass("active");
     var $el = $(element);
     var img = $el.data("image");
@@ -604,6 +605,7 @@ let toggleAttachment = function (element) {
     var $attachment = $("<div>").addClass("attachment").append($content);
     $target.append($attachment);
   } else {
+    rootSoundEffect($show);
     $(element).removeClass("active");
     $target.find(".attachment").remove();
   }
