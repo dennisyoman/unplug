@@ -356,6 +356,7 @@ let loadContainer = function (id, section) {
   $("#demo").hide();
 
   pid = 0;
+
   //gpObj = {};
   uid = id;
   sectionID = section;
@@ -401,6 +402,11 @@ let loadContainer = function (id, section) {
             //已存在,顯示此區塊
             console.warn("已存在此固定頁,顯示此區塊");
             dekeeplizeElement("#" + sectionDiv);
+            //取得目前選中的tab索引
+            pid = $("#" + sectionDiv)
+              .find("#module_wrapper .tabs > span.selected")
+              .index();
+            alert(pid);
 
             //重新載入JS
             $.getMultiScripts(script_arr, "./DATA/").done(function () {
