@@ -625,28 +625,65 @@ var cloneItemFromBox = function (item) {
       ? $("#main-keep > .main.selected")
       : $("#widget");
 
-  //開始clone
-  var newCanvas = document.createElement("canvas");
-  newCanvas.width = element.width;
-  newCanvas.height = element.height;
-  newCanvas.getContext("2d").drawImage(element, 0, 0);
+  if (isCanvas) {
+    //開始clone canvas
+    var newCanvas = document.createElement("canvas");
+    newCanvas.width = element.width;
+    newCanvas.height = element.height;
+    newCanvas.getContext("2d").drawImage(element, 0, 0);
 
-  var scaledWidth = newCanvas.width / 10;
-  var scaledHeight = newCanvas.height / 10;
-  var scaledSize = {
-    width: scaledWidth + "px",
-    height: scaledHeight + "px",
-    left: "30%",
-    top: "30%",
-  };
+    var scaledWidth = newCanvas.width / 10;
+    var scaledHeight = newCanvas.height / 10;
+    var scaledSize = {
+      width: scaledWidth + "px",
+      height: scaledHeight + "px",
+      left: "30%",
+      top: "30%",
+    };
 
-  var $item = $("<div>")
-    .addClass("canvas_item")
-    .css(scaledSize)
-    .append($(newCanvas).css(scaledSize));
+    var $item = $("<div>")
+      .addClass("canvas_item")
+      .css(scaledSize)
+      .append($(newCanvas).css(scaledSize));
+  } else {
+    //開始clone 文字
+    var text = $(item).text();
+    var initPosition = { left: "30%", top: "30%" };
+    var $item = $("<div>")
+      .addClass("canvas_item custom_canvas_item")
+      .css(initPosition)
+      .append($("<p>").text(text));
+  }
 
   target.append($item);
   makeDraggable($item, false, $item);
+};
+
+////202512:輸入文字的tag
+var addCustomCanvas = function () {
+  rootSoundEffect($pop);
+  var $item = $("<div>").addClass("canvas_item custom_canvas_item");
+
+  var text = window.prompt("請輸入要新增的文字：", "");
+  if (text === null || text.trim() === "") {
+    return; // 取消或空字串則不處理
+  }
+  text = text.trim();
+
+  $item.append(`<p>${text}</p>`);
+  var $button_remove = $("<span>").addClass("button_remove");
+  $item.prepend($button_remove);
+  $(".canvas_list").prepend($item);
+
+  $item.find(".button_remove").click(function () {
+    //刪除
+    $item.remove();
+    rootSoundEffect($show);
+  });
+  $item.find("p").click(function () {
+    //新增到某處
+    cloneItemFromBox($(this));
+  });
 };
 
 ////zoom

@@ -221,6 +221,19 @@ body {
     transform: translateX(110%);
     transition: transform 0.6s ease-in-out;
 
+    .btn_add_custom_canvas_item {
+      position: absolute;
+      left: 5px;
+      bottom: 5px;
+      width: 20px;
+      height: 20px;
+      background: url("../DATA/IMAGES/common/btn_close.png") no-repeat center center;
+      background-size: 100% 100%;
+      filter: hue-rotate(120deg) saturate(1.4); // 將原紅色轉為綠色
+      cursor: pointer;
+      transform: rotate(45deg);
+    }
+
     .canvas_list {
       width: 100%;
       height: 100%;
@@ -228,6 +241,7 @@ body {
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
       gap: 8px;
       padding: 10px 10px 10px 10px;
       //background: #000;
@@ -235,7 +249,8 @@ body {
         position: static;
         pointer-events: none;
 
-        canvas {
+        canvas,
+        p {
           pointer-events: auto;
         }
       }
@@ -254,7 +269,8 @@ body {
     //animation: bounceIn 1s ease-in-out;
     //transform-origin: center left;
 
-    canvas {
+    canvas,
+    p {
       pointer-events: none;
       cursor: pointer;
     }
@@ -268,6 +284,65 @@ body {
       background: url("../DATA/IMAGES/common/btn_close.png") no-repeat center center;
       background-size: 100% 100%;
       cursor: pointer;
+    }
+  }
+  .custom_canvas_item {
+    p {
+      font-size: 0.6em;
+      line-height: 1.2;
+      color: #333;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 0 3px;
+    }
+  }
+  .attachment {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 640px;
+    height: 320px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    line-height: 20px;
+    color: #222;
+    display: grid;
+    place-content: center;
+    > div {
+      background: #fff;
+      width: auto;
+      height: auto;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      max-width: 70%;
+      margin: 0 auto;
+      animation: fadeInRight 0.5s ease-in-out;
+
+      &.attachment-text {
+        &::before {
+          display: block;
+          content: "我發現";
+          color: #666;
+          margin-bottom: 5px;
+        }
+        p {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+      }
+    }
+    img {
+      max-width: 100%;
+      max-height: 380px;
+      width: auto;
+      height: auto;
+    }
+    video {
+      width: auto;
+      max-height: 250px;
+      aspect-ratio: 16/9;
     }
   }
   ////202512:固定頁樣式

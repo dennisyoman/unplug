@@ -406,7 +406,6 @@ let loadContainer = function (id, section) {
             pid = $("#" + sectionDiv)
               .find("#module_wrapper .tabs > span.selected")
               .index();
-            alert(pid);
 
             //重新載入JS
             $.getMultiScripts(script_arr, "./DATA/").done(function () {
@@ -559,6 +558,55 @@ let loadMainSlider = function () {
   }
   //20230719 updated
   $("#power").show();
+};
+////202512:我發現
+let toggleAttachment = function (element) {
+  // 目標容器：#main-keep .main.selected 優先，否則 #main:visible
+  var $target = $("#main-keep .main.selected #contents");
+  if ($target.length === 0) {
+    $target = $("#main:visible #contents");
+  }
+  if ($target.length === 0) {
+    return;
+  }
+
+  if (!$(element).hasClass("active")) {
+    $(element).addClass("active");
+    var $el = $(element);
+    var img = $el.data("image");
+    var text = $el.data("text");
+    var video = $el.data("video");
+
+    // 只會有一種模式，依序判斷
+    var $content = null;
+    if (img) {
+      $content = $("<div>")
+        .addClass("attachment-image")
+        .append($("<img>").attr("src", img));
+    } else if (video) {
+      $content = $("<div>")
+        .addClass("attachment-video")
+        .append(
+          $("<video>")
+            .attr("src", video)
+            .attr("controls", true)
+            .attr("playsinline", true)
+        );
+    } else if (text) {
+      $content = $("<div>").addClass("attachment-text").html(`<p>${text}</p>`);
+    }
+    if (!$content) {
+      return;
+    }
+
+    // 清掉舊的，再附加新的
+    $target.find(".attachment").remove();
+    var $attachment = $("<div>").addClass("attachment").append($content);
+    $target.append($attachment);
+  } else {
+    $(element).removeClass("active");
+    $target.find(".attachment").remove();
+  }
 };
 
 let getTimeStamp = function () {

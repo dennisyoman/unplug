@@ -14888,6 +14888,18 @@ body {
   transform: translateX(110%);
   transition: transform 0.6s ease-in-out;
 }
+.root .sidebar-canvas .btn_add_custom_canvas_item {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 20px;
+  height: 20px;
+  background: url("../DATA/IMAGES/common/btn_close.png") no-repeat center center;
+  background-size: 100% 100%;
+  filter: hue-rotate(120deg) saturate(1.4);
+  cursor: pointer;
+  transform: rotate(45deg);
+}
 .root .sidebar-canvas .canvas_list {
   width: 100%;
   height: 100%;
@@ -14895,6 +14907,7 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
   padding: 10px 10px 10px 10px;
 }
@@ -14902,7 +14915,8 @@ body {
   position: static;
   pointer-events: none;
 }
-.root .sidebar-canvas .canvas_list .canvas_item canvas {
+.root .sidebar-canvas .canvas_list .canvas_item canvas,
+.root .sidebar-canvas .canvas_list .canvas_item p {
   pointer-events: auto;
 }
 .root .canvas_item {
@@ -14915,7 +14929,8 @@ body {
   gap: 5px;
   pointer-events: auto;
 }
-.root .canvas_item canvas {
+.root .canvas_item canvas,
+.root .canvas_item p {
   pointer-events: none;
   cursor: pointer;
 }
@@ -14928,6 +14943,60 @@ body {
   background: url("../DATA/IMAGES/common/btn_close.png") no-repeat center center;
   background-size: 100% 100%;
   cursor: pointer;
+}
+.root .custom_canvas_item p {
+  font-size: 0.6em;
+  line-height: 1.2;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 0 3px;
+}
+.root .attachment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 320px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  line-height: 20px;
+  color: #222;
+  display: grid;
+  place-content: center;
+}
+.root .attachment > div {
+  background: #fff;
+  width: auto;
+  height: auto;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 70%;
+  margin: 0 auto;
+  animation: fadeInRight 0.5s ease-in-out;
+}
+.root .attachment > div.attachment-text::before {
+  display: block;
+  content: "我發現";
+  color: #666;
+  margin-bottom: 5px;
+}
+.root .attachment > div.attachment-text p {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.root .attachment img {
+  max-width: 100%;
+  max-height: 380px;
+  width: auto;
+  height: auto;
+}
+.root .attachment video {
+  width: auto;
+  max-height: 250px;
+  aspect-ratio: 16/9;
 }
 .root > #main-keep {
   display: none;
