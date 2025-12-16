@@ -20,21 +20,11 @@
         animation-delay: 1s;
       }
     }
-    @keyframes bgblinking {
-      0% {
-        background: rgba(255, 0, 0, 0);
-      }
-      50% {
-        background: rgba(255, 0, 0, 0.1);
-      }
-      100% {
-        background: rgba(255, 0, 0, 0);
-      }
-    }
 
     .storyboard {
       position: relative;
-
+      background: #fff;
+      box-shadow: 0 0 0 3px #fff;
       .subject {
         position: relative;
         .sensors {
@@ -7975,17 +7965,7 @@
         animation-delay: 1s;
       }
     }
-    @keyframes bgblinking {
-      0% {
-        background: rgba(255, 0, 0, 0);
-      }
-      50% {
-        background: rgba(255, 0, 0, 0.1);
-      }
-      100% {
-        background: rgba(255, 0, 0, 0);
-      }
-    }
+
     .code {
       display: flex;
       flex-direction: column;

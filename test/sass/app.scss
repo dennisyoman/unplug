@@ -248,6 +248,7 @@ body {
       .canvas_item {
         position: static;
         pointer-events: none;
+        width: auto !important;
 
         canvas,
         p {
@@ -287,6 +288,7 @@ body {
     }
   }
   .custom_canvas_item {
+    //max-width: 220px;
     p {
       font-size: 0.6em;
       line-height: 1.2;
@@ -294,6 +296,7 @@ body {
       background: #fff;
       border: 1px solid #ccc;
       padding: 0 3px;
+      white-space: nowrap;
     }
   }
   .attachment {

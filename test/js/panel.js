@@ -67,7 +67,6 @@ $(document).ready(function () {
           } else {
             rootSoundEffect($good);
           }
-          //createBoxSensor();
         });
 
       $(".btn_focus")
@@ -374,317 +373,11 @@ var createZoomSensor = function () {
   }
 };
 
-var createBoxSensor = function () {
-  if ($("#widget").children("#boxSensor").length < 1) {
-    $("#widget").append(`<div id="boxSensor" class="boxSensor"/>`);
-
-    trigBoxHammer();
-  } else {
-    $("#boxSensor").remove();
-  }
-};
-
 //zoom & box
 var canvasCord;
 var downCord = [];
 var upCord = [];
 var isZoomDragging = false;
-
-////box 暫時用不到，先保留 --- start
-/*
-var trigBoxHammer = function () {
-  //hammer
-  var myElement = document.getElementById("boxSensor");
-  var mc = new Hammer(myElement);
-  mc.get("pan").set({ threshold: 0, direction: Hammer.DIRECTION_ALL });
-  mc.on("pan", function (ev) {
-    handleBoxDrag(ev);
-  });
-};
-
-var handleBoxDrag = function (ev) {
-  var elem = ev.target;
-  var newZoomRatio = stageRatioReal / stageRatioMain;
-  if (!isZoomDragging && $(elem).hasClass("boxSensor")) {
-    isZoomDragging = true;
-
-    downCord = [
-      (ev.center.x - $("#root").offset().left) / newZoomRatio,
-      (ev.center.y - $("#root").offset().top) / newZoomRatio,
-    ];
-    appendBoxer();
-
-    //pre setup
-    $(".world3D > .stage,.voc,.visible,.sideTool > *").each(function () {
-      if ($(this).css("display") != "none") {
-        $(this).hide().addClass("bi");
-      }
-    });
-  }
-  if ($(elem).hasClass("boxSensor")) {
-    upCord = [
-      (ev.center.x - $("#root").offset().left) / newZoomRatio,
-      (ev.center.y - $("#root").offset().top) / newZoomRatio,
-    ];
-    //custom boxer
-    $("#boxer").css("top", Math.min(downCord[1], upCord[1]) + "px");
-    $("#boxer").css("left", Math.min(downCord[0], upCord[0]) + "px");
-    $("#boxer").css("height", Math.abs(downCord[1] - upCord[1]) + "px");
-    $("#boxer").css("width", Math.abs(downCord[0] - upCord[0]) + "px");
-    $("#boxer").attr("ih", Math.abs(downCord[1] - upCord[1]));
-    $("#boxer").attr("iw", Math.abs(downCord[0] - upCord[0]));
-  }
-
-  if (ev.isFinal) {
-    isZoomDragging = false;
-    //
-    if (
-      Math.abs(downCord[0] - upCord[0]) < 5 ||
-      Math.abs(downCord[1] - upCord[1]) < 5
-    ) {
-      $("#boxer").remove();
-    } else {
-      $("#boxSensor").css("pointer-events", "none");
-      //
-      renderBoxer();
-      //inactive btn
-      $(".btn_box").click();
-    }
-  }
-};
-
-var renderBoxer = function () {
-  var newZoomRatio = stageRatioReal / stageRatioMain;
-  //custom boxer
-  $("#boxer").css("top", Math.min(downCord[1], upCord[1]) + "px");
-  $("#boxer").css("left", Math.min(downCord[0], upCord[0]) + "px");
-  $("#boxer").css("height", Math.abs(downCord[1] - upCord[1]) + "px");
-  $("#boxer").css("width", Math.abs(downCord[0] - upCord[0]) + "px");
-  $("#boxer").attr("ih", Math.abs(downCord[1] - upCord[1]));
-  $("#boxer").attr("iw", Math.abs(downCord[0] - upCord[0]));
-
-  //pre setup
-  $(".wow.animated").removeClass("wow").removeClass("animated").addClass("wa");
-  $(".wow").removeClass("wow").addClass("w");
-  $("#root").css("overflow", "visible");
-  $("*:not(.card,.card *)").addClass("noAni");
-  $(".card.active:not(.flipback)").addClass("keepCardFace");
-  $(".card.active.flipback").addClass("keepCardback");
-  //
-
-  $("#main").css({
-    padding: "400px",
-    "margin-top": "-400px",
-    "margin-left": "-400px",
-  });
-  $("#main-keep").css({
-    padding: "400px",
-    "margin-top": "-400px",
-    "margin-left": "-400px",
-  });
-
-  //flipback
-  html2canvas(
-    $("#root").get(0),
-    //可以帶上寬高擷取你所需要的部分內容
-    {
-      x: Math.min(downCord[0], upCord[0]) * newZoomRatio,
-      y: Math.min(downCord[1], upCord[1]) * newZoomRatio,
-      width: Math.abs(downCord[0] - upCord[0]) * newZoomRatio,
-      height: Math.abs(downCord[1] - upCord[1]) * newZoomRatio,
-      scrollX: 0,
-      scrollY: 0,
-      scale: html2canvasScale,
-    }
-  ).then(function (canvas) {
-    var ctx = canvas.getContext("2d");
-
-    ctx.webkitImageSmoothingEnabled = true;
-    ctx.mozImageSmoothingEnabled = true;
-    ctx.imageSmoothingEnabled = true;
-    $("#boxer .canvas").css("transform", "scale(" + 1 / newZoomRatio + ")");
-    //create a new canvas
-    var newCanvas = document.createElement("canvas");
-    newCanvas.width = canvas.width;
-    newCanvas.height = canvas.height;
-
-    $("#boxer .canvas").empty().get(0).appendChild(canvas);
-
-    //finalize
-    $("#boxer .overlay").remove();
-    $("#boxer")
-      .addClass("active")
-      .attr("id", "")
-      .delay(80)
-      .queue(function () {
-        $(this).dequeue();
-        makeDraggable($(this), false, $(this));
-      });
-
-    //after setup
-    $(".wa").addClass("wow").addClass("animated").removeClass("wa");
-    $(".w").addClass("wow").removeClass("w");
-    $("#root").css("overflow", "hidden");
-    $(".noAni").removeClass("noAni");
-    $(".keepCardFace").removeClass("keepCardFace");
-    $(".keepCardback").removeClass("keepCardback");
-    $(".bi").show().removeClass("bi");
-    $("#main").css({
-      padding: "0px",
-      "margin-top": "0px",
-      "margin-left": "0px",
-    });
-    $("#main-keep").css({
-      padding: "0px",
-      "margin-top": "0px",
-      "margin-left": "0px",
-    });
-  });
-};
-
-var appendBoxer = function () {
-  if ($("#widget").children("#boxer").length < 1) {
-    $("#widget").append(`<div id="boxer" class="boxer"/>`);
-    $("#boxer").css("top", downCord[1] + "px");
-    $("#boxer").css("left", downCord[0] + "px");
-    var boxerHTML = `<div class="boxer_wrapper">
-            <div class="canvas"></div>
-            <div class="overlay"></div>
-            <div class="collect"></div>
-          </div>`;
-    $("#boxer").html(boxerHTML);
-    //js
-    $("#boxer")
-      .unbind()
-      .bind("mousedown", function (e) {
-        getHighestDepthWidget($(this));
-      })
-      .bind("touchstart", function (e) {
-        getHighestDepthWidget($(this));
-      });
-    getHighestDepthWidget($("#boxer"));
-
-    $("#boxer .collect")
-      .unbind()
-      .bind("click", function (e) {
-        //收進箱子裡面
-      });
-  }
-};
-*/
-////box 暫時用不到，先保留 --- end
-////202512:
-var cloneCanvasIntoBox = function (canvas) {
-  var newCanvas = document.createElement("canvas");
-  newCanvas.width = canvas.width;
-  newCanvas.height = canvas.height;
-  var ctx = newCanvas.getContext("2d");
-  ctx.drawImage(canvas, 0, 0);
-  var $item = $("<div>").addClass("canvas_item");
-  $(newCanvas).css({
-    width: newCanvas.width / 10 + "px",
-    height: newCanvas.height / 10 + "px",
-  });
-  $item.css({
-    width: newCanvas.width / 10 + "px",
-    height: newCanvas.height / 10 + "px",
-  });
-  $item.append(newCanvas);
-  $item.append(newCanvas);
-  //新增刪除按鈕
-  var $button_remove = $("<span>").addClass("button_remove");
-  $item.prepend($button_remove);
-  $(".canvas_list").prepend($item);
-
-  $item.find(".button_remove").click(function () {
-    //刪除
-    $item.remove();
-    rootSoundEffect($show);
-  });
-  $item.find("canvas").click(function () {
-    //新增到某處
-    cloneItemFromBox($(this));
-  });
-
-  //打開panel
-  if (!$(".btn_box").hasClass("active")) {
-    $(".btn_box").click();
-  }
-};
-////202512:
-var cloneItemFromBox = function (item) {
-  rootSoundEffect($pop);
-  var element = item.jquery ? item[0] : item;
-  var isCanvas =
-    element &&
-    (element.tagName === "CANVAS" || element instanceof HTMLCanvasElement);
-  console.log("tar is canvas:", isCanvas, item);
-
-  var target =
-    $("#main-keep > .main.selected").length > 0
-      ? $("#main-keep > .main.selected")
-      : $("#widget");
-
-  if (isCanvas) {
-    //開始clone canvas
-    var newCanvas = document.createElement("canvas");
-    newCanvas.width = element.width;
-    newCanvas.height = element.height;
-    newCanvas.getContext("2d").drawImage(element, 0, 0);
-
-    var scaledWidth = newCanvas.width / 10;
-    var scaledHeight = newCanvas.height / 10;
-    var scaledSize = {
-      width: scaledWidth + "px",
-      height: scaledHeight + "px",
-      left: "30%",
-      top: "30%",
-    };
-
-    var $item = $("<div>")
-      .addClass("canvas_item")
-      .css(scaledSize)
-      .append($(newCanvas).css(scaledSize));
-  } else {
-    //開始clone 文字
-    var text = $(item).text();
-    var initPosition = { left: "30%", top: "30%" };
-    var $item = $("<div>")
-      .addClass("canvas_item custom_canvas_item")
-      .css(initPosition)
-      .append($("<p>").text(text));
-  }
-
-  target.append($item);
-  makeDraggable($item, false, $item);
-};
-
-////202512:輸入文字的tag
-var addCustomCanvas = function () {
-  rootSoundEffect($pop);
-  var $item = $("<div>").addClass("canvas_item custom_canvas_item");
-
-  var text = window.prompt("請輸入要新增的文字：", "");
-  if (text === null || text.trim() === "") {
-    return; // 取消或空字串則不處理
-  }
-  text = text.trim();
-
-  $item.append(`<p>${text}</p>`);
-  var $button_remove = $("<span>").addClass("button_remove");
-  $item.prepend($button_remove);
-  $(".canvas_list").prepend($item);
-
-  $item.find(".button_remove").click(function () {
-    //刪除
-    $item.remove();
-    rootSoundEffect($show);
-  });
-  $item.find("p").click(function () {
-    //新增到某處
-    cloneItemFromBox($(this));
-  });
-};
 
 ////zoom
 
@@ -1051,6 +744,168 @@ var appendZoomer = function () {
         $(this).parent().parent().remove();
       });
   }
+};
+
+//////202512:截圖
+var boxCaptureMe = function (tar) {
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  appendZoomer();
+  var $tar = $(tar);
+  var $moduleWrapper = $("#root");
+
+  // 使用 getBoundingClientRect 直接計算相對位置
+  var tarRect = $tar[0].getBoundingClientRect();
+  var moduleWrapperRect = $moduleWrapper[0].getBoundingClientRect();
+
+  var tarX = (tarRect.left - moduleWrapperRect.left) / newZoomRatio;
+  var tarY = (tarRect.top - moduleWrapperRect.top) / newZoomRatio;
+  var tarWidth = tarRect.width / newZoomRatio;
+  var tarHeight = tarRect.height / newZoomRatio;
+  downCord = [tarX, tarY];
+  upCord = [tarX + tarWidth, tarY + tarHeight];
+  //
+  renderZoomer();
+};
+
+//////202512:新增字串(attr:content)到box裡
+var boxAddMe = function (tar) {
+  var text = tar.attr("content").trim();
+  var $item = $("<div>").addClass("canvas_item custom_canvas_item");
+  $item.append(`<p>${text}</p>`);
+  var $button_remove = $("<span>").addClass("button_remove");
+  $item.prepend($button_remove);
+  $(".canvas_list").prepend($item);
+
+  $item.find(".button_remove").click(function () {
+    //刪除
+    $item.remove();
+    rootSoundEffect($show);
+  });
+  $item.find("p").click(function () {
+    //新增到某處
+    cloneItemFromBox($(this));
+  });
+
+  //打開panel
+  if (!$(".btn_box").hasClass("active")) {
+    $(".btn_box").click();
+  }
+  rootSoundEffect($pop);
+};
+
+//////202512:把canvas複製到box裡
+var cloneCanvasIntoBox = function (canvas) {
+  var newCanvas = document.createElement("canvas");
+  newCanvas.width = canvas.width;
+  newCanvas.height = canvas.height;
+  var ctx = newCanvas.getContext("2d");
+  ctx.drawImage(canvas, 0, 0);
+  var $item = $("<div>").addClass("canvas_item");
+  $(newCanvas).css({
+    width: newCanvas.width / 10 + "px",
+    height: newCanvas.height / 10 + "px",
+  });
+  $item.css({
+    width: newCanvas.width / 10 + "px",
+    height: newCanvas.height / 10 + "px",
+  });
+  $item.append(newCanvas);
+  $item.append(newCanvas);
+  //新增刪除按鈕
+  var $button_remove = $("<span>").addClass("button_remove");
+  $item.prepend($button_remove);
+  $(".canvas_list").prepend($item);
+
+  $item.find(".button_remove").click(function () {
+    //刪除
+    $item.remove();
+    rootSoundEffect($show);
+  });
+  $item.find("canvas").click(function () {
+    //新增到某處
+    cloneItemFromBox($(this));
+  });
+
+  //打開panel
+  if (!$(".btn_box").hasClass("active")) {
+    $(".btn_box").click();
+  }
+  rootSoundEffect($pop);
+};
+//////202512:把canvas或文字複製到box裡
+var cloneItemFromBox = function (item) {
+  var element = item.jquery ? item[0] : item;
+  var isCanvas =
+    element &&
+    (element.tagName === "CANVAS" || element instanceof HTMLCanvasElement);
+  console.log("tar is canvas:", isCanvas, item);
+
+  var target =
+    $("#main-keep > .main.selected").length > 0
+      ? $("#main-keep > .main.selected")
+      : $("#widget");
+
+  if (isCanvas) {
+    //開始clone canvas
+    var newCanvas = document.createElement("canvas");
+    newCanvas.width = element.width;
+    newCanvas.height = element.height;
+    newCanvas.getContext("2d").drawImage(element, 0, 0);
+
+    var scaledWidth = newCanvas.width / 10;
+    var scaledHeight = newCanvas.height / 10;
+    var scaledSize = {
+      width: scaledWidth + "px",
+      height: scaledHeight + "px",
+      left: "30%",
+      top: "30%",
+    };
+
+    var $item = $("<div>")
+      .addClass("canvas_item")
+      .css(scaledSize)
+      .append($(newCanvas).css(scaledSize));
+  } else {
+    //開始clone 文字
+    var text = $(item).text();
+    var initPosition = { left: "30%", top: "30%" };
+    var $item = $("<div>")
+      .addClass("canvas_item custom_canvas_item")
+      .css(initPosition)
+      .append($("<p>").text(text));
+  }
+
+  target.append($item);
+  makeDraggable($item, false, $item);
+  rootSoundEffect($pop);
+};
+
+////202512:輸入文字的canvas_item
+var addCustomCanvas = function () {
+  var $item = $("<div>").addClass("canvas_item custom_canvas_item");
+
+  var text = window.prompt("請輸入要新增的文字：", "");
+  if (text === null || text.trim() === "") {
+    return; // 取消或空字串則不處理
+  } else {
+    rootSoundEffect($pop);
+  }
+  text = text.trim();
+
+  $item.append(`<p>${text}</p>`);
+  var $button_remove = $("<span>").addClass("button_remove");
+  $item.prepend($button_remove);
+  $(".canvas_list").prepend($item);
+
+  $item.find(".button_remove").click(function () {
+    //刪除
+    $item.remove();
+    rootSoundEffect($show);
+  });
+  $item.find("p").click(function () {
+    //新增到某處
+    cloneItemFromBox($(this));
+  });
 };
 
 //painting

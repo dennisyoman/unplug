@@ -67,26 +67,6 @@ $(document).ready(function () {
   $("#module_wrapper .tabs").addClass("l" + lid);
 });
 
-var boxMe = function (tar) {
-  var newZoomRatio = stageRatioReal / stageRatioMain;
-  appendZoomer();
-  var $tar = $(tar);
-  var $moduleWrapper = $("#root");
-
-  // 使用 getBoundingClientRect 直接計算相對位置
-  var tarRect = $tar[0].getBoundingClientRect();
-  var moduleWrapperRect = $moduleWrapper[0].getBoundingClientRect();
-
-  var tarX = (tarRect.left - moduleWrapperRect.left) / newZoomRatio;
-  var tarY = (tarRect.top - moduleWrapperRect.top) / newZoomRatio;
-  var tarWidth = tarRect.width / newZoomRatio;
-  var tarHeight = tarRect.height / newZoomRatio;
-  downCord = [tarX, tarY];
-  upCord = [tarX + tarWidth, tarY + tarHeight];
-  //
-  renderZoomer();
-};
-
 //
 var lowlaged = false;
 

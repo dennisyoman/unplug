@@ -30,6 +30,20 @@ $(document).ready(function () {
     .unbind()
     .bind("click", function () {
       if (uid != null) {
+        //202512:如果有keep住的頁面要跳詢問
+        if ($("#main-keep .main").length > 0) {
+          var confirm = window.confirm(
+            "確定要返回單元選擇嗎？目前單元的答案會全部清除喔。"
+          );
+          if (confirm) {
+            //202512:清空main-keep並隱藏
+            $("#main-keep").empty().hide();
+          } else {
+            return;
+          }
+        }
+
+        //
         let elemName = "mainslider";
         let script_arr = [elemName + ".js"];
         let style_arr = [elemName + ".css"];
@@ -71,8 +85,6 @@ $(document).ready(function () {
         }
         //start particle animation
         isPaused = false;
-        ////202512:清空main-keep並隱藏
-        $("#main-keep").empty().hide();
       } else if (lid != null) {
         removeUnits();
         console.log("return to Lesson selection");

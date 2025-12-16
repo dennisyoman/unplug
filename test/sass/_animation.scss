@@ -8,6 +8,15 @@
   }
 }
 
+@keyframes boxable {
+  75% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1.1);
+  }
+}
+
 @keyframes shaking {
   0% {
     margin-left: -2px;
@@ -280,5 +289,17 @@
   to {
     margin-top: -500px;
     @include opacity(0);
+  }
+}
+
+@keyframes bgblinking {
+  0% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  50% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0.1);
   }
 }

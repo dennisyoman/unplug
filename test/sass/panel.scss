@@ -143,6 +143,11 @@
           background-image: url("../DATA/IMAGES/common/btn_box.png");
           background-size: 60% auto;
           background-color: #1c9b64;
+          animation: boxable 2s ease-in-out infinite both;
+
+          &.active {
+            animation: none;
+          }
         }
         position: relative;
         > div {
@@ -176,8 +181,10 @@
         border-radius: 0;
         box-shadow: none;
         z-index: 3;
+        animation: boxable 2s ease-in-out infinite both;
 
         &.active {
+          animation: none;
           filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
         }
       }

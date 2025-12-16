@@ -7,6 +7,14 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes boxable {
+  75% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1.1);
+  }
+}
 @keyframes shaking {
   0% {
     margin-left: -2px;
@@ -335,6 +343,17 @@
     filter: alpha(opacity=0) !important;
   }
 }
+@keyframes bgblinking {
+  0% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  50% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+}
 .module_story {
   position: relative;
   top: 0;
@@ -360,19 +379,10 @@
   animation: bgblinking 1s both infinite;
   animation-delay: 1s;
 }
-@keyframes bgblinking {
-  0% {
-    background: rgba(255, 0, 0, 0);
-  }
-  50% {
-    background: rgba(255, 0, 0, 0.1);
-  }
-  100% {
-    background: rgba(255, 0, 0, 0);
-  }
-}
 .module_story .contents .storyboard {
   position: relative;
+  background: #fff;
+  box-shadow: 0 0 0 3px #fff;
 }
 .module_story .contents .storyboard .subject {
   position: relative;
@@ -7824,17 +7834,6 @@
   animation: bgblinking 1s both infinite;
   animation-delay: 1s;
 }
-@keyframes bgblinking {
-  0% {
-    background: rgba(255, 0, 0, 0);
-  }
-  50% {
-    background: rgba(255, 0, 0, 0.1);
-  }
-  100% {
-    background: rgba(255, 0, 0, 0);
-  }
-}
 .module_decode .contents .code {
   display: flex;
   flex-direction: column;
@@ -14914,6 +14913,7 @@ body {
 .root .sidebar-canvas .canvas_list .canvas_item {
   position: static;
   pointer-events: none;
+  width: auto !important;
 }
 .root .sidebar-canvas .canvas_list .canvas_item canvas,
 .root .sidebar-canvas .canvas_list .canvas_item p {
@@ -14951,6 +14951,7 @@ body {
   background: #fff;
   border: 1px solid #ccc;
   padding: 0 3px;
+  white-space: nowrap;
 }
 .root .attachment {
   position: absolute;
