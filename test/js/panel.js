@@ -775,6 +775,7 @@ var boxAddMe = function (tar) {
   var $button_remove = $("<span>").addClass("button_remove");
   $item.prepend($button_remove);
   $(".canvas_list").prepend($item);
+  $(".canvas_list").animate({ scrollTop: 0 }, 300);
 
   $item.find(".button_remove").click(function () {
     //刪除
@@ -815,6 +816,7 @@ var cloneCanvasIntoBox = function (canvas) {
   var $button_remove = $("<span>").addClass("button_remove");
   $item.prepend($button_remove);
   $(".canvas_list").prepend($item);
+  $(".canvas_list").animate({ scrollTop: 0 }, 300);
 
   $item.find(".button_remove").click(function () {
     //刪除
@@ -896,6 +898,7 @@ var addCustomCanvas = function () {
   var $button_remove = $("<span>").addClass("button_remove");
   $item.prepend($button_remove);
   $(".canvas_list").prepend($item);
+  $(".canvas_list").animate({ scrollTop: 0 }, 300);
 
   $item.find(".button_remove").click(function () {
     //刪除

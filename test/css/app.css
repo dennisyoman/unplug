@@ -348,7 +348,7 @@
     background: rgba(255, 0, 0, 0.1);
   }
   50% {
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(255, 0, 0, 0.2);
   }
   100% {
     background: rgba(255, 0, 0, 0.1);
@@ -14908,7 +14908,8 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  padding: 10px 10px 10px 10px;
+  padding: 15px 10px 20px 10px;
+  mask: linear-gradient(0deg, transparent, #fff 7%, #fff 93%, transparent);
 }
 .root .sidebar-canvas .canvas_list .canvas_item {
   position: static;
