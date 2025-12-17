@@ -8334,7 +8334,6 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: rgba(100, 255, 255, 0.4);
 }
 .module_fillin .sensorArea > .sensor.wrong:before,
 .module_fillin .presetArea > .sensor.wrong:before {

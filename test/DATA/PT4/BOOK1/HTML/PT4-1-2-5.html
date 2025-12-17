@@ -1,0 +1,500 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div
+      class="btn_discover"
+      data-image=""
+      data-text="酷寶發現他負責的續航力調查表，當中藍色 風暴和紅色閃電的資料填顛倒了。請問將這 兩筆資料更正後，會對比賽結果產生影響嗎？"
+      data-video=""
+      onClick="toggleAttachment($(this))"
+    ></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：小晴館長想要少寫一些國字，你能找出她重複寫最多的有那些國字呢？
+          </p>
+          <img src="./DATA/PT4/BOOK1/IMAGES/PT4-1-2-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 250px; margin-top: 20px">
+        <div class="sensorArea">
+          <span
+            opt="column-name"
+            onClick="modifyName($(this))"
+            class="sensor"
+            style="width: 40px; height: 12px; top: 0px; left: 133px"
+            ans="1"
+          />
+          <span
+            opt="column-name"
+            onClick="modifyName($(this))"
+            class="sensor"
+            style="width: 40px; height: 12px; top: 0px; left: 178px"
+            ans="2"
+          />
+
+          <span
+            opt="column-type"
+            class="sensor"
+            style="width: 32px; height: 26px; top: 84px; left: 2px"
+            ans="1"
+          />
+          <span
+            opt="column-type"
+            class="sensor"
+            style="width: 39px; height: 26px; top: 84px; left: 105px"
+            ans="1"
+          />
+
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 31px; height: 14px; top: 110px; left: 2px"
+            ans="S001"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 31px; height: 14px; top: 124px; left: 2px"
+            ans="S002"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 31px; height: 14px; top: 138px; left: 2px"
+            ans="S003"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 31px; height: 14px; top: 154px; left: 2px"
+            ans="S005"
+          />
+
+          <span
+            opt="correct-name"
+            onClick="modifyName($(this))"
+            class="sensor correct-name"
+            style="width: 33px; height: 13px; top: 125px; left: 34px"
+            ans="0"
+          />
+
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 110px; left: 106px"
+            ans="S001"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 124px; left: 106px"
+            ans="S001"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 138px; left: 106px"
+            ans="S002"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 154px; left: 106px"
+            ans="S002"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 169px; left: 106px"
+            ans="S002"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 183px; left: 106px"
+            ans="S003"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 198px; left: 106px"
+            ans="S003"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 213px; left: 106px"
+            ans="S003"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 227px; left: 106px"
+            ans="S005"
+          />
+          <span
+            opt="order-number"
+            class="sensor"
+            style="width: 38px; height: 14px; top: 242px; left: 106px"
+            ans="S005"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-2-5-1.png"
+        />
+
+        <!--options-->
+        <div class="options order-number loop">
+          <div class="option" fillin="S001">
+            <span class="fillin">S001</span>
+          </div>
+          <div class="option" fillin="S002">
+            <span class="fillin">S002</span>
+          </div>
+          <div class="option" fillin="S003">
+            <span class="fillin">S003</span>
+          </div>
+          <div class="option" fillin="S004">
+            <span class="fillin">S004</span>
+          </div>
+          <div class="option" fillin="S005">
+            <span class="fillin">S005</span>
+          </div>
+        </div>
+
+        <div class="options column-type loop">
+          <div class="option" fillin="1">
+            <span class="fillin">借書證號碼</span>
+          </div>
+          <div class="option" fillin="0">
+            <span class="fillin"></span>
+          </div>
+        </div>
+
+        <div class="options column-name">
+          <div class="option" fillin="1">
+            <span class="fillin">周小可</span>
+          </div>
+          <div class="option" fillin="2">
+            <span class="fillin">丁小夭</span>
+          </div>
+        </div>
+
+        <div class="options correct-name">
+          <div class="option" fillin="0">
+            <span class="fillin">丁小天</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：丁小夭的名字其實是丁小天，在資料上要改過來。比較文生圖跟任務一在
+            修改上有甚麼差別？
+          </p>
+          <img src="./DATA/PT4/BOOK1/IMAGES/PT4-1-2-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 300px">
+        <div class="sensorArea">
+          <span
+            onClick="jumpToUnit3($(this))"
+            class="sensor"
+            style="width: 56px; height: 52px; top: 154px; left: 51px"
+            ans=""
+          />
+          <span
+            opt="Q2"
+            onClick="modifyName($(this))"
+            class="sensor"
+            style="width: 59px; height: 12px; top: 253px; left: 231px"
+            ans="1"
+          />
+
+          <span
+            opt="Q2"
+            onClick="modifyName($(this))"
+            class="sensor"
+            style="width: 160px; height: 12px; top: 271px; left: 89px"
+            ans="2"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-2-5-2.png"
+        />
+
+        <!--options-->
+        <div class="options Q2">
+          <div class="option" fillin="1">
+            <span class="fillin">任務一的表</span>
+          </div>
+          <div class="option" fillin="2">
+            <span class="fillin"
+              >名字只在主檔登記一次，修改主檔的資料就好了。</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：書的資料也要寫好多字，有沒有辦法減少？</p>
+          <img src="./DATA/PT4/BOOK1/IMAGES/PT4-1-2-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 280px; margin-left: 40px">
+        <div class="sensorArea">
+          <span
+            opt="column-type2"
+            class="sensor"
+            style="width: 40px; height: 12px; top: 165px; left: -3px"
+            ans="1"
+          />
+          <span
+            opt="column-type2"
+            class="sensor"
+            style="width: 43px; height: 26px; top: 44px; left: 194px"
+            ans="1"
+          />
+
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 73px; left: 193px"
+            ans="B001"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 89px; left: 193px"
+            ans="B003"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 105px; left: 193px"
+            ans="B002"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 121px; left: 193px"
+            ans="B004"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 137px; left: 193px"
+            ans="B002"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 153px; left: 193px"
+            ans="B001"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 169px; left: 193px"
+            ans="B005"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 185px; left: 193px"
+            ans="B004"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 201px; left: 193px"
+            ans="B006"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 45px; height: 13px; top: 217px; left: 193px"
+            ans="B007"
+          />
+
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 182px; left: 2px"
+            ans="B001"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 197px; left: 2px"
+            ans="B002"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 212px; left: 2px"
+            ans="B003"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 229px; left: 2px"
+            ans="B004"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 245px; left: 2px"
+            ans="B005"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 260px; left: 2px"
+            ans="B006"
+          />
+          <span
+            opt="book-number"
+            class="sensor"
+            style="width: 34px; height: 13px; top: 276px; left: 2px"
+            ans="B007"
+          />
+
+          <span
+            onClick="modifyName($(this))"
+            class="sensor"
+            style="
+              width: 150px;
+              height: 12px;
+              top: 245px;
+              left: 196px;
+              text-align: left;
+              justify-content: left;
+            "
+            ans=""
+          />
+
+          <span
+            onClick="modifyName($(this))"
+            class="sensor"
+            style="
+              width: 143px;
+              height: 24px;
+              top: 280px;
+              left: 123px;
+              text-align: left;
+              justify-content: left;
+            "
+            ans=""
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-2-5-3.png"
+        />
+
+        <!--options-->
+        <div class="options book-number loop">
+          <div class="option" fillin="B001">
+            <span class="fillin">B001</span>
+          </div>
+          <div class="option" fillin="B002">
+            <span class="fillin">B002</span>
+          </div>
+          <div class="option" fillin="B003">
+            <span class="fillin">B003</span>
+          </div>
+          <div class="option" fillin="B004">
+            <span class="fillin">B004</span>
+          </div>
+          <div class="option" fillin="B005">
+            <span class="fillin">B005</span>
+          </div>
+          <div class="option" fillin="B006">
+            <span class="fillin">B006</span>
+          </div>
+          <div class="option" fillin="B007">
+            <span class="fillin">B007</span>
+          </div>
+        </div>
+
+        <div class="options column-type2 loop">
+          <div class="option" fillin="1">
+            <span class="fillin">書籍號碼</span>
+          </div>
+          <div class="option" fillin="0">
+            <span class="fillin"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .sensorArea .sensor,
+    .sensorArea .sensor > * {
+      font-size: 10px;
+      line-height: 1;
+    }
+    .sensorArea .sensor.correct-name:not(:empty) {
+      background: #fce4bb;
+    }
+  </style>
+
+  <script>
+    var modifyName = (item) => {
+      item.off("click");
+      var text = window.prompt("請輸入姓名：", "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return; // 取消則不處理
+      } else {
+        rootSoundEffect($pop);
+        item.html(text);
+        rootSoundEffect($key);
+      }
+    };
+    var jumpToUnit3 = function (tar) {
+      tar.off("click");
+      $("#icon-wrapper").find("li").eq(2).click();
+    };
+  </script>
+</div>
