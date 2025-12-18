@@ -1,0 +1,684 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+    <div
+      class="btn_discover"
+      data-image=""
+      data-text="數據正規化後，可以更容易同時得到各種不同的比較結果。"
+      data-video=""
+      onClick="toggleAttachment($(this))"
+    ></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：園長送來了一份壓縮文件，要Mary照著這個安排動物的晚餐。你能幫忙她嗎？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 350px; margin-top: 20px">
+        <div class="sensorArea">
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 5px; left: 161px"
+            ans="1"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 5px; left: 217px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 5px; left: 274px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 62px; left: 328px"
+            ans="3"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 118px; left: 328px"
+            ans="1"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 175px; left: 328px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 236px; left: 274px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 236px; left: 217px"
+            ans="1"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 236px; left: 161px"
+            ans="3"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 175px; left: 106px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 118px; left: 106px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 62px; left: 106px"
+            ans="1"
+          />
+
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 54px; left: 150px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 54px; left: 207px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 54px; left: 262px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 110px; left: 150px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 110px; left: 207px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 110px; left: 262px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 166px; left: 150px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 166px; left: 207px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 166px; left: 262px"
+            ans="sheep"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-3-5-1.png"
+        />
+      </div>
+
+      <div class="options num">
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+      </div>
+
+      <div class="options animals loop">
+        <div class="option" fillin="gorilla">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/gorilla.png"
+          /></span>
+        </div>
+        <div class="option" fillin="sheep">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/sheep.png"
+          /></span>
+        </div>
+        <div class="option" fillin="rabbit">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/rabbit.png"
+          /></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：園長又送來了一份壓縮文件，這次竟然只有3個數字，是不是搞錯了？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 350px; margin-top: 20px">
+        <div class="sensorArea">
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 5px; left: 161px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 5px; left: 217px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 5px; left: 274px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 62px; left: 328px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 118px; left: 328px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 175px; left: 328px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 236px; left: 274px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 236px; left: 217px"
+            ans="3"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 236px; left: 161px"
+            ans="1"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 175px; left: 106px"
+            ans="x"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 118px; left: 106px"
+            ans="3"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 62px; left: 106px"
+            ans="x"
+          />
+
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 54px; left: 150px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 54px; left: 207px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 54px; left: 262px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 110px; left: 150px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 110px; left: 207px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 110px; left: 262px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 166px; left: 150px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 166px; left: 207px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 43px; height: 46px; top: 166px; left: 262px"
+            ans="sheep"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-3-5-2.png"
+        />
+      </div>
+
+      <div class="options num">
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+        <div class="option" fillin="x">
+          <span class="fillin">X</span>
+        </div>
+      </div>
+
+      <div class="options animals loop">
+        <div class="option" fillin="gorilla">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/gorilla.png"
+          /></span>
+        </div>
+        <div class="option" fillin="sheep">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/sheep.png"
+          /></span>
+        </div>
+        <div class="option" fillin="rabbit">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/rabbit.png"
+          /></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：動物園又來了四隻大象，一隻大猩猩，一隻綿羊以及一隻兔子。用餐位置要擴大並重新分配了。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 400px; margin-top: 20px">
+        <div class="sensorArea">
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 13px; left: 151px"
+            ans="4"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 215px; left: 350px"
+            ans="4"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 260px; left: 309px"
+            ans="4"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 165px; left: 110px"
+            ans="2"
+          />
+          <span
+            onclick="selectOption($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 58px; left: 109px"
+            ans="4"
+          />
+
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 50px; left: 141px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 50px; left: 194px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 50px; left: 247px"
+            ans="gorilla"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 50px; left: 300px"
+            ans="elephant"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 102px; left: 141px"
+            ans="sheep"
+          />
+          <span
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 102px; left: 194px"
+            ans="elephant"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 102px; left: 247px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 102px; left: 300px"
+            ans="gorilla"
+          />
+          <span
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 155px; left: 141px"
+            ans="gorilla"
+          />
+          <span
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 155px; left: 194px"
+            ans="rabbit"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 155px; left: 247px"
+            ans="elephant"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 155px; left: 300px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 208px; left: 141px"
+            ans="elephant"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 208px; left: 194px"
+            ans="gorilla"
+          />
+          <span
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 208px; left: 247px"
+            ans="sheep"
+          />
+          <span
+            onclick="checkNote($(this), event)"
+            opt="animals"
+            class="sensor"
+            style="width: 40px; height: 42px; top: 208px; left: 300px"
+            ans="rabbit"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-3-5-3.png"
+        />
+      </div>
+
+      <div class="options num">
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin">4</span>
+        </div>
+        <div class="option" fillin="x">
+          <span class="fillin">X</span>
+        </div>
+      </div>
+
+      <div class="options animals loop">
+        <div class="option" fillin="gorilla">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/gorilla.png"
+          /></span>
+        </div>
+        <div class="option" fillin="sheep">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/sheep.png"
+          /></span>
+        </div>
+        <div class="option" fillin="rabbit">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/rabbit.png"
+          /></span>
+        </div>
+        <div class="option" fillin="elephant">
+          <span class="fillin"
+            ><img src="./DATA/PT4/BOOK1/IMAGES/elephant.png"
+          /></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<script>
+  var selectOption = function (tar, e) {
+    var opt = tar.attr("opt");
+    var ans = tar.attr("ans");
+    var options = $(
+      `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${ans}"]`
+    );
+    options.addClass("selected");
+    options.siblings(".selected").removeClass("selected");
+  };
+  var checkNote = function (tar, e) {
+    $(".alert").remove();
+    //
+    var notes = $(
+      `#module_wrapper #contents div.selected:has(.sensor[opt="num"]:empty)`
+    );
+    if (notes.length > 0) {
+      rootSoundEffect($stupid);
+      var hinter = "請先填入園長送來的壓縮文件數字";
+      notes.append(
+        `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
+          <p>${hinter}</p>
+        </div>`
+      );
+      if (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }
+  };
+</script>
+
+<style>
+  .sensorArea .sensor {
+    img {
+      height: 100%;
+      width: auto;
+      animation: bounceIn 1s both;
+    }
+  }
+</style>
