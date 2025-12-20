@@ -465,6 +465,11 @@ let loadContainer = function (id, section) {
         $("#main").show();
         //stop particle animation
         isPaused = true;
+
+        //必須要指定當前在哪一頁的specialProcess
+        if (typeof specialProcess === "function") {
+          specialProcess();
+        }
       }
     });
 };

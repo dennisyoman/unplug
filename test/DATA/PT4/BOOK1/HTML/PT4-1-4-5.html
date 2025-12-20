@@ -1,0 +1,382 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div
+      class="btn_discover"
+      data-image=""
+      data-text="二元搜尋樹是一種有根二元樹資料結構。它要求每個內部節點的鍵值都大於其左子樹中所有節點的鍵值，且都小於其右子樹中所有節點的鍵值。"
+      data-video=""
+      onClick="toggleAttachment($(this))"
+    ></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：又進來五台太空船了，請指引它們進場。</p>
+          <img src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 260px">
+        <div class="sensorArea">
+          <span
+            onClick="jumpToUnit3($(this))"
+            class="sensor"
+            style="width: 163px; height: 29px; top: 191px; left: 35px"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-5-1.png"
+        />
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：試試比較其他的方式看看二元搜尋樹是否真的比較快找到22號太空船。<br />1.太空船直線排列一台一台尋找<br />2.使用二元搜尋樹來尋找
+          </p>
+          <img src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 280px; margin-left: 50px">
+        <div class="sensorArea">
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 1px; left: 2px"
+            seq="1"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 31px; left: 2px"
+            seq="2"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 57px; left: 2px"
+            seq="3"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 85px; left: 2px"
+            seq="4"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 113px; left: 2px"
+            seq="5"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 140px; left: 2px"
+            seq="6"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 168px; left: 2px"
+            seq="7"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 195px; left: 2px"
+            seq="8"
+          />
+          <span
+            onclick="method1($(this))"
+            group="1"
+            class="sensor"
+            style="width: 30px; height: 25px; top: 224px; left: 2px"
+            seq="9"
+            ans="1"
+          />
+
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 73px; left: 156px"
+            seq="1"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 115px; left: 99px"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 115px; left: 213px"
+            seq="2"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 159px; left: 71px"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 159px; left: 128px"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 159px; left: 184px"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 159px; left: 241px"
+            seq="3"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 201px; left: 56px"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 201px; left: 227px"
+          />
+          <span
+            onclick="method2($(this))"
+            group="2"
+            class="sensor"
+            style="width: 25px; height: 25px; top: 201px; left: 256px"
+            seq="4"
+            ans="1"
+          />
+        </div>
+
+        <div class="questions">
+          <span
+            class="question"
+            ans="9"
+            style="width: 48px; height: 14px; top: 240px; left: 131px"
+          ></span>
+          <span
+            class="question"
+            ans="4"
+            style="width: 48px; height: 14px; top: 259px; left: 131px"
+          ></span>
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-5-2.png"
+        />
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：12號太空船臨時有事離開了維修站，請問其他的太空船要怎麼移動才能保持原來的規則呢？
+          </p>
+          <img src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-5-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 260px">
+        <div class="sensorArea">
+          <span
+            onClick="jumpToUnit3($(this))"
+            class="sensor"
+            style="width: 62px; height: 79px; top: 89px; left: 133px"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img
+          style="width: 100%; height: auto"
+          src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-5-3.png"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>
+
+<script>
+  var method1 = function (tar) {
+    tar.off("click");
+    //確認前面一個的span是否已經被選擇
+    var previousSpan = $(tar).prevAll("span[group='1'][seq]:not(.selected)");
+    if (previousSpan.length == 0) {
+      var seq = tar.attr("seq");
+      if (!seq) {
+        rootSoundEffect($stupid);
+        return;
+      } else {
+        rootSoundEffect($pop);
+        if (tar.attr("ans") == "1") {
+          rootSoundEffect($chimes);
+        }
+        $("#module_wrapper .contents .questions .question[ans='9']").addClass(
+          "selected"
+        );
+        tar.addClass("selected");
+      }
+      var num = $(
+        "#module_wrapper .contents .selected .sensor[group='1'].selected"
+      ).length;
+      $("#module_wrapper .contents .questions .question[ans='9']").text(num);
+    } else {
+      rootSoundEffect($stupid);
+      return;
+    }
+  };
+  var method2 = function (tar) {
+    tar.off("click");
+    //確認前面所有pan已經被選擇
+    var previousSpan = $(tar).prevAll("span[group='2'][seq]:not(.selected)");
+    if (previousSpan.length == 0) {
+      var seq = tar.attr("seq");
+      if (!seq) {
+        rootSoundEffect($stupid);
+
+        return;
+      } else {
+        rootSoundEffect($pop);
+        if (tar.attr("ans") == "1") {
+          rootSoundEffect($chimes);
+        }
+        $("#module_wrapper .contents .questions .question[ans='4']").addClass(
+          "selected"
+        );
+        tar.addClass("selected");
+      }
+      var num = $(
+        "#module_wrapper .contents .selected .sensor[group='2'].selected"
+      ).length;
+      $("#module_wrapper .contents .questions .question[ans='4']").text(num);
+    } else {
+      rootSoundEffect($stupid);
+      return;
+    }
+  };
+  var jumpToUnit3 = function (tar) {
+    tar.off("click");
+    $("#icon-wrapper").find("li").eq(2).click();
+  };
+</script>
+
+<style>
+  #module_wrapper .contents .selected .sensor[group="1"].selected {
+    border: 2px solid #25ce7f;
+    border-radius: 100%;
+  }
+  #module_wrapper .contents .selected .sensor[group="1"].selected::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 14px;
+    width: 24px;
+    height: 24px;
+    background: url(../DATA/PT4/BOOK1/IMAGES/lady.png) no-repeat center center;
+    background-size: contain;
+    animation: slideInDown 0.5s linear both;
+  }
+  /* 如果後面跟著另一個 .sensor[group="1"].selected，則隱藏 ::after */
+  #module_wrapper
+    .contents
+    .selected
+    .sensor[group="1"].selected:has(~ .sensor[group="1"].selected)::after {
+    display: none;
+  }
+  #module_wrapper .contents .selected .sensor[group="2"].selected {
+    border: 2px solid #fd1d1d;
+    border-radius: 100%;
+  }
+  #module_wrapper .contents .selected .sensor[group="2"].selected::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 14px;
+    width: 24px;
+    height: 24px;
+    background: url(../DATA/PT4/BOOK1/IMAGES/lady.png) no-repeat center center;
+    background-size: contain;
+    animation: slideInDown 0.5s linear both;
+  }
+  /* 如果後面跟著另一個 .sensor[group="2"].selected，則隱藏 ::after */
+  #module_wrapper
+    .contents
+    .selected
+    .sensor[group="2"].selected:has(~ .sensor[group="2"].selected)::after {
+    display: none;
+  }
+  .sensor.selected {
+    pointer-events: none !important;
+  }
+  .questions {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  .questions .question {
+    position: absolute;
+    z-index: 2;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #fd1d1d;
+    opacity: 0;
+  }
+  .questions .question[ans="9"] {
+    color: #25ce7f;
+  }
+  .questions .question.selected {
+    opacity: 1;
+  }
+</style>

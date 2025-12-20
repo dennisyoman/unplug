@@ -120,6 +120,9 @@ var showAnswer = function (boolean) {
     $(".sideTool > div.btn_replay").click();
     rootSoundEffect($show);
   }
+
+  ////dymamic function here
+  withinShowAnswer(boolean);
 };
 
 var checkAnswer = function () {
@@ -301,6 +304,9 @@ var resetElem = function (elem) {
   //
   $(".sideTool > div.btn_answer").removeClass("active").show();
   $(".sideTool > div.btn_check").hide();
+
+  ////dymamic function here
+  withinResetElem();
 };
 
 var resetTool = function () {
