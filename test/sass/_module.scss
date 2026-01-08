@@ -37,8 +37,11 @@
             position: absolute;
             z-index: 1;
             pointer-events: auto;
-            animation: bgblinking 1s both infinite;
+            //animation: bgblinking 1s both infinite;
             cursor: pointer;
+            &.selected {
+              border: 1px solid #ff0000;
+            }
           }
         }
       }

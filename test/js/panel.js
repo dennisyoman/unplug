@@ -769,6 +769,7 @@ var boxCaptureMe = function (tar) {
 
 //////202512:新增字串(attr:content)到box裡
 var boxAddMe = function (tar) {
+  tar.addClass("selected");
   var text = tar.attr("content").trim();
   var $item = $("<div>").addClass("canvas_item custom_canvas_item");
   $item.append(`<p>${text}</p>`);
