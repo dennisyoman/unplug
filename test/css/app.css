@@ -14890,8 +14890,8 @@ body {
 }
 .root .sidebar-canvas .btn_add_custom_canvas_item {
   position: absolute;
-  left: 5px;
-  bottom: 5px;
+  left: 9px;
+  bottom: 9px;
   width: 20px;
   height: 20px;
   background: url("../DATA/IMAGES/common/btn_close.png") no-repeat center center;
@@ -15003,6 +15003,7 @@ body {
 }
 .root > #main-keep {
   display: none;
+  z-index: 2;
 }
 .root > #main-keep > .main {
   width: 100%;

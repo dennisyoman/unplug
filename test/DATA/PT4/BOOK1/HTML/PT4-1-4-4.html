@@ -18,7 +18,7 @@
   <div id="contents" class="contents">
     <!--任務一-->
     <div>
-      <div class="intro">
+      <div class="intro" style="display: none">
         <div>
           <h3>How to play?</h3>
           <p><b>文生圖</b>：根據維修廠新的規範，引導太空船進廠保養維修。</p>
@@ -26,7 +26,7 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="subject wow fadeIn" style="width: 260px">
+      <div class="subject wow fadeIn tti" style="width: 260px">
         <div class="sensorArea">
           <span
             onclick="parkHere($(this), event)"
@@ -385,7 +385,7 @@
     var ansArr = tar.attr("ans").split("^");
 
     var flights = $(
-      `#module_wrapper .flights > span:not(".selected"):not(".disabled")`
+      `#module_wrapper #contents div.selected .flights > span:not(".selected"):not(".disabled")`
     );
     var correctFlights = flights.filter((index, item) => {
       var dataNum = $(item).attr("data-num");
@@ -423,62 +423,6 @@
       flights.eq(0).addClass("selected");
       options.addClass("selected");
       options.siblings(".selected").removeClass("selected");
-      //判斷是否開啟過$("#PT4-1-4-4-5").length > 0
-      if ($("#PT4-1-4-4-5").length > 0) {
-        //判斷做完了沒有
-        var practiceID = $("#PT4-1-4-4-5")
-          .find("#module_wrapper_keep .tabs_keep > span.selected")
-          .index();
-        var isDoneFirst10 = doneFirstFlights(10);
-
-        if (isDoneFirst10) {
-          setupPractice1();
-        }
-
-        var isDoneFirst15 = doneFirstFlights(15);
-        if (isDoneFirst15 && practiceID == 2) {
-          //do something
-          setupPractice3();
-        }
-      }
-    }
-  };
-
-  var specialProcess = function () {
-    console.log("specialProcess");
-    //如果目前處於#PT4-1-4-3-4且#PT4-1-4-4-5存在，執行下列程式碼
-    if (
-      $("#PT4-1-4-3-4").hasClass("selected") &&
-      $("#PT4-1-4-4-5").length > 0
-    ) {
-      //
-      var practiceID = $("#PT4-1-4-4-5")
-        .find("#module_wrapper_keep .tabs_keep > span.selected")
-        .index();
-      console.warn(practiceID);
-      if (practiceID == 0) {
-        //判斷做完了沒有
-        var isDoneFirst10 = doneFirstFlights(10);
-        if (isDoneFirst10) {
-          setupPractice1();
-        }
-        //若做超過練習1了，則執行練習1的設定
-        if ($("#module_wrapper .flights > span").length > 10) {
-          setupPractice1();
-        }
-      } else if (practiceID == 1) {
-        //甚麼事情都不做
-      } else if (practiceID == 2) {
-        var isDoneFirst10 = doneFirstFlights(10);
-        if (isDoneFirst10) {
-          setupPractice1();
-        }
-        //15台都做好了
-        var isDoneFirst15 = doneFirstFlights(15);
-        if (isDoneFirst15) {
-          setupPractice3();
-        }
-      }
     }
   };
 </script>

@@ -20,7 +20,7 @@
   <div id="contents" class="contents">
     <!--任務一-->
     <div>
-      <div class="intro">
+      <div class="intro" style="display: none">
         <div>
           <h3>How to play?</h3>
           <p>
@@ -31,7 +31,10 @@
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
       </div>
-      <div class="subject wow fadeIn" style="width: 280px; margin-top: 50px">
+      <div
+        class="subject wow fadeIn tti"
+        style="width: 280px; margin-top: 50px"
+      >
         <div class="sensorArea">
           <span
             onclick="selectOption($(this), event)"
@@ -253,7 +256,7 @@
     img {
       height: 100%;
       width: auto;
-      animation: bounceIn 1s both;
+      animation: bounceIn 1s backwards;
       transform-origin: center bottom;
     }
   }

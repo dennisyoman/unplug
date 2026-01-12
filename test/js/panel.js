@@ -87,7 +87,14 @@ $(document).ready(function () {
         .bind("click", function () {
           resetPanelBtns("btn_tag");
           appendTag(true);
+          clickthen();
+        });
 
+      $(".btn_TTI")
+        .unbind()
+        .bind("click", function () {
+          resetPanelBtns("btn_TTI");
+          captureTTI();
           clickthen();
         });
 
@@ -438,15 +445,19 @@ var handleZoomDrag = function (ev) {
       $("#zoomer").remove();
     } else {
       $("#zoomSensor").css("pointer-events", "none");
-      renderZoomer();
+      if ($(".panel .btn_zoom").hasClass("boxable")) {
+        renderZoomer(true);
+      } else {
+        renderZoomer();
+      }
       //inactive btn
       $(".btn_zoom").click();
     }
   }
 };
 ////202512:
-var renderZoomer = function () {
-  if ($(".panel .btn_zoom").hasClass("boxable")) {
+var renderZoomer = function (intoBox = false) {
+  if (intoBox) {
     $("#zoomer").addClass("collectable");
     $("#zoomer .eraseAll").remove();
     $("#zoomer .erase").remove();
@@ -478,11 +489,12 @@ var renderZoomer = function () {
     "margin-top": "-400px",
     "margin-left": "-400px",
   });
-  $("#main-keep").css({
+
+  /*$("#main-keep").css({
     padding: "400px",
     "margin-top": "-400px",
     "margin-left": "-400px",
-  });
+  });*/
 
   //flipback
   html2canvas(
@@ -539,11 +551,12 @@ var renderZoomer = function () {
       "margin-top": "0px",
       "margin-left": "0px",
     });
-    $("#main-keep").css({
+
+    /*$("#main-keep").css({
       padding: "0px",
       "margin-top": "0px",
       "margin-left": "0px",
-    });
+    });*/
   });
 };
 
@@ -764,7 +777,72 @@ var boxCaptureMe = function (tar) {
   downCord = [tarX, tarY];
   upCord = [tarX + tarWidth, tarY + tarHeight];
   //
+  renderZoomer(true);
+};
+
+//////202512:截圖
+var captureTTI = function () {
+  if ($(".tti").length == 0) {
+    return;
+  }
+  var $tar = $(".tti").eq(0);
+  var $moduleWrapper = $("#root");
+  var newZoomRatio = stageRatioReal / stageRatioMain;
+  appendZoomer();
+
+  var $moduleWrapper = $tar.closest(".main");
+  var TTIWrapperID = $moduleWrapper.attr("id");
+  var currentSelectedMainKeep = null;
+
+  //TTI一定在main keep裡面
+  if ($("#main").children().length === 0) {
+    //#main是空的，目前在main-keep
+    currentSelectedMainKeep = $("#main-keep > .main.selected");
+  } else {
+    //目前在#main
+    $("#main").css("opacity", 0);
+    $("#main-keep").show();
+  }
+
+  $("#" + TTIWrapperID)
+    .addClass("selected")
+    .siblings(".selected")
+    .removeClass("selected");
+  dekeeplizeElement("#" + TTIWrapperID);
+
+  // 使用 getBoundingClientRect 直接計算相對位置
+  var tarRect = $tar[0].getBoundingClientRect();
+
+  var moduleWrapperRect = $moduleWrapper[0].getBoundingClientRect();
+
+  var tarX = (tarRect.left - moduleWrapperRect.left) / newZoomRatio;
+  var tarY = (tarRect.top - moduleWrapperRect.top) / newZoomRatio;
+  var tarWidth = tarRect.width / newZoomRatio;
+  var tarHeight = tarRect.height / newZoomRatio;
+  downCord = [tarX, tarY];
+  upCord = [tarX + tarWidth, tarY + tarHeight];
+
   renderZoomer();
+
+  //回到原本的頁面
+  if ($("#main").children().length === 0) {
+    //#main是空的，目前在main-keep
+    if (
+      currentSelectedMainKeep != null &&
+      currentSelectedMainKeep.attr("id") != TTIWrapperID
+    ) {
+      $("#" + TTIWrapperID).removeClass("selected");
+      keeplizeElement("#" + TTIWrapperID);
+      currentSelectedMainKeep.addClass("selected");
+    }
+    $("#main-keep").show();
+  } else {
+    //目前在#main
+    $("#main").css("opacity", 1);
+    $("#main-keep").hide();
+    $("#main-keep > .main").removeClass("selected");
+    keeplizeElement("#" + TTIWrapperID);
+  }
 };
 
 //////202512:新增字串(attr:content)到box裡
@@ -1076,5 +1154,13 @@ var checkPanelBtns = function () {
     $(".btn_box").removeClass("disabled");
   } else {
     $(".btn_box").addClass("disabled").removeClass("active");
+  }
+  ////202601:btnTTI出現在第四系列
+  if (sid === "PT4") {
+    $(".btn_TTI").removeClass("disabled");
+    $(".btn_tag").addClass("disabled");
+  } else {
+    $(".btn_tag").removeClass("disabled");
+    $(".btn_TTI").addClass("disabled");
   }
 };

@@ -165,6 +165,9 @@
       &.btn_tag {
         background-image: url("../DATA/IMAGES/common/btn_tag.png");
       }
+      &.btn_TTI {
+        background-image: url("../DATA/IMAGES/common/btn_TTI.png");
+      }
 
       &.btn_focus {
         background-image: url("../DATA/IMAGES/common/btn_focus.png");
@@ -185,7 +188,9 @@
 
         &.active {
           animation: none;
-          filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+
+          background-image: url("../DATA/IMAGES/common/btn_close.png");
+          background-size: 20px 20px;
         }
       }
 

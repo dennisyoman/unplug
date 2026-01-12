@@ -158,6 +158,9 @@
 .panel .main-panel .btn.btn_tag {
   background-image: url("../DATA/IMAGES/common/btn_tag.png");
 }
+.panel .main-panel .btn.btn_TTI {
+  background-image: url("../DATA/IMAGES/common/btn_TTI.png");
+}
 .panel .main-panel .btn.btn_focus {
   background-image: url("../DATA/IMAGES/common/btn_focus.png");
 }
@@ -176,7 +179,8 @@
 }
 .panel .main-panel .btn.btn_box.active {
   animation: none;
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+  background-image: url("../DATA/IMAGES/common/btn_close.png");
+  background-size: 20px 20px;
 }
 .panel .main-panel .btn.disabled {
   pointer-events: none;
