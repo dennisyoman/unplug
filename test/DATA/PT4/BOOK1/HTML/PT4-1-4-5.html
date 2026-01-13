@@ -97,6 +97,77 @@
             onclick="parkHere($(this), event)"
             opt="num"
             class="sensor"
+            style="width: 21px; height: 21px; top: 113px; left: 119px"
+            ans="10"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 157px; left: 52px"
+            parentIndex="0"
+            ans="5"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 157px; left: 186px"
+            parentIndex="0"
+            ans="15"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 203px; left: 18px"
+            parentIndex="1"
+            ans="3"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 203px; left: 86px"
+            parentIndex="1"
+            ans="7"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 203px; left: 153px"
+            parentIndex="2"
+            ans="12"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 203px; left: 220px"
+            parentIndex="2"
+            ans="20"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 248px; left: 2px"
+            parentIndex="3"
+            ans="1"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
             style="width: 21px; height: 21px; top: 248px; left: 35px"
             parentIndex="3"
             ans="4"
@@ -134,32 +205,58 @@
             parentIndex="5"
             ans="14"
           />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 248px; left: 203px"
+            parentIndex="6"
+            ans="18"
+            preset="true"
+          />
+          <span
+            onclick="parkHere($(this), event)"
+            opt="num"
+            class="sensor"
+            style="width: 21px; height: 21px; top: 248px; left: 237px"
+            parentIndex="6"
+            ans="22"
+            preset="true"
+          />
         </div>
 
         <div class="flights">
           <span
             data-num="4"
             style="top: 60px; left: 14px; transform: rotate(270deg)"
+            class="fl"
           ></span>
           <span
             data-num="11"
             style="top: 60px; left: 64px; transform: rotate(270deg)"
+            class="fl"
           ></span>
           <span
             data-num="9"
             style="top: 60px; left: 114px; transform: rotate(270deg)"
+            class="fl"
           ></span>
           <span
             data-num="14"
             style="top: 60px; left: 164px; transform: rotate(270deg)"
+            class="fl"
           ></span>
           <span
             data-num="6"
             style="top: 55px; left: 210px; transform: rotate(180deg)"
+            class="fd"
           ></span>
         </div>
 
         <!-- subjects -->
+        <div class="singleFlight">
+          <img src="./DATA/PT4/BOOK1/IMAGES/flight.png" />
+        </div>
         <img
           style="
             position: absolute;
@@ -452,43 +549,46 @@
             ans="9"
             >9</span
           >
+          <span
+            class="sensor"
+            style="width: 21px; height: 21px; top: 248px; left: 136px"
+            ans="11"
+            >11</span
+          >
+          <span
+            class="sensor"
+            style="width: 21px; height: 21px; top: 248px; left: 170px"
+            ans="14"
+            >14</span
+          >
         </div>
         <div class="sensorArea">
           <span
-            onclick="parkHere($(this), event)"
-            opt="num3"
             class="sensor"
-            style="width: 21px; height: 21px; top: 203px; left: 153px"
-            parentIndex="2"
-            ans="14^11"
+            id="fix12"
+            style="
+              width: 21px;
+              height: 21px;
+              top: 203px;
+              left: 153px;
+              pointer-events: none !important;
+            "
+            ans="12"
           />
           <span
-            onclick="parkHere($(this), event)"
-            opt="num3"
+            onclick="move11To12($(this), event)"
             class="sensor"
             style="width: 21px; height: 21px; top: 248px; left: 136px"
-            parentIndex="5"
+            id="fix11"
             ans="11"
           />
           <span
-            onclick="parkHere($(this), event)"
-            opt="num3"
+            onclick="move14To12($(this), event)"
             class="sensor"
             style="width: 21px; height: 21px; top: 248px; left: 170px"
-            parentIndex="5"
+            id="fix14"
             ans="14"
           />
-        </div>
-
-        <div class="flights">
-          <span
-            data-num="11"
-            style="top: 60px; left: 14px; transform: rotate(270deg)"
-          ></span>
-          <span
-            data-num="14"
-            style="top: 60px; left: 64px; transform: rotate(270deg)"
-          ></span>
         </div>
 
         <!-- subjects -->
@@ -508,18 +608,6 @@
           style="width: 100%; height: auto"
           src="./DATA/PT4/BOOK1/IMAGES/PT4-1-4-4-1.png"
         />
-      </div>
-
-      <div class="options num3">
-        <div class="option" fillin="12">
-          <span class="fillin">12</span>
-        </div>
-        <div class="option" fillin="11">
-          <span class="fillin">11</span>
-        </div>
-        <div class="option" fillin="14">
-          <span class="fillin">14</span>
-        </div>
       </div>
     </div>
   </div>
@@ -589,49 +677,256 @@
     $("#icon-wrapper").find("li").eq(2).click();
   };
   var parkHere = function (tar, e) {
+    if (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
     $(".alert").remove();
-    var ansArr = tar.attr("ans").split("^");
 
+    // 1. 找到同一區的.singleFlight
+    var $subject = tar.closest(".subject");
+    var $singleFlight = $subject.find(".singleFlight");
+
+    //飛機預設可以移動
+    var canMoveFlight = true;
+
+    //排隊中尚未起飛的飛機
     var flights = $(
       `#module_wrapper #contents div.selected .flights > span:not(".selected"):not(".disabled")`
     );
-    var correctFlights = flights.filter((index, item) => {
-      var dataNum = $(item).attr("data-num");
-      return ansArr.indexOf(dataNum) !== -1;
-    });
-    var isCorrectFlight = flights.eq(0).is(correctFlights);
 
-    if (!isCorrectFlight) {
+    if (flights.length == 0 && !$singleFlight.hasClass("active")) {
       rootSoundEffect($stupid);
-      var hinter =
-        "注意！節點的值必須都大於其左子樹中所有節點的值，且都小於其右子樹中所有節點的值。";
-
-      if (flights.length == 0) {
-        hinter = "沒有太空船在排隊喔。";
-      }
       $("#contents > div.selected").append(
         `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
-          <p>${hinter}</p>
+          <p>沒有太空船在排隊喔。</p>
         </div>`
       );
-      // 停止同一元素上其他 click handler（例如 fillin.js 綁的 click）
-      if (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-      }
       return false;
+    }
+
+    // 判斷sensor是否為空（沒有內容）或是有 attribute:preset
+    var isSensorEmpty = function ($sensor) {
+      if ($sensor.attr("preset")) {
+        console.log("sensor is preset");
+        return false;
+      }
+      var text = $sensor.text().trim();
+      var hasChildren = $sensor.children().length > 0;
+      // 如果有文本內容或有子元素，就不是空的
+      return text === "" && !hasChildren;
+    };
+
+    // 2. 獲得當下correctFlights的data-num
+    var correctDataNum = null;
+    var isNewFlight = !$singleFlight.hasClass("active");
+
+    if (isNewFlight) {
+      // 新飛機開始，重置path進度
+      correctDataNum = flights.eq(0).attr("data-num");
+      $singleFlight.attr("data-num", correctDataNum);
+      $singleFlight.attr("data-path-index", "0"); // 記錄path進度，從0開始
     } else {
-      rootSoundEffect($correct);
-      var opt = tar.attr("opt");
-      var matchedDataNum = correctFlights.eq(0).attr("data-num");
-      var options = $(
-        `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${matchedDataNum}"]`
+      correctDataNum = $singleFlight.attr("data-num");
+    }
+
+    // 獲取所有sensor(太空維修站點)
+    var $subject = tar.closest(".subject");
+    var $allSensors = $subject.find(".sensorArea > .sensor");
+
+    // 3. 檢查此飛機的所有sensor路徑path
+    var $targetSensor = $allSensors
+      .filter(function () {
+        var ansAttr = $(this).attr("ans");
+        if (!ansAttr) return false;
+        var ansArr = ansAttr.split("^");
+        return ansArr.indexOf(correctDataNum) !== -1;
+      })
+      .first();
+
+    if ($targetSensor.length > 0) {
+      // 從target sensor開始，通過parentIndex向上尋找路徑
+      var currentSensor = $targetSensor[0];
+      var path = [currentSensor];
+
+      while (currentSensor) {
+        var $current = $(currentSensor);
+        var parentIdx = $current.attr("parentIndex");
+        if (parentIdx !== undefined && parentIdx !== null) {
+          var $parent = $allSensors.eq(parseInt(parentIdx));
+          if ($parent.length > 0) {
+            path.unshift($parent[0]);
+            currentSensor = $parent[0];
+          } else {
+            break;
+          }
+        } else {
+          break;
+        }
+      }
+      console.log("這架飛機的path順序:", path);
+    } else {
+      // 找不到target sensor，不能移動
+      canMoveFlight = false;
+    }
+
+    var errorMessage = ""; // 用於記錄錯誤訊息
+
+    //4. 確認tar是不是在path上且一定要依照順序一個一個都點擊過
+    if (!canMoveFlight) {
+      // 如果找不到target sensor，已經設置為false，使用預設錯誤訊息
+      errorMessage = "找不到這架飛機的飛行路徑！";
+    } else {
+      // 找到tar在path中的索引
+      var tarIndex = -1;
+      for (var i = 0; i < path.length; i++) {
+        if (path[i] === tar[0]) {
+          tarIndex = i;
+          break;
+        }
+      }
+
+      if (tarIndex === -1) {
+        // tar不在path上，不能移動
+        canMoveFlight = false;
+        errorMessage =
+          "必須從Root開始！且節點的值必須都大於其左子樹中所有節點的值，小於其右子樹中所有節點的值。";
+      } else {
+        // 獲取當前飛機在path中的進度
+        var currentPathIndex =
+          parseInt($singleFlight.attr("data-path-index")) || 0;
+
+        // 只有當tar是path中的下一個（按順序）時，才能移動
+        // 每次換飛機時，該飛機的path上所有sensor都要再依照順序被點一次
+        if (tarIndex === currentPathIndex) {
+          // 這是正確的下一個sensor，可以移動
+          canMoveFlight = true;
+          // 更新進度到下一個
+          $singleFlight.attr(
+            "data-path-index",
+            (currentPathIndex + 1).toString()
+          );
+        } else {
+          // 不是按順序的sensor，不能移動
+          canMoveFlight = false;
+          if (tarIndex < currentPathIndex) {
+            // 已經點過這個sensor了
+            errorMessage =
+              "必須從Root開始！請按照飛行路徑的順序，一步一步移動到下一個維修站！";
+          } else {
+            // 跳過了前面的sensor
+            errorMessage =
+              "必須從Root開始！請按照飛行路徑的順序，一步一步移動到下一個維修站！";
+          }
+        }
+      }
+    }
+
+    //5. 判斷可否移動
+
+    if (!canMoveFlight) {
+      rootSoundEffect($stupid);
+      // 如果有特定的錯誤訊息就使用，否則使用預設訊息
+      if (!errorMessage) {
+        errorMessage =
+          "必須從Root開始！且節點的值必須都大於其左子樹中所有節點的值，小於其右子樹中所有節點的值。";
+      }
+      $("#contents > div.selected").append(
+        `<div class="alert wow bounceInLeft" style="max-width:350px;" onClick="$(this).remove()">
+          <p>${errorMessage}</p>
+        </div>`
       );
 
-      flights.eq(0).addClass("selected");
-      options.addClass("selected");
-      options.siblings(".selected").removeClass("selected");
+      return false;
     }
+
+    // 可以移動飛機
+    rootSoundEffect($correct);
+    var opt = tar.attr("opt");
+    var matchedDataNum = correctDataNum;
+    var options = $(
+      `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${matchedDataNum}"]`
+    );
+
+    //移動飛機singleFlight
+    // 保存原始位置
+    var originalLeft = "0px";
+    var originalTop = "0px";
+    var originalTransform = "none";
+
+    // 考慮resize的縮放比例
+    var newZoomRatio =
+      typeof stageRatioReal !== "undefined" &&
+      typeof stageRatioMain !== "undefined"
+        ? stageRatioReal / stageRatioMain
+        : 1;
+
+    // 讀取sensor的style屬性中的top和left值（已考慮定位父層）
+    var sensorTop = parseFloat(tar.css("top")) || 0;
+    var sensorLeft = parseFloat(tar.css("left")) || 0;
+
+    // 使用getBoundingClientRect獲取實際尺寸，然後除以縮放比例
+    var sensorRect = tar[0].getBoundingClientRect();
+    var sensorWidth = sensorRect.width / newZoomRatio;
+    var sensorHeight = sensorRect.height / newZoomRatio;
+
+    // 計算sensor的中心點位置
+    var centerX = sensorLeft + sensorWidth / 2;
+    var centerY = sensorTop + sensorHeight / 2;
+
+    // 給同一區的.singleFlight加上active class並移動到sensor中心
+    if (!$singleFlight.hasClass("active")) {
+      flights.eq(0).addClass("selected");
+      $singleFlight.addClass("active");
+    }
+    //移動
+    $singleFlight.css({
+      left: centerX + "px",
+      top: centerY + "px",
+      transform: "translate(-50%, -50%)",
+    });
+
+    var currentIsEmpty = isSensorEmpty(tar);
+
+    // 只有在確認sensor是空的且沒有值時，才設置內容
+    if (currentIsEmpty) {
+      // 只有當sensor確實是空值時才設置內容
+      // 將sensor內容設置為data-num
+      tar.text(matchedDataNum);
+
+      // 如果是空值, 經過1秒後singleFlight會removeClass active然後回到原始位置
+      setTimeout(function () {
+        $singleFlight.removeClass("active").css({
+          left: originalLeft,
+          top: originalTop,
+          transform: originalTransform,
+        });
+      }, 1000);
+    }
+  };
+  var move11To12 = function (tar, e) {
+    if (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+    $(".alert").remove();
+    tar.html(
+      "<span style='border-radius: 100%;width: 90%;height: 90%;    margin-top: 5%;background: #fff;display: block;'></span>"
+    );
+    $("#fix12").text(tar.attr("ans"));
+    $("#fix14").text("14");
+  };
+  var move14To12 = function (tar, e) {
+    if (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+    $(".alert").remove();
+    tar.html(
+      "<span style='border-radius: 100%;width: 90%;height: 90%;    margin-top: 5%;background: #fff;display: block;'></span>"
+    );
+    $("#fix12").text(tar.attr("ans"));
+    $("#fix11").text("11");
   };
 </script>
 
@@ -710,6 +1005,51 @@
   .sensorArea .sensor:empty {
     pointer-events: auto !important;
   }
+  .singleFlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 40px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .singleFlight img {
+    width: 100%;
+    height: auto;
+    transform: rotate(180deg);
+  }
+  .singleFlight::before {
+    content: attr(data-num);
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #ea5e88;
+    border-radius: 100%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    color: #ea5e88;
+    line-height: 14px;
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  .singleFlight.active {
+    opacity: 1;
+    transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+  }
+  .sensorArea .sensor {
+    pointer-events: auto !important;
+  }
+  .sensorArea .sensor:empty {
+    pointer-events: auto !important;
+  }
   .flights {
     position: absolute;
     top: 0;
@@ -747,5 +1087,14 @@
     color: #ea5e88;
     line-height: 14px;
     font-weight: bold;
+  }
+  .flights > span.fl::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .flights > span.fd::before {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  .flights > span.fr::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
   }
 </style>
