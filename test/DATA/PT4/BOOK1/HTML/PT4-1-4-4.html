@@ -6,13 +6,7 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div
-      class="btn_discover"
-      data-image=""
-      data-text="二元搜尋樹是一種有根二元樹資料結構。它要求每個內部節點的鍵值都大於其左子樹中所有節點的鍵值，且都小於其右子樹中所有節點的鍵值。"
-      data-video=""
-      onClick="toggleAttachment($(this))"
-    ></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -283,7 +277,7 @@
 
     //排隊中尚未起飛的飛機
     var flights = $(
-      `#module_wrapper #contents div.selected .flights > span:not(".selected"):not(".disabled")`
+      `#module_wrapper #contents div.selected .flights > span:not(".selected"):not(".disabled")`,
     );
 
     if (flights.length == 0 && !$singleFlight.hasClass("active")) {
@@ -291,7 +285,7 @@
       $("#contents > div.selected").append(
         `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
           <p>沒有太空船在排隊喔。</p>
-        </div>`
+        </div>`,
       );
       return false;
     }
@@ -395,7 +389,7 @@
           // 更新進度到下一個
           $singleFlight.attr(
             "data-path-index",
-            (currentPathIndex + 1).toString()
+            (currentPathIndex + 1).toString(),
           );
         } else {
           // 不是按順序的sensor，不能移動
@@ -425,7 +419,7 @@
       $("#contents > div.selected").append(
         `<div class="alert wow bounceInLeft" style="max-width:350px;" onClick="$(this).remove()">
           <p>${errorMessage}</p>
-        </div>`
+        </div>`,
       );
 
       return false;
@@ -436,7 +430,7 @@
     var opt = tar.attr("opt");
     var matchedDataNum = correctDataNum;
     var options = $(
-      `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${matchedDataNum}"]`
+      `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${matchedDataNum}"]`,
     );
 
     //移動飛機singleFlight
@@ -535,7 +529,9 @@
 
   .singleFlight.active {
     opacity: 1;
-    transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+    transition:
+      left 0.5s ease-in-out,
+      top 0.5s ease-in-out;
   }
   .sensorArea .sensor {
     pointer-events: auto !important;

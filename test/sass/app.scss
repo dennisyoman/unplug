@@ -313,6 +313,7 @@ body {
     color: #222;
     display: grid;
     place-content: center;
+    pointer-events: auto;
     > div {
       background: #fff;
       width: auto;
@@ -334,6 +335,21 @@ body {
         p {
           text-decoration: underline;
           text-underline-offset: 4px;
+        }
+      }
+      &.attachment-video {
+        width: 500px;
+        max-width: unset;
+        .attachment-video-iframe {
+          width: 100% !important;
+          height: 100% !important;
+          aspect-ratio: 16/9 !important;
+          pointer-events: auto;
+        }
+        video {
+          width: 100% !important;
+          height: 100% !important;
+          aspect-ratio: 16/9 !important;
         }
       }
     }

@@ -8,13 +8,7 @@
   <div class="sideTool">
     <div class="btn_answer"></div>
     <div class="btn_replay"></div>
-    <div
-      class="btn_discover"
-      data-image=""
-      data-text="數據正規化後，可以更容易同時得到各種不同的比較結果。"
-      data-video=""
-      onClick="toggleAttachment($(this))"
-    ></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -230,7 +224,7 @@
       $(".contents > div.selected").append(
         `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
           <p>${hinter}</p>
-        </div>`
+        </div>`,
       );
 
       // 停止同一元素上其他 click handler（例如 fillin.js 綁的 click）

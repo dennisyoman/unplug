@@ -11,13 +11,7 @@
     <div class="btn_answer"></div>
     <div class="btn_replay"></div>
     <div class="btn_check"></div>
-    <div
-      class="btn_discover"
-      data-image=""
-      data-text="數據正規化後，可以更容易同時得到各種不同的比較結果。"
-      data-video=""
-      onClick="toggleAttachment($(this))"
-    ></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
 
   <div id="contents" class="contents">
@@ -27,7 +21,7 @@
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>文生圖</b
+            <b>挑戰主題</b
             >：園長送來了一份壓縮文件，要Mary照著這個安排動物的晚餐。你能幫忙她嗎？
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
@@ -229,7 +223,7 @@
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>文生圖</b
+            <b>挑戰主題</b
             >：園長又送來了一份壓縮文件，這次竟然只有3個數字，是不是搞錯了？
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
@@ -434,7 +428,7 @@
         <div>
           <h3>How to play?</h3>
           <p>
-            <b>文生圖</b
+            <b>挑戰主題</b
             >：動物園又來了四隻大象，一隻大猩猩，一隻綿羊以及一隻兔子。用餐位置要擴大並重新分配了。
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
@@ -646,7 +640,7 @@
     var opt = tar.attr("opt");
     var ans = tar.attr("ans");
     var options = $(
-      `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${ans}"]`
+      `#module_wrapper #contents div.selected .options.${opt} .option[fillin="${ans}"]`,
     );
     options.addClass("selected");
     options.siblings(".selected").removeClass("selected");
@@ -655,7 +649,7 @@
     $(".alert").remove();
     //
     var notes = $(
-      `#module_wrapper #contents div.selected:has(.sensor[opt="num"]:empty)`
+      `#module_wrapper #contents div.selected:has(.sensor[opt="num"]:empty)`,
     );
     if (notes.length > 0) {
       rootSoundEffect($stupid);
@@ -663,7 +657,7 @@
       notes.append(
         `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
           <p>${hinter}</p>
-        </div>`
+        </div>`,
       );
       if (e) {
         e.preventDefault();

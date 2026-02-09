@@ -14968,6 +14968,7 @@ body {
   color: #222;
   display: grid;
   place-content: center;
+  pointer-events: auto;
 }
 .root .attachment > div {
   background: #fff;
@@ -14989,6 +14990,21 @@ body {
 .root .attachment > div.attachment-text p {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.root .attachment > div.attachment-video {
+  width: 500px;
+  max-width: unset;
+}
+.root .attachment > div.attachment-video .attachment-video-iframe {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 16/9 !important;
+  pointer-events: auto;
+}
+.root .attachment > div.attachment-video video {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 16/9 !important;
 }
 .root .attachment img {
   max-width: 100%;

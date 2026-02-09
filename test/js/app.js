@@ -33,7 +33,7 @@ $(document).ready(function () {
         //202512:如果有keep住的頁面要跳詢問
         if ($("#main-keep .main").length > 0) {
           var confirm = window.confirm(
-            "確定要返回單元選擇嗎？目前單元的答案會全部清除喔。"
+            "確定要返回單元選擇嗎？目前單元的答案會全部清除喔。",
           );
           if (confirm) {
             //202512:清空main-keep並隱藏
@@ -53,7 +53,7 @@ $(document).ready(function () {
           style_arr,
           "./css/",
           script_arr,
-          "./js/"
+          "./js/",
         );
 
         console.log("load and goto Unit selection");
@@ -168,8 +168,8 @@ $(document).ready(function () {
             x: Math.random() * ($(window).width() / stageRatioReal),
             y: $(window).height() / stageRatioReal,
           },
-          1 + Math.random() * 3
-        )
+          1 + Math.random() * 3,
+        ),
       );
     }
   }, 200);
@@ -314,8 +314,8 @@ let createUnits = function () {
                           i * 0.1
                         }s" src="./DATA/${thumb}"/>
                         <h3>${nameArr[0]}<span>${
-              nameArr[1] ? nameArr[1] : ""
-            }</span></h3></li>`;
+                          nameArr[1] ? nameArr[1] : ""
+                        }</span></h3></li>`;
 
             $("#icon-wrapper").append(iconHTML);
             if (amount > 5 && i == Math.ceil(amount / 2) - 1) {
@@ -359,7 +359,7 @@ let toLogin = function () {
     style_arr,
     "./css/",
     script_arr,
-    "./js/"
+    "./js/",
   );
 };
 
@@ -384,6 +384,19 @@ let loadContainer = function (id, section) {
 
       ////
       if (ssid == sid && bbid == bid && llid == lid) {
+        if (sid == "PT4") {
+          var key = convertSsid2Dddis(sid);
+          var key2 = convertAPIID(sid);
+          var cached =
+            attachmentContent[key2] &&
+            attachmentContent[key2][key] &&
+            attachmentContent[key2][key][bid] &&
+            attachmentContent[key2][key][bid][lid];
+          if (!cached) {
+            getAttachmentContent(key2);
+          }
+        }
+        //
         htmlPath = $(this)
           .find("section:eq(" + (uid - 1) + ")")
           .attr("html");
@@ -428,7 +441,7 @@ let loadContainer = function (id, section) {
             //不存在,新增此區塊
             console.warn("不存在此固定頁,新增此區塊");
             $("#main-keep").append(
-              `<div id="${sectionDiv}" class="main"></div>`
+              `<div id="${sectionDiv}" class="main"></div>`,
             );
             $.getComponent(
               "./DATA/" + htmlPath,
@@ -436,7 +449,7 @@ let loadContainer = function (id, section) {
               style_arr,
               "./DATA/",
               script_arr,
-              "./DATA/"
+              "./DATA/",
             );
           }
 
@@ -454,7 +467,7 @@ let loadContainer = function (id, section) {
             style_arr,
             "./DATA/",
             script_arr,
-            "./DATA/"
+            "./DATA/",
           );
         }
 
@@ -520,7 +533,7 @@ let loadContainerInside = function (htmlPath, jsPath, p) {
     style_arr,
     "./DATA/",
     script_arr,
-    "./DATA/"
+    "./DATA/",
   );
   resetAudio();
   //loadPanel();
@@ -544,7 +557,7 @@ let loadPanel = function () {
     "./css/",
     script_arr,
     "./js/",
-    true
+    true,
   );
 };
 
@@ -558,7 +571,7 @@ let loadMainSlider = function () {
     style_arr,
     "./css/",
     script_arr,
-    "./js/"
+    "./js/",
   );
   //20230331 updated
   if (!demomode) {
@@ -571,9 +584,54 @@ let loadMainSlider = function () {
   //20230719 updated
   $("#power").show();
 };
-////202512:我發現
-let toggleAttachment = function (element) {
-  // 目標容器：#main-keep .main.selected 優先，否則 #main:visible
+
+////20260209:我發現:取得內容
+let convertSsid2Dddis = function (ssid) {
+  return ssid.replace("PT", "Unplug");
+};
+let convertAPIID = function (ssid) {
+  return "ET_" + ssid.replace("PT", "Unplug") + "_Content1";
+};
+var attachmentContent = {};
+let getAttachmentContent = function (contentID) {
+  ////20260209:串API取得內容 //Unplug4 //ET_Unplug4_Content1
+  let sssid = convertSsid2Dddis(sid);
+  let url = "https://api01.giraffe.com.tw/api/eTeachingLDD/" + contentID;
+  let timestamp = getTimeStamp();
+  let sign = md5(timestamp + "GirAffe^55825168@gIUneBiMhghi#s").toUpperCase();
+  url +=
+    "?timestamp=" +
+    timestamp +
+    "&sign=" +
+    sign +
+    "&sid=" +
+    sssid +
+    "&bid=" +
+    bid +
+    "&lid=" +
+    lid;
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    success: function (data) {
+      if (data.code == 0) {
+        // 依 contentID, sssid, bid, lid 建立巢狀路徑並寫入 data.content
+        if (!attachmentContent[contentID]) attachmentContent[contentID] = {};
+        if (!attachmentContent[contentID][sssid])
+          attachmentContent[contentID][sssid] = {};
+        if (!attachmentContent[contentID][sssid][bid])
+          attachmentContent[contentID][sssid][bid] = {};
+        attachmentContent[contentID][sssid][bid][lid] = data.content[0];
+        console.log(data.content[0]);
+      } else {
+        console.log("getAttachmentContent error:" + data.message);
+      }
+      return;
+    },
+  });
+};
+let toggleAttachment = function (type, triggerEl) {
   var $target = $("#main-keep .main.selected #contents");
   if ($target.length === 0) {
     $target = $("#main:visible #contents");
@@ -581,31 +639,78 @@ let toggleAttachment = function (element) {
   if ($target.length === 0) {
     return;
   }
+  if (!$(triggerEl).hasClass("active")) {
+    $(triggerEl).addClass("active");
 
-  if (!$(element).hasClass("active")) {
-    rootSoundEffect($help);
-    $(element).addClass("active");
-    var $el = $(element);
-    var img = $el.data("image");
-    var text = $el.data("text");
-    var video = $el.data("video");
+    console.log(type);
+    console.log(attachmentContent);
+    var key = convertSsid2Dddis(sid);
+    var key2 = convertAPIID(sid);
+    var text = "";
+    var ExtPic = "";
+    var ExtVideo = "";
+    var item =
+      attachmentContent[key2] &&
+      attachmentContent[key2][key] &&
+      attachmentContent[key2][key][bid] &&
+      attachmentContent[key2][key][bid][lid]
+        ? attachmentContent[key2][key][bid][lid]
+        : null;
+    switch (type) {
+      case "Graph":
+        text = (item && item.Graph) || "";
+        break;
+      case "Chal": {
+        var tabIndex = $target
+          .closest("#module_wrapper")
+          .find(".tabs span.selected")
+          .index();
+        var chalID = Math.max(1, tabIndex + 1);
+        text = (item && item["Chal" + chalID]) || "";
+        break;
+      }
+      case "Ext":
+        ExtPic = (item && item.ExtPic) || "";
+        ExtVideo = (item && item.ExtVideo) || "";
+        break;
+    }
 
-    // 只會有一種模式，依序判斷
     var $content = null;
-    if (img) {
+    if ((ExtPic || "").trim() != "") {
       $content = $("<div>")
         .addClass("attachment-image")
-        .append($("<img>").attr("src", img));
-    } else if (video) {
-      $content = $("<div>")
-        .addClass("attachment-video")
-        .append(
-          $("<video>")
-            .attr("src", video)
-            .attr("controls", true)
-            .attr("playsinline", true)
+        .append($("<img>").attr("src", ExtPic));
+    } else if ((ExtVideo || "").trim() != "") {
+      var isYoutube =
+        /youtube\.com\/watch\?v=|youtu\.be\//.test(ExtVideo) ||
+        /youtube\.com\/embed\//.test(ExtVideo);
+      var videoEl;
+      if (isYoutube) {
+        var videoId = null;
+        var m = ExtVideo.match(
+          /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/,
         );
-    } else if (text) {
+        if (m) videoId = m[1];
+        var embedUrl = videoId
+          ? "https://www.youtube.com/embed/" + videoId + "?playsinline=1"
+          : ExtVideo;
+        videoEl = $("<iframe>")
+          .addClass("attachment-video-iframe")
+          .attr("src", embedUrl)
+          .attr("frameborder", 0)
+          .attr(
+            "allow",
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+          )
+          .attr("allowfullscreen", true);
+      } else {
+        videoEl = $("<video>")
+          .attr("src", ExtVideo)
+          .attr("controls", true)
+          .attr("playsinline", true);
+      }
+      $content = $("<div>").addClass("attachment-video").append(videoEl);
+    } else if ((text || "").trim() != "") {
       $content = $("<div>").addClass("attachment-text").html(`<p>${text}</p>`);
     }
     if (!$content) {
@@ -617,8 +722,7 @@ let toggleAttachment = function (element) {
     var $attachment = $("<div>").addClass("attachment").append($content);
     $target.append($attachment);
   } else {
-    rootSoundEffect($show);
-    $(element).removeClass("active");
+    $(triggerEl).removeClass("active");
     $target.find(".attachment").remove();
   }
 };
@@ -1005,7 +1109,7 @@ $.getComponent = function (
   css_path,
   js_arr,
   js_path,
-  noloading
+  noloading,
 ) {
   if (!noloading) {
     resetDynamicFunctions();
@@ -1048,7 +1152,7 @@ $.getComponent = function (
         if (status == "error") {
           if (
             confirm(
-              "尚未完成本課，請選擇其他章節；或是double click畫面跳出loading"
+              "尚未完成本課，請選擇其他章節；或是double click畫面跳出loading",
             )
           ) {
             deactiveLoading();
@@ -1094,7 +1198,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")"
+      ")",
   );
   $("#root").css(
     "-webkit-transform",
@@ -1102,7 +1206,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")"
+      ")",
   );
   $("#root").css(
     "transform",
@@ -1110,7 +1214,7 @@ let autofitScreen = function () {
       stageRatioRoot +
       "," +
       stageRatioRoot +
-      ")"
+      ")",
   );
 };
 
@@ -1356,7 +1460,7 @@ let erasorPainting = function (ev) {
         (newPos[0] * pRatio) / newZoomRatio - _eraserWidth / 2,
         (newPos[1] * pRatio) / newZoomRatio - _eraserWidth / 2,
         _eraserWidth,
-        _eraserWidth
+        _eraserWidth,
       );
     });
   }
@@ -1483,7 +1587,7 @@ let apartCanvas = function () {
 let isCanvasBlank = function (canvas) {
   var context = canvas.getContext("2d");
   var pixelBuffer = new Uint32Array(
-    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer,
   );
 
   return !pixelBuffer.some((color) => color !== 0);
@@ -1560,15 +1664,15 @@ let adjustSizer = function () {
       //
       $("#main").css(
         "-ms-transform",
-        "scale(" + stageRatioMain + "," + stageRatioMain + ")"
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
       );
       $("#main").css(
         "-webkit-transform",
-        "scale(" + stageRatioMain + "," + stageRatioMain + ")"
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
       );
       $("#main").css(
         "transform",
-        "scale(" + stageRatioMain + "," + stageRatioMain + ")"
+        "scale(" + stageRatioMain + "," + stageRatioMain + ")",
       );
 
       var rangeX = Math.abs((640 * (stageRatioMain - 1)) / 2);
