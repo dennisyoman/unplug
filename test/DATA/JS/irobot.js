@@ -120,7 +120,7 @@ var handleDrag = function (ev) {
     mopCounter = 0;
     if (mopgroup.hasClass("mop-group")) {
       $("#module_wrapper").append(
-        `<div id="fingerAvatar" class="fingerAvatar"><img src="./DATA/IMAGES/COMMON/finger2.png"/></div>`
+        `<div id="fingerAvatar" class="fingerAvatar"><img src="./DATA/IMAGES/COMMON/finger2.png"/></div>`,
       );
     }
   }
@@ -135,13 +135,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#fingerAvatar").height() / stageRatioReal / 2
+            $("#fingerAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#fingerAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#fingerAvatar").width() / stageRatioReal / 2
+            $("#fingerAvatar").width() / stageRatioReal / 2,
         ) + "px";
       if (
         mopgroup.find(">span").length != mopgroup.find(">span.onmop").length
@@ -245,13 +245,13 @@ var checkCollision = function (ev) {
           cctx.lineWidth = mtw * 0.2;
           cctx.moveTo(
             parseInt(mopgroup.find(".last").get(0).style.left) + mtw / 2,
-            parseInt(mopgroup.find(".last").get(0).style.top) + mth / 2
+            parseInt(mopgroup.find(".last").get(0).style.top) + mth / 2,
           );
           var ltw = parseInt($(this).get(0).style.width);
           var lth = parseInt($(this).get(0).style.height);
           cctx.lineTo(
             parseInt($(this).get(0).style.left) + ltw / 2,
-            parseInt($(this).get(0).style.top) + lth / 2
+            parseInt($(this).get(0).style.top) + lth / 2,
           );
 
           //cctx.closePath();
@@ -307,7 +307,7 @@ var checkMopStatus = function () {
         0,
         0,
         $(mopgroupCanvas).attr("width"),
-        $(mopgroupCanvas).attr("height")
+        $(mopgroupCanvas).attr("height"),
       );
     });
     //
@@ -315,7 +315,7 @@ var checkMopStatus = function () {
     rootSoundEffect($fail);
     var uniq = new Date().getTime();
     mopgroup.append(
-      `<div class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></div>`
+      `<div class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></div>`,
     );
     $(".smoke")
       .delay(1000)
@@ -361,7 +361,7 @@ var drawArrow = function () {
   ctx.lineWidth = mtw * 0.2;
   ctx.translate(
     parseInt(tarSpan.get(0).style.left) + mtw / 2,
-    parseInt(tarSpan.get(0).style.top) + mth / 2
+    parseInt(tarSpan.get(0).style.top) + mth / 2,
   );
   ctx.rotate((degree * Math.PI) / 180);
   ctx.moveTo(0, -1 * ctx.lineWidth);
@@ -374,7 +374,7 @@ var drawArrow = function () {
   ctx.rotate((-1 * degree * Math.PI) / 180);
   ctx.translate(
     -1 * parseInt(tarSpan.get(0).style.left) - mtw / 2,
-    -1 * parseInt(tarSpan.get(0).style.top) - mth / 2
+    -1 * parseInt(tarSpan.get(0).style.top) - mth / 2,
   );
 };
 
@@ -458,13 +458,13 @@ var showAnswer = function () {
       cctx.lineWidth = mtw * 0.2;
       cctx.moveTo(
         parseInt(preSpan.get(0).style.left) + mtw / 2,
-        parseInt(preSpan.get(0).style.top) + mth / 2
+        parseInt(preSpan.get(0).style.top) + mth / 2,
       );
       var ltw = parseInt(targetSpan.get(0).style.width);
       var lth = parseInt(targetSpan.get(0).style.height);
       cctx.lineTo(
         parseInt(targetSpan.get(0).style.left) + ltw / 2,
-        parseInt(targetSpan.get(0).style.top) + lth / 2
+        parseInt(targetSpan.get(0).style.top) + lth / 2,
       );
 
       cctx.stroke();
@@ -572,7 +572,7 @@ var updateRobot = function () {
     rootSoundEffect($chimes);
     var uniq = new Date().getTime();
     mopgroup.append(
-      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`,
     );
     $(".smoke")
       .delay(1000)
@@ -585,6 +585,8 @@ var updateRobot = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -615,7 +617,7 @@ var resetElem = function (elem) {
       0,
       0,
       $(mopgroupCanvas).attr("width"),
-      $(mopgroupCanvas).attr("height")
+      $(mopgroupCanvas).attr("height"),
     );
   });
   //irobot

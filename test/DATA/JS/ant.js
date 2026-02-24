@@ -114,7 +114,7 @@ var moveAnt = function (ant) {
           //
           var uniq = new Date().getTime();
           ant.append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
           );
           $(".smoke")
             .delay(1100)
@@ -132,7 +132,7 @@ var moveAnt = function (ant) {
           rootSoundEffect($chimes);
           var uniq = new Date().getTime();
           guess.append(
-            `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+            `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
           );
           $(".smoke")
             .delay(1800)
@@ -147,7 +147,7 @@ var moveAnt = function (ant) {
           guess
             .addClass("wrong")
             .append(
-              `<span class="smoke wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+              `<span class="smoke wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
             );
           keepgoing = false;
         }
@@ -234,6 +234,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

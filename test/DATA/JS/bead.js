@@ -134,7 +134,7 @@ var checkCollision = function (ev) {
   var lastX = ev.center.x;
   var lastY = ev.center.y;
   var beadElem = $(
-    ".contents > div.selected .object .sensors > span:not(.done)"
+    ".contents > div.selected .object .sensors > span:not(.done)",
   ).eq(0);
   var headElem = $(".contents > div.selected .object .answer > span.head");
   var bodyElem = $(".contents > div.selected .object .answer > span.body");
@@ -177,7 +177,7 @@ var matchBeads = function () {
   var bodyElem = $(".contents > div.selected .object .answer > span.body");
   //
   var beadElem = $(
-    ".contents > div.selected .object .sensors > span:not(.done)"
+    ".contents > div.selected .object .sensors > span:not(.done)",
   ).eq(0);
   if (beadElem.find("img.selected").length > 0) {
     //sync 選到的珠子
@@ -205,7 +205,7 @@ var matchBeads = function () {
         headElem.find("img.selected").removeClass("selected");
         rootSoundEffect($stupid);
         $(".contents > div.selected").append(
-          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
         );
       }
     } else {
@@ -249,7 +249,7 @@ var matchBeads = function () {
           rootSoundEffect($stupid);
 
           $(".contents > div.selected").append(
-            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
           );
         }
       }
@@ -259,7 +259,7 @@ var matchBeads = function () {
     alertmsg = "請依段落順序從起點開始選起。";
 
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
     );
 
     rootSoundEffect($stupid);
@@ -275,7 +275,7 @@ var applyBead = function (source) {
   var bodyElem = $(".contents > div.selected .object .answer > span.body");
   //
   var beadElem = $(
-    ".contents > div.selected .object .sensors > span >img:not(.done)"
+    ".contents > div.selected .object .sensors > span >img:not(.done)",
   ).eq(0);
   if (beadElem.attr("src") == source.attr("src")) {
     beadElem.addClass("done");
@@ -285,7 +285,7 @@ var applyBead = function (source) {
     rootSoundEffect($wrong);
     $(".alert").remove();
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
     );
   }
 
@@ -303,7 +303,7 @@ var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke uniq${uniq}"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke uniq${uniq}"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(`.smoke.uniq${uniq}`)
     .delay(1500)
@@ -339,7 +339,7 @@ var checkAnswer = function () {
   } else {
     rootSoundEffect($wrong);
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
     );
   }
 };
@@ -351,6 +351,8 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
+  //20260204
+  removeToggleAttachment();
 };
 
 var resetElem = function (elem) {
@@ -372,7 +374,7 @@ var resetElem = function (elem) {
       for (var i = 0; i < arr.length; i++) {
         var item = arr[i].split("^");
         $(this).append(
-          `<img width="${item[0]}" src="${item[1]}" style="${item[2]}"  onClick="applyBead($(this))"/>`
+          `<img width="${item[0]}" src="${item[1]}" style="${item[2]}"  onClick="applyBead($(this))"/>`,
         );
       }
     }
@@ -390,7 +392,7 @@ var resetElem = function (elem) {
       for (var i = 0; i < arr.length; i++) {
         var item = arr[i].split("^");
         $(this).append(
-          `<img width="${item[0]}" src="${item[1]}" style="${item[2]}" onClick="applyBead($(this))"/>`
+          `<img width="${item[0]}" src="${item[1]}" style="${item[2]}" onClick="applyBead($(this))"/>`,
         );
       }
     }

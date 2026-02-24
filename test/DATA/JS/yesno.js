@@ -134,7 +134,7 @@ var showAnswer = function (boolean) {
                     diffX +
                     parseInt(piece.eq(k).children().css("width")) /
                       2 /
-                      stageRatioReal
+                      stageRatioReal,
             )
             .css(
               "top",
@@ -146,7 +146,7 @@ var showAnswer = function (boolean) {
                     diffY +
                     parseInt(piece.eq(k).children().css("height")) /
                       2 /
-                      stageRatioReal
+                      stageRatioReal,
             );
           ////
           //橫向延伸
@@ -214,7 +214,7 @@ var showAnswer = function (boolean) {
         ansArray[ansArray.length - 1].push(
           `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
             .eq(i)
-            .prop("outerHTML")}</div>`
+            .prop("outerHTML")}</div>`,
         );
       }
     });
@@ -264,7 +264,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $(".contents > div.selected .contain").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
@@ -290,13 +290,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -462,7 +462,7 @@ var bingo = function () {
   $(".contents > div.selected")
     .find(".subject")
     .append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
     );
   $(".smoke")
     .delay(1500)
@@ -490,6 +490,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -541,7 +543,7 @@ var resetElem = function (elem) {
           if (piece.length > 0) {
             var neighbor = elem
               .find(
-                ".sensorArea .sensor[name='" + piece.attr("location") + "']"
+                ".sensorArea .sensor[name='" + piece.attr("location") + "']",
               )
               .attr("neighbor");
             var neighbors = neighbor ? neighbor.split(",") : new Array();
@@ -585,7 +587,7 @@ var resetElem = function (elem) {
                             diffX +
                             parseInt(piece.eq(k).children().css("width")) /
                               2 /
-                              stageRatioReal
+                              stageRatioReal,
                     )
                     .css(
                       "top",
@@ -597,7 +599,7 @@ var resetElem = function (elem) {
                             diffY +
                             parseInt(piece.eq(k).children().css("height")) /
                               2 /
-                              stageRatioReal
+                              stageRatioReal,
                     );
                   ////
                   //橫向延伸
@@ -634,7 +636,7 @@ var resetElem = function (elem) {
                 elem.find(".arrowArea .arrow").removeClass("selected");
                 elem
                   .find(
-                    ".arrowArea .arrow[parent='" + $(this).attr("name") + "']"
+                    ".arrowArea .arrow[parent='" + $(this).attr("name") + "']",
                   )
                   .addClass("selected");
                 //是否結束移動
@@ -665,7 +667,7 @@ var resetElem = function (elem) {
         .bind("click", function () {
           console.log("fff");
           var sensor = elem.find(
-            ".sensorArea .sensor[name='" + $(this).attr("target") + "']"
+            ".sensorArea .sensor[name='" + $(this).attr("target") + "']",
           );
           sensor.click();
         });

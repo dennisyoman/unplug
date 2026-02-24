@@ -95,7 +95,7 @@ $(document).ready(function () {
             }
             //
             var obj = `<img class="wow bounceIn" src="./DATA/PT/BOOK5/IMAGES/${$(
-              this
+              this,
             ).attr("int")}.png"/>`;
             $(this).append(obj);
           }
@@ -105,7 +105,7 @@ $(document).ready(function () {
         .find(".pieces >span")
         .each(function (index) {
           var obj = `<img class="wow bounceIn" src="./DATA/PT/BOOK5/IMAGES/${$(
-            this
+            this,
           ).attr("int")}.png?u=${index}"/>`;
           $(this).append(obj);
         });
@@ -358,7 +358,7 @@ var caculateBeam = function () {
         $(".contents > div.selected")
           .find(".diamond.bingo")
           .append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+            `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
           );
         break;
       } else if (tar.attr("int") == "blackhole") {
@@ -437,7 +437,7 @@ var createBeam = function () {
         $(".contents > div.selected")
           .find(".map")
           .append(
-            `<span class="smoke wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+            `<span class="smoke wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
           );
         $(".smoke")
           .delay(1500)
@@ -481,7 +481,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).parent().hasClass("pieces")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
@@ -497,13 +497,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -610,6 +610,8 @@ var checkStatus = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".laser").clearQueue();
   $(".contents > div")
     .eq(id)

@@ -145,7 +145,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       //是否可以重複拖曳
@@ -178,13 +178,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -328,7 +328,7 @@ var checkStatus = function () {
     }
   }
   $("#cardAvatar").addClass(
-    "s" + $(".contents > div.selected .sensorArea > .selected").index()
+    "s" + $(".contents > div.selected .sensorArea > .selected").index(),
   );
   //
   $("#cardAvatar")
@@ -365,7 +365,7 @@ var checkStatus = function () {
 
 var showAnswer = function (boolean) {
   var sensors = $(
-    ".contents > div.selected .photo,.contents > div.selected .word,.contents > div.selected .paragraph"
+    ".contents > div.selected .photo,.contents > div.selected .word,.contents > div.selected .paragraph",
   );
   if (boolean) {
     //秀出答案
@@ -386,6 +386,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -442,7 +444,7 @@ var prevItem = function () {
       .removeClass("selected");
     //update page
     $(".contents > div.selected .navigation .page").text(
-      index + 1 + "/" + items.length
+      index + 1 + "/" + items.length,
     );
     rootSoundEffect($click);
   }
@@ -459,7 +461,7 @@ var nextItem = function () {
       .removeClass("selected");
     //update page
     $(".contents > div.selected .navigation .page").text(
-      index + 1 + "/" + items.length
+      index + 1 + "/" + items.length,
     );
     rootSoundEffect($click);
   }
@@ -473,7 +475,7 @@ var bingo = function () {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   $("#module_wrapper").append(
-    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)
@@ -541,14 +543,14 @@ var initCanvas = function (tar) {
             startX,
             startY,
             (event.clientX - tar.offset().left) / newZoomRatio - ol,
-            (event.clientY - tar.offset().top) / newZoomRatio - ot
+            (event.clientY - tar.offset().top) / newZoomRatio - ot,
           );
         } else {
           drawLineBoard(
             startX,
             startY,
             (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol,
-            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot
+            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot,
           );
         }
       }

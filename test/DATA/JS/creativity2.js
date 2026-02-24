@@ -84,7 +84,7 @@ $(document).ready(function () {
         ".mp3";
       itemElem.eq(k).append(
         `<span class="storybtn wow bounceIn" onClick="playStory('${audioPath}',true,${k})"><audio preload="auto" src="${audioPath}" /></span>
-           <span class="pausebtn" onClick="playStory('${audioPath}',false,${k})"/>`
+           <span class="pausebtn" onClick="playStory('${audioPath}',false,${k})"/>`,
       );
     }
   });
@@ -146,6 +146,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

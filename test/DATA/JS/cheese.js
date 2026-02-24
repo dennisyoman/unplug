@@ -139,7 +139,7 @@ var initCanvas = function () {
                 (event.clientX - $("#contents").offset().left) / newZoomRatio -
                   ol,
                 (event.clientY - $("#contents").offset().top) / newZoomRatio -
-                  ot
+                  ot,
               );
             } else {
               drawLineBoard(
@@ -150,7 +150,7 @@ var initCanvas = function () {
                   ol,
                 (event.touches[0].clientY - $("#contents").offset().top) /
                   newZoomRatio -
-                  ot
+                  ot,
               );
             }
           }
@@ -204,7 +204,7 @@ var clearCanvas = function () {
       0,
       0,
       $(".contents > div.selected").find("canvas").attr("width"),
-      $(".contents > div.selected").find("canvas").attr("height")
+      $(".contents > div.selected").find("canvas").attr("height"),
     );
 };
 
@@ -240,6 +240,8 @@ var toggleDraw = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

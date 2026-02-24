@@ -91,7 +91,7 @@ $(document).ready(function () {
                   parseInt(size[0]) * bww +
                   "px;height:" +
                   parseInt(size[1]) * bhh +
-                  "px"
+                  "px",
               );
           });
       });
@@ -169,7 +169,7 @@ var handleDrag = function (ev) {
         //clean linked blocks and remove this
         var link = $($elem).attr("link");
         var gridElem = $(
-          ".contents > div.selected .grids > .row > span.disable"
+          ".contents > div.selected .grids > .row > span.disable",
         );
         gridElem.each(function () {
           if (link == $(this).attr("link")) {
@@ -193,13 +193,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -244,7 +244,7 @@ var handleDrag = function (ev) {
         var uniq = new Date().getTime();
         $("#cardAvatar").find("img").css("opacity", 0);
         $("#cardAvatar").append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
         );
         $("#cardAvatar")
           .delay(800)
@@ -302,7 +302,7 @@ var checkCollision = function (ev) {
   if ($($elem).attr("exclude")) {
     var excludeGrids = $($elem).attr("exclude").split("^");
     var gggg = $(".contents > div.selected .grids").find(
-      ".row > span.selected"
+      ".row > span.selected",
     );
     for (var k = 0; k < excludeGrids.length; k++) {
       gggg.eq(excludeGrids[k] - 1).removeClass("selected");
@@ -323,11 +323,11 @@ var checkOrderStatus = function (tar) {
   gridSpan.each(function () {
     intx = Math.min(
       intx,
-      $(this).offset().left - $("#module_wrapper").offset().left
+      $(this).offset().left - $("#module_wrapper").offset().left,
     );
     inty = Math.min(
       inty,
-      $(this).offset().top - $("#module_wrapper").offset().top
+      $(this).offset().top - $("#module_wrapper").offset().top,
     );
 
     //
@@ -360,7 +360,7 @@ var checkOrderStatus = function (tar) {
     var uniq = new Date().getTime();
     rootSoundEffect($chimes);
     gridElem.append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
     );
     $(".smoke")
       .delay(1500)
@@ -374,6 +374,8 @@ var checkOrderStatus = function (tar) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

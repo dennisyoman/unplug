@@ -82,6 +82,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -99,7 +101,7 @@ var checkAnswer = function () {
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
       $(".contents > div.selected").append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
       $(".smoke")
         .delay(1500)
@@ -111,7 +113,7 @@ var checkAnswer = function () {
       //wrong
       rootSoundEffect($wrong);
       $(".contents > div.selected").append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`,
       );
       $(".resultIcon")
         .delay(1000)
@@ -170,7 +172,7 @@ var resetElem = function (elem) {
       cat.append(
         `<div class="wow fadeInDown ${foodsArr[i][0]}" data-wow-delay="${
           i * 0.1
-        }s" data-wow-duration=".6s" counter="0"></div>`
+        }s" data-wow-duration=".6s" counter="0"></div>`,
       );
     }
 
@@ -190,7 +192,7 @@ var resetElem = function (elem) {
       .unbind()
       .bind("click", function () {
         var currCat = $(".contents > div.selected").find(
-          ".category > div.selected"
+          ".category > div.selected",
         );
         if (!$(this).hasClass("done") && currCat.length > 0) {
           for (var i = 0; i < foodsArr.length; i++) {
@@ -205,7 +207,7 @@ var resetElem = function (elem) {
                 .empty()
                 .addClass("done")
                 .append(
-                  `<img src="./DATA/PT/BOOK12/IMAGES/${foodsArr[i][1][counter]}.png" />`
+                  `<img src="./DATA/PT/BOOK12/IMAGES/${foodsArr[i][1][counter]}.png" />`,
                 );
               rootSoundEffect($pop);
               //
@@ -246,7 +248,7 @@ var resetElem = function (elem) {
               .find(
                 ".selectionArea .syncArea > span[class='" +
                   catArr[m] +
-                  "']:not(.selected)"
+                  "']:not(.selected)",
               )
               .eq(0)
               .addClass("selected");

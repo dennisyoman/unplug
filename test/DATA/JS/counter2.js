@@ -143,7 +143,7 @@ var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke uniq${uniq}"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke uniq${uniq}"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(`.smoke.uniq${uniq}`)
     .delay(1500)
@@ -184,7 +184,7 @@ var checkAnswer = function () {
       if ($(this).attr("curr") != $(this).attr("guess")) {
         allRight = false;
         var counter = $(".contents > div.selected").find(
-          `.counters > span[aim='${$(this).attr("id")}']`
+          `.counters > span[aim='${$(this).attr("id")}']`,
         );
         $(this).removeAttr("guess");
         counter.addClass("wrong").text("?");
@@ -206,6 +206,8 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
+  //20260204
+  removeToggleAttachment();
 };
 
 var resetElem = function (elem) {

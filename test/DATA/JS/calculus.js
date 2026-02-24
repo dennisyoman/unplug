@@ -131,12 +131,12 @@ var trigHammer = function () {
 var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
     $(".contents > div.selected .grids > div").removeClass(
-      "afterward backward"
+      "afterward backward",
     );
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
@@ -158,13 +158,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -339,7 +339,7 @@ var showSlider = function (boolean) {
     selectedElem
       .find(".card-title")
       .html(
-        selectedElem.find(".storyline").find(">div.selected").attr("title")
+        selectedElem.find(".storyline").find(">div.selected").attr("title"),
       );
 
     selectedElem.find(".gridSlider > .prev").addClass("disable");
@@ -414,7 +414,7 @@ var switchSlider = function (direction) {
       playSeq *
         (storyline.hasClass("lg") ? slideDistanceLarge : slideDistance) *
         -1 +
-        "px"
+        "px",
     )
     .find(">div")
     .removeClass("selected prevSlider nextSlider")
@@ -479,7 +479,7 @@ var resetFrameMulti = function () {
       .split(";");
     $(".contents > div.selected .framesMulti").attr(
       "ans",
-      multiAnsArr[Math.floor(Math.random() * multiAnsArr.length)]
+      multiAnsArr[Math.floor(Math.random() * multiAnsArr.length)],
     );
   }
   //依照參考答案數量分配格子
@@ -516,7 +516,7 @@ var toggleMe = function (tar) {
   //
   if ($(".contents > div.selected .framesMulti").attr("freeanswer")) {
     var count = parseInt(
-      $(".contents > div.selected .framesMulti").attr("freeanswer")
+      $(".contents > div.selected .framesMulti").attr("freeanswer"),
     );
   } else {
     var ansArr = $(".contents > div.selected .framesMulti")
@@ -537,7 +537,7 @@ var toggleMe = function (tar) {
     $(
       `<div ans="${$(this).find(">div").attr("ans")}">${$(this)
         .find(">div")
-        .attr("ans")}</div>`
+        .attr("ans")}</div>`,
     ).insertBefore(cta);
     count--;
   });
@@ -797,7 +797,7 @@ var checkAnswer = function () {
 
     if (alert != "") {
       selectedElem.append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`,
       );
     }
   } else {
@@ -820,7 +820,7 @@ var checkAnswer = function () {
     selectedElem
       .find(".frames")
       .append(
-        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
@@ -850,7 +850,7 @@ var checkAnswerMulti = function () {
     selectedElem
       .find(".framesMulti")
       .append(
-        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
@@ -900,6 +900,8 @@ var fixAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -971,7 +973,7 @@ var resetElem = function (elem) {
     stylesArr.push($(this).attr("style") ? $(this).attr("style") : false);
     classArr.push($(this).attr("class") ? $(this).attr("class") : false);
     cardsArr.push(
-      $(this).removeClass("selected").removeAttr("style class").clone()
+      $(this).removeClass("selected").removeAttr("style class").clone(),
     );
   });
 

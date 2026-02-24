@@ -127,7 +127,7 @@ var makeMove = function (tar) {
           0.2 +
             0.8 *
               (selectedElem.find(".routes").find(">span[class*=done]").length /
-                total)
+                total),
         );
       } else if (end == $(this).attr("start") && start == $(this).attr("end")) {
         //逆向
@@ -137,7 +137,7 @@ var makeMove = function (tar) {
           0.2 +
             0.8 *
               (selectedElem.find(".routes").find(">span[class*=done]").length /
-                total)
+                total),
         );
       }
     });
@@ -224,7 +224,7 @@ var makeMove = function (tar) {
       selectedElem
         .find(".map")
         .append(
-          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span></span>`
+          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span></span>`,
         );
       $(".resultIcon")
         .delay(1800)
@@ -238,7 +238,7 @@ var makeMove = function (tar) {
       selectedElem
         .find(".map")
         .append(
-          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
         );
       $(".resultIcon")
         .delay(1800)
@@ -265,7 +265,7 @@ var makeMove = function (tar) {
       selectedElem
         .find(".map")
         .append(
-          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span></span>`
+          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span></span>`,
         );
       $(".resultIcon")
         .delay(1800)
@@ -307,6 +307,8 @@ var currentJoint = null;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

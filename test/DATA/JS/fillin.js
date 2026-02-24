@@ -102,7 +102,7 @@ var showAnswer = function (boolean) {
           .length > 0
       ) {
         options = $(".contents > div.selected").find(
-          ".options." + $(this).attr("opt")
+          ".options." + $(this).attr("opt"),
         );
       }
       var answerArr = $(this).attr("ans").split(",");
@@ -140,7 +140,7 @@ var checkAnswer = function () {
       var alertmsg = "答案不能重複";
       $(".alert").remove();
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
       throw "repeat answer";
     }
@@ -175,7 +175,7 @@ var bingo = function () {
   $(".contents > div.selected")
     .find(".subject")
     .append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
     );
   $(".smoke")
     .delay(1500)
@@ -188,6 +188,8 @@ var bingo = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

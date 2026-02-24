@@ -232,7 +232,7 @@ var opanCanvas = function (tar, cw, ch) {
               newZoomRatio -
               ol,
             (event.clientY - $(".drawer_wrapper").offset().top) / newZoomRatio -
-              ot
+              ot,
           );
         } else {
           drawLineBoard(
@@ -243,7 +243,7 @@ var opanCanvas = function (tar, cw, ch) {
               ol,
             (event.touches[0].clientY - $(".drawer_wrapper").offset().top) /
               newZoomRatio -
-              ot
+              ot,
           );
         }
       }
@@ -283,6 +283,8 @@ var opanCanvas = function (tar, cw, ch) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -367,14 +369,14 @@ var initCanvas = function (tar) {
             startX,
             startY,
             (event.clientX - tar.offset().left) / newZoomRatio - ol,
-            (event.clientY - tar.offset().top) / newZoomRatio - ot
+            (event.clientY - tar.offset().top) / newZoomRatio - ot,
           );
         } else {
           drawLineBoard(
             startX,
             startY,
             (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol,
-            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot
+            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot,
           );
         }
       }

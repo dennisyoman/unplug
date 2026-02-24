@@ -128,7 +128,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       //是否可以重複拖曳
@@ -161,13 +161,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -261,7 +261,7 @@ var checkStatus = function () {
     }
   }
   $("#cardAvatar").addClass(
-    "s" + $(".contents > div.selected .sensorArea > .selected").index()
+    "s" + $(".contents > div.selected .sensorArea > .selected").index(),
   );
   //
   $("#cardAvatar")
@@ -329,7 +329,7 @@ var checkAnswer = function () {
   //一定要完成組合
   if ($(".cardAvatarDie").length == 2) {
     var target = $(".contents > div.selected .frames > div:not('.disable')").eq(
-      0
+      0,
     );
     var ans =
       $(".s0").find(".cards").attr("cid") +
@@ -343,7 +343,7 @@ var checkAnswer = function () {
       i++
     ) {
       ansDoneArr.push(
-        $(".contents > div.selected .frames > div.disable").eq(i).attr("ans")
+        $(".contents > div.selected .frames > div.disable").eq(i).attr("ans"),
       );
     }
     if (ansDoneArr.indexOf(ans) < 0) {
@@ -352,7 +352,7 @@ var checkAnswer = function () {
         var alertmsg = "新組合";
         $(".contents > div.selected").append(
           `<div class="alert wow bounceInUp" style="bottom: 104px;
-        left: 193px;" onclick="$(this).remove()">${alertmsg}</div>`
+        left: 193px;" onclick="$(this).remove()">${alertmsg}</div>`,
         );
         rootSoundEffect($wrong);
       }
@@ -360,7 +360,7 @@ var checkAnswer = function () {
         var alertmsg = "新字";
         $(".contents > div.selected").append(
           `<div class="alert wow bounceInUp" style="bottom: 104px;
-        left: 198px;" onclick="$(this).remove()">${alertmsg}</div>`
+        left: 198px;" onclick="$(this).remove()">${alertmsg}</div>`,
         );
         bingo(target);
       }
@@ -388,7 +388,7 @@ var checkAnswer = function () {
       var alertmsg = "組合不能重複";
       $(".contents > div.selected").append(
         `<div class="alert wow bounceInUp" style="bottom: 104px;
-        left: 175px;" onclick="$(this).remove()">${alertmsg}</div>`
+        left: 175px;" onclick="$(this).remove()">${alertmsg}</div>`,
       );
       rootSoundEffect($stupid);
     }
@@ -397,7 +397,7 @@ var checkAnswer = function () {
     var alertmsg = "缺少部件";
     $(".contents > div.selected").append(
       `<div class="alert wow bounceInUp" style="bottom: 104px;
-        left: 187px;" onclick="$(this).remove()">${alertmsg}</div>`
+        left: 187px;" onclick="$(this).remove()">${alertmsg}</div>`,
     );
     rootSoundEffect($stupid);
   }
@@ -406,6 +406,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -468,7 +470,7 @@ var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)

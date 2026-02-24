@@ -118,7 +118,7 @@ var showAnswer = function (boolean) {
       residents.find("> div[sid='" + ansArray[i] + "']").addClass("done");
       //交換順序
       updateSequence(
-        residents.find("> div[sid='" + ansArray[i] + "']").find(".need > img")
+        residents.find("> div[sid='" + ansArray[i] + "']").find(".need > img"),
       );
       //路線
       var startID = currentJoint;
@@ -159,7 +159,7 @@ var pickIntItem = function (item) {
   rootSoundEffect($pop);
   var uniq = new Date().getTime();
   item.append(
-    `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`
+    `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`,
   );
   $(".smoke")
     .delay(1500)
@@ -263,12 +263,12 @@ var moviShipper = function (route, reverse) {
   } else {
     //完成步數
     var currentCarryItem = $(
-      ".contents > div.selected .carry > .items > span.selected"
+      ".contents > div.selected .carry > .items > span.selected",
     )
       .find("img")
       .attr("src");
     var joint = $(
-      ".contents > div.selected .residents > div[sid='" + currentJoint + "']"
+      ".contents > div.selected .residents > div[sid='" + currentJoint + "']",
     );
     var need = joint.find(".need").find("img").attr("src");
     var own = joint.find(".own").find("img").attr("src");
@@ -276,7 +276,7 @@ var moviShipper = function (route, reverse) {
     if (currentCarryItem == need) {
       //達成所需
       $(".contents > div.selected .carry > .items > span.selected").removeClass(
-        "selected"
+        "selected",
       );
       $(".addup").remove();
 
@@ -284,7 +284,7 @@ var moviShipper = function (route, reverse) {
       joint.find(".man").addClass("wow rubberBand");
       if (own) {
         $(".contents > div.selected .carry > .items").append(
-          `<span class="selected addup"><img class="wow bounceInDown" src="${own}"/></span>`
+          `<span class="selected addup"><img class="wow bounceInDown" src="${own}"/></span>`,
         );
         updateSequence($(".addup").find("img"));
         joint.addClass("done happy");
@@ -292,7 +292,7 @@ var moviShipper = function (route, reverse) {
         //effect
         var uniq = new Date().getTime();
         $(".contents > div.selected .carry > .items > span.addup").append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`,
         );
         $(".smoke")
           .delay(1500)
@@ -305,7 +305,7 @@ var moviShipper = function (route, reverse) {
         $(".contents > div.selected .shipper").removeClass("walking");
         //
         $(".contents > div.selected .residents > div:not('.done')").addClass(
-          "done angry"
+          "done angry",
         );
 
         //effect
@@ -313,13 +313,13 @@ var moviShipper = function (route, reverse) {
           rootSoundEffect($chimes);
           var uniq = new Date().getTime();
           $(".contents > div.selected .carry > .items").append(
-            `<span class="selected addup"></span>`
+            `<span class="selected addup"></span>`,
           );
           $(".contents > div.selected .carry > .items > span.addup").append(
-            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`
+            `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/>`,
           );
           $(".contents > div.selected .map").append(
-            `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+            `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
           );
           $(".resultIcon")
             .delay(1800)
@@ -331,7 +331,7 @@ var moviShipper = function (route, reverse) {
         } else {
           rootSoundEffect($tryagain);
           $(".contents > div.selected .map").append(
-            `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+            `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
           );
           $(".resultIcon")
             .delay(1800)
@@ -353,7 +353,7 @@ var moviShipper = function (route, reverse) {
       if (!joint.find(".own").find("img").attr("src")) {
         rootSoundEffect($tryagain);
         $(".contents > div.selected .map").append(
-          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+          `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
         );
         $(".resultIcon")
           .delay(1800)
@@ -377,6 +377,8 @@ var moviShipper = function (route, reverse) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

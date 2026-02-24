@@ -78,7 +78,7 @@ $(document).ready(function () {
 
 var checkAnswer = function () {
   var total = parseInt(
-    $(".contents > div.selected").find(".des .prices > span").text()
+    $(".contents > div.selected").find(".des .prices > span").text(),
   );
   var sumup = 0;
   $(".contents > div.selected")
@@ -92,7 +92,7 @@ var checkAnswer = function () {
     rootSoundEffect($chimes);
     var uniq = new Date().getTime();
     $(".contents > div.selected .moneyArea").append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
     );
     $(".smoke")
       .delay(1500)
@@ -103,7 +103,7 @@ var checkAnswer = function () {
   } else {
     rootSoundEffect($stupid);
     $(".contents > div.selected .moneyArea").append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
     );
   }
   $(".resultIcon")
@@ -118,6 +118,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

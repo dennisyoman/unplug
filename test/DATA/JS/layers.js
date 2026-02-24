@@ -107,7 +107,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("piece") && $($elem).parent().hasClass("pieces")) {
       $("#module_wrapper").append(
-        `<div id="pieceAvatar" class="pieceAvatar"></div>`
+        `<div id="pieceAvatar" class="pieceAvatar"></div>`,
       );
       $($elem).clone().appendTo("#pieceAvatar");
       $($elem).addClass("cached");
@@ -123,13 +123,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#pieceAvatar").height() / stageRatioReal / 2
+            $("#pieceAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#pieceAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#pieceAvatar").width() / stageRatioReal / 2
+            $("#pieceAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -181,7 +181,7 @@ var checkCollision = function (ev) {
 
 var checkStatus = function () {
   var selectedElem = $(
-    ".contents > div.selected .board .zone > .piece.selected"
+    ".contents > div.selected .board .zone > .piece.selected",
   );
   if (selectedElem.length > 0) {
     //有對應到
@@ -244,7 +244,7 @@ var checkStatus = function () {
           parseInt(top) / 2
         }px;left:${
           parseInt(left) / 2
-        }px;"><img src="./DATA/IMAGES/common/icon_right.png"/></span>`
+        }px;"><img src="./DATA/IMAGES/common/icon_right.png"/></span>`,
       );
       rootSoundEffect($chimes);
     } else {
@@ -253,7 +253,7 @@ var checkStatus = function () {
           parseInt(top) / 2
         }px;left:${
           parseInt(left) / 2
-        }px;"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+        }px;"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
       );
       rootSoundEffect($stupid);
     }
@@ -268,6 +268,8 @@ var checkStatus = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

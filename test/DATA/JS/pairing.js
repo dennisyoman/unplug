@@ -100,11 +100,11 @@ $(document).ready(function () {
               } else {
                 $(this).attr(
                   "col",
-                  paletteElem.find(">div.selected").attr("ans")
+                  paletteElem.find(">div.selected").attr("ans"),
                 );
                 $(this).css(
                   "background",
-                  "#" + paletteElem.find(">div.selected").attr("col")
+                  "#" + paletteElem.find(">div.selected").attr("col"),
                 );
               }
             } else {
@@ -141,7 +141,7 @@ $(document).ready(function () {
       $(".pieces.squares")
         .css("width", listColumn * squareWidth + "px")
         .append(
-          `<span style="width:${squareWidth}px;height:${squareHeight}px;" ans="${listArr[i]}" />`
+          `<span style="width:${squareWidth}px;height:${squareHeight}px;" ans="${listArr[i]}" />`,
         );
     }
   }
@@ -188,11 +188,11 @@ var handleDrag = function (ev) {
         $("#module_wrapper").append(
           `<div id="brushAvatar" class="brushAvatar brush"><img src="./DATA/IMAGES/common/icon_brush.png" /><span style="background:#${paletteElem
             .find(">div.selected")
-            .attr("col")}"/></div>`
+            .attr("col")}"/></div>`,
         );
       } else {
         $("#module_wrapper").append(
-          `<div id="brushAvatar" class="brushAvatar"><img src="./DATA/IMAGES/common/icon_erasor.png" /></div>`
+          `<div id="brushAvatar" class="brushAvatar"><img src="./DATA/IMAGES/common/icon_erasor.png" /></div>`,
         );
       }
     }
@@ -200,11 +200,11 @@ var handleDrag = function (ev) {
     var deltaContainerY = $("#module_wrapper").offset().top;
     $("#brushAvatar").get(0).style.top =
       Math.round(
-        ev.center.y / stageRatioReal - deltaContainerY / stageRatioReal
+        ev.center.y / stageRatioReal - deltaContainerY / stageRatioReal,
       ) + "px";
     $("#brushAvatar").get(0).style.left =
       Math.round(
-        ev.center.x / stageRatioReal - deltaContainerX / stageRatioReal
+        ev.center.x / stageRatioReal - deltaContainerX / stageRatioReal,
       ) + "px";
     //
     var selectedElem = $(".contents > div.selected");
@@ -217,7 +217,7 @@ var handleDrag = function (ev) {
         $($elem).attr("col", paletteElem.find(">div.selected").attr("ans"));
         $($elem).css(
           "background",
-          "#" + paletteElem.find(">div.selected").attr("col")
+          "#" + paletteElem.find(">div.selected").attr("col"),
         );
       }
     } else {
@@ -297,7 +297,7 @@ var checkAnswer = function () {
       .find(".artboard")
       .append(
         `<div class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></div>
-        <div class="resultIcon"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+        <div class="resultIcon"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`,
       )
       .delay(1500)
       .queue(function () {
@@ -322,6 +322,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

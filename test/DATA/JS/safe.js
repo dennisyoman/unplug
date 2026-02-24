@@ -169,7 +169,7 @@ var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)
@@ -181,6 +181,8 @@ var bingo = function (tar) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

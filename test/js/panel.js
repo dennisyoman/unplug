@@ -163,7 +163,7 @@ $(document).ready(function () {
           });
         let utArr = ut.split("/");
         $("#unit-title").html(
-          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : "")
+          utArr[0] + (utArr[1] ? "/ <span>" + utArr[1] + "</span>" : ""),
         );
       }
     });
@@ -193,7 +193,7 @@ var appendScorer = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   } else {
     console.log("點太快了`,急甚麼?");
@@ -213,7 +213,7 @@ var appendRoulette = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -230,7 +230,7 @@ var appendFinger = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -247,7 +247,7 @@ var appendCountdown = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -264,7 +264,7 @@ var appendCounter = function (e) {
       "",
       "",
       "",
-      true
+      true,
     );
   }
 };
@@ -285,7 +285,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         } else if ($("#widget").children(".dice.green").length == 0) {
           $("#widget").append(`<div id="dice" class="dice green"/>`);
@@ -296,7 +296,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         }
         break;
@@ -310,7 +310,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         } else if ($("#widget").children(".dice.yellow").length == 0) {
           $("#widget").append(`<div id="dice" class="dice yellow"/>`);
@@ -321,7 +321,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         }
         break;
@@ -335,7 +335,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         } else if ($("#widget").children(".dice.pink").length == 0) {
           $("#widget").append(`<div id="dice" class="dice pink"/>`);
@@ -346,7 +346,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         }
       case 4:
@@ -359,7 +359,7 @@ var appendDice = function (e, type) {
             "",
             "",
             "",
-            true
+            true,
           );
         }
         break;
@@ -508,7 +508,7 @@ var renderZoomer = function (intoBox = false) {
       scrollX: 0,
       scrollY: 0,
       scale: html2canvasScale,
-    }
+    },
   ).then(function (canvas) {
     rootSoundEffect($pop);
     var ctx = canvas.getContext("2d");
@@ -609,7 +609,7 @@ var makeDrawable = function (tar) {
               ((event.clientY - tar.offset().top) * html2canvasScale) / th -
                 _eraserWidth / 2,
               _eraserWidth,
-              _eraserWidth
+              _eraserWidth,
             );
           } else {
             ctx.clearRect(
@@ -622,7 +622,7 @@ var makeDrawable = function (tar) {
                 th -
                 _eraserWidth / 2,
               _eraserWidth,
-              _eraserWidth
+              _eraserWidth,
             );
           }
         } else {
@@ -631,7 +631,7 @@ var makeDrawable = function (tar) {
               startX,
               startY,
               ((event.clientX - tar.offset().left) * html2canvasScale) / tw,
-              ((event.clientY - tar.offset().top) * html2canvasScale) / th
+              ((event.clientY - tar.offset().top) * html2canvasScale) / th,
             );
           } else {
             drawLine(
@@ -642,7 +642,7 @@ var makeDrawable = function (tar) {
                 tw,
               ((event.touches[0].clientY - tar.offset().top) *
                 html2canvasScale) /
-                th
+                th,
             );
           }
         }
@@ -847,8 +847,12 @@ var captureTTI = function () {
 
 //////202512:新增字串(attr:content)到box裡
 var boxAddMe = function (tar) {
+  var contentKey = "content";
+  var text = tar.attr(contentKey).trim();
   tar.addClass("selected");
-  var text = tar.attr("content").trim();
+  tar.siblings().filter(function () {
+    return $(this).attr(contentKey).trim() === text;
+  }).addClass("selected");
   var $item = $("<div>").addClass("canvas_item custom_canvas_item");
   $item.append(`<p>${text}</p>`);
   var $button_remove = $("<span>").addClass("button_remove");
@@ -1005,7 +1009,7 @@ var appendPainting = function (active) {
         "",
         "",
         "",
-        true
+        true,
       );
     }
   } else {
@@ -1026,7 +1030,7 @@ var appendMasker = function (active) {
         "",
         "",
         "",
-        true
+        true,
       );
     }
   } else {
@@ -1045,7 +1049,7 @@ var appendTag = function (active) {
         "",
         "",
         "",
-        true
+        true,
       );
     }
   }
@@ -1062,7 +1066,7 @@ var appendTagPicker = function (active) {
         "",
         "",
         "",
-        true
+        true,
       );
     }
   } else {

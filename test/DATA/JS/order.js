@@ -60,7 +60,7 @@ $(document).ready(function () {
           resetMen();
 
           $(".contents > div.selected .lights > div").removeClass(
-            "passed wrong right"
+            "passed wrong right",
           );
           //}
           $(this).toggleClass("selected");
@@ -117,7 +117,7 @@ $(document).ready(function () {
         for (var i = 0; i < items.length; i++) {
           var item = items.eq(i);
           var man = `<div class="man ${item.attr("ans")}" intX="${item.attr(
-            "pX"
+            "pX",
           )}" intY="${item.attr("pY")}">
           <img
             class="wow bounceInDown"
@@ -135,7 +135,7 @@ $(document).ready(function () {
         for (var i = 0; i < pickups.length; i++) {
           var pickup = pickups.eq(i);
           var man = `<div class="man ${pickup.attr("ans")}" intX="${pickup.attr(
-            "pX"
+            "pX",
           )}" intY="${pickup.attr("pY")}">
           <img
             class="wow bounceInDown"
@@ -224,7 +224,7 @@ var handleDrag = function (ev) {
     }
     if ($($elem).parent().hasClass("cards")) {
       $("#module_wrapper").append(
-        '<div id="cardAvatar" class="cardAvatar"></div>'
+        '<div id="cardAvatar" class="cardAvatar"></div>',
       );
       $($elem).clone().appendTo("#cardAvatar");
     }
@@ -271,13 +271,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -401,9 +401,9 @@ var syncArrow = function (tar) {
     sync.empty().append(`<div class="${tar
       .find(">div")
       .attr(
-        "ans"
+        "ans",
       )} wow bounceInUp animated" data-wow-delay="1.1s" ans="${sync.attr(
-      "ans"
+      "ans",
     )}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
     <img src="./DATA/IMAGES/common/arrow2.png">
   <p>${arrowAmount}</p></div>`);
@@ -435,18 +435,18 @@ var showAnswer = function (boolean) {
         //標準箭頭
         $(this).removeClass("selected").empty().append(`
     <div class="${$(this).attr("ans")} wow bounceIn" ans="${$(this).attr(
-          "ans"
-        )}">
+      "ans",
+    )}">
     <img src="./DATA/IMAGES/common/arrow1.png" />
     </div>`);
       } else {
         //組合型箭頭
         $(this).removeClass("selected").empty().append(`
     <div class="${$(this).attr("ans")} wow bounceIn" ans="${$(this).attr(
-          "ans"
-        )}">
+      "ans",
+    )}">
     <img src="./DATA/IMAGES/common/arrow2.png" /><p>${$(this).attr(
-      "amount"
+      "amount",
     )}</p>
     </div>`);
       }
@@ -457,9 +457,8 @@ var showAnswer = function (boolean) {
     if ($(".contents > div.selected .frames > .sync").length > 0) {
       var sync = $(".contents > div.selected .frames > .sync");
       sync.each(function () {
-        $(
-          this
-        ).empty().append(`<div class="${$(this).attr("ans")} wow bounceInUp animated animated animated" data-wow-delay="1.1s" ans="${$(this).attr("ans")}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
+        $(this).empty()
+          .append(`<div class="${$(this).attr("ans")} wow bounceInUp animated animated animated" data-wow-delay="1.1s" ans="${$(this).attr("ans")}" style="visibility: visible; animation-delay: 1.1s; animation-name: bounceIn;">
         <img src="./DATA/IMAGES/common/arrow2.png">
       <p>${$(this).attr("amount")}</p></div>`);
       });
@@ -601,7 +600,7 @@ var passingAnimation = function () {
               //
               var uniq = new Date().getTime();
               tempLight.append(
-                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+                `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
               );
               $(".smoke")
                 .delay(1500)
@@ -714,7 +713,7 @@ var goRepeatFrames = function (frame, btn) {
     var alert = "請依照順序移動。";
     if (alert != "") {
       $(".contents > div.selected").append(
-        `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`
+        `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`,
       );
     }
   }
@@ -783,7 +782,7 @@ var pairFight = function (alertMsg) {
     var alert = alertMsg || "兩邊的次數與方向需吻合才能移動。";
     if (alert != "") {
       $(".contents > div.selected").append(
-        `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`
+        `<div class="alert wow fadeIn" onclick="$(this).remove()">${alert}</div>`,
       );
     }
   }
@@ -793,7 +792,7 @@ var setRepeatTimes = function (tar) {
   var frames = $("#" + tar.parent().attr("pair-target"));
   var framesPair = tar.parent();
   var max = Math.ceil(
-    frames.find(">div").length / framesPair.find(">div").length
+    frames.find(">div").length / framesPair.find(">div").length,
   );
 
   var times = parseInt(tar.text()) + 1;
@@ -885,7 +884,7 @@ var fightAnimation = function () {
       frameElem.eq(fightStep).find(">div").attr("ans"),
       xx,
       yy,
-      "blue"
+      "blue",
     );
   } else {
     appendArrow(frameElem.eq(fightStep).find(">div").attr("ans"), xx, yy, "");
@@ -920,7 +919,7 @@ var fightAnimation = function () {
             .eq(i)
             .addClass("vanish")
             .append(
-              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
             );
           $(".smoke")
             .delay(1000)
@@ -998,7 +997,7 @@ var showResult = function (result) {
       tempKing
         .addClass("outbound")
         .append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`,
         );
       $(".smoke")
         .delay(1000)
@@ -1044,13 +1043,13 @@ var showResult = function (result) {
           tempGhost
             .addClass("vanish")
             .append(
-              `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`
+              `<span class="smoke"><img src="./DATA/IMAGES/common/explode.gif?uniq=${uniq}"/></span>`,
             );
         } else {
           tempGhost
             .addClass("vanish")
             .append(
-              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
             );
         }
         $(".smoke")
@@ -1071,7 +1070,7 @@ var showResult = function (result) {
 
 var appendArrow = function (direction, xx, yy, colour) {
   $(".contents > div.selected .stage").append(
-    `<div id="arrow" class="arrow ${direction} ${colour}" />`
+    `<div id="arrow" class="arrow ${direction} ${colour}" />`,
   );
   var diffX = (gridsColumn / 2) * gridW - gridW / 2;
   var diffY = (gridsRow / 2) * gridH - gridH / 2;
@@ -1100,6 +1099,8 @@ var appendArrow = function (direction, xx, yy, colour) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -1149,7 +1150,7 @@ var resetElem = function (elem) {
             tempStage.attr("intRX") +
             "deg) rotateZ(" +
             tempStage.attr("intRZ") +
-            "deg)"
+            "deg)",
         )
         .css(
           "transform",
@@ -1157,7 +1158,7 @@ var resetElem = function (elem) {
             tempStage.attr("intRX") +
             "deg) rotateZ(" +
             tempStage.attr("intRZ") +
-            "deg)"
+            "deg)",
         )
         .dequeue();
     });

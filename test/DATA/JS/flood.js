@@ -203,7 +203,7 @@ var flooding = function () {
               .removeClass()
               .addClass("wrong")
               .html(
-                `<img class="wow bounceIn" src="./DATA/IMAGES/common/icon_wrong.png"/>`
+                `<img class="wow bounceIn" src="./DATA/IMAGES/common/icon_wrong.png"/>`,
               );
           } else {
             $(this).addClass("active");
@@ -223,7 +223,7 @@ var flooding = function () {
           $(".contents > div.selected")
             .find(".area")
             .append(
-              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif"/></span>`
+              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif"/></span>`,
             );
           $(".smoke")
             .delay(2000)
@@ -265,7 +265,7 @@ var lava = function () {
               .addClass("wrong")
               .find("p")
               .html(
-                `<img class="wow fadeIn" src="./DATA/IMAGES/common/icon_wrong.png"/>`
+                `<img class="wow fadeIn" src="./DATA/IMAGES/common/icon_wrong.png"/>`,
               );
           } else {
             $(this).addClass("active");
@@ -285,7 +285,7 @@ var lava = function () {
           $(".contents > div.selected")
             .find(".area")
             .append(
-              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif"/></span>`
+              `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif"/></span>`,
             );
           $(".smoke")
             .delay(2000)
@@ -315,6 +315,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

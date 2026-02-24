@@ -138,7 +138,7 @@ var switchSlider = function (direction) {
       playSeq *
         (storyline.hasClass("lg") ? slideDistanceLarge : slideDistance) *
         -1 +
-        "px"
+        "px",
     )
     .find(">div")
     .removeClass("selected prevSlider nextSlider")
@@ -187,7 +187,7 @@ var showSlider = function (boolean) {
     selectedElem
       .find(".card-title")
       .text(
-        selectedElem.find(".storyline").find(">div.selected").attr("title")
+        selectedElem.find(".storyline").find(">div.selected").attr("title"),
       );
 
     selectedElem.find(".gridSlider > .prev").addClass("disable");
@@ -216,6 +216,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

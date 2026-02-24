@@ -76,7 +76,7 @@ var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)
@@ -113,7 +113,7 @@ var getFingerCount = function (me, tar) {
         $(this).append(
           `<span class="wow fadeIn" data-wow-delay="${
             (timeDiff * (sum + 1)) / 1000
-          }s">${sum}</span>`
+          }s">${sum}</span>`,
         );
       }
     });
@@ -160,7 +160,7 @@ var countItem = function (tar) {
           .append(
             `<img class="wow bounceIn" src="${tar
               .find(">span.selected")
-              .attr("sticker")}"/>`
+              .attr("sticker")}"/>`,
           );
       }
     }
@@ -174,6 +174,8 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
+  //20260204
+  removeToggleAttachment();
 };
 
 var resetElem = function (elem) {

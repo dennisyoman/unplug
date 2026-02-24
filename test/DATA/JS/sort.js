@@ -145,7 +145,7 @@ var checkAnswer = function () {
     $(".contents > div.selected")
       .find(".subject")
       .append(
-        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`,
       );
   } else {
     //排序有錯誤
@@ -153,7 +153,7 @@ var checkAnswer = function () {
     $(".contents > div.selected")
       .find(".subject")
       .append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`,
       );
   }
   $(".resultIcon")
@@ -273,7 +273,7 @@ var getNextMatch = function () {
       fishArea
         .find("> .fish.start")
         .append(
-          `<div class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
+          `<div class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`,
         );
       $(".smoke")
         .delay(1500)
@@ -299,7 +299,7 @@ var getNextMatch = function () {
 
 var getUpperFish = function (startFish) {
   var otherFishes = $(".contents > div.selected").find(
-    ".fishArea > .fish:not(.selected)"
+    ".fishArea > .fish:not(.selected)",
   );
   var upperFish = null;
   otherFishes.each(function () {
@@ -324,7 +324,7 @@ var getUpperFish = function (startFish) {
     var uniq = new Date().getTime();
     rootSoundEffect($chimes);
     startFish.append(
-      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
+      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`,
     );
     $(".smoke")
       .delay(1500)
@@ -338,6 +338,8 @@ var getUpperFish = function (startFish) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -461,7 +463,7 @@ var resetElem = function (elem) {
         var anchorID = $(this).parent().attr("anchor");
 
         var targetSorter = elem.find(
-          ".sortArea > .sorter[anchor=" + anchorID + "]"
+          ".sortArea > .sorter[anchor=" + anchorID + "]",
         );
         for (var k = 0; k < targetSorter.length; k++) {
           var compareSeq = targetSorter.eq(k).attr("compareSeq");
@@ -517,7 +519,7 @@ var resetElem = function (elem) {
         //檢查排序是否正確
         var noError = true;
         var targetSorter = elem.find(
-          ".sortArea > .sorter[anchor=" + anchorID + "]"
+          ".sortArea > .sorter[anchor=" + anchorID + "]",
         );
         for (var k = 0; k < targetSorter.length; k++) {
           var compareSeq = targetSorter.eq(k).attr("compareSeq");

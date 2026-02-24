@@ -116,7 +116,7 @@ var checkResult = function () {
     rootSoundEffect($chimes);
     var alertmsg = "一方獲勝";
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
     );
   } else {
     //沒有結果的話就繼續下一個順序
@@ -127,7 +127,7 @@ var checkResult = function () {
       rootSoundEffect($surprise);
       var alertmsg = "雙方平手";
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
     }
     //繼續下一個
@@ -140,6 +140,8 @@ var checkResult = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

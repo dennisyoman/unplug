@@ -74,7 +74,7 @@ $(document).ready(function () {
             $(this).attr("guess", $(".colours > div.selected").attr("ans"));
             $(this).css(
               "background",
-              "#" + $(".colours > div.selected").attr("col")
+              "#" + $(".colours > div.selected").attr("col"),
             );
             $(".sideTool > div.btn_replay").show();
             checkAnswer($(this));
@@ -152,7 +152,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("draggable")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).find(">img").clone().appendTo("#cardAvatar");
       $("#cardAvatar").attr("ans", $($elem).attr("ans"));
@@ -169,13 +169,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -244,7 +244,7 @@ var checkOrderStatus = function () {
       .removeClass("selected")
       .addClass("bingo")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $("#cardAvatar").remove();
     $(".cached")
@@ -262,7 +262,7 @@ var checkOrderStatus = function () {
       .find(">div.selected")
       .removeClass("selected")
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`
+        `<span class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></span>`,
       );
     $("#cardAvatar").remove();
     $(".cached")
@@ -294,7 +294,7 @@ var checkAnswer = function (target) {
     target
       .parent()
       .append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
@@ -338,6 +338,8 @@ var showAnswer = function (boolean) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

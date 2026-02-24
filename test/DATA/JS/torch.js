@@ -71,7 +71,7 @@ $(document).ready(function () {
               ////移除拖曳上去的路燈
               //重設路燈
               $(".contents > div.selected .areas > span").removeClass(
-                "mode1 mode2"
+                "mode1 mode2",
               );
               $(".contents > div.selected .areas > span").each(function () {
                 if (
@@ -83,7 +83,7 @@ $(document).ready(function () {
               });
               //result
               var result = $(
-                ".contents > div.selected .areas > span.anchored"
+                ".contents > div.selected .areas > span.anchored",
               ).length;
               $(".contents > div.selected")
                 .find(".result .amount")
@@ -97,7 +97,7 @@ $(document).ready(function () {
                 //關燈
                 //重設路燈
                 $(".contents > div.selected .areas > span").removeClass(
-                  "mode1 mode2"
+                  "mode1 mode2",
                 );
                 $(".contents > div.selected .areas > span").each(function () {
                   if (
@@ -201,7 +201,7 @@ var checkAns = function () {
     $(".contents > div.selected")
       .find(".puzzle")
       .append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
       );
     $(".resultIcon")
       .delay(1500)
@@ -216,7 +216,7 @@ var checkAns = function () {
     $(".contents > div.selected")
       .find(".puzzle")
       .append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1800)
@@ -278,7 +278,7 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected .items > span").removeClass("m1 m2 none");
     ////areas
     $(".contents > div.selected .areas > span").removeClass(
-      "mode1 mode2 anchored"
+      "mode1 mode2 anchored",
     );
     //result
     $(".contents > div.selected").find(".result .amount").text("");
@@ -323,7 +323,7 @@ var handleDrag = function (ev) {
       $("#module_wrapper").append(
         `<div id="cardAvatar" class="cardAvatar">
         <img src="./DATA/PT/BOOK4/IMAGES/torch.png"/>
-        </div>`
+        </div>`,
       );
     }
   }
@@ -335,11 +335,11 @@ var handleDrag = function (ev) {
       var deltaContainerY = $("#module_wrapper").offset().top;
       $("#cardAvatar").get(0).style.top =
         Math.round(
-          ev.center.y / stageRatioReal - deltaContainerY / stageRatioReal
+          ev.center.y / stageRatioReal - deltaContainerY / stageRatioReal,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
-          ev.center.x / stageRatioReal - deltaContainerX / stageRatioReal
+          ev.center.x / stageRatioReal - deltaContainerX / stageRatioReal,
         ) + "px";
       checkCollision(ev);
     }
@@ -365,7 +365,7 @@ var handleDrag = function (ev) {
           $(this).removeClass("selected");
           //result
           var result = $(
-            ".contents > div.selected .areas > span.anchored"
+            ".contents > div.selected .areas > span.anchored",
           ).length;
           $(".contents > div.selected").find(".result .amount").text(result);
         }
@@ -447,6 +447,8 @@ var toggleRange = function (tar, boolean) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

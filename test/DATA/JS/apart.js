@@ -140,14 +140,14 @@ var initCanvas = function (tar) {
             startX,
             startY,
             (event.clientX - tar.offset().left) / newZoomRatio - ol,
-            (event.clientY - tar.offset().top) / newZoomRatio - ot
+            (event.clientY - tar.offset().top) / newZoomRatio - ot,
           );
         } else {
           drawLineBoard(
             startX,
             startY,
             (event.touches[0].clientX - tar.offset().left) / newZoomRatio - ol,
-            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot
+            (event.touches[0].clientY - tar.offset().top) / newZoomRatio - ot,
           );
         }
       }
@@ -207,7 +207,7 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected .puzzle").addClass("showAnswer");
     //秀出次數答案
     $(".contents > div.selected .pattern > p span").text(
-      $(".contents > div.selected .pattern").attr("ans")
+      $(".contents > div.selected .pattern").attr("ans"),
     );
     $(".contents > div.selected .pattern").addClass("showAnswer");
   } else {
@@ -221,6 +221,8 @@ var openContent = function (id) {
   ppp = 0;
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

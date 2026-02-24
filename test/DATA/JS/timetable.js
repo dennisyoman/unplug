@@ -85,7 +85,7 @@ $(document).ready(function () {
             dp.split(",");
             if (dp.indexOf(i.toString()) >= 0) {
               $(this).append(
-                `<span class="disablePermanent" style="width:${bw}px;height:${bh}px;"/>`
+                `<span class="disablePermanent" style="width:${bw}px;height:${bh}px;"/>`,
               );
             } else {
               $(this).append(`<span style="width:${bw}px;height:${bh}px;"/>`);
@@ -107,7 +107,7 @@ $(document).ready(function () {
               parseInt(size[0]) * bw +
               "px;height:" +
               parseInt(size[1]) * bh +
-              "px"
+              "px",
           );
       });
 
@@ -184,7 +184,7 @@ var handleDrag = function (ev) {
         //clean linked blocks and remove this
         var link = $($elem).attr("link");
         var gridElem = $(
-          ".contents > div.selected .grids > .row > span.disable"
+          ".contents > div.selected .grids > .row > span.disable",
         );
         gridElem.each(function () {
           if (link == $(this).attr("link")) {
@@ -208,13 +208,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -235,7 +235,7 @@ var handleDrag = function (ev) {
         $(".contents > div.selected .grids > .row > span.selected.disable")
           .length < 1 &&
         $(
-          ".contents > div.selected .grids > .row > span.selected.disablePermanent"
+          ".contents > div.selected .grids > .row > span.selected.disablePermanent",
         ).length < 1
       ) {
         checkOrderStatus($($elem));
@@ -255,7 +255,7 @@ var handleDrag = function (ev) {
         var uniq = new Date().getTime();
         $("#cardAvatar").find("img").css("opacity", 0);
         $("#cardAvatar").append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
         );
         $("#cardAvatar")
           .delay(800)
@@ -322,11 +322,11 @@ var checkOrderStatus = function (tar) {
   gridSpan.each(function () {
     intx = Math.min(
       intx,
-      $(this).offset().left - $("#module_wrapper").offset().left
+      $(this).offset().left - $("#module_wrapper").offset().left,
     );
     inty = Math.min(
       inty,
-      $(this).offset().top - $("#module_wrapper").offset().top
+      $(this).offset().top - $("#module_wrapper").offset().top,
     );
 
     //
@@ -382,7 +382,7 @@ var checkAnswer = function () {
       var ansArr = rowElem.eq(0).attr("ans").split("^");
     } else {
       var ansArr = $.trim(
-        $(".contents > div.selected").find(rowElem.eq(0).attr("ansID")).text()
+        $(".contents > div.selected").find(rowElem.eq(0).attr("ansID")).text(),
       ).split("^");
     }
 
@@ -391,7 +391,7 @@ var checkAnswer = function () {
     for (var a = 0; a < ansArr.length; a++) {
       var tempAns = ansArr[a].split(",");
       var cards = $("#module_wrapper").find(
-        ".cardAvatar.onboard[zone='" + rowElem.attr("zone") + "']"
+        ".cardAvatar.onboard[zone='" + rowElem.attr("zone") + "']",
       );
       cardsArray = new Array();
       cards.each(function () {
@@ -441,7 +441,7 @@ var checkAnswer = function () {
                 slugKill +
                 "'][zone='" +
                 rowElem.attr("zone") +
-                "']"
+                "']",
             )
             .each(function () {
               if (!$(this).attr("bingo")) {
@@ -475,7 +475,7 @@ var checkAnswer = function () {
                 slugKill +
                 "'][zone='" +
                 rowElem.attr("zone") +
-                "']"
+                "']",
             )
             .each(function () {
               var position =
@@ -502,7 +502,7 @@ var checkAnswer = function () {
     var uniq = new Date().getTime();
     rootSoundEffect($chimes);
     gridElem.append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
     );
     $(".smoke")
       .delay(1500)
@@ -519,6 +519,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

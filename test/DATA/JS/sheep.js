@@ -228,7 +228,7 @@ var checkcheck = function () {
     $(".contents > div.selected")
       .find(".puzzle")
       .append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
@@ -272,7 +272,7 @@ var checkAns = function () {
       $(".contents > div.selected")
         .find(".puzzle")
         .append(
-          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
         );
     } else {
       console.log("right");
@@ -280,7 +280,7 @@ var checkAns = function () {
       $(".contents > div.selected")
         .find(".puzzle")
         .append(
-          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
         );
       rootSoundEffect($correct);
     }
@@ -318,6 +318,8 @@ var lastSheep = "";
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

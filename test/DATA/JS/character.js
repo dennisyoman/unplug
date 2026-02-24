@@ -157,7 +157,7 @@ var showAnswer = function (boolean) {
     //秀出類型1答案
     if ($(".contents > div.selected .textWrapper").length > 0) {
       var dones = $(
-        ".contents > div.selected .container > .frames > .textWrapper.done"
+        ".contents > div.selected .container > .frames > .textWrapper.done",
       );
       var ansTotalArr = $(".contents > div.selected .container > .frames")
         .attr("ans")
@@ -171,7 +171,7 @@ var showAnswer = function (boolean) {
         if (ansDoneArr.indexOf(ansTotalArr[k]) < 0) {
           var currAnsArr = ansTotalArr[k].split(",");
           var target = $(
-            ".contents > div.selected .container > .frames > .textWrapper:not('.done')"
+            ".contents > div.selected .container > .frames > .textWrapper:not('.done')",
           ).eq(0);
           for (var i = 0; i < currAnsArr.length; i++) {
             target
@@ -206,7 +206,7 @@ var showAnswer = function (boolean) {
 
 var checkAnswer = function () {
   var from = $(
-    ".contents > div.selected .container > .textWrapper > .mainText"
+    ".contents > div.selected .container > .textWrapper > .mainText",
   );
   var currAnsArr = [];
   for (var d = 0; d < from.find(">span.selected").length; d++) {
@@ -218,10 +218,10 @@ var checkAnswer = function () {
   });
 
   var dones = $(
-    ".contents > div.selected .container > .frames > .textWrapper.done"
+    ".contents > div.selected .container > .frames > .textWrapper.done",
   );
   var emptyFrames = $(
-    ".contents > div.selected .container > .frames > .textWrapper:not('.done')"
+    ".contents > div.selected .container > .frames > .textWrapper:not('.done')",
   );
   var ansTotalArr = $(".contents > div.selected .container > .frames")
     .attr("ans")
@@ -237,7 +237,7 @@ var checkAnswer = function () {
       rootSoundEffect($stupid);
       var alertmsg = "答案不能重複";
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
     } else {
       //填入新格子
@@ -257,7 +257,7 @@ var checkAnswer = function () {
     rootSoundEffect($wrong);
     var alertmsg = "沒有這種組合喔";
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
     );
   }
 };
@@ -265,6 +265,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -313,7 +315,7 @@ var resetElem = function (elem) {
     .bind("click", function () {
       var pid = $(this).attr("pid");
       var target = elem.find(
-        ".container > .textCombo > span[ans='" + pid + "']:not('.done')"
+        ".container > .textCombo > span[ans='" + pid + "']:not('.done')",
       );
       if (target.length > 0) {
         target.eq(0).addClass("done");
@@ -347,7 +349,7 @@ var resetTool = function () {
 var bingo = function (tar) {
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)

@@ -86,6 +86,8 @@ var speed = 600;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -158,7 +160,7 @@ var isNextMove = function () {
           $(this)
             .dequeue()
             .append(
-              `<div class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></div>`
+              `<div class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></div>`,
             )
             .delay(1200)
             .queue(function () {
@@ -252,7 +254,7 @@ var resetElem = function (elem) {
                 var uniq = new Date().getTime();
                 $(".contents > div.selected .ladybug")
                   .append(
-                    `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
+                    `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`,
                   )
                   .delay(1500)
                   .queue(function () {

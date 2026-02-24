@@ -110,7 +110,7 @@ var checkAnswer = function (boolean) {
     //確認是否只剩下一個
     if (
       $(".contents > div.selected .puzzle .subject .items").find(
-        "span:not(.selected)"
+        "span:not(.selected)",
       ).length == 1
     ) {
       //檢查答案
@@ -132,7 +132,7 @@ var checkAnswer = function (boolean) {
         $(".contents > div.selected")
           .find(".puzzle")
           .append(
-            `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+            `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
           );
         $(".smoke")
           .delay(1500)
@@ -148,7 +148,7 @@ var checkAnswer = function (boolean) {
       var alertmsg = "只有一個選項能符合所有條件喔！";
       $(".alert").remove();
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
     }
   } else {
@@ -195,6 +195,8 @@ var goCommand = function (cond) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

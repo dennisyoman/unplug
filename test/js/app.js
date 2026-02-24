@@ -585,6 +585,12 @@ let loadMainSlider = function () {
   $("#power").show();
 };
 
+///20260224:跳去文生圖頁面
+let jumpToUnit3 = function (tar) {
+  tar.off("click");
+  $("#icon-wrapper").find("li").eq(2).click();
+};
+
 ////20260209:我發現:取得內容
 let convertSsid2Dddis = function (ssid) {
   return ssid.replace("PT", "Unplug");
@@ -714,7 +720,9 @@ let toggleAttachment = function (type, triggerEl) {
       $content = $("<div>").addClass("attachment-text").html(`<p>${text}</p>`);
     }
     if (!$content) {
-      return;
+      $content = $("<div>")
+        .addClass("attachment-text")
+        .html("<p>目前沒有任何發現</p>");
     }
 
     // 清掉舊的，再附加新的
@@ -723,8 +731,19 @@ let toggleAttachment = function (type, triggerEl) {
     $target.append($attachment);
   } else {
     $(triggerEl).removeClass("active");
-    $target.find(".attachment").remove();
+    removeToggleAttachment();
   }
+};
+
+let removeToggleAttachment = function () {
+  var $target = $("#main-keep .main.selected #contents");
+  if ($target.length === 0) {
+    $target = $("#main:visible #contents");
+  }
+  if ($target.length === 0) {
+    return;
+  }
+  $target.find(".attachment").remove();
 };
 
 let getTimeStamp = function () {

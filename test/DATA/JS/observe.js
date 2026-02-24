@@ -158,13 +158,13 @@ var trigHammer = function () {
 var handleDrag = function (ev) {
   if (!isDragging && $elem != null) {
     $(".contents > div.selected .grids > div").removeClass(
-      "afterward backward"
+      "afterward backward",
     );
     isDragging = true;
 
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       $($elem).addClass("cached");
@@ -186,13 +186,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -245,7 +245,7 @@ var handleDragChart = function (ev) {
 
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="numAvatar">${$($elem).attr("cid")}</div>`
+        `<div id="cardAvatar" class="numAvatar">${$($elem).attr("cid")}</div>`,
       );
     }
   }
@@ -259,13 +259,13 @@ var handleDragChart = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollisionChart(ev);
     }
@@ -551,7 +551,7 @@ var checkAnswer = function () {
     selectedElem
       .find(".frames")
       .append(
-        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceInUp"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
     $(".smoke")
       .delay(1500)
@@ -565,6 +565,8 @@ var checkAnswer = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

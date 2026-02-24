@@ -314,7 +314,7 @@ var checkAnswer = function () {
       $(".contents > div.selected").append(
         `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
           <p>${hinter}</p>
-        </div>`
+        </div>`,
       );
     } else {
       //第二步驟：開始跑上面的花
@@ -333,7 +333,7 @@ var bingo = function (tar, boolean) {
     rootSoundEffect($chimes);
     var uniq = new Date().getTime();
     tar.append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
     );
     $(".smoke")
       .delay(1500)
@@ -345,7 +345,7 @@ var bingo = function (tar, boolean) {
     //錯誤
     rootSoundEffect($tryagain);
     tar.append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
     );
     $(".resultIcon")
       .delay(1500)
@@ -393,6 +393,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -480,7 +482,7 @@ var resetElem = function (elem) {
           $(".contents > div.selected").append(
             `<div class="alert wow bounceInLeft" onClick="$(this).remove()">
           <p>${hinter}</p>
-        </div>`
+        </div>`,
           );
         }
       });

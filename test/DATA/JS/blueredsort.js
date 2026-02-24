@@ -162,7 +162,7 @@ var bingo = function () {
   $(".contents > div.selected")
     .find(".subject")
     .append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
     );
   $(".smoke")
     .delay(1500)
@@ -175,6 +175,8 @@ var bingo = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -197,10 +199,10 @@ var showSwifter = function () {
 
 var moveRow = function (attr1, attr2) {
   var sensorGroup1 = $(
-    "#module_wrapper .contents > div.selected .sensor[tar='" + attr1 + "'] "
+    "#module_wrapper .contents > div.selected .sensor[tar='" + attr1 + "'] ",
   );
   var sensorGroup2 = $(
-    "#module_wrapper .contents > div.selected .sensor[tar='" + attr2 + "'] "
+    "#module_wrapper .contents > div.selected .sensor[tar='" + attr2 + "'] ",
   );
   sensorGroup1.each(function (index) {
     var fillin = $(this).attr("fillin");

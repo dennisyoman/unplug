@@ -307,7 +307,7 @@ var checkStatus = function () {
     //alert
     if (msg != "") {
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${msg}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${msg}</div>`,
       );
     }
   }
@@ -346,7 +346,7 @@ var checkAnswer = function () {
   //alert
   if (msg != "") {
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${msg}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${msg}</div>`,
     );
   }
 };
@@ -372,6 +372,8 @@ var setCap = function (tar, num) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -419,7 +421,7 @@ var bingo = function (tar) {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)
@@ -433,7 +435,7 @@ var gameover = function (tar) {
   rootSoundEffect($stupid);
   var uniq = new Date().getTime();
   tar.append(
-    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)

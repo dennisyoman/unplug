@@ -107,7 +107,7 @@ $(document).ready(function () {
         ".mp3";
       itemElem.eq(k).append(
         `<span class="storybtn wow bounceInLeft" onClick="playStory('${audioPath}',true)"><audio preload="auto" src="${audioPath}" /></span>
-          <span class="pausebtn" onClick="playStory('${audioPath}',false)"/>`
+          <span class="pausebtn" onClick="playStory('${audioPath}',false)"/>`,
       );
     }
   });
@@ -301,6 +301,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

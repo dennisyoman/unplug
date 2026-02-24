@@ -123,7 +123,7 @@ var setCode = function () {
     if ($(this).hasClass("mid") && $(this).parent().hasClass("midhint")) {
       var uniq = new Date().getTime();
       $(this).append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
       );
       $(".smoke")
         .delay(1500)
@@ -146,7 +146,7 @@ var setCode = function () {
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
       $(".contents > div.selected").append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
       $(".smoke")
         .delay(1500)
@@ -160,7 +160,7 @@ var setCode = function () {
       //比大小
       var alert = "";
       var guess = $(".contents > div.selected").find(
-        ".frames > div.wrong"
+        ".frames > div.wrong",
       ).length;
       if (parseInt(ansID) < $(this).index()) {
         alert = "密碼比數字小<br />共猜了" + guess + "次";
@@ -173,7 +173,7 @@ var setCode = function () {
         alert += "<br />達到次數限制";
         rootSoundEffect($tryagain);
         $(".contents > div.selected").append(
-          `<span class="smoke wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+          `<span class="smoke wow bounceInUp"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
         );
         $(".smoke")
           .delay(3000)
@@ -183,7 +183,7 @@ var setCode = function () {
       }
 
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInRight" onclick="$(this).remove()">${alert}</div>`
+        `<div class="alert wow bounceInRight" onclick="$(this).remove()">${alert}</div>`,
       );
       //是否找新的中位數
       if (
@@ -195,7 +195,7 @@ var setCode = function () {
         var midIDArr = getSectionMidID(
           $(".contents > div.selected").find(".frames"),
           $(this).index(),
-          parseInt(ansID) > $(this).index()
+          parseInt(ansID) > $(this).index(),
         );
         for (var i = 0; i < midIDArr.length; i++) {
           $(".contents > div.selected")
@@ -269,7 +269,7 @@ var setTower = function () {
     if ($(this).hasClass("mid") && $(this).parent().hasClass("midhint")) {
       var uniq = new Date().getTime();
       $(this).append(
-        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+        `<span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
       );
       $(".smoke")
         .delay(1500)
@@ -287,7 +287,7 @@ var setTower = function () {
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
       $(".contents > div.selected .record:not('.wrong')").append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
       $(".smoke")
         .delay(1800)
@@ -301,7 +301,7 @@ var setTower = function () {
       //比大小
       var alert = "";
       var guess = $(".contents > div.selected").find(
-        ".tower > div.wrong"
+        ".tower > div.wrong",
       ).length;
       if (parseInt(ansID) < $(this).index()) {
         alert = "白娘子位置比 " + ($(this).index() + 1) + " 樓低";
@@ -322,7 +322,7 @@ var setTower = function () {
         var midIDArr = getSectionMidID(
           $(".contents > div.selected").find(".tower"),
           $(this).index(),
-          parseInt(ansID) > $(this).index()
+          parseInt(ansID) > $(this).index(),
         );
         for (var i = 0; i < midIDArr.length; i++) {
           $(".contents > div.selected")
@@ -351,7 +351,7 @@ var setTower = function () {
 
 var goTower = function () {
   var ansID = parseInt(
-    $(".contents > div.selected").find(".tower").attr("ans")
+    $(".contents > div.selected").find(".tower").attr("ans"),
   );
   var tower = $(".contents > div.selected").find(".tower");
   var recordHsu = $(".contents > div.selected").find(".record.hsu");
@@ -509,7 +509,7 @@ var checkAnswer = function (boolean) {
         rootSoundEffect($chimes);
         var uniq = new Date().getTime();
         $(".contents > div.selected").append(
-          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
         );
         $(".smoke")
           .delay(1500)
@@ -589,6 +589,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

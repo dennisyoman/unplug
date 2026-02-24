@@ -134,7 +134,7 @@ var trigMe = function (tar) {
       //沒選到欄位
       var alertmsg = "請先選擇作答欄位";
       $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
       rootSoundEffect($stupid);
     }
@@ -391,7 +391,7 @@ var checkAnswer = function () {
     if (resetSeq == 0) {
       lines.remove();
       $(".contents > div.selected .code > .items > span").removeClass(
-        "selected"
+        "selected",
       );
       $(".contents > div.selected .puzzle > .items > span").remove();
     }
@@ -402,7 +402,7 @@ var checkAnswer = function () {
     //
     rootSoundEffect($wrong);
     $(".contents > div.selected .puzzle").append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`,
     );
     $(".resultIcon")
       .delay(1500)
@@ -413,7 +413,7 @@ var checkAnswer = function () {
     rootSoundEffect($chimes);
     var uniq = new Date().getTime();
     $(".contents > div.selected .puzzle").append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
     );
     $(".smoke")
       .delay(1500)
@@ -476,7 +476,7 @@ var showAnswer = function (boolean) {
             width="20"
             height="auto"
             src="./DATA/PT/BOOK${bid}/IMAGES/hash_${$(this).attr("seq")}.png"
-        />`
+        />`,
             )
             .addClass("done");
         }
@@ -498,7 +498,7 @@ var showAnswer = function (boolean) {
     //check
     if ($(".contents > div.selected .check").length > 0) {
       var checkItems = $(".contents > div.selected .check").find(
-        ".items > span"
+        ".items > span",
       );
       checkItems.each(function () {
         $(this).removeClass("selected");
@@ -537,7 +537,7 @@ var showAnswer = function (boolean) {
     //check
     if ($(".contents > div.selected .check").length > 0) {
       var checkItems = $(".contents > div.selected .check").find(
-        ".items > span"
+        ".items > span",
       );
       checkItems.each(function () {
         $(this).removeClass("selected");
@@ -556,7 +556,7 @@ var addIndicator = function (tar, indicator) {
         .clone()
         .wrap("<h5/>")
         .parent()
-        .html()
+        .html(),
     );
   }
   //
@@ -609,13 +609,13 @@ var trigMeSequence = function (tar) {
   $(".alert").remove();
   //
   var currArrowStepDone = $(".contents > div.selected").find(
-    ".puzzle .arrowSteps > span.done"
+    ".puzzle .arrowSteps > span.done",
   );
   var currArrowStep = $(".contents > div.selected")
     .find(".puzzle .arrowSteps > span")
     .eq(currArrowStepDone.length);
   var currItem = $(".contents > div.selected").find(
-    ".code .items >span.selected"
+    ".code .items >span.selected",
   );
   if (currItem.length == 0) {
     //第一次
@@ -645,7 +645,7 @@ var trigMeSequence = function (tar) {
       //確認是否到最後
       if (
         $(".contents > div.selected").find(
-          ".puzzle .arrowSteps > span:not(.done)"
+          ".puzzle .arrowSteps > span:not(.done)",
         ).length > 0
       ) {
         //如果是第一個
@@ -655,7 +655,7 @@ var trigMeSequence = function (tar) {
             .eq(0)
             .append(currItem.clone());
           currItem.append(
-            `<div class="lines"><span class="line1"></span></div>`
+            `<div class="lines"><span class="line1"></span></div>`,
           );
         }
         //上字
@@ -673,8 +673,8 @@ var trigMeSequence = function (tar) {
           .find(".lines")
           .append(
             `<span seq="${currArrowStep.index()}" class="${currArrowStep.attr(
-              "class"
-            )}"></span>`
+              "class",
+            )}"></span>`,
           );
         tar.addClass("selected").siblings(".selected").removeClass("selected");
         //擺最後
@@ -701,6 +701,8 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
+  //20260204
+  removeToggleAttachment();
 };
 
 var resetElem = function (elem) {

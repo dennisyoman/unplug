@@ -63,7 +63,7 @@ $(document).ready(function () {
             .find("img")
             .attr(
               "style",
-              "width:" + parseInt(size) * bw + "px;height:" + bh + "px"
+              "width:" + parseInt(size) * bw + "px;height:" + bh + "px",
             );
         }
       });
@@ -138,7 +138,7 @@ var handleDrag = function (ev) {
         //clean linked blocks and remove this
         var link = $($elem).attr("link");
         var gridElem = $(
-          ".contents > div.selected .grids > .row > span.disable"
+          ".contents > div.selected .grids > .row > span.disable",
         );
         gridElem.each(function () {
           if (link == $(this).attr("link")) {
@@ -159,13 +159,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -200,7 +200,7 @@ var handleDrag = function (ev) {
         var uniq = new Date().getTime();
         $("#cardAvatar").find("img").css("opacity", 0);
         $("#cardAvatar").append(
-          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+          `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
         );
         $("#cardAvatar")
           .delay(800)
@@ -316,7 +316,7 @@ var checkOrderStatus = function () {
       rootSoundEffect($chimes);
       var uniq = new Date().getTime();
       gridElem.append(
-        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+        `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
       );
       $(".smoke")
         .delay(1500)
@@ -329,7 +329,7 @@ var checkOrderStatus = function () {
     //gridElem.find("p").css("opacity", 1);
     var alert = `<p>兩列<b>不可以</b>使用一樣的組合方式<p>`;
     $(".contents > div.selected").append(
-      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`
+      `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alert}</div>`,
     );
     rootSoundEffect($surprise);
     //fail place block
@@ -338,7 +338,7 @@ var checkOrderStatus = function () {
     var uniq = new Date().getTime();
     $("#cardAvatar").find("img").css("opacity", 0);
     $("#cardAvatar").append(
-      `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`
+      `<span class="smoke"><img src="./DATA/IMAGES/common/smoke.gif?uniq=${uniq}"/></span>`,
     );
     $("#cardAvatar")
       .delay(800)
@@ -351,6 +351,8 @@ var checkOrderStatus = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

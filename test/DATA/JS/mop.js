@@ -121,7 +121,7 @@ var handleDrag = function (ev) {
     mopCounter = 0;
     if (mopgroup.hasClass("mop-group")) {
       $("#module_wrapper").append(
-        `<div id="mopAvatar" class="mopAvatar"><img src="./DATA/PT/BOOK2/IMAGES/mop.png"/></div>`
+        `<div id="mopAvatar" class="mopAvatar"><img src="./DATA/PT/BOOK2/IMAGES/mop.png"/></div>`,
       );
     }
   }
@@ -136,13 +136,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#mopAvatar").height() / stageRatioReal / 2
+            $("#mopAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#mopAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#mopAvatar").width() / stageRatioReal / 2
+            $("#mopAvatar").width() / stageRatioReal / 2,
         ) + "px";
       //是否需要一次完成?
       if (mopgroup.attr("max")) {
@@ -247,13 +247,13 @@ var checkCollision = function (ev) {
           cctx.lineWidth = mtw * 0.2;
           cctx.moveTo(
             parseInt(mopgroup.find(".last").get(0).style.left) + mtw / 2,
-            parseInt(mopgroup.find(".last").get(0).style.top) + mth / 2
+            parseInt(mopgroup.find(".last").get(0).style.top) + mth / 2,
           );
           var ltw = parseInt($(this).get(0).style.width);
           var lth = parseInt($(this).get(0).style.height);
           cctx.lineTo(
             parseInt($(this).get(0).style.left) + ltw / 2,
-            parseInt($(this).get(0).style.top) + lth / 2
+            parseInt($(this).get(0).style.top) + lth / 2,
           );
 
           //cctx.closePath();
@@ -302,7 +302,7 @@ var checkCollision = function (ev) {
             }
             cctx.translate(
               parseInt($(this).get(0).style.left) + mtw / 2,
-              parseInt($(this).get(0).style.top) + mth / 2
+              parseInt($(this).get(0).style.top) + mth / 2,
             );
             cctx.rotate((degree * Math.PI) / 180);
             cctx.moveTo(0, -1 * cctx.lineWidth);
@@ -318,7 +318,7 @@ var checkCollision = function (ev) {
             cctx.rotate((-1 * degree * Math.PI) / 180);
             cctx.translate(
               -1 * parseInt($(this).get(0).style.left) - mtw / 2,
-              -1 * parseInt($(this).get(0).style.top) - mth / 2
+              -1 * parseInt($(this).get(0).style.top) - mth / 2,
             );
           }
         }
@@ -378,13 +378,13 @@ var checkCollisionMulti = function (ev) {
           cctx.lineWidth = mtw * 0.7;
           cctx.moveTo(
             parseInt(mopgroup.find(".last").get(0).style.left) + mtw / 2,
-            parseInt(mopgroup.find(".last").get(0).style.top) + mth / 2
+            parseInt(mopgroup.find(".last").get(0).style.top) + mth / 2,
           );
           var ltw = parseInt($(this).get(0).style.width);
           var lth = parseInt($(this).get(0).style.height);
           cctx.lineTo(
             parseInt($(this).get(0).style.left) + ltw / 2,
-            parseInt($(this).get(0).style.top) + lth / 2
+            parseInt($(this).get(0).style.top) + lth / 2,
           );
 
           //cctx.closePath();
@@ -409,7 +409,7 @@ var checkMopStatus = function () {
     rootSoundEffect($chimes);
     var uniq = new Date().getTime();
     mopgroup.append(
-      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+      `<div class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`,
     );
     $(".smoke")
       .delay(1000)
@@ -453,14 +453,14 @@ var checkMopStatus = function () {
           0,
           0,
           $(mopgroupCanvas).attr("width"),
-          $(mopgroupCanvas).attr("height")
+          $(mopgroupCanvas).attr("height"),
         );
       });
       //
       rootSoundEffect($fail);
       var uniq = new Date().getTime();
       mopgroup.append(
-        `<div class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></div>`
+        `<div class="smoke"><img src="./DATA/IMAGES/common/smoke2.gif?uniq=${uniq}"/></div>`,
       );
       $(".smoke")
         .delay(1000)
@@ -475,6 +475,8 @@ var checkMopStatus = function () {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -518,7 +520,7 @@ var resetElem = function (elem) {
       0,
       0,
       $(mopgroupCanvas).attr("width"),
-      $(mopgroupCanvas).attr("height")
+      $(mopgroupCanvas).attr("height"),
     );
   });
 

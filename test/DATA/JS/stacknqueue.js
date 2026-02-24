@@ -88,14 +88,14 @@ var cloneMe = function (tar) {
         $("#" + aim[0])
           .find("span")
           .eq(parseInt(aim[1]) - 1)
-          .css("left")
+          .css("left"),
       )
       .css(
         "top",
         $("#" + aim[0])
           .find("span")
           .eq(parseInt(aim[1]) - 1)
-          .css("top")
+          .css("top"),
       );
     $(this).dequeue();
     $(".contents > div.selected").find(".balls").addClass("disable");
@@ -166,6 +166,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -211,8 +213,8 @@ var resetElem = function (elem) {
     if ($(this).attr("custom")) {
       $(this).append(
         `<img src="./DATA/PT/BOOK10/IMAGES/customer_${$(this).attr(
-          "custom"
-        )}.png"/><span>${$(this).attr("custom")}</span>`
+          "custom",
+        )}.png"/><span>${$(this).attr("custom")}</span>`,
       );
     }
   });

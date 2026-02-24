@@ -79,7 +79,7 @@ var bingo = function () {
   $(".contents > div.selected")
     .find(".subject")
     .append(
-      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+      `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
     );
   $(".smoke")
     .delay(1500)
@@ -156,6 +156,8 @@ var randomMyCard = function (type) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
@@ -216,12 +218,12 @@ var resetElem = function (elem) {
             : elem.find(".hintArea");
           //來源物件
           var fromElem = SA.find(
-            ".sensor[name='" + piece.attr("location") + "']"
+            ".sensor[name='" + piece.attr("location") + "']",
           );
           //
           if (piece.length > 0) {
             var neighbor = SA.find(
-              ".sensor[name='" + piece.attr("location") + "']"
+              ".sensor[name='" + piece.attr("location") + "']",
             ).attr("neighbor");
             var neighbors = neighbor ? neighbor.split(",") : new Array();
             var myname = $(this).attr("name");
@@ -241,27 +243,27 @@ var resetElem = function (elem) {
                     if ($(this).hasClass("withArrow")) {
                       addArrow(
                         SA.find(
-                          ".sensor[name='" + piece.attr("location") + "']"
+                          ".sensor[name='" + piece.attr("location") + "']",
                         ),
-                        $(this)
+                        $(this),
                       );
                     }
                     //是否要加上箭頭
                     if ($(this).hasClass("withArrow")) {
                       addArrow(
                         SA.find(
-                          ".sensor[name='" + piece.attr("location") + "']"
+                          ".sensor[name='" + piece.attr("location") + "']",
                         ),
-                        $(this)
+                        $(this),
                       );
                     }
                     //是否要加上路徑
                     if ($(this).hasClass("withPath")) {
                       addPath(
                         SA.find(
-                          ".sensor[name='" + piece.attr("location") + "']"
+                          ".sensor[name='" + piece.attr("location") + "']",
                         ),
-                        $(this)
+                        $(this),
                       );
                     }
                     //
@@ -287,7 +289,7 @@ var resetElem = function (elem) {
                       var uniq = new Date().getTime();
                       $(".contents > div.selected .piece.selected")
                         .append(
-                          `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
+                          `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`,
                         )
                         .delay(1500)
                         .queue(function () {
@@ -326,7 +328,7 @@ var resetElem = function (elem) {
               //是否點在crossroads上
               if (
                 SA.find(
-                  ".sensor[name='" + piece.attr("location") + "']"
+                  ".sensor[name='" + piece.attr("location") + "']",
                 ).hasClass("crossroads") &&
                 $(this).attr("allow")
               ) {
@@ -370,7 +372,7 @@ var resetElem = function (elem) {
                   var arr = switcher_arr[i].split(":");
                   SA.find(".sensor[name='" + arr[0] + "']").attr(
                     "allow",
-                    arr[1]
+                    arr[1],
                   );
                 }
               }
@@ -396,7 +398,7 @@ var resetElem = function (elem) {
                 var uniq = new Date().getTime();
                 $(".contents > div.selected .piece.selected")
                   .append(
-                    `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`
+                    `<div class="resultIcon"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></div>`,
                   )
                   .delay(1500)
                   .queue(function () {
@@ -473,7 +475,7 @@ var addArrow = function (from, to) {
 
   var len = Math.sqrt(
     (fy + fh / 2 - ty - th / 2) * (fy + fh / 2 - ty - th / 2) +
-      (fx + fw / 2 - tx - tw / 2) * (fx + fw / 2 - tx - tw / 2)
+      (fx + fw / 2 - tx - tw / 2) * (fx + fw / 2 - tx - tw / 2),
   );
 
   var myPath = `<span style="height:${len}px;"></span>`;
@@ -503,7 +505,7 @@ var addPath = function (from, to) {
 
   var len = Math.sqrt(
     (fy + fh / 2 - ty - th / 2) * (fy + fh / 2 - ty - th / 2) +
-      (fx + fw / 2 - tx - tw / 2) * (fx + fw / 2 - tx - tw / 2)
+      (fx + fw / 2 - tx - tw / 2) * (fx + fw / 2 - tx - tw / 2),
   );
 
   var myPath = `<span class="c2c" style="height:${len}px;"></span>`;

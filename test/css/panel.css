@@ -133,7 +133,6 @@
 }
 .panel .main-panel .btn.btn_zoom {
   background-image: url("../DATA/IMAGES/common/btn_zoom.png");
-  position: relative;
 }
 .panel .main-panel .btn.btn_zoom.boxable {
   background-image: url("../DATA/IMAGES/common/btn_box.png");
@@ -143,6 +142,9 @@
 }
 .panel .main-panel .btn.btn_zoom.boxable.active {
   animation: none;
+}
+.panel .main-panel .btn.btn_zoom {
+  position: relative;
 }
 .panel .main-panel .btn.btn_zoom > div {
   transform-origin: center bottom;
@@ -427,11 +429,6 @@
 .canvas-board > .canvas.disabled {
   pointer-events: none;
 }
-.canvas-board > .canvas.active {
-  animation-name: doneCap;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-}
 @keyframes doneCap {
   from {
     -ms-transform: scale(1);
@@ -448,6 +445,11 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+}
+.canvas-board > .canvas.active {
+  animation-name: doneCap;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 .canvas-board > .canvas .canvas_wrapper {
   width: 100%;
@@ -484,9 +486,6 @@
   align-items: center;
   justify-content: center;
   padding: 2px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
 }
 .widget > .audioTrack * {
   pointer-events: none;
@@ -539,6 +538,11 @@
   animation-name: grow;
   animation-iteration-count: infinite;
   animation-duration: 0.5s;
+}
+.widget > .audioTrack {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 .widget > .dice {
   width: 60px;
@@ -1040,11 +1044,6 @@
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
-.widget > .zoomer.active {
-  animation-name: doneCap;
-  animation-duration: 0.6s;
-  animation-fill-mode: both;
-}
 @keyframes doneCap {
   from {
     -ms-transform: scale(1);
@@ -1074,6 +1073,11 @@
 }
 .widget > .zoomer.active .zoomer_wrapper::after {
   display: block;
+}
+.widget > .zoomer.active {
+  animation-name: doneCap;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
 }
 .widget > .zoomer.collectable .zoomer_wrapper::after {
   display: none;
@@ -1201,11 +1205,6 @@
   display: none;
   z-index: 5;
 }
-.widget > .boxer.active {
-  animation-name: doneCap;
-  animation-duration: 0.6s;
-  animation-fill-mode: both;
-}
 @keyframes doneCap {
   from {
     -ms-transform: scale(1);
@@ -1232,6 +1231,11 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+}
+.widget > .boxer.active {
+  animation-name: doneCap;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
 }
 .widget > .boxer .boxer_wrapper {
   width: 100%;
@@ -1432,40 +1436,40 @@
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
 }
-.widget > .piece.red {
-  background: #960101;
-}
 .widget > .piece.red::before {
   background-color: #f28080;
   border-color: #e40101;
 }
-.widget > .piece.green {
-  background: #004242;
+.widget > .piece.red {
+  background: #960101;
 }
 .widget > .piece.green::before {
   background-color: #80d680;
   border-color: #01ad01;
 }
-.widget > .piece.blue {
+.widget > .piece.green {
   background: #004242;
 }
 .widget > .piece.blue::before {
   background-color: #80dddd;
   border-color: #01baba;
 }
-.widget > .piece.orange {
-  background: #764701;
+.widget > .piece.blue {
+  background: #004242;
 }
 .widget > .piece.orange::before {
   background-color: #fec7a3;
   border-color: #fc8e47;
 }
-.widget > .piece.purple {
-  background: #4d1a4d;
+.widget > .piece.orange {
+  background: #764701;
 }
 .widget > .piece.purple::before {
   background-color: #e4ace4;
   border-color: #c859c8;
+}
+.widget > .piece.purple {
+  background: #4d1a4d;
 }
 .widget > .roulette {
   position: absolute;
@@ -2488,9 +2492,6 @@
   justify-content: center;
   align-items: center;
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
-  font-size: 40px;
-  color: #333;
-  font-family: "Gfont-bold";
 }
 .widget > .flipcard .board > div > span.aeiou {
   color: #ff0000;
@@ -2501,6 +2502,11 @@
 .widget > .flipcard .board > div > span img {
   width: 50px;
   height: auto;
+}
+.widget > .flipcard .board > div > span {
+  font-size: 40px;
+  color: #333;
+  font-family: "Gfont-bold";
 }
 .widget > .fisher {
   position: absolute;

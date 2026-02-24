@@ -145,7 +145,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("cards")) {
       $("#module_wrapper").append(
-        `<div id="cardAvatar" class="cardAvatar"></div>`
+        `<div id="cardAvatar" class="cardAvatar"></div>`,
       );
       $($elem).clone().appendTo("#cardAvatar");
       //是否可以重複拖曳
@@ -178,13 +178,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#cardAvatar").height() / stageRatioReal / 2
+            $("#cardAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#cardAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#cardAvatar").width() / stageRatioReal / 2
+            $("#cardAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -328,7 +328,7 @@ var checkStatus = function () {
     }
   }
   $("#cardAvatar").addClass(
-    "s" + $(".contents > div.selected .sensorArea > .selected").index()
+    "s" + $(".contents > div.selected .sensorArea > .selected").index(),
   );
   //
   $("#cardAvatar")
@@ -428,7 +428,7 @@ var showAnswer = function (boolean) {
           ansArray[ansArray.length - 1].push(
             `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
               .eq(i)
-              .prop("outerHTML")}</div>`
+              .prop("outerHTML")}</div>`,
           );
           //
           oX += caWidth;
@@ -562,7 +562,7 @@ var showSpecificAnswer = function (str) {
               ansArray[ansArray.length - 1].push(
                 `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caWidth}px;top:${
                   oriY + oY
-                }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`
+                }px;left:${oriX + oX}px;">${toys.eq(i).prop("outerHTML")}</div>`,
               );
               //
               oX += caWidth;
@@ -590,6 +590,8 @@ var openContent = function (id) {
     .siblings(".selected")
     .removeClass("selected");
   resetElem($(".contents > div.selected"));
+  //20260204
+  removeToggleAttachment();
 };
 
 var resetElem = function (elem) {
@@ -639,7 +641,7 @@ var bingo = function () {
   rootSoundEffect($chimes);
   var uniq = new Date().getTime();
   $("#module_wrapper").append(
-    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`
+    `<span class="resultIcon wow bounceIn" style="z-index:9998"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke" style="z-index:9999"><img src="./DATA/IMAGES/common/chimes2.gif?uniq=${uniq}"/></span>`,
   );
   $(".smoke")
     .delay(1500)

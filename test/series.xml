@@ -119,6 +119,11 @@
       <lesson lid="3">壓縮密碼動物村</lesson>
       <lesson lid="4">二元搜尋樹太空站</lesson>
     </book>
-
+    <book name="Book 2" bid="2" img="PT4_book2.jpg">
+      <lesson lid="1">排程大師小可</lesson>
+      <lesson lid="2">有序烘焙屋</lesson>
+      <lesson lid="3">Round Robin 三明治</lesson>
+      <lesson lid="4">SJF玩具總動員</lesson>
+    </book>
   </series>
 </root>

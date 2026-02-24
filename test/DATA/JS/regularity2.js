@@ -83,7 +83,7 @@ $(document).ready(function () {
 var moveMe = function (tar) {
   if (tar.hasClass("available")) {
     $(".contents > div.selected .subject span.available").removeClass(
-      "available"
+      "available",
     );
     //
     var prevDot = $(".contents > div.selected .subject span.selected");
@@ -144,7 +144,7 @@ var moveMe = function (tar) {
       $(".contents > div.selected")
         .find(".subject")
         .append(
-          `<span class="resultIcon wow bounceIn small"><img src="./DATA/PT/BOOK5/IMAGES/peach.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+          `<span class="resultIcon wow bounceIn small"><img src="./DATA/PT/BOOK5/IMAGES/peach.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
         );
       $(".smoke")
         .delay(1500)
@@ -158,7 +158,7 @@ var moveMe = function (tar) {
       $(".contents > div.selected").find(".result > p > span").text(sum);
     } else if (tar.hasClass("end")) {
       $(".contents > div.selected .subject span.available").removeClass(
-        "available"
+        "available",
       );
       //
       rootSoundEffect($correct);
@@ -167,7 +167,7 @@ var moveMe = function (tar) {
       $(".contents > div.selected")
         .find(".subject")
         .append(
-          `<span class="resultIcon wow bounceIn small"><img src="./DATA/PT/BOOK5/IMAGES/shovel.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`
+          `<span class="resultIcon wow bounceIn small"><img src="./DATA/PT/BOOK5/IMAGES/shovel.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
         );
       $(".smoke")
         .delay(2500)
@@ -184,7 +184,7 @@ var moveMe = function (tar) {
       $(".contents > div.selected")
         .find(".subject")
         .append(
-          `<span class="resultIcon wow bounceInDown"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`
+          `<span class="resultIcon wow bounceInDown"><img src="./DATA/IMAGES/common/icon_wrong.png"/></span>`,
         );
       $(".resultIcon")
         .delay(2500)
@@ -230,6 +230,8 @@ var lowlaged = false;
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")

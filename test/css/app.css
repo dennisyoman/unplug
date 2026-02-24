@@ -397,6 +397,7 @@
   position: absolute;
   z-index: 1;
   pointer-events: auto;
+  animation: bgblinking 1s both infinite;
   cursor: pointer;
 }
 .module_story .contents .storyboard .subject .sensors span.selected {
@@ -2573,10 +2574,6 @@
   animation-name: fadeInRight;
   animation-duration: 0.8s;
 }
-.module_mid .tower > div.bingo {
-  background: url("../DATA/PT/BOOK6/IMAGES/snake.png") no-repeat center center;
-  background-size: auto 70%;
-}
 .module_mid .tower > div.bingo > span {
   display: none;
 }
@@ -2587,6 +2584,10 @@
   animation-name: rollOut;
   animation-duration: 1s;
   animation-fill-mode: both;
+}
+.module_mid .tower > div.bingo {
+  background: url("../DATA/PT/BOOK6/IMAGES/snake.png") no-repeat center center;
+  background-size: auto 70%;
 }
 .module_mid .record {
   position: absolute;
@@ -3324,16 +3325,19 @@
 .module_exchange .map .residents > div.done {
   pointer-events: none;
 }
+.module_exchange .map .residents > div.happy .need > img {
+  display: none;
+}
 .module_exchange .map .residents > div.happy .need {
   background-image: url("../DATA/IMAGES/common/happy.png");
   background-size: auto 70%;
   background-repeat: no-repeat;
   background-position: center center;
 }
-.module_exchange .map .residents > div.happy .need > img {
+.module_exchange .map .residents > div.happy .own > img {
   display: none;
 }
-.module_exchange .map .residents > div.happy .own > img {
+.module_exchange .map .residents > div.love .need > img {
   display: none;
 }
 .module_exchange .map .residents > div.love .need {
@@ -3342,10 +3346,10 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
-.module_exchange .map .residents > div.love .need > img {
+.module_exchange .map .residents > div.love .own > img {
   display: none;
 }
-.module_exchange .map .residents > div.love .own > img {
+.module_exchange .map .residents > div.angry .need > img {
   display: none;
 }
 .module_exchange .map .residents > div.angry .need {
@@ -3353,9 +3357,6 @@
   background-size: auto 70%;
   background-repeat: no-repeat;
   background-position: center center;
-}
-.module_exchange .map .residents > div.angry .need > img {
-  display: none;
 }
 .module_exchange .map .residents > div.angry > img {
   animation-duration: 0.8s !important;
@@ -4527,12 +4528,6 @@
   pointer-events: auto;
   z-index: 11;
 }
-.module_creativity .contents .gridSlider .storyline > div.prevSlider {
-  animation: none !important;
-}
-.module_creativity .contents .gridSlider .storyline > div.prevSlider img {
-  animation: none !important;
-}
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l1 {
   left: 0;
 }
@@ -4548,10 +4543,10 @@
 .module_creativity .contents .gridSlider .storyline > div.prevSlider img.l5 {
   left: -40%;
 }
-.module_creativity .contents .gridSlider .storyline > div.nextSlider {
+.module_creativity .contents .gridSlider .storyline > div.prevSlider img {
   animation: none !important;
 }
-.module_creativity .contents .gridSlider .storyline > div.nextSlider img {
+.module_creativity .contents .gridSlider .storyline > div.prevSlider {
   animation: none !important;
 }
 .module_creativity .contents .gridSlider .storyline > div.nextSlider img.l1 {
@@ -4568,6 +4563,12 @@
 }
 .module_creativity .contents .gridSlider .storyline > div.nextSlider img.l5 {
   left: 40%;
+}
+.module_creativity .contents .gridSlider .storyline > div.nextSlider img {
+  animation: none !important;
+}
+.module_creativity .contents .gridSlider .storyline > div.nextSlider {
+  animation: none !important;
 }
 .module_creativity .contents .gridSlider .storyline > div img {
   position: absolute;
@@ -7936,6 +7937,15 @@
 }
 .module_decode .contents .check .items > span.wrong {
   filter: none;
+}
+.module_decode .contents .check .items > span.wrong img {
+  filter: hue-rotate(0deg);
+  opacity: 0 !important;
+  -moz-opacity: 0 !important;
+  -khtml-opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.module_decode .contents .check .items > span.wrong {
   opacity: 1 !important;
   -moz-opacity: 1 !important;
   -khtml-opacity: 1 !important;
@@ -7945,13 +7955,6 @@
   animation-duration: 0.6s;
   animation-iteration-count: 1;
   background-size: 70% 70%;
-}
-.module_decode .contents .check .items > span.wrong img {
-  filter: hue-rotate(0deg);
-  opacity: 0 !important;
-  -moz-opacity: 0 !important;
-  -khtml-opacity: 0 !important;
-  filter: alpha(opacity=0) !important;
 }
 .module_decode .contents .items {
   position: absolute;
@@ -7975,12 +7978,14 @@
 }
 .module_decode .contents .items > span.wrong {
   filter: grayscale(1) brightness(300%) sepia(100%) hue-rotate(-50deg) saturate(500%);
-  animation: growing;
-  animation-duration: 0.6s;
-  animation-iteration-count: 1;
 }
 .module_decode .contents .items > span.wrong img {
   filter: hue-rotate(0deg);
+}
+.module_decode .contents .items > span.wrong {
+  animation: growing;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
 }
 .module_decode .contents .items > span.done {
   opacity: 1 !important;
@@ -8545,12 +8550,14 @@
 .module_safe .sensorArea > span.panelSwitch {
   pointer-events: auto;
   z-index: 10;
-  background: url("../DATA/PT/BOOK10/IMAGES/panel.png") no-repeat top center;
-  background-size: 100% 100%;
-  filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8)) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.8));
 }
 .module_safe .sensorArea > span.panelSwitch::before, .module_safe .sensorArea > span.panelSwitch::after {
   display: none;
+}
+.module_safe .sensorArea > span.panelSwitch {
+  background: url("../DATA/PT/BOOK10/IMAGES/panel.png") no-repeat top center;
+  background-size: 100% 100%;
+  filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8)) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.8));
 }
 .module_safe .sensorArea > span.selected {
   pointer-events: auto;
@@ -8822,10 +8829,12 @@
   height: 80px;
   position: absolute;
   z-index: 2;
-  animation: growing 1s infinite;
 }
 .module_herb .tasks .newHerbs > div.selected {
   display: none;
+}
+.module_herb .tasks .newHerbs > div {
+  animation: growing 1s infinite;
 }
 .module_herb .tasks .newHerbs > div:hover {
   animation: none;
@@ -9350,13 +9359,15 @@
 .module_if .piece.selected {
   filter: drop-shadow(0px 0px 2px #eb6154) drop-shadow(0px 0px 4px #ff8426);
   z-index: 10;
+}
+.module_if .piece.selected > * {
+  pointer-events: none;
+}
+.module_if .piece.selected {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
-}
-.module_if .piece.selected > * {
-  pointer-events: none;
 }
 .module_if .piece > * {
   pointer-events: auto;
@@ -11613,11 +11624,11 @@
 .module_calculus .contents .frames .resultIcon {
   margin-top: -80px;
 }
-.module_calculus .contents .frames.observe {
-  align-items: center;
-}
 .module_calculus .contents .frames.observe::before {
   content: "我的順序";
+}
+.module_calculus .contents .frames.observe {
+  align-items: center;
 }
 .module_calculus .contents .frames.observe .cardItem {
   width: 60px;
@@ -12863,9 +12874,6 @@
   width: 40px;
   height: 40px;
   border: 1px dashed transparent;
-  border-radius: 100%;
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
 }
 .module_stacknqueue .contents .subject .balls > span::after {
   content: "";
@@ -12898,6 +12906,11 @@
   -webkit-transform: rotate(30deg);
   transform: rotate(30deg);
   background: rgba(255, 255, 255, 0.2);
+}
+.module_stacknqueue .contents .subject .balls > span {
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
 }
 .module_stacknqueue .contents .subject .balls > span:not(.active) {
   background: rgba(255, 255, 255, 0.9) !important;
@@ -13704,11 +13717,13 @@
 .module_organize .blocks > div {
   pointer-events: auto;
   cursor: pointer;
-  margin-bottom: 5px;
 }
 .module_organize .blocks > div > img {
   width: auto;
   height: 30px;
+}
+.module_organize .blocks > div {
+  margin-bottom: 5px;
 }
 .module_organize .grids {
   background: #bce2d7;

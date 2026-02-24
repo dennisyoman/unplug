@@ -95,7 +95,7 @@ var trigMe = function (tar) {
   tar.toggleClass("done");
   //
   $(".contents > div.selected .pattern > p span").text(
-    $(".contents > div.selected .sensors > span.done").length
+    $(".contents > div.selected .sensors > span.done").length,
   );
   $(".contents > div.selected .pattern").addClass("showAnswer");
 };
@@ -106,7 +106,7 @@ var offMe = function (tar) {
   tar.removeClass("done");
   //
   $(".contents > div.selected .pattern > p span").text(
-    $(".contents > div.selected .sensors > span.done").length
+    $(".contents > div.selected .sensors > span.done").length,
   );
   $(".contents > div.selected .pattern").addClass("showAnswer");
   //
@@ -134,7 +134,7 @@ var checkAnswer = function () {
     $(".contents > div.selected .puzzle")
       .append(
         `<div class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></div>
-        <div class="resultIcon"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`
+        <div class="resultIcon"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></div>`,
       )
       .delay(1500)
       .queue(function () {
@@ -164,7 +164,7 @@ var showAnswer = function (boolean) {
     });
     //秀出次數答案
     $(".contents > div.selected .pattern > p span").text(
-      $(".contents > div.selected .pattern").attr("ans")
+      $(".contents > div.selected .pattern").attr("ans"),
     );
     $(".contents > div.selected .pattern").addClass("showAnswer");
   } else {
@@ -206,7 +206,7 @@ var handleDrag = function (ev) {
     isDragging = true;
     if ($($elem).hasClass("draggable")) {
       $("#module_wrapper").append(
-        `<div id="pieceAvatar" class="pieceAvatar"></div>`
+        `<div id="pieceAvatar" class="pieceAvatar"></div>`,
       );
       $($elem).clone().removeClass().addClass("piece").appendTo("#pieceAvatar");
     }
@@ -221,13 +221,13 @@ var handleDrag = function (ev) {
         Math.round(
           ev.center.y / stageRatioReal -
             deltaContainerY / stageRatioReal -
-            $("#pieceAvatar").height() / stageRatioReal / 2
+            $("#pieceAvatar").height() / stageRatioReal / 2,
         ) + "px";
       $("#pieceAvatar").get(0).style.left =
         Math.round(
           ev.center.x / stageRatioReal -
             deltaContainerX / stageRatioReal -
-            $("#pieceAvatar").width() / stageRatioReal / 2
+            $("#pieceAvatar").width() / stageRatioReal / 2,
         ) + "px";
       checkCollision(ev);
     }
@@ -281,7 +281,7 @@ var checkCollision = function (ev) {
 
 var checkStatus = function () {
   var selectedElem = $(
-    ".contents > div.selected .puzzle .sensors > span.selected"
+    ".contents > div.selected .puzzle .sensors > span.selected",
   );
   if (selectedElem.length > 0) {
     //有對應到
@@ -290,7 +290,7 @@ var checkStatus = function () {
     //次數
     $(".contents > div.selected .pattern").addClass("showAnswer");
     $(".contents > div.selected .pattern > p span").text(
-      $(".contents > div.selected .puzzle .sensors > span.done").length
+      $(".contents > div.selected .puzzle .sensors > span.done").length,
     );
 
     //
@@ -330,6 +330,8 @@ var switchSample = function (tar, repeat) {
 var openContent = function (id) {
   resetAudio();
   resetTool();
+  //20260204
+  removeToggleAttachment();
   $(".contents > div")
     .eq(id)
     .addClass("selected")
