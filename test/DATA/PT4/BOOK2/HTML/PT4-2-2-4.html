@@ -1,0 +1,234 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro" style="display: none">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b>：依據各個工作的先後關係，試著畫出全部工作的關係圖。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="subject wow fadeIn tti"
+        style="width: auto; height: 150px; display: flex; gap: 0px"
+      >
+        <div class="presetArea">
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 5px"
+            ans="3"
+            >清理烤箱</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 75px"
+            ans="3"
+            >買食材</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 145px"
+            ans="3"
+            >買掃把</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 215px"
+            ans="3"
+            >做甜點</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 286px"
+            ans="3"
+            >甜點上架</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 356px"
+            ans="3"
+            >清理地板</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 427px"
+            ans="3"
+            >氣球裝飾</span
+          >
+          <span
+            opt="first"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 32px; left: 497px"
+            ans="3"
+            >修好貨架</span
+          >
+        </div>
+        <div class="sensorArea">
+          <!-- then-->
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 5px"
+            ans="做甜點"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 75px"
+            ans="做甜點"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 145px"
+            ans="清理地板"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 215px"
+            ans="甜點上架"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 286px"
+            ans="開店營業"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 356px"
+            ans="開店營業"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 427px"
+            ans="開店營業"
+          />
+          <span
+            opt="then"
+            class="sensor"
+            style="width: 60px; height: 22px; top: 114px; left: 497px"
+            ans="甜點上架"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+      </div>
+
+      <div class="options first loop">
+        <div class="option" fillin="清理烤箱">
+          <span class="fillin">清理烤箱</span>
+        </div>
+        <div class="option" fillin="買食材">
+          <span class="fillin">買食材</span>
+        </div>
+        <div class="option" fillin="買掃把">
+          <span class="fillin">買掃把</span>
+        </div>
+        <div class="option" fillin="做甜點">
+          <span class="fillin">做甜點</span>
+        </div>
+        <div class="option" fillin="甜點上架">
+          <span class="fillin">甜點上架</span>
+        </div>
+        <div class="option" fillin="清理地板">
+          <span class="fillin">清理地板</span>
+        </div>
+        <div class="option" fillin="氣球裝飾">
+          <span class="fillin">氣球裝飾</span>
+        </div>
+        <div class="option" fillin="修好貨架">
+          <span class="fillin">修好貨架</span>
+        </div>
+      </div>
+      <div class="options then loop">
+        <div class="option" fillin="做甜點">
+          <span class="fillin">做甜點</span>
+        </div>
+        <div class="option" fillin="清理地板">
+          <span class="fillin">清理地板</span>
+        </div>
+        <div class="option" fillin="甜點上架">
+          <span class="fillin">甜點上架</span>
+        </div>
+        <div class="option" fillin="開店營業">
+          <span class="fillin">開店營業</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<script>
+  var checkSum = function (tar, rowID) {
+    // 阻止原本的 click event
+    if (tar && tar.length > 0) {
+      tar.off("click");
+    }
+
+    // 找到同樣 rowID 的所有 sensor
+    var sensors = $(`#module_wrapper .sensor[row="${rowID}"]`);
+
+    // 把數字加起來
+    var sum = 0;
+    sensors.each(function () {
+      var fillin = $(this).attr("fillin");
+      if (fillin && fillin !== "") {
+        var num = parseInt(fillin, 10);
+        if (!isNaN(num)) {
+          sum += num;
+        }
+      }
+    });
+
+    rootSoundEffect($help);
+    tar.html(sum);
+  };
+</script>
+
+<style>
+  #module_wrapper .contents > div.selected .sensorArea .sensor,
+  #module_wrapper .contents > div.selected .presetArea .sensor {
+    font-size: 12px;
+    line-height: 12px;
+    transform: scale(0.8);
+  }
+  #module_wrapper .contents > div.selected .sensorArea .sensor.wrong:before {
+    background-size: 30% auto;
+  }
+</style>

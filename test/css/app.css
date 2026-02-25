@@ -397,7 +397,6 @@
   position: absolute;
   z-index: 1;
   pointer-events: auto;
-  animation: bgblinking 1s both infinite;
   cursor: pointer;
 }
 .module_story .contents .storyboard .subject .sensors span.selected {

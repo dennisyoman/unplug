@@ -824,7 +824,7 @@
     </section>
     <section section="3" name="關鍵訊息" html="PT4/BOOK2/HTML/PT4-2-2-3.html" js="JS/decode.js" image="IMAGES/UNITS/creativity.png" skin="" type="keep">
     </section>
-    <section section="4" name="文生圖" html="PT4/BOOK2/HTML/PT4-2-2-4.html" js="JS/dragndropnarrow.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
+    <section section="4" name="文生圖" html="PT4/BOOK2/HTML/PT4-2-2-4.html" js="JS/fillin.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
     </section>
     <section section="5" name="挑戰主題" html="PT4/BOOK2/HTML/PT4-2-2-5.html" js="JS/fillin.js" image="IMAGES/UNITS/challenge.png" skin="" type="keep">
     </section>
