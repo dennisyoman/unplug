@@ -1,0 +1,566 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-2-5.html','JS/dragndropnarrow.js',0)"
+      >任務一</span
+    >
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div
+      class="btn_answer"
+      onClick="event.stopImmediatePropagation();newShowAnswer()"
+    ></div>
+    <div
+      class="btn_check"
+      onClick="event.stopImmediatePropagation();newCheckAnswer()"
+    ></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div></div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：如果一個工作只需要一個人就能完成，你能利用任務一完成的圖，分配四個人的工作嗎？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 240px">
+        <div class="sensorArea">
+          <!-- row 1-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 4px"
+            row="1"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 69px"
+            row="1"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 133px"
+            row="1"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 198px"
+            row="1"
+          />
+
+          <!-- row 2-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 4px"
+            row="2"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 69px"
+            row="2"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 133px"
+            row="2"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 198px"
+            row="2"
+          />
+
+          <!-- row 3-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 4px"
+            row="3"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 69px"
+            row="3"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 133px"
+            row="3"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 198px"
+            row="3"
+          />
+
+          <!-- row 4-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 4px"
+            row="4"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 69px"
+            row="4"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 133px"
+            row="4"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 198px"
+            row="4"
+          />
+
+          <!-- column-name-->
+          <span
+            onclick="modifyName($(this))"
+            class="column-name"
+            style="width: 28px; height: 11px; top: 270px; left: 174px"
+            ans="3"
+          ></span>
+          <span
+            onclick="modifyName($(this))"
+            class="column-name"
+            style="width: 133px; height: 11px; top: 288px; left: 73px"
+            ans="有3件事需要趕快開始，分3個人去做，還有人可以處理意外事情。"
+          ></span>
+        </div>
+
+        <!-- subjects -->
+        <img width="100%" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-2.png" />
+      </div>
+
+      <div class="options tasks loop">
+        <div class="option" fillin="t1">
+          <span class="fillin">清理烤箱</span>
+        </div>
+        <div class="option" fillin="t2">
+          <span class="fillin">買食材</span>
+        </div>
+        <div class="option" fillin="t3">
+          <span class="fillin">買掃把</span>
+        </div>
+        <div class="option" fillin="t4">
+          <span class="fillin">做甜點</span>
+        </div>
+        <div class="option" fillin="t5">
+          <span class="fillin">甜點上架</span>
+        </div>
+        <div class="option" fillin="t6">
+          <span class="fillin">清理地板</span>
+        </div>
+        <div class="option" fillin="t7">
+          <span class="fillin">氣球裝飾</span>
+        </div>
+        <div class="option" fillin="t9">
+          <span class="fillin">開店營業</span>
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+    </div>
+    <!-- 任務三 -->
+
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：貓咪不小心把貨架撞倒了！新增一個修好貨架的工作，並重新安排四個人的工作。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="width: 240px">
+        <div class="sensorArea">
+          <!-- row 1-->
+          <!-- row 1-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 4px"
+            row="1"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 69px"
+            row="1"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 133px"
+            row="1"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 23px; left: 198px"
+            row="1"
+          />
+
+          <!-- row 2-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 4px"
+            row="2"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 69px"
+            row="2"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 133px"
+            row="2"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 89px; left: 198px"
+            row="2"
+          />
+
+          <!-- row 3-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 4px"
+            row="3"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 69px"
+            row="3"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 133px"
+            row="3"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 157px; left: 198px"
+            row="3"
+          />
+
+          <!-- row 4-->
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 4px"
+            row="4"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 69px"
+            row="4"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 133px"
+            row="4"
+          />
+          <span
+            opt="tasks"
+            class="sensor"
+            style="width: 41px; height: 34px; top: 224px; left: 198px"
+            row="4"
+          />
+
+          <!-- column-name-->
+          <span
+            onclick="modifyName($(this))"
+            class="column-name"
+            style="width: 28px; height: 11px; top: 270px; left: 174px"
+            ans="4"
+          ></span>
+          <span
+            onclick="modifyName($(this))"
+            class="column-name"
+            style="width: 133px; height: 11px; top: 288px; left: 73px"
+            ans="工作平均分配比較公平。"
+          ></span>
+        </div>
+
+        <!-- subjects -->
+        <img width="100%" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-2.png" />
+      </div>
+
+      <div class="options tasks loop">
+        <div class="option" fillin="t1">
+          <span class="fillin">清理烤箱</span>
+        </div>
+        <div class="option" fillin="t2">
+          <span class="fillin">買食材</span>
+        </div>
+        <div class="option" fillin="t3">
+          <span class="fillin">買掃把</span>
+        </div>
+        <div class="option" fillin="t4">
+          <span class="fillin">做甜點</span>
+        </div>
+        <div class="option" fillin="t5">
+          <span class="fillin">甜點上架</span>
+        </div>
+        <div class="option" fillin="t6">
+          <span class="fillin">清理地板</span>
+        </div>
+        <div class="option" fillin="t7">
+          <span class="fillin">氣球裝飾</span>
+        </div>
+        <div class="option" fillin="t8">
+          <span class="fillin">修好貨架</span>
+        </div>
+        <div class="option" fillin="t9">
+          <span class="fillin">開店營業</span>
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  #module_wrapper .contents > div.selected .sensorArea .sensor,
+  #module_wrapper .contents > div.selected .presetArea .sensor {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .column-name {
+    position: absolute;
+    z-index: 2;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+  .column-name:not(:empty) {
+    border: none;
+  }
+</style>
+<script>
+  var modifyName = (item) => {
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      rootSoundEffect($pop);
+      item.html(text);
+      rootSoundEffect($key);
+    }
+  };
+
+  var newCheckAnswer = function () {
+    var targetDiv = $("#module_wrapper .contents > div.selected");
+    var row1 = targetDiv.find(".sensorArea .sensor[row='1']");
+    var row2 = targetDiv.find(".sensorArea .sensor[row='2']");
+    var row3 = targetDiv.find(".sensorArea .sensor[row='3']");
+    var row4 = targetDiv.find(".sensorArea .sensor[row='4']");
+    row1.removeClass("wrong");
+    row2.removeClass("wrong");
+    row3.removeClass("wrong");
+    row4.removeClass("wrong");
+
+    //1.所有工作都要出現
+    var tasksAmount = targetDiv.find(".options.tasks .option").length - 1;
+    var filledSensors = targetDiv.find(".sensorArea .sensor:not(:empty)");
+    if (filledSensors.length !== tasksAmount) {
+      rootSoundEffect($stupid);
+
+      var alertmsg = "工作數量不吻合，應有" + tasksAmount + "個工作。";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      return;
+    }
+
+    //2.不能有重複的工作
+    var seen = {}; //// 用來記錄屬性值出現次數的物件
+    var isRepeat = false;
+    //// 第一輪：統計每個值出現了幾次
+    filledSensors.each(function () {
+      var val = $(this).attr("fillin");
+      if (val) {
+        seen[val] = (seen[val] || 0) + 1;
+      }
+    });
+    //// 第二輪：如果該值的出現次數 > 1，就加上 .wrong
+    filledSensors.each(function () {
+      var val = $(this).attr("fillin");
+      if (seen[val] > 1) {
+        $(this).addClass("wrong");
+        isRepeat = true;
+      }
+    });
+    if (isRepeat) {
+      rootSoundEffect($stupid);
+      var alertmsg = "工作不能重複。";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      return;
+    }
+    //3.順序要正確
+
+    var isCorrectOrder = true;
+    if (!checkSequence(row1)) {
+      row1.addClass("wrong");
+      isCorrectOrder = false;
+    }
+    if (!checkSequence(row2)) {
+      row2.addClass("wrong");
+      isCorrectOrder = false;
+    }
+    if (!checkSequence(row3)) {
+      row3.addClass("wrong");
+      isCorrectOrder = false;
+    }
+    if (!checkSequence(row4)) {
+      row4.addClass("wrong");
+      isCorrectOrder = false;
+    }
+    if (isCorrectOrder) {
+      bingo();
+    } else {
+      rootSoundEffect($stupid);
+
+      var alertmsg = "工作順序不正確。";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+    }
+  };
+  var checkSequence = function (sensors) {
+    var filledData = sensors
+      .map(function (index) {
+        var val = $(this).attr("fillin");
+        return val && val.trim() !== "" ? { idx: index, val: val } : null;
+      })
+      .get();
+
+    if (filledData.length === 0) return true;
+
+    var pos = {};
+    var maxIdx = -1;
+    filledData.forEach((item) => {
+      pos[item.val] = item.idx;
+      if (item.idx > maxIdx) maxIdx = item.idx;
+    });
+
+    var isCorrect = true;
+
+    // --- 規則檢查 ---
+
+    // 修正規則 1：t9 必須是目前「所有已填入元素」中索引值最大的一個
+    // 也就是說：如果 t9 存在，它的位置必須等於目前的最大索引 maxIdx
+    if (pos["t9"] !== undefined && pos["t9"] !== maxIdx) {
+      isCorrect = false;
+      console.log("t9 必須在目前已填寫序列的最後面");
+    }
+
+    // 你的核心邏輯：A 必須在 B 的後面（索引值較大）
+    function isAfter(a, b) {
+      if (pos[a] !== undefined && pos[b] !== undefined) {
+        return pos[a] > pos[b];
+      }
+      return true;
+    }
+
+    // 規則 2: t5 要比 t1, t2, t4, t8 靠後
+    ["t1", "t2", "t4", "t8"].forEach((target) => {
+      if (!isAfter("t5", target)) isCorrect = false;
+    });
+
+    // 規則 3: t4 要比 t1, t2 靠後
+    ["t1", "t2"].forEach((target) => {
+      if (!isAfter("t4", target)) isCorrect = false;
+    });
+
+    // 規則 4: t6 要比 t3 靠後
+    if (!isAfter("t6", "t3")) isCorrect = false;
+
+    return isCorrect;
+  };
+
+  var newShowAnswer = function () {
+    $("#module_wrapper .sideTool > div.btn_answer").toggleClass("active");
+    if ($("#module_wrapper .sideTool > div.btn_answer").hasClass("active")) {
+      $("#module_wrapper .contents > div.selected .column-name").each(
+        function () {
+          $(this).html($(this).attr("ans"));
+        },
+      );
+    } else {
+      $("#module_wrapper .contents > div.selected .column-name").each(
+        function () {
+          $(this).html("");
+        },
+      );
+    }
+  };
+
+  var withinResetElem = function () {
+    $("#module_wrapper .contents > div.selected .column-name").each(
+      function () {
+        $(this).html("");
+      },
+    );
+  };
+</script>

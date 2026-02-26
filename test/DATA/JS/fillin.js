@@ -105,6 +105,10 @@ var showAnswer = function (boolean) {
           ".options." + $(this).attr("opt"),
         );
       }
+      //檢查有沒有ans屬性
+      if (!$(this).attr("ans")) {
+        return;
+      }
       var answerArr = $(this).attr("ans").split(",");
       var fillin = options
         .find(".option[fillin='" + answerArr[0] + "'] .fillin")
@@ -147,6 +151,10 @@ var checkAnswer = function () {
   }
 
   sensors.find(".sensor").each(function () {
+    //檢查有沒有ans屬性
+    if (!$(this).attr("ans")) {
+      return;
+    }
     var answerArr = $(this).attr("ans").split(",");
     var gotit = false;
     for (var i = 0; i < answerArr.length; i++) {

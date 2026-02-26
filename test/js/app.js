@@ -517,6 +517,10 @@ let dekeeplizeElement = function (name) {
 let loadContainerInside = function (htmlPath, jsPath, p) {
   //20230331 updated
   $("#demo").hide();
+  var container_name = ".main.selected";
+  if ($(container_name).length === 0) {
+    container_name = "#main";
+  }
 
   pid = p;
   console.log("pid:" + pid);
@@ -529,7 +533,7 @@ let loadContainerInside = function (htmlPath, jsPath, p) {
   ];
   $.getComponent(
     "./DATA/" + htmlPath,
-    "#main",
+    container_name,
     style_arr,
     "./DATA/",
     script_arr,
@@ -538,7 +542,7 @@ let loadContainerInside = function (htmlPath, jsPath, p) {
   resetAudio();
   //loadPanel();
   //$("#return").show();
-  $("#main").show();
+  $(container_name).show();
   //stop particle animation
   isPaused = true;
 };

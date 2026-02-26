@@ -7,6 +7,7 @@
 
   <div class="sideTool">
     <div class="btn_answer"></div>
+    <div class="btn_check"></div>
     <div class="btn_replay"></div>
     <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
   </div>
@@ -14,7 +15,7 @@
   <div id="contents" class="contents">
     <!--任務一-->
     <div>
-      <div class="intro" style="display: none">
+      <div class="intro">
         <div>
           <h3>How to play?</h3>
           <p>
@@ -193,33 +194,6 @@
 
   <div class="assetsPreload"></div>
 </div>
-
-<script>
-  var checkSum = function (tar, rowID) {
-    // 阻止原本的 click event
-    if (tar && tar.length > 0) {
-      tar.off("click");
-    }
-
-    // 找到同樣 rowID 的所有 sensor
-    var sensors = $(`#module_wrapper .sensor[row="${rowID}"]`);
-
-    // 把數字加起來
-    var sum = 0;
-    sensors.each(function () {
-      var fillin = $(this).attr("fillin");
-      if (fillin && fillin !== "") {
-        var num = parseInt(fillin, 10);
-        if (!isNaN(num)) {
-          sum += num;
-        }
-      }
-    });
-
-    rootSoundEffect($help);
-    tar.html(sum);
-  };
-</script>
 
 <style>
   #module_wrapper .contents > div.selected .sensorArea .sensor,

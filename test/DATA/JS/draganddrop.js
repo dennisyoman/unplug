@@ -419,19 +419,36 @@ var showAnswer = function (boolean) {
           //答案預設位置
           var ansTop = oriY + oY;
           var ansLeft = oriX + oX;
+
           if (toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto") {
-            var ap = toys.eq(i).attr("ap").split(",");
-            ansTop = ap[0];
-            ansLeft = ap[1];
+            var aps = toys.eq(i).attr("ap").split("^");
+            for (var a = 0; a < aps.length; a++) {
+              var ap = aps[a].split(",");
+              ansTop = ap[0];
+              ansLeft = ap[1];
+              //
+              ansArray[ansArray.length - 1].push(
+                `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+                  .eq(i)
+                  .prop("outerHTML")}</div>`,
+              );
+              //是否是疊加stack的卡片
+              if (!toys.eq(i).hasClass("stack")) {
+                oX += caWidth;
+              }
+            }
+          } else {
+            //
+            ansArray[ansArray.length - 1].push(
+              `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+                .eq(i)
+                .prop("outerHTML")}</div>`,
+            );
+            //是否是疊加stack的卡片
+            if (!toys.eq(i).hasClass("stack")) {
+              oX += caWidth;
+            }
           }
-          //
-          ansArray[ansArray.length - 1].push(
-            `<div class="cardAvatar cardAvatarDie" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
-              .eq(i)
-              .prop("outerHTML")}</div>`,
-          );
-          //
-          oX += caWidth;
         }
       }
     });

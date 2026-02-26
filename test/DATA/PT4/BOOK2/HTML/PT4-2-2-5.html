@@ -1,0 +1,186 @@
+<div id="module_wrapper" class="module_box">
+  <div class="tabs">
+    <span>任務一</span>
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-2-5-2.html','JS/fillin.js',1)"
+      >任務二</span
+    >
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-2-5-2.html','JS/fillin.js',2)"
+      >任務三</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            ><br />有序小魔女：「不用慌張，我們把全部的事情用一張圖來表現。」
+            <br />* 可以截圖給任務二&任務三參考喔！
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-Note.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="sensorArea" style="margin-left: 20px">
+        <div
+          onClick="modifyName($(this))"
+          class="column-name"
+          style="top: 289px; left: 346px; width: 74px; height: 12px"
+          ans="買食材、清理烤箱、買掃把"
+        ></div>
+        <img
+          class="wow fadeIn"
+          height="310px"
+          width="280px"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInLeft"
+        style="width: 130px; gap: 5px; bottom: 10px; left: 20px"
+      >
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="210,347"
+        >
+          <img
+            style="transform: rotate(150deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="65,341^162,400"
+        >
+          <img
+            style="transform: rotate(130deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="203,321^130,321"
+        >
+          <img
+            style="transform: rotate(90deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="65,300^203,290"
+        >
+          <img
+            style="transform: rotate(50deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="228,275"
+        >
+          <img
+            style="transform: rotate(30deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="14,347">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteA.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="14,260">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteB.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="113,404">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteC.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="76,303">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteE.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="190,225">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteF.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="170,361">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteG.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="149,303">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteH.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="150,254">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteI.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .column-name {
+    position: absolute;
+    z-index: 2;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+  .column-name:not(:empty) {
+    border: none;
+  }
+</style>
+<script>
+  var modifyName = (item) => {
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      rootSoundEffect($pop);
+      item.html(text);
+      rootSoundEffect($key);
+    }
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $("#module_wrapper .contents > div.selected .column-name").each(
+        function () {
+          $(this).html($(this).attr("ans"));
+        },
+      );
+    } else {
+      $("#module_wrapper .contents > div.selected .column-name").each(
+        function () {
+          $(this).html("");
+        },
+      );
+    }
+  };
+  var withinResetElem = function () {
+    $("#module_wrapper .contents > div.selected .column-name").each(
+      function () {
+        $(this).html("");
+      },
+    );
+  };
+</script>
