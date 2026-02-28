@@ -1,0 +1,539 @@
+<div id="module_wrapper" class="module_box chal-PT4-2-4-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-4-5-2.html','JS/fillin.js',2)"
+      >任務三</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：今天是<b>周二</b>，請幫OS紀錄每個人的工作開始時間和在等待區等待的時間。
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-4-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="sensorArea nocheckbtn" style="margin-left: 20px">
+        <!-- 人名  -->
+
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 53px; left: 175px; width: 31px; height: 12px"
+          ans="波比"
+        ></span>
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 94px; left: 175px; width: 31px; height: 12px"
+          ans="彼得"
+        ></span>
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 133px; left: 175px; width: 31px; height: 12px"
+          ans="哈利"
+        ></span>
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 173px; left: 175px; width: 31px; height: 12px"
+          ans="安娜"
+        ></span>
+
+        <!-- 開始時間  -->
+        <span
+          class="column-text"
+          person="ruby"
+          style="top: 215px; left: 284px; width: 31px; height: 12px"
+          ans="8:00"
+        ></span>
+        <span
+          class="column-text"
+          person="bobby"
+          style="top: 233px; left: 284px; width: 31px; height: 12px"
+          ans="8:03"
+        ></span>
+        <span
+          class="column-text"
+          person="peter"
+          style="top: 252px; left: 284px; width: 31px; height: 12px"
+          ans="8:05"
+        ></span>
+        <span
+          class="column-text"
+          person="harry"
+          style="top: 272px; left: 284px; width: 31px; height: 12px"
+          ans="8:08"
+        ></span>
+        <span
+          class="column-text"
+          person="anna"
+          style="top: 291px; left: 284px; width: 31px; height: 12px"
+          ans="8:10"
+        ></span>
+
+        <!-- 待了幾分鐘  -->
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 215px; left: 360px; width: 31px; height: 12px"
+          ans="0"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 233px; left: 360px; width: 31px; height: 12px"
+          ans="4"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 252px; left: 360px; width: 31px; height: 12px"
+          ans="10"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 272px; left: 360px; width: 31px; height: 12px"
+          ans="17"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 291px; left: 360px; width: 31px; height: 12px"
+          ans="18"
+        ></span>
+
+        <!-- 圖片 -->
+        <img
+          class="wow fadeIn"
+          height="310px"
+          width="280px"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-4-5-1.png"
+        />
+      </div>
+      <div
+        class="toys noShuffle wow slideInLeft"
+        style="width: 130px; gap: 5px; bottom: 10px; left: 20px"
+      >
+        <div class="toy cards middle" ap="104,250">
+          <img person="peter" src="./DATA/PT4/BOOK2/IMAGES/Peter.png" />
+        </div>
+        <div class="toy cards middle" ap="24,222">
+          <img person="ruby" src="./DATA/PT4/BOOK2/IMAGES/Ruby.png" />
+        </div>
+        <div class="toy cards middle" ap="63,239">
+          <img person="bobby" src="./DATA/PT4/BOOK2/IMAGES/Bobby.png" />
+        </div>
+        <div class="toy cards middle" ap="145,268">
+          <img person="harry" src="./DATA/PT4/BOOK2/IMAGES/Harry.png" />
+        </div>
+        <div class="toy cards middle" ap="183,280">
+          <img person="anna" src="./DATA/PT4/BOOK2/IMAGES/Anna.png" />
+        </div>
+        <div class="toy cards middle" ap="145,376">
+          <div class="duration-arrow" style="--duration: 3">3min</div>
+        </div>
+        <div class="toy cards middle" ap="183,394">
+          <div class="duration-arrow" style="--duration: 5">5min</div>
+        </div>
+        <div class="toy cards middle" ap="24,232">
+          <div class="duration-arrow" style="--duration: 7">7min</div>
+        </div>
+        <div class="toy cards middle" ap="63,273">
+          <div class="duration-arrow" style="--duration: 8">8min</div>
+        </div>
+        <div class="toy cards middle" ap="104,319">
+          <div class="duration-arrow" style="--duration: 10">10min</div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：今天是<b>周三</b>，請幫OS紀錄每個人的工作開始時間和在等待區等待的時間。
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-4-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="sensorArea nocheckbtn" style="margin-left: 20px">
+        <!-- 人名  -->
+
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 53px; left: 175px; width: 31px; height: 12px"
+          ans="波比"
+        ></span>
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 94px; left: 175px; width: 31px; height: 12px"
+          ans="哈利"
+        ></span>
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 133px; left: 175px; width: 31px; height: 12px"
+          ans="安娜"
+        ></span>
+        <span
+          onClick="loopName($(this))"
+          class="column-text"
+          style="top: 173px; left: 175px; width: 31px; height: 12px"
+          ans="彼得"
+        ></span>
+
+        <!-- 開始時間  -->
+        <span
+          class="column-text"
+          person="ruby"
+          style="top: 215px; left: 284px; width: 31px; height: 12px"
+          ans="8:00"
+        ></span>
+        <span
+          class="column-text"
+          person="bobby"
+          style="top: 233px; left: 284px; width: 31px; height: 12px"
+          ans="8:03"
+        ></span>
+        <span
+          class="column-text"
+          person="peter"
+          style="top: 252px; left: 284px; width: 31px; height: 12px"
+          ans="8:05"
+        ></span>
+        <span
+          class="column-text"
+          person="harry"
+          style="top: 272px; left: 284px; width: 31px; height: 12px"
+          ans="8:08"
+        ></span>
+        <span
+          class="column-text"
+          person="anna"
+          style="top: 291px; left: 284px; width: 31px; height: 12px"
+          ans="8:10"
+        ></span>
+
+        <!-- 待了幾分鐘  -->
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 215px; left: 360px; width: 31px; height: 12px"
+          ans="0"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 233px; left: 360px; width: 31px; height: 12px"
+          ans="4"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 252px; left: 360px; width: 31px; height: 12px"
+          ans="18"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 272px; left: 360px; width: 31px; height: 12px"
+          ans="10"
+        ></span>
+        <span
+          onClick="modifyText($(this))"
+          class="column-text"
+          style="top: 291px; left: 360px; width: 31px; height: 12px"
+          ans="8"
+        ></span>
+
+        <!-- 圖片 -->
+        <img
+          class="wow fadeIn"
+          height="310px"
+          width="280px"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-4-5-1.png"
+        />
+      </div>
+      <div
+        class="toys noShuffle wow slideInLeft"
+        style="width: 130px; gap: 5px; bottom: 10px; left: 20px"
+      >
+        <div class="toy cards middle" ap="183,250">
+          <img person="peter" src="./DATA/PT4/BOOK2/IMAGES/Peter.png" />
+        </div>
+        <div class="toy cards middle" ap="24,222">
+          <img person="ruby" src="./DATA/PT4/BOOK2/IMAGES/Ruby.png" />
+        </div>
+        <div class="toy cards middle" ap="63,239">
+          <img person="bobby" src="./DATA/PT4/BOOK2/IMAGES/Bobby.png" />
+        </div>
+        <div class="toy cards middle" ap="104,268">
+          <img person="harry" src="./DATA/PT4/BOOK2/IMAGES/Harry.png" />
+        </div>
+        <div class="toy cards middle" ap="145,280">
+          <img person="anna" src="./DATA/PT4/BOOK2/IMAGES/Anna.png" />
+        </div>
+        <div class="toy cards middle" ap="104,319">
+          <div class="duration-arrow" style="--duration: 3">3min</div>
+        </div>
+        <div class="toy cards middle" ap="145,336">
+          <div class="duration-arrow" style="--duration: 5">5min</div>
+        </div>
+        <div class="toy cards middle" ap="24,232">
+          <div class="duration-arrow" style="--duration: 7">7min</div>
+        </div>
+        <div class="toy cards middle" ap="63,273">
+          <div class="duration-arrow" style="--duration: 8">8min</div>
+        </div>
+        <div class="toy cards middle" ap="183,365">
+          <div class="duration-arrow" style="--duration: 10">10min</div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div></div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .chal-PT4-2-4-5 .cardAvatar:has(img[person]) {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .chal-PT4-2-4-5 .cardAvatar img[person] {
+    transform-origin: center top;
+    transform: translateY(-50%);
+  }
+  .chal-PT4-2-4-5 .toy:has(.duration-arrow) {
+    width: auto !important;
+    height: 20px !important;
+    display: grid;
+    place-items: center;
+  }
+
+  .chal-PT4-2-4-5 .toys .toy.disable .duration-arrow,
+  .chal-PT4-2-4-5 .toys .toy.cached .duration-arrow {
+    opacity: 0;
+  }
+  .chal-PT4-2-4-5 .toys .toy.semiTransparent .duration-arrow {
+    opacity: 0.3;
+  }
+  .chal-PT4-2-4-5 .duration-arrow {
+    position: relative;
+    display: inline-block;
+    width: calc(var(--duration) * 5.7px);
+    height: 2px;
+    background: #324681;
+    font-size: 7px !important;
+    color: #000;
+    text-align: center;
+  }
+  .chal-PT4-2-4-5 .duration-arrow::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: -4px;
+    border-style: solid;
+    border-width: 4px 4px 0px 0px;
+    border-color: transparent #324681 transparent transparent;
+  }
+  .chal-PT4-2-4-5 .duration-arrow::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0;
+    top: -4px;
+    border-style: solid;
+    border-width: 4px 0px 0px 4px;
+    border-color: transparent transparent transparent #324681;
+  }
+
+  .column-text,
+  .column-name {
+    position: absolute;
+    z-index: 2;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+
+  .column-text:not(:empty),
+  .column-name:not(:empty) {
+    border: none;
+  }
+</style>
+<script>
+  var modifyText = (item) => {
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+  };
+
+  var loopName = (item) => {
+    event.stopPropagation();
+    var nameList = ["露比", "波比", "彼得", "哈利", "安娜"];
+    var currentIndex = nameList.indexOf(item.html());
+    var nextIndex = (currentIndex + 1) % nameList.length;
+    item.html(nameList[nextIndex]);
+    rootSoundEffect($key);
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html($(this).attr("ans"));
+        },
+      );
+    } else {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html("");
+        },
+      );
+    }
+  };
+
+  var withinResetElem = function () {
+    $("#module_wrapper .contents > div.selected .column-text").each(
+      function () {
+        $(this).html("");
+      },
+    );
+  };
+
+  //以下是用來監測拖曳的變動，監測到變動後，會更新對應的column-text
+  var $container = $(".chal-PT4-2-4-5");
+  var debounceTimer;
+  var changedElements = new Set();
+  var removedElements = new Set(); // 新增：用來記錄被移除的元素
+
+  if ($container.length > 0) {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        // 1. 處理移除邏輯
+        if (mutation.removedNodes.length > 0) {
+          mutation.removedNodes.forEach((node) => {
+            // 檢查被移除的 node 本身是不是 .cardAvatarDie，或是包含 .cardAvatarDie
+            const $removed = $(node);
+            if (
+              $removed.hasClass("cardAvatarDie") ||
+              $removed.find(".cardAvatarDie").length > 0
+            ) {
+              removedElements.add(node);
+            }
+          });
+        }
+
+        // 2. 處理變更邏輯 (原有的)
+        const $target = $(mutation.target).closest(".cardAvatarDie");
+        if ($target.length > 0) {
+          changedElements.add($target[0]);
+        }
+      });
+
+      // 處理防抖與後續輸出
+      if (changedElements.size > 0 || removedElements.size > 0) {
+        clearTimeout(debounceTimer);
+        if (!$container.find(".btn_answer").hasClass("active")) {
+          debounceTimer = setTimeout(() => {
+            // --- 處理移除的邏輯 ---
+            removedElements.forEach((el) => {
+              //console.log("偵測到 .cardAvatarDie 被移除了:", el);
+              // 在此處加入你移除時的邏輯，例如清除對應的 column-text
+              var personID = $(el).find("img[person]").attr("person");
+              var targetCloumn = $(
+                "#module_wrapper .contents > div.selected .column-text[person='" +
+                  personID +
+                  "']",
+              );
+              targetCloumn.empty();
+            });
+
+            // --- 處理變更的邏輯 ---
+            if (changedElements.size > 0) {
+              console.log(
+                `--- 偵測到 ${changedElements.size} 個 .cardAvatarDie 發生變更 ---`,
+              );
+              changedElements.forEach((el) => {
+                var personID = $(el).find("img[person]").attr("person");
+                var targetCloumn = $(
+                  "#module_wrapper .contents > div.selected .column-text[person='" +
+                    personID +
+                    "']",
+                );
+                //Grid Size
+                var start = 222;
+                var end = 451;
+                var totelGrid = 40;
+                var gridSize = (end - start) / totelGrid;
+                var unit = 1; //分鐘的單位
+                var posX = parseInt(
+                  ((parseInt($(el).css("left")) - start + gridSize / 2) /
+                    gridSize) *
+                    unit,
+                );
+                targetCloumn.text(
+                  "8:" + String(Math.max(0, posX)).padStart(2, "0"),
+                );
+              });
+            }
+
+            // 清空 Set
+            changedElements.clear();
+            removedElements.clear();
+          }, 50);
+        }
+      }
+    });
+
+    observer.observe($container[0], {
+      attributes: true,
+      attributeFilter: ["class"],
+      childList: true, // 監測移除必須開啟
+      subtree: true,
+      characterData: true,
+    });
+  }
+</script>

@@ -1,0 +1,200 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-4-5.html','JS/dragndropnarrow.js',0)"
+      >任務一</span
+    >
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-4-5.html','JS/dragndropnarrow.js',1)"
+      >任務二</span
+    >
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div
+      class="btn_answer"
+      onClick="event.stopImmediatePropagation();newShowAnswer()"
+    ></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div></div>
+    <!--任務二-->
+    <div></div>
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：把前面兩個任務的等待時間比較看看，你能發現兩種規則會有怎樣不同的結果呢？
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-4-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="sensorArea">
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 75px; left: 64px; width: 94px; height: 22px"
+            column="1"
+            ans="0"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 99px; left: 64px; width: 94px; height: 22px"
+            column="1"
+            ans="4"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 122px; left: 64px; width: 94px; height: 22px"
+            column="1"
+            ans="10"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 146px; left: 64px; width: 94px; height: 22px"
+            column="1"
+            ans="17"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 170px; left: 64px; width: 94px; height: 22px"
+            column="1"
+            ans="18"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();"
+            class="column-text sensor"
+            sum="1"
+            style="top: 194px; left: 64px; width: 94px; height: 22px"
+            ans="49"
+          ></div>
+
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 75px; left: 160px; width: 94px; height: 22px"
+            column="2"
+            ans="0"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 99px; left: 160px; width: 94px; height: 22px"
+            column="2"
+            ans="4"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 122px; left: 160px; width: 94px; height: 22px"
+            column="2"
+            ans="18"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 146px; left: 160px; width: 94px; height: 22px"
+            column="2"
+            ans="10"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            class="column-text sensor"
+            style="top: 170px; left: 160px; width: 94px; height: 22px"
+            column="2"
+            ans="8"
+          ></div>
+          <div
+            onClick="event.stopImmediatePropagation();"
+            class="column-text sensor"
+            sum="2"
+            style="top: 194px; left: 160px; width: 94px; height: 22px"
+            ans="40"
+          ></div>
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-4-5-3.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+<script>
+  var modifyText = (item) => {
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      rootSoundEffect($pop);
+      item.html(text);
+      rootSoundEffect($key);
+      //sumup
+      var columnID = item.attr("column");
+      var sumItem = item.parent().find("[sum='" + columnID + "']");
+      var columns = item
+        .parent()
+        .find("[column='" + columnID + "']:not(:empty)");
+      var sum = 0;
+      columns.each(function () {
+        sum += parseInt($(this).text());
+        console.log($(this).text());
+      });
+      sumItem.html(sum);
+    }
+  };
+
+  var newShowAnswer = function () {
+    $("#module_wrapper .sideTool > div.btn_answer").toggleClass("active");
+    if ($("#module_wrapper .sideTool > div.btn_answer").hasClass("active")) {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html($(this).attr("ans"));
+        },
+      );
+      rootSoundEffect($help);
+    } else {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html("");
+        },
+      );
+      rootSoundEffect($show);
+    }
+  };
+</script>
+<style>
+  .column-text {
+    position: absolute;
+    z-index: 2;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+  .column-text:not(:empty) {
+    border: none;
+  }
+</style>

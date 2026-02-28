@@ -12502,6 +12502,7 @@
       position: relative;
       z-index: 1;
       > span {
+        position: absolute;
         //for visibility use
         //background: rgba(255, 0, 0, 0.2);
         //pointer-events: auto;

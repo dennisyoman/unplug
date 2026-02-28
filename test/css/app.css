@@ -12228,6 +12228,7 @@
   z-index: 1;
 }
 .module_box .contents .sensorArea > span {
+  position: absolute;
   z-index: 1;
 }
 .module_box .contents .arrowArea {

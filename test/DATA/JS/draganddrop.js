@@ -364,7 +364,12 @@ var checkStatus = function () {
 };
 
 var showAnswer = function (boolean) {
-  var containers = $(".contents > div.selected .sensorArea").children();
+  var containers = $(".contents > div.selected .sensorArea").children(
+    "[group]",
+  );
+  if (containers.length == 0) {
+    containers = $(".contents > div.selected .sensorArea").children().eq(0);
+  }
   var toys = $(".contents > div.selected .toys > .toy");
   if (boolean) {
     //秀出答案

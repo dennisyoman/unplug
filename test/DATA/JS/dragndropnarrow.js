@@ -376,8 +376,15 @@ var checkStatus = function () {
 };
 
 var showAnswer = function (boolean) {
-  var containers = $(".contents > div.selected .sensorArea").children();
+  var containers = $(".contents > div.selected .sensorArea").children(
+    "[group]",
+  );
+  if (containers.length == 0) {
+    containers = $(".contents > div.selected .sensorArea").children().eq(0);
+  }
   var toys = $(".contents > div.selected .toys > .toy");
+  console.log(containers);
+  console.log(toys);
   if (boolean) {
     //秀出答案
     $(".contents > div.selected").find(".selected").removeClass("selected");
@@ -437,6 +444,7 @@ var showAnswer = function (boolean) {
           var ansLeft = oriX + oX;
           if (toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto") {
             var aps = toys.eq(i).attr("ap").split("^");
+            console.log(aps.length);
             for (var a = 0; a < aps.length; a++) {
               var ap = aps[a].split(",");
               ansTop = ap[0];
