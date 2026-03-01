@@ -408,7 +408,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
-  $(".cardAvatarDie").remove();
+  $("#module_wrapper .cardAvatarDie").remove();
   //if has group
   if (elem.find(".group").length > 0) {
     elem.find(".group .item").eq(0).addClass("selected");

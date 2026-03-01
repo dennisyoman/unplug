@@ -1,0 +1,254 @@
+<div id="module_wrapper" class="module_box PT4-2-1-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：依據各個表演開始與結束的時間，在圖表中排出表演的順序。
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/timetable1.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="sensorArea" style="margin-left: 20px">
+        <img
+          class="wow fadeIn tti"
+          height="310px"
+          width="auto"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-4-1.png"
+        />
+      </div>
+      <div class="timetable1 simplyDrag wow bounceInUp">
+        <img
+          src="./DATA/PT4/BOOK2/IMAGES/timetable1.png"
+          style="width: 100%; height: auto"
+        />
+      </div>
+      <div
+        class="toys noShuffle wow slideInLeft"
+        style="width: 130px; gap: 5px; bottom: 10px; left: 20px"
+      >
+        <div class="toy cards middle" ap="49,219" dur="3">
+          <div class="show-card" style="--duration: 3">
+            <span onClick="shortenDuration($(this))">-</span>燈光水舞秀<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="燈光水舞秀" />
+          </div>
+        </div>
+        <div class="toy cards middle" ap="71,255" dur="2">
+          <div class="show-card" style="--duration: 2">
+            <span onClick="shortenDuration($(this))">-</span>面具彩繪DIY<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="面具彩繪DIY" />
+          </div>
+        </div>
+        <div class="toy cards middle" ap="93,280" dur="3">
+          <div class="show-card" style="--duration: 3">
+            <span onClick="shortenDuration($(this))">-</span>猴子秘境<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="猴子秘境" />
+          </div>
+        </div>
+        <div class="toy cards middle" ap="117,280" dur="4">
+          <div class="show-card" style="--duration: 4">
+            <span onClick="shortenDuration($(this))">-</span>森巴大遊行<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="森巴大遊行" />
+          </div>
+        </div>
+        <div class="toy cards middle" ap="139,317" dur="5">
+          <div class="show-card" style="--duration: 5">
+            <span onClick="shortenDuration($(this))">-</span>猛獸探險隊<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="猛獸探險隊" />
+          </div>
+        </div>
+        <div class="toy cards middle" ap="162,367" dur="3">
+          <div class="show-card" style="--duration: 3">
+            <span onClick="shortenDuration($(this))">-</span>企鵝餵食秀<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="企鵝餵食秀" />
+          </div>
+        </div>
+        <div class="toy cards middle" ap="184,391" dur="5">
+          <div class="show-card" style="--duration: 5">
+            <span onClick="shortenDuration($(this))">-</span>雄鷹飛舞<span
+              onClick="extendDuration($(this))"
+              >+</span
+            >
+            <img src="雄鷹飛舞" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-2-1-4 .timetable1 {
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    width: 250px;
+    pointer-events: auto;
+    z-index: 10;
+  }
+  .PT4-2-1-4 .toy:has(.show-card) {
+    width: auto !important;
+    height: 20px !important;
+    display: grid;
+    place-items: center left;
+  }
+  .PT4-2-1-4 .toys {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .PT4-2-1-4 .toys .toy.disable .show-card,
+  .PT4-2-1-4 .toys .toy.cached .show-card {
+    opacity: 0;
+  }
+  .PT4-2-1-4 .toys .toy.semiTransparent .show-card {
+    opacity: 0.3;
+  }
+
+  .PT4-2-1-4 .show-card {
+    position: relative;
+    display: inline-block;
+    width: 73px;
+    height: calc(100% - 2px);
+    background: #fdead1;
+    border: 1px solid #ee79368a;
+    font-size: 8px !important;
+    line-height: 1.2;
+    color: #ee7836;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .PT4-2-1-4 .show-card > span {
+    flex: 0 0 auto;
+    width: 6px;
+    font-size: 10px;
+    margin: 0 2px;
+    color: #000;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+  }
+
+  .PT4-2-1-4 .cardAvatarDie:has(.show-card) {
+    width: auto !important;
+  }
+
+  .PT4-2-1-4 .cardAvatar .show-card {
+    justify-content: space-between;
+    width: calc(var(--duration) * 12.2px);
+  }
+  .PT4-2-1-4 .cardAvatarDie .toy.cached .show-card > span {
+    display: none !important;
+  }
+  .PT4-2-1-4 .cardAvatarDie .show-card > span {
+    display: block;
+    pointer-events: auto;
+  }
+
+  .PT4-2-1-4 .column-text,
+  .PT4-2-1-4 .column-name {
+    position: absolute;
+    z-index: 2;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+
+  .PT4-2-1-4 .column-text:not(:empty),
+  .PT4-2-1-4 .column-name:not(:empty) {
+    border: none;
+  }
+</style>
+<script>
+  var shortenDuration = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var currentDuration =
+      item.parent().attr("style").split("--duration: ")[1] * 1;
+    console.log(currentDuration);
+    if (currentDuration > 1) {
+      item.parent().attr("style", "--duration: " + (currentDuration - 1));
+    }
+  };
+  var extendDuration = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var currentDuration =
+      item.parent().attr("style").split("--duration: ")[1] * 1;
+    console.log(currentDuration);
+    if (currentDuration < 9) {
+      item.parent().attr("style", "--duration: " + (currentDuration + 1));
+    }
+  };
+  var modifyName = (item) => {
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      rootSoundEffect($pop);
+      item.html(text);
+      rootSoundEffect($key);
+    }
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".PT4-2-1-4 .contents > div.selected .column-name").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
+    } else {
+      withinResetElem();
+    }
+  };
+
+  var withinResetElem = function () {
+    $(".PT4-2-1-4 .contents > div.selected .column-name").each(function () {
+      $(this).html("");
+    });
+
+    rootSoundEffect($show);
+  };
+</script>

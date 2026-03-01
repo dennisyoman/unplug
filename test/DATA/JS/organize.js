@@ -373,7 +373,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
-  $(".cardAvatar").remove();
+  $("#module_wrapper .cardAvatar").remove();
   //創造預設的方塊
   if (elem.find(".defaultBlocks").length > 0) {
     elem

@@ -392,7 +392,7 @@ var showAnswer = function (boolean) {
       .find(".cached")
       .removeClass("cached semiTransparent positionBingo");
     $(".contents > div.selected").find(".disable").removeClass("disable");
-    $(".cardAvatarDie").remove();
+    $("#module_wrapper .cardAvatarDie").remove();
     rootSoundEffect($help);
     //排位子
     var ansArray = [];
@@ -489,7 +489,7 @@ var showAnswer = function (boolean) {
       .addClass("active disabled");
   } else {
     toys.removeClass("cached semiTransparent positionBingo");
-    $(".cardAvatarDie").remove();
+    $("#module_wrapper .cardAvatarDie").remove();
     //if arrowArea fixed
     $(".contents > div.selected")
       .find(".arrowArea.fixed > span")
@@ -499,7 +499,7 @@ var showAnswer = function (boolean) {
 };
 
 var checkAnswer = function () {
-  var gotWrong = $(".cardAvatarDie:not('.right')").length;
+  var gotWrong = $("#module_wrapper .cardAvatarDie:not('.right')").length;
   //是否有答案條件
   var matchedAnswers = $(".contents > div.selected").find(
     ".condition .matched",
@@ -509,11 +509,11 @@ var checkAnswer = function () {
     var tempSeq = [];
     for (var k = 0; k < sensors.length; k++) {
       tempSeq.push(
-        $(".cardAvatarDie.s" + k)
+        $("#module_wrapper .cardAvatarDie.s" + k)
           .find(".cards")
           .eq(0)
           .attr("cid")
-          ? $(".cardAvatarDie.s" + k)
+          ? $("#module_wrapper .cardAvatarDie.s" + k)
               .find(".cards")
               .eq(0)
               .attr("cid")
@@ -544,16 +544,16 @@ var checkAnswer = function () {
     var refSeq = matchedAnswers.eq(defaultAns).text().split(",");
     for (var k = 0; k < sensors.length; k++) {
       if (
-        $(".cardAvatarDie.s" + k).length > 0 &&
-        $(".cardAvatarDie.s" + k)
+        $("#module_wrapper .cardAvatarDie.s" + k).length > 0 &&
+        $("#module_wrapper .cardAvatarDie.s" + k)
           .find(".cards")
           .eq(0)
           .attr("cid")
           .toUpperCase() == refSeq[k].toUpperCase()
       ) {
-        $(".cardAvatarDie.s" + k).addClass("right");
+        $("#module_wrapper .cardAvatarDie.s" + k).addClass("right");
       } else {
-        $(".cardAvatarDie.s" + k).removeClass("right");
+        $("#module_wrapper .cardAvatarDie.s" + k).removeClass("right");
       }
     }
   }
@@ -563,10 +563,10 @@ var checkAnswer = function () {
     rootSoundEffect($stupid);
   }
   //只顯示對的
-  if ($(".cardAvatarDie.right").length > 0) {
+  if ($("#module_wrapper .cardAvatarDie.right").length > 0) {
     var newBingo = false;
     //加上正確符號
-    $(".cardAvatarDie.right").each(function () {
+    $("#module_wrapper .cardAvatarDie.right").each(function () {
       var src1 = $(this).find("img").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
@@ -587,7 +587,7 @@ var checkAnswer = function () {
 
     //全對
     if (
-      $(".cardAvatarDie.right").length ==
+      $("#module_wrapper .cardAvatarDie.right").length ==
       $(".contents > div.selected").find(".sensorArea > span").length
     ) {
       //是否有箭頭需要點選
@@ -677,14 +677,14 @@ var resetElem = function (elem) {
       ////dymamic function here
       withinResetElem();
     });
-  $(".contain").remove();
+  $("#module_wrapper .contain").remove();
 
   //smoke effect
-  $(".smoke").remove();
-  $(".resultIcon").remove();
-  $(".cardAvatarDie").remove();
+  $("#module_wrapper .smoke").remove();
+  $("#module_wrapper .resultIcon").remove();
+  $("#module_wrapper .cardAvatarDie").remove();
   //
-  $(".sideTool > div.btn_answer").show();
+  $("#module_wrapper .sideTool > div.btn_answer").show();
 };
 
 var resetTool = function () {

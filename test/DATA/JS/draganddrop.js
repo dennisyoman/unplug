@@ -378,7 +378,7 @@ var showAnswer = function (boolean) {
       .find(".cached")
       .removeClass("cached semiTransparent positionBingo");
     $(".contents > div.selected").find(".disable").removeClass("disable");
-    $(".cardAvatarDie").remove();
+    $("#module_wrapper .cardAvatarDie").remove();
     rootSoundEffect($help);
     //排位子
     var ansArray = [];
@@ -466,7 +466,7 @@ var showAnswer = function (boolean) {
     }
   } else {
     toys.removeClass("cached semiTransparent positionBingo");
-    $(".cardAvatarDie").remove();
+    $("#module_wrapper .cardAvatarDie").remove();
   }
 };
 
@@ -477,15 +477,15 @@ var toggleHint = function (tar) {
 
 var checkAnswer = function () {
   //把錯誤的放回原位
-  if ($(".cardAvatarDie:not('.right')").length > 0) {
-    $(".cardAvatarDie:not('.right')").click();
+  if ($("#module_wrapper .cardAvatarDie:not('.right')").length > 0) {
+    $("#module_wrapper .cardAvatarDie:not('.right')").click();
     rootSoundEffect($stupid);
   }
   //只顯示對的
-  if ($(".cardAvatarDie.right").length > 0) {
+  if ($("#module_wrapper .cardAvatarDie.right").length > 0) {
     var newBingo = false;
     //加上正確符號
-    $(".cardAvatarDie.right").each(function () {
+    $("#module_wrapper .cardAvatarDie.right").each(function () {
       var src1 = $(this).find("img").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
@@ -505,7 +505,7 @@ var checkAnswer = function () {
   }
   //全對
   if (
-    $(".cardAvatarDie.right").length ==
+    $("#module_wrapper .cardAvatarDie.right").length ==
     $(".contents > div.selected").find(".sensorArea > span:not([col])").length
   ) {
     bingo();
@@ -523,7 +523,7 @@ var checkAnswer = function () {
       var col = cols.eq(i);
       totalCols += parseInt(col.attr("col"));
     }
-    if (totalCols == $(".cardAvatarDie.right").length) {
+    if (totalCols == $("#module_wrapper .cardAvatarDie.right").length) {
       bingo();
     }
     console.log(totalCols);
@@ -537,10 +537,10 @@ var showSpecificAnswer = function (str) {
   //取消錯誤的
   for (var i = 0; i < arr.length; i++) {
     var sid = parseInt(arr[i]);
-    var tar = $(".cardAvatarDie.s" + sid);
+    var tar = $("#module_wrapper .cardAvatarDie.s" + sid);
     if (tar.length > 0) {
     }
-    $(".cardAvatarDie.s" + sid + ":not('.right')").click();
+    $("#module_wrapper .cardAvatarDie.s" + sid + ":not('.right')").click();
   }
   //補上缺少的
   var containers = $(".contents > div.selected .sensorArea").children();
@@ -548,7 +548,7 @@ var showSpecificAnswer = function (str) {
   var ansArray = new Array();
   for (var j = 0; j < arr.length; j++) {
     var sid = parseInt(arr[j]);
-    if ($(".cardAvatarDie.s" + sid).length == 0) {
+    if ($("#module_wrapper .cardAvatarDie.s" + sid).length == 0) {
       //排位子
       containers.each(function (index) {
         if (sid == index) {
@@ -650,7 +650,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
-  $(".cardAvatarDie").remove();
+  $("#module_wrapper .cardAvatarDie").remove();
   //
   $(".sideTool > div.btn_answer").show();
 };

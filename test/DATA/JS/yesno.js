@@ -195,7 +195,7 @@ var showAnswer = function (boolean) {
     $(".contents > div.selected .toys")
       .find(".cached")
       .removeClass("cached semiTransparent");
-    $(".cardAvatarDie").remove();
+    $("#module_wrapper .cardAvatarDie").remove();
     rootSoundEffect($help);
     //排位子
     var ansArray = [];
@@ -408,7 +408,7 @@ var checkStatus = function () {
 
   //放完了沒
   if (
-    $(".cardAvatarDie").length ==
+    $("#module_wrapper .cardAvatarDie").length ==
     $(".contents > div.selected .cardArea > span").length
   ) {
     console.log("放完");
@@ -686,7 +686,7 @@ var resetElem = function (elem) {
 
   //reset cards
   elem.find(".cached").removeClass("cached semiTransparent");
-  $(".cardAvatar").remove();
+  $("#module_wrapper .cardAvatar").remove();
   $(".smoke").remove();
   $(".resultIcon").remove();
   //

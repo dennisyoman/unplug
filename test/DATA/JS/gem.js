@@ -357,7 +357,7 @@ var resetElem = function (elem) {
   $(".sideTool > div.btn_answer").removeClass("active").show();
   //smoke effect
   $(".smoke").remove();
-  $(".cardAvatar").remove();
+  $("#module_wrapper .cardAvatar").remove();
 };
 
 var resetTool = function () {

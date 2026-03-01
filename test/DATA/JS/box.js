@@ -223,7 +223,7 @@ var checkOrderStatus = function () {
       .delay(1000)
       .queue(function () {
         $(".smoke").remove();
-        $(".cardAvatarDie").remove();
+        $("#module_wrapper .cardAvatarDie").remove();
         $(this).dequeue();
         $(".sideTool > div.btn_replay").show();
       });
@@ -253,7 +253,7 @@ var checkOrderStatus = function () {
       .delay(1000)
       .queue(function () {
         $(".smoke").remove();
-        $(".cardAvatarDie").remove();
+        $("#module_wrapper .cardAvatarDie").remove();
         $(this).removeClass("cached").dequeue();
       });
   }
@@ -437,8 +437,8 @@ var resetElem = function (elem) {
   $(".contain").remove();
   //smoke effect
   $(".smoke").remove();
-  $(".cardAvatarDie").remove();
-  $(".sideTool > div.btn_unbox").hide();
+  $("#module_wrapper .cardAvatarDie").remove();
+  $("#module_wrapper .sideTool > div.btn_unbox").hide();
 };
 
 var resetTool = function () {

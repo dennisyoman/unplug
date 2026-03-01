@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_box">
+<div id="module_wrapper" class="module_box PT4-2-2-5">
   <div class="tabs">
     <span>任務一</span>
     <span
@@ -133,7 +133,7 @@
 </div>
 
 <style>
-  .column-name {
+  .PT4-2-2-5 .column-name {
     position: absolute;
     z-index: 2;
     font-size: 10px;
@@ -142,7 +142,7 @@
     white-space: nowrap;
     pointer-events: auto;
   }
-  .column-name:not(:empty) {
+  .PT4-2-2-5 .column-name:not(:empty) {
     border: none;
   }
 </style>
@@ -163,24 +163,16 @@
   //dynamic function for this html only
   var withinShowAnswer = function (boolean) {
     if (boolean) {
-      $("#module_wrapper .contents > div.selected .column-name").each(
-        function () {
-          $(this).html($(this).attr("ans"));
-        },
-      );
+      $(".PT4-2-2-5 .contents > div.selected .column-name").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
     } else {
-      $("#module_wrapper .contents > div.selected .column-name").each(
-        function () {
-          $(this).html("");
-        },
-      );
+      withinResetElem();
     }
   };
   var withinResetElem = function () {
-    $("#module_wrapper .contents > div.selected .column-name").each(
-      function () {
-        $(this).html("");
-      },
-    );
+    $(".PT4-2-2-5 .contents > div.selected .column-name").each(function () {
+      $(this).html("");
+    });
   };
 </script>

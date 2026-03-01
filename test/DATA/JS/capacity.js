@@ -408,7 +408,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
-  $(".cardAvatarDie").remove();
+  $("#module_wrapper .cardAvatarDie").remove();
   //
   $(".sideTool > div.btn_answer").show();
 };

@@ -1,0 +1,384 @@
+<div id="module_wrapper" class="module_fillin PT4-2-1-5-2">
+  <div class="tabs">
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-1-5.html','JS/dragndropnarrow.js',0)"
+      >任務一</span
+    >
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer" onClick="newShowAnswer()"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div></div>
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：如果一定要看到企鵝餵食秀，最多還可以觀看哪些表演？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="sensorArea">
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 4px; left: 7px; width: 54px; height: 12px"
+            ans="0"
+            target="shows1"
+          >
+            1.動物列車
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 22px; left: 18px; width: 33px; height: 12px"
+            ans="1"
+            target="shows1"
+          >
+            2.燈光水舞秀
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 39px; left: 50px; width: 22px; height: 12px"
+            ans="1"
+            target="shows1"
+          >
+            3.面具彩繪DIY
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 55px; left: 72px; width: 33px; height: 12px"
+            ans="1"
+            target="shows1"
+          >
+            4.猴子秘境
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 71px; left: 72px; width: 43px; height: 12px"
+            ans="0"
+            target="shows1"
+          >
+            5.森巴大遊行
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 87px; left: 103px; width: 55px; height: 12px"
+            ans="0"
+            target="shows1"
+          >
+            6.猛獸探險隊
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 102px; left: 167px; width: 55px; height: 12px"
+            ans="0"
+            target="shows1"
+          >
+            8.雄鷹飛舞
+          </div>
+
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 182px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="刪掉跟企鵝餵食秀重複的活動"
+          ></div>
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 201px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="同一時間無法看2個表演"
+          ></div>
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 224px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="其他有重複的活動選擇一個時間較短的"
+          ></div>
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 241px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="選擇短的時間比較可能看到更多活動"
+          ></div>
+          <div
+            id="shows1"
+            class="column-text"
+            style="top: 277px; left: 11px; width: 213px; height: 13px"
+          ></div>
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-2.png"
+        />
+      </div>
+    </div>
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：小可參加了燈光水舞秀和面具彩繪DIY的活動，非常認真，直到11:45才完成作品。根據活動結束的時間，找出小可還可以觀看哪些表演？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="sensorArea">
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 54px; left: 7px; width: 54px; height: 12px"
+            ans="0"
+            target="shows2"
+          >
+            1.動物列車
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 64px; left: 72px; width: 33px; height: 12px"
+            ans="0"
+            target="shows2"
+          >
+            4.猴子秘境
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 81px; left: 72px; width: 43px; height: 12px"
+            ans="0"
+            target="shows2"
+          >
+            5.森巴大遊行
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 97px; left: 103px; width: 55px; height: 12px"
+            ans="1"
+            target="shows2"
+          >
+            6.猛獸探險隊
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 113px; left: 146px; width: 33px; height: 12px"
+            ans="0"
+            target="shows2"
+          >
+            7.企鵝餵食秀
+          </div>
+          <div
+            onclick="toggleActive($(this))"
+            class="column-show"
+            style="top: 128px; left: 167px; width: 55px; height: 12px"
+            ans="1"
+            target="shows2"
+          >
+            8.雄鷹飛舞
+          </div>
+
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 182px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="刪掉猴子秘境和森巴大遊行"
+          ></div>
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 201px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="延長的時間會和這兩個活動重複"
+          ></div>
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 224px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="選擇猛獸探險隊和雄鷹飛舞"
+          ></div>
+          <div
+            onClick="revealAnswer($(this))"
+            class="column-text"
+            style="
+              top: 241px;
+              left: 11px;
+              width: 213px;
+              height: 13px;
+              padding-left: 40px;
+            "
+            ans="企鵝餵食秀和這2個活動都有時間重疊"
+          ></div>
+          <div
+            id="shows2"
+            class="column-text"
+            style="top: 277px; left: 11px; width: 213px; height: 13px"
+          ></div>
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-3.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+<script>
+  var revealAnswer = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    item.html(item.attr("ans"));
+    rootSoundEffect($help);
+  };
+
+  var toggleActive = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    item.toggleClass("active");
+    rootSoundEffect($key);
+    //
+    var target = item.attr("target");
+    var targetList = $("#" + target);
+    var siblings = item.parent().find("[target=" + target + "]");
+    var array = [];
+    siblings.each(function () {
+      if ($(this).hasClass("active")) {
+        array.push($(this).text().split(".")[0]);
+      }
+    });
+    targetList.html(array.join(","));
+  };
+
+  var newShowAnswer = function () {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    $(".PT4-2-1-5-2 .sideTool > div.btn_answer").toggleClass("active");
+    if ($(".PT4-2-1-5-2 .sideTool > div.btn_answer").hasClass("active")) {
+      $(".PT4-2-1-5-2 .contents > div.selected .column-text").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
+      $(".PT4-2-1-5-2 .contents > div.selected .column-show").each(function () {
+        $(this).removeClass("active");
+        if ($(this).attr("ans") == "1") {
+          $(this).click();
+        }
+      });
+      rootSoundEffect($help);
+    } else {
+      withinResetElem();
+    }
+  };
+
+  //dynamic function for this html only
+
+  var withinResetElem = function () {
+    $(".PT4-2-1-5-2 .contents > div.selected .column-text").each(function () {
+      $(this).html("");
+    });
+    $(".PT4-2-1-5-2 .contents > div.selected .column-show").removeClass(
+      "active",
+    );
+    rootSoundEffect($show);
+  };
+</script>
+<style>
+  .PT4-2-1-5-2 .column-show {
+    position: absolute;
+    z-index: 2;
+    pointer-events: auto;
+    height: calc(100% - 2px);
+    background: #fdead1;
+    border: 1px solid #ee79365e;
+    font-size: 6px !important;
+    line-height: 1.2;
+    color: #ee7836;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    white-space: nowrap;
+    cursor: pointer;
+    animation: bounceInDown 1s ease-in-out both;
+  }
+  .PT4-2-1-5-2 .column-show.active {
+    background: #ee7836;
+    color: #fff;
+  }
+  .PT4-2-1-5-2 .column-text {
+    position: absolute;
+    z-index: 2;
+    font-size: 10px;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+  .PT4-2-1-5-2 .column-text:not(:empty) {
+    border: none;
+  }
+</style>

@@ -544,7 +544,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
-  $(".cardAvatar").remove();
+  $("#module_wrapper .cardAvatar").remove();
 
   $(".sideTool > div.btn_answer").show();
 };

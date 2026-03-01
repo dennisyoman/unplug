@@ -327,7 +327,7 @@ var showAnswer = function (boolean) {
 var checkAnswer = function () {
   $(".alert").remove();
   //一定要完成組合
-  if ($(".cardAvatarDie").length == 2) {
+  if ($("#module_wrapper .cardAvatarDie").length == 2) {
     var target = $(".contents > div.selected .frames > div:not('.disable')").eq(
       0,
     );
@@ -348,7 +348,7 @@ var checkAnswer = function () {
     }
     if (ansDoneArr.indexOf(ans) < 0) {
       //沒出現過
-      if ($(".cardAvatarDie:not('.right')").length > 0) {
+      if ($("#module_wrapper .cardAvatarDie:not('.right')").length > 0) {
         var alertmsg = "新組合";
         $(".contents > div.selected").append(
           `<div class="alert wow bounceInUp" style="bottom: 104px;
@@ -356,7 +356,7 @@ var checkAnswer = function () {
         );
         rootSoundEffect($wrong);
       }
-      if ($(".cardAvatarDie.right").length == 2) {
+      if ($("#module_wrapper .cardAvatarDie.right").length == 2) {
         var alertmsg = "新字";
         $(".contents > div.selected").append(
           `<div class="alert wow bounceInUp" style="bottom: 104px;
@@ -456,7 +456,7 @@ var resetElem = function (elem) {
   //smoke effect
   $(".smoke").remove();
   $(".resultIcon").remove();
-  $(".cardAvatarDie").remove();
+  $("#module_wrapper .cardAvatarDie").remove();
   $(".alert").remove();
   //
   $(".sideTool > div.btn_answer").show();

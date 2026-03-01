@@ -1,0 +1,570 @@
+<div id="module_wrapper" class="module_box PT4-2-1-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-1-5-2.html','JS/fillin.js',1)"
+      >任務三</span
+    >
+    <span
+      onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-1-5-2.html','JS/fillin.js',2)"
+      >任務三</span
+    >
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：如果想要看到最多場次的表演，可以看到幾場？那些表演呢？排出活動時長順序後，回答問題。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div style="margin-right: 290px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 62px;
+              left: 1px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 83px;
+              left: 1px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 105px;
+              left: 1px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 125px;
+              left: 1px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 147px;
+              left: 1px;
+            "
+            group="e"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 168px;
+              left: 1px;
+            "
+            group="f"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 189px;
+              left: 1px;
+            "
+            group="g"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 278px;
+              height: 20px;
+              top: 210px;
+              left: 1px;
+            "
+            group="h"
+          ></span>
+
+          <!-- 問題 -->
+
+          <div
+            id="shows-count"
+            class="column-count"
+            style="width: 39px; height: 14px; top: 235px; left: 81px"
+            ans="5"
+          ></div>
+
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 55px"
+            ans="0"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 76px"
+            ans="1"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 98px"
+            ans="1"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 119px"
+            ans="1"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 140px"
+            ans="0"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 161px"
+            ans="1"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 182px"
+            ans="0"
+          ></div>
+          <div
+            onClick="selectShow($(this))"
+            class="show-selector"
+            style="top: 280px; left: 205px"
+            ans="1"
+          ></div>
+        </div>
+
+        <img
+          width="280"
+          height="auto"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1.png"
+        />
+
+        <div
+          class="toys toys_rectangle wow slideInRight"
+          style="width: 280px; left: auto; right: 40px; bottom: 50px"
+        >
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="168,35"
+            group="f"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="75"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-A.png" />
+          </div>
+
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="83,35"
+            group="b"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="45"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-B.png" />
+          </div>
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="62,35"
+            group="a"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="30"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-C.png" />
+          </div>
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="105,35"
+            group="c"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="45"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-D.png" />
+          </div>
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="147,35"
+            group="e"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="60"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-E.png" />
+          </div>
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="189,35"
+            group="g"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="75"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-F.png" />
+          </div>
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="125,35"
+            group="d"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="45"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-G.png" />
+          </div>
+          <div
+            class="toy cards"
+            sp="62,35^83,35^105,35^125,35^147,35^168,35^189,35^210,35"
+            ap="210,35"
+            group="h"
+            style="width: 100%; height: auto"
+          >
+            <div
+              onClick="loopDuration($(this))"
+              class="column-text"
+              style="top: 6px; left: 225px; width: 27px; height: 11px"
+              ans="75"
+            ></div>
+            <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-1-5-1-H.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            ><br />有序小魔女：「不用慌張，我們把全部的事情用一張圖來表現。」
+            <br />* 可以截圖給任務二&任務三參考喔！
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-Note.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="sensorArea" style="margin-left: 20px">
+        <div
+          onClick="modifyName($(this))"
+          class="column-name"
+          style="top: 289px; left: 346px; width: 74px; height: 12px"
+          ans="買食材、清理烤箱、買掃把"
+        ></div>
+        <img
+          class="wow fadeIn"
+          height="310px"
+          width="280px"
+          src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1.png"
+        />
+      </div>
+      <div
+        class="toys toys_rectangle noShuffle wow slideInLeft"
+        style="width: 130px; gap: 5px; bottom: 10px; left: 20px"
+      >
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="210,347"
+        >
+          <img
+            style="transform: rotate(150deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="65,341^162,400"
+        >
+          <img
+            style="transform: rotate(130deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="203,321^130,321"
+        >
+          <img
+            style="transform: rotate(90deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="65,300^203,290"
+        >
+          <img
+            style="transform: rotate(50deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div
+          class="toy cards repeat"
+          style="width: 20px; height: 20px"
+          ap="228,275"
+        >
+          <img
+            style="transform: rotate(30deg)"
+            src="./DATA/IMAGES/common/icon_arrow_orange.png"
+          />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="14,347">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteA.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="14,260">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteB.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="113,404">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteC.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="76,303">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteE.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="190,225">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteF.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="170,361">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteG.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="149,303">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteH.png" />
+        </div>
+        <div class="toy cards" style="width: 55px; height: 55px" ap="150,254">
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteI.png" />
+        </div>
+      </div>
+    </div>
+    <div class="assetsPreload"></div>
+  </div>
+  <style>
+    .PT4-2-1-5 .column-name {
+      position: absolute;
+      z-index: 2;
+      font-size: 10px;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      pointer-events: auto;
+    }
+    .PT4-2-1-5 .column-name:not(:empty) {
+      border: none;
+    }
+    .PT4-2-1-5 .cardAvatar .column-text {
+      display: flex;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .PT4-2-1-5 .column-text {
+      position: absolute;
+      z-index: 2;
+      font-size: 10px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    .PT4-2-1-5 .column-count {
+      position: absolute;
+      z-index: 2;
+      font-size: 10px;
+      line-height: 10px;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      display: flex;
+    }
+    .PT4-2-1-5 .show-selector {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      z-index: 2;
+      pointer-events: auto;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+    .PT4-2-1-5 .show-selector.selected {
+      border-color: #ed762b;
+    }
+    .PT4-2-1-5 .column-text:not(:empty) {
+      border: none;
+    }
+    .PT4-2-1-5 .contents .toys .toy.positionBingo::after {
+      width: 14px;
+      height: 14px;
+      margin-bottom: -7px !important;
+      margin-left: -7px !important;
+    }
+  </style>
+  <script>
+    var modifyText = (item) => {
+      event.stopPropagation();
+      var text = window.prompt("請輸入答案：", "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return; // 取消則不處理
+      } else {
+        item.html(text);
+        rootSoundEffect($key);
+      }
+    };
+
+    var selectShow = (item) => {
+      item.toggleClass("selected");
+      rootSoundEffect($key);
+      $("#shows-count").text(
+        item.parent().find(".show-selector.selected").length,
+      );
+    };
+    $(".PT4-2-1-5 .show-selector").each(function () {
+      $(this).removeClass("selected");
+    });
+    var loopDuration = (item) => {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      var durationList = ["15", "30", "45", "60", "75", "90"];
+      var currentIndex = durationList.indexOf(item.html());
+      var nextIndex = (currentIndex + 1) % durationList.length;
+      item.html(durationList[nextIndex]);
+      rootSoundEffect($key);
+    };
+
+    //dynamic function for this html only
+    var withinShowAnswer = function (boolean) {
+      if (boolean) {
+        $(
+          ".PT4-2-1-5 .column-text,.PT4-2-1-5 .column-count,.PT4-2-1-5 .column-name",
+        ).each(function () {
+          $(this).html($(this).attr("ans"));
+        });
+        $(".PT4-2-1-5 .show-selector").each(function () {
+          if ($(this).attr("ans") == "1") {
+            $(this).addClass("selected");
+          } else {
+            $(this).removeClass("selected");
+          }
+        });
+      } else {
+        withinResetElem();
+      }
+    };
+
+    var withinResetElem = function () {
+      $(
+        ".PT4-2-1-5  .column-text,.PT4-2-1-5 .column-count,.PT4-2-1-5 .column-name",
+      ).each(function () {
+        $(this).html("");
+      });
+      $(".PT4-2-1-5 .show-selector").each(function () {
+        $(this).removeClass("selected");
+      });
+
+      rootSoundEffect($show);
+    };
+  </script>
+</div>

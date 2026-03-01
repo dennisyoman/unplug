@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT4-2-4-5-2">
   <div class="tabs">
     <span
       onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-4-5.html','JS/dragndropnarrow.js',0)"
@@ -166,26 +166,22 @@
   var newShowAnswer = function () {
     event.stopPropagation();
     event.stopImmediatePropagation();
-    $("#module_wrapper .sideTool > div.btn_answer").toggleClass("active");
-    if ($("#module_wrapper .sideTool > div.btn_answer").hasClass("active")) {
-      $("#module_wrapper .contents > div.selected .column-text").each(
-        function () {
-          $(this).html($(this).attr("ans"));
-        },
-      );
+    $(".PT4-2-4-5-2 .sideTool > div.btn_answer").toggleClass("active");
+    if ($(".PT4-2-4-5-2 .sideTool > div.btn_answer").hasClass("active")) {
+      $(".PT4-2-4-5-2 .contents > div.selected .column-text").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
       rootSoundEffect($help);
     } else {
-      $("#module_wrapper .contents > div.selected .column-text").each(
-        function () {
-          $(this).html("");
-        },
-      );
+      $(".PT4-2-4-5-2 .contents > div.selected .column-text").each(function () {
+        $(this).html("");
+      });
       rootSoundEffect($show);
     }
   };
 </script>
 <style>
-  .column-text {
+  .PT4-2-4-5-2 .column-text {
     position: absolute;
     z-index: 2;
     font-size: 10px;
@@ -194,7 +190,7 @@
     white-space: nowrap;
     pointer-events: auto;
   }
-  .column-text:not(:empty) {
+  .PT4-2-4-5-2 .column-text:not(:empty) {
     border: none;
   }
 </style>

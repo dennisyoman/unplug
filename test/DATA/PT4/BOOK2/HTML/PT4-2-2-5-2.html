@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT4-2-2-5-2">
   <div class="tabs">
     <span
       onClick="event.stopImmediatePropagation();loadContainerInside('PT4/BOOK2/HTML/PT4-2-2-5.html','JS/dragndropnarrow.js',0)"
@@ -366,12 +366,12 @@
 </div>
 
 <style>
-  #module_wrapper .contents > div.selected .sensorArea .sensor,
-  #module_wrapper .contents > div.selected .presetArea .sensor {
+  .PT4-2-2-5-2 .contents > div.selected .sensorArea .sensor,
+  .PT4-2-2-5-2 .contents > div.selected .presetArea .sensor {
     font-size: 12px;
     line-height: 12px;
   }
-  .column-name {
+  .PT4-2-2-5-2 .column-name {
     position: absolute;
     z-index: 2;
     font-size: 10px;
@@ -380,7 +380,7 @@
     white-space: nowrap;
     pointer-events: auto;
   }
-  .column-name:not(:empty) {
+  .PT4-2-2-5-2 .column-name:not(:empty) {
     border: none;
   }
 </style>
@@ -401,7 +401,7 @@
   var newCheckAnswer = function () {
     event.stopPropagation();
     event.stopImmediatePropagation();
-    var targetDiv = $("#module_wrapper .contents > div.selected");
+    var targetDiv = $(".PT4-2-2-5-2 .contents > div.selected");
     var row1 = targetDiv.find(".sensorArea .sensor[row='1']");
     var row2 = targetDiv.find(".sensorArea .sensor[row='2']");
     var row3 = targetDiv.find(".sensorArea .sensor[row='3']");
@@ -419,7 +419,7 @@
 
       var alertmsg = "工作數量不吻合，應有" + tasksAmount + "個工作。";
       $(".alert").remove();
-      $(".contents > div.selected").append(
+      $(".PT4-2-2-5-2 .contents > div.selected").append(
         `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
       return;
@@ -447,7 +447,7 @@
       rootSoundEffect($stupid);
       var alertmsg = "工作不能重複。";
       $(".alert").remove();
-      $(".contents > div.selected").append(
+      $(".PT4-2-2-5-2 .contents > div.selected").append(
         `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
       return;
@@ -478,7 +478,7 @@
 
       var alertmsg = "工作順序不正確。";
       $(".alert").remove();
-      $(".contents > div.selected").append(
+      $(".PT4-2-2-5-2 .contents > div.selected").append(
         `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
       );
     }
@@ -536,27 +536,21 @@
   };
 
   var newShowAnswer = function () {
-    $("#module_wrapper .sideTool > div.btn_answer").toggleClass("active");
-    if ($("#module_wrapper .sideTool > div.btn_answer").hasClass("active")) {
-      $("#module_wrapper .contents > div.selected .column-name").each(
-        function () {
-          $(this).html($(this).attr("ans"));
-        },
-      );
+    $(".PT4-2-2-5-2 .sideTool > div.btn_answer").toggleClass("active");
+    if ($(".PT4-2-2-5-2 .sideTool > div.btn_answer").hasClass("active")) {
+      $(".PT4-2-2-5-2 .contents > div.selected .column-name").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
     } else {
-      $("#module_wrapper .contents > div.selected .column-name").each(
-        function () {
-          $(this).html("");
-        },
-      );
+      $(".PT4-2-2-5-2 .contents > div.selected .column-name").each(function () {
+        $(this).html("");
+      });
     }
   };
 
   var withinResetElem = function () {
-    $("#module_wrapper .contents > div.selected .column-name").each(
-      function () {
-        $(this).html("");
-      },
-    );
+    $(".PT4-2-2-5-2 .contents > div.selected .column-name").each(function () {
+      $(this).html("");
+    });
   };
 </script>

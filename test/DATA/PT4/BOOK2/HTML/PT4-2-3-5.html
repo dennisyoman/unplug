@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT4-2-3-5">
   <div class="tabs">
     <span>任務一</span>
     <span>任務二</span>
@@ -1195,30 +1195,30 @@
 </div>
 
 <style>
-  #module_wrapper .contents > div.selected .sensor {
+  .PT4-2-3-5 .contents > div.selected .sensor {
     font-size: 8px;
     line-height: 10px;
     flex-direction: column;
   }
 
-  #module_wrapper
+  .PT4-2-3-5
     .contents
     > div.selected
     .sensorArea
     .sensor.column-text.wrong:before {
     background-size: auto 40%;
   }
-  #module_wrapper .contents > div.selected .sensor .column-amount {
+  .PT4-2-3-5 .contents > div.selected .sensor .column-amount {
     width: 100%;
     text-align: center;
     font-weight: bold;
     color: rgb(235, 101, 23);
     pointer-events: auto;
   }
-  #module_wrapper .contents > div.selected .sensor .column-amount::before {
+  .PT4-2-3-5 .contents > div.selected .sensor .column-amount::before {
     content: "(";
   }
-  #module_wrapper .contents > div.selected .sensor .column-amount::after {
+  .PT4-2-3-5 .contents > div.selected .sensor .column-amount::after {
     content: ")";
   }
 </style>
@@ -1241,13 +1241,11 @@
   //dynamic function for this html only
   var withinShowAnswer = function (boolean) {
     if (boolean) {
-      $("#module_wrapper .contents > div.selected .column-text").each(
-        function () {
-          $(this).html($(this).attr("ans"));
-        },
-      );
+      $(".PT4-2-3-5 .contents > div.selected .column-text").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
 
-      $("#module_wrapper .contents > div.selected .sensor").each(function () {
+      $(".PT4-2-3-5 .contents > div.selected .sensor").each(function () {
         //內部輸入欄位
         setTimeout(() => {
           console.log($(this).find(".column-amount").length);
@@ -1257,19 +1255,15 @@
         }, 10);
       });
     } else {
-      $("#module_wrapper .contents > div.selected .column-text").each(
-        function () {
-          $(this).html("");
-        },
-      );
+      $(".PT4-2-3-5 .contents > div.selected .column-text").each(function () {
+        $(this).html("");
+      });
     }
   };
 
   var withinResetElem = function () {
-    $("#module_wrapper .contents > div.selected .column-text").each(
-      function () {
-        $(this).html("");
-      },
-    );
+    $(".PT4-2-3-5 .contents > div.selected .column-text").each(function () {
+      $(this).html("");
+    });
   };
 </script>

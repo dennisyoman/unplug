@@ -624,7 +624,7 @@ var openContent = function (id) {
 var resetElem = function (elem) {
   clearTimeout(beamTimeout);
   //
-  $(".cardAvatar").remove();
+  $("#module_wrapper .cardAvatar").remove();
   elem.find(".overlaped").removeClass("overlaped");
   elem.find(".selected").removeClass("selected");
   elem.find(".bingo").removeClass("bingo");
