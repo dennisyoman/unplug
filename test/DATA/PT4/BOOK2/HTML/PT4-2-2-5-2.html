@@ -11,14 +11,8 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div
-      class="btn_answer"
-      onClick="event.stopImmediatePropagation();newShowAnswer()"
-    ></div>
-    <div
-      class="btn_check"
-      onClick="event.stopImmediatePropagation();newCheckAnswer()"
-    ></div>
+    <div class="btn_answer" onClick="newShowAnswer()"></div>
+    <div class="btn_check" onClick="newCheckAnswer()"></div>
     <div class="btn_replay"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
@@ -405,6 +399,8 @@
   };
 
   var newCheckAnswer = function () {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
     var targetDiv = $("#module_wrapper .contents > div.selected");
     var row1 = targetDiv.find(".sensorArea .sensor[row='1']");
     var row2 = targetDiv.find(".sensorArea .sensor[row='2']");

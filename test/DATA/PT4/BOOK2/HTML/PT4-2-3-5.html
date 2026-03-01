@@ -1,0 +1,1275 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：今天一大早就有三隻花鹿在排隊，排隊的情形跟要買的數量在圖中，請完成輪流購買的表格。
+          </p>
+          <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn tti" style="width: auto; height: 310px">
+        <div class="sensorArea">
+          <!-- 表頭 -->
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 36px; top: 118px; left: 46px"
+            ans="做好三明治數量"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 128px; height: 19px; top: 118px; left: 89px"
+            ans="隊伍狀況Queue:人名(購買數量)"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 19px; top: 137px; left: 90px"
+            ans="排第一"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 19px; top: 137px; left: 132px"
+            ans="排第二"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 19px; top: 137px; left: 175px"
+            ans="排第三"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 36px; top: 118px; left: 218px"
+            ans="買完的人"
+          />
+
+          <!-- time -->
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 179px; left: 2px"
+            ans="1"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 202px; left: 2px"
+            ans="2"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 225px; left: 2px"
+            ans="3"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 248px; left: 2px"
+            ans="4"
+          />
+
+          <!-- 三明治數量-->
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 156px; left: 46px"
+            ans="0"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 179px; left: 46px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 202px; left: 46px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 225px; left: 46px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 248px; left: 46px"
+            ans="3"
+          />
+
+          <!-- 客人 -->
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 156px; left: 90px"
+            ans="a"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 179px; left: 90px"
+            ans="b"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 202px; left: 90px"
+            ans="c"
+            amount="5"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 225px; left: 90px"
+            ans="b"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 248px; left: 90px"
+            ans=""
+            amount=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 156px; left: 132px"
+            ans="b"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 179px; left: 132px"
+            ans="c"
+            amount="5"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 202px; left: 132px"
+            ans="b"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 225px; left: 132px"
+            ans="c"
+            amount="2"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 248px; left: 132px"
+            ans=""
+            amount=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 156px; left: 175px"
+            ans="c"
+            amount="5"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 179px; left: 175px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 202px; left: 175px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 225px; left: 175px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 248px; left: 175px"
+            ans=""
+            amount=""
+          />
+
+          <!-- 買完的人 -->
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 156px; left: 218px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 179px; left: 218px"
+            ans="小琪"
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 202px; left: 218px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 225px; left: 218px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 248px; left: 218px"
+            ans="小郁，阿榮"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img height="100%" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-3-5-1.png" />
+      </div>
+
+      <div class="options time loop">
+        <div class="option" fillin="1">
+          <span class="fillin">8:02</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">8:04</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">8:06</span>
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin">8:08</span>
+        </div>
+      </div>
+
+      <div class="options amount loop">
+        <div class="option" fillin="0">
+          <span class="fillin">0</span>
+        </div>
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+      </div>
+
+      <div class="options guest loop">
+        <div class="option" fillin="a">
+          <span class="fillin">小琪</span>
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin">小郁</span>
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin">阿榮</span>
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+      <div class="options guestsAmount loop">
+        <div class="option" fillin="a">
+          <span class="fillin"
+            >小琪<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin"
+            >小郁<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin"
+            >阿榮<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：10:50的時候有三隻花鹿在排隊，而10:55花鹿小強也來排隊了，這樣可以在關店前買到嗎？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn tti" style="width: auto; height: 310px">
+        <div class="sensorArea">
+          <!-- 表頭 -->
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 36px; top: 85px; left: 41px"
+            ans="做好三明治數量"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 123px; height: 19px; top: 85px; left: 83px"
+            ans="隊伍狀況Queue:人名(購買數量)"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 19px; top: 101px; left: 83px"
+            ans="排第一"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 19px; top: 101px; left: 125px"
+            ans="排第二"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 19px; top: 101px; left: 166px"
+            ans="排第三"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 36px; top: 85px; left: 204px"
+            ans="買完的人"
+          />
+
+          <!-- time -->
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 0px"
+            ans="1"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 0px"
+            ans="2"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 0px"
+            ans="3"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 0px"
+            ans="4"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 0px"
+            ans="5"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 0px"
+            ans="6"
+          />
+
+          <!-- 三明治數量-->
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 41px"
+            ans=""
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 41px"
+            ans="1"
+          />
+
+          <!-- 客人 -->
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 81px"
+            ans="c"
+            amount="5"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 81px"
+            ans="b"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 81px"
+            ans="a"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 81px"
+            ans="c"
+            amount="2"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 81px"
+            ans="d"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 81px"
+            ans="d"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 81px"
+            ans=""
+            amount=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 123px"
+            ans="b"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 123px"
+            ans="a"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 123px"
+            ans="c"
+            amount="2"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 123px"
+            ans="b"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 123px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 123px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 123px"
+            ans=""
+            amount=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 163px"
+            ans="a"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 163px"
+            ans="c"
+            amount="2"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 163px"
+            ans="b"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 163px"
+            ans="d"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 163px"
+            ans=""
+            amount=""
+          />
+
+          <!-- 買完的人 -->
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 120px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 142px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 163px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 185px; left: 203px"
+            ans="可欣"
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 206px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 228px; left: 203px"
+            ans="立成，家明"
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 251px; left: 203px"
+            ans="小強"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img height="100%" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-3-5-2.png" />
+      </div>
+
+      <div class="options time loop">
+        <div class="option" fillin="1">
+          <span class="fillin">10:52</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">10:54</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">10:56</span>
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin">10:58</span>
+        </div>
+        <div class="option" fillin="5">
+          <span class="fillin">11:00</span>
+        </div>
+        <div class="option" fillin="6">
+          <span class="fillin">11:02</span>
+        </div>
+      </div>
+
+      <div class="options amount loop">
+        <div class="option" fillin="0">
+          <span class="fillin">0</span>
+        </div>
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+      </div>
+
+      <div class="options guest loop">
+        <div class="option" fillin="a">
+          <span class="fillin">可欣</span>
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin">立成</span>
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin">家明</span>
+        </div>
+        <div class="option" fillin="d">
+          <span class="fillin">小強</span>
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+      <div class="options guestsAmount loop">
+        <div class="option" fillin="a">
+          <span class="fillin"
+            >可欣<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin"
+            >立成<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin"
+            >家明<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="d">
+          <span class="fillin"
+            >小強<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：9:00開始，花鹿各在不同的時間來買三明治，請問他們幾點幾分可以買完呢？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn tti" style="width: auto; height: 310px">
+        <div class="sensorArea">
+          <!-- 表頭 -->
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 36px; top: 85px; left: 41px"
+            ans="做好三明治數量"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 123px; height: 19px; top: 85px; left: 83px"
+            ans="隊伍狀況Queue:人名(購買數量)"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 19px; top: 101px; left: 83px"
+            ans="排第一"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 19px; top: 101px; left: 125px"
+            ans="排第二"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 19px; top: 101px; left: 166px"
+            ans="排第三"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 43px; height: 36px; top: 85px; left: 204px"
+            ans="買完的人"
+          />
+
+          <!-- time -->
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 0px"
+            ans="1"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 0px"
+            ans="2"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 0px"
+            ans="3"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 0px"
+            ans="4"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 0px"
+            ans="5"
+          />
+          <span
+            opt="time"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 0px"
+            ans="6"
+          />
+
+          <!-- 三明治數量-->
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 41px"
+            ans=""
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 41px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 41px"
+            ans="3"
+          />
+
+          <!-- 客人 -->
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 81px"
+            ans="a"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 81px"
+            ans="b"
+            amount="7"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 81px"
+            ans="b"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 81px"
+            ans="c"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 81px"
+            ans="b"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 81px"
+            ans="c"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 81px"
+            ans=""
+            amount=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 123px"
+            ans="b"
+            amount="7"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 123px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 123px"
+            ans="c"
+            amount="4"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 123px"
+            ans="b"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 123px"
+            ans="d"
+            amount="2"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 123px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 123px"
+            ans=""
+            amount=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 120px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 142px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 163px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 185px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 206px; left: 163px"
+            ans="c"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 228px; left: 163px"
+            ans=""
+            amount=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 43px; height: 22px; top: 251px; left: 163px"
+            ans=""
+            amount=""
+          />
+
+          <!-- 買完的人 -->
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 120px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 142px; left: 203px"
+            ans="小花"
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 163px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 185px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 206px; left: 203px"
+            ans=""
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 228px; left: 203px"
+            ans="大華，小明"
+          />
+          <span
+            class="sensor column-text"
+            style="width: 43px; height: 22px; top: 251px; left: 203px"
+            ans="王哥"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img height="100%" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-3-5-3.png" />
+      </div>
+
+      <div class="options time loop">
+        <div class="option" fillin="1">
+          <span class="fillin">9:02</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">9:04</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">9:06</span>
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin">9:08</span>
+        </div>
+        <div class="option" fillin="5">
+          <span class="fillin">9:10</span>
+        </div>
+        <div class="option" fillin="6">
+          <span class="fillin">9:12</span>
+        </div>
+      </div>
+
+      <div class="options amount loop">
+        <div class="option" fillin="0">
+          <span class="fillin">0</span>
+        </div>
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+      </div>
+
+      <div class="options guest loop">
+        <div class="option" fillin="a">
+          <span class="fillin">小花</span>
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin">大華</span>
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin">王哥</span>
+        </div>
+        <div class="option" fillin="d">
+          <span class="fillin">小明</span>
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+      <div class="options guestsAmount loop">
+        <div class="option" fillin="a">
+          <span class="fillin"
+            >小花<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin"
+            >大華<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin"
+            >王哥<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="d">
+          <span class="fillin"
+            >小明<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  #module_wrapper .contents > div.selected .sensor {
+    font-size: 8px;
+    line-height: 10px;
+    flex-direction: column;
+  }
+
+  #module_wrapper
+    .contents
+    > div.selected
+    .sensorArea
+    .sensor.column-text.wrong:before {
+    background-size: auto 40%;
+  }
+  #module_wrapper .contents > div.selected .sensor .column-amount {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(235, 101, 23);
+    pointer-events: auto;
+  }
+  #module_wrapper .contents > div.selected .sensor .column-amount::before {
+    content: "(";
+  }
+  #module_wrapper .contents > div.selected .sensor .column-amount::after {
+    content: ")";
+  }
+</style>
+
+<script>
+  var modifyText = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html($(this).attr("ans"));
+        },
+      );
+
+      $("#module_wrapper .contents > div.selected .sensor").each(function () {
+        //內部輸入欄位
+        setTimeout(() => {
+          console.log($(this).find(".column-amount").length);
+          if ($(this).find(".column-amount").length > 0) {
+            $(this).find(".column-amount").html($(this).attr("amount"));
+          }
+        }, 10);
+      });
+    } else {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html("");
+        },
+      );
+    }
+  };
+
+  var withinResetElem = function () {
+    $("#module_wrapper .contents > div.selected .column-text").each(
+      function () {
+        $(this).html("");
+      },
+    );
+  };
+</script>

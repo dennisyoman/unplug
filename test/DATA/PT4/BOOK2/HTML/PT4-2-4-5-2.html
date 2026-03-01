@@ -14,10 +14,7 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div
-      class="btn_answer"
-      onClick="event.stopImmediatePropagation();newShowAnswer()"
-    ></div>
+    <div class="btn_answer" onClick="newShowAnswer()"></div>
     <div class="btn_replay"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
@@ -43,42 +40,42 @@
       <div class="subject wow fadeIn" style="height: 300px">
         <div class="sensorArea">
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 75px; left: 64px; width: 94px; height: 22px"
             column="1"
             ans="0"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 99px; left: 64px; width: 94px; height: 22px"
             column="1"
             ans="4"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 122px; left: 64px; width: 94px; height: 22px"
             column="1"
             ans="10"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 146px; left: 64px; width: 94px; height: 22px"
             column="1"
             ans="17"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 170px; left: 64px; width: 94px; height: 22px"
             column="1"
             ans="18"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();"
+            onClick=""
             class="column-text sensor"
             sum="1"
             style="top: 194px; left: 64px; width: 94px; height: 22px"
@@ -86,35 +83,35 @@
           ></div>
 
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 75px; left: 160px; width: 94px; height: 22px"
             column="2"
             ans="0"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 99px; left: 160px; width: 94px; height: 22px"
             column="2"
             ans="4"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 122px; left: 160px; width: 94px; height: 22px"
             column="2"
             ans="18"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 146px; left: 160px; width: 94px; height: 22px"
             column="2"
             ans="10"
           ></div>
           <div
-            onClick="event.stopImmediatePropagation();modifyText($(this))"
+            onClick="modifyText($(this))"
             class="column-text sensor"
             style="top: 170px; left: 160px; width: 94px; height: 22px"
             column="2"
@@ -142,6 +139,7 @@
 <script>
   var modifyText = (item) => {
     event.stopPropagation();
+    event.stopImmediatePropagation();
     var text = window.prompt("請輸入答案：", "");
     if (text === null) {
       rootSoundEffect($show);
@@ -166,6 +164,8 @@
   };
 
   var newShowAnswer = function () {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
     $("#module_wrapper .sideTool > div.btn_answer").toggleClass("active");
     if ($("#module_wrapper .sideTool > div.btn_answer").hasClass("active")) {
       $("#module_wrapper .contents > div.selected .column-text").each(

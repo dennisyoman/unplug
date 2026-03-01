@@ -350,6 +350,7 @@
 <script>
   var modifyName = (item) => {
     event.stopPropagation();
+    event.stopImmediatePropagation();
     var text = window.prompt("請輸入要修改的文字：", "");
     if (text === null) {
       rootSoundEffect($show);

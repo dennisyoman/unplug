@@ -1,0 +1,347 @@
+<div id="module_wrapper" class="module_fillin">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：依照規則設計出要紀錄的項目，並用7:00的客人的需要完成這個表格。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn tti" style="width: auto; height: 310px">
+        <div class="sensorArea">
+          <!-- 表頭 -->
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 50px; top: 1px; left: 47px"
+            ans="做好三明治數量"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 123px; height: 26px; top: 1px; left: 89px"
+            ans="隊伍狀況Queue:人名(購買數量)"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 41px; height: 25px; top: 27px; left: 89px"
+            ans="排第一"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 41px; height: 25px; top: 27px; left: 130px"
+            ans="排第二"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 41px; height: 25px; top: 27px; left: 171px"
+            ans="排第三"
+          />
+          <span
+            onClick="modifyText($(this))"
+            class="column-text sensor"
+            style="width: 40px; height: 50px; top: 1px; left: 213px"
+            ans="買完的人"
+          />
+
+          <!-- 三明治數量-->
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 54px; left: 47px"
+            ans="0"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 106px; left: 47px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 158px; left: 47px"
+            ans="3"
+          />
+          <span
+            opt="amount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 210px; left: 47px"
+            ans="3"
+          />
+
+          <!-- 客人 -->
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 54px; left: 89px"
+            ans="a"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 106px; left: 89px"
+            ans="b"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 158px; left: 89px"
+            ans="c"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 210px; left: 89px"
+            ans=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 54px; left: 130px"
+            ans="b"
+            amount="3"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 106px; left: 130px"
+            ans="c"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 158px; left: 130px"
+            ans=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 210px; left: 130px"
+            ans=""
+          />
+
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 54px; left: 172px"
+            ans="c"
+            amount="1"
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 106px; left: 172px"
+            ans=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 158px; left: 172px"
+            ans=""
+          />
+          <span
+            opt="guestsAmount"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 210px; left: 172px"
+            ans=""
+          />
+
+          <!-- 買完的人 -->
+          <span
+            opt="guest"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 54px; left: 214px"
+            ans="0"
+          />
+          <span
+            opt="guest"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 106px; left: 214px"
+            ans="a"
+          />
+          <span
+            opt="guest"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 158px; left: 214px"
+            ans="b"
+          />
+          <span
+            opt="guest"
+            class="sensor"
+            style="width: 40px; height: 50px; top: 210px; left: 214px"
+            ans="c"
+          />
+        </div>
+
+        <!-- subjects -->
+        <img height="100%" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-3-4-1.png" />
+      </div>
+
+      <div class="options amount loop">
+        <div class="option" fillin="0">
+          <span class="fillin">0</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+      </div>
+      <div class="options guest loop">
+        <div class="option" fillin="a">
+          <span class="fillin">客人A</span>
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin">客人B</span>
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin">客人C</span>
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+      <div class="options guestsAmount loop">
+        <div class="option" fillin="a">
+          <span class="fillin"
+            >客人A<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="b">
+          <span class="fillin"
+            >客人B<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="c">
+          <span class="fillin"
+            >客人C<br /><span
+              class="column-amount"
+              onClick="event.stopPropagation();modifyText($(this))"
+              >0</span
+            ></span
+          >
+        </div>
+        <div class="option" fillin="">
+          <span class="fillin"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  #module_wrapper .contents > div.selected .sensor {
+    font-size: 12px;
+    line-height: 14px;
+    flex-direction: column;
+  }
+  #module_wrapper .contents > div.selected .sensorArea .sensor.column-text {
+    font-size: 8px;
+    line-height: 10px;
+  }
+  #module_wrapper
+    .contents
+    > div.selected
+    .sensorArea
+    .sensor.column-text.wrong:before {
+    background-size: auto 40%;
+  }
+  #module_wrapper .contents > div.selected .sensor .column-amount {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(235, 101, 23);
+    pointer-events: auto;
+  }
+  #module_wrapper .contents > div.selected .sensor .column-amount::before {
+    content: "(";
+  }
+  #module_wrapper .contents > div.selected .sensor .column-amount::after {
+    content: ")";
+  }
+</style>
+
+<script>
+  var modifyText = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    event.stopPropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html($(this).attr("ans"));
+        },
+      );
+
+      $("#module_wrapper .contents > div.selected .sensor").each(function () {
+        //內部輸入欄位
+        setTimeout(() => {
+          console.log($(this).find(".column-amount").length);
+          if ($(this).find(".column-amount").length > 0) {
+            $(this).find(".column-amount").html($(this).attr("amount"));
+          }
+        }, 10);
+      });
+    } else {
+      $("#module_wrapper .contents > div.selected .column-text").each(
+        function () {
+          $(this).html("");
+        },
+      );
+    }
+  };
+
+  var withinResetElem = function () {
+    $("#module_wrapper .contents > div.selected .column-text").each(
+      function () {
+        $(this).html("");
+      },
+    );
+  };
+</script>

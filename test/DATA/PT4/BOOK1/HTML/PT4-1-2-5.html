@@ -475,7 +475,9 @@
 
   <script>
     var modifyName = (item) => {
-      item.off("click");
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
       var text = window.prompt("請輸入姓名：", "");
       if (text === null) {
         rootSoundEffect($show);
