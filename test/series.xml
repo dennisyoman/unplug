@@ -125,5 +125,11 @@
       <lesson lid="3">Round Robin 三明治</lesson>
       <lesson lid="4">SJF玩具總動員</lesson>
     </book>
+    <book name="Book 3" bid="3" img="PT4_book3.jpg">
+      <lesson lid="1">循跡偵查機器人</lesson>
+      <lesson lid="2">是或不是貓餐廳</lesson>
+      <lesson lid="3">變數無人商店</lesson>
+      <lesson lid="4">如果如果奇幻村</lesson>
+    </book>
   </series>
 </root>

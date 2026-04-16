@@ -1,0 +1,64 @@
+<div id="module_wrapper" class="module_story module_has_box">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>情境故事</b>：從故事中找出關鍵訊息，並使用小工具擷取下來保存。
+          </p>
+          <img
+            src="./DATA/IMAGES/common/btn_box.png"
+            height="100"
+            width="auto"
+          />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="storyboard wow fadeIn" style="width: 500px; margin-top: 50px">
+        <div class="subject">
+          <div class="sensors">
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 121px; left: 146px; width: 67px; height: 9px"
+              content="只能問我3個問題"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 129px; left: 48px; width: 89px; height: 9px"
+              content="只會回答你『是/不是』"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 129px; left: 163px; width: 60px; height: 9px"
+              content="問完一個問題才能問下一個問題"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 137px; left: 40px; width: 59px; height: 9px"
+              content="問完一個問題才能問下一個問題"
+            ></span>
+          </div>
+
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT4/BOOK3/IMAGES/PT4-3-4-2-1.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>

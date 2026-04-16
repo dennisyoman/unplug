@@ -37,7 +37,9 @@
             position: absolute;
             z-index: 1;
             pointer-events: auto;
+            //for visible used
             //animation: bgblinking 1s both infinite;
+            border: 1px solid #f00;
             cursor: pointer;
             &.selected {
               border: 1px solid #ff0000;
