@@ -1,0 +1,136 @@
+<div id="module_wrapper" class="module_basic PT4-3-1-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>文生圖</b>：根據小凱給的提示，請寫出指令圖卡代表的意思。</p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti">
+          <div class="sensors">
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 169px; height: 30px; top: 9px; left: 74px"
+              ans="向前走^1格"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 169px; height: 30px; top: 59px; left: 74px"
+              ans="向右轉^90度"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 169px; height: 30px; top: 111px; left: 74px"
+              ans="向左轉^90度"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 169px; height: 30px; top: 163px; left: 74px"
+              ans="向前跳^2格"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 169px; height: 30px; top: 213px; left: 74px"
+              ans="蓋個印章"
+            />
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-4-1.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-3-1-4 .contents .sensors .sensor {
+    font-size: 12px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+  }
+  .PT4-3-1-4 .contents .sensors .sensor > span {
+    border: 1px dashed #ff0000;
+    padding: 0 0.3em;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #fff;
+    border: 2px dashed #ff0000;
+    padding: 0 0.3em;
+    width: 40px;
+    margin-left: 0.3em;
+  }
+</style>
+
+<script>
+  var fillContent = function (tar) {
+    $(".sideTool > div.btn_replay").show();
+    //
+    var contentArr = tar.attr("ans").split("^");
+    if (contentArr.length > 1) {
+      if (tar.html() == "") {
+        rootSoundEffect($pop);
+        tar.html(contentArr[0] + `<span></span>`);
+        return;
+      } else if (tar.find("span").html() == "") {
+        rootSoundEffect($key);
+        tar.html(contentArr[0] + `<span>${contentArr[1]}</span>`);
+        return;
+      }
+    } else if (tar.html() == "") {
+      rootSoundEffect($key);
+      tar.html(contentArr[0]);
+      return;
+    }
+    rootSoundEffect($show);
+    tar.empty();
+  };
+
+  var withinShowAnswer = function () {
+    $(".PT4-3-1-4 .contents .sensors .sensor").each(function () {
+      var contentArr = $(this).attr("ans").split("^");
+      if (contentArr.length > 1) {
+        $(this).html(contentArr[0] + `<span>${contentArr[1]}</span>`);
+      } else {
+        $(this).html(contentArr[0]);
+      }
+    });
+  };
+
+  var withinResetElem = function () {
+    $(".PT4-3-1-4 .contents .sensors .sensor").each(function () {
+      $(this).empty();
+    });
+  };
+</script>

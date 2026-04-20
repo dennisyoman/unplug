@@ -1,0 +1,865 @@
+<div id="module_wrapper" class="module_box PT4-3-1-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：要讓機器人完成方格圖上的動作，要怎麼安排指令的順序？<br />*
+            點擊機器人開始執行指令
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div style="margin-right: 150px">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 24px;
+              left: 153px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 69px;
+              left: 153px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 114px;
+              left: 153px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 160px;
+              left: 153px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 207px;
+              left: 153px;
+            "
+            group="e"
+          ></span>
+
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 24px;
+              left: 208px;
+            "
+            group="f"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 69px;
+              left: 208px;
+            "
+            group="g"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 114px;
+              left: 208px;
+            "
+            group="h"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 160px;
+              left: 208px;
+            "
+            group="i"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 207px;
+              left: 208px;
+            "
+            group="j"
+          ></span>
+        </div>
+
+        <div
+          class="grids"
+          style="top: 28px; left: 121px; width: 137px; height: 137px"
+          size="4,4"
+          start="3,3"
+          stamp="1,1"
+          end="3,0"
+        >
+          <span
+            class="robot"
+            data-start-rot="0"
+            onClick="startMovingMission1()"
+          ></span>
+        </div>
+
+        <div class="toys"></div>
+
+        <img
+          width="250"
+          height="auto"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-1.png"
+        />
+
+        <div
+          class="toys wow slideInRight noShuffle"
+          style="width: 50px; left: auto; right: 150px; bottom: 50px"
+        >
+          <div
+            class="toy cards repeat"
+            sp="35,274^81,274^126,274^172,274^217,274^35,328^81,328^126,328^172,328^217,328"
+            ap="35,274^126,274^172,274^35,328^126,328"
+          >
+            <img
+              src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-1-A.png"
+              alt="往前1格"
+            />
+          </div>
+          <div
+            class="toy cards repeat"
+            sp="35,274^81,274^126,274^172,274^217,274^35,328^81,328^126,328^172,328^217,328"
+            ap="217,274^172,328"
+          >
+            <img
+              src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-1-B.png"
+              alt="右轉90度"
+            />
+          </div>
+          <div
+            class="toy cards repeat"
+            sp="35,274^81,274^126,274^172,274^217,274^35,328^81,328^126,328^172,328^217,328"
+            ap="81,274"
+          >
+            <img
+              src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-1-C.png"
+              alt="左轉90度"
+            />
+          </div>
+          <div
+            class="toy cards repeat"
+            sp="35,274^81,274^126,274^172,274^217,274^35,328^81,328^126,328^172,328^217,328"
+            ap="217,328"
+          >
+            <img
+              src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-1-D.png"
+              alt="往前跳2格"
+            />
+          </div>
+          <div
+            class="toy cards"
+            sp="35,274^81,274^126,274^172,274^217,274^35,328^81,328^126,328^172,328^217,328"
+            ap="81,328"
+          >
+            <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-1-E.png" alt="蓋印章" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：小凱想要讓機器人完成方格圖上的動作，排出了畫面上的指令，你認為小凱做對了嗎？<br />小凱哪些指令做錯了呢？<br />*
+            點擊指令卡停用或啟用。
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sensorYN">
+          <span
+            data-cmd="J2"
+            onclick="toggleYN($(this))"
+            style="top: 1px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="L"
+            onclick="toggleYN($(this))"
+            style="top: 30px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="F1"
+            onclick="toggleYN($(this))"
+            style="top: 60px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="R"
+            onclick="toggleYN($(this))"
+            style="top: 89px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="J2"
+            onclick="toggleYN($(this))"
+            style="top: 119px; left: 0px"
+            ans="0"
+          ></span>
+          <span
+            data-cmd="F1"
+            onclick="toggleYN($(this))"
+            style="top: 148px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="F1"
+            onclick="toggleYN($(this))"
+            style="top: 177px; left: 0px"
+            ans="0"
+          ></span>
+          <span
+            data-cmd="L"
+            onclick="toggleYN($(this))"
+            style="top: 207px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="J2"
+            onclick="toggleYN($(this))"
+            style="top: 237px; left: 0px"
+            ans="1"
+          ></span>
+          <span
+            data-cmd="S"
+            onclick="toggleYN($(this))"
+            style="top: 266px; left: 0px"
+            ans="1"
+          ></span>
+        </div>
+
+        <div
+          class="grids"
+          style="top: 24px; left: 257px; width: 143px; height: 144px"
+          size="5,5"
+          start="3,1"
+          stamp="0,4"
+          end="0,4"
+        >
+          <span
+            class="robot"
+            data-start-rot="-90"
+            onClick="startMovingMission2()"
+          ></span>
+        </div>
+        <div class="toys"></div>
+
+        <img
+          width="260"
+          height="auto"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-2.png"
+        />
+      </div>
+    </div>
+
+    <!-- 任務三 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：根據已知的指令順序與最終位置，找出起點的「可能」位置(起點有多個答案)。<br /><br />1.點擊方格圖選擇起始位置<br />2.點擊機器人執行指令。
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sensorYN">
+          <span data-cmd="J2" style="top: 1px; left: 226px"></span>
+          <span data-cmd="L" style="top: 30px; left: 226px"></span>
+          <span data-cmd="F1" style="top: 60px; left: 226px"></span>
+          <span data-cmd="R" style="top: 89px; left: 226px"></span>
+          <span data-cmd="J2" style="top: 119px; left: 226px"></span>
+          <span data-cmd="F1" style="top: 148px; left: 226px"></span>
+          <span data-cmd="F1" style="top: 177px; left: 226px"></span>
+          <span data-cmd="L" style="top: 207px; left: 226px"></span>
+          <span data-cmd="J2" style="top: 237px; left: 226px"></span>
+          <span data-cmd="S" style="top: 266px; left: 226px"></span>
+        </div>
+
+        <div
+          class="grids"
+          style="top: 22px; left: 194px; width: 191px; height: 203px"
+          size="7,7"
+          stamp="2,3"
+          end="2,3"
+          onClick="anchorRobot()"
+        >
+          <span
+            class="robot"
+            data-start-rot="0"
+            onClick="startMovingMission2()"
+          ></span>
+        </div>
+        <div class="toys"></div>
+
+        <img
+          width="255"
+          height="auto"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-3.png"
+        />
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+  <style>
+    .PT4-3-1-5 .contents > div:nth-child(1) .toys {
+      gap: 10px;
+    }
+    .PT4-3-1-5 .contents > div:nth-child(1) .toy.cards {
+      width: 40px;
+      height: 40px;
+    }
+
+    .PT4-3-1-5 .sensorYN {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .PT4-3-1-5 .sensorYN > span {
+      position: absolute;
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      pointer-events: auto;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .PT4-3-1-5 .sensorYN > span.selected::after {
+      content: "＼";
+      color: #ff0000;
+      font-size: 28px;
+      line-height: 100%;
+      width: 100%;
+      background: #ffedbc99;
+      animation: fadeIn 0.3s both;
+      transform: scale(1.1);
+    }
+    .PT4-3-1-5 .grids {
+      position: absolute;
+      z-index: 2;
+      pointer-events: auto;
+    }
+    .PT4-3-1-5 .grids .robot {
+      position: absolute;
+      z-index: 4;
+      width: 40px;
+      height: 40px;
+      pointer-events: auto;
+      cursor: pointer;
+      transition:
+        top 0.6s ease,
+        left 0.6s ease,
+        transform 0.6s ease;
+    }
+    .PT4-3-1-5 .grids .robot::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: url("./DATA/PT4/BOOK3/IMAGES/robot_step1.png") no-repeat
+        center center;
+      background-size: contain;
+    }
+    .PT4-3-1-5 .grids .robot.moving::after {
+      animation: walkingRobot 0.5s steps(1) infinite;
+    }
+    .PT4-3-1-5 .grids .robot.jumping::after {
+      animation: jumpingRobot 1s ease-in-out;
+    }
+    .PT4-3-1-5 .grids .robot.stamping::after {
+      animation: stampingRobot 1s ease-in-out;
+    }
+    .PT4-3-1-5 .grids:has(.robot.wrong),
+    .PT4-3-1-5 .grids .robot.wrong {
+      pointer-events: none;
+    }
+    .PT4-3-1-5 .grids .robot.wrong::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: url("./DATA/IMAGES/common/icon_wrong.png") no-repeat center
+        center;
+      background-size: 65%;
+    }
+    @keyframes walkingRobot {
+      0% {
+        background-image: url("./DATA/PT4/BOOK3/IMAGES/robot_step1.png");
+      }
+
+      50% {
+        background-image: url("./DATA/PT4/BOOK3/IMAGES/robot_step2.png");
+      }
+    }
+    @keyframes jumpingRobot {
+      0% {
+        transform: scale(1);
+      }
+      10% {
+        transform: scale(1.4);
+      }
+    }
+    @keyframes stampingRobot {
+      0% {
+        transform: scale(1);
+      }
+      40% {
+        transform: scale(0.9);
+      }
+      70% {
+        transform: scale(1);
+      }
+    }
+  </style>
+  <script>
+    var toggleYN = function (tar) {
+      rootSoundEffect($show);
+      tar.toggleClass("selected");
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var withinShowAnswer = function (boolean) {
+      if (boolean) {
+        $(".PT4-3-1-5 .sensorYN > span").each(function () {
+          $(this).toggleClass("selected", $(this).attr("ans") == "0");
+        });
+      } else {
+        withinResetElem();
+      }
+    };
+
+    var withinResetElem = function () {
+      //.grids的attribute:size - 表示方格圖的大小(row,column)
+      //.grids的attribute:start - 表示機器人的起始位置(x,y)
+      //.grids的attribute:stamp - 表示機器人的需要蓋章動作的位置(x,y)
+      //.grids的attribute:end - 表示機器人的目標位置(x,y)
+      //.grids的attribute:start和end的row和column都是從0開始
+      //.grids的attribute:start和end的row和column都是從0開始
+      //.robot的長寬依照.grids的attribute:size來設定
+      //.robot預設的rotation都是0度
+      //.robot預設的位置依照start去找位置
+      var $scope = $(".contents > div.selected");
+      $scope.find(".grids").each(function () {
+        var $grid = $(this);
+        var $robot = $grid.find(".robot").eq(0);
+        if ($robot.length === 0) return;
+        $robot.removeClass("wrong moving jumping stamping");
+
+        var size = ($grid.attr("size") || "").split(",");
+        var rows = parseInt(size[0], 10);
+        var cols = parseInt(size[1], 10);
+        if (!rows || !cols) return;
+
+        var start = ($grid.attr("start") || "0,0").split(",");
+        var startX = parseInt(start[0], 10) || 0;
+        var startY = parseInt(start[1], 10) || 0;
+
+        var inlineW = parseFloat($grid.get(0).style.width);
+        var inlineH = parseFloat($grid.get(0).style.height);
+        var gridW = Number.isFinite(inlineW) ? inlineW : $grid.width();
+        var gridH = Number.isFinite(inlineH) ? inlineH : $grid.height();
+        var cellW = gridW / cols;
+        var cellH = gridH / rows;
+
+        var startDeg = parseFloat($robot.attr("data-start-rot"));
+        if (!Number.isFinite(startDeg)) startDeg = 0;
+        var startDir = ((Math.round(startDeg / 90) % 4) + 4) % 4;
+
+        $robot
+          .css({
+            width: cellW + "px",
+            height: cellH + "px",
+            left: startX * cellW + "px",
+            top: startY * cellH + "px",
+            transform: "rotate(" + startDeg + "deg)",
+          })
+          .data("dir", startDir)
+          .data("deg", startDeg)
+          .data("pos", { x: startX, y: startY })
+          .data("stamped", false);
+
+        $grid.find(".stampMark").remove();
+      });
+    };
+
+    var normalizeCmd = function (raw) {
+      var v = (raw || "").trim();
+      if (!v) return "";
+      // data-cmd tokens
+      if (v === "F1" || v === "R" || v === "L" || v === "J2" || v === "S")
+        return v;
+      // legacy alt text
+      if (v === "往前1格") return "F1";
+      if (v === "右轉90度") return "R";
+      if (v === "左轉90度") return "L";
+      if (v === "往前跳2格") return "J2";
+      if (v === "蓋印章") return "S";
+      return "";
+    };
+
+    var anchorRobot = function () {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      //
+      var $target = $(event.target);
+      // 點到機器人本體就不要改位置（讓 robot 的 onClick 去執行）
+      if ($target.closest(".robot").length > 0) return;
+
+      var $grid = $target.closest(".grids");
+      if ($grid.length === 0) return;
+      var $robot = $grid.find(".robot").eq(0);
+      if ($robot.length === 0) return;
+
+      var size = ($grid.attr("size") || "").split(",");
+      var rows = parseInt(size[0], 10);
+      var cols = parseInt(size[1], 10);
+      if (!rows || !cols) return;
+
+      var inlineW = parseFloat($grid.get(0).style.width);
+      var inlineH = parseFloat($grid.get(0).style.height);
+      var gridW = Number.isFinite(inlineW) ? inlineW : $grid.width();
+      var gridH = Number.isFinite(inlineH) ? inlineH : $grid.height();
+      var cellW = gridW / cols;
+      var cellH = gridH / rows;
+
+      // 事件座標轉成設計座標（配合 stageRatioReal）
+      var clickX = (event.pageX - $grid.offset().left) / stageRatioReal;
+      var clickY = (event.pageY - $grid.offset().top) / stageRatioReal;
+
+      var x = Math.max(0, Math.min(cols - 1, Math.floor(clickX / cellW)));
+      var y = Math.max(0, Math.min(rows - 1, Math.floor(clickY / cellH)));
+
+      $robot
+        .removeClass("wrong moving jumping stamping")
+        .css({
+          width: cellW + "px",
+          height: cellH + "px",
+          left: x * cellW + "px",
+          top: y * cellH + "px",
+        })
+        .data("pos", { x: x, y: y })
+        .data("stamped", false);
+      //
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_replay").show();
+      rootSoundEffect($beam);
+    };
+    var startMovingMission = function (cmds) {
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_replay").show();
+      //
+      var $scope = $(".contents > div.selected");
+      var $grid = $scope.find(".grids").eq(0);
+      var $robot = $grid.find(".robot").eq(0);
+      if ($grid.length === 0 || $robot.length === 0) return;
+      $robot.removeClass("wrong moving jumping stamping");
+
+      var size = ($grid.attr("size") || "").split(",");
+      var rows = parseInt(size[0], 10);
+      var cols = parseInt(size[1], 10);
+      if (!rows || !cols) return;
+
+      var inlineW = parseFloat($grid.get(0).style.width);
+      var inlineH = parseFloat($grid.get(0).style.height);
+      var gridW = Number.isFinite(inlineW) ? inlineW : $grid.width();
+      var gridH = Number.isFinite(inlineH) ? inlineH : $grid.height();
+      var cellW = gridW / cols;
+      var cellH = gridH / rows;
+
+      var stamp = ($grid.attr("stamp") || "").split(",");
+      var stampX = parseInt(stamp[0], 10);
+      var stampY = parseInt(stamp[1], 10);
+      var hasStamp = Number.isFinite(stampX) && Number.isFinite(stampY);
+
+      var end = ($grid.attr("end") || "").split(",");
+      var endX = parseInt(end[0], 10);
+      var endY = parseInt(end[1], 10);
+      var hasEnd = Number.isFinite(endX) && Number.isFinite(endY);
+
+      if (cmds.length === 0) {
+        rootSoundEffect($stupid);
+        return;
+      }
+
+      var STEP_MS = 1000;
+      var SFX_TURN = $beam;
+      var SFX_MOVE = $beep;
+      var SFX_JUMP = $bouncing;
+
+      var fail = function () {
+        rootSoundEffect($wrong);
+        $robot.addClass("wrong");
+        setTimeout(function () {
+          // $robot.removeClass("wrong");
+        }, STEP_MS);
+      };
+
+      var getState = function () {
+        var pos = $robot.data("pos") || { x: 0, y: 0 };
+        var deg = $robot.data("deg");
+        if (!Number.isFinite(deg)) deg = ($robot.data("dir") || 0) * 90;
+        var dir = ((Math.round(deg / 90) % 4) + 4) % 4;
+        var stamped = !!$robot.data("stamped");
+        return { pos: pos, dir: dir, deg: deg, stamped: stamped };
+      };
+
+      var setState = function (next) {
+        $robot.data("pos", next.pos);
+        $robot.data("deg", next.deg);
+        $robot.data("dir", next.dir);
+        $robot.data("stamped", next.stamped);
+      };
+
+      var dirToDelta = function (dir) {
+        // 0=上, 1=右, 2=下, 3=左
+        if (dir === 0) return { dx: 0, dy: -1 };
+        if (dir === 1) return { dx: 1, dy: 0 };
+        if (dir === 2) return { dx: 0, dy: 1 };
+        return { dx: -1, dy: 0 };
+      };
+
+      var inBounds = function (x, y) {
+        return x >= 0 && x < cols && y >= 0 && y < rows;
+      };
+
+      var animMoveTo = function (x, y, deg, done) {
+        $robot.css({
+          transform: "rotate(" + deg + "deg)",
+          left: x * cellW + "px",
+          top: y * cellH + "px",
+        });
+        setTimeout(done, STEP_MS);
+      };
+
+      var doStamp = function () {
+        if (!hasStamp) return;
+        var state = getState();
+        if (state.pos.x !== stampX || state.pos.y !== stampY) return;
+        if ($grid.find(".stampMark").length > 0) return;
+        $grid.append(
+          `<span class="stampMark" style="position:absolute;left:${stampX * cellW}px;top:${stampY * cellH}px;width:${cellW}px;height:${cellH}px;display:grid;place-items:center;font-size:${
+            Math.min(cellW, cellH) * 0.5
+          }px;color:#d00000;background:#ffedbc99;border-radius:6px;pointer-events:none;z-index:3;"><img style="width: 50%;    height: 50%;margin-top: -12px;margin-left: 13px;" src="./DATA/PT4/BOOK3/IMAGES/stamper.png" alt="印章" /></span>`,
+        );
+      };
+
+      var step = 0;
+      var runNext = function () {
+        if (step >= cmds.length) {
+          var finalState = getState();
+          var ok =
+            (!hasEnd ||
+              (finalState.pos.x === endX && finalState.pos.y === endY)) &&
+            (!hasStamp || finalState.stamped);
+          if (ok) {
+            bingo();
+          } else {
+            fail();
+          }
+          return;
+        }
+
+        var cmd = cmds[step++];
+        var state = getState();
+
+        if (cmd === "R") {
+          rootSoundEffect(SFX_TURN);
+          state.deg += 90;
+          state.dir = ((Math.round(state.deg / 90) % 4) + 4) % 4;
+          setState(state);
+          $robot.css({ transform: "rotate(" + state.deg + "deg)" });
+          setTimeout(runNext, STEP_MS);
+          return;
+        }
+
+        if (cmd === "L") {
+          rootSoundEffect(SFX_TURN);
+          state.deg -= 90;
+          state.dir = ((Math.round(state.deg / 90) % 4) + 4) % 4;
+          setState(state);
+          $robot.css({ transform: "rotate(" + state.deg + "deg)" });
+          setTimeout(runNext, STEP_MS);
+          return;
+        }
+
+        if (cmd === "S") {
+          $robot.removeClass("moving jumping").addClass("stamping");
+          if (hasStamp && state.pos.x === stampX && state.pos.y === stampY) {
+            state.stamped = true;
+            setState(state);
+            doStamp();
+            rootSoundEffect($correct);
+          } else {
+            fail();
+          }
+          setTimeout(function () {
+            $robot.removeClass("stamping");
+            runNext();
+          }, STEP_MS);
+          return;
+        }
+
+        var stepsToMove = 0;
+        if (cmd === "F1") stepsToMove = 1;
+        if (cmd === "J2") stepsToMove = 2;
+        if (stepsToMove > 0) {
+          $robot
+            .removeClass("stamping")
+            .toggleClass("jumping", stepsToMove === 2)
+            .toggleClass("moving", stepsToMove === 1);
+          rootSoundEffect(stepsToMove === 2 ? SFX_JUMP : SFX_MOVE);
+          var d = dirToDelta(state.dir);
+          var nx = state.pos.x + d.dx * stepsToMove;
+          var ny = state.pos.y + d.dy * stepsToMove;
+          if (!inBounds(nx, ny)) {
+            fail();
+            return;
+          }
+          state.pos = { x: nx, y: ny };
+          setState(state);
+          animMoveTo(nx, ny, state.deg, function () {
+            $robot.removeClass("moving jumping");
+            runNext();
+          });
+          return;
+        }
+
+        // 未知指令：跳過
+        setTimeout(runNext, 0);
+      };
+
+      rootSoundEffect($key);
+      runNext();
+    };
+
+    var startMovingMission1 = function () {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      // 指令來源：拖拉卡片 (.cardAvatarDie.s0~s9) 的 img[alt]
+      var readAltAt = function (idx) {
+        return (
+          $("#module_wrapper .cardAvatarDie.s" + idx)
+            .find("img:not(.sticker)")
+            .eq(0)
+            .attr("alt") || ""
+        ).trim();
+      };
+      var cmds = [];
+      for (var i = 0; i < 10; i++) {
+        var c = normalizeCmd(readAltAt(i));
+        if (c) cmds.push(c);
+      }
+      startMovingMission(cmds);
+    };
+
+    var startMovingMission2 = function () {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      // 指令來源：.sensorYN > span[data-cmd]，有 .selected 就忽略
+      var cmds = [];
+      $(".contents > div.selected .sensorYN > span").each(function () {
+        if ($(this).hasClass("selected")) return;
+        var c = normalizeCmd($(this).attr("data-cmd"));
+        if (c) cmds.push(c);
+      });
+      startMovingMission(cmds);
+    };
+  </script>
+</div>
