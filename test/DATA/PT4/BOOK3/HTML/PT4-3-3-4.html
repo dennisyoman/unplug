@@ -1,0 +1,174 @@
+<div id="module_wrapper" class="module_fillin PT4-3-3-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：依據動物的出現順序與現金變數的變化，寫下不同動物是如何改變數字。
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn tti" style="height: 300px">
+        <div class="sensorArea">
+          <!-- 填入數字 -->
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 96px; height: 40px; top: 77px; left: 66px"
+            ans="0"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 96px; height: 40px; top: 77px; left: 171px"
+            ans="5"
+          />
+
+          <!-- 數字 -->
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 121px; left: 66px"
+            ans="1"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 121px; left: 171px"
+            ans="3"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 166px; left: 66px"
+            ans="2"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 166px; left: 171px"
+            ans="4"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 211px; left: 66px"
+            ans="-1"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 211px; left: 171px"
+            ans="-2"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 255px; left: 66px"
+            ans="0"
+          />
+          <span
+            opt="cash"
+            class="sensor"
+            style="width: 96px; height: 40px; top: 255px; left: 171px"
+            ans="0"
+          />
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-4-1.png"
+        />
+      </div>
+
+      <div class="options cash loop">
+        <div class="option" fillin="0">
+          <span class="fillin">變成0</span>
+        </div>
+        <div class="option" fillin="1">
+          <span class="fillin">+1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">+2</span>
+        </div>
+        <div class="option" fillin="-1">
+          <span class="fillin">-1</span>
+        </div>
+        <div class="option" fillin="-2">
+          <span class="fillin">-2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">+3</span>
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin">+4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .PT4-3-3-4 .contents > div.selected .sensorArea .sensor::before {
+    background-size: 20% auto !important;
+  }
+</style>
+
+<script>
+  var modifyNumber = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入答案：", "");
+    item.removeClass("wrong");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      // only digits, no spaces/symbols/letters
+      if (!/^\d+$/.test(text)) {
+        rootSoundEffect($stupid);
+        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        return;
+      }
+      item.html(text);
+      item.attr("fillin", text);
+      rootSoundEffect($key);
+      //
+      $(".sideTool > div.btn_check").show();
+      $(".sideTool > div.btn_replay").show();
+    }
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".PT4-3-3-4 .contents > div.selected .column-number").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
+    }
+  };
+</script>

@@ -1,0 +1,326 @@
+<div id="module_wrapper" class="module_fillin PT4-3-3-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：依照不同動物對應的數字變化，完成表格及問題。</p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px; margin-left: 100px">
+        <div class="sensorArea">
+          <!-- 填入數字 -->
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 42px"
+            ans="2"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 72px"
+            ans="4"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 103px"
+            ans="5"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 133px"
+            ans="7"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 164px"
+            ans="8"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 194px"
+            ans="10"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 28px; height: 23px; top: 151px; left: 225px"
+            ans="12"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 13px; top: 209px; left: 173px"
+            ans="0"
+          />
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-5-1.png"
+        />
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：請用句子寫出動物和數字的關係。</p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px; margin-left: 100px">
+        <div class="sensorArea">
+          <!-- ifelse -->
+          <span
+            opt="ifelse"
+            class="sensor"
+            style="width: 60px; height: 15px; top: 10px; left: 52px"
+            ans="if"
+          />
+          <span
+            opt="ifelse"
+            class="sensor"
+            style="width: 60px; height: 15px; top: 72px; left: 52px"
+            ans="if"
+          />
+          <span
+            opt="ifelse"
+            class="sensor"
+            style="width: 60px; height: 15px; top: 137px; left: 52px"
+            ans="if"
+          />
+          <span
+            opt="ifelse"
+            class="sensor"
+            style="width: 60px; height: 15px; top: 207px; left: 52px"
+            ans="if"
+          />
+
+          <!-- object -->
+          <span
+            opt="object"
+            class="sensor"
+            style="width: 51px; height: 15px; top: 10px; left: 214px"
+            ans="現金變數"
+          />
+          <span
+            opt="object"
+            class="sensor"
+            style="width: 51px; height: 15px; top: 72px; left: 214px"
+            ans="現金變數"
+          />
+          <span
+            opt="object"
+            class="sensor"
+            style="width: 51px; height: 15px; top: 137px; left: 214px"
+            ans="現金變數"
+          />
+          <span
+            opt="object"
+            class="sensor"
+            style="width: 51px; height: 15px; top: 207px; left: 214px"
+            ans="現金變數"
+          />
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-5-2.png"
+        />
+      </div>
+
+      <div class="options ifelse loop">
+        <div class="option" fillin="if">
+          <span class="fillin">If(如果)</span>
+        </div>
+        <div class="option" fillin="else">
+          <span class="fillin">else(否則)</span>
+        </div>
+      </div>
+
+      <div class="options object loop">
+        <div class="option" fillin="現金變數">
+          <span class="fillin">現金變數</span>
+        </div>
+        <div class="option" fillin="進店動物">
+          <span class="fillin">進店動物</span>
+        </div>
+        <div class="option" fillin="大熊">
+          <span class="fillin">大熊</span>
+        </div>
+        <div class="option" fillin="小熊">
+          <span class="fillin">小熊</span>
+        </div>
+        <div class="option" fillin="狐狸">
+          <span class="fillin">狐狸</span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：大熊在隔壁又開了間水果店，雖然客人都一樣，但是買的東西價錢不同了，請幫他算算這一天的現金數字變化。
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 250px; margin-left: 100px">
+        <div class="sensorArea">
+          <!-- 填入數字 -->
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 67px; left: 247px"
+            ans="3"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 67px; left: 286px"
+            ans="7"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 53px"
+            ans="0"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 92px"
+            ans="4"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 130px"
+            ans="7"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 169px"
+            ans="11"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 208px"
+            ans="14"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 247px"
+            ans="18"
+          />
+          <span
+            onClick="modifyNumber($(this))"
+            class="sensor column-number"
+            style="width: 36px; height: 28px; top: 130px; left: 286px"
+            ans="21"
+          />
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-3-5-3.png"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .PT4-3-3-5
+    .contents
+    > div.selected
+    .sensorArea
+    .sensor.column-number:not(:empty) {
+    background: #ffffff;
+  }
+  .PT4-3-3-5 .contents > div:nth-child(2) .sensorArea .sensor {
+    font-size: 12px;
+  }
+  .PT4-3-3-5 .contents > div:nth-child(3) .sensorArea .sensor {
+    font-size: 20px;
+  }
+  .PT4-3-3-5 .contents > div.selected .sensorArea .sensor::before {
+    background-size: 30% auto !important;
+  }
+</style>
+
+<script>
+  var modifyNumber = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入答案：", "");
+    item.removeClass("wrong");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      // only digits, no spaces/symbols/letters
+      if (!/^\d+$/.test(text)) {
+        rootSoundEffect($stupid);
+        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        return;
+      }
+      item.html(text);
+      item.attr("fillin", text);
+      rootSoundEffect($key);
+      //
+      $(".sideTool > div.btn_check").show();
+      $(".sideTool > div.btn_replay").show();
+    }
+  };
+
+  //dynamic function for this html only
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".PT4-3-3-5 .contents > div.selected .column-number").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
+    }
+  };
+</script>

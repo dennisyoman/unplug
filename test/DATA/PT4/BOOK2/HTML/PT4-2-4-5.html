@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_box chal-PT4-2-4-5">
+<div id="module_wrapper" class="module_box PT4-2-4-5">
   <div class="tabs">
     <span>任務一</span>
     <span>任務二</span>
@@ -325,29 +325,29 @@
 </div>
 
 <style>
-  .chal-PT4-2-4-5 .cardAvatar:has(img[person]) {
+  .PT4-2-4-5 .cardAvatar:has(img[person]) {
     width: 20px !important;
     height: 20px !important;
   }
-  .chal-PT4-2-4-5 .cardAvatar img[person] {
+  .PT4-2-4-5 .cardAvatar img[person] {
     transform-origin: center top;
     transform: translateY(-50%);
   }
-  .chal-PT4-2-4-5 .toy:has(.duration-arrow) {
+  .PT4-2-4-5 .toy:has(.duration-arrow) {
     width: auto !important;
     height: 20px !important;
     display: grid;
     place-items: center;
   }
 
-  .chal-PT4-2-4-5 .toys .toy.disable .duration-arrow,
-  .chal-PT4-2-4-5 .toys .toy.cached .duration-arrow {
+  .PT4-2-4-5 .toys .toy.disable .duration-arrow,
+  .PT4-2-4-5 .toys .toy.cached .duration-arrow {
     opacity: 0;
   }
-  .chal-PT4-2-4-5 .toys .toy.semiTransparent .duration-arrow {
+  .PT4-2-4-5 .toys .toy.semiTransparent .duration-arrow {
     opacity: 0.3;
   }
-  .chal-PT4-2-4-5 .duration-arrow {
+  .PT4-2-4-5 .duration-arrow {
     position: relative;
     display: inline-block;
     width: calc(var(--duration) * 5.7px);
@@ -357,7 +357,7 @@
     color: #000;
     text-align: center;
   }
-  .chal-PT4-2-4-5 .duration-arrow::before {
+  .PT4-2-4-5 .duration-arrow::before {
     content: "";
     position: absolute;
     width: 0;
@@ -368,7 +368,7 @@
     border-width: 4px 4px 0px 0px;
     border-color: transparent #324681 transparent transparent;
   }
-  .chal-PT4-2-4-5 .duration-arrow::after {
+  .PT4-2-4-5 .duration-arrow::after {
     content: "";
     position: absolute;
     width: 0;
@@ -380,8 +380,8 @@
     border-color: transparent transparent transparent #324681;
   }
 
-  .chal-PT4-2-4-5 .column-text,
-  .chal-PT4-2-4-5.column-name {
+  .PT4-2-4-5 .column-text,
+  .PT4-2-4-5 .column-name {
     position: absolute;
     z-index: 2;
     font-size: 10px;
@@ -389,10 +389,11 @@
     justify-content: center;
     white-space: nowrap;
     pointer-events: auto;
+    text-align: center;
   }
 
-  .chal-PT4-2-4-5 .column-text:not(:empty),
-  .chal-PT4-2-4-5.column-name:not(:empty) {
+  .PT4-2-4-5 .column-text:not(:empty),
+  .PT4-2-4-5 .column-name:not(:empty) {
     border: none;
   }
 </style>
@@ -421,30 +422,24 @@
   //dynamic function for this html only
   var withinShowAnswer = function (boolean) {
     if (boolean) {
-      $(".chal-PT4-2-4-5 .contents > div.selected .column-text").each(
-        function () {
-          $(this).html($(this).attr("ans"));
-        },
-      );
+      $(".PT4-2-4-5 .contents > div.selected .column-text").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
     } else {
-      $(".chal-PT4-2-4-5 .contents > div.selected .column-text").each(
-        function () {
-          $(this).html("");
-        },
-      );
+      $(".PT4-2-4-5 .contents > div.selected .column-text").each(function () {
+        $(this).html("");
+      });
     }
   };
 
   var withinResetElem = function () {
-    $(".chal-PT4-2-4-5 .contents > div.selected .column-text").each(
-      function () {
-        $(this).html("");
-      },
-    );
+    $(".PT4-2-4-5 .contents > div.selected .column-text").each(function () {
+      $(this).html("");
+    });
   };
 
   //以下是用來監測拖曳的變動，監測到變動後，會更新對應的column-text
-  var $container = $(".chal-PT4-2-4-5");
+  var $container = $(".PT4-2-4-5");
   var debounceTimer;
   var changedElements = new Set();
   var removedElements = new Set(); // 新增：用來記錄被移除的元素
@@ -483,8 +478,8 @@
               //console.log("偵測到 .cardAvatarDie 被移除了:", el);
               // 在此處加入你移除時的邏輯，例如清除對應的 column-text
               var personID = $(el).find("img[person]").attr("person");
-              var targetCloumn = $(
-                ".chal-PT4-2-4-5 .contents > div.selected .column-text[person='" +
+              var targetCloumn = $container.find(
+                ".contents > div.selected .column-text[person='" +
                   personID +
                   "']",
               );
@@ -498,8 +493,8 @@
               );
               changedElements.forEach((el) => {
                 var personID = $(el).find("img[person]").attr("person");
-                var targetCloumn = $(
-                  ".chal-PT4-2-4-5 .contents > div.selected .column-text[person='" +
+                var targetCloumn = $container.find(
+                  ".contents > div.selected .column-text[person='" +
                     personID +
                     "']",
                 );

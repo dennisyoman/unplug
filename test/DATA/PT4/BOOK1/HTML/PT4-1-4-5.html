@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT4-1-4-5">
   <div class="tabs">
     <span>任務一</span>
     <span>任務二</span>
@@ -922,11 +922,11 @@
 </script>
 
 <style>
-  #module_wrapper .contents .selected .sensor[group="1"].selected {
+  .PT4-1-4-5 .contents .selected .sensor[group="1"].selected {
     border: 2px solid #25ce7f;
     border-radius: 100%;
   }
-  #module_wrapper .contents .selected .sensor[group="1"].selected::after {
+  .PT4-1-4-5 .contents .selected .sensor[group="1"].selected::after {
     content: "";
     position: absolute;
     top: -8px;
@@ -938,17 +938,17 @@
     animation: slideInDown 0.5s linear both;
   }
   /* 如果後面跟著另一個 .sensor[group="1"].selected，則隱藏 ::after */
-  #module_wrapper
+  .PT4-1-4-5
     .contents
     .selected
     .sensor[group="1"].selected:has(~ .sensor[group="1"].selected)::after {
     display: none;
   }
-  #module_wrapper .contents .selected .sensor[group="2"].selected {
+  .PT4-1-4-5 .contents .selected .sensor[group="2"].selected {
     border: 2px solid #fd1d1d;
     border-radius: 100%;
   }
-  #module_wrapper .contents .selected .sensor[group="2"].selected::after {
+  .PT4-1-4-5 .contents .selected .sensor[group="2"].selected::after {
     content: "";
     position: absolute;
     top: -8px;
@@ -960,22 +960,22 @@
     animation: slideInDown 0.5s linear both;
   }
   /* 如果後面跟著另一個 .sensor[group="2"].selected，則隱藏 ::after */
-  #module_wrapper
+  .PT4-1-4-5
     .contents
     .selected
     .sensor[group="2"].selected:has(~ .sensor[group="2"].selected)::after {
     display: none;
   }
-  .sensor.selected {
+  .PT4-1-4-5 .sensor.selected {
     pointer-events: none !important;
   }
-  .questions {
+  .PT4-1-4-5 .questions {
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
   }
-  .questions .question {
+  .PT4-1-4-5 .questions .question {
     position: absolute;
     z-index: 2;
     font-size: 12px;
@@ -984,19 +984,19 @@
     color: #fd1d1d;
     opacity: 0;
   }
-  .questions .question[ans="9"] {
+  .PT4-1-4-5 .questions .question[ans="9"] {
     color: #25ce7f;
   }
-  .questions .question.selected {
+  .PT4-1-4-5 .questions .question.selected {
     opacity: 1;
   }
-  .sensorArea .sensor {
+  .PT4-1-4-5 .sensorArea .sensor {
     pointer-events: none !important;
   }
-  .sensorArea .sensor:empty {
+  .PT4-1-4-5 .sensorArea .sensor:empty {
     pointer-events: auto !important;
   }
-  .singleFlight {
+  .PT4-1-4-5 .singleFlight {
     position: absolute;
     top: 0;
     left: 0;
@@ -1006,12 +1006,12 @@
     z-index: 10;
     pointer-events: none;
   }
-  .singleFlight img {
+  .PT4-1-4-5 .singleFlight img {
     width: 100%;
     height: auto;
     transform: rotate(180deg);
   }
-  .singleFlight::before {
+  .PT4-1-4-5 .singleFlight::before {
     content: attr(data-num);
     width: 16px;
     height: 16px;
@@ -1031,19 +1031,19 @@
     z-index: 2;
   }
 
-  .singleFlight.active {
+  .PT4-1-4-5 .singleFlight.active {
     opacity: 1;
     transition:
       left 0.5s ease-in-out,
       top 0.5s ease-in-out;
   }
-  .sensorArea .sensor {
+  .PT4-1-4-5 .sensorArea .sensor {
     pointer-events: auto !important;
   }
-  .sensorArea .sensor:empty {
+  .PT4-1-4-5 .sensorArea .sensor:empty {
     pointer-events: auto !important;
   }
-  .flights {
+  .PT4-1-4-5 .flights {
     position: absolute;
     top: 0;
     left: 0;
@@ -1051,7 +1051,7 @@
     height: 100%;
     z-index: 1;
   }
-  .flights > span {
+  .PT4-1-4-5 .flights > span {
     position: absolute;
     width: 45px;
     height: 45px;
@@ -1059,11 +1059,11 @@
     background-size: contain;
     transition: opacity 0.5s ease-in-out;
   }
-  .flights > span.selected {
+  .PT4-1-4-5 .flights > span.selected {
     opacity: 0;
   }
 
-  .flights > span::before {
+  .PT4-1-4-5 .flights > span::before {
     content: attr(data-num);
     width: 16px;
     height: 16px;
@@ -1081,13 +1081,13 @@
     line-height: 14px;
     font-weight: bold;
   }
-  .flights > span.fl::before {
+  .PT4-1-4-5 .flights > span.fl::before {
     transform: translate(-50%, -50%) rotate(90deg);
   }
-  .flights > span.fd::before {
+  .PT4-1-4-5 .flights > span.fd::before {
     transform: translate(-50%, -50%) rotate(180deg);
   }
-  .flights > span.fr::before {
+  .PT4-1-4-5 .flights > span.fr::before {
     transform: translate(-50%, -50%) rotate(-90deg);
   }
 </style>

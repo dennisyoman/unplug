@@ -1,0 +1,679 @@
+<div id="module_wrapper" class="module_decode PT4-3-4-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：這事的神秘嘉賓到底是誰？你會怎麼使用你的3個問題呢？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="puzzle wow bounceInLeft"
+        style="width: 240px; margin-top: 25px"
+      >
+        <div
+          class="items unlimit randomOrder"
+          ans="r1,r4,r5,r6"
+          style="top: 40px; left: 148px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r1,r5"
+          style="top: 113px; left: 148px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r5"
+          style="top: 185px; left: 148px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r5"
+          style="top: 221px; left: 107px; width: 75px; height: 14px"
+        ></div>
+
+        <div class="conditions">
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 23px; left: 71px; width: 150px; height: 13px"
+            ans="是女的嗎？"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 95px; left: 71px; width: 150px; height: 13px"
+            ans="是戴髮飾嗎？"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 168px; left: 71px; width: 150px; height: 13px"
+            ans="衣服是藍色嗎？"
+          ></span>
+
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 40px;
+              left: 61px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans="是"
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 113px;
+              left: 61px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans="不是"
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 185px;
+              left: 61px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans="不是"
+          ></span>
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/PT4-3-4-5-1.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 150px; padding: 0; margin-left: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r1"
+            style="top: 1px; left: 1px; width: 70px; height: 70px"
+            >1</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r2"
+            style="top: 1px; left: 78px; width: 70px; height: 70px"
+            >2</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r3"
+            style="top: 78px; left: 1px; width: 70px; height: 70px"
+            >3</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r4"
+            style="top: 78px; left: 78px; width: 70px; height: 70px"
+            >4</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r5"
+            style="top: 157px; left: 1px; width: 70px; height: 70px"
+            >5</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r6"
+            style="top: 157px; left: 78px; width: 70px; height: 70px"
+            >6</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r7"
+            style="top: 235px; left: 1px; width: 70px; height: 70px"
+            >7</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r8"
+            style="top: 235px; left: 78px; width: 70px; height: 70px"
+            >8</span
+          >
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/roles-8.png" />
+      </div>
+    </div>
+
+    <!-- 任務二 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：你太厲害了，朋友們都要你教他們怎麼猜。你能夠把每一種可能的狀況用if的語法列出來嗎？
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-4-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="puzzle wow bounceInLeft"
+        style="width: 240px; margin-top: 25px"
+      >
+        <div
+          class="items autoClean"
+          ans="r4"
+          style="top: 160px; left: 0px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r6"
+          style="top: 160px; left: 32px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r1"
+          style="top: 160px; left: 62px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r5"
+          style="top: 160px; left: 92px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r2"
+          style="top: 160px; left: 123px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r7"
+          style="top: 160px; left: 153px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r8"
+          style="top: 160px; left: 183px; width: 23px; height: 25px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans="r3"
+          style="top: 160px; left: 214px; width: 23px; height: 25px"
+        ></div>
+
+        <div class="conditions">
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 3px; left: 107px; width: 32px; height: 13px"
+            ans="是女生"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 53px; left: 47px; width: 32px; height: 13px"
+            ans="戴髮飾"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 53px; left: 167px; width: 32px; height: 13px"
+            ans="穿盔甲"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 101px; left: 18px; width: 32px; height: 13px"
+            ans="衣服是綠色"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 101px; left: 77px; width: 32px; height: 13px"
+            ans="衣服是藍色"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 101px; left: 137px; width: 32px; height: 13px"
+            ans="衣服是綠色"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 101px; left: 197px; width: 32px; height: 13px"
+            ans="衣服是藍色"
+          ></span>
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/PT4-3-4-5-2.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 150px; padding: 0; margin-left: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="trigMe($(this))"
+            iid="r1"
+            style="top: 1px; left: 1px; width: 70px; height: 70px"
+            >1</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r2"
+            style="top: 1px; left: 78px; width: 70px; height: 70px"
+            >2</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r3"
+            style="top: 78px; left: 1px; width: 70px; height: 70px"
+            >3</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r4"
+            style="top: 78px; left: 78px; width: 70px; height: 70px"
+            >4</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r5"
+            style="top: 157px; left: 1px; width: 70px; height: 70px"
+            >5</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r6"
+            style="top: 157px; left: 78px; width: 70px; height: 70px"
+            >6</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r7"
+            style="top: 235px; left: 1px; width: 70px; height: 70px"
+            >7</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r8"
+            style="top: 235px; left: 78px; width: 70px; height: 70px"
+            >8</span
+          >
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/roles-8.png" />
+      </div>
+    </div>
+
+    <!-- 任務三 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：神秘嘉賓的名單又多了4個，先試著把分類更新一下吧，這次由同學決定嘉賓，你來猜猜看吧。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="puzzle wow bounceInLeft"
+        style="width: 240px; margin-top: 25px"
+      >
+        <div
+          class="items unlimit randomOrder"
+          ans=""
+          style="top: 27px; left: 143px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans=""
+          style="top: 82px; left: 143px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans=""
+          style="top: 137px; left: 143px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans=""
+          style="top: 191px; left: 143px; width: 75px; height: 14px"
+        ></div>
+        <div
+          class="items autoClean"
+          ans=""
+          style="top: 221px; left: 128px; width: 75px; height: 14px"
+        ></div>
+
+        <div class="conditions">
+          <span
+            onClick="modifyText($(this))"
+            class="column-condition"
+            style="top: 11px; left: 67px; width: 150px; height: 13px"
+            ans=""
+          ></span>
+          <span
+            onClick="modifyText($(this))"
+            class="column-condition"
+            style="top: 65px; left: 67px; width: 150px; height: 13px"
+            ans=""
+          ></span>
+          <span
+            onClick="modifyText($(this))"
+            class="column-condition"
+            style="top: 120px; left: 67px; width: 150px; height: 13px"
+            ans=""
+          ></span>
+          <span
+            onClick="modifyText($(this))"
+            class="column-condition"
+            style="top: 175px; left: 67px; width: 150px; height: 13px"
+            ans=""
+          ></span>
+
+          <span
+            onClick="toggleYN($(this))"
+            class="column-condition"
+            style="
+              top: 28px;
+              left: 57px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-condition"
+            style="
+              top: 82px;
+              left: 57px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-condition"
+            style="
+              top: 138px;
+              left: 57px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-condition"
+            style="
+              top: 191px;
+              left: 57px;
+              width: 36px;
+              height: 14px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/PT4-3-4-5-3.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 190px; padding: 0; margin-left: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r1"
+            style="top: 1px; left: 1px; width: 59px; height: 59px"
+            >1</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r2"
+            style="top: 1px; left: 65px; width: 59px; height: 59px"
+            >2</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r3"
+            style="top: 1px; left: 130px; width: 59px; height: 59px"
+            >3</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r4"
+            style="top: 65px; left: 1px; width: 59px; height: 59px"
+            >4</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r5"
+            style="top: 65px; left: 65px; width: 59px; height: 59px"
+            >5</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r6"
+            style="top: 65px; left: 130px; width: 59px; height: 59px"
+            >6</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r7"
+            style="top: 130px; left: 1px; width: 59px; height: 59px"
+            >7</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r8"
+            style="top: 130px; left: 65px; width: 59px; height: 59px"
+            >8</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r9"
+            style="top: 130px; left: 130px; width: 59px; height: 59px"
+            >9</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r10"
+            style="top: 195px; left: 1px; width: 59px; height: 59px"
+            >10</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="11"
+            style="top: 195px; left: 65px; width: 59px; height: 59px"
+            >11</span
+          >
+          <span
+            onClick="checkAvailable($(this))"
+            iid="r12"
+            style="top: 195px; left: 130px; width: 59px; height: 59px"
+            >12</span
+          >
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/roles-12.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .PT4-3-4-5 .contents .puzzle .items > span {
+    min-height: unset;
+    min-width: unset;
+    width: auto !important;
+    height: auto !important;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  .PT4-3-4-5 .contents > div .puzzle .items > span::after {
+    content: ",";
+  }
+  .PT4-3-4-5 .contents > div .puzzle .items > span:last-child::after {
+    content: "";
+  }
+
+  .PT4-3-4-5 .contents > div .puzzle .conditions {
+    position: relative;
+    z-index: 2;
+  }
+
+  .PT4-3-4-5 .contents > div .puzzle .conditions > span {
+    position: absolute;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+    display: grid;
+    place-items: center left;
+    border-radius: 3px;
+  }
+
+  .PT4-3-4-5 .contents > div:nth-child(2) .puzzle .conditions > span {
+    font-size: 10px;
+    place-items: center;
+  }
+</style>
+<script>
+  var checkAvailable = function (item) {
+    var puzzle = $(".PT4-3-4-5 .contents > div.selected .puzzle");
+    var items = puzzle.find(".items");
+    var currentItems = puzzle.find(".items.selected");
+    var itemText = item.text() || "";
+    if (currentItems.length > 0) {
+      if (currentItems.index() > 0) {
+        var prevItems = items.eq(currentItems.index() - 1);
+        //如果item.html()沒有在prevItems.find("span").html()裡面，則跳提醒
+        var matched = prevItems
+          .find("span")
+          .toArray()
+          .some((el) => ($(el).text() || "").includes(itemText));
+        if (!matched) {
+          rootSoundEffect($stupid);
+          var alertmsg = "選項需要同時符合上面問題的條件。";
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          return;
+        }
+      }
+    }
+    var existed = currentItems
+      .find("span")
+      .toArray()
+      .some((el) => ($(el).text() || "").includes(itemText));
+    if (existed) {
+      rootSoundEffect($stupid);
+      var alertmsg = "此選項已經選過了。";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      return;
+    }
+    trigMe(item);
+  };
+
+  var modifyCondition = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請自行輸入，或使用建議答案：", item.attr("ans"));
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var modifyText = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入文字：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var toggleYN = (item) => {
+    var NYArr = ["是", "不是"];
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    rootSoundEffect($key);
+    var text = item.text();
+    if (NYArr.includes(text)) {
+      var currentIndex = NYArr.indexOf(text);
+      var nextIndex = (currentIndex + 1) % NYArr.length;
+      item.html(NYArr[nextIndex]);
+    } else {
+      item.html(NYArr[0]);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var withinShowAnswer = (boolean) => {
+    if (boolean) {
+      $(".PT4-3-4-5 .contents .puzzle .conditions > span").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
+    } else {
+      withinResetElem();
+    }
+  };
+
+  var withinResetElem = () => {
+    $(".PT4-3-4-5 .contents .puzzle .conditions > span").each(function () {
+      $(this).html("");
+    });
+  };
+</script>

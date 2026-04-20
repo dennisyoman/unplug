@@ -1,0 +1,302 @@
+<div id="module_wrapper" class="module_decode PT4-3-4-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>文生圖</b>：找出至少三種方式分類，分類結果需要盡量平均。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle wow bounceInLeft" style="width: 270px">
+        <div
+          class="items unlimit randomOrder"
+          ans="r2,r3,r7,r8"
+          style="top: 28px; left: 121px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r1,r4,r5,r6"
+          style="top: 53px; left: 121px; width: 78px; height: 23px"
+        ></div>
+
+        <div
+          class="items unlimit randomOrder"
+          ans="r2,r7"
+          style="top: 121px; left: 53px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r4,r6"
+          style="top: 147px; left: 53px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r3,r5"
+          style="top: 173px; left: 53px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r1,r8"
+          style="top: 198px; left: 53px; width: 78px; height: 23px"
+        ></div>
+
+        <div
+          class="items unlimit randomOrder"
+          ans="r2,r4"
+          style="top: 121px; left: 189px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r5,r7"
+          style="top: 147px; left: 189px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r1,r8"
+          style="top: 173px; left: 189px; width: 78px; height: 23px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="r3,r6"
+          style="top: 198px; left: 189px; width: 78px; height: 23px"
+        ></div>
+
+        <div class="conditions">
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 2px; left: 71px; width: 130px; height: 23px"
+            ans="性別"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 28px; left: 71px; width: 46px; height: 23px"
+            ans="男"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 54px; left: 71px; width: 46px; height: 23px"
+            ans="女"
+          ></span>
+
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 95px; left: 3px; width: 128px; height: 23px"
+            ans="穿著"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 121px; left: 3px; width: 46px; height: 23px"
+            ans="盔甲"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 147px; left: 3px; width: 46px; height: 23px"
+            ans="髪飾"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 173px; left: 3px; width: 46px; height: 23px"
+            ans="褲子"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 199px; left: 3px; width: 46px; height: 23px"
+            ans="其他"
+          ></span>
+
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 95px; left: 140px; width: 128px; height: 23px"
+            ans="衣服顏色"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 121px; left: 140px; width: 46px; height: 23px"
+            ans="綠"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 147px; left: 140px; width: 46px; height: 23px"
+            ans="紅"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 173px; left: 140px; width: 46px; height: 23px"
+            ans="藍"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 199px; left: 140px; width: 46px; height: 23px"
+            ans="其他"
+          ></span>
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/PT4-3-4-4-1.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 150px; padding: 0; margin-left: 20px"
+      >
+        <div class="items">
+          <span
+            onClick="trigMe($(this))"
+            iid="r1"
+            style="top: 1px; left: 1px; width: 70px; height: 70px"
+            >1</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r2"
+            style="top: 1px; left: 78px; width: 70px; height: 70px"
+            >2</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r3"
+            style="top: 78px; left: 1px; width: 70px; height: 70px"
+            >3</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r4"
+            style="top: 78px; left: 78px; width: 70px; height: 70px"
+            >4</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r5"
+            style="top: 157px; left: 1px; width: 70px; height: 70px"
+            >5</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r6"
+            style="top: 157px; left: 78px; width: 70px; height: 70px"
+            >6</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r7"
+            style="top: 235px; left: 1px; width: 70px; height: 70px"
+            >7</span
+          >
+          <span
+            onClick="trigMe($(this))"
+            iid="r8"
+            style="top: 235px; left: 78px; width: 70px; height: 70px"
+            >8</span
+          >
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK3/IMAGES/roles-8.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .PT4-3-4-4 .contents .puzzle .items > span {
+    min-height: unset;
+    min-width: unset;
+    width: auto !important;
+    height: auto !important;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  .PT4-3-4-4 .contents .puzzle .items > span::after {
+    content: ",";
+  }
+  .PT4-3-4-4 .contents .puzzle .items > span:last-child::after {
+    content: "";
+  }
+
+  .PT4-3-4-4 .contents .puzzle .conditions {
+    position: relative;
+    z-index: 2;
+  }
+
+  .PT4-3-4-4 .contents .puzzle .conditions > span {
+    position: absolute;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 3px;
+  }
+  .PT4-3-4-4 .contents .puzzle .conditions > span:empty {
+    border: 1px dashed #ff000099;
+  }
+</style>
+<script>
+  var trigMeCheck2 = function (tar) {
+    var group = tar.attr("group");
+    tar.siblings(`[group="${group}"]`).removeClass("wrong selected");
+    tar.removeClass("wrong").toggleClass("selected");
+    rootSoundEffect($show);
+    //
+    $(".sideTool > div.btn_answer").removeClass("active");
+    $(".alert").remove();
+  };
+
+  var modifyCondition = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請自行輸入，或使用建議答案：", item.attr("ans"));
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var withinShowAnswer = (boolean) => {
+    if (boolean) {
+      $(".PT4-3-4-4 .contents .puzzle .conditions > span").each(function () {
+        $(this).html($(this).attr("ans"));
+      });
+    } else {
+      withinResetElem();
+    }
+  };
+
+  var withinResetElem = () => {
+    $(".PT4-3-4-4 .contents .puzzle .conditions > span").each(function () {
+      $(this).html("");
+    });
+  };
+</script>

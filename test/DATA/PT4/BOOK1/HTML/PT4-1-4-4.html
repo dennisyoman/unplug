@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT4-1-4-4">
   <div class="tabs">
     <span>任務一</span>
   </div>
@@ -492,7 +492,7 @@
 </script>
 
 <style>
-  .singleFlight {
+  .PT4-1-4-4 .singleFlight {
     position: absolute;
     top: 0;
     left: 0;
@@ -502,12 +502,12 @@
     z-index: 10;
     pointer-events: none;
   }
-  .singleFlight img {
+  .PT4-1-4-4 .singleFlight img {
     width: 100%;
     height: auto;
     transform: rotate(180deg);
   }
-  .singleFlight::before {
+  .PT4-1-4-4 .singleFlight::before {
     content: attr(data-num);
     width: 16px;
     height: 16px;
@@ -527,19 +527,19 @@
     z-index: 2;
   }
 
-  .singleFlight.active {
+  .PT4-1-4-4 .singleFlight.active {
     opacity: 1;
     transition:
       left 0.5s ease-in-out,
       top 0.5s ease-in-out;
   }
-  .sensorArea .sensor {
+  .PT4-1-4-4 .sensorArea .sensor {
     pointer-events: auto !important;
   }
-  .sensorArea .sensor:empty {
+  .PT4-1-4-4 .sensorArea .sensor:empty {
     pointer-events: auto !important;
   }
-  .flights {
+  .PT4-1-4-4 .flights {
     position: absolute;
     top: 0;
     left: 0;
@@ -547,7 +547,7 @@
     height: 100%;
     z-index: 1;
   }
-  .flights > span {
+  .PT4-1-4-4 .flights > span {
     position: absolute;
     width: 45px;
     height: 45px;
@@ -555,11 +555,11 @@
     background-size: contain;
     transition: opacity 0.5s ease-in-out;
   }
-  .flights > span.selected {
+  .PT4-1-4-4 .flights > span.selected {
     opacity: 0;
   }
 
-  .flights > span::before {
+  .PT4-1-4-4 .flights > span::before {
     content: attr(data-num);
     width: 16px;
     height: 16px;
@@ -577,13 +577,13 @@
     line-height: 14px;
     font-weight: bold;
   }
-  .flights > span.fl::before {
+  .PT4-1-4-4 .flights > span.fl::before {
     transform: translate(-50%, -50%) rotate(90deg);
   }
-  .flights > span.fd::before {
+  .PT4-1-4-4 .flights > span.fd::before {
     transform: translate(-50%, -50%) rotate(180deg);
   }
-  .flights > span.fr::before {
+  .PT4-1-4-4 .flights > span.fr::before {
     transform: translate(-50%, -50%) rotate(-90deg);
   }
 </style>

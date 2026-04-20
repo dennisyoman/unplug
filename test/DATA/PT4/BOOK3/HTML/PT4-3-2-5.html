@@ -1,0 +1,313 @@
+<div id="module_wrapper" class="module_fillin PT4-3-2-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：請幫琪琪餐廳的第一關題目準備答案吧！</p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-2-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="sensorArea">
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 19px; height: 18px; top: 2px; left: 230px"
+            ans="0"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 19px; height: 18px; top: 36px; left: 230px"
+            ans="0"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 19px; height: 18px; top: 71px; left: 230px"
+            ans="0"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 19px; height: 18px; top: 106px; left: 230px"
+            ans="1"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 19px; height: 18px; top: 140px; left: 230px"
+            ans="1"
+          />
+        </div>
+
+        <img
+          style="height: 100%; margin-left: 50px"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-2-5-1.png"
+        />
+      </div>
+
+      <div class="options truefalse loop">
+        <div class="option" fillin="0">
+          <span class="fillin">0</span>
+        </div>
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：第二關題目變難了。每一題中會出現不只一隻貓或一個特徵，and和or的用法在這裡還記得嗎？
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-2-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="sensorArea">
+          <!-- 名字 -->
+          <span
+            onClick="checkSubans($(this))"
+            opt="truefalse"
+            class="sensor"
+            style="width: 17px; height: 16px; top: 0px; left: 262px"
+            ans="1"
+            team="1"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 16px; height: 16px; top: 26px; left: 126px"
+            ans="1"
+            team="1"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 16px; height: 16px; top: 26px; left: 236px"
+            ans="1"
+            team="1"
+          />
+          <span
+            onClick="checkSubans($(this))"
+            opt="truefalse"
+            class="sensor"
+            style="width: 17px; height: 16px; top: 54px; left: 262px"
+            ans="1"
+            team="2"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 16px; height: 16px; top: 81px; left: 126px"
+            ans="1"
+            team="2"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 16px; height: 16px; top: 81px; left: 221px"
+            ans="0"
+            team="2"
+          />
+          <span
+            onClick="checkSubans($(this))"
+            opt="truefalse"
+            class="sensor"
+            style="width: 17px; height: 16px; top: 108px; left: 262px"
+            ans="1"
+            team="3"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 16px; height: 16px; top: 136px; left: 142px"
+            ans="1"
+            team="3"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 16px; height: 16px; top: 136px; left: 236px"
+            ans="1"
+            team="3"
+          />
+          <span
+            opt="truefalse"
+            class="sensor"
+            style="width: 17px; height: 16px; top: 163px; left: 262px"
+            ans="1"
+          />
+        </div>
+
+        <img
+          style="height: 100%; margin-left: 60px"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-2-5-2.png"
+        />
+      </div>
+
+      <div class="options truefalse loop">
+        <div class="option" fillin="0">
+          <span class="fillin">0</span>
+        </div>
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：最近，琪琪想要收養新的貓咪！徵求網友的意見，看完意見後，找出符合特徵的貓咪。
+          </p>
+          <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-2-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn" style="height: 300px">
+        <div class="sensorArea">
+          <!-- 名字 -->
+          <span
+            onClick="filterCats($(this))"
+            class="sensor"
+            style="width: 180px; height: 25px; top: 10px; left: 100px"
+            filter="b^d"
+          />
+          <span
+            onClick="filterCats($(this))"
+            filter="a^d"
+            class="sensor"
+            style="width: 180px; height: 25px; top: 38px; left: 108px"
+          />
+          <span
+            onClick="filterCats($(this))"
+            filter=""
+            class="sensor"
+            style="width: 180px; height: 25px; top: 66px; left: 100px"
+          />
+          <span
+            onClick="filterCats($(this))"
+            filter="a^b^d"
+            class="sensor"
+            style="width: 180px; height: 25px; top: 94px; left: 108px"
+          />
+
+          <span
+            opt="slash"
+            class="sensor"
+            style="width: 38px; height: 52px; top: 189px; left: 86px"
+            ans="1"
+            cat="a"
+          />
+          <span
+            opt="slash"
+            class="sensor"
+            style="width: 38px; height: 52px; top: 189px; left: 146px"
+            ans="1"
+            cat="b"
+          />
+          <span
+            opt="slash"
+            class="sensor"
+            style="width: 38px; height: 52px; top: 189px; left: 268px"
+            ans="1"
+            cat="d"
+          />
+        </div>
+
+        <img
+          style="height: 100%; margin-left: 60px"
+          src="./DATA/PT4/BOOK3/IMAGES/PT4-3-2-5-3.png"
+        />
+      </div>
+      <div class="options slash loop">
+        <div class="option" fillin="1">
+          <span class="fillin">\</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+<style>
+  .PT4-3-2-5 .sensor[filter].selected {
+    border: 2px solid #ff0000;
+  }
+  .PT4-3-2-5 .sensor[opt="slash"]:empty {
+    animation: none;
+  }
+  .PT4-3-2-5 .sensor[opt="slash"] {
+    pointer-events: none;
+    font-size: 60px;
+    color: #ff0000;
+    animation: bounceIn 1s both;
+    transform-origin: top left;
+  }
+</style>
+<script>
+  var checkSubans = (item) => {
+    var team = item.attr("team");
+    var noAnsYet = item.parent().find("[team='" + team + "']:empty").length;
+    if (noAnsYet > 1) {
+      rootSoundEffect($stupid);
+      var alertmsg = "請先回答完下方的子題目，再來回答主題目唷！";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      return;
+    }
+  };
+
+  var filterCats = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    //setup
+    item.toggleClass("selected");
+    $(".sensor[cat]").empty();
+    //filter
+    var filters = $(".sensor[filter].selected");
+    for (var i = 0; i < filters.length; i++) {
+      var filterItem = filters.eq(i);
+      var cats = filterItem.attr("filter");
+      var catArr = cats.split("^");
+      for (var k = 0; k < catArr.length; k++) {
+        $(".sensor[cat='" + catArr[k] + "']").click();
+        rootSoundEffect($show);
+      }
+    }
+  };
+</script>
