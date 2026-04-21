@@ -11,8 +11,8 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_answer" onClick="newShowAnswer()"></div>
-    <div class="btn_check" onClick="newCheckAnswer()"></div>
+    <div class="btn_answer" onClick="newShowAnswer_PT4_2_2_5()"></div>
+    <div class="btn_check" onClick="newCheckAnswer_PT4_2_2_5()"></div>
     <div class="btn_replay"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
@@ -398,7 +398,7 @@
     }
   };
 
-  var newCheckAnswer = function () {
+  var newCheckAnswer_PT4_2_2_5 = function () {
     event.stopPropagation();
     event.stopImmediatePropagation();
     var targetDiv = $(".PT4-2-2-5-2 .contents > div.selected");
@@ -535,16 +535,20 @@
     return isCorrect;
   };
 
-  var newShowAnswer = function () {
+  var newShowAnswer_PT4_2_2_5 = function () {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
     $(".PT4-2-2-5-2 .sideTool > div.btn_answer").toggleClass("active");
     if ($(".PT4-2-2-5-2 .sideTool > div.btn_answer").hasClass("active")) {
       $(".PT4-2-2-5-2 .contents > div.selected .column-name").each(function () {
         $(this).html($(this).attr("ans"));
       });
+      rootSoundEffect($help);
     } else {
       $(".PT4-2-2-5-2 .contents > div.selected .column-name").each(function () {
         $(this).html("");
       });
+      rootSoundEffect($show);
     }
   };
 
@@ -552,5 +556,23 @@
     $(".PT4-2-2-5-2 .contents > div.selected .column-name").each(function () {
       $(this).html("");
     });
+
+    if ($(".PT4-2-2-5-2 .contents > div:nth-child(3).selected").length > 0) {
+      if (typeof window.PT4_2_2_mission3 === "undefined") {
+        //表示還沒有玩過文生圖
+        window.PT4_2_2_mission3 = true;
+        console.log("還沒文生圖");
+      } else {
+        //已經玩過文生圖了
+        window.PT4_2_2_mission3 = true;
+        console.log("已經任務三");
+        if (typeof updateMission3 === "undefined") {
+          console.log("還沒有updateMission3");
+        } else {
+          console.log("已經有updateMission3");
+          updateMission3();
+        }
+      }
+    }
   };
 </script>

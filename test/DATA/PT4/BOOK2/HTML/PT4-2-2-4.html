@@ -7,8 +7,8 @@
 
   <div class="sideTool">
     <div class="btn_answer"></div>
-    <div class="btn_check"></div>
     <div class="btn_replay"></div>
+    <div class="btn_check" onClick="newCheckAnswer_PT4_2_2_4()"></div>
     <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
   </div>
 
@@ -28,111 +28,119 @@
         class="subject wow fadeIn tti"
         style="width: auto; height: 150px; display: flex; gap: 0px"
       >
-        <div class="presetArea">
+        <div class="presetArea"></div>
+        <div class="sensorArea">
+          <!-- first -->
           <span
             opt="first"
+            pair="1"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 5px"
-            ans="3"
-            >清理烤箱</span
-          >
+            ans="清理烤箱"
+          ></span>
           <span
             opt="first"
+            pair="2"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 75px"
-            ans="3"
-            >買食材</span
-          >
+            ans="買食材"
+          ></span>
           <span
             opt="first"
+            pair="3"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 145px"
-            ans="3"
-            >買掃把</span
-          >
+            ans="買掃把"
+          ></span>
           <span
             opt="first"
+            pair="4"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 215px"
-            ans="3"
-            >做甜點</span
-          >
+            ans="做甜點"
+          ></span>
           <span
             opt="first"
+            pair="5"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 286px"
-            ans="3"
-            >甜點上架</span
-          >
+            ans="甜點上架"
+          ></span>
           <span
             opt="first"
+            pair="6"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 356px"
-            ans="3"
-            >清理地板</span
-          >
+            ans="清理地板"
+          ></span>
           <span
             opt="first"
+            pair="7"
             class="sensor"
             style="width: 60px; height: 22px; top: 32px; left: 427px"
-            ans="3"
-            >氣球裝飾</span
-          >
+            ans="氣球裝飾"
+          ></span>
           <span
-            opt="first"
-            class="sensor"
+            opt="first3"
+            pair="8"
+            class="sensor addup"
             style="width: 60px; height: 22px; top: 32px; left: 497px"
-            ans="3"
-            >修好貨架</span
-          >
-        </div>
-        <div class="sensorArea">
+            ans="修好貨架"
+          ></span>
           <!-- then-->
           <span
             opt="then"
+            pair="1"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 5px"
             ans="做甜點"
           />
           <span
             opt="then"
+            pair="2"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 75px"
             ans="做甜點"
           />
           <span
             opt="then"
+            pair="3"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 145px"
             ans="清理地板"
           />
           <span
             opt="then"
+            pair="4"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 215px"
             ans="甜點上架"
           />
           <span
             opt="then"
+            pair="5"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 286px"
             ans="開店營業"
           />
           <span
             opt="then"
+            pair="6"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 356px"
             ans="開店營業"
           />
           <span
             opt="then"
+            pair="7"
             class="sensor"
             style="width: 60px; height: 22px; top: 114px; left: 427px"
             ans="開店營業"
           />
           <span
             opt="then"
-            class="sensor"
+            pair="8"
+            class="sensor addup"
             style="width: 60px; height: 22px; top: 114px; left: 497px"
             ans="甜點上架"
           />
@@ -146,7 +154,7 @@
         <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
         <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
         <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
-        <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-1.png" />
+        <img class="addup" src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-4-2.png" />
       </div>
 
       <div class="options first loop">
@@ -171,6 +179,8 @@
         <div class="option" fillin="氣球裝飾">
           <span class="fillin">氣球裝飾</span>
         </div>
+      </div>
+      <div class="options first3 loop">
         <div class="option" fillin="修好貨架">
           <span class="fillin">修好貨架</span>
         </div>
@@ -202,7 +212,88 @@
     line-height: 12px;
     transform: scale(0.8);
   }
+
+  .PT4-2-2-4 .contents > div.selected .addup {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .PT4-2-2-4 .contents > div.selected .sensorArea .sensor.wrong:before {
     background-size: 30% auto;
   }
 </style>
+<script>
+  var newCheckAnswer_PT4_2_2_4 = function () {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    console.log("newCheckAnswer_PT4_2_2_4");
+    //
+    var correctSequence = [
+      "清理烤箱>做甜點",
+      "買食材>做甜點",
+      "買掃把>清理地板",
+      "做甜點>甜點上架",
+      "甜點上架>開店營業",
+      "清理地板>開店營業",
+      "氣球裝飾>開店營業",
+      "修好貨架>甜點上架",
+    ];
+
+    var pairAmount = 8;
+    var gotWrong = false;
+    var seenCombo = {};
+    for (var i = 1; i <= pairAmount; i++) {
+      var pair = $(".PT4-2-2-4 .sensorArea .sensor[pair='" + i + "']");
+      if (!pair.eq(0).hasClass("addup")) {
+        var textCombo = pair.eq(0).text() + ">" + pair.eq(1).text();
+
+        // 判斷 textCombo 不能重複；重複時「後面的」要加上 wrong
+        if (seenCombo[textCombo]) {
+          var alertmsg = "工作先後關係不能重複輸入。";
+          $(".alert").remove();
+          $(".PT4-2-2-4 .contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          //
+          pair.eq(0).addClass("wrong");
+          pair.eq(1).addClass("wrong");
+          gotWrong = true;
+          continue;
+        }
+        seenCombo[textCombo] = true;
+        if (!correctSequence.includes(textCombo)) {
+          var alertmsg = "先後關係有錯誤。";
+          $(".alert").remove();
+          $(".PT4-2-2-4 .contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          //
+          pair.eq(0).addClass("wrong");
+          pair.eq(1).addClass("wrong");
+          gotWrong = true;
+        } else {
+          pair.eq(0).removeClass("wrong");
+          pair.eq(1).removeClass("wrong");
+        }
+      }
+    }
+    if (gotWrong) {
+      rootSoundEffect($stupid);
+    } else {
+      bingo();
+    }
+  };
+  var updateMission3 = function () {
+    $(".PT4-2-2-4 .addup").removeClass("addup");
+  };
+  // global flag: keep existing value if already defined
+  if (typeof window.PT4_2_2_mission3 === "undefined") {
+    //表示還沒有玩過任務三
+    window.PT4_2_2_mission3 = false;
+    console.log("還沒任務三");
+  } else {
+    //已經玩過任務三了
+    console.log("已經任務三");
+    updateMission3();
+  }
+</script>
