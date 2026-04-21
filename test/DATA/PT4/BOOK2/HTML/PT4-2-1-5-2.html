@@ -368,8 +368,23 @@
     animation: bounceInDown 1s ease-in-out both;
   }
   .PT4-2-1-5-2 .column-show.active {
-    background: #ee7836;
-    color: #fff;
+    border-color: #1eff00;
+  }
+  .PT4-2-1-5-2 .sensorArea:has(.column-show.active) .column-show::after {
+    content: "Ｘ";
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    color: #ff0000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+  }
+  .PT4-2-1-5-2 .column-show.active::after {
+    display: none;
+  }
+  .PT4-2-1-5-2 .column-show.active::before {
   }
   .PT4-2-1-5-2 .column-text {
     position: absolute;
