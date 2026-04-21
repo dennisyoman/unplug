@@ -121,26 +121,9 @@ var lastPosY = 0;
 var isDragging = false;
 var $elem = null;
 
-// Override global define$Elem: allow dragging appended cardAvatarDie
-define$Elem = function (ev) {
-  $elem = ev.target;
-  var $die = $($elem).closest(".cardAvatarDie");
-  if ($die.length > 0) {
-    $elem = $die.get(0);
-    return;
-  }
-  var attr = $($elem).attr("mt");
-  if (typeof attr !== "undefined" && attr !== false) {
-    var loop = parseInt(attr);
-    for (var n = 0; n < loop; n++) {
-      $elem = $($elem).parent().get(0);
-    }
-  }
-};
-
 var trigHammer = function () {
   //hammer
-  var myElement = document.getElementById("module_wrapper");
+  var myElement = document.getElementById("contents");
   var mc = new Hammer(myElement);
   mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
   mc.get("press").set({ time: 1 });
@@ -163,17 +146,11 @@ var trigHammer = function () {
     threshold: 10, // 最遠移動距離 (px)
   });
   mc.on("tap", function (ev) {
-    // Tap should NOT normalize to .cardAvatarDie (that would conflict with tap actions),
-    // but it still needs to respect `mt` to bubble to the intended element.
-    var tapTarget = ev.target;
-    var attr = $(tapTarget).attr("mt");
-    if (typeof attr !== "undefined" && attr !== false) {
-      var loop = parseInt(attr);
-      for (var n = 0; n < loop; n++) {
-        tapTarget = $(tapTarget).parent().get(0);
-      }
+    if ($elem == null) {
+      define$Elem(ev);
     }
-    tapElem(tapTarget);
+
+    tapElem($elem);
   });
 };
 
@@ -198,9 +175,6 @@ var handleDrag = function (ev) {
 
       $("#cardAvatar").css("width", caWidth + "px");
       $("#cardAvatar").css("height", caHeight + "px");
-    }
-    if ($($elem).hasClass("keepDrag")) {
-      $("#cardAvatar").addClass("simplyDrag");
     }
     //simply drag
     if ($($elem).hasClass("simplyDrag")) {
@@ -372,9 +346,6 @@ var checkStatus = function () {
   $("#cardAvatar")
     .unbind()
     .bind("click", function () {
-      if ($(this).hasClass("simplyDrag")) {
-        return;
-      }
       var src1 = $(this).find("img:not(.sticker)").attr("src");
       $(".contents > div.selected")
         .find(".toys > div")
@@ -383,7 +354,6 @@ var checkStatus = function () {
             $(this).removeClass("cached semiTransparent positionBingo");
           }
         });
-
       $(this).remove();
       rootSoundEffect($show);
     })
@@ -519,7 +489,7 @@ var showAnswer = function (boolean) {
               }
               //
               ansArray[targetIndex].push(
-                `<div class="cardAvatar cardAvatarDie simplyDrag s${targetIndex}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+                `<div class="cardAvatar cardAvatarDie s${targetIndex}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
                   .eq(i)
                   .prop("outerHTML")}</div>`,
               );
@@ -531,7 +501,7 @@ var showAnswer = function (boolean) {
           } else {
             //
             ansArray[index].push(
-              `<div class="cardAvatar cardAvatarDie simplyDrag s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
+              `<div class="cardAvatar cardAvatarDie s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
                 .eq(i)
                 .prop("outerHTML")}</div>`,
             );

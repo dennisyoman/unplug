@@ -52,7 +52,7 @@
         style="width: 130px; gap: 5px; bottom: 10px; left: 20px"
       >
         <div
-          class="toy cards repeat"
+          class="toy cards repeat keepDrag"
           style="width: 20px; height: 20px"
           ap="210,347"
         >
@@ -62,7 +62,7 @@
           />
         </div>
         <div
-          class="toy cards repeat"
+          class="toy cards repeat keepDrag"
           style="width: 20px; height: 20px"
           ap="65,341^162,400"
         >
@@ -72,7 +72,7 @@
           />
         </div>
         <div
-          class="toy cards repeat"
+          class="toy cards repeat keepDrag"
           style="width: 20px; height: 20px"
           ap="203,321^130,321"
         >
@@ -82,7 +82,7 @@
           />
         </div>
         <div
-          class="toy cards repeat"
+          class="toy cards repeat m3Arrow keepDrag"
           style="width: 20px; height: 20px"
           ap="65,300^203,290"
         >
@@ -92,7 +92,7 @@
           />
         </div>
         <div
-          class="toy cards repeat"
+          class="toy cards repeat keepDrag"
           style="width: 20px; height: 20px"
           ap="228,275"
         >
@@ -101,28 +101,60 @@
             src="./DATA/IMAGES/common/icon_arrow_orange.png"
           />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="14,347">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="14,347"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteA.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="14,260">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="14,260"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteB.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="113,404">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="113,404"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteC.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="76,303">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="76,303"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteE.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="190,225">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="190,225"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteF.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="170,361">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="170,361"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteG.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="149,303">
+        <div
+          class="toy cards keepDrag"
+          style="width: 55px; height: 55px"
+          ap="149,303"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteH.png" />
         </div>
-        <div class="toy cards" style="width: 55px; height: 55px" ap="150,254">
+        <div
+          class="toy cards m3Card keepDrag"
+          style="width: 55px; height: 55px"
+          ap="150,254"
+        >
           <img src="./DATA/PT4/BOOK2/IMAGES/PT4-2-2-5-1-NoteI.png" />
         </div>
       </div>
@@ -145,6 +177,9 @@
   .PT4-2-2-5 .column-name:not(:empty) {
     border: none;
   }
+  .PT4-2-2-5 .addup {
+    display: none;
+  }
 </style>
 <script>
   var modifyName = (item) => {
@@ -158,6 +193,26 @@
       item.html(text);
       rootSoundEffect($key);
     }
+  };
+
+  var tapElem = function (tar) {
+    var $t = $(tar);
+    // 只處理這一頁的 simplyDrag（例如點一下刪除）
+    var $die = $t.closest(".cardAvatarDie.simplyDrag");
+    if ($die.length) {
+      var src1 = $die.find("img").attr("src");
+      $(".contents > div.selected")
+        .find(".toys > div")
+        .each(function () {
+          if (src1 == $(this).find("img").attr("src")) {
+            $(this).removeClass("cached semiTransparent positionBingo");
+          }
+        });
+      $die.remove();
+      rootSoundEffect($show);
+      return;
+    }
+    // 其他點擊行為...（不寫就交給別的元素原本的 onclick）
   };
 
   //dynamic function for this html only
@@ -174,5 +229,19 @@
     $(".PT4-2-2-5 .contents > div.selected .column-name").each(function () {
       $(this).html("");
     });
+    if ($(".PT4-2-2-5 .contents > div:nth-child(1).selected").length > 0) {
+      if (typeof window.PT4_2_2_mission3 === "undefined") {
+        $(".PT4-2-2-5 .toy.cards.m3Card").hide();
+        $(".PT4-2-2-5 .toy.cards.m3Arrow").attr("ap", "65,300");
+      } else {
+        if (window.PT4_2_2_mission3 == true) {
+          $(".PT4-2-2-5 .toy.cards.m3Card").show();
+          $(".PT4-2-2-5 .toy.cards.m3Arrow").attr("ap", "65,300^203,290");
+        } else {
+          $(".PT4-2-2-5 .toy.cards.m3Card").hide();
+          $(".PT4-2-2-5 .toy.cards.m3Arrow").attr("ap", "65,300");
+        }
+      }
+    }
   };
 </script>
