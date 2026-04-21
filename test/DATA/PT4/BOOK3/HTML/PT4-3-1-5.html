@@ -325,7 +325,7 @@
           <span
             class="robot"
             data-start-rot="-90"
-            onClick="startMovingMission2()"
+            onClick="onRobotClickStart()"
           ></span>
         </div>
         <div class="toys"></div>
@@ -377,7 +377,7 @@
           <span
             class="robot"
             data-start-rot="0"
-            onClick="startMovingMission2()"
+            onClick="onRobotClickStart()"
           ></span>
         </div>
         <div class="toys"></div>
@@ -432,6 +432,12 @@
       z-index: 2;
       pointer-events: auto;
     }
+    .PT4-3-1-5 .grids.running {
+      pointer-events: none;
+    }
+    .PT4-3-1-5 .grids.running .robot {
+      pointer-events: none;
+    }
     .PT4-3-1-5 .grids .robot {
       position: absolute;
       z-index: 4;
@@ -461,6 +467,19 @@
     }
     .PT4-3-1-5 .grids .robot.stamping::after {
       animation: stampingRobot 1s ease-in-out;
+    }
+    .PT4-3-1-5 .grids .robot .rotateHandle {
+      position: absolute;
+      z-index: 10;
+      right: -8px;
+      top: -8px;
+      width: 16px;
+      height: 16px;
+      background: url("./DATA/IMAGES/common/btn_replay.png") no-repeat center
+        center;
+      background-size: 100% 100%;
+      pointer-events: auto;
+      cursor: pointer;
     }
     .PT4-3-1-5 .grids:has(.robot.wrong),
     .PT4-3-1-5 .grids .robot.wrong {
@@ -537,9 +556,21 @@
       var $scope = $(".contents > div.selected");
       $scope.find(".grids").each(function () {
         var $grid = $(this);
+        // cancel any running mission on this grid
+        var timers = $grid.data("timers");
+        if (Array.isArray(timers)) {
+          for (var t = 0; t < timers.length; t++) clearTimeout(timers[t]);
+        }
+        $grid.data("timers", []);
+        $grid.data("runId", null);
+        $grid.removeClass("running");
         var $robot = $grid.find(".robot").eq(0);
         if ($robot.length === 0) return;
+        var moveTimer = $robot.data("moveTimer");
+        if (moveTimer) clearTimeout(moveTimer);
+        $robot.data("moveTimer", null);
         $robot.removeClass("wrong moving jumping stamping");
+        $robot.find(".rotateHandle").remove();
 
         var size = ($grid.attr("size") || "").split(",");
         var rows = parseInt(size[0], 10);
@@ -604,6 +635,7 @@
 
       var $grid = $target.closest(".grids");
       if ($grid.length === 0) return;
+      if ($grid.hasClass("running")) return;
       var $robot = $grid.find(".robot").eq(0);
       if ($robot.length === 0) return;
 
@@ -628,6 +660,13 @@
 
       $robot
         .removeClass("wrong moving jumping stamping")
+        .each(function () {
+          if ($(this).find(".rotateHandle").length === 0) {
+            $(this).append(
+              '<span onClick="rotateRobot()" class="rotateHandle"></span>',
+            );
+          }
+        })
         .css({
           width: cellW + "px",
           height: cellH + "px",
@@ -641,6 +680,16 @@
       $(".sideTool > div.btn_replay").show();
       rootSoundEffect($beam);
     };
+
+    var onRobotClickStart = function () {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      var $robot = $(event.currentTarget);
+      if ($robot.closest(".grids").hasClass("running")) return;
+      $robot.find(".rotateHandle").remove();
+      startMovingMission2();
+    };
+    
     var startMovingMission = function (cmds) {
       $(".sideTool > div.btn_answer").removeClass("active");
       $(".sideTool > div.btn_replay").show();
@@ -650,6 +699,21 @@
       var $robot = $grid.find(".robot").eq(0);
       if ($grid.length === 0 || $robot.length === 0) return;
       $robot.removeClass("wrong moving jumping stamping");
+      $grid.addClass("running");
+      var runId = Date.now() + Math.random();
+      $grid.data("runId", runId);
+      $grid.data("timers", []);
+
+      var schedule = function (fn, ms) {
+        var id = setTimeout(function () {
+          if ($grid.data("runId") !== runId) return;
+          fn();
+        }, ms);
+        var arr = $grid.data("timers");
+        if (Array.isArray(arr)) arr.push(id);
+        else $grid.data("timers", [id]);
+        return id;
+      };
 
       var size = ($grid.attr("size") || "").split(",");
       var rows = parseInt(size[0], 10);
@@ -686,8 +750,9 @@
       var fail = function () {
         rootSoundEffect($wrong);
         $robot.addClass("wrong");
-        setTimeout(function () {
-          // $robot.removeClass("wrong");
+        schedule(function () {
+          $grid.removeClass("running");
+          $grid.data("runId", null);
         }, STEP_MS);
       };
 
@@ -720,12 +785,14 @@
       };
 
       var animMoveTo = function (x, y, deg, done) {
+        var prevTimer = $robot.data("moveTimer");
+        if (prevTimer) clearTimeout(prevTimer);
         $robot.css({
           transform: "rotate(" + deg + "deg)",
           left: x * cellW + "px",
           top: y * cellH + "px",
         });
-        setTimeout(done, STEP_MS);
+        $robot.data("moveTimer", schedule(done, STEP_MS));
       };
 
       var doStamp = function () {
@@ -742,6 +809,7 @@
 
       var step = 0;
       var runNext = function () {
+        if ($grid.data("runId") !== runId) return;
         if (step >= cmds.length) {
           var finalState = getState();
           var ok =
@@ -750,6 +818,8 @@
             (!hasStamp || finalState.stamped);
           if (ok) {
             bingo();
+            $grid.removeClass("running");
+            $grid.data("runId", null);
           } else {
             fail();
           }
@@ -765,7 +835,7 @@
           state.dir = ((Math.round(state.deg / 90) % 4) + 4) % 4;
           setState(state);
           $robot.css({ transform: "rotate(" + state.deg + "deg)" });
-          setTimeout(runNext, STEP_MS);
+          schedule(runNext, STEP_MS);
           return;
         }
 
@@ -775,7 +845,7 @@
           state.dir = ((Math.round(state.deg / 90) % 4) + 4) % 4;
           setState(state);
           $robot.css({ transform: "rotate(" + state.deg + "deg)" });
-          setTimeout(runNext, STEP_MS);
+          schedule(runNext, STEP_MS);
           return;
         }
 
@@ -789,7 +859,7 @@
           } else {
             fail();
           }
-          setTimeout(function () {
+          schedule(function () {
             $robot.removeClass("stamping");
             runNext();
           }, STEP_MS);
@@ -808,25 +878,43 @@
           var d = dirToDelta(state.dir);
           var nx = state.pos.x + d.dx * stepsToMove;
           var ny = state.pos.y + d.dy * stepsToMove;
-          if (!inBounds(nx, ny)) {
-            fail();
-            return;
-          }
+          var outOfBounds = !inBounds(nx, ny);
           state.pos = { x: nx, y: ny };
           setState(state);
           animMoveTo(nx, ny, state.deg, function () {
             $robot.removeClass("moving jumping");
+            if (outOfBounds) {
+              fail();
+              return;
+            }
             runNext();
           });
           return;
         }
 
         // 未知指令：跳過
-        setTimeout(runNext, 0);
+        schedule(runNext, 0);
       };
 
       rootSoundEffect($key);
       runNext();
+    };
+
+    var rotateRobot = function () {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      //每次點擊都逆時鐘旋轉90度
+      var $robot = $(event.currentTarget).closest(".robot");
+      if ($robot.length === 0) return;
+      if ($robot.closest(".grids").hasClass("running")) return;
+      var deg = $robot.data("deg");
+      if (!Number.isFinite(deg)) deg = 0;
+      deg -= 90;
+      var dir = ((Math.round(deg / 90) % 4) + 4) % 4;
+      $robot.data("deg", deg);
+      $robot.data("dir", dir);
+      $robot.css({ transform: "rotate(" + deg + "deg)" });
+      rootSoundEffect($beam);
     };
 
     var startMovingMission1 = function () {
