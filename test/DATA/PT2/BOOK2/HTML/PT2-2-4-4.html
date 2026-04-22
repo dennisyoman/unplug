@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT2-2-4-4">
   <div class="tabs">
     <span>任務一</span>
     <span>任務二</span>
@@ -105,7 +105,7 @@
           /></span>
         </div>
         <div class="option" fillin="0">
-          <span class="fillin"></span>
+          <span class="fillin">　</span>
         </div>
       </div>
     </div>
@@ -171,3 +171,13 @@
 
   <div class="assetsPreload"></div>
 </div>
+
+<script>
+  var withinResetElem = function () {
+    $(".PT2-2-4-4 .contents > div.selected .sensorArea .sensor[ans='0']").each(
+      function () {
+        $(this).attr("fillin", "0");
+      },
+    );
+  };
+</script>
