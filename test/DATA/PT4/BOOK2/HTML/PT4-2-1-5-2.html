@@ -302,8 +302,27 @@
   var toggleActive = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
-    item.toggleClass("active");
+    $(".showTrigger").remove();
+    item.append(`
+    <div class='showTrigger'>
+      <span onClick="activateShow($(this).closest('.column-show'),true)">O</span>
+      <span onClick="activateShow($(this).closest('.column-show'),false)">X</span>
+    </div>`);
+    rootSoundEffect($pop);
+  };
+
+  var activateShow = (item, boolean) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
     rootSoundEffect($key);
+    if (boolean) {
+      item.addClass("active");
+      item.removeClass("inactive");
+    } else {
+      item.addClass("inactive");
+      item.removeClass("active");
+    }
+    $(".showTrigger").remove();
     //
     var target = item.attr("target");
     var targetList = $("#" + target);
@@ -344,8 +363,9 @@
       $(this).html("");
     });
     $(".PT4-2-1-5-2 .contents > div.selected .column-show").removeClass(
-      "active",
+      "active inactive",
     );
+    $(".showTrigger").remove();
     rootSoundEffect($show);
   };
 </script>
@@ -370,7 +390,8 @@
   .PT4-2-1-5-2 .column-show.active {
     border-color: #1eff00;
   }
-  .PT4-2-1-5-2 .sensorArea:has(.column-show.active) .column-show::after {
+
+  .PT4-2-1-5-2 .column-show.inactive::after {
     content: "Ｘ";
     font-weight: bold;
     position: absolute;
@@ -384,7 +405,29 @@
   .PT4-2-1-5-2 .column-show.active::after {
     display: none;
   }
-  .PT4-2-1-5-2 .column-show.active::before {
+
+  .PT4-2-1-5-2 .column-show .showTrigger {
+    position: absolute;
+    padding: 2px;
+    background: #333333;
+    display: flex;
+    right: -25px;
+    top: 0;
+    gap: 6px;
+    margin-top: -12px;
+    border-radius: 3px 3px 3px 0;
+    animation: bounceIn 0.8s ease-in-out both;
+    transform-origin: bottom left;
+  }
+  .PT4-2-1-5-2 .column-show .showTrigger span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #15ff00;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+  .PT4-2-1-5-2 .column-show .showTrigger span:last-child {
+    color: #ff0000;
   }
   .PT4-2-1-5-2 .column-text {
     position: absolute;
