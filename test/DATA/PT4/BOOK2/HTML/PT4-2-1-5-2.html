@@ -13,6 +13,7 @@
   <div class="sideTool">
     <div class="btn_answer" onClick="newShowAnswer()"></div>
     <div class="btn_replay"></div>
+    <div class="btn_check" onClick="newCheckAnswer()"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
 
@@ -148,6 +149,7 @@
             id="shows1"
             class="column-text"
             style="top: 277px; left: 11px; width: 213px; height: 13px"
+            ans="2,3,4^2,3,5"
           ></div>
         </div>
 
@@ -278,6 +280,7 @@
             id="shows2"
             class="column-text"
             style="top: 277px; left: 11px; width: 213px; height: 13px"
+            ans="6,8"
           ></div>
         </div>
 
@@ -330,29 +333,57 @@
     var array = [];
     siblings.each(function () {
       if ($(this).hasClass("active")) {
-        array.push($(this).text().split(".")[0]);
+        array.push($(this).text().replace(/\s+/g, "").split(".")[0]);
       }
     });
-    targetList.html(array.join(","));
+    targetList.text(array.join(","));
+    //
+    $(".PT4-2-1-5-2 .sideTool > div.btn_check").show();
+    $(".PT4-2-1-5-2 .sideTool > div.btn_replay").show();
+    $(".PT4-2-1-5-2 .sideTool > div.btn_answer").removeClass("active");
   };
 
   var newShowAnswer = function () {
     event.stopPropagation();
     event.stopImmediatePropagation();
+    $(".showTrigger").remove();
     $(".PT4-2-1-5-2 .sideTool > div.btn_answer").toggleClass("active");
     if ($(".PT4-2-1-5-2 .sideTool > div.btn_answer").hasClass("active")) {
       $(".PT4-2-1-5-2 .contents > div.selected .column-text").each(function () {
-        $(this).html($(this).attr("ans"));
+        $(this).text($(this).attr("ans").split("^")[0]);
       });
       $(".PT4-2-1-5-2 .contents > div.selected .column-show").each(function () {
-        $(this).removeClass("active");
+        $(this).removeClass("active inactive");
         if ($(this).attr("ans") == "1") {
-          $(this).click();
+          $(this).addClass("active");
+        } else {
+          $(this).addClass("inactive");
         }
       });
       rootSoundEffect($help);
     } else {
       withinResetElem();
+    }
+  };
+
+  var newCheckAnswer = function () {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    //
+    var target = $(".PT4-2-1-5-2 .contents > div.selected .column-text").last();
+    var ans = target.attr("ans").split("^");
+    var guess = target.text();
+    var gotit = false;
+    for (var i = 0; i < ans.length; i++) {
+      if (ans[i] == guess) {
+        gotit = true;
+        break;
+      }
+    }
+    if (gotit) {
+      bingo();
+    } else {
+      rootSoundEffect($stupid);
     }
   };
 
