@@ -1,0 +1,64 @@
+<div id="module_wrapper" class="module_story module_has_box">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>情境故事</b>：從故事中找出關鍵訊息，並使用小工具擷取下來保存。
+          </p>
+          <img
+            src="./DATA/IMAGES/common/btn_box.png"
+            height="100"
+            width="auto"
+          />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="storyboard wow fadeIn" style="width: 500px; margin-top: 20px">
+        <div class="subject">
+          <div class="sensors">
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 60px; left: 324px; width: 151px; height: 9px"
+              content="從正中間開始，需要在 22 步內經過所有寶石"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 68px; left: 272px; width: 23px; height: 9px"
+              content="從正中間開始，需要在 22 步內經過所有寶石"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 76px; left: 324px; width: 108px; height: 9px"
+              content="下一步的寶石是離你最近的"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 85px; left: 324px; width: 140px; height: 9px"
+              content="若距離一樣，要找下一個距離最近的"
+            ></span>
+          </div>
+
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-3-2-1.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>

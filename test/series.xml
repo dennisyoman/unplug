@@ -131,5 +131,11 @@
       <lesson lid="3">變數無人商店</lesson>
       <lesson lid="4">如果如果奇幻村</lesson>
     </book>
+    <book name="Book 4" bid="4" img="PT4_book4.jpg">
+      <lesson lid="1">Devide &amp; Conquer 勇士隊</lesson>
+      <lesson lid="2">最佳分區扭蛋機</lesson>
+      <lesson lid="3">尋路考古團</lesson>
+      <lesson lid="4">BIN箱先配打包法</lesson>
+    </book>
   </series>
 </root>
