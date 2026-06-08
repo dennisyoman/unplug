@@ -1,0 +1,748 @@
+<div id="module_wrapper" class="module_basic PT4-4-2-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：試著分成三堆價值一樣的盲盒吧！先想想每個扭蛋機裡的價值是多少？<br />1.先選擇盲盒<br />2.再選擇扭蛋機<br />3.重複步驟，直到所有盲盒都分配到扭蛋機
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 68px; height: 15px; top: 4px; left: 280px"
+              ans="63"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 68px; height: 15px; top: 20px; left: 360px"
+              ans="21"
+            ></span>
+            <!-- capsule -->
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 71px; height: 37px; top: 74px; left: 209px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 71px; height: 37px; top: 74px; left: 283px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 71px; height: 37px; top: 74px; left: 357px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 71px; height: 37px; top: 114px; left: 209px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 71px; height: 37px; top: 114px; left: 283px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 71px; height: 37px; top: 114px; left: 357px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 71px; height: 37px; top: 154px; left: 209px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 71px; height: 37px; top: 154px; left: 283px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 71px; height: 37px; top: 154px; left: 357px"
+              ans="5"
+            ></span>
+
+            <!-- sum -->
+            <span
+              class="sensor sum1"
+              style="width: 71px; height: 15px; top: 211px; left: 209px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor sum2"
+              style="width: 71px; height: 15px; top: 211px; left: 283px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor sum3"
+              style="width: 71px; height: 15px; top: 211px; left: 357px"
+              ans="5"
+            ></span>
+          </div>
+
+          <img
+            style="width: 230px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-5-1.png"
+          />
+          <div class="bags">
+            <div ans="10">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag9.png" />
+            </div>
+            <div ans="9">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag1.png" />
+            </div>
+            <div ans="8">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag2.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag3.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag5.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag7.png" />
+            </div>
+            <div ans="6">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag4.png" />
+            </div>
+            <div ans="5">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag6.png" />
+            </div>
+            <div ans="4">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag8.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：換個方法做做看，請按大到小的順序，把盲盒一個一個放入扭蛋機，要放到價值最小的扭蛋機。
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- capsule -->
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum1');
+                recordOrder('A');
+              "
+              style="width: 71px; height: 37px; top: 26px; left: 208px"
+              ans="10"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum2');
+                recordOrder('B');
+              "
+              style="width: 71px; height: 37px; top: 26px; left: 285px"
+              ans="9"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum3');
+                recordOrder('C');
+              "
+              style="width: 71px; height: 37px; top: 26px; left: 360px"
+              ans="8"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum1');
+                recordOrder('A');
+              "
+              style="width: 71px; height: 37px; top: 67px; left: 208px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum2');
+                recordOrder('B');
+              "
+              style="width: 71px; height: 37px; top: 67px; left: 285px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum3');
+                recordOrder('C');
+              "
+              style="width: 71px; height: 37px; top: 67px; left: 360px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum1');
+                recordOrder('A');
+              "
+              style="width: 71px; height: 37px; top: 108px; left: 208px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum2');
+                recordOrder('B');
+              "
+              style="width: 71px; height: 37px; top: 108px; left: 285px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="
+                takeBag($(this), 'sum3');
+                recordOrder('C');
+              "
+              style="width: 71px; height: 37px; top: 108px; left: 360px"
+              ans="6"
+            ></span>
+
+            <!-- sum -->
+            <span
+              class="sensor sum1"
+              style="width: 71px; height: 15px; top: 167px; left: 208px"
+              ans="21"
+            ></span>
+            <span
+              class="sensor sum2"
+              style="width: 71px; height: 15px; top: 167px; left: 285px"
+              ans="21"
+            ></span>
+            <span
+              class="sensor sum3"
+              style="width: 71px; height: 15px; top: 167px; left: 360px"
+              ans="21"
+            ></span>
+
+            <!-- order -->
+            <span
+              class="sensor order"
+              style="width: 118px; height: 15px; top: 197px; left: 308px"
+              ans="ABCCBACBA"
+            ></span>
+          </div>
+
+          <img
+            style="width: 230px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-5-2.png"
+          />
+          <div class="bags limited">
+            <div ans="10">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag9.png" />
+            </div>
+            <div ans="9">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag1.png" />
+            </div>
+            <div ans="8">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag2.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag3.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag5.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag7.png" />
+            </div>
+            <div ans="6">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag4.png" />
+            </div>
+            <div ans="5">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag6.png" />
+            </div>
+            <div ans="4">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag8.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：分配完禮物後，隔壁班老師又捐贈了 3
+            個盲盒，小飛必須再分配一次，分成兩組用不同的方法看看誰先完成？
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-5-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- grid -->
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 74px; height: 30px; top: 24px; left: 207px"
+              ans="10"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 74px; height: 30px; top: 24px; left: 283px"
+              ans="9"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 74px; height: 30px; top: 24px; left: 359px"
+              ans="8"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 74px; height: 30px; top: 55px; left: 207px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 74px; height: 30px; top: 55px; left: 283px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 74px; height: 30px; top: 55px; left: 359px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 74px; height: 30px; top: 85px; left: 207px"
+              ans="6"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 74px; height: 30px; top: 86px; left: 283px"
+              ans="6"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 74px; height: 30px; top: 86px; left: 359px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum1')"
+              style="width: 74px; height: 30px; top: 117px; left: 207px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum2')"
+              style="width: 74px; height: 30px; top: 117px; left: 283px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeBag($(this), 'sum3')"
+              style="width: 74px; height: 30px; top: 117px; left: 359px"
+              ans="5"
+            ></span>
+
+            <!-- sum -->
+            <span
+              class="sensor sum1"
+              style="width: 74px; height: 15px; top: 166px; left: 207px"
+              ans="27"
+            ></span>
+            <span
+              class="sensor sum2"
+              style="width: 74px; height: 15px; top: 166px; left: 283px"
+              ans="27"
+            ></span>
+            <span
+              class="sensor sum3"
+              style="width: 74px; height: 15px; top: 166px; left: 359px"
+              ans="27"
+            ></span>
+          </div>
+
+          <img
+            style="width: 230px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-5-3.png"
+          />
+          <div class="bags">
+            <div ans="10">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag9.png" />
+            </div>
+            <div ans="9">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag1.png" />
+            </div>
+            <div ans="8">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag2.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag3.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag5.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag7.png" />
+            </div>
+            <div ans="6">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag4.png" />
+            </div>
+            <div ans="5">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag6.png" />
+            </div>
+            <div ans="4">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag8.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag9.png" />
+            </div>
+            <div ans="6">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag8.png" />
+            </div>
+            <div ans="5">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag6.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-4-2-5 .sensors > .sensor {
+    font-size: 12px;
+    line-height: 12px;
+    display: grid;
+    place-items: center;
+  }
+  .PT4-4-2-5 .group .item {
+    text-align: center;
+  }
+  .PT4-4-2-5 .contents .bags {
+    width: 640px;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .PT4-4-2-5 .contents .bags > div {
+    aspect-ratio: 200/192;
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 40px;
+    flex-shrink: 0;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    transition: all 0.1s ease;
+  }
+  .PT4-4-2-5 .contents .bags > div.selected,
+  .PT4-4-2-5 .contents .bags > div:hover {
+    transform: scale(1.5) translateY(-10%);
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+    z-index: 2;
+  }
+  .PT4-4-2-5 .contents .bags > div.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    filter: grayscale(100%);
+  }
+
+  .PT4-4-2-5 .contents .sensors .capsule {
+    pointer-events: none !important;
+  }
+
+  .PT4-4-2-5
+    .contents
+    > div.selected:has(.bags > div.selected)
+    .sensors
+    .capsule:empty {
+    border: 2px dashed #ff4343;
+    pointer-events: auto !important;
+  }
+
+  .PT4-4-2-5
+    .contents
+    > div.selected:has(.bags > div.selected)
+    .sensors
+    .capsule.disabled {
+    border: none;
+    pointer-events: none !important;
+  }
+
+  .PT4-4-2-5 .contents .bags > div > img {
+    width: 100%;
+    height: 100%;
+  }
+  .PT4-4-2-5 .contents .bags > div > span {
+    font-size: 12px;
+    line-height: 1;
+    width: 85%;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+</style>
+
+<script>
+  var isCapsuleEmpty = function ($capsule) {
+    return (
+      $capsule
+        .text()
+        .replace(/\u00a0/g, " ")
+        .trim() === ""
+    );
+  };
+
+  var recordOrder = function (order) {
+    var $orderSensor = $(".PT4-4-2-5 .contents > div.selected .sensors .order");
+    $orderSensor.text($orderSensor.text() + order);
+  };
+
+  var indicateAvailableGrids = function () {
+    var $capsules = $(".PT4-4-2-5 .contents > div.selected .sensors .capsule");
+    $capsules.addClass("disabled");
+
+    var groups = [];
+    for (var i = 0; i < $capsules.length; i += 3) {
+      groups.push($capsules.slice(i, i + 3));
+    }
+
+    var $activeGroup = null;
+    for (var g = 0; g < groups.length; g++) {
+      var allFilled = true;
+      groups[g].each(function () {
+        if (isCapsuleEmpty($(this))) {
+          allFilled = false;
+        }
+      });
+      if (!allFilled) {
+        $activeGroup = groups[g];
+        break;
+      }
+    }
+
+    if ($activeGroup) {
+      $activeGroup.each(function () {
+        if (isCapsuleEmpty($(this))) {
+          $(this).removeClass("disabled");
+        }
+      });
+    }
+  };
+  /* 共用 */
+  var takeBag = function (tar, sum) {
+    $(".alert").remove();
+    var bagSelected = tar.parent().siblings(".bags").find(".selected");
+    if (bagSelected.length > 0) {
+      rootSoundEffect($pop);
+
+      var bag = bagSelected.attr("ans");
+      tar.text(bag);
+      bagSelected.removeClass("selected").addClass("disabled");
+      //sumup
+      var $sumSensor = $(
+        `.PT4-4-2-5 .contents > div.selected .sensors .${sum}`,
+      );
+      var currentSum = parseInt($sumSensor.text().trim(), 10) || 0;
+      $sumSensor.text(currentSum + (parseInt(bag, 10) || 0));
+      //
+      if (bagSelected.parent().hasClass("limited")) {
+        indicateAvailableGrids();
+      }
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_replay").show();
+    } else {
+      //先選擇袋子
+      rootSoundEffect($stupid);
+      var alertmsg = "請先選擇盲盒";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+    }
+  };
+
+  var fillContent = function (tar) {
+    $(".alert").remove();
+    var text = window.prompt("請輸入答案：", tar.text() ?? "");
+    tar.removeClass("wrong");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      // only digits, no spaces/symbols/letters
+      if (!/^\d+$/.test(text)) {
+        rootSoundEffect($stupid);
+        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        return;
+      }
+      tar.html(text);
+      rootSoundEffect($key);
+      //
+      $(".sideTool > div.btn_replay").show();
+    }
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".PT4-4-2-5 .contents > div.selected .bags > div")
+        .removeClass("selected")
+        .addClass("disabled");
+      $(".alert").remove();
+      $(".PT4-4-2-5 .contents > div.selected .sensors .sensor").each(
+        function () {
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+        },
+      );
+    }
+  };
+
+  var withinResetElem = function () {
+    $(".PT4-4-2-5 .contents > div.selected .bags > div").each(function () {
+      $(this).removeClass("disabled");
+      var ans = $(this).attr("ans");
+      $(this).find("span").html(ans);
+      $(this)
+        .unbind("click")
+        .bind("click", function () {
+          $(this)
+            .addClass("selected")
+            .siblings(".selected")
+            .removeClass("selected");
+          rootSoundEffect($pop);
+          //limited bags
+          if ($(this).parent().hasClass("limited")) {
+            indicateAvailableGrids();
+          }
+        });
+    });
+
+    $(".PT4-4-2-5 .contents > div.selected .sensors .sensor")
+      .removeClass("disabled")
+      .html("");
+
+    if ($(".PT4-4-2-5 .contents > div:nth-child(3).selected").length > 0) {
+      if (typeof window.PT4_4_2_mission3 === "undefined") {
+        //表示還沒有玩過文生圖
+        window.PT4_4_2_mission3 = true;
+        console.log("還沒文生圖");
+      } else {
+        //已經玩過文生圖了
+        window.PT4_4_2_mission3 = true;
+        console.log("已經任務三");
+        if (typeof updateMission3 === "undefined") {
+          console.log("還沒有updateMission3");
+        } else {
+          console.log("已經有updateMission3");
+          updateMission3();
+        }
+      }
+    }
+  };
+</script>

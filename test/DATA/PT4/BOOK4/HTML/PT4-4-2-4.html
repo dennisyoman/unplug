@@ -1,0 +1,354 @@
+<div id="module_wrapper" class="module_basic PT4-4-2-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：在分配盲盒前，我們需要幫小飛整理盲盒，在每樣盲盒上標示出價值，並按照盲盒的價值由高到低排列。
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti" style="margin-left: -30px; padding: 5px">
+          <div class="bags">
+            <div ans="9">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag1.png" />
+            </div>
+            <div ans="8">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag2.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag3.png" />
+            </div>
+            <div ans="6">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag4.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag5.png" />
+            </div>
+            <div ans="5">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag6.png" />
+            </div>
+            <div ans="7">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag7.png" />
+            </div>
+            <div ans="4">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag8.png" />
+            </div>
+            <div ans="10">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag9.png" />
+            </div>
+            <div ans="7" class="mission3">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag9.png" />
+            </div>
+            <div ans="6" class="mission3">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag8.png" />
+            </div>
+            <div ans="5" class="mission3">
+              <span></span>
+              <img src="./DATA/PT4/BOOK4/IMAGES/bag6.png" />
+            </div>
+          </div>
+        </div>
+        <div class="simplyDrag wow bounceInUp price">
+          <img
+            style="width: 400px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-2-4-intro.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-4-2-4 .contents .simplyDrag.price {
+    pointer-events: auto;
+    top: 230px;
+  }
+  .PT4-4-2-4 .contents .bags {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .PT4-4-2-4 .contents .bags > div {
+    aspect-ratio: 200/192;
+    position: relative;
+    pointer-events: auto;
+    cursor: grab;
+    width: 50px;
+    flex-shrink: 0;
+    touch-action: none;
+    user-select: none;
+  }
+  .PT4-4-2-4 .mission3 {
+    display: none !important;
+  }
+  .PT4-4-2-4 .contents .bags > div.dragging {
+    cursor: grabbing;
+    z-index: 10;
+  }
+  .PT4-4-2-4 .contents .bags .bag-placeholder {
+    aspect-ratio: 200/192;
+    width: 50px;
+    flex-shrink: 0;
+    border: 2px dashed #b5b5b5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.04);
+    pointer-events: none;
+  }
+  .PT4-4-2-4 .contents .bags > div > img {
+    width: 100%;
+    height: 100%;
+  }
+  .PT4-4-2-4 .contents .bags > div > span {
+    font-size: 12px;
+    line-height: 1;
+    width: 85%;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+</style>
+
+<script>
+  var bagSortState = null;
+  var BAG_DRAG_THRESHOLD = 6;
+
+  var shuffleBags = function () {
+    var $bags = $(".PT4-4-2-4 .contents .bags");
+    var items = $bags.children("div").toArray();
+    for (var i = items.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = items[i];
+      items[i] = items[j];
+      items[j] = temp;
+    }
+    $.each(items, function (_, el) {
+      $bags.append(el);
+    });
+  };
+
+  var getBagClientXY = function (e) {
+    if (e.type.indexOf("touch") >= 0) {
+      var t = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+      return { x: t.clientX, y: t.clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+  };
+
+  var getBagInsertIndex = function ($bags, $dragging, clientX) {
+    var $children = $bags.children().not($dragging).not(".bag-placeholder");
+    for (var i = 0; i < $children.length; i++) {
+      var rect = $children[i].getBoundingClientRect();
+      var siblingCenter = (rect.left + rect.right) / 2;
+      if (clientX < siblingCenter) {
+        return i;
+      }
+    }
+    return $children.length;
+  };
+
+  var moveBagPlaceholder = function (insertIndex) {
+    if (!bagSortState || !bagSortState.$placeholder) return;
+    if (insertIndex === bagSortState.insertIndex) return;
+
+    bagSortState.insertIndex = insertIndex;
+    var $bags = bagSortState.$bags;
+    var $siblings = $bags
+      .children()
+      .not(bagSortState.$item)
+      .not(".bag-placeholder");
+    bagSortState.$placeholder.detach();
+    if (insertIndex >= $siblings.length) {
+      $bags.append(bagSortState.$placeholder);
+    } else {
+      $siblings.eq(insertIndex).before(bagSortState.$placeholder);
+    }
+  };
+
+  var startBagDrag = function () {
+    var state = bagSortState;
+    var ratio = stageRatioReal || 1;
+    state.isDragging = true;
+    state.insertIndex = state.$item.index();
+    state.$placeholder = $('<div class="bag-placeholder"></div>').css(
+      "width",
+      state.width + "px",
+    );
+    state.$item.before(state.$placeholder);
+    state.$item.addClass("dragging").css({
+      position: "absolute",
+      top: state.fixedTop + "px",
+      left: state.originLeft + "px",
+      width: state.width + "px",
+      margin: 0,
+      zIndex: 10,
+    });
+  };
+
+  var onBagPointerMove = function (e) {
+    if (!bagSortState) return;
+    var xy = getBagClientXY(e);
+    var state = bagSortState;
+    var ratio = stageRatioReal || 1;
+
+    if (!state.isDragging) {
+      if (
+        Math.abs(xy.x - state.startClientX) < BAG_DRAG_THRESHOLD &&
+        Math.abs(xy.y - state.startClientY) < BAG_DRAG_THRESHOLD
+      ) {
+        return;
+      }
+      startBagDrag();
+    }
+
+    e.preventDefault();
+    var newLeft = state.originLeft + (xy.x - state.startClientX) / ratio;
+    state.$item.css("left", newLeft + "px");
+
+    var centerX = xy.x;
+    moveBagPlaceholder(getBagInsertIndex(state.$bags, state.$item, centerX));
+  };
+
+  var endBagPointer = function (e) {
+    if (!bagSortState) return;
+
+    var state = bagSortState;
+    $(document).off(".bagsort");
+
+    if (!state.isDragging) {
+      state.$item.find("span").text(state.$item.attr("ans") || "");
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_replay").show();
+      $(".sideTool > div.btn_answer").removeClass("active");
+    } else {
+      state.$placeholder.replaceWith(state.$item);
+      state.$item.removeClass("dragging").removeAttr("style");
+      rootSoundEffect($show);
+      $(".sideTool > div.btn_replay").show();
+      $(".sideTool > div.btn_answer").removeClass("active");
+    }
+
+    bagSortState = null;
+  };
+
+  var onBagPointerDown = function (e) {
+    if (e.type === "mousedown" && e.which !== 1) return;
+
+    var $item = $(e.currentTarget);
+    if ($item.hasClass("bag-placeholder")) return;
+
+    var $bags = $item.closest(".bags");
+    var bagRect = $bags[0].getBoundingClientRect();
+    var itemRect = $item[0].getBoundingClientRect();
+    var ratio = stageRatioReal || 1;
+    var xy = getBagClientXY(e);
+
+    bagSortState = {
+      $item: $item,
+      $bags: $bags,
+      $placeholder: null,
+      insertIndex: $item.index(),
+      startClientX: xy.x,
+      startClientY: xy.y,
+      originLeft: (itemRect.left - bagRect.left) / ratio,
+      fixedTop: (itemRect.top - bagRect.top) / ratio,
+      width: itemRect.width / ratio,
+      isDragging: false,
+    };
+
+    $(document)
+      .on("mousemove.bagsort touchmove.bagsort", onBagPointerMove)
+      .on(
+        "mouseup.bagsort touchend.bagsort touchcancel.bagsort",
+        endBagPointer,
+      );
+
+    e.preventDefault();
+  };
+
+  var initBagSort = function () {
+    shuffleBags();
+    $(".PT4-4-2-4 .contents .bags")
+      .off(".bagsort")
+      .on("mousedown.bagsort touchstart.bagsort", "> div", onBagPointerDown);
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (!boolean) return;
+    var $bags = $(".PT4-4-2-4 .contents .bags");
+    var $items = $bags.children("div").get();
+    $items.sort(function (a, b) {
+      return parseInt($(b).attr("ans"), 10) - parseInt($(a).attr("ans"), 10);
+    });
+    $.each($items, function (_, el) {
+      var $el = $(el);
+      $el.find("span").text($el.attr("ans") || "");
+      $bags.append(el);
+    });
+  };
+
+  var withinResetElem = function () {
+    $(document).off(".bagsort");
+    bagSortState = null;
+    $(".PT4-4-2-4 .contents .bags .bag-placeholder").remove();
+    $(".PT4-4-2-4 .contents .bags > div").each(function () {
+      $(this).removeClass("dragging").removeAttr("style");
+      $(this).find("span").text("");
+    });
+    initBagSort();
+  };
+
+  initBagSort();
+
+  var updateMission3 = function () {
+    //秀出mission3 bags
+    $(".PT4-4-2-4 .mission3").removeClass("mission3");
+  };
+  // global flag: keep existing value if already defined
+  if (typeof window.PT4_4_2_mission3 === "undefined") {
+    //表示還沒有玩過任務三
+    window.PT4_4_2_mission3 = false;
+    console.log("還沒任務三");
+  } else {
+    //已經玩過任務三了
+    console.log("已經任務三");
+    updateMission3();
+  }
+</script>
