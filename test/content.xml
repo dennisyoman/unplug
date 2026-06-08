@@ -926,7 +926,7 @@
     </section>
     <section section="4" name="文生圖" html="PT4/BOOK4/HTML/PT4-4-1-4.html" js="JS/basic.js" image="IMAGES/UNITS/tti.png" skin="" type="keep">
     </section>
-    <section section="5" name="挑戰主題" html="PT4/BOOK4/HTML/PT4-4-1-5.html" js="JS/dragndropnarrow_new.js" image="IMAGES/UNITS/challenge.png" skin="" type="keep">
+    <section section="5" name="挑戰主題" html="PT4/BOOK4/HTML/PT4-4-1-5.html" js="JS/basic.js" image="IMAGES/UNITS/challenge.png" skin="" type="keep">
     </section>
     <section section="6" name="科學上的意義" html="PT4/BOOK4/HTML/PT4-4-1-6.html" js="JS/decode.js" image="IMAGES/UNITS/logic.png" skin="">
     </section>

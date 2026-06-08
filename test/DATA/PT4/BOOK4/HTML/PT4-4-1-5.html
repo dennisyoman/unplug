@@ -1,0 +1,1078 @@
+<div id="module_wrapper" class="module_basic PT4-4-1-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：泡泡排序（Bubble sort） —
+            依照老師的指令，操作卡片並寫出每個結果，看看是不是能把順序排好。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <div
+              class="numbers"
+              style="width: 149px; height: 17px; top: 2px; left: 50px"
+            >
+              <span onClick="prepareNumber($(this))" default="63"></span>
+              <span onClick="prepareNumber($(this))" default="31"></span>
+              <span onClick="prepareNumber($(this))" default="57"></span>
+              <span onClick="prepareNumber($(this))" default="36"></span>
+              <span onClick="prepareNumber($(this))" default="22"></span>
+              <span onClick="prepareNumber($(this))" default="21"></span>
+              <span onClick="prepareNumber($(this))" default="43"></span>
+              <span onClick="prepareNumber($(this))" default="8"></span>
+              <div class="switcher wow fadeIn">
+                <span onClick="switching(true)">交換</span>
+                <span onClick="switching(false)">不換</span>
+              </div>
+              <div class="nextRound wow fadeIn">
+                <span onClick="nextRound()">完成一輪</span>
+              </div>
+            </div>
+
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 36px; left: 39px"
+              ans="31,57,36,22,21,43,8,63"
+            ></div>
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 62px; left: 39px"
+              ans="31,36,22,21,43,8,57,63"
+            ></div>
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 88px; left: 39px"
+              ans="31,22,21,36,8,43,57,63"
+            ></div>
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 114px; left: 39px"
+              ans="22,21,31,8,36,43,57,63"
+            ></div>
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 140px; left: 39px"
+              ans="21,22,8,31,36,43,57,63"
+            ></div>
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 166px; left: 39px"
+              ans="21,8,22,31,36,43,57,63"
+            ></div>
+            <div
+              class="record"
+              style="width: 149px; height: 17px; top: 192px; left: 39px"
+              ans="8,21,22,31,36,43,57,63"
+            ></div>
+
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 35px; left: 209px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 62px; left: 209px"
+              ans="6"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 88px; left: 209px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 114px; left: 209px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 140px; left: 209px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 166px; left: 209px"
+              ans="2"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 192px; left: 209px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 211px; left: 113px"
+              ans="28"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-1-5-1.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：合併排序（Merge sort） —
+            依照老師的指令，一步步地填上每個結果看看是不是能把順序排好。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- 分配端 -->
+            <div
+              class="numbers"
+              style="width: 160px; height: 18px; top: 2px; left: 55px"
+              onclick="divideTo('r2-1,r2-2')"
+            >
+              <span default="63"></span>
+              <span default="31"></span>
+              <span default="57"></span>
+              <span default="36"></span>
+              <span default="22"></span>
+              <span default="21"></span>
+              <span default="43"></span>
+              <span default="8"></span>
+            </div>
+            <div
+              class="numbers r2-1"
+              style="width: 80px; height: 19px; top: 41px; left: 26px"
+              onclick="divideTo('r3-1,r3-2')"
+            >
+              <span ans="63"></span>
+              <span ans="31"></span>
+              <span ans="57"></span>
+              <span ans="36"></span>
+            </div>
+            <div
+              class="numbers r2-2"
+              style="width: 80px; height: 19px; top: 41px; left: 163px"
+              onclick="divideTo('r3-3,r3-4')"
+            >
+              <span ans="22"></span>
+              <span ans="21"></span>
+              <span ans="43"></span>
+              <span ans="8"></span>
+            </div>
+            <div
+              class="numbers r3-1"
+              style="width: 40px; height: 20px; top: 85px; left: 15px"
+              onclick="divideTo('r4-1,r4-2')"
+            >
+              <span ans="63"></span>
+              <span ans="31"></span>
+            </div>
+            <div
+              class="numbers r3-2"
+              style="width: 40px; height: 20px; top: 85px; left: 78px"
+              onclick="divideTo('r4-3,r4-4')"
+            >
+              <span ans="57"></span>
+              <span ans="36"></span>
+            </div>
+            <div
+              class="numbers r3-3"
+              style="width: 40px; height: 20px; top: 85px; left: 152px"
+              onclick="divideTo('r4-5,r4-6')"
+            >
+              <span ans="22"></span>
+              <span ans="21"></span>
+            </div>
+            <div
+              class="numbers r3-4"
+              style="width: 40px; height: 20px; top: 85px; left: 215px"
+              onclick="divideTo('r4-7,r4-8')"
+            >
+              <span ans="43"></span>
+              <span ans="8"></span>
+            </div>
+            <div
+              class="numbers r4-1"
+              style="width: 20px; height: 20px; top: 125px; left: 1px"
+            >
+              <span onclick="assignTo('r5-1')" ans="63"></span>
+            </div>
+            <div
+              class="numbers r4-2"
+              style="width: 20px; height: 20px; top: 125px; left: 40px"
+            >
+              <span onclick="assignTo('r5-1')" ans="31"></span>
+            </div>
+            <div
+              class="numbers r4-3"
+              style="width: 20px; height: 20px; top: 125px; left: 73px"
+            >
+              <span onclick="assignTo('r5-2')" ans="57"></span>
+            </div>
+            <div
+              class="numbers r4-4"
+              style="width: 20px; height: 20px; top: 125px; left: 108px"
+            >
+              <span onclick="assignTo('r5-2')" ans="36"></span>
+            </div>
+            <div
+              class="numbers r4-5"
+              style="width: 20px; height: 20px; top: 125px; left: 142px"
+            >
+              <span onclick="assignTo('r5-3')" ans="22"></span>
+            </div>
+            <div
+              class="numbers r4-6"
+              style="width: 20px; height: 20px; top: 125px; left: 176px"
+            >
+              <span onclick="assignTo('r5-3')" ans="21"></span>
+            </div>
+            <div
+              class="numbers r4-7"
+              style="width: 20px; height: 20px; top: 125px; left: 210px"
+            >
+              <span onclick="assignTo('r5-4')" ans="43"></span>
+            </div>
+            <div
+              class="numbers r4-8"
+              style="width: 20px; height: 20px; top: 125px; left: 244px"
+            >
+              <span onclick="assignTo('r5-4')" ans="8"></span>
+            </div>
+            <!-- 接收端 -->
+            <div
+              class="numbers r5-1"
+              style="width: 40px; height: 20px; top: 165px; left: 15px"
+            >
+              <span onclick="assignTo('r6-1')" ans="31"></span>
+              <span onclick="assignTo('r6-1')" ans="63"></span>
+            </div>
+            <div
+              class="numbers r5-2"
+              style="width: 40px; height: 20px; top: 165px; left: 78px"
+            >
+              <span onclick="assignTo('r6-1')" ans="36"></span>
+              <span onclick="assignTo('r6-1')" ans="57"></span>
+            </div>
+            <div
+              class="numbers r5-3"
+              style="width: 40px; height: 20px; top: 165px; left: 152px"
+            >
+              <span onclick="assignTo('r6-2')" ans="21"></span>
+              <span onclick="assignTo('r6-2')" ans="22"></span>
+            </div>
+            <div
+              class="numbers r5-4"
+              style="width: 40px; height: 20px; top: 165px; left: 215px"
+            >
+              <span onclick="assignTo('r6-2')" ans="8"></span>
+              <span onclick="assignTo('r6-2')" ans="43"></span>
+            </div>
+
+            <div
+              class="numbers r6-1"
+              style="width: 80px; height: 19px; top: 211px; left: 26px"
+            >
+              <span onclick="assignTo('r7-1')" ans="31"></span>
+              <span onclick="assignTo('r7-1')" ans="36"></span>
+              <span onclick="assignTo('r7-1')" ans="57"></span>
+              <span onclick="assignTo('r7-1')" ans="63"></span>
+            </div>
+            <div
+              class="numbers r6-2"
+              style="width: 80px; height: 19px; top: 211px; left: 163px"
+            >
+              <span onclick="assignTo('r7-1')" ans="8"></span>
+              <span onclick="assignTo('r7-1')" ans="21"></span>
+              <span onclick="assignTo('r7-1')" ans="22"></span>
+              <span onclick="assignTo('r7-1')" ans="43"></span>
+            </div>
+            <div
+              class="numbers r7-1"
+              style="width: 160px; height: 18px; top: 249px; left: 55px"
+            >
+              <span ans="8"></span>
+              <span ans="21"></span>
+              <span ans="22"></span>
+              <span ans="31"></span>
+              <span ans="36"></span>
+              <span ans="43"></span>
+              <span ans="57"></span>
+              <span ans="63"></span>
+            </div>
+            <!-- 總次數 -->
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 283px; left: 139px"
+              ans="17"
+            ></span>
+          </div>
+
+          <img
+            style="width: 265px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-1-5-2.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：隔壁部落覺得這是很好的排名法，也想要這樣做，你能用同樣的辦法幫忙嗎？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- 分配端 -->
+            <div
+              class="numbers"
+              style="width: 152px; height: 21px; top: 1px; left: 56px"
+              onclick="divideTo('r2-1,r2-2')"
+            >
+              <span default="36"></span>
+              <span default="12"></span>
+              <span default="82"></span>
+              <span default="19"></span>
+              <span default="75"></span>
+              <span default="34"></span>
+              <span default="63"></span>
+            </div>
+            <div
+              class="numbers r2-1"
+              style="width: 81px; height: 19px; top: 41px; left: 26px"
+              onclick="divideTo('r3-1,r3-2')"
+            >
+              <span ans="36"></span>
+              <span ans="12"></span>
+              <span ans="82"></span>
+              <span ans="19"></span>
+            </div>
+            <div
+              class="numbers r2-2"
+              style="width: 61px; height: 19px; top: 41px; left: 175px"
+              onclick="divideTo('r3-3,r3-4')"
+            >
+              <span ans="75"></span>
+              <span ans="34"></span>
+              <span ans="63"></span>
+            </div>
+            <div
+              class="numbers r3-1"
+              style="width: 40px; height: 20px; top: 85px; left: 15px"
+              onclick="divideTo('r4-1,r4-2')"
+            >
+              <span ans="36"></span>
+              <span ans="12"></span>
+            </div>
+            <div
+              class="numbers r3-2"
+              style="width: 40px; height: 20px; top: 85px; left: 79px"
+              onclick="divideTo('r4-3,r4-4')"
+            >
+              <span ans="82"></span>
+              <span ans="19"></span>
+            </div>
+            <div
+              class="numbers r3-3"
+              style="width: 40px; height: 20px; top: 85px; left: 154px"
+              onclick="divideTo('r4-5,r4-6')"
+            >
+              <span ans="75"></span>
+              <span ans="34"></span>
+            </div>
+            <div
+              class="numbers r3-4"
+              style="width: 20px; height: 20px; top: 85px; left: 229px"
+              onclick="divideTo('r4-7,r4-8')"
+            >
+              <span ans="63"></span>
+            </div>
+            <div
+              class="numbers r4-1"
+              style="width: 20px; height: 20px; top: 125px; left: 1px"
+            >
+              <span onclick="assignTo('r5-1')" ans="36"></span>
+            </div>
+            <div
+              class="numbers r4-2"
+              style="width: 20px; height: 20px; top: 125px; left: 40px"
+            >
+              <span onclick="assignTo('r5-1')" ans="12"></span>
+            </div>
+            <div
+              class="numbers r4-3"
+              style="width: 20px; height: 20px; top: 125px; left: 75px"
+            >
+              <span onclick="assignTo('r5-2')" ans="82"></span>
+            </div>
+            <div
+              class="numbers r4-4"
+              style="width: 20px; height: 20px; top: 125px; left: 109px"
+            >
+              <span onclick="assignTo('r5-2')" ans="19"></span>
+            </div>
+            <div
+              class="numbers r4-5"
+              style="width: 20px; height: 20px; top: 125px; left: 144px"
+            >
+              <span onclick="assignTo('r5-3')" ans="75"></span>
+            </div>
+            <div
+              class="numbers r4-6"
+              style="width: 20px; height: 20px; top: 125px; left: 178px"
+            >
+              <span onclick="assignTo('r5-3')" ans="34"></span>
+            </div>
+            <div
+              class="numbers r4-7"
+              style="width: 20px; height: 20px; top: 125px; left: 229px"
+            >
+              <span onclick="assignTo('r5-4')" ans="63"></span>
+            </div>
+
+            <!-- 接收端 -->
+            <div
+              class="numbers r5-1"
+              style="width: 40px; height: 20px; top: 166px; left: 15px"
+            >
+              <span onclick="assignTo('r6-1')" ans="12"></span>
+              <span onclick="assignTo('r6-1')" ans="36"></span>
+            </div>
+            <div
+              class="numbers r5-2"
+              style="width: 40px; height: 20px; top: 166px; left: 79px"
+            >
+              <span onclick="assignTo('r6-1')" ans="19"></span>
+              <span onclick="assignTo('r6-1')" ans="82"></span>
+            </div>
+            <div
+              class="numbers r5-3"
+              style="width: 40px; height: 20px; top: 166px; left: 154px"
+            >
+              <span onclick="assignTo('r6-2')" ans="34"></span>
+              <span onclick="assignTo('r6-2')" ans="75"></span>
+            </div>
+            <div
+              class="numbers r5-4"
+              style="width: 20px; height: 20px; top: 166px; left: 229px"
+            >
+              <span onclick="assignTo('r6-2')" ans="63"></span>
+            </div>
+
+            <div
+              class="numbers r6-1"
+              style="width: 80px; height: 20px; top: 212px; left: 27px"
+            >
+              <span onclick="assignTo('r7-1')" ans="12"></span>
+              <span onclick="assignTo('r7-1')" ans="19"></span>
+              <span onclick="assignTo('r7-1')" ans="36"></span>
+              <span onclick="assignTo('r7-1')" ans="82"></span>
+            </div>
+            <div
+              class="numbers r6-2"
+              style="width: 61px; height: 20px; top: 212px; left: 175px"
+            >
+              <span onclick="assignTo('r7-1')" ans="34"></span>
+              <span onclick="assignTo('r7-1')" ans="63"></span>
+              <span onclick="assignTo('r7-1')" ans="75"></span>
+            </div>
+            <div
+              class="numbers r7-1"
+              style="width: 142px; height: 20px; top: 251px; left: 70px"
+            >
+              <span ans="12"></span>
+              <span ans="19"></span>
+              <span ans="34"></span>
+              <span ans="36"></span>
+              <span ans="63"></span>
+              <span ans="75"></span>
+              <span ans="82"></span>
+            </div>
+            <!-- 總次數 -->
+            <span
+              class="sensor"
+              onclick="fillContent($(this))"
+              style="width: 24px; height: 15px; top: 280px; left: 141px"
+              ans="14"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-1-5-3.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-4-1-5 .sensors > .sensor {
+    font-size: 12px;
+    line-height: 12px;
+    display: grid;
+    place-items: center;
+  }
+  .PT4-4-1-5 .sensors .numbers,
+  .PT4-4-1-5 .sensors .record {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+  }
+  .PT4-4-1-5 .sensors .numbers > span,
+  .PT4-4-1-5 .sensors .record > span {
+    width: 100%;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-4-1-5 .sensors .numbers.gameover > span {
+    pointer-events: none;
+  }
+  .PT4-4-1-5 .sensors .numbers > span.selected {
+    color: #ff3f3f;
+  }
+  .PT4-4-1-5 .sensors .numbers > .switcher,
+  .PT4-4-1-5 .sensors .numbers > .nextRound {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -105%);
+    display: flex;
+    background: #fff;
+    padding: 2px;
+    gap: 0px;
+    border-radius: 4px;
+    display: none;
+    white-space: nowrap;
+  }
+  .PT4-4-1-5 .sensors .numbers > .nextRound {
+    left: unset;
+    right: 0;
+    transform: translate(110%, -20%);
+  }
+  .PT4-4-1-5 .sensors .numbers > .switcher > span {
+    display: block;
+    padding: 2px;
+    background: #00dd90;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 3px 0 0 3px;
+    pointer-events: auto;
+    white-space: nowrap;
+  }
+  .PT4-4-1-5 .sensors .numbers > .switcher > span:last-child {
+    background: #ff3f3f;
+    border-radius: 0 3px 3px 0;
+  }
+  .PT4-4-1-5 .sensors .numbers > .nextRound > span {
+    display: block;
+    padding: 2px;
+    background: #ffdf88;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 3px;
+    pointer-events: auto;
+    white-space: nowrap;
+  }
+  .PT4-4-1-5 .contents > div:nth-child(2) .sensors .numbers,
+  .PT4-4-1-5 .contents > div:nth-child(3) .sensors .numbers {
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  var autoAssign = false; //自動分配數字
+  var compareCount = 0; //比較次數
+  var compareTarget = ""; //比較目標
+  var hasSwitched = false; //本次是否交換過
+  var prepareNumber = function (item) {
+    //確認是否換數字
+    if (compareTarget != item.text()) {
+      hasSwitched = false;
+      compareTarget = item.text();
+    }
+
+    //如果已經有選擇的數字，則不處理
+    if (item.siblings("span.selected").length > 0) {
+      return;
+    }
+
+    //reset all
+    item
+      .removeClass("selected")
+      .siblings("span.selected")
+      .removeClass("selected");
+    var switcher = item.siblings(".switcher");
+    switcher.hide();
+    var nextItem = item.next("span");
+    if (nextItem.length > 0) {
+      item.addClass("selected");
+      nextItem.addClass("selected");
+      switcher
+        .css("left", nextItem.position().left / stageRatioReal + "px")
+        .css("display", "flex");
+    } else {
+      //後面沒有數字不能換，檢查下一個組合
+      if (autoAssign) {
+        checkIfHasNextComparison(item.index());
+      }
+    }
+    $(".sideTool > div.btn_replay").show();
+    $(".alert").remove();
+  };
+
+  var switching = function (goSwitch) {
+    var numbers = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span.selected",
+    );
+
+    var switcher = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .switcher",
+    );
+
+    var nextRound = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
+    );
+
+    if (goSwitch) {
+      if (parseInt(numbers.eq(0).text()) < parseInt(numbers.eq(1).text())) {
+        //不能換
+        var alertmsg = "左邊的分數比較小，不能換";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:216px" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        rootSoundEffect($stupid);
+      } else {
+        var tempNumber = numbers.eq(0).text();
+        numbers.eq(0).text(numbers.eq(1).text());
+        numbers.eq(1).text(tempNumber);
+        numbers.removeClass("selected");
+        switcher.hide();
+        rootSoundEffect($show);
+
+        //成功執行一次替換
+        if (!hasSwitched) {
+          hasSwitched = true;
+        }
+        compareCount++;
+        //
+        if (autoAssign) {
+          numbers.eq(1).click();
+        } else {
+          nextRound.css("display", "flex");
+        }
+        checkIfGameOver();
+      }
+    } else {
+      if (parseInt(numbers.eq(0).text()) < parseInt(numbers.eq(1).text())) {
+        //正確的順序，不換
+        numbers.removeClass("selected");
+        switcher.hide();
+        //nextRound.css("display", "flex");
+        rootSoundEffect($pop);
+        //確認是否替換過
+        if (hasSwitched) {
+          compareCount++;
+        }
+        //確認後面還有沒有可以比較的數字
+        if (autoAssign) {
+          checkIfHasNextComparison(numbers.eq(1).index());
+        } else {
+          nextRound.css("display", "flex");
+        }
+      } else {
+        //後面的比較小，必須換
+        var alertmsg = "左邊的分數比較大，需要交換";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp"  style="bottom:216px" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        rootSoundEffect($stupid);
+      }
+    }
+    console.log("compareCount:", compareCount);
+  };
+
+  var nextRound = function () {
+    //記錄本輪的結果
+    updateRecord();
+    //
+    var nextRound = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
+    );
+    nextRound.hide();
+    //
+    compareCount = 0;
+    compareTarget = "";
+    hasSwitched = false;
+    if (autoAssign) {
+      checkIfHasNextComparison(0);
+    }
+  };
+
+  var updateRecord = function () {
+    var numbers = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+    );
+    var records = $(".PT4-4-1-5 .contents > div.selected .sensors .record");
+    records.each(function () {
+      if ($(this).find("span").length == 0) {
+        rootSoundEffect($pop);
+        //空紀錄,記錄在這裡
+        for (var i = 0; i < numbers.length; i++) {
+          $(this).append(`<span>${numbers.eq(i).text()}</span>`);
+        }
+        return false;
+      }
+    });
+
+    if (autoAssign) {
+      //填入比較次數
+      var countSensor = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .sensor",
+      );
+      countSensor.each(function () {
+        if ($(this).text() == "") {
+          $(this).text(compareCount);
+          return false;
+        }
+      });
+      //找到下一個起始點
+      checkIfHasNextComparison(0);
+    }
+  };
+
+  var checkIfHasNextComparison = function (index) {
+    var numbers = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+    );
+    var isComparison = false;
+    for (var i = index; i < numbers.length; i++) {
+      var currentItem = numbers.eq(i);
+      var nextItem = currentItem.next("span");
+      if (
+        nextItem.length > 0 &&
+        parseInt(currentItem.text()) > parseInt(nextItem.text())
+      ) {
+        isComparison = true;
+        currentItem.click();
+        break;
+      }
+    }
+    if (!isComparison) {
+      //沒有可以比較的數字，結束一輪
+      if (index == 0) {
+        //從0開始計算都沒有可以比較的對，則不處理
+      } else {
+        //本輪結束，可以進行下一輪
+        rootSoundEffect($correct);
+
+        var nextRound = $(
+          ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
+        );
+        nextRound.css("display", "flex");
+      }
+    }
+  };
+
+  var checkIfGameOver = function () {
+    var numbers = $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+    );
+    var isGameOver = true;
+    for (var i = 0; i < numbers.length; i++) {
+      var currentItem = numbers.eq(i);
+      var nextItem = currentItem.next("span");
+      if (
+        nextItem.length > 0 &&
+        parseInt(currentItem.text()) > parseInt(nextItem.text())
+      ) {
+        isGameOver = false;
+        break;
+      }
+    }
+    if (isGameOver) {
+      numbers.removeClass("selected");
+      numbers.eq(0).closest(".numbers").addClass("gameover");
+      numbers.eq(0).siblings(".switcher").hide();
+      numbers.eq(0).siblings(".nextRound").css("display", "flex");
+      rootSoundEffect($chimes);
+      if (autoAssign) {
+        setTimeout(function () {
+          nextRound();
+          //填入總次數
+          var countSensor = $(
+            ".PT4-4-1-5 .contents > div.selected .sensors .sensor",
+          );
+          var countSensorSumItem = countSensor.eq(countSensor.length - 1);
+          countSensorSumItem.text(countSensorSumItem.attr("ans"));
+        }, 100);
+      }
+    }
+  };
+
+  /* 任務2,3 */
+  var divideTo = function (targetsName) {
+    var source = $(event.currentTarget || event.target);
+    if (!source.hasClass("numbers")) {
+      source = source.closest(".numbers");
+    }
+
+    var allFilled = true;
+    source.find("span").each(function () {
+      if ($(this).text().trim() === "") {
+        allFilled = false;
+        return false;
+      }
+    });
+    if (!allFilled) {
+      var alertmsg = "還沒有數字可以分配";
+      var $selected = $(".contents > div.selected");
+      var sourceTop = source.offset().top - $selected.offset().top;
+      var alertTop = Math.round(sourceTop);
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      rootSoundEffect($stupid);
+      return;
+    }
+
+    var targets = targetsName.split(",");
+    for (var i = 0; i < targets.length; i++) {
+      var target = $(
+        `.PT4-4-1-5 .contents > div.selected .sensors .numbers.${targets[i]}`,
+      );
+      target.find("span").each(function () {
+        $(this).text($(this).attr("ans"));
+      });
+    }
+    rootSoundEffect($pop);
+  };
+  var assignTo = function (targetName) {
+    //先找到被點擊的span的數字
+    //確認target裡面還有空的span且數字沒有跟target span裡面已存在的數字重複，如果重複則不處理
+    var clicked = $(event.currentTarget || event.target);
+    var value = clicked.text().trim();
+    if (!value) return;
+
+    var target = $(
+      `.PT4-4-1-5 .contents > div.selected .sensors .numbers.${targetName}`,
+    );
+
+    var isDuplicate = false;
+    var $emptySlot = null;
+    target.find("span").each(function () {
+      // treat whitespace / NBSP as empty
+      var text = $(this)
+        .text()
+        .replace(/\u00a0/g, " ")
+        .trim();
+      if (text === value) {
+        isDuplicate = true;
+      }
+      if ($emptySlot === null && text === "") {
+        $emptySlot = $(this);
+      }
+    });
+
+    var $selected = $(".contents > div.selected");
+    var sourceTop = target.offset().top - $selected.offset().top;
+    var alertTop = Math.round(sourceTop);
+    if (!$emptySlot) {
+      var alertmsg = "沒有空位";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      rootSoundEffect($stupid);
+      return;
+    }
+    if (isDuplicate) {
+      var alertmsg = "數字重複了，請選擇其他數字";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      rootSoundEffect($stupid);
+      return;
+    }
+
+    $emptySlot.text(value);
+    rootSoundEffect($pop);
+  };
+  /* 共用 */
+  var fillContent = function (tar) {
+    $(".alert").remove();
+    var text = window.prompt("請輸入答案：", tar.text() ?? "");
+    tar.removeClass("wrong");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      // only digits, no spaces/symbols/letters
+      if (!/^\d+$/.test(text)) {
+        rootSoundEffect($stupid);
+        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        return;
+      }
+      tar.html(text);
+      rootSoundEffect($key);
+      //
+      $(".sideTool > div.btn_replay").show();
+    }
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".alert").remove();
+      /* 任務一 */
+      $(
+        ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers",
+      ).addClass("gameover");
+      $(
+        ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers .switcher",
+      ).hide();
+      $(
+        ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers .nextRound",
+      ).hide();
+      $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+      ).removeClass("selected");
+      $(".PT4-4-1-5 .contents .sensors .sensor").each(function () {
+        var ans = $(this).attr("ans");
+        $(this).html(ans);
+      });
+      $(".PT4-4-1-5 .contents .sensors .record").each(function () {
+        var ans = $(this).attr("ans");
+        $(this).empty();
+        var spans = ans.split(",");
+        for (var i = 0; i < spans.length; i++) {
+          $(this).append(`<span>${spans[i]}</span>`).click();
+        }
+      });
+      /* 任務二 */
+      $(
+        ".PT4-4-1-5 .contents > div:nth-child(2).selected .sensors .numbers span",
+      ).each(function () {
+        var ans = $(this).attr("ans");
+        $(this).html(ans);
+      });
+      /* 任務三 */
+      $(
+        ".PT4-4-1-5 .contents > div:nth-child(3).selected .sensors .numbers span",
+      ).each(function () {
+        var ans = $(this).attr("ans");
+        $(this).html(ans);
+      });
+    }
+  };
+
+  var withinResetElem = function () {
+    /* 任務一 */
+    $(".PT4-4-1-5 .contents > div.selected .sensors .sensor").each(function () {
+      $(this).text("");
+    });
+    $(".PT4-4-1-5 .contents > div.selected .sensors .numbers > span").each(
+      function () {
+        $(this).text($(this).attr("default"));
+      },
+    );
+    $(".PT4-4-1-5 .contents > div.selected .sensors .numbers").removeClass(
+      "gameover",
+    );
+    $(".PT4-4-1-5 .contents > div.selected .sensors .record").empty();
+    $(".PT4-4-1-5 .contents > div.selected .sensors .numbers .switcher").hide();
+    $(
+      ".PT4-4-1-5 .contents > div.selected .sensors .numbers .nextRound",
+    ).hide();
+
+    //
+    compareCount = 0;
+    compareTarget = "";
+    hasSwitched = false;
+    if (autoAssign) {
+      checkIfHasNextComparison(0);
+    }
+
+    /* 任務二 */
+    $(
+      ".PT4-4-1-5 .contents > div:nth-child(2).selected .sensors .numbers span",
+    ).each(function () {
+      if ($(this).attr("default")) {
+        $(this).text($(this).attr("default"));
+      } else {
+        $(this).text("");
+      }
+    });
+    /* 任務三 */
+    $(
+      ".PT4-4-1-5 .contents > div:nth-child(3).selected .sensors .numbers span",
+    ).each(function () {
+      if ($(this).attr("default")) {
+        $(this).text($(this).attr("default"));
+      } else {
+        $(this).text("");
+      }
+    });
+  };
+</script>

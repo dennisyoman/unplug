@@ -1,0 +1,360 @@
+<div id="module_wrapper" class="module_basic PT4-4-1-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：根據來自個人員的信件，將勇士們的狩獵結果整理成一張表格。
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-1-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti">
+          <div class="sensors">
+            <!-- row0-->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 25px; left: 2px"
+              eliminate="0"
+            />
+            <!-- row1 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 54px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 54px; left: 68px"
+              ans="60"
+              group="1"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 54px; left: 135px"
+              ans="29"
+              group="1"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 54px; left: 202px"
+              diff="1"
+            />
+            <!-- row2 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 82px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 82px; left: 68px"
+              ans="80"
+              group="2"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 82px; left: 135px"
+              ans="23"
+              group="2"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 82px; left: 202px"
+              diff="2"
+            />
+            <!-- row3 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 110px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 110px; left: 68px"
+              ans="70"
+              group="3"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 110px; left: 135px"
+              ans="34"
+              group="3"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 110px; left: 202px"
+              diff="3"
+            />
+            <!-- row4 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 139px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 139px; left: 68px"
+              ans="40"
+              group="4"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 139px; left: 135px"
+              ans="18"
+              group="4"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 139px; left: 202px"
+              diff="4"
+            />
+            <!-- row5 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 167px; left: 2px"
+              eliminate="1"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 167px; left: 68px"
+              ans="80"
+              group="5"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 167px; left: 135px"
+              ans="13"
+              group="5"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 167px; left: 202px"
+              diff="5"
+            />
+            <!-- row6 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 196px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 196px; left: 68px"
+              ans="50"
+              group="6"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 196px; left: 135px"
+              ans="29"
+              group="6"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 196px; left: 202px"
+              diff="6"
+            />
+            <!-- row7 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 224px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 224px; left: 68px"
+              ans="64"
+              group="7"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 224px; left: 135px"
+              ans="21"
+              group="7"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 224px; left: 202px"
+              diff="7"
+            />
+            <!-- row8 -->
+            <span
+              class="sensor"
+              onClick="eliminateWarrior($(this))"
+              style="width: 64px; height: 24px; top: 253px; left: 2px"
+              eliminate="0"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 253px; left: 68px"
+              ans="30"
+              group="8"
+            />
+            <span
+              class="sensor"
+              onClick="fillContent($(this))"
+              style="width: 64px; height: 24px; top: 253px; left: 135px"
+              ans="22"
+              group="8"
+            />
+            <span
+              class="sensor"
+              style="width: 45px; height: 24px; top: 253px; left: 202px"
+              diff="8"
+            />
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-1-4-1.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-4-1-4 .contents .sensors .sensor {
+    font-size: 12px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .PT4-4-1-4 .contents .sensors .sensor[diff] {
+    pointer-events: none;
+  }
+  .PT4-4-1-4 .contents .sensors .sensor.selected::after {
+    content: "";
+    top: 50%;
+    left: 0;
+    width: 250px;
+    border-top: 2px solid #ff0000;
+    z-index: 9;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+</style>
+
+<script>
+  var fillContent = function (tar) {
+    var text = window.prompt("請輸入答案：", tar.text() ?? "");
+    tar.removeClass("wrong");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      // only digits, no spaces/symbols/letters
+      if (!/^\d+$/.test(text)) {
+        rootSoundEffect($stupid);
+        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        return;
+      }
+      tar.html(text);
+      rootSoundEffect($key);
+      //
+      $(".sideTool > div.btn_replay").show();
+    }
+    //計算數學
+    var group = tar.attr("group");
+    var sensors = $(`#module_wrapper .sensor[group="${group}"]`);
+    var t0 = sensors.eq(0).text().trim();
+    var t1 = sensors.eq(1).text().trim();
+    var $diff = $(`#module_wrapper .sensor[diff="${group}"]`);
+    if (t0 !== "" && t1 !== "") {
+      var v0 = parseInt(t0, 10);
+      var v1 = parseInt(t1, 10);
+      $diff.text((Number.isNaN(v0) ? 0 : v0) - (Number.isNaN(v1) ? 0 : v1));
+    } else {
+      $diff.text("");
+    }
+  };
+
+  var eliminateWarrior = function (tar) {
+    tar.toggleClass("selected");
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var withinShowAnswer = function () {
+    $(".PT4-4-1-4 .contents .sensors .sensor").each(function () {
+      if ($(this).attr("eliminate")) {
+        if ($(this).attr("eliminate") == 1) {
+          $(this).addClass("selected");
+        } else {
+          $(this).removeClass("selected");
+        }
+      } else {
+        var ans = $(this).attr("ans");
+        $(this).html(ans);
+        //計算數學
+        var group = $(this).attr("group");
+        var sensors = $(`#module_wrapper .sensor[group="${group}"]`);
+        var t0 = sensors.eq(0).text().trim();
+        var t1 = sensors.eq(1).text().trim();
+        var $diff = $(`#module_wrapper .sensor[diff="${group}"]`);
+        if (t0 !== "" && t1 !== "") {
+          var v0 = parseInt(t0, 10);
+          var v1 = parseInt(t1, 10);
+          $diff.text((Number.isNaN(v0) ? 0 : v0) - (Number.isNaN(v1) ? 0 : v1));
+        } else {
+          $diff.text("");
+        }
+      }
+    });
+  };
+
+  var withinResetElem = function () {
+    $(".PT4-4-1-4 .contents .sensors .sensor").each(function () {
+      $(this).empty();
+    });
+  };
+</script>
