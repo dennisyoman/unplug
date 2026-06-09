@@ -260,6 +260,12 @@
 <script>
   var PT4_4_3_5_STEP_MS = 500;
 
+  var getMarkerNum = function ($el) {
+    return (
+      parseInt($el.text().replace(/\u00a0/g, " ").trim(), 10) || 0
+    );
+  };
+
   var parseCellAttr = function (val) {
     var p = (val || "0,0").split(",");
     return {
@@ -346,14 +352,7 @@
   var getMarkerOrderKey = function ($markers) {
     var items = [];
     $markers.each(function () {
-      var n =
-        parseInt(
-          $(this)
-            .text()
-            .replace(/\u00a0/g, " ")
-            .trim(),
-          10,
-        ) || 0;
+      var n = getMarkerNum($(this));
       if (n > 0) {
         items.push({ order: n, color: $(this).attr("color") || "" });
       }
@@ -455,16 +454,12 @@
     var metrics = getGridMetrics($grid);
     var targets = [];
     $markers.each(function () {
-      var order =
-        parseInt(
-          $(this)
-            .text()
-            .replace(/\u00a0/g, " ")
-            .trim(),
-          10,
-        ) || 0;
       var cell = parseCellAttr($(this).attr("cell"));
-      targets.push({ order: order, col: cell.col, row: cell.row });
+      targets.push({
+        order: getMarkerNum($(this)),
+        col: cell.col,
+        row: cell.row,
+      });
     });
     targets.sort(function (a, b) {
       return a.order - b.order;
@@ -472,7 +467,7 @@
 
     var markerCells = {};
     for (var j = 0; j < targets.length; j++) {
-      markerCells[targets[j].col + "," + targets[j].row] = true;
+      markerCells[cellKey(targets[j].col, targets[j].row)] = true;
     }
 
     var start = parseCellAttr($fey.attr("startPosition"));
@@ -533,7 +528,7 @@
       var fromRow = stepIdx === 0 ? start.row : fullPath[stepIdx - 1].row;
       appendPathSegment($grid, fromCol, fromRow, cell.col, cell.row, metrics);
       var center = getCellCenter($grid, cell.col, cell.row, metrics);
-      if (markerCells[cell.col + "," + cell.row]) {
+      if (markerCells[cellKey(cell.col, cell.row)]) {
         findGridCell($grid, cell.col, cell.row).addClass("gotit");
         rootSoundEffect($right);
       }
@@ -562,22 +557,18 @@
     }
     var $markers = $(".PT4-4-3-5 .contents > div.selected .sensors .marker");
     var max = $markers.length;
-    var orders = [];
     var allFilled = true;
+    var hasDup = false;
+    var seen = {};
 
     $markers.each(function () {
-      var n =
-        parseInt(
-          $(this)
-            .text()
-            .replace(/\u00a0/g, " ")
-            .trim(),
-          10,
-        ) || 0;
+      var n = getMarkerNum($(this));
       if (n < 1 || n > max) {
         allFilled = false;
+      } else if (seen[n]) {
+        hasDup = true;
       } else {
-        orders.push(n);
+        seen[n] = true;
       }
     });
 
@@ -588,16 +579,6 @@
         `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">請點選寶石，設定移動的先後順序</div>`,
       );
       return;
-    }
-
-    var seen = {};
-    var hasDup = false;
-    for (var i = 0; i < orders.length; i++) {
-      if (seen[orders[i]]) {
-        hasDup = true;
-        break;
-      }
-      seen[orders[i]] = true;
     }
 
     if (hasDup) {
@@ -612,19 +593,24 @@
     startFeyMove($markers);
   };
 
-  var resetMapGrid = function () {
-    var $selected = $(".PT4-4-3-5 .contents > div.selected");
+  var resetMission1Playfield = function ($selected, clearAllSensors) {
     var $grid = $selected.find(".mapGrid");
-    var $markers = $selected.find(".sensors .marker");
-
     clearFeyMoveTimers($grid);
     $grid.find(".fey").removeClass("moving");
-    $markers.removeClass("disabled").text("");
+    if (clearAllSensors) {
+      $selected.find(".sensors .sensor").text("");
+    } else {
+      $selected.find(".sensors .marker").text("");
+    }
     $selected.find(".sensors").removeData("markSeq");
-
-    initMapGrid($grid);
+    $selected.find(".sensors .marker").removeClass("disabled");
     $selected.find(".btn_resetMapGrid").hide();
     $selected.find(".btn_play").show();
+    initMapGrid($grid);
+  };
+
+  var resetMapGrid = function () {
+    resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), false);
     rootSoundEffect($show);
   };
 
@@ -633,8 +619,7 @@
       return;
     }
     var $sensors = tar.closest(".sensors");
-    var $markers = $sensors.find(".marker");
-    var max = $markers.length;
+    var max = $sensors.find(".marker").length;
     var seq = parseInt($sensors.data("markSeq"), 10) || 0;
     var next = seq >= max ? 1 : seq + 1;
     $sensors.data("markSeq", next);
@@ -681,22 +666,9 @@
     );
   };
 
-  var withinShowAnswer = function (boolean) {
-    if (!boolean) {
-      return;
-    }
-  };
+  var withinShowAnswer = function () {};
 
   var withinResetElem = function () {
-    var $selected = $(".PT4-4-3-5 .contents > div.selected");
-    var $grid = $selected.find(".mapGrid");
-    clearFeyMoveTimers($grid);
-    $grid.find(".fey").removeClass("moving");
-    $selected.find(".sensors .sensor").text("");
-    $selected.find(".sensors").removeData("markSeq");
-    $selected.find(".sensors .marker").removeClass("disabled");
-    $selected.find(".btn_resetMapGrid").hide();
-    $selected.find(".btn_play").show();
-    initMapGrid();
+    resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), true);
   };
 </script>
