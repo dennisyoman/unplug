@@ -20,7 +20,10 @@
           <h3>How to play?</h3>
           <p>
             <b>挑戰主題</b
-            >：考慮簡單情況，能找到最少步數的結果嗎？<br />1.點擊寶石決定移動的順序<br />2.點選開始行動
+            >：考慮簡單情況，能找到最少步數的結果嗎？<br />1.點擊寶石決定移動的順序<br />2.點選開始行動<img
+              width="25"
+              src="./DATA/IMAGES/common/btn_playorder.png"
+            />
           </p>
           <span class="cta" onClick="switchIntro()">START</span>
         </div>
@@ -233,6 +236,8 @@
     object-fit: contain;
     margin-left: -20px;
     margin-top: -20px;
+    animation: swing 1s ease 3;
+    transform-origin: center bottom;
   }
   .PT4-4-3-5 .mapGrid {
     position: absolute;
@@ -262,7 +267,13 @@
 
   var getMarkerNum = function ($el) {
     return (
-      parseInt($el.text().replace(/\u00a0/g, " ").trim(), 10) || 0
+      parseInt(
+        $el
+          .text()
+          .replace(/\u00a0/g, " ")
+          .trim(),
+        10,
+      ) || 0
     );
   };
 
