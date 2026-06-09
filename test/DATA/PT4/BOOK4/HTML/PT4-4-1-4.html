@@ -324,32 +324,36 @@
     $(".sideTool > div.btn_replay").show();
   };
 
-  var withinShowAnswer = function () {
-    $(".PT4-4-1-4 .contents .sensors .sensor").each(function () {
-      if ($(this).attr("eliminate")) {
-        if ($(this).attr("eliminate") == 1) {
-          $(this).addClass("selected");
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".PT4-4-1-4 .contents .sensors .sensor").each(function () {
+        if ($(this).attr("eliminate")) {
+          if ($(this).attr("eliminate") == 1) {
+            $(this).addClass("selected");
+          } else {
+            $(this).removeClass("selected");
+          }
         } else {
-          $(this).removeClass("selected");
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+          //計算數學
+          var group = $(this).attr("group");
+          var sensors = $(`#module_wrapper .sensor[group="${group}"]`);
+          var t0 = sensors.eq(0).text().trim();
+          var t1 = sensors.eq(1).text().trim();
+          var $diff = $(`#module_wrapper .sensor[diff="${group}"]`);
+          if (t0 !== "" && t1 !== "") {
+            var v0 = parseInt(t0, 10);
+            var v1 = parseInt(t1, 10);
+            $diff.text(
+              (Number.isNaN(v0) ? 0 : v0) - (Number.isNaN(v1) ? 0 : v1),
+            );
+          } else {
+            $diff.text("");
+          }
         }
-      } else {
-        var ans = $(this).attr("ans");
-        $(this).html(ans);
-        //計算數學
-        var group = $(this).attr("group");
-        var sensors = $(`#module_wrapper .sensor[group="${group}"]`);
-        var t0 = sensors.eq(0).text().trim();
-        var t1 = sensors.eq(1).text().trim();
-        var $diff = $(`#module_wrapper .sensor[diff="${group}"]`);
-        if (t0 !== "" && t1 !== "") {
-          var v0 = parseInt(t0, 10);
-          var v1 = parseInt(t1, 10);
-          $diff.text((Number.isNaN(v0) ? 0 : v0) - (Number.isNaN(v1) ? 0 : v1));
-        } else {
-          $diff.text("");
-        }
-      }
-    });
+      });
+    }
   };
 
   var withinResetElem = function () {

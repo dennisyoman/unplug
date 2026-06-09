@@ -1,0 +1,145 @@
+<div id="module_wrapper" class="module_fillin PT4-4-4-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：在依照規則裝箱之前，我們需要把所有物品的重量用表格的方式整理好。
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="subject wow fadeIn tti" style="height: 200px">
+        <div class="sensorArea">
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 21px; left: 110px"
+            ans="2"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 51px; left: 110px"
+            ans="5"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 81px; left: 110px"
+            ans="4"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 111px; left: 110px"
+            ans="4"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 141px; left: 110px"
+            ans="3"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 171px; left: 110px"
+            ans="5"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 21px; left: 306px"
+            ans="3"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 51px; left: 306px"
+            ans="3"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 81px; left: 306px"
+            ans="1"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 111px; left: 306px"
+            ans="3"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 141px; left: 306px"
+            ans="4"
+          />
+          <span
+            opt="weight"
+            class="sensor"
+            style="width: 77px; height: 28px; top: 171px; left: 306px"
+            ans="1"
+          />
+        </div>
+
+        <img
+          style="height: 100%"
+          src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-4-1.png"
+        />
+      </div>
+
+      <div class="options weight loop">
+        <div class="option" fillin="1">
+          <span class="fillin">1</span>
+        </div>
+        <div class="option" fillin="2">
+          <span class="fillin">2</span>
+        </div>
+        <div class="option" fillin="3">
+          <span class="fillin">3</span>
+        </div>
+        <div class="option" fillin="4">
+          <span class="fillin">4</span>
+        </div>
+        <div class="option" fillin="5">
+          <span class="fillin">5</span>
+        </div>
+        <div class="option" fillin="6">
+          <span class="fillin">6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assetsPreload"></div>
+</div>
+
+<style>
+  .PT4-4-4-4 .contents > div.selected .sensorArea .sensor,
+  .PT4-4-4-4 .contents > div.selected .presetArea .sensor {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .PT4-4-4-4 .contents > div.selected .sensorArea .sensor.wrong:before {
+    background-size: 30% auto;
+  }
+</style>

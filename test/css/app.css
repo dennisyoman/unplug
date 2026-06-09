@@ -14077,8 +14077,6 @@
   pointer-events: auto;
   cursor: pointer;
   transition: all 0.5s;
-  background: rgba(255, 0, 0, 0.2);
-  opacity: 1 !important;
 }
 .module_basic .contents .sensors > *.word {
   text-align: center;

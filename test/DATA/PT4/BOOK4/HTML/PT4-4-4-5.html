@@ -1,0 +1,1145 @@
+<div id="module_wrapper" class="module_basic PT4-4-4-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：先用原本的方法，想辦法湊到 10
+            公斤，再記錄到箱子上。<br />1.先選擇物品<br />2.再選擇箱子<br />3.重複步驟，直到所有物品都分配到箱子裡
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-5-1-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- capsule -->
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 26px; left: 64px"
+              ans="2"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 26px; left: 142px"
+              ans="6"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 50px; left: 64px"
+              ans=""
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 50px; left: 142px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 87px; left: 64px"
+              ans="3"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 87px; left: 142px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 111px; left: 64px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 111px; left: 142px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 147px; left: 64px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 147px; left: 142px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 172px; left: 64px"
+              ans="11"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 172px; left: 142px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 208px; left: 64px"
+              ans="8"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 208px; left: 142px"
+              ans="9"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 233px; left: 64px"
+              ans="10"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 233px; left: 142px"
+              ans="12"
+            ></span>
+          </div>
+
+          <img
+            style="width: 220px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-5-1.png"
+          />
+
+          <div class="itemlist" style="width: 140px">
+            <div weight="2" iid="1">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item1.png" />
+            </div>
+            <div weight="5" iid="2">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item2.png" />
+            </div>
+            <div weight="4" iid="3">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item3.png" />
+            </div>
+            <div weight="4" iid="4">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item4.png" />
+            </div>
+            <div weight="3" iid="5">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item5.png" />
+            </div>
+            <div weight="5" iid="6">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item6.png" />
+            </div>
+            <div weight="3" iid="7">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item7.png" />
+            </div>
+            <div weight="3" iid="8">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item8.png" />
+            </div>
+            <div weight="1" iid="9">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item9.png" />
+            </div>
+            <div weight="3" iid="10">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item10.png" />
+            </div>
+            <div weight="4" iid="11">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item11.png" />
+            </div>
+            <div weight="1" iid="12">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item12.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：試試看新方法，用故事中的規則順序搬進箱子，還要記錄每一個箱子的剩餘空間喔！
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-5-2-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- capsule -->
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 26px; left: 64px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 26px; left: 142px"
+              ans="2"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 50px; left: 64px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box1"
+              style="width: 77px; height: 24px; top: 50px; left: 142px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 87px; left: 64px"
+              ans="3"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 87px; left: 142px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 111px; left: 64px"
+              ans="9"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box2"
+              style="width: 77px; height: 24px; top: 111px; left: 142px"
+              ans="12"
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 147px; left: 64px"
+              ans="6"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 147px; left: 142px"
+              ans="7"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 172px; left: 64px"
+              ans=""
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 77px; height: 24px; top: 172px; left: 142px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 208px; left: 64px"
+              ans="8"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 208px; left: 142px"
+              ans="10"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 233px; left: 64px"
+              ans="11"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box4"
+              style="width: 77px; height: 24px; top: 233px; left: 142px"
+              ans=""
+            ></span>
+          </div>
+
+          <img
+            style="width: 220px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-5-1.png"
+          />
+
+          <div class="capacity">
+            <div class="progress" progressID="box1">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="8"></span>
+                <span ans="3"></span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+            <div class="progress" progressID="box2">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="6"></span>
+                <span ans="2"></span>
+                <span ans="1"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+            <div class="progress" progressID="box3">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="5"></span>
+                <span ans="2"></span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+            <div class="progress" progressID="box4">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="7"></span>
+                <span ans="3"></span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="itemlist withCapacityChart" style="width: 140px">
+            <div weight="2" iid="1">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item1.png" />
+            </div>
+            <div weight="5" iid="2">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item2.png" />
+            </div>
+            <div weight="4" iid="3">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item3.png" />
+            </div>
+            <div weight="4" iid="4">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item4.png" />
+            </div>
+            <div weight="3" iid="5">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item5.png" />
+            </div>
+            <div weight="5" iid="6">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item6.png" />
+            </div>
+            <div weight="3" iid="7">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item7.png" />
+            </div>
+            <div weight="3" iid="8">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item8.png" />
+            </div>
+            <div weight="1" iid="9">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item9.png" />
+            </div>
+            <div weight="3" iid="10">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item10.png" />
+            </div>
+            <div weight="4" iid="11">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item11.png" />
+            </div>
+            <div weight="1" iid="12">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item12.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：接著爸媽又搬下來 3 個物品了，並跟你說等一下還會搬 2
+            個下來，在時間不多的情況下，你會怎麼做呢？
+          </p>
+          <img src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-5-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- capsule -->
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 68px; height: 27px; top: 32px; left: 80px"
+              ans="3"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box3"
+              style="width: 68px; height: 27px; top: 32px; left: 150px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box5"
+              style="width: 68px; height: 27px; top: 81px; left: 80px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box5"
+              style="width: 68px; height: 27px; top: 81px; left: 150px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box5"
+              style="width: 68px; height: 27px; top: 111px; left: 80px"
+              ans=""
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box5"
+              style="width: 68px; height: 27px; top: 111px; left: 150px"
+              ans=""
+            ></span>
+
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box6"
+              style="width: 68px; height: 27px; top: 158px; left: 80px"
+              ans="2"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box6"
+              style="width: 68px; height: 27px; top: 158px; left: 150px"
+              ans="5"
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box6"
+              style="width: 68px; height: 27px; top: 188px; left: 80px"
+              ans=""
+            ></span>
+            <span
+              class="sensor capsule"
+              onclick="takeItem($(this))"
+              boxID="box6"
+              style="width: 68px; height: 27px; top: 188px; left: 150px"
+              ans=""
+            ></span>
+
+            <!--  parent -->
+            <span
+              class="sensor checkbox"
+              onclick="toggleMe($(this))"
+              style="
+                width: 12px;
+                height: 12px;
+                top: 228px;
+                left: 28px;
+                z-index: 5;
+              "
+              ans="v"
+            ></span>
+            <span
+              class="sensor checkbox"
+              onclick="toggleMe($(this))"
+              style="
+                width: 12px;
+                height: 12px;
+                top: 254px;
+                left: 28px;
+                z-index: 5;
+              "
+              ans=""
+            ></span>
+            <div class="parent">
+              <img src="./DATA/PT4/BOOK4/IMAGES/parent.png" />
+            </div>
+          </div>
+
+          <img
+            style="width: 220px"
+            src="./DATA/PT4/BOOK4/IMAGES/PT4-4-4-5-3.png"
+          />
+
+          <div class="capacity" style="height: 196px">
+            <div class="progress" progressID="box3">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="5" class="fixed">5</span>
+                <span ans="2" class="fixed">2</span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+            <div class="progress" progressID="box5">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="4"></span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+            <div class="progress" progressID="box6">
+              <div class="label"></div>
+              <div class="progressBar">
+                <span ans="10" class="fixed">10</span>
+                <span ans="5"></span>
+                <span ans="1"></span>
+                <span ans="0"></span>
+                <span ans="0"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="itemlist mission3 withCapacityChart" style="width: 140px">
+            <div weight="6" iid="1">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item13.png" />
+              <span onClick="switchNumber($(this), event)"></span>
+            </div>
+            <div weight="5" iid="2">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item14.png" />
+              <span onClick="switchNumber($(this), event)"></span>
+            </div>
+            <div weight="2" iid="3">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item15.png" />
+              <span onClick="switchNumber($(this), event)"></span>
+            </div>
+            <div weight="4" iid="4">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item16.png" />
+              <span onClick="switchNumber($(this), event)"></span>
+            </div>
+            <div weight="4" iid="5">
+              <img src="./DATA/PT4/BOOK4/IMAGES/item17.png" />
+              <span onClick="switchNumber($(this), event)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-4-4-5 .sensors > .sensor {
+    font-size: 12px;
+    line-height: 12px;
+    display: grid;
+    place-items: center;
+  }
+  .PT4-4-4-5 .group .item.selected {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .PT4-4-4-5 .contents .itemlist {
+    aspect-ratio: 500/1007;
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: url("./DATA/PT4/BOOK4/IMAGES/itemlist.png") no-repeat center
+      center;
+    background-size: contain;
+    padding-top: 14px;
+  }
+  .PT4-4-4-5 .contents .itemlist.mission3 {
+    padding-top: 32px;
+    aspect-ratio: 600/701;
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/itemlist2.png");
+  }
+  .PT4-4-4-5 .contents .itemlist > div {
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 100%;
+    height: 22px;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    transition: all 0.1s ease;
+  }
+  .PT4-4-4-5 .contents .itemlist.mission3 > div {
+    height: 24px;
+    display: flex;
+  }
+  .PT4-4-4-5 .contents .itemlist > div.selected,
+  .PT4-4-4-5 .contents .itemlist > div:hover {
+    background: #00fff044;
+    z-index: 2;
+  }
+  .PT4-4-4-5 .contents .itemlist > div.disabled {
+    opacity: 0.3;
+    filter: grayscale(100%);
+    pointer-events: none;
+  }
+  .PT4-4-4-5 .contents .itemlist > div.disabled > * {
+    pointer-events: none !important;
+  }
+
+  .PT4-4-4-5 .contents .itemlist > div > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .PT4-4-4-5 .contents .itemlist.mission3 > div > img {
+    width: 52%;
+  }
+  .PT4-4-4-5 .contents .itemlist.mission3 > div > span {
+    width: 48%;
+    font-size: 12px;
+    line-height: 1;
+    display: inline-grid;
+    place-items: center;
+    font-weight: bold;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-4-4-5 .contents .sensors .checkbox {
+    color: #ff0000;
+  }
+
+  .PT4-4-4-5 .contents .sensors .capsule {
+    pointer-events: none !important;
+  }
+  .PT4-4-4-5 .contents .sensors .capsule > img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    object-position: center left;
+  }
+  .PT4-4-4-5 .contents > div.selected:nth-child(3) .sensors .capsule > img {
+    width: 70%;
+    object-fit: contain;
+  }
+  .PT4-4-4-5 .contents .sensors .capsule > span {
+    position: absolute;
+    aspect-ratio: 3/4;
+    font-weight: bold;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none !important;
+  }
+
+  .PT4-4-4-5
+    .contents
+    > div.selected:has(.itemlist > div.selected)
+    .sensors
+    .capsule:empty {
+    pointer-events: auto !important;
+    background-image:
+      linear-gradient(90deg, #ff4343 50%, transparent 50%),
+      linear-gradient(90deg, #ff4343 50%, transparent 50%),
+      linear-gradient(0deg, #ff4343 50%, transparent 50%),
+      linear-gradient(0deg, #ff4343 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size:
+      10px 2px,
+      10px 2px,
+      2px 10px,
+      2px 10px;
+    background-position:
+      left top,
+      right bottom,
+      left bottom,
+      right top;
+    animation: border-dance 0.6s infinite linear;
+  }
+  @keyframes border-dance {
+    0% {
+      background-position:
+        left top,
+        right bottom,
+        left bottom,
+        right top;
+    }
+
+    100% {
+      background-position:
+        left 10px top,
+        right 10px bottom,
+        left bottom 10px,
+        right top 10px;
+    }
+  }
+
+  .PT4-4-4-5
+    .contents
+    > div.selected:has(.itemlist > div.selected)
+    .sensors
+    .capsule.disabled {
+    background-image: none;
+    animation: none;
+    pointer-events: none !important;
+  }
+
+  .PT4-4-4-5 .contents .capacity {
+    width: 150px;
+    height: 225px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .PT4-4-4-5 .contents .capacity .progress {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .PT4-4-4-5 .contents .capacity .progress[progressID="box1"] {
+    color: #ea5e88;
+  }
+  .PT4-4-4-5 .contents .capacity .progress[progressID="box2"] {
+    color: #8fc31f;
+  }
+  .PT4-4-4-5 .contents .capacity .progress[progressID="box3"] {
+    color: #f8b62d;
+  }
+  .PT4-4-4-5 .contents .capacity .progress[progressID="box4"] {
+    color: #5cc2d3;
+  }
+  .PT4-4-4-5 .contents .capacity .progress[progressID="box5"] {
+    color: #a660a3;
+  }
+  .PT4-4-4-5 .contents .capacity .progress[progressID="box6"] {
+    color: #9fa0a0;
+  }
+
+  .PT4-4-4-5 .contents .capacity .progress .label {
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    background: currentColor;
+    padding: 2px 1em;
+    border-radius: 1em;
+    transform: scale(0.8);
+  }
+  .PT4-4-4-5 .contents .capacity .progress .label::after {
+    content: "剩餘空間";
+    color: #fff;
+  }
+  .PT4-4-4-5 .contents .capacity .progress .progressBar {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+  }
+  .PT4-4-4-5 .contents .capacity .progress .progressBar span {
+    font-size: 12px;
+    line-height: 1;
+    aspect-ratio: 1;
+    width: 22px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    font-weight: bold;
+    animation: bounceIn 1s both;
+  }
+  .PT4-4-4-5 .contents .capacity .progress .progressBar span::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 2px 0px 2px 4px;
+    top: 50%;
+    right: -2px;
+    transform: translate(100%, -50%);
+    border-color: transparent transparent transparent currentColor;
+  }
+  .PT4-4-4-5 .contents .capacity .progress .progressBar span:last-child::after {
+    display: none;
+  }
+
+  .PT4-4-4-5 .contents .parent {
+    width: 270px;
+    height: auto;
+    position: absolute;
+    top: 216px;
+    left: -43px;
+    z-index: 4;
+    animation: bounceInLeft 1s both;
+  }
+  .PT4-4-4-5 .contents .parent > img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+  var switchNumber = function (tar, e) {
+    e = e || window.event;
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+
+    var current = parseInt(tar.text().trim(), 10) || 0;
+    var next = current >= 6 ? 1 : current + 1;
+    tar.text(next);
+    rootSoundEffect($key);
+  };
+
+  var getItemWeight = function ($item) {
+    var $span = $item.children("span").first();
+    if ($span.length) {
+      var text = $span
+        .text()
+        .replace(/\u00a0/g, " ")
+        .trim();
+      if (text !== "" && /^\d+$/.test(text)) {
+        return parseInt(text, 10);
+      }
+    }
+    return parseInt($item.attr("weight"), 10) || 0;
+  };
+
+  var getBoxMaxCapacity = function (boxID) {
+    var $progress = $(
+      `.PT4-4-4-5 .contents > div.selected .capacity .progress[progressID="${boxID}"]`,
+    );
+    if (!$progress.length) return 10;
+
+    var $fixed = $progress.find(".progressBar > span.fixed");
+    if ($fixed.length) {
+      return parseInt($fixed.last().text().trim(), 10) || 10;
+    }
+    return 10;
+  };
+
+  var checkAvailableCapacity = function (boxID) {
+    if (!boxID) return;
+
+    var $box = $(
+      `.PT4-4-4-5 .contents > div.selected .sensors .capsule[boxID="${boxID}"]`,
+    );
+    var boxTotalWeight = 0;
+    $box.each(function () {
+      boxTotalWeight += parseInt($(this).find("span").text().trim(), 10) || 0;
+    });
+    var remaining = getBoxMaxCapacity(boxID) - boxTotalWeight;
+
+    var $progress = $(
+      `.PT4-4-4-5 .contents > div.selected .capacity .progress[progressID="${boxID}"]`,
+    );
+    var $spans = $progress.find(".progressBar > span:not(.fixed)");
+    for (var i = 0; i < $spans.length; i++) {
+      var $span = $spans.eq(i);
+      if (
+        $span
+          .text()
+          .replace(/\u00a0/g, " ")
+          .trim() === ""
+      ) {
+        $span.text(remaining);
+        break;
+      }
+    }
+  };
+  var isCapsuleEmpty = function ($capsule) {
+    return (
+      $capsule
+        .text()
+        .replace(/\u00a0/g, " ")
+        .trim() === ""
+    );
+  };
+
+  var indicateAvailableCapsule = function () {
+    var $capsules = $(".PT4-4-4-5 .contents > div.selected .sensors .capsule");
+    $capsules.addClass("disabled");
+
+    var groups = [];
+    for (var i = 0; i < $capsules.length; i += 4) {
+      groups.push($capsules.slice(i, i + 4));
+    }
+
+    var $activeGroup = null;
+    for (var g = 0; g < groups.length; g++) {
+      var allFilled = true;
+      groups[g].each(function () {
+        if (isCapsuleEmpty($(this))) {
+          allFilled = false;
+        }
+      });
+      if (!allFilled) {
+        $activeGroup = groups[g];
+        break;
+      }
+    }
+
+    if ($activeGroup) {
+      $activeGroup.each(function () {
+        if (isCapsuleEmpty($(this))) {
+          $(this).removeClass("disabled");
+        }
+      });
+    }
+  };
+  /* 共用 */
+  var takeItem = function (tar) {
+    $(".alert").remove();
+    var itemSelected = tar.parent().siblings(".itemlist").find(".selected");
+    if (itemSelected.length > 0) {
+      rootSoundEffect($pop);
+      //把item貼到capsule裡面
+      var iid = itemSelected.attr("iid");
+      var weight = getItemWeight(itemSelected);
+      //確認同個box裡面總重量沒有超過剩餘容量
+      var boxID = tar.attr("boxID");
+      var boxMaxCapacity = getBoxMaxCapacity(boxID);
+      var $box = $(
+        `.PT4-4-4-5 .contents > div.selected .sensors .capsule[boxID="${boxID}"]`,
+      );
+      var boxTotalWeight = 0;
+      for (var i = 0; i < $box.length; i++) {
+        var theWeight = parseInt($box.eq(i).find("span").text() || 0, 10);
+        boxTotalWeight += theWeight;
+      }
+
+      if (boxTotalWeight + weight > boxMaxCapacity) {
+        rootSoundEffect($stupid);
+        var alertmsg = `總重量會超過10公斤，換一個箱子`;
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        return;
+      }
+      //貼到capsule裡面
+      var img = itemSelected.find("img").attr("src");
+      tar.html(`<span>${weight}</span><img src="${img}" />`);
+      //
+      itemSelected.removeClass("selected").addClass("disabled");
+
+      if (itemSelected.parent().hasClass("withCapacityChart")) {
+        checkAvailableCapacity(boxID);
+      }
+
+      if (itemSelected.parent().hasClass("limited")) {
+        indicateAvailableCapsule();
+      }
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_replay").show();
+    } else {
+      //先選擇物品
+      rootSoundEffect($stupid);
+      var alertmsg = "請先選擇物品";
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+    }
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".PT4-4-4-5 .contents > div.selected .itemlist > div")
+        .removeClass("selected")
+        .addClass("disabled");
+      $(".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div").each(
+        function () {
+          $(this)
+            .children("span")
+            .text($(this).attr("weight") || "");
+        },
+      );
+      $(".alert").remove();
+      //
+      $(".PT4-4-4-5 .contents > div.selected .sensors .checkbox").each(
+        function () {
+          var ans = $(this).attr("ans");
+          if (!ans || ans === "") {
+            $(this).html("");
+            return;
+          }
+          $(this).text(ans);
+        },
+      );
+      //
+      $(".PT4-4-4-5 .contents > div.selected .sensors .capsule").each(
+        function () {
+          var ans = $(this).attr("ans");
+          if (!ans || ans === "") {
+            $(this).html("");
+            return;
+          }
+          var itemSelected = $(
+            `.PT4-4-4-5 .contents > div.selected .itemlist > div[iid='${ans}']`,
+          );
+          var weight = itemSelected.attr("weight");
+          var img = itemSelected.find("img").attr("src");
+          $(this).html(`<span>${weight}</span><img src="${img}" />`);
+        },
+      );
+
+      if (
+        $(".PT4-4-4-5 .contents > div.selected .itemlist.withCapacityChart")
+          .length > 0
+      ) {
+        $(
+          ".PT4-4-4-5 .contents > div.selected .capacity .progressBar > span",
+        ).each(function () {
+          var ans = $(this).attr("ans");
+          if (ans !== undefined && ans !== "") {
+            $(this).text(ans);
+          }
+        });
+      }
+    }
+  };
+
+  var withinResetElem = function () {
+    $(
+      ".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div > span",
+    ).text("");
+
+    $(".PT4-4-4-5 .contents > div.selected .itemlist > div").each(function () {
+      $(this).removeClass("disabled");
+      $(this)
+        .unbind("click")
+        .bind("click", function () {
+          var $span = $(this).children("span");
+          if (
+            $span.length &&
+            $span
+              .text()
+              .replace(/\u00a0/g, " ")
+              .trim() === ""
+          ) {
+            rootSoundEffect($stupid);
+            $(".alert").remove();
+            $(".contents > div.selected").append(
+              `<div class="alert wow bounceInUp" onclick="$(this).remove()">請先設定此物品的重量</div>`,
+            );
+            return;
+          }
+          $(this)
+            .addClass("selected")
+            .siblings(".selected")
+            .removeClass("selected");
+          rootSoundEffect($pop);
+          //limited itemlist
+          if ($(this).parent().hasClass("limited")) {
+            indicateAvailableCapsule();
+          }
+        });
+    });
+
+    $(".PT4-4-4-5 .contents > div.selected .sensors .capsule")
+      .removeClass("disabled")
+      .html("");
+    $(".PT4-4-4-5 .contents > div.selected .sensors .checkbox").text("");
+    $(
+      ".PT4-4-4-5 .contents > div.selected .capacity .progress .progressBar > span:not(.fixed)",
+    ).text("");
+  };
+
+  var toggleMe = function (tar) {
+    if (tar.html() === "v") {
+      tar.html("");
+    } else {
+      tar.html("v");
+    }
+    rootSoundEffect($click);
+  };
+</script>
