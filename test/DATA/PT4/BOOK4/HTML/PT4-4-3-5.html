@@ -31,58 +31,41 @@
       <div class="group">
         <div class="item">
           <div class="sensors">
-            <span
-              class="sensor marker"
-              onclick="markOrder($(this))"
-              style="width: 42px; height: 35px; top: 59px; left: 17px"
-              cell="0,1"
-              color="y"
-            ></span>
-            <span
-              class="sensor marker"
-              onclick="markOrder($(this))"
-              style="width: 42px; height: 35px; top: 94px; left: 188px"
-              cell="4,2"
-              color="r"
-            ></span>
-            <span
-              class="sensor marker"
-              onclick="markOrder($(this))"
-              style="width: 42px; height: 35px; top: 130px; left: 60px"
-              cell="1,3"
-              color="g"
-            ></span>
+            <!-- gems data -->
+            <span class="marker" oc="markOrder" gem="gem6" cell="0,1"></span>
+            <span class="marker" oc="markOrder" gem="gem1" cell="4,2"></span>
+            <span class="marker" oc="markOrder" gem="gem5" cell="1,3"></span>
 
             <!-- steps -->
             <span
               class="sensor"
               style="width: 24px; height: 16px; top: 191px; left: 89px"
-              order="rgy"
+              order="gem1gem5gem6"
             ></span>
             <span
               class="sensor"
               style="width: 24px; height: 16px; top: 209px; left: 89px"
-              order="ryg"
+              order="gem1gem6gem5"
             ></span>
             <span
               class="sensor"
               style="width: 24px; height: 16px; top: 228px; left: 89px"
-              order="gry"
+              order="gem5gem1gem6"
             ></span>
             <span
               class="sensor"
               style="width: 24px; height: 16px; top: 191px; left: 204px"
-              order="gyr"
+              order="gem5gem6gem1"
             ></span>
             <span
               class="sensor"
               style="width: 24px; height: 16px; top: 209px; left: 204px"
-              order="ygr"
+              order="gem6gem5gem1"
             ></span>
             <span
               class="sensor"
               style="width: 24px; height: 16px; top: 228px; left: 204px"
-              order="yrg"
+              order="gem6gem1gem5"
             ></span>
           </div>
 
@@ -119,7 +102,10 @@
           <h3>How to play?</h3>
           <p>
             <b>挑戰主題</b
-            >：用貪心演算法把取得寶石的順序記錄下來，並算一算你有沒有資格進入遺跡。<br />1.依照演算法點擊正確的寶石<br />2.移動會被記錄下來
+            >：用貪心演算法把取得寶石的順序記錄下來，並算一算你有沒有資格進入遺跡。<br />1.依照演算法點擊正確的寶石<br />2.移動會被記錄下來<br />3.點擊<img
+              width="25"
+              src="./DATA/IMAGES/common/btn_check.png"
+            />可查看地圖
           </p>
 
           <span class="cta" onClick="switchIntro()">START</span>
@@ -128,12 +114,136 @@
       <div class="group">
         <div class="item" style="margin-top: 30px">
           <div class="sensors">
+            <!-- gems data -->
             <span
-              class="sensor"
-              onclick="takeItem($(this))"
-              style="width: 77px; height: 24px; top: 26px; left: 64px"
-              ans="1"
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem7"
+              cell="4,0"
             ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem1"
+              cell="6,1"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem3"
+              cell="2,2"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem4"
+              cell="0,3"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem2"
+              cell="6,3"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem5"
+              cell="1,5"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem6"
+              cell="4,5"
+            ></span>
+            <!-- steps -->
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 14px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 14px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 38px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 38px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 63px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 63px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 88px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 88px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 113px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 113px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 137px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 137px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 162px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 162px; left: 116px"
+            ></span>
+            <span
+              class="sensor totalSteps"
+              style="width: 27px; height: 16px; top: 220px; left: 112px"
+            ></span>
+
+            <!-- map -->
+            <div class="mapContainer">
+              <div
+                class="mapGrid"
+                row="7"
+                col="7"
+                style="top: 18px; left: 40px; width: 221px; height: 224px"
+              >
+                <span class="fey" startPosition="3,3"
+                  ><img src="./DATA/PT4/BOOK4/IMAGES/fey.png"
+                /></span>
+              </div>
+
+              <img style="width: 280px" src="./DATA/PT4/BOOK4/IMAGES/map.png" />
+            </div>
+          </div>
+
+          <div class="btn_map" onClick="toggleMap()">
+            <img src="./DATA/IMAGES/common/btn_check.png" />
           </div>
 
           <img
@@ -161,12 +271,152 @@
       <div class="group">
         <div class="item" style="margin-top: 30px">
           <div class="sensors">
+            <!-- gems data -->
             <span
-              class="sensor"
-              onclick="takeItem($(this))"
-              style="width: 77px; height: 24px; top: 26px; left: 64px"
-              ans="1"
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem7"
+              cell="4,0"
             ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem1"
+              cell="6,1"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem3"
+              cell="2,2"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem4"
+              cell="0,3"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem2"
+              cell="6,3"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem5"
+              cell="1,5"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem6"
+              cell="4,5"
+            ></span>
+            <span
+              class="marker"
+              oc="checkNearestDistance"
+              gem="gem8"
+              cell="1,3"
+            ></span>
+            <!-- steps -->
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 14px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 14px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 38px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 38px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 63px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 63px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 88px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 88px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 113px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 113px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 137px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 137px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 162px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 162px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor step"
+              style="width: 35px; height: 16px; top: 187px; left: 41px"
+            ></span>
+            <span
+              class="sensor gemGot"
+              style="width: 58px; height: 16px; top: 187px; left: 116px"
+            ></span>
+
+            <span
+              class="sensor totalSteps"
+              style="width: 27px; height: 16px; top: 240px; left: 112px"
+            ></span>
+
+            <!-- map -->
+            <div class="mapContainer">
+              <div
+                class="mapGrid"
+                row="7"
+                col="7"
+                style="top: 18px; left: 40px; width: 221px; height: 224px"
+              >
+                <span class="fey" startPosition="3,3"
+                  ><img src="./DATA/PT4/BOOK4/IMAGES/fey.png"
+                /></span>
+              </div>
+
+              <img style="width: 280px" src="./DATA/PT4/BOOK4/IMAGES/map.png" />
+            </div>
+          </div>
+
+          <div class="btn_map" onClick="toggleMap()">
+            <img src="./DATA/IMAGES/common/btn_check.png" />
           </div>
 
           <img
@@ -182,7 +432,19 @@
 </div>
 
 <style>
+  .PT4-4-3-5 .contents > div.selected:has(.mapContainer.active) .item.selected {
+    left: 120px;
+  }
+  .PT4-4-3-5 .mapContainer {
+    display: none;
+    left: -290px;
+    animation: bounceInLeft 1s both;
+  }
+  .PT4-4-3-5 .mapContainer.active {
+    display: block;
+  }
   .PT4-4-3-5 .btn_play,
+  .PT4-4-3-5 .btn_map,
   .PT4-4-3-5 .btn_resetMapGrid {
     position: absolute;
     top: 31%;
@@ -197,6 +459,7 @@
     display: none;
   }
   .PT4-4-3-5 .btn_play img,
+  .PT4-4-3-5 .btn_map img,
   .PT4-4-3-5 .btn_resetMapGrid img {
     width: 100%;
     height: 100%;
@@ -204,23 +467,27 @@
   }
   .PT4-4-3-5 .sensors .sensor {
     position: absolute;
-    cursor: pointer;
     pointer-events: auto;
     font-size: 12px;
     line-height: 1;
     display: grid;
     place-items: center;
   }
-  .PT4-4-3-5 .sensors .marker {
-    display: inline-grid;
-    place-items: center;
-    font-size: 80%;
-    font-weight: bold;
-    color: #ffffff;
-    line-height: 1;
-    text-shadow: 0 0 3px #000000;
-    z-index: 3;
+  .PT4-4-3-5 .sensors .sensor.gemGot {
+    place-items: stretch;
   }
+  .PT4-4-3-5 .sensors .sensor.gemGot img {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: contain;
+    display: block;
+  }
+  .PT4-4-3-5 .sensors .marker {
+    display: none;
+  }
+
   .PT4-4-3-5 .fey {
     position: absolute;
     top: 0;
@@ -246,11 +513,50 @@
   .PT4-4-3-5 .mapGrid .cell {
     position: absolute;
   }
-  .PT4-4-3-5 .mapGrid .cell.gotitno {
-    background-image: url("./DATA/IMAGES/common/icon_true.png");
-    background-size: 60% auto;
-    background-repeat: no-repeat;
-    background-position: center center;
+  .PT4-4-3-5 .mapGrid .cell.gem {
+    z-index: 3;
+    cursor: pointer;
+    pointer-events: auto;
+    display: grid;
+    place-items: center;
+    font-size: 80%;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 0 3px #000000;
+    background: url("./DATA/PT4/BOOK4/IMAGES/gem_1.png") no-repeat center center;
+    background-size: auto 80%;
+    animation: bounceIn 1.4s both 0.2s;
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem.disabled {
+    pointer-events: none !important;
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem1 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_1.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem2 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_2.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem3 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_3.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem4 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_4.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem5 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_5.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem6 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_6.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem7 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_7.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gem8 {
+    background-image: url("./DATA/PT4/BOOK4/IMAGES/gem_8.png");
+  }
+  .PT4-4-3-5 .mapGrid .cell.gotit {
+    opacity: 0.3 !important;
   }
   .PT4-4-3-5 .mapGrid .pathLayer {
     position: absolute;
@@ -264,6 +570,188 @@
 
 <script>
   var PT4_4_3_5_STEP_MS = 500;
+  var toggleMap = function () {
+    $(".PT4-4-3-5 .contents > div.selected .mapContainer").toggleClass(
+      "active",
+    );
+  };
+  var getFeyGridPos = function ($fey) {
+    var col = parseInt($fey.data("col"), 10);
+    var row = parseInt($fey.data("row"), 10);
+    if (Number.isFinite(col) && Number.isFinite(row)) {
+      return { col: col, row: row };
+    }
+    return parseCellAttr($fey.attr("startPosition"));
+  };
+
+  var syncFeyToGrid = function ($fey, col, row, metrics) {
+    var $grid = $fey.closest(".mapGrid");
+    var center = getCellCenter($grid, col, row, metrics);
+    $fey.data({ col: col, row: row }).css({
+      left: center.left + "px",
+      top: center.top + "px",
+    });
+  };
+
+  var manhattanDist = function (c1, r1, c2, r2) {
+    return Math.abs(c2 - c1) + Math.abs(r2 - r1);
+  };
+
+  var resetGridVisited = function ($grid) {
+    var start = getFeyGridPos($grid.find(".fey"));
+    var visited = {};
+    visited[cellKey(start.col, start.row)] = 1;
+    $grid.data("visited", visited);
+  };
+
+  var getGridVisited = function ($grid) {
+    var visited = $grid.data("visited");
+    if (!visited) {
+      resetGridVisited($grid);
+      visited = $grid.data("visited");
+    }
+    return visited;
+  };
+
+  var isSensorEmpty = function ($el) {
+    if ($el.children().length) {
+      return false;
+    }
+    return !$el.text().replace(/\u00a0/g, " ").trim();
+  };
+
+  var getFirstEmptySensor = function ($root, selector) {
+    var $empty = null;
+    $root.find(selector).each(function () {
+      if (isSensorEmpty($(this))) {
+        $empty = $(this);
+        return false;
+      }
+    });
+    return $empty;
+  };
+
+  var animateFeyOnPath = function ($grid, path, fromCol, fromRow, onDone) {
+    var $fey = $grid.find(".fey");
+    var metrics = getGridMetrics($grid);
+    var timers = [];
+    $grid.data("moveTimers", timers);
+    $fey.addClass("moving");
+
+    var stepIdx = 0;
+    var moveNext = function () {
+      if (!$grid.data("moving") || stepIdx >= path.length) {
+        $fey.removeClass("moving");
+        $grid.removeData("moving");
+        clearFeyMoveTimers($grid);
+        if (onDone) {
+          onDone();
+        }
+        return;
+      }
+
+      var cell = path[stepIdx];
+      var segFromCol = stepIdx === 0 ? fromCol : path[stepIdx - 1].col;
+      var segFromRow = stepIdx === 0 ? fromRow : path[stepIdx - 1].row;
+      appendPathSegment(
+        $grid,
+        segFromCol,
+        segFromRow,
+        cell.col,
+        cell.row,
+        metrics,
+      );
+      syncFeyToGrid($fey, cell.col, cell.row, metrics);
+      rootSoundEffect($beep);
+      stepIdx++;
+      timers.push(setTimeout(moveNext, PT4_4_3_5_STEP_MS));
+    };
+
+    moveNext();
+  };
+
+  var checkNearestDistance = function (tar) {
+    if (tar.hasClass("disabled")) {
+      return;
+    }
+    var $grid = tar.closest(".mapGrid");
+    if ($grid.data("moving")) {
+      return;
+    }
+
+    var $fey = $grid.find(".fey");
+    var $item = $grid.closest(".item");
+    var $sensors = $item.find(".sensors");
+    var feyPos = getFeyGridPos($fey);
+    var tarCol = parseInt(tar.attr("data-col"), 10) || 0;
+    var tarRow = parseInt(tar.attr("data-row"), 10) || 0;
+    var tarDist = manhattanDist(feyPos.col, feyPos.row, tarCol, tarRow);
+    var minDist = Infinity;
+
+    getGemCells($grid)
+      .not(".disabled")
+      .each(function () {
+        var c = parseInt($(this).attr("data-col"), 10) || 0;
+        var r = parseInt($(this).attr("data-row"), 10) || 0;
+        var d = manhattanDist(feyPos.col, feyPos.row, c, r);
+        if (d < minDist) {
+          minDist = d;
+        }
+      });
+
+    if (tarDist > minDist) {
+      rootSoundEffect($stupid);
+      $(".alert").remove();
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">這不是最近的寶石，請重新選擇</div>`,
+      );
+      return;
+    }
+
+    var path = buildManhattanPath(
+      feyPos.col,
+      feyPos.row,
+      tarCol,
+      tarRow,
+      getGridVisited($grid),
+    );
+    var steps = path.length;
+    var gemId = ((tar.attr("gem") || "").match(/\d+/) || [""])[0];
+
+    $grid.data("moving", true);
+    getGemCells($grid).addClass("disabled");
+
+    animateFeyOnPath($grid, path, feyPos.col, feyPos.row, function () {
+      syncFeyToGrid($fey, tarCol, tarRow, getGridMetrics($grid));
+      tar.addClass("disabled gotit");
+      getGemCells($grid).not(".gotit").removeClass("disabled");
+
+      var $stepSlot = getFirstEmptySensor($sensors, ".sensor.step");
+      var $gemSlot = getFirstEmptySensor($sensors, ".sensor.gemGot");
+      if ($stepSlot) {
+        $stepSlot.text(steps);
+      }
+      if ($gemSlot) {
+        $gemSlot.html(
+          `<img src="./DATA/PT4/BOOK4/IMAGES/gem_${gemId}.png" alt="" />`,
+        );
+      }
+
+      var $totalSteps = $sensors.find(".sensor.totalSteps");
+      var total =
+        parseInt(
+          $totalSteps
+            .text()
+            .replace(/\u00a0/g, " ")
+            .trim(),
+          10,
+        ) || 0;
+      $totalSteps.text(total + steps);
+
+      rootSoundEffect($right);
+      $(".sideTool > div.btn_replay").show();
+    });
+  };
 
   var getMarkerNum = function ($el) {
     return (
@@ -360,12 +848,39 @@
     return path;
   };
 
-  var getMarkerOrderKey = function ($markers) {
+  var getGemMap = function ($grid) {
+    var gemMap = {};
+    $grid
+      .closest(".item")
+      .find(".sensors .marker")
+      .each(function () {
+        var $marker = $(this);
+        var cell = parseCellAttr($marker.attr("cell"));
+        gemMap[cellKey(cell.col, cell.row)] = {
+          gem: $marker.attr("gem") || "",
+          oc: $marker.attr("oc") || "",
+        };
+      });
+    return gemMap;
+  };
+
+  var runCellOc = function ($cell) {
+    var fnName = $cell.attr("oc");
+    if (fnName && typeof window[fnName] === "function") {
+      window[fnName]($cell);
+    }
+  };
+
+  var getGemCells = function ($grid) {
+    return $grid.find(".cell.gem");
+  };
+
+  var getMarkerOrderKey = function ($grid) {
     var items = [];
-    $markers.each(function () {
+    getGemCells($grid).each(function () {
       var n = getMarkerNum($(this));
       if (n > 0) {
-        items.push({ order: n, color: $(this).attr("color") || "" });
+        items.push({ order: n, gem: $(this).attr("gem") || "" });
       }
     });
     items.sort(function (a, b) {
@@ -373,7 +888,7 @@
     });
     var key = "";
     for (var i = 0; i < items.length; i++) {
-      key += items[i].color;
+      key += items[i].gem;
     }
     return key;
   };
@@ -454,9 +969,8 @@
     $grid.removeData("moveTimers").removeData("moving");
   };
 
-  var startFeyMove = function ($markers) {
+  var startFeyMove = function ($grid) {
     var $selected = $(".PT4-4-3-5 .contents > div.selected");
-    var $grid = $selected.find(".mapGrid");
     var $fey = $grid.find(".fey");
     if (!$grid.length || !$fey.length || $grid.data("moving")) {
       return;
@@ -464,12 +978,13 @@
 
     var metrics = getGridMetrics($grid);
     var targets = [];
-    $markers.each(function () {
-      var cell = parseCellAttr($(this).attr("cell"));
+    getGemCells($grid).each(function () {
+      var col = parseInt($(this).attr("data-col"), 10) || 0;
+      var row = parseInt($(this).attr("data-row"), 10) || 0;
       targets.push({
         order: getMarkerNum($(this)),
-        col: cell.col,
-        row: cell.row,
+        col: col,
+        row: row,
       });
     });
     targets.sort(function (a, b) {
@@ -504,7 +1019,7 @@
       return;
     }
 
-    var orderKey = getMarkerOrderKey($markers);
+    var orderKey = getMarkerOrderKey($grid);
     var $stepSensor = $selected.find(
       '.sensors .sensor[order="' + orderKey + '"]',
     );
@@ -513,7 +1028,7 @@
     $grid.data("moving", true);
     $selected.find(".btn_play").hide();
     $selected.find(".btn_resetMapGrid").hide();
-    $markers.addClass("disabled");
+    getGemCells($grid).addClass("disabled");
     $stepSensor.text("");
     $(".sideTool > div.btn_replay").show();
 
@@ -566,13 +1081,13 @@
     if ($grid.data("moving")) {
       return;
     }
-    var $markers = $(".PT4-4-3-5 .contents > div.selected .sensors .marker");
-    var max = $markers.length;
+    var $gems = getGemCells($grid);
+    var max = $gems.length;
     var allFilled = true;
     var hasDup = false;
     var seen = {};
 
-    $markers.each(function () {
+    $gems.each(function () {
       var n = getMarkerNum($(this));
       if (n < 1 || n > max) {
         allFilled = false;
@@ -601,7 +1116,7 @@
       return;
     }
 
-    startFeyMove($markers);
+    startFeyMove($grid);
   };
 
   var resetMission1Playfield = function ($selected, clearAllSensors) {
@@ -610,11 +1125,9 @@
     $grid.find(".fey").removeClass("moving");
     if (clearAllSensors) {
       $selected.find(".sensors .sensor").text("");
-    } else {
-      $selected.find(".sensors .marker").text("");
     }
-    $selected.find(".sensors").removeData("markSeq");
-    $selected.find(".sensors .marker").removeClass("disabled");
+    $grid.removeData("markSeq");
+    getGemCells($grid).removeClass("disabled gotit");
     $selected.find(".btn_resetMapGrid").hide();
     $selected.find(".btn_play").show();
     initMapGrid($grid);
@@ -629,15 +1142,16 @@
     if (tar.hasClass("disabled")) {
       return;
     }
-    var $sensors = tar.closest(".sensors");
-    var max = $sensors.find(".marker").length;
-    var seq = parseInt($sensors.data("markSeq"), 10) || 0;
+    var $grid = tar.closest(".mapGrid");
+    var max = getGemCells($grid).length;
+    var seq = parseInt($grid.data("markSeq"), 10) || 0;
     var next = seq >= max ? 1 : seq + 1;
-    $sensors.data("markSeq", next);
+    $grid.data("markSeq", next);
     tar.text(next);
     rootSoundEffect($key);
     $(".sideTool > div.btn_replay").show();
   };
+
   var initMapGrid = function ($mapGrid) {
     ($mapGrid || $(".PT4-4-3-5 .contents > div.selected .mapGrid")).each(
       function () {
@@ -649,17 +1163,41 @@
           parseFloat($grid.get(0).style.height) || $grid.height() || 0;
         var cellW = gridW / cols;
         var cellH = gridH / rows;
+        var gemMap = getGemMap($grid);
 
         $grid.find(".cell").remove();
         clearMovePath($grid);
 
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
-            $grid.append(
-              `<span class="cell" data-row="${r}" data-col="${c}" style="width:${cellW}px;height:${cellH}px;left:${c * cellW}px;top:${r * cellH}px"></span>`,
-            );
+            var $cell = $("<span></span>")
+              .addClass("cell")
+              .attr({ "data-row": r, "data-col": c })
+              .css({
+                width: cellW + "px",
+                height: cellH + "px",
+                left: c * cellW + "px",
+                top: r * cellH + "px",
+              });
+            var meta = gemMap[cellKey(c, r)];
+            if (meta) {
+              $cell.addClass("gem");
+              if (meta.gem) {
+                $cell.addClass(meta.gem).attr("gem", meta.gem);
+              }
+              if (meta.oc) {
+                $cell.attr("oc", meta.oc);
+              }
+            }
+            $grid.append($cell);
           }
         }
+
+        $grid
+          .off("click.pt4435celloc")
+          .on("click.pt4435celloc", ".cell[oc]", function () {
+            runCellOc($(this));
+          });
 
         var $fey = $grid.find(".fey");
         if ($fey.length) {
@@ -668,10 +1206,13 @@
           var row = parseInt(pos[1], 10) || 0;
           col = Math.min(Math.max(col, 0), cols - 1);
           row = Math.min(Math.max(row, 0), rows - 1);
-          $fey.css({
-            left: col * cellW + cellW / 2 + "px",
-            top: row * cellH + cellH / 2 + "px",
+          syncFeyToGrid($fey, col, row, {
+            rows: rows,
+            cols: cols,
+            cellW: cellW,
+            cellH: cellH,
           });
+          resetGridVisited($grid);
         }
       },
     );
