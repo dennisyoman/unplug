@@ -345,7 +345,7 @@
           <h3>How to play?</h3>
           <p>
             <b>挑戰主題</b
-            >：根據已知的指令順序與最終位置，找出起點的「可能」位置(起點有多個答案)。<br /><br />1.點擊方格圖選擇起始位置<br />2.點擊機器人執行指令。
+            >：根據已知的指令順序與最終位置，找出起點的「可能」位置(起點有多個答案)。<br /><br />1.點擊指令卡停用或啟用<br />2.點擊方格圖選擇機器人的起始位置<br />3.點擊機器人執行指令。
           </p>
           <img src="./DATA/PT4/BOOK3/IMAGES/PT4-3-1-5-intro.png" />
           <span class="cta" onClick="switchIntro()">START</span>
@@ -354,16 +354,56 @@
 
       <div>
         <div class="sensorYN">
-          <span data-cmd="J2" style="top: 1px; left: 226px"></span>
-          <span data-cmd="L" style="top: 30px; left: 226px"></span>
-          <span data-cmd="F1" style="top: 60px; left: 226px"></span>
-          <span data-cmd="R" style="top: 89px; left: 226px"></span>
-          <span data-cmd="J2" style="top: 119px; left: 226px"></span>
-          <span data-cmd="F1" style="top: 148px; left: 226px"></span>
-          <span data-cmd="F1" style="top: 177px; left: 226px"></span>
-          <span data-cmd="L" style="top: 207px; left: 226px"></span>
-          <span data-cmd="J2" style="top: 237px; left: 226px"></span>
-          <span data-cmd="S" style="top: 266px; left: 226px"></span>
+          <span
+            data-cmd="J2"
+            style="top: 1px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="L"
+            style="top: 30px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="F1"
+            style="top: 60px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="R"
+            style="top: 89px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="J2"
+            style="top: 119px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="F1"
+            style="top: 148px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="F1"
+            style="top: 177px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="L"
+            style="top: 207px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="J2"
+            style="top: 237px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
+          <span
+            data-cmd="S"
+            style="top: 266px; left: 226px"
+            onclick="toggleYN($(this))"
+          ></span>
         </div>
 
         <div
@@ -689,7 +729,7 @@
       $robot.find(".rotateHandle").remove();
       startMovingMission2();
     };
-    
+
     var startMovingMission = function (cmds) {
       $(".sideTool > div.btn_answer").removeClass("active");
       $(".sideTool > div.btn_replay").show();
