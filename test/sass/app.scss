@@ -13,6 +13,10 @@
   font-family: Gfont-Bold;
   src: url("../font/GiraffeTronBold.otf");
 }
+@font-face {
+  font-family: Gfont-bold;
+  src: url("../font/GiraffeTronBold.otf");
+}
 
 sup {
   @include scale(0.6);

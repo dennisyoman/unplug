@@ -397,6 +397,7 @@
   position: absolute;
   z-index: 1;
   pointer-events: auto;
+  border: 1px solid #f00;
   cursor: pointer;
 }
 .module_story .contents .storyboard .subject .sensors span.selected {
@@ -14709,6 +14710,10 @@
 }
 @font-face {
   font-family: Gfont-Bold;
+  src: url("../font/GiraffeTronBold.otf");
+}
+@font-face {
+  font-family: Gfont-bold;
   src: url("../font/GiraffeTronBold.otf");
 }
 sup {
