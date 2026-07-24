@@ -137,5 +137,11 @@
       <lesson lid="3">尋路考古團</lesson>
       <lesson lid="4">BIN箱先配打包法</lesson>
     </book>
+    <book name="Book 5" bid="5" img="PT4_book5.jpg">
+      <lesson lid="1">廣度探索金銀島</lesson>
+      <lesson lid="2">DFS幫幫屋</lesson>
+      <lesson lid="3">流量螞蟻建築師</lesson>
+      <lesson lid="4">有限狀態販賣機</lesson>
+    </book>
   </series>
 </root>
