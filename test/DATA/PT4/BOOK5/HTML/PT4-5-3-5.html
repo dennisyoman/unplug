@@ -1,0 +1,1329 @@
+<div id="module_wrapper" class="module_basic PT4-5-3-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：國王想知道3分鐘內最多能有多少螞蟻從工作區到達用餐區？
+          </p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div
+          class="item"
+          style="
+            display: flex;
+            margin-top: 50px;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+          "
+        >
+          <div class="rooms wow fadeInLeft">
+            <div
+              class="room"
+              style="top: 0; left: 100px"
+              data-room="room1"
+              initial-ant="15"
+              ant="0"
+            >
+              <p>工作區</p>
+            </div>
+            <div
+              class="room"
+              style="top: 107px; left: 0px"
+              data-room="room2"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>茶水間</p>
+            </div>
+            <div
+              class="room"
+              style="top: 107px; left: 200px"
+              data-room="room3"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>儲藏室</p>
+            </div>
+            <div
+              class="room"
+              style="top: 213px; left: 100px"
+              data-room="room4"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>用餐區</p>
+            </div>
+            <div class="paths"></div>
+            <div class="ants"></div>
+            <div class="time">
+              <div>1分鐘後</div>
+              <div>2分鐘後</div>
+              <div>3分鐘後</div>
+            </div>
+          </div>
+          <div class="board wow fadeInRight">
+            <div class="cells mission1">
+              <div class="cell" data-room="room2" init="0"></div>
+              <div class="cell" data-room="room3" init="0"></div>
+              <div class="cell" data-room="room4" init="0"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+            </div>
+            <img
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-5-1.png"
+              style="width: 220px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：國王不滿意這個速度，因此工程師加挖了一條路，能找到幾種方法來增加速度呢？
+          </p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div
+          class="item"
+          style="
+            display: flex;
+            margin-top: 50px;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+          "
+        >
+          <div class="rooms wow fadeInLeft">
+            <div
+              class="room"
+              style="top: 0; left: 100px"
+              data-room="room1"
+              initial-ant="15"
+              ant="0"
+            >
+              <p>工作區</p>
+            </div>
+            <div
+              class="room"
+              style="top: 107px; left: 0px"
+              data-room="room2"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>茶水間</p>
+            </div>
+            <div
+              class="room"
+              style="top: 107px; left: 200px"
+              data-room="room3"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>儲藏室</p>
+            </div>
+            <div
+              class="room"
+              style="top: 213px; left: 100px"
+              data-room="room4"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>用餐區</p>
+            </div>
+            <div class="paths"></div>
+            <div class="ants"></div>
+            <div class="time">
+              <div>1分鐘後</div>
+              <div>2分鐘後</div>
+              <div>3分鐘後</div>
+            </div>
+          </div>
+          <div class="board wow fadeInRight">
+            <div class="cells mission2">
+              <div class="cell" data-room="room2" init="0"></div>
+              <div class="cell" data-room="room3" init="0"></div>
+              <div class="cell" data-room="room4" init="0"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+            </div>
+            <img
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-5-2.png"
+              style="width: 220px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：國王決定從茶水間多加一條通道到儲藏室。這一天有 8
+            隻螞蟻來工作，最少要花多久時間可以全部到用餐區呢？
+          </p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div
+          class="item"
+          style="
+            display: flex;
+            margin-top: 50px;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+          "
+        >
+          <div class="rooms wow fadeInLeft">
+            <div
+              class="room"
+              style="top: 0; left: 100px"
+              data-room="room1"
+              initial-ant="8"
+              ant="0"
+            >
+              <p>工作區</p>
+            </div>
+            <div
+              class="room"
+              style="top: 107px; left: 0px"
+              data-room="room2"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>茶水間</p>
+            </div>
+            <div
+              class="room"
+              style="top: 107px; left: 200px"
+              data-room="room3"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>儲藏室</p>
+            </div>
+            <div
+              class="room"
+              style="top: 213px; left: 100px"
+              data-room="room4"
+              initial-ant="0"
+              ant="0"
+            >
+              <p>用餐區</p>
+            </div>
+            <div class="paths"></div>
+            <div class="ants"></div>
+            <div class="time">
+              <div>1分鐘後</div>
+              <div>2分鐘後</div>
+              <div>3分鐘後</div>
+              <div>4分鐘後</div>
+              <div>5分鐘後</div>
+            </div>
+          </div>
+          <div class="board wow fadeInRight">
+            <div class="cells mission3">
+              <div class="cell" data-room="room1"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room1"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room1"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room1"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+              <div class="cell" data-room="room1"></div>
+              <div class="cell" data-room="room2"></div>
+              <div class="cell" data-room="room3"></div>
+              <div class="cell" data-room="room4"></div>
+            </div>
+            <img
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-5-3.png"
+              style="width: 220px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-3-5 .rooms {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+
+  .PT4-5-3-5 .rooms .room {
+    position: absolute;
+    z-index: 1;
+    background: url("./DATA/PT4/BOOK5/IMAGES/room.png") no-repeat center center;
+    background-size: 100% 100%;
+    width: 100px;
+    height: 66px;
+    padding: 5px;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+    border: 2px dashed transparent;
+    border-radius: 10px;
+  }
+  .PT4-5-3-5 .rooms .room.selected {
+    border-color: aqua;
+  }
+  .PT4-5-3-5 .rooms .room p {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .rooms .time {
+    position: absolute;
+    z-index: 3;
+    top: -15px;
+    right: 15px;
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .rooms .time > div {
+    width: 60px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    background: #ef94ae;
+    color: #fff;
+    opacity: 0.3;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .PT4-5-3-5 .rooms .time > div.selected {
+    opacity: 1;
+  }
+  .PT4-5-3-5 .ants {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .ants .ant {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 15px;
+    pointer-events: none;
+    background: url("./DATA/PT4/BOOK5/IMAGES/ant.png") no-repeat 0 0;
+    background-size: 100px 15px;
+    transition:
+      top 1s ease-in-out,
+      left 1s ease-in-out;
+  }
+  .PT4-5-3-5 .ants .ant.color1 {
+    background-position: 0 0;
+  }
+  .PT4-5-3-5 .ants .ant.color2 {
+    background-position: -20px 0;
+  }
+  .PT4-5-3-5 .ants .ant.color3 {
+    background-position: -40px 0;
+  }
+  .PT4-5-3-5 .ants .ant.color4 {
+    background-position: -60px 0;
+  }
+  .PT4-5-3-5 .ants .ant.color5 {
+    background-position: -80px 0;
+  }
+  .PT4-5-3-5 .paths {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .paths .path {
+    position: absolute;
+    z-index: 3;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 50px;
+    height: 4px;
+    background: currentColor;
+    color: #e5724a;
+    transform-origin: left center;
+  }
+  .PT4-5-3-5 .paths .path.selected {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .paths .path::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: -7px;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0px 6px 10px;
+    border-color: transparent transparent transparent currentColor;
+  }
+  .PT4-5-3-5 .rooms.drawing .paths .path {
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .paths .path.drafting {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .PT4-5-3-5 .rooms.nolink .room {
+    cursor: default;
+  }
+  .PT4-5-3-5 .cells {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .PT4-5-3-5 .cells.mission1 {
+    top: 20px;
+    left: 88px;
+    width: 131px;
+    height: 104px;
+  }
+  .PT4-5-3-5 .cells.mission2 {
+    top: 20px;
+    left: 88px;
+    width: 131px;
+    height: 104px;
+  }
+  .PT4-5-3-5 .cells.mission3 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    top: 47px;
+    left: 44px;
+    width: 175px;
+    height: 129px;
+  }
+  .PT4-5-3-5 .cells .cell {
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+  }
+</style>
+
+<script>
+  var roomLinkState = null;
+  var ANT_W = 20;
+  var ANT_H = 15;
+
+  var getRoomLocalXY = function (e, $rooms) {
+    var ratio = stageRatioReal || 1;
+    var offset = $rooms.offset();
+    return {
+      x: (e.pageX - offset.left) / ratio,
+      y: (e.pageY - offset.top) / ratio,
+    };
+  };
+
+  var getRoomAtPoint = function (clientX, clientY, $rooms) {
+    var hit = null;
+    var $list = $rooms
+      ? $rooms.find(".room")
+      : $(".PT4-5-3-5 .contents > div.selected .rooms .room");
+    $list.each(function () {
+      var r = this.getBoundingClientRect();
+      if (
+        clientX >= r.left &&
+        clientX <= r.right &&
+        clientY >= r.top &&
+        clientY <= r.bottom
+      ) {
+        hit = $(this);
+        return false;
+      }
+    });
+    return hit;
+  };
+
+  var updatePathGeometry = function ($path, start, end) {
+    var dx = end.x - start.x;
+    var dy = end.y - start.y;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var deg = (Math.atan2(dy, dx) * 180) / Math.PI;
+    $path.css({
+      left: start.x + "px",
+      top: start.y - 2 + "px",
+      width: Math.max(len, 0) + "px",
+      transform: "rotate(" + deg + "deg)",
+    });
+  };
+
+  var clearRoomLinkSelected = function ($rooms) {
+    $rooms.find(".room.selected").removeClass("selected");
+  };
+
+  var updateEndRoomSelected = function (state, $endRoom) {
+    if (state.$endRoom && state.$endRoom.length) {
+      state.$endRoom.removeClass("selected");
+    }
+    state.$endRoom = null;
+
+    if (
+      $endRoom &&
+      $endRoom.length &&
+      $endRoom.get(0) !== state.$startRoom.get(0)
+    ) {
+      $endRoom.addClass("selected");
+      state.$endRoom = $endRoom;
+    }
+  };
+
+  var moveRoomLink = function (e) {
+    if (!roomLinkState) return;
+    var end = getRoomLocalXY(e, roomLinkState.$rooms);
+    updatePathGeometry(roomLinkState.$path, roomLinkState.start, end);
+    updateEndRoomSelected(
+      roomLinkState,
+      getRoomAtPoint(e.clientX, e.clientY, roomLinkState.$rooms),
+    );
+  };
+
+  var endRoomLink = function (e) {
+    if (!roomLinkState) return;
+
+    var state = roomLinkState;
+    roomLinkState = null;
+    $(document).off(".pt4535link");
+    state.$rooms.removeClass("drawing");
+    clearRoomLinkSelected(state.$rooms);
+
+    var removeDraft = function () {
+      state.$path.remove();
+      rootSoundEffect($show);
+    };
+
+    if (e.type === "mouseup" && e.which !== 1) {
+      removeDraft();
+      return;
+    }
+
+    var $endRoom = getRoomAtPoint(e.clientX, e.clientY, state.$rooms);
+    if (
+      !$endRoom ||
+      !$endRoom.length ||
+      $endRoom.get(0) === state.$startRoom.get(0)
+    ) {
+      removeDraft();
+      return;
+    }
+
+    // 任務二：只能再加 1 條
+    if (getSelectedTaskIndex() === 1) {
+      var extraCount = state.$rooms.find(
+        ".paths .path:not(.preset):not(.drafting)",
+      ).length;
+      if (extraCount >= 1) {
+        removeDraft();
+        return;
+      }
+    }
+
+    var end = getRoomLocalXY(e, state.$rooms);
+    updatePathGeometry(state.$path, state.start, end);
+    state.$path.removeClass("drafting").attr({
+      from: state.$startRoom.attr("data-room"),
+      to: $endRoom.attr("data-room"),
+    });
+    rootSoundEffect($pop);
+
+    // 任務二：補上那一條後，解鎖並重算可點箭頭
+    if (getSelectedTaskIndex() === 1) {
+      state.$rooms.removeClass("need-extra");
+      disableEmptyFromPaths(state.$rooms);
+    }
+
+    $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_answer").removeClass("active");
+  };
+
+  var onRoomPointerDown = function (e) {
+    if (e.type === "mousedown" && e.which !== 1) return;
+
+    var $rooms = $(e.currentTarget).closest(".rooms");
+    // 任務一、三：不能自己加箭頭
+    if ($rooms.hasClass("nolink")) return;
+
+    rootSoundEffect($key);
+    var $startRoom = $(e.currentTarget);
+    var start = getRoomLocalXY(e, $rooms);
+    var $path = $('<span class="path drafting"></span>')
+      .attr({
+        from: $startRoom.attr("data-room") || "",
+        to: "",
+      })
+      .appendTo($rooms.find(".paths"));
+    updatePathGeometry($path, start, start);
+
+    clearRoomLinkSelected($rooms);
+    $startRoom.addClass("selected");
+
+    roomLinkState = {
+      $rooms: $rooms,
+      $startRoom: $startRoom,
+      $endRoom: null,
+      $path: $path,
+      start: start,
+    };
+    $rooms.addClass("drawing");
+
+    $(document)
+      .off(".pt4535link")
+      .on("mousemove.pt4535link", moveRoomLink)
+      .on("mouseup.pt4535link", endRoomLink);
+
+    e.preventDefault();
+  };
+
+  // 在 room 範圍內排 ant 位置
+  var layoutAntPos = function (box, count, index) {
+    var cols = Math.max(1, Math.ceil(Math.sqrt(count)));
+    var rows = Math.max(1, Math.ceil(count / cols));
+    var pad = 6;
+    var usableW = Math.max(box.w - pad * 2, ANT_W);
+    var usableH = Math.max(box.h - pad * 2, ANT_H);
+    var cellW = usableW / cols;
+    var cellH = usableH / rows;
+    var col = index % cols;
+    var row = Math.floor(index / cols);
+    return {
+      x: box.left + pad + col * cellW + Math.max((cellW - ANT_W) / 2, 0),
+      y: box.top + pad + row * cellH + Math.max((cellH - ANT_H) / 2, 0),
+    };
+  };
+
+  var syncRoomAntAttr = function ($rooms) {
+    $rooms.find(".room").each(function () {
+      var roomId = $(this).attr("data-room");
+      var n = $rooms.find('.ants .ant[data-room="' + roomId + '"]').length;
+      $(this).attr("ant", n);
+    });
+  };
+
+  // from 房間沒有「本分鐘還能動」的 ant → 箭頭 selected
+  var disableEmptyFromPaths = function ($rooms) {
+    $rooms.find(".paths .path").each(function () {
+      var $path = $(this);
+      if ($path.hasClass("selected") || $path.hasClass("drafting")) return;
+      var fromId = $path.attr("from");
+      if (!fromId) return;
+      var movableCount = $rooms.find(
+        '.ants .ant[data-room="' + fromId + '"]:not(.moved)',
+      ).length;
+      if (movableCount <= 0) {
+        $path.addClass("selected");
+      }
+    });
+  };
+
+  // 還能點的箭頭（未 selected，且 from 還有本分鐘未移動的 ant）
+  var getClickablePaths = function ($rooms) {
+    return $rooms.find(".paths .path").filter(function () {
+      var $path = $(this);
+      if ($path.hasClass("selected") || $path.hasClass("drafting"))
+        return false;
+      var fromId = $path.attr("from");
+      if (!fromId) return false;
+      return (
+        $rooms.find('.ants .ant[data-room="' + fromId + '"]:not(.moved)')
+          .length > 0
+      );
+    });
+  };
+
+  // 新的一分鐘：重開箭頭，螞蟻可再移動一次
+  var refreshPathAvailability = function ($rooms) {
+    $rooms.find(".ants .ant").removeClass("moved");
+    $rooms.find(".paths .path").removeClass("selected");
+    disableEmptyFromPaths($rooms);
+  };
+
+  // 把當前各 room 的 ant 數量填入對應 time 列的 cells
+  var fillCellsForTime = function ($rooms, timeIndex) {
+    var $cells = $rooms.closest(".item").find(".cells");
+    if (!$cells.length) return;
+
+    var cols = $cells.hasClass("mission3") ? 4 : 3;
+    // 若第一列有 init 佔位，time 從下一列開始填
+    var hasInitRow =
+      $cells.children(".cell").slice(0, cols).filter("[init]").length > 0;
+    var row = timeIndex + (hasInitRow ? 1 : 0);
+    var start = row * cols;
+    var $rowCells = $cells.children(".cell").slice(start, start + cols);
+    $rowCells.each(function () {
+      var roomId = $(this).attr("data-room");
+      var n =
+        parseInt(
+          $rooms.find('.room[data-room="' + roomId + '"]').attr("ant"),
+          10,
+        ) || 0;
+      $(this).text(n);
+    });
+  };
+
+  // 有 init 的 cell 一開始先填佔位值
+  var fillInitCells = function ($rooms) {
+    $rooms
+      .closest(".item")
+      .find(".cells .cell[init]")
+      .each(function () {
+        $(this).text($(this).attr("init"));
+      });
+  };
+
+  // 箭頭都點完後：推進 time，並重開可點箭頭
+  var advanceTimeIfPathsExhausted = function ($rooms) {
+    if ($rooms.hasClass("need-extra")) return;
+    if ($rooms.data("advancingTime")) return;
+    if (getClickablePaths($rooms).length > 0) return;
+
+    var $nextTime = $rooms.find(".time > div:not(.selected)").first();
+    if (!$nextTime.length) return;
+
+    $rooms.data("advancingTime", true);
+    var token = ($rooms.data("timeToken") || 0) + 1;
+    $rooms.data("timeToken", token);
+    setTimeout(function () {
+      if ($rooms.data("timeToken") !== token) return;
+      $rooms.removeData("advancingTime");
+      fillCellsForTime($rooms, $nextTime.index());
+      $nextTime.addClass("selected");
+      refreshPathAvailability($rooms);
+      rootSoundEffect($good);
+    }, 1000);
+  };
+
+  var bumpTimeToken = function ($rooms) {
+    $rooms.data("timeToken", ($rooms.data("timeToken") || 0) + 1);
+    $rooms.removeData("advancingTime");
+  };
+
+  var reflowRoomAnts = function ($rooms, roomId) {
+    var $room = $rooms.find('.room[data-room="' + roomId + '"]');
+    if (!$room.length) return;
+    var box = getRoomBox($room);
+    var $list = $rooms.find('.ants .ant[data-room="' + roomId + '"]');
+    $list.each(function (i) {
+      var pos = layoutAntPos(box, $list.length, i);
+      $(this).css({ left: pos.x + "px", top: pos.y + "px" });
+    });
+  };
+
+  var setRoomAntCounts = function ($rooms, counts) {
+    var $ants = $rooms.find(".ants");
+    $ants.empty();
+    $rooms.find(".room").each(function () {
+      var $room = $(this);
+      var roomId = $room.attr("data-room");
+      var n = counts[roomId] || 0;
+      $room.attr("ant", n);
+      var box = getRoomBox($room);
+      for (var i = 0; i < n; i++) {
+        var pos = layoutAntPos(box, n, i);
+        var colorClass = "color" + ((i % 5) + 1);
+        $('<span class="ant ' + colorClass + '"></span>')
+          .attr("data-room", roomId)
+          .css({ left: pos.x + "px", top: pos.y + "px" })
+          .appendTo($ants);
+      }
+    });
+  };
+
+  var initAnts = function ($rooms) {
+    if (!$rooms || !$rooms.length) $rooms = getSelectedRooms();
+    bumpTimeToken($rooms);
+    $rooms.find(".time > div").removeClass("selected");
+    $rooms.closest(".item").find(".cells .cell").text("");
+    fillInitCells($rooms);
+
+    var counts = {};
+    $rooms.find(".room").each(function () {
+      var roomId = $(this).attr("data-room");
+      counts[roomId] = parseInt($(this).attr("initial-ant"), 10) || 0;
+    });
+    setRoomAntCounts($rooms, counts);
+    disableEmptyFromPaths($rooms);
+  };
+
+  var onPathClick = function (e) {
+    e.stopPropagation();
+    var $path = $(e.currentTarget);
+    if ($path.hasClass("selected") || $path.hasClass("drafting")) return;
+
+    var $rooms = $path.closest(".rooms");
+    // 任務二：還沒補上額外箭頭前不能搬 ant
+    if ($rooms.hasClass("need-extra")) {
+      var alertmsg = "請先加一條新的通道";
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      rootSoundEffect($stupid);
+      return;
+    }
+
+    var fromId = $path.attr("from");
+    var toId = $path.attr("to");
+    if (!fromId || !toId) return;
+
+    // 本分鐘尚未移動過的 ant
+    var $fromAnts = $rooms.find(
+      '.ants .ant[data-room="' + fromId + '"]:not(.moved)',
+    );
+    if (!$fromAnts.length) {
+      var alertmsg = "這一區沒有還能移動的螞蟻（每分鐘每隻只能走一次）";
+      $(".contents > div.selected").append(
+        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+      );
+      rootSoundEffect($stupid);
+      return;
+    }
+
+    var $ant = $fromAnts.eq(0);
+    $ant.attr("data-room", toId).addClass("moved");
+    reflowRoomAnts($rooms, fromId);
+    reflowRoomAnts($rooms, toId);
+    syncRoomAntAttr($rooms);
+    $path.addClass("selected");
+    disableEmptyFromPaths($rooms);
+    advanceTimeIfPathsExhausted($rooms);
+
+    rootSoundEffect($click);
+
+    $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_answer").removeClass("active");
+  };
+
+  var initRoomLink = function () {
+    $(document).off(".pt4535link");
+    roomLinkState = null;
+    $(".PT4-5-3-5 .rooms")
+      .removeClass("drawing")
+      .off(".pt4535link")
+      .on("mousedown.pt4535link", ".room", onRoomPointerDown)
+      .on("click.pt4535link", ".path", onPathClick);
+  };
+
+  var ROOM_W = 100;
+  var ROOM_H = 66;
+  var PATH_SPACING = 14;
+
+  var getRoomBox = function ($room) {
+    var left = parseFloat($room[0].style.left) || 0;
+    var top = parseFloat($room[0].style.top) || 0;
+    return {
+      left: left,
+      top: top,
+      right: left + ROOM_W,
+      bottom: top + ROOM_H,
+      cx: left + ROOM_W / 2,
+      cy: top + ROOM_H / 2,
+      w: ROOM_W,
+      h: ROOM_H,
+    };
+  };
+
+  // 從房間內一點往目標方向射出，取碰到房間邊緣的點
+  var getRoomEdgeAlongRay = function (box, x0, y0, x1, y1) {
+    var dx = x1 - x0;
+    var dy = y1 - y0;
+    if (dx === 0 && dy === 0) return { x: x0, y: y0 };
+
+    var ts = [];
+    if (Math.abs(dx) > 1e-6) {
+      var tl = (box.left - x0) / dx;
+      var yl = y0 + tl * dy;
+      if (tl >= 0 && yl >= box.top - 1e-6 && yl <= box.bottom + 1e-6)
+        ts.push(tl);
+      var tr = (box.right - x0) / dx;
+      var yr = y0 + tr * dy;
+      if (tr >= 0 && yr >= box.top - 1e-6 && yr <= box.bottom + 1e-6)
+        ts.push(tr);
+    }
+    if (Math.abs(dy) > 1e-6) {
+      var tt = (box.top - y0) / dy;
+      var xt = x0 + tt * dx;
+      if (tt >= 0 && xt >= box.left - 1e-6 && xt <= box.right + 1e-6)
+        ts.push(tt);
+      var tb = (box.bottom - y0) / dy;
+      var xb = x0 + tb * dx;
+      if (tb >= 0 && xb >= box.left - 1e-6 && xb <= box.right + 1e-6)
+        ts.push(tb);
+    }
+    if (!ts.length) return { x: x0, y: y0 };
+
+    var tExit = Math.min.apply(null, ts);
+    return { x: x0 + tExit * dx, y: y0 + tExit * dy };
+  };
+
+  var appendAnswerLink = function ($paths, fromId, toId, count) {
+    var $rooms = $paths.closest(".rooms");
+    var $from = $rooms.find('[data-room="' + fromId + '"]');
+    var $to = $rooms.find('[data-room="' + toId + '"]');
+    if (!$from.length || !$to.length) return;
+
+    var fromBox = getRoomBox($from);
+    var toBox = getRoomBox($to);
+    var dx = toBox.cx - fromBox.cx;
+    var dy = toBox.cy - fromBox.cy;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var px = -dy / len;
+    var py = dx / len;
+
+    for (var i = 0; i < count; i++) {
+      var off = (i - (count - 1) / 2) * PATH_SPACING;
+      var fx = fromBox.cx + px * off;
+      var fy = fromBox.cy + py * off;
+      var tx = toBox.cx + px * off;
+      var ty = toBox.cy + py * off;
+      // 起迄都落在各自 room 邊緣上；起點 y 再往上
+      // room2↔room3 同高，保持水平不偏移
+      var start = getRoomEdgeAlongRay(fromBox, fx, fy, tx, ty);
+      var end = getRoomEdgeAlongRay(toBox, tx, ty, fx, fy);
+      if (
+        !(
+          (fromId === "room2" && toId === "room3") ||
+          (fromId === "room3" && toId === "room2")
+        )
+      ) {
+        start.y -= 10;
+      }
+      var $path = $('<span class="path preset"></span>')
+        .attr({ from: fromId, to: toId })
+        .appendTo($paths);
+      updatePathGeometry($path, start, end);
+    }
+  };
+
+  var getSelectedTaskIndex = function () {
+    return $(".PT4-5-3-5 .contents > div.selected").index();
+  };
+
+  var getSelectedRooms = function () {
+    return $(".PT4-5-3-5 .contents > div.selected .rooms");
+  };
+
+  // 依任務套用預設路徑與可否加線
+  var applyTaskPreset = function ($rooms) {
+    if (!$rooms || !$rooms.length) $rooms = getSelectedRooms();
+    var $paths = $rooms.find(".paths");
+    var task = getSelectedTaskIndex();
+
+    $paths.empty();
+    $rooms.toggleClass("nolink", task !== 1);
+    // 任務二：補線前先鎖住搬 ant
+    $rooms.toggleClass("need-extra", task === 1);
+
+    if (task === 0 || task === 1) {
+      // 任務一／二共同底圖；任務一不能加線，任務二可再加 1 條
+      appendAnswerLink($paths, "room1", "room2", 3);
+      appendAnswerLink($paths, "room1", "room3", 1);
+      appendAnswerLink($paths, "room2", "room4", 1);
+      appendAnswerLink($paths, "room3", "room4", 2);
+    } else if (task === 2) {
+      // 任務三：固定圖，不能自己加箭頭
+      appendAnswerLink($paths, "room1", "room2", 3);
+      appendAnswerLink($paths, "room1", "room3", 1);
+      appendAnswerLink($paths, "room2", "room3", 1);
+      appendAnswerLink($paths, "room2", "room4", 1);
+      appendAnswerLink($paths, "room3", "room4", 2);
+    }
+
+    initAnts($rooms);
+  };
+
+  var ROOM_IDS = ["room1", "room2", "room3", "room4"];
+
+  var countsToKey = function (counts) {
+    return ROOM_IDS.map(function (id) {
+      return counts[id] || 0;
+    }).join(",");
+  };
+
+  var keyToCounts = function (key) {
+    var parts = key.split(",").map(Number);
+    var counts = {};
+    ROOM_IDS.forEach(function (id, i) {
+      counts[id] = parts[i] || 0;
+    });
+    return counts;
+  };
+
+  var getPathEdges = function ($rooms) {
+    var edges = [];
+    $rooms.find(".paths .path:not(.drafting)").each(function () {
+      var from = $(this).attr("from");
+      var to = $(this).attr("to");
+      if (from && to) edges.push([from, to]);
+    });
+    return edges;
+  };
+
+  var getEdgeCaps = function (edges) {
+    var map = {};
+    edges.forEach(function (e) {
+      var k = e[0] + ">" + e[1];
+      map[k] = (map[k] || 0) + 1;
+    });
+    return Object.keys(map).map(function (k) {
+      var p = k.split(">");
+      return { from: p[0], to: p[1], cap: map[k] };
+    });
+  };
+
+  var getInitialCounts = function ($rooms) {
+    var counts = {};
+    $rooms.find(".room").each(function () {
+      counts[$(this).attr("data-room")] =
+        parseInt($(this).attr("initial-ant"), 10) || 0;
+    });
+    return counts;
+  };
+
+  // 一分鐘結束後的狀態：
+  // - 只看分鐘開始時的 ant（同一隻這分鐘只能走一次，剛抵達的不能再走）
+  // - 有 ant 的箭頭必須點完（與玩法 advanceTime 一致）→ 每個 room 流出 = min(ant, 出口容量)
+  var nextMinuteStates = function (counts, caps) {
+    var outCap = {};
+    ROOM_IDS.forEach(function (id) {
+      outCap[id] = 0;
+    });
+    caps.forEach(function (c) {
+      outCap[c.from] += c.cap;
+    });
+    var mustOut = {};
+    ROOM_IDS.forEach(function (id) {
+      mustOut[id] = Math.min(counts[id] || 0, outCap[id] || 0);
+    });
+
+    var results = [];
+    var n = caps.length;
+    var flows = new Array(n);
+    for (var i = 0; i < n; i++) flows[i] = 0;
+
+    var rec = function (i) {
+      if (i === n) {
+        var out = {};
+        ROOM_IDS.forEach(function (id) {
+          out[id] = 0;
+        });
+        for (var j = 0; j < n; j++) out[caps[j].from] += flows[j];
+        for (var r = 0; r < ROOM_IDS.length; r++) {
+          if (out[ROOM_IDS[r]] !== mustOut[ROOM_IDS[r]]) return;
+        }
+        var neu = {};
+        ROOM_IDS.forEach(function (id) {
+          neu[id] = counts[id] || 0;
+        });
+        for (var j = 0; j < n; j++) {
+          neu[caps[j].from] -= flows[j];
+          neu[caps[j].to] += flows[j];
+        }
+        results.push(neu);
+        return;
+      }
+      for (var f = 0; f <= caps[i].cap; f++) {
+        flows[i] = f;
+        rec(i + 1);
+      }
+    };
+    rec(0);
+    return results;
+  };
+
+  var scoreState = function (counts, goal) {
+    var total = ROOM_IDS.reduce(function (s, id) {
+      return s + (counts[id] || 0);
+    }, 0);
+    if (goal === "all_r4") {
+      return [
+        counts.room4 === total ? 1 : 0,
+        counts.room4 || 0,
+        -((counts.room1 || 0) + (counts.room2 || 0) + (counts.room3 || 0)),
+      ];
+    }
+    // 任務一／二：最大化用餐區
+    return [counts.room4 || 0, (counts.room2 || 0) + (counts.room3 || 0)];
+  };
+
+  var betterScore = function (a, b) {
+    if (!b) return true;
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return a[i] > b[i];
+    }
+    return false;
+  };
+
+  // 回傳長度 = minutes 的狀態陣列（每一分鐘結束後）
+  var simulateOptimalTimeline = function (edges, initial, minutes, goal) {
+    var caps = getEdgeCaps(edges);
+    var startKey = countsToKey(initial);
+
+    if (goal === "all_r4") {
+      // 找最早全部到 room4，再把剩餘分鐘補成最終狀態
+      var layer = {};
+      layer[startKey] = true;
+      var history = [{ }];
+      history[0][startKey] = null;
+      var foundKey = null;
+      var foundAt = -1;
+
+      for (var m = 1; m <= minutes; m++) {
+        var next = {};
+        var parent = {};
+        Object.keys(layer).forEach(function (k) {
+          nextMinuteStates(keyToCounts(k), caps).forEach(function (ns) {
+            var nk = countsToKey(ns);
+            if (!(nk in parent)) {
+              parent[nk] = k;
+              next[nk] = true;
+            }
+          });
+        });
+        history.push(parent);
+        layer = next;
+
+        Object.keys(layer).forEach(function (k) {
+          if (foundKey) return;
+          var c = keyToCounts(k);
+          var total = ROOM_IDS.reduce(function (s, id) {
+            return s + (c[id] || 0);
+          }, 0);
+          if ((c.room4 || 0) === total) {
+            foundKey = k;
+            foundAt = m;
+          }
+        });
+        if (foundKey) break;
+      }
+
+      if (!foundKey) {
+        // 時間內到不了：取分鐘結束時最好的狀態
+        var bestKey = null;
+        var bestSc = null;
+        Object.keys(layer).forEach(function (k) {
+          var sc = scoreState(keyToCounts(k), goal);
+          if (betterScore(sc, bestSc)) {
+            bestKey = k;
+            bestSc = sc;
+          }
+        });
+        foundKey = bestKey;
+        foundAt = minutes;
+      }
+
+      var keys = new Array(foundAt + 1);
+      keys[foundAt] = foundKey;
+      for (var t = foundAt; t > 0; t--) {
+        keys[t - 1] = history[t][keys[t]];
+      }
+      var timeline = [];
+      for (var t = 1; t <= foundAt; t++) {
+        timeline.push(keyToCounts(keys[t]));
+      }
+      var last = timeline[timeline.length - 1] || keyToCounts(startKey);
+      while (timeline.length < minutes) {
+        timeline.push($.extend({}, last));
+      }
+      return timeline;
+    }
+
+    // max_r4：固定跑滿 minutes
+    var layer2 = {};
+    layer2[startKey] = true;
+    var history2 = [{}];
+    history2[0][startKey] = null;
+    for (var m = 1; m <= minutes; m++) {
+      var next2 = {};
+      var parent2 = {};
+      Object.keys(layer2).forEach(function (k) {
+        nextMinuteStates(keyToCounts(k), caps).forEach(function (ns) {
+          var nk = countsToKey(ns);
+          if (!(nk in parent2)) {
+            parent2[nk] = k;
+            next2[nk] = true;
+          }
+        });
+      });
+      history2.push(parent2);
+      layer2 = next2;
+    }
+
+    var bestKey2 = null;
+    var bestSc2 = null;
+    Object.keys(layer2).forEach(function (k) {
+      var sc = scoreState(keyToCounts(k), goal);
+      if (betterScore(sc, bestSc2)) {
+        bestKey2 = k;
+        bestSc2 = sc;
+      }
+    });
+
+    var keys2 = new Array(minutes + 1);
+    keys2[minutes] = bestKey2;
+    for (var t = minutes; t > 0; t--) {
+      keys2[t - 1] = history2[t][keys2[t]];
+    }
+    var timeline2 = [];
+    for (var t = 1; t <= minutes; t++) {
+      timeline2.push(keyToCounts(keys2[t]));
+    }
+    return timeline2;
+  };
+
+  var showTaskAlert = function (msg) {
+    $(".contents > div.selected").append(
+      '<div class="alert wow bounceInUp" onclick="$(this).remove()">' +
+        msg +
+        "</div>",
+    );
+    rootSoundEffect($stupid);
+  };
+
+  // 直接秀最終答案：填滿所有 time 列 cells，並把 ants 放到最終房間
+  var correctRoomLink = function () {
+    var $rooms = getSelectedRooms();
+    if (!$rooms.length) return;
+
+    var task = getSelectedTaskIndex();
+    // 任務二：必須先加一條新通道才能算答案
+    if (task === 1 && $rooms.hasClass("need-extra")) {
+      showTaskAlert("請先加一條新的通道");
+      return;
+    }
+
+    bumpTimeToken($rooms);
+    clearRoomLinkSelected($rooms);
+
+    var minutes = $rooms.find(".time > div").length;
+    var edges = getPathEdges($rooms);
+    if (!edges.length || !minutes) return;
+
+    var goal = task === 2 ? "all_r4" : "max_r4";
+    var timeline = simulateOptimalTimeline(
+      edges,
+      getInitialCounts($rooms),
+      minutes,
+      goal,
+    );
+
+    $rooms.closest(".item").find(".cells .cell").text("");
+    fillInitCells($rooms);
+
+    for (var t = 0; t < timeline.length; t++) {
+      ROOM_IDS.forEach(function (id) {
+        $rooms.find('.room[data-room="' + id + '"]').attr(
+          "ant",
+          timeline[t][id] || 0,
+        );
+      });
+      fillCellsForTime($rooms, t);
+    }
+
+    setRoomAntCounts($rooms, timeline[timeline.length - 1]);
+    $rooms.find(".time > div").addClass("selected");
+    $rooms.find(".paths .path").addClass("selected");
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      rootSoundEffect($help);
+      correctRoomLink();
+    } else {
+      resetElem($(".PT4-5-3-5 .contents > div.selected"));
+    }
+  };
+
+  var withinResetElem = function () {
+    rootSoundEffect($show);
+    $(document).off(".pt4535link");
+    roomLinkState = null;
+    $(".PT4-5-3-5 .rooms").removeClass("drawing");
+    $(".PT4-5-3-5 .rooms .room").removeClass("selected");
+    $(".PT4-5-3-5 .paths").empty();
+    $(".PT4-5-3-5 .ants").empty();
+    initRoomLink();
+    applyTaskPreset(getSelectedRooms());
+  };
+
+  initRoomLink();
+</script>

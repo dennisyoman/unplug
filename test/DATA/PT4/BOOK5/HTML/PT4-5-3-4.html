@@ -1,0 +1,417 @@
+<div id="module_wrapper" class="module_basic PT4-5-3-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：根據文章敘述，把螞蟻工廠的空間和通道圖畫出來。<br />1.
+            任一區塊可以開始拉出箭頭連到另一區塊。<br />
+            2. 2個區域間可以有多數的連線。
+          </p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti">
+          <div class="rooms">
+            <div
+              class="room wow fadeInUp"
+              style="top: 0; left: 100px"
+              data-room="room1"
+            >
+              <p>工作區</p>
+            </div>
+            <div
+              class="room wow fadeInLeft"
+              style="top: 107px; left: 0px"
+              data-room="room2"
+            >
+              <p>茶水間</p>
+            </div>
+            <div
+              class="room wow fadeInRight"
+              style="top: 107px; left: 200px"
+              data-room="room3"
+            >
+              <p>儲藏室</p>
+            </div>
+            <div
+              class="room wow fadeInDown"
+              style="top: 213px; left: 100px"
+              data-room="room4"
+            >
+              <p>用餐區</p>
+            </div>
+            <div class="paths"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-3-4 .rooms {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+
+  .PT4-5-3-4 .rooms .room {
+    position: absolute;
+    z-index: 1;
+    background: url("./DATA/PT4/BOOK5/IMAGES/room.png") no-repeat center center;
+    background-size: 100% 100%;
+    width: 100px;
+    height: 66px;
+    padding: 5px;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+    border: 2px dashed transparent;
+    border-radius: 10px;
+  }
+  .PT4-5-3-4 .rooms .room.selected {
+    border-color: aqua;
+  }
+  .PT4-5-3-4 .rooms .room p {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .PT4-5-3-4 .paths {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-5-3-4 .paths .path {
+    position: absolute;
+    z-index: 3;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 50px;
+    height: 4px;
+    background: currentColor;
+    color: #e5724a;
+    transform-origin: left center;
+  }
+  .PT4-5-3-4 .paths .path::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: -7px;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0px 6px 10px;
+    border-color: transparent transparent transparent currentColor;
+  }
+  .PT4-5-3-4 .rooms.drawing .paths .path {
+    pointer-events: none;
+  }
+  .PT4-5-3-4 .paths .path.drafting {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  var roomLinkState = null;
+
+  var getRoomLocalXY = function (e, $rooms) {
+    var ratio = stageRatioReal || 1;
+    var offset = $rooms.offset();
+    return {
+      x: (e.pageX - offset.left) / ratio,
+      y: (e.pageY - offset.top) / ratio,
+    };
+  };
+
+  var getRoomAtPoint = function (clientX, clientY) {
+    var hit = null;
+    $(".PT4-5-3-4 .rooms .room").each(function () {
+      var r = this.getBoundingClientRect();
+      if (
+        clientX >= r.left &&
+        clientX <= r.right &&
+        clientY >= r.top &&
+        clientY <= r.bottom
+      ) {
+        hit = $(this);
+        return false;
+      }
+    });
+    return hit;
+  };
+
+  var updatePathGeometry = function ($path, start, end) {
+    var dx = end.x - start.x;
+    var dy = end.y - start.y;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var deg = (Math.atan2(dy, dx) * 180) / Math.PI;
+    $path.css({
+      left: start.x + "px",
+      top: start.y - 2 + "px",
+      width: Math.max(len, 0) + "px",
+      transform: "rotate(" + deg + "deg)",
+    });
+  };
+
+  var clearRoomLinkSelected = function ($rooms) {
+    $rooms.find(".room.selected").removeClass("selected");
+  };
+
+  var updateEndRoomSelected = function (state, $endRoom) {
+    if (state.$endRoom && state.$endRoom.length) {
+      state.$endRoom.removeClass("selected");
+    }
+    state.$endRoom = null;
+
+    if (
+      $endRoom &&
+      $endRoom.length &&
+      $endRoom.get(0) !== state.$startRoom.get(0)
+    ) {
+      $endRoom.addClass("selected");
+      state.$endRoom = $endRoom;
+    }
+  };
+
+  var moveRoomLink = function (e) {
+    if (!roomLinkState) return;
+    var end = getRoomLocalXY(e, roomLinkState.$rooms);
+    updatePathGeometry(roomLinkState.$path, roomLinkState.start, end);
+    updateEndRoomSelected(roomLinkState, getRoomAtPoint(e.clientX, e.clientY));
+  };
+
+  var endRoomLink = function (e) {
+    if (!roomLinkState) return;
+
+    var state = roomLinkState;
+    roomLinkState = null;
+    $(document).off(".pt4534link");
+    state.$rooms.removeClass("drawing");
+    clearRoomLinkSelected(state.$rooms);
+
+    var removeDraft = function () {
+      state.$path.remove();
+      rootSoundEffect($show);
+    };
+
+    if (e.type === "mouseup" && e.which !== 1) {
+      removeDraft();
+      return;
+    }
+
+    var $endRoom = getRoomAtPoint(e.clientX, e.clientY);
+    if (
+      !$endRoom ||
+      !$endRoom.length ||
+      $endRoom.get(0) === state.$startRoom.get(0)
+    ) {
+      removeDraft();
+      return;
+    }
+
+    var end = getRoomLocalXY(e, state.$rooms);
+    updatePathGeometry(state.$path, state.start, end);
+    state.$path.removeClass("drafting").attr({
+      from: state.$startRoom.attr("data-room"),
+      to: $endRoom.attr("data-room"),
+    });
+    rootSoundEffect($pop);
+
+    $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_answer").removeClass("active");
+  };
+
+  var onRoomPointerDown = function (e) {
+    if (e.type === "mousedown" && e.which !== 1) return;
+
+    rootSoundEffect($key);
+    var $startRoom = $(e.currentTarget);
+    var $rooms = $startRoom.closest(".rooms");
+    var start = getRoomLocalXY(e, $rooms);
+    var $path = $('<span class="path drafting"></span>')
+      .attr({
+        from: $startRoom.attr("data-room") || "",
+        to: "",
+      })
+      .appendTo($rooms.find(".paths"));
+    updatePathGeometry($path, start, start);
+
+    clearRoomLinkSelected($rooms);
+    $startRoom.addClass("selected");
+
+    roomLinkState = {
+      $rooms: $rooms,
+      $startRoom: $startRoom,
+      $endRoom: null,
+      $path: $path,
+      start: start,
+    };
+    $rooms.addClass("drawing");
+
+    $(document)
+      .off(".pt4534link")
+      .on("mousemove.pt4534link", moveRoomLink)
+      .on("mouseup.pt4534link", endRoomLink);
+
+    e.preventDefault();
+  };
+
+  var initRoomLink = function () {
+    $(document).off(".pt4534link");
+    roomLinkState = null;
+    $(".PT4-5-3-4 .rooms")
+      .removeClass("drawing")
+      .off(".pt4534link")
+      .on("mousedown.pt4534link", ".room", onRoomPointerDown);
+  };
+
+  var ROOM_W = 100;
+  var ROOM_H = 66;
+  var PATH_SPACING = 14;
+
+  var getRoomBox = function ($room) {
+    var left = parseFloat($room[0].style.left) || 0;
+    var top = parseFloat($room[0].style.top) || 0;
+    return {
+      left: left,
+      top: top,
+      right: left + ROOM_W,
+      bottom: top + ROOM_H,
+      cx: left + ROOM_W / 2,
+      cy: top + ROOM_H / 2,
+      w: ROOM_W,
+      h: ROOM_H,
+    };
+  };
+
+  // 從房間內一點往目標方向射出，取碰到房間邊緣的點
+  var getRoomEdgeAlongRay = function (box, x0, y0, x1, y1) {
+    var dx = x1 - x0;
+    var dy = y1 - y0;
+    if (dx === 0 && dy === 0) return { x: x0, y: y0 };
+
+    var ts = [];
+    if (Math.abs(dx) > 1e-6) {
+      var tl = (box.left - x0) / dx;
+      var yl = y0 + tl * dy;
+      if (tl >= 0 && yl >= box.top - 1e-6 && yl <= box.bottom + 1e-6)
+        ts.push(tl);
+      var tr = (box.right - x0) / dx;
+      var yr = y0 + tr * dy;
+      if (tr >= 0 && yr >= box.top - 1e-6 && yr <= box.bottom + 1e-6)
+        ts.push(tr);
+    }
+    if (Math.abs(dy) > 1e-6) {
+      var tt = (box.top - y0) / dy;
+      var xt = x0 + tt * dx;
+      if (tt >= 0 && xt >= box.left - 1e-6 && xt <= box.right + 1e-6)
+        ts.push(tt);
+      var tb = (box.bottom - y0) / dy;
+      var xb = x0 + tb * dx;
+      if (tb >= 0 && xb >= box.left - 1e-6 && xb <= box.right + 1e-6)
+        ts.push(tb);
+    }
+    if (!ts.length) return { x: x0, y: y0 };
+
+    var tExit = Math.min.apply(null, ts);
+    return { x: x0 + tExit * dx, y: y0 + tExit * dy };
+  };
+
+  var appendAnswerLink = function ($paths, fromId, toId, count) {
+    var $rooms = $paths.closest(".rooms");
+    var $from = $rooms.find('[data-room="' + fromId + '"]');
+    var $to = $rooms.find('[data-room="' + toId + '"]');
+    if (!$from.length || !$to.length) return;
+
+    var fromBox = getRoomBox($from);
+    var toBox = getRoomBox($to);
+    var dx = toBox.cx - fromBox.cx;
+    var dy = toBox.cy - fromBox.cy;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var px = -dy / len;
+    var py = dx / len;
+
+    for (var i = 0; i < count; i++) {
+      var off = (i - (count - 1) / 2) * PATH_SPACING;
+      var fx = fromBox.cx + px * off;
+      var fy = fromBox.cy + py * off;
+      var tx = toBox.cx + px * off;
+      var ty = toBox.cy + py * off;
+      // 起迄都落在各自 room 邊緣上；起點 y 再往上 20px
+      var start = getRoomEdgeAlongRay(fromBox, fx, fy, tx, ty);
+      start.y -= 10;
+      var end = getRoomEdgeAlongRay(toBox, tx, ty, fx, fy);
+      var $path = $('<span class="path"></span>')
+        .attr({ from: fromId, to: toId })
+        .appendTo($paths);
+      updatePathGeometry($path, start, end);
+    }
+  };
+
+  var correctRoomLink = function () {
+    var $rooms = $(".PT4-5-3-4 .rooms");
+    var $paths = $rooms.find(".paths");
+
+    if (roomLinkState) {
+      $(document).off(".pt4534link");
+      if (roomLinkState.$path) roomLinkState.$path.remove();
+      roomLinkState = null;
+      $rooms.removeClass("drawing");
+    }
+
+    clearRoomLinkSelected($rooms);
+    $paths.empty();
+
+    appendAnswerLink($paths, "room1", "room2", 3);
+    appendAnswerLink($paths, "room1", "room3", 1);
+    appendAnswerLink($paths, "room2", "room4", 1);
+    appendAnswerLink($paths, "room3", "room4", 2);
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      correctRoomLink();
+      rootSoundEffect($help);
+    }
+  };
+
+  var withinResetElem = function () {
+    rootSoundEffect($show);
+    $(document).off(".pt4534link");
+    roomLinkState = null;
+    $(".PT4-5-3-4 .rooms").removeClass("drawing");
+    $(".PT4-5-3-4 .rooms .room").removeClass("selected");
+    $(".PT4-5-3-4 .paths").empty();
+    initRoomLink();
+  };
+
+  initRoomLink();
+</script>

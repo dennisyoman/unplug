@@ -287,7 +287,7 @@ var checkAnswer = function () {
     if ($(this).attr("ans") == "") {
       answerArr = [];
     }
-    console.log(answerArr);
+
     if (kids.length == answerArr.length) {
       //答案不用照順序 : randomOrder
       if ($(this).hasClass("randomOrder")) {

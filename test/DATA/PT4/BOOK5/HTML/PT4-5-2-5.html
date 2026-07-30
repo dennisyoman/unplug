@@ -1,0 +1,971 @@
+<div id="module_wrapper" class="module_decode PT4-5-2-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_check" onClick="checkAnswer_PT4_5_2_5()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：找出一些特別物件，可以很快知道規則。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="puzzle wow bounceInLeft"
+        style="width: 250px; margin-left: 100px"
+      >
+        <div
+          class="items unlimit randomOrder"
+          ans="aa,dd"
+          style="top: 40px; left: 91px; width: 146px; height: 20px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="cc,ee"
+          style="top: 116px; left: 91px; width: 146px; height: 20px"
+        ></div>
+        <div
+          class="items unlimit randomOrder"
+          ans="bb,ff,gg"
+          style="top: 192px; left: 91px; width: 146px; height: 20px"
+        ></div>
+
+        <div class="conditions">
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 23px; left: 85px; width: 141px; height: 13px"
+            ans="沒有出去的箭頭"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 97px; left: 85px; width: 141px; height: 13px"
+            ans="沒有進來的箭頭"
+          ></span>
+          <span
+            onClick="modifyCondition($(this))"
+            class="column-condition"
+            style="top: 172px; left: 85px; width: 141px; height: 13px"
+            ans="箭頭形成循環的形式"
+          ></span>
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 30px; padding: 0; margin-left: 20px"
+      >
+        <div class="items" style="transform: scale(1.5)">
+          <span
+            onClick="trigMe($(this))"
+            iid="aa"
+            style="top: -75px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-A.png"
+          /></span>
+          <span
+            onClick="trigMe($(this))"
+            iid="bb"
+            style="top: -50px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-B.png"
+          /></span>
+          <span
+            onClick="trigMe($(this))"
+            iid="cc"
+            style="top: -25px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-C.png"
+          /></span>
+          <span
+            onClick="trigMe($(this))"
+            iid="dd"
+            style="top: 0px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-D.png"
+          /></span>
+          <span
+            onClick="trigMe($(this))"
+            iid="ee"
+            style="top: 25px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-E.png"
+          /></span>
+          <span
+            onClick="trigMe($(this))"
+            iid="ff"
+            style="top: 50px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-F.png"
+          /></span>
+          <span
+            onClick="trigMe($(this))"
+            iid="gg"
+            style="top: 75px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-G.png"
+          /></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：將其他的所有可交換的路徑記下。</p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="puzzle wow bounceInLeft"
+        style="width: 230px; margin-left: 100px"
+      >
+        <!-- group 1 -->
+        <div
+          class="items unlimit"
+          ans="gg,aa^gg,ff,dd^gg,ff,bb,dd"
+          style="top: 12px; left: 66px; width: 159px; height: 20px"
+          firstIid="ee"
+        ></div>
+        <div
+          class="items unlimit"
+          ans="gg,ff,dd^gg,ff,bb,dd^gg,aa"
+          style="top: 46px; left: 66px; width: 159px; height: 20px"
+          firstIid="ee"
+        ></div>
+        <div
+          class="items unlimit"
+          ans="gg,ff,bb,dd^gg,aa^gg,ff,dd"
+          style="top: 83px; left: 66px; width: 159px; height: 20px"
+          firstIid="ee"
+        ></div>
+        <!-- group 2 -->
+        <div
+          class="items unlimit"
+          ans="gg,aa^gg,ff,dd"
+          style="top: 122px; left: 66px; width: 159px; height: 20px"
+          firstIid="bb"
+        ></div>
+        <div
+          class="items unlimit"
+          ans="gg,ff,dd^gg,aa"
+          style="top: 153px; left: 66px; width: 159px; height: 20px"
+          firstIid="bb"
+        ></div>
+        <!-- group 3-->
+        <div
+          class="items unlimit"
+          ans="aa"
+          style="top: 193px; left: 66px; width: 159px; height: 20px"
+          firstIid="cc"
+        ></div>
+        <!-- group 4 -->
+        <div
+          class="items unlimit"
+          ans="bb,gg,aa"
+          style="top: 231px; left: 66px; width: 159px; height: 20px"
+          firstIid="ff"
+        ></div>
+
+        <img width="100%" src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-2.png" />
+      </div>
+      <div
+        class="code wow bounceInRight"
+        style="width: 30px; padding: 0; margin-left: 20px"
+      >
+        <div class="items" style="transform: scale(1.5)">
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="aa"
+            style="top: -75px; left: 0px; height: 20px"
+            routes="gg:B,cc:A"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-A.png"
+          /></span>
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="bb"
+            style="top: -50px; left: 0px; height: 20px"
+            routes="ff:E"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-B.png"
+          /></span>
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="cc"
+            style="top: -25px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-C.png"
+          /></span>
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="dd"
+            style="top: 0px; left: 0px; height: 20px"
+            routes="bb:G,ff:H"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-D.png"
+          /></span>
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="ee"
+            style="top: 25px; left: 0px; height: 20px"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-E.png"
+          /></span>
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="ff"
+            style="top: 50px; left: 0px; height: 20px"
+            routes="gg:C"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-F.png"
+          /></span>
+          <span
+            onClick="trigMe($(this));addArrow($(this))"
+            iid="gg"
+            style="top: 75px; left: 0px; height: 20px"
+            routes="ee:D,bb:F"
+          >
+            <img
+              style="opacity: 1"
+              height="100%"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-G.png"
+          /></span>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：模擬一下同學們可能來問的問題，可不可以很快地回答他們呢？ <br />*
+            可點選路徑輔助解答
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div
+        class="puzzle wow bounceInRight ans check"
+        style="width: 250px; margin-left: 250px"
+      >
+        <div class="conditions">
+          <span
+            onClick="modifyText($(this))"
+            class="column-route"
+            style="top: 38px; left: 163px; width: 73px; height: 13px"
+            ans="X"
+          ></span>
+          <span
+            onClick="modifyText($(this))"
+            class="column-route"
+            style="top: 103px; left: 163px; width: 73px; height: 13px"
+            ans="D > C > H"
+          ></span>
+          <span
+            onClick="modifyText($(this))"
+            class="column-route"
+            style="top: 169px; left: 166px; width: 73px; height: 13px"
+            ans="C > H"
+          ></span>
+          <span
+            onClick="modifyText($(this))"
+            class="column-route"
+            style="top: 234px; left: 168px; width: 73px; height: 13px"
+            ans="X"
+          ></span>
+
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 41px;
+              left: 60px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 41px;
+              left: 79px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans="v"
+          ></span>
+
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 107px;
+              left: 62px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans="v"
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 107px;
+              left: 81px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 172px;
+              left: 63px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans="v"
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 172px;
+              left: 83px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 238px;
+              left: 63px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans=""
+          ></span>
+          <span
+            onClick="toggleYN($(this))"
+            class="column-yn"
+            style="
+              top: 238px;
+              left: 83px;
+              width: 10px;
+              height: 10px;
+              place-items: center;
+            "
+            ans="v"
+          ></span>
+        </div>
+        <img width="100%" src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-3.png" />
+      </div>
+      <div class="ref wow bounceInLeft">
+        <div class="reset-btn" onClick="resetRoute()">
+          <img src="./DATA/IMAGES/common/btn_replay.png" />
+        </div>
+        <div class="lines">
+          <!-- lines-->
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 66px;
+              top: 135px;
+              left: 10px;
+              transform: rotate(-82deg);
+            "
+            ><b style="top: -11px; transform: rotate(82deg)">A</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 17px;
+              top: 96px;
+              left: 74px;
+              transform: rotate(-146deg);
+            "
+            ><b style="top: 6px; transform: rotate(146deg)">B</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 30px;
+              top: 151px;
+              left: 109px;
+              transform: rotate(79deg);
+            "
+            ><b style="top: -15px; transform: rotate(-79deg)">C</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 22px;
+              top: 71px;
+              left: 103px;
+              transform: rotate(90deg);
+            "
+            ><b style="transform: rotate(-90deg)">D</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 71px;
+              top: 135px;
+              left: 121px;
+              transform: rotate(-68deg);
+            "
+            ><b style="top: 6px; transform: rotate(68deg)">E</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 16px;
+              top: 95px;
+              left: 140px;
+              transform: rotate(146deg);
+            "
+            ><b style="transform: rotate(-146deg)">F</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 19px;
+              top: 108px;
+              left: 181px;
+              transform: rotate(79deg);
+            "
+            ><b style="top: -15px; transform: rotate(-79deg)">G</b></span
+          >
+          <span
+            class="line"
+            onClick="addRoute($(this))"
+            style="
+              width: 21px;
+              top: 178px;
+              left: 161px;
+              transform: rotate(-34deg);
+            "
+            ><b style="top: 6px; transform: rotate(34deg)">H</b></span
+          >
+        </div>
+
+        <img
+          style="width: 224px; margin-left: 10px"
+          src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-3-A.png"
+        />
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-2-5 .contents > div .puzzle .conditions {
+    position: relative;
+    z-index: 2;
+  }
+
+  .PT4-5-2-5 .contents > div .puzzle .conditions > span {
+    position: absolute;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    white-space: nowrap;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+    display: grid;
+    place-items: center left;
+  }
+  .PT4-5-2-5 .contents > div .puzzle .conditions > .wrong::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "X";
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .PT4-5-2-5 .contents > div .puzzle .conditions > .column-route.selected {
+    background-image:
+      linear-gradient(90deg, black 50%, transparent 50%),
+      linear-gradient(90deg, black 50%, transparent 50%),
+      linear-gradient(0deg, black 50%, transparent 50%),
+      linear-gradient(0deg, black 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size:
+      10px 2px,
+      10px 2px,
+      2px 10px,
+      2px 10px;
+    background-position:
+      left top,
+      right bottom,
+      left bottom,
+      right top;
+    animation: border-dance 0.6s infinite linear;
+
+    @keyframes border-dance {
+      0% {
+        background-position:
+          left top,
+          right bottom,
+          left bottom,
+          right top;
+      }
+
+      100% {
+        background-position:
+          left 10px top,
+          right 10px bottom,
+          left bottom 10px,
+          right top 10px;
+      }
+    }
+  }
+
+  .PT4-5-2-5 .contents > div .puzzle .items {
+    justify-content: flex-start;
+  }
+  .PT4-5-2-5 .contents > div .puzzle .items > span {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .PT4-5-2-5 .contents > div .puzzle .items > span:first-of-type .routeArrow {
+    margin-left: -23px;
+    border-color: transparent;
+  }
+  .PT4-5-2-5
+    .contents
+    > div
+    .puzzle
+    .items
+    > span:first-of-type
+    .routeArrow::after {
+    border-color: transparent;
+  }
+  .PT4-5-2-5 .contents > div .puzzle .items > span.wrong {
+    filter: saturate(0);
+  }
+
+  .PT4-5-2-5 .ref {
+    position: absolute;
+    top: 57px;
+    left: 37px;
+  }
+  .PT4-5-2-5 .ref .reset-btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+  }
+  .PT4-5-2-5 .ref .reset-btn.selected {
+    display: block;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 1;
+  }
+  .PT4-5-2-5 .ref .reset-btn img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .PT4-5-2-5 .ref .lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .PT4-5-2-5 .ref .line {
+    position: absolute;
+    color: #2ea7e0;
+    border-bottom: 3px solid currentColor;
+    height: 0px;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-5-2-5 .ref .line * {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-5-2-5 .ref .line::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0px 6px 10px;
+    border-color: transparent transparent transparent currentColor;
+  }
+  .PT4-5-2-5 .ref .line b {
+    font-size: 12px;
+    line-height: 12px;
+    width: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: calc(60% - 14px);
+    top: 4px;
+  }
+  .PT4-5-2-5 .ref .line.selected {
+    color: #ff5201;
+  }
+  .PT4-5-2-5 .routeArrow {
+    color: #333333;
+    width: 20px;
+    display: inline-block;
+    border-bottom: 2px solid currentColor;
+    transform: translate(0px, -6px);
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    position: relative;
+  }
+  .PT4-5-2-5 .routeArrow::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0px 5px 8px;
+    border-color: transparent transparent transparent currentColor;
+  }
+</style>
+
+<script>
+  var toggleYN = (item) => {
+    var NYArr = ["v", ""];
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    rootSoundEffect($key);
+    var text = item.text();
+    item.removeClass("wrong");
+    if (NYArr.includes(text)) {
+      var currentIndex = NYArr.indexOf(text);
+      var nextIndex = (currentIndex + 1) % NYArr.length;
+      item.html(NYArr[nextIndex]);
+    } else {
+      item.html(NYArr[0]);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var addRoute = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    rootSoundEffect($pop);
+    item.toggleClass("selected");
+    $(".PT4-5-2-5 .ref .reset-btn").addClass("selected");
+  };
+
+  var resetRoute = () => {
+    $(".PT4-5-2-5 .ref .line").removeClass("selected");
+    $(".PT4-5-2-5 .ref .reset-btn").removeClass("selected");
+    rootSoundEffect($show);
+  };
+
+  var addArrow = (item) => {
+    if (item.parent().parent().hasClass("code")) {
+      var frame = $(".contents > div.selected").find(".puzzle .items.selected");
+      var me = frame.children().last();
+      var from = me.prev();
+      var fromIid = from.attr("iid");
+      if (!fromIid) {
+        fromIid = frame.attr("firstIid");
+      }
+      console.log(fromIid);
+      var iid = me.attr("iid");
+      var allRoutes = me.attr("routes");
+
+      var routeID = "　";
+      if (allRoutes) {
+        allRoutes = allRoutes.split(",");
+        allRoutes.forEach((route) => {
+          var routeParts = route.split(":");
+          var fromId = routeParts[0];
+          var routeId = routeParts[1];
+          if (fromIid === fromId) {
+            routeID = routeId;
+          }
+        });
+      }
+
+      me.prepend("<span class='routeArrow'>" + routeID + "</span>");
+    }
+  };
+
+  var checkAnswer_PT4_5_2_5 = () => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    //任務二
+    if ($(".PT4-5-2-5 .contents > div:nth-child(2).selected").length > 0) {
+      //code
+      var getWrong = false;
+      var codeItems = $(".contents > div.selected .code").find(".items > span");
+      //puzzle
+      var items = $(".contents > div.selected .puzzle").find(".items");
+      items.each(function () {
+        $(this).removeClass("selected");
+        var kids = $(this).find(">span");
+        kids.removeClass("wrong");
+        var kidArray = [];
+        for (var k = 0; k < kids.length; k++) {
+          kidArray.push({ key: kids.eq(k).attr("iid"), seq: k });
+        }
+        var answersArr = $(this).attr("ans").split("^");
+        var itemMatched = false;
+        for (var a = 0; a < answersArr.length; a++) {
+          var answerArr = answersArr[a].split(",");
+          //ans是空值代表沒有答案
+          if ($(this).attr("ans") == "") {
+            answerArr = [];
+          }
+
+          var thisWrong = false;
+          if (kids.length == answerArr.length) {
+            //檢查是否正確
+            for (var i = 0; i < answerArr.length; i++) {
+              if (answerArr[i] != kidArray[i].key) {
+                //錯一個全錯
+                thisWrong = true;
+                break;
+              }
+            }
+          } else {
+            //數量不對
+            thisWrong = true;
+          }
+          //有正確答案就跳出
+          if (!thisWrong) {
+            itemMatched = true;
+            break;
+          }
+        }
+        if (!itemMatched) {
+          kids.addClass("wrong");
+          getWrong = true;
+        }
+      });
+
+      if (getWrong) {
+        //
+        rootSoundEffect($wrong);
+        $(".contents > div.selected .puzzle").append(
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_stupid.png"/></span>`,
+        );
+        $(".resultIcon")
+          .delay(1500)
+          .queue(function () {
+            $(this).dequeue().remove();
+          });
+      } else {
+        rootSoundEffect($chimes);
+        var uniq = new Date().getTime();
+        $(".contents > div.selected .puzzle").append(
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq}"/></span>`,
+        );
+        $(".smoke")
+          .delay(1500)
+          .queue(function () {
+            $(".resultIcon").remove();
+            $(this).dequeue().remove();
+          });
+      }
+      return;
+    }
+    checkAnswer();
+  };
+
+  /* 共用 */
+  var modifyCondition = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請自行輸入，或使用建議答案：", item.attr("ans"));
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var modifyText = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入文字：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+    }
+    //
+    $(".sideTool > div.btn_replay").show();
+  };
+
+  var withinShowAnswer = function (boolean) {
+    if (boolean) {
+      $(".alert").remove();
+      $(".contents > div.selected .conditions")
+        .find(".column-condition")
+        .each(function () {
+          $(this).html($(this).attr("ans"));
+        });
+      $(".contents > div.selected .conditions")
+        .find(".column-yn")
+        .each(function () {
+          $(this).html($(this).attr("ans"));
+        });
+      $(".contents > div.selected .conditions")
+        .find(".column-route")
+        .each(function () {
+          $(this).html($(this).attr("ans"));
+        });
+      //任務二
+      if ($(".PT4-5-2-5 .contents > div:nth-child(2).selected").length > 0) {
+        var items = $(".PT4-5-2-5 .contents > div:nth-child(2) .puzzle").find(
+          ".items",
+        );
+        var codeItems = $(".PT4-5-2-5 .contents > div:nth-child(2) .code").find(
+          ".items > span",
+        );
+        items.each(function () {
+          $(this).empty().addClass("selected");
+          var answersArr = $(this).attr("ans").split("^");
+          var answerArr = answersArr[0].split(",");
+          for (var i = 0; i < answerArr.length; i++) {
+            for (var k = 0; k < codeItems.length; k++) {
+              if (codeItems.eq(k).attr("iid") == answerArr[i]) {
+                codeItems.eq(k).click();
+              }
+            }
+          }
+          $(this).removeClass("selected");
+        });
+      }
+    }
+  };
+
+  var withinResetElem = function () {
+    $(".contents > div.selected .conditions")
+      .find(".column-condition")
+      .html("");
+    $(".contents > div.selected .conditions").find(".column-yn").html("");
+    $(".contents > div.selected .conditions").find(".column-route").html("");
+  };
+
+  var withinCheckAnswer = function () {
+    /* 任務三 */
+    var getWrong = false;
+    $(
+      ".PT4-5-2-5 .contents > div:nth-child(3).selected .conditions .column-yn",
+    ).each(function () {
+      var ans = $(this).attr("ans");
+      if (ans !== $(this).text()) {
+        $(this).addClass("wrong");
+        getWrong = true;
+      }
+    });
+    if (getWrong) {
+      rootSoundEffect($wrong);
+      $(".resultIcon, .smoke").remove();
+    }
+  };
+</script>
