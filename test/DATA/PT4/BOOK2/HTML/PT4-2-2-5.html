@@ -182,6 +182,7 @@
   }
 </style>
 <script>
+(function () {
   var modifyName = (item) => {
     event.stopPropagation();
     var text = window.prompt("請輸入答案：", "");
@@ -195,7 +196,7 @@
     }
   };
 
-  var tapElem = function (tar) {
+  var tapElem_PT4_2_2_5 = function (tar) {
     var $t = $(tar);
     // 只處理這一頁的 simplyDrag（例如點一下刪除）
     var $die = $t.closest(".cardAvatarDie.simplyDrag");
@@ -216,16 +217,16 @@
   };
 
   //dynamic function for this html only
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_2_2_5 = function (boolean) {
     if (boolean) {
       $(".PT4-2-2-5 .contents > div.selected .column-name").each(function () {
         $(this).html($(this).attr("ans"));
       });
     } else {
-      withinResetElem();
+      withinResetElem_PT4_2_2_5();
     }
   };
-  var withinResetElem = function () {
+  var withinResetElem_PT4_2_2_5 = function () {
     $(".PT4-2-2-5 .contents > div.selected .column-name").each(function () {
       $(this).html("");
     });
@@ -244,4 +245,14 @@
       }
     }
   };
+
+  window.reactivate_PT4_2_2_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_2_2_5;
+    withinResetElem = withinResetElem_PT4_2_2_5;
+    tapElem = tapElem_PT4_2_2_5;
+    window.modifyName = modifyName;
+  };
+
+  window.reactivate_PT4_2_2_5();
+})();
 </script>

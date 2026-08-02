@@ -94,6 +94,7 @@
 </style>
 
 <script>
+(function () {
   var fillContent = function (tar) {
     $(".sideTool > div.btn_replay").show();
     //
@@ -117,7 +118,7 @@
     tar.empty();
   };
 
-  var withinShowAnswer = function () {
+  var withinShowAnswer_PT4_3_1_4 = function () {
     $(".PT4-3-1-4 .contents .sensors .sensor").each(function () {
       var contentArr = $(this).attr("ans").split("^");
       if (contentArr.length > 1) {
@@ -128,9 +129,18 @@
     });
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_3_1_4 = function () {
     $(".PT4-3-1-4 .contents .sensors .sensor").each(function () {
       $(this).empty();
     });
   };
+
+  window.reactivate_PT4_3_1_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_3_1_4;
+    withinResetElem = withinResetElem_PT4_3_1_4;
+    window.fillContent = fillContent;
+  };
+
+  window.reactivate_PT4_3_1_4();
+})();
 </script>

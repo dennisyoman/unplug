@@ -296,6 +296,7 @@
 </style>
 
 <script>
+(function () {
   var modifyText = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
@@ -311,7 +312,7 @@
   };
 
   //dynamic function for this html only
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_2_3_4 = function (boolean) {
     if (boolean) {
       $(".PT4-2-3-4 .contents > div.selected .column-text").each(function () {
         $(this).html($(this).attr("ans"));
@@ -333,9 +334,18 @@
     }
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_2_3_4 = function () {
     $(".PT4-2-3-4 .contents > div.selected .column-text").each(function () {
       $(this).html("");
     });
   };
+
+  window.reactivate_PT4_2_3_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_2_3_4;
+    withinResetElem = withinResetElem_PT4_2_3_4;
+    window.modifyText = modifyText;
+  };
+
+  window.reactivate_PT4_2_3_4();
+})();
 </script>

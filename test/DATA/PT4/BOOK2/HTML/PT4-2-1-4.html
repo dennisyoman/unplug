@@ -200,6 +200,7 @@
   }
 </style>
 <script>
+(function () {
   var shortenDuration = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
@@ -234,21 +235,32 @@
   };
 
   //dynamic function for this html only
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_2_1_4 = function (boolean) {
     if (boolean) {
       $(".PT4-2-1-4 .contents > div.selected .column-name").each(function () {
         $(this).html($(this).attr("ans"));
       });
     } else {
-      withinResetElem();
+      withinResetElem_PT4_2_1_4();
     }
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_2_1_4 = function () {
     $(".PT4-2-1-4 .contents > div.selected .column-name").each(function () {
       $(this).html("");
     });
 
     rootSoundEffect($show);
   };
+
+  window.reactivate_PT4_2_1_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_2_1_4;
+    withinResetElem = withinResetElem_PT4_2_1_4;
+    window.shortenDuration = shortenDuration;
+    window.extendDuration = extendDuration;
+    window.modifyName = modifyName;
+  };
+
+  window.reactivate_PT4_2_1_4();
+})();
 </script>

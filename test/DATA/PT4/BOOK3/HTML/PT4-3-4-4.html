@@ -261,6 +261,7 @@
   }
 </style>
 <script>
+(function () {
   var trigMeCheck2 = function (tar) {
     var group = tar.attr("group");
     tar.siblings(`[group="${group}"]`).removeClass("wrong selected");
@@ -286,19 +287,28 @@
     $(".sideTool > div.btn_replay").show();
   };
 
-  var withinShowAnswer = (boolean) => {
+  var withinShowAnswer_PT4_3_4_4 = (boolean) => {
     if (boolean) {
       $(".PT4-3-4-4 .contents .puzzle .conditions > span").each(function () {
         $(this).html($(this).attr("ans"));
       });
     } else {
-      withinResetElem();
+      withinResetElem_PT4_3_4_4();
     }
   };
 
-  var withinResetElem = () => {
+  var withinResetElem_PT4_3_4_4 = () => {
     $(".PT4-3-4-4 .contents .puzzle .conditions > span").each(function () {
       $(this).html("");
     });
   };
+
+  window.reactivate_PT4_3_4_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_3_4_4;
+    withinResetElem = withinResetElem_PT4_3_4_4;
+    window.modifyCondition = modifyCondition;
+  };
+
+  window.reactivate_PT4_3_4_4();
+})();
 </script>

@@ -276,6 +276,7 @@
   }
 </style>
 <script>
+(function () {
   var checkSubans = (item) => {
     var team = item.attr("team");
     var noAnsYet = item.parent().find("[team='" + team + "']:empty").length;
@@ -310,4 +311,12 @@
       }
     }
   };
+
+  window.reactivate_PT4_3_2_5 = function () {
+    window.checkSubans = checkSubans;
+    window.filterCats = filterCats;
+  };
+
+  window.reactivate_PT4_3_2_5();
+})();
 </script>

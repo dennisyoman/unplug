@@ -1,4 +1,4 @@
-<div id="module_wrapper" class="module_fillin">
+<div id="module_wrapper" class="module_fillin PT4-1-1-4">
   <div class="tabs">
     <span>任務一</span>
   </div>
@@ -199,6 +199,7 @@
 </div>
 
 <script>
+(function () {
   var checkSum = function (tar, rowID) {
     // 阻止原本的 click event
     if (tar && tar.length > 0) {
@@ -223,4 +224,11 @@
     rootSoundEffect($help);
     tar.html(sum);
   };
+
+  window.reactivate_PT4_1_1_4 = function () {
+    window.checkSum = checkSum;
+  };
+
+  window.reactivate_PT4_1_1_4();
+})();
 </script>

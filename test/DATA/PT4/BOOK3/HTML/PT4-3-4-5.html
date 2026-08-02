@@ -598,6 +598,7 @@
   }
 </style>
 <script>
+(function () {
   var roleStarObserver = null;
   var roleStarSyncTimer = null;
   var roleStarSyncing = false;
@@ -786,17 +787,17 @@
     $(".sideTool > div.btn_replay").show();
   };
 
-  var withinShowAnswer = (boolean) => {
+  var withinShowAnswer_PT4_3_4_5 = (boolean) => {
     if (boolean) {
       $(".PT4-3-4-5 .contents .puzzle .conditions > span").each(function () {
         $(this).html($(this).attr("ans"));
       });
     } else {
-      withinResetElem();
+      withinResetElem_PT4_3_4_5();
     }
   };
 
-  var withinResetElem = () => {
+  var withinResetElem_PT4_3_4_5 = () => {
     $(".PT4-3-4-5 .contents .puzzle .conditions > span").each(function () {
       $(this).html("");
     });
@@ -807,4 +808,17 @@
     });
     scheduleSyncRoleStars();
   };
+
+  window.reactivate_PT4_3_4_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_3_4_5;
+    withinResetElem = withinResetElem_PT4_3_4_5;
+    window.checkAvailable = checkAvailable;
+    window.modifyCondition = modifyCondition;
+    window.modifyText = modifyText;
+    window.toggleYN = toggleYN;
+    connectRoleStarObserver();
+  };
+
+  window.reactivate_PT4_3_4_5();
+})();
 </script>

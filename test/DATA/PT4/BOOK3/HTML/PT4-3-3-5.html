@@ -287,6 +287,7 @@
 </style>
 
 <script>
+(function () {
   var modifyNumber = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
@@ -316,11 +317,19 @@
   };
 
   //dynamic function for this html only
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_3_3_5 = function (boolean) {
     if (boolean) {
       $(".PT4-3-3-5 .contents > div.selected .column-number").each(function () {
         $(this).html($(this).attr("ans"));
       });
     }
   };
+
+  window.reactivate_PT4_3_3_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_3_3_5;
+    window.modifyNumber = modifyNumber;
+  };
+
+  window.reactivate_PT4_3_3_5();
+})();
 </script>

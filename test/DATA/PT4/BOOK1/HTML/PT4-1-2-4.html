@@ -348,6 +348,7 @@
   }
 </style>
 <script>
+(function () {
   var modifyName = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
@@ -363,6 +364,15 @@
   };
 
   //dynamic function for this html only
-  var withinShowAnswer = function (boolean) {};
-  var withinCheckAnswer = function () {};
+  var withinShowAnswer_PT4_1_2_4 = function (boolean) {};
+  var withinCheckAnswer_PT4_1_2_4 = function () {};
+
+  window.reactivate_PT4_1_2_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_1_2_4;
+    withinCheckAnswer = withinCheckAnswer_PT4_1_2_4;
+    window.modifyName = modifyName;
+  };
+
+  window.reactivate_PT4_1_2_4();
+})();
 </script>

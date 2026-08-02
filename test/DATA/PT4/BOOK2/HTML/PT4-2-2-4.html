@@ -223,6 +223,7 @@
   }
 </style>
 <script>
+(function () {
   var newCheckAnswer_PT4_2_2_4 = function () {
     event.stopPropagation();
     event.stopImmediatePropagation();
@@ -296,4 +297,12 @@
     console.log("已經任務三");
     updateMission3();
   }
+
+  window.reactivate_PT4_2_2_4 = function () {
+    window.newCheckAnswer_PT4_2_2_4 = newCheckAnswer_PT4_2_2_4;
+    window.updateMission3 = updateMission3;
+  };
+
+  window.reactivate_PT4_2_2_4();
+})();
 </script>

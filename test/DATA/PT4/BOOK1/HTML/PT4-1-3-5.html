@@ -636,6 +636,7 @@
 </div>
 
 <script>
+(function () {
   var selectOption = function (tar, e) {
     var opt = tar.attr("opt");
     var ans = tar.attr("ans");
@@ -665,6 +666,14 @@
       }
     }
   };
+
+  window.reactivate_PT4_1_3_5 = function () {
+    window.selectOption = selectOption;
+    window.checkNote = checkNote;
+  };
+
+  window.reactivate_PT4_1_3_5();
+})();
 </script>
 
 <style>

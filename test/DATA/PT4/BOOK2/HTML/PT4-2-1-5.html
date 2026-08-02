@@ -515,6 +515,7 @@
     }
   </style>
   <script>
+  (function () {
     var modifyText = (item) => {
       event.stopPropagation();
       var text = window.prompt("請輸入答案：", "");
@@ -548,7 +549,7 @@
     };
 
     //dynamic function for this html only
-    var withinShowAnswer = function (boolean) {
+    var withinShowAnswer_PT4_2_1_5 = function (boolean) {
       if (boolean) {
         $(
           ".PT4-2-1-5 .column-text,.PT4-2-1-5 .column-count,.PT4-2-1-5 .column-name",
@@ -563,11 +564,11 @@
           }
         });
       } else {
-        withinResetElem();
+        withinResetElem_PT4_2_1_5();
       }
     };
 
-    var withinResetElem = function () {
+    var withinResetElem_PT4_2_1_5 = function () {
       $(
         ".PT4-2-1-5  .column-text,.PT4-2-1-5 .column-count,.PT4-2-1-5 .column-name",
       ).each(function () {
@@ -579,5 +580,18 @@
 
       rootSoundEffect($show);
     };
+
+    window.reactivate_PT4_2_1_5 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_2_1_5;
+      withinResetElem = withinResetElem_PT4_2_1_5;
+      window.modifyText = modifyText;
+      // HTML onclick 用 modifyName，實作是 modifyText
+      window.modifyName = modifyText;
+      window.selectShow = selectShow;
+      window.loopDuration = loopDuration;
+    };
+
+    window.reactivate_PT4_2_1_5();
+  })();
   </script>
 </div>

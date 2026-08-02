@@ -398,6 +398,7 @@
   }
 </style>
 <script>
+(function () {
   var modifyText = (item) => {
     event.stopPropagation();
     var text = window.prompt("請輸入答案：", "");
@@ -420,7 +421,7 @@
   };
 
   //dynamic function for this html only
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_2_4_5 = function (boolean) {
     if (boolean) {
       $(".PT4-2-4-5 .contents > div.selected .column-text").each(function () {
         $(this).html($(this).attr("ans"));
@@ -432,7 +433,7 @@
     }
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_2_4_5 = function () {
     $(".PT4-2-4-5 .contents > div.selected .column-text").each(function () {
       $(this).html("");
     });
@@ -531,4 +532,14 @@
       characterData: true,
     });
   }
+
+  window.reactivate_PT4_2_4_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_2_4_5;
+    withinResetElem = withinResetElem_PT4_2_4_5;
+    window.modifyText = modifyText;
+    window.loopName = loopName;
+  };
+
+  window.reactivate_PT4_2_4_5();
+})();
 </script>

@@ -474,6 +474,7 @@
   </style>
 
   <script>
+  (function () {
     var modifyName = (item) => {
       event.stopPropagation();
       event.stopImmediatePropagation();
@@ -488,5 +489,12 @@
         rootSoundEffect($key);
       }
     };
+
+    window.reactivate_PT4_1_2_5 = function () {
+      window.modifyName = modifyName;
+    };
+
+    window.reactivate_PT4_1_2_5();
+  })();
   </script>
 </div>

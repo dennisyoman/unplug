@@ -566,6 +566,7 @@
     }
   </style>
   <script>
+  (function () {
     var toggleYN = function (tar) {
       rootSoundEffect($show);
       tar.toggleClass("selected");
@@ -573,17 +574,17 @@
       $(".sideTool > div.btn_replay").show();
     };
 
-    var withinShowAnswer = function (boolean) {
+    var withinShowAnswer_PT4_3_1_5 = function (boolean) {
       if (boolean) {
         $(".PT4-3-1-5 .sensorYN > span").each(function () {
           $(this).toggleClass("selected", $(this).attr("ans") == "0");
         });
       } else {
-        withinResetElem();
+        withinResetElem_PT4_3_1_5();
       }
     };
 
-    var withinResetElem = function () {
+    var withinResetElem_PT4_3_1_5 = function () {
       //.grids的attribute:size - 表示方格圖的大小(row,column)
       //.grids的attribute:start - 表示機器人的起始位置(x,y)
       //.grids的attribute:stamp - 表示機器人的需要蓋章動作的位置(x,y)
@@ -989,5 +990,18 @@
       });
       startMovingMission(cmds);
     };
+
+    window.reactivate_PT4_3_1_5 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_3_1_5;
+      withinResetElem = withinResetElem_PT4_3_1_5;
+      window.toggleYN = toggleYN;
+      window.anchorRobot = anchorRobot;
+      window.onRobotClickStart = onRobotClickStart;
+      window.rotateRobot = rotateRobot;
+      window.startMovingMission1 = startMovingMission1;
+    };
+
+    window.reactivate_PT4_3_1_5();
+  })();
   </script>
 </div>

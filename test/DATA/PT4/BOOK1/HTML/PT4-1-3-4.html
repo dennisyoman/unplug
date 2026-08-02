@@ -212,6 +212,7 @@
 </div>
 
 <script>
+(function () {
   var selectOption = function (tar, e) {
     $(".alert").remove();
     //
@@ -240,6 +241,13 @@
     options.addClass("selected");
     options.siblings(".selected").removeClass("selected");
   };
+
+  window.reactivate_PT4_1_3_4 = function () {
+    window.selectOption = selectOption;
+  };
+
+  window.reactivate_PT4_1_3_4();
+})();
 </script>
 
 <style>

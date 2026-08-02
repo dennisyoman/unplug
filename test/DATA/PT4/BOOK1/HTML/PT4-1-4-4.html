@@ -261,6 +261,7 @@
 </div>
 
 <script>
+(function () {
   var parkHere = function (tar, e) {
     if (e) {
       e.preventDefault();
@@ -489,6 +490,13 @@
       }, 1000);
     }
   };
+
+  window.reactivate_PT4_1_4_4 = function () {
+    window.parkHere = parkHere;
+  };
+
+  window.reactivate_PT4_1_4_4();
+})();
 </script>
 
 <style>

@@ -609,6 +609,7 @@
 </div>
 
 <script>
+(function () {
   var method1 = function (tar) {
     tar.off("click");
     //確認前面一個的span是否已經被選擇
@@ -919,6 +920,17 @@
     $("#fix12").text(tar.attr("ans"));
     $("#fix11").text("11");
   };
+
+  window.reactivate_PT4_1_4_5 = function () {
+    window.method1 = method1;
+    window.method2 = method2;
+    window.parkHere = parkHere;
+    window.move11To12 = move11To12;
+    window.move14To12 = move14To12;
+  };
+
+  window.reactivate_PT4_1_4_5();
+})();
 </script>
 
 <style>
