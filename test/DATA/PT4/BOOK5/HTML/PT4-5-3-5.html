@@ -8,8 +8,8 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_answer"></div>
-    <div class="btn_replay"></div>
+    <div class="btn_answer" onClick="showAnswer_PT4_5_3_5($(this))"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_5_3_5()"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
 
@@ -483,6 +483,7 @@
 </style>
 
 <script>
+(function () {
   var roomLinkState = null;
   var ANT_W = 20;
   var ANT_H = 15;
@@ -873,7 +874,7 @@
     $(".sideTool > div.btn_answer").removeClass("active");
   };
 
-  var initRoomLink = function () {
+  var initRoomLink_PT4_5_3_5 = function () {
     $(document).off(".pt4535link");
     roomLinkState = null;
     $(".PT4-5-3-5 .rooms")
@@ -1142,7 +1143,7 @@
       // 找最早全部到 room4，再把剩餘分鐘補成最終狀態
       var layer = {};
       layer[startKey] = true;
-      var history = [{ }];
+      var history = [{}];
       history[0][startKey] = null;
       var foundKey = null;
       var foundAt = -1;
@@ -1251,6 +1252,7 @@
   };
 
   var showTaskAlert = function (msg) {
+    $(".alert").remove();
     $(".contents > div.selected").append(
       '<div class="alert wow bounceInUp" onclick="$(this).remove()">' +
         msg +
@@ -1291,10 +1293,9 @@
 
     for (var t = 0; t < timeline.length; t++) {
       ROOM_IDS.forEach(function (id) {
-        $rooms.find('.room[data-room="' + id + '"]').attr(
-          "ant",
-          timeline[t][id] || 0,
-        );
+        $rooms
+          .find('.room[data-room="' + id + '"]')
+          .attr("ant", timeline[t][id] || 0);
       });
       fillCellsForTime($rooms, t);
     }
@@ -1304,16 +1305,19 @@
     $rooms.find(".paths .path").addClass("selected");
   };
 
-  var withinShowAnswer = function (boolean) {
-    if (boolean) {
+  var showAnswer_PT4_5_3_5 = function (btn) {
+    $(".alert").remove();
+    if (!btn.hasClass("active")) {
       rootSoundEffect($help);
       correctRoomLink();
+
+      $("#module_wrapper .sideTool .btn_replay").show();
     } else {
-      resetElem($(".PT4-5-3-5 .contents > div.selected"));
+      resetElem_PT4_5_3_5();
     }
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_5_3_5 = function () {
     rootSoundEffect($show);
     $(document).off(".pt4535link");
     roomLinkState = null;
@@ -1321,9 +1325,24 @@
     $(".PT4-5-3-5 .rooms .room").removeClass("selected");
     $(".PT4-5-3-5 .paths").empty();
     $(".PT4-5-3-5 .ants").empty();
-    initRoomLink();
+    initRoomLink_PT4_5_3_5();
     applyTaskPreset(getSelectedRooms());
   };
 
-  initRoomLink();
+  var resetElem_PT4_5_3_5 = function () {
+    withinResetElem_PT4_5_3_5();
+  };
+
+  // keep 回來：重掛全域 hook + 事件（不清遊戲狀態）
+  window.reactivate_PT4_5_3_5 = function () {
+    withinResetElem = withinResetElem_PT4_5_3_5;
+    initRoomLink_PT4_5_3_5();
+  };
+
+  // onclick 需掛到 window（IIFE 內的 var 不是全域）
+  window.showAnswer_PT4_5_3_5 = showAnswer_PT4_5_3_5;
+  window.resetElem_PT4_5_3_5 = resetElem_PT4_5_3_5;
+
+  window.reactivate_PT4_5_3_5();
+})();
 </script>

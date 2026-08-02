@@ -569,6 +569,7 @@
 </style>
 
 <script>
+(function () {
   var PT4_4_3_5_STEP_MS = 500;
   var toggleMap = function () {
     $(".PT4-4-3-5 .contents > div.selected .mapContainer").toggleClass(
@@ -1218,9 +1219,29 @@
     );
   };
 
-  var withinShowAnswer = function () {};
+  var bindMapCellClick_PT4_4_3_5 = function () {
+    $(".PT4-4-3-5 .contents .mapGrid")
+      .off("click.pt4435celloc")
+      .on("click.pt4435celloc", ".cell[oc]", function () {
+        runCellOc($(this));
+      });
+  };
 
-  var withinResetElem = function () {
+  var withinShowAnswer_PT4_4_3_5 = function () {};
+
+  var withinResetElem_PT4_4_3_5 = function () {
     resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), true);
   };
+
+  window.reactivate_PT4_4_3_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_4_3_5;
+    withinResetElem = withinResetElem_PT4_4_3_5;
+    window.toggleMap = toggleMap;
+    window.checkCanMove = checkCanMove;
+    window.resetMapGrid = resetMapGrid;
+    bindMapCellClick_PT4_4_3_5();
+  };
+
+  window.reactivate_PT4_4_3_5();
+})();
 </script>

@@ -147,6 +147,7 @@
 </style>
 
 <script>
+(function () {
   var bagSortState = null;
   var BAG_DRAG_THRESHOLD = 6;
 
@@ -303,14 +304,18 @@
     e.preventDefault();
   };
 
-  var initBagSort = function () {
-    shuffleBags();
+  var bindBagSort_PT4_4_2_4 = function () {
     $(".PT4-4-2-4 .contents .bags")
       .off(".bagsort")
       .on("mousedown.bagsort touchstart.bagsort", "> div", onBagPointerDown);
   };
 
-  var withinShowAnswer = function (boolean) {
+  var initBagSort = function () {
+    shuffleBags();
+    bindBagSort_PT4_4_2_4();
+  };
+
+  var withinShowAnswer_PT4_4_2_4 = function (boolean) {
     if (!boolean) return;
     var $bags = $(".PT4-4-2-4 .contents .bags");
     var $items = $bags.children("div").get();
@@ -324,7 +329,7 @@
     });
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_4_2_4 = function () {
     $(document).off(".bagsort");
     bagSortState = null;
     $(".PT4-4-2-4 .contents .bags .bag-placeholder").remove();
@@ -351,4 +356,17 @@
     console.log("已經任務三");
     updateMission3();
   }
+
+  window.reactivate_PT4_4_2_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_4_2_4;
+    withinResetElem = withinResetElem_PT4_4_2_4;
+    window.updateMission3 = updateMission3;
+    bindBagSort_PT4_4_2_4();
+    if (window.PT4_4_2_mission3) {
+      updateMission3();
+    }
+  };
+
+  window.reactivate_PT4_4_2_4();
+})();
 </script>

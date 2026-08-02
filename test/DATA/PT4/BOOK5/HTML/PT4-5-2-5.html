@@ -8,8 +8,8 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_answer"></div>
-    <div class="btn_replay"></div>
+    <div class="btn_answer" onClick="showAnswer_PT4_5_2_5($(this))"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_5_2_5()"></div>
     <div class="btn_check" onClick="checkAnswer_PT4_5_2_5()"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
   </div>
@@ -46,19 +46,19 @@
 
         <div class="conditions">
           <span
-            onClick="modifyCondition($(this))"
+            onClick="modifyCondition_PT4_5_2_5($(this))"
             class="column-condition"
             style="top: 23px; left: 85px; width: 141px; height: 13px"
             ans="沒有出去的箭頭"
           ></span>
           <span
-            onClick="modifyCondition($(this))"
+            onClick="modifyCondition_PT4_5_2_5($(this))"
             class="column-condition"
             style="top: 97px; left: 85px; width: 141px; height: 13px"
             ans="沒有進來的箭頭"
           ></span>
           <span
-            onClick="modifyCondition($(this))"
+            onClick="modifyCondition_PT4_5_2_5($(this))"
             class="column-condition"
             style="top: 172px; left: 85px; width: 141px; height: 13px"
             ans="箭頭形成循環的形式"
@@ -213,7 +213,7 @@
       >
         <div class="items" style="transform: scale(1.5)">
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="aa"
             style="top: -75px; left: 0px; height: 20px"
             routes="gg:B,cc:A"
@@ -224,7 +224,7 @@
               src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-A.png"
           /></span>
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="bb"
             style="top: -50px; left: 0px; height: 20px"
             routes="ff:E"
@@ -235,7 +235,7 @@
               src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-B.png"
           /></span>
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="cc"
             style="top: -25px; left: 0px; height: 20px"
           >
@@ -245,7 +245,7 @@
               src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-C.png"
           /></span>
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="dd"
             style="top: 0px; left: 0px; height: 20px"
             routes="bb:G,ff:H"
@@ -256,7 +256,7 @@
               src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-D.png"
           /></span>
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="ee"
             style="top: 25px; left: 0px; height: 20px"
           >
@@ -266,7 +266,7 @@
               src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-E.png"
           /></span>
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="ff"
             style="top: 50px; left: 0px; height: 20px"
             routes="gg:C"
@@ -277,7 +277,7 @@
               src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-1-F.png"
           /></span>
           <span
-            onClick="trigMe($(this));addArrow($(this))"
+            onClick="trigMe($(this));addArrow_PT4_5_2_5($(this))"
             iid="gg"
             style="top: 75px; left: 0px; height: 20px"
             routes="ee:D,bb:F"
@@ -310,32 +310,32 @@
       >
         <div class="conditions">
           <span
-            onClick="modifyText($(this))"
+            onClick="modifyText_PT4_5_2_5($(this))"
             class="column-route"
             style="top: 38px; left: 163px; width: 73px; height: 13px"
             ans="X"
           ></span>
           <span
-            onClick="modifyText($(this))"
+            onClick="modifyText_PT4_5_2_5($(this))"
             class="column-route"
             style="top: 103px; left: 163px; width: 73px; height: 13px"
             ans="D > C > H"
           ></span>
           <span
-            onClick="modifyText($(this))"
+            onClick="modifyText_PT4_5_2_5($(this))"
             class="column-route"
             style="top: 169px; left: 166px; width: 73px; height: 13px"
             ans="C > H"
           ></span>
           <span
-            onClick="modifyText($(this))"
+            onClick="modifyText_PT4_5_2_5($(this))"
             class="column-route"
             style="top: 234px; left: 168px; width: 73px; height: 13px"
             ans="X"
           ></span>
 
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 41px;
@@ -347,7 +347,7 @@
             ans=""
           ></span>
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 41px;
@@ -360,7 +360,7 @@
           ></span>
 
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 107px;
@@ -372,7 +372,7 @@
             ans="v"
           ></span>
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 107px;
@@ -385,7 +385,7 @@
           ></span>
 
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 172px;
@@ -397,7 +397,7 @@
             ans="v"
           ></span>
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 172px;
@@ -410,7 +410,7 @@
           ></span>
 
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 238px;
@@ -422,7 +422,7 @@
             ans=""
           ></span>
           <span
-            onClick="toggleYN($(this))"
+            onClick="toggleYN_PT4_5_2_5($(this))"
             class="column-yn"
             style="
               top: 238px;
@@ -437,14 +437,14 @@
         <img width="100%" src="./DATA/PT4/BOOK5/IMAGES/PT4-5-2-5-3.png" />
       </div>
       <div class="ref wow bounceInLeft">
-        <div class="reset-btn" onClick="resetRoute()">
+        <div class="reset-btn" onClick="resetRoute_PT4_5_2_5()">
           <img src="./DATA/IMAGES/common/btn_replay.png" />
         </div>
         <div class="lines">
           <!-- lines-->
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 66px;
               top: 135px;
@@ -455,7 +455,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 17px;
               top: 96px;
@@ -466,7 +466,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 30px;
               top: 151px;
@@ -477,7 +477,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 22px;
               top: 71px;
@@ -488,7 +488,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 71px;
               top: 135px;
@@ -499,7 +499,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 16px;
               top: 95px;
@@ -510,7 +510,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 19px;
               top: 108px;
@@ -521,7 +521,7 @@
           >
           <span
             class="line"
-            onClick="addRoute($(this))"
+            onClick="addRoute_PT4_5_2_5($(this))"
             style="
               width: 21px;
               top: 178px;
@@ -725,7 +725,7 @@
 </style>
 
 <script>
-  var toggleYN = (item) => {
+  var toggleYN_PT4_5_2_5 = (item) => {
     var NYArr = ["v", ""];
     event.stopPropagation();
     event.stopImmediatePropagation();
@@ -743,7 +743,7 @@
     $(".sideTool > div.btn_replay").show();
   };
 
-  var addRoute = (item) => {
+  var addRoute_PT4_5_2_5 = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
     rootSoundEffect($pop);
@@ -751,13 +751,13 @@
     $(".PT4-5-2-5 .ref .reset-btn").addClass("selected");
   };
 
-  var resetRoute = () => {
+  var resetRoute_PT4_5_2_5 = () => {
     $(".PT4-5-2-5 .ref .line").removeClass("selected");
     $(".PT4-5-2-5 .ref .reset-btn").removeClass("selected");
     rootSoundEffect($show);
   };
 
-  var addArrow = (item) => {
+  var addArrow_PT4_5_2_5 = (item) => {
     if (item.parent().parent().hasClass("code")) {
       var frame = $(".contents > div.selected").find(".puzzle .items.selected");
       var me = frame.children().last();
@@ -866,11 +866,46 @@
       }
       return;
     }
+
+    //任務三：直接在本檔 check btn 檢查
+    if ($(".PT4-5-2-5 .contents > div:nth-child(3).selected").length > 0) {
+      var ynWrong = false;
+      $(
+        ".PT4-5-2-5 .contents > div:nth-child(3).selected .conditions .column-yn",
+      ).each(function () {
+        var ans = $(this).attr("ans");
+        if (ans !== $(this).text()) {
+          $(this).addClass("wrong");
+          ynWrong = true;
+        } else {
+          $(this).removeClass("wrong");
+        }
+      });
+      if (ynWrong) {
+        rootSoundEffect($wrong);
+        $(".resultIcon, .smoke").remove();
+      } else {
+        rootSoundEffect($chimes);
+        var uniq3 = new Date().getTime();
+        $(".contents > div.selected").append(
+          `<span class="resultIcon wow bounceIn"><img src="./DATA/IMAGES/common/icon_right.png"/></span><span class="smoke"><img src="./DATA/IMAGES/common/chimes.gif?uniq=${uniq3}"/></span>`,
+        );
+        $(".smoke")
+          .delay(1500)
+          .queue(function () {
+            $(".resultIcon").remove();
+            $(this).dequeue().remove();
+          });
+      }
+      return;
+    }
+
+    //任務一：走 decode 預設
     checkAnswer();
   };
 
   /* 共用 */
-  var modifyCondition = (item) => {
+  var modifyCondition_PT4_5_2_5 = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
     var text = window.prompt("請自行輸入，或使用建議答案：", item.attr("ans"));
@@ -885,7 +920,7 @@
     $(".sideTool > div.btn_replay").show();
   };
 
-  var modifyText = (item) => {
+  var modifyText_PT4_5_2_5 = (item) => {
     event.stopPropagation();
     event.stopImmediatePropagation();
     var text = window.prompt("請輸入文字：", "");
@@ -900,9 +935,9 @@
     $(".sideTool > div.btn_replay").show();
   };
 
-  var withinShowAnswer = function (boolean) {
-    if (boolean) {
-      $(".alert").remove();
+  var showAnswer_PT4_5_2_5 = function (btn) {
+    $(".alert").remove();
+    if (!btn.hasClass("active")) {
       $(".contents > div.selected .conditions")
         .find(".column-condition")
         .each(function () {
@@ -940,10 +975,16 @@
           $(this).removeClass("selected");
         });
       }
+
+      rootSoundEffect($help);
+      $("#module_wrapper .sideTool .btn_replay").show();
+      $("#module_wrapper .sideTool .btn_check").hide();
+    } else {
+      resetElem_PT4_5_2_5();
     }
   };
 
-  var withinResetElem = function () {
+  var resetElem_PT4_5_2_5 = function () {
     $(".contents > div.selected .conditions")
       .find(".column-condition")
       .html("");
@@ -951,21 +992,12 @@
     $(".contents > div.selected .conditions").find(".column-route").html("");
   };
 
-  var withinCheckAnswer = function () {
-    /* 任務三 */
-    var getWrong = false;
-    $(
-      ".PT4-5-2-5 .contents > div:nth-child(3).selected .conditions .column-yn",
-    ).each(function () {
-      var ans = $(this).attr("ans");
-      if (ans !== $(this).text()) {
-        $(this).addClass("wrong");
-        getWrong = true;
-      }
-    });
-    if (getWrong) {
-      rootSoundEffect($wrong);
-      $(".resultIcon, .smoke").remove();
-    }
+  var withinCheckAnswer_PT4_5_2_5 = function () {};
+
+  // keep 回來：重掛 hook
+  window.reactivate_PT4_5_2_5 = function () {
+    withinCheckAnswer = withinCheckAnswer_PT4_5_2_5;
   };
+
+  window.reactivate_PT4_5_2_5();
 </script>

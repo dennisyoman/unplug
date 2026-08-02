@@ -1,0 +1,1331 @@
+<div id="module_wrapper" class="module_basic PT4-5-1-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer" onClick="showAnswer_PT4_5_1_5($(this))"></div>
+    <div class="btn_check" onClick="checkAnswer_PT4_5_1_5()"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_5_1_5()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：貨車要從 A 島到達 F
+            島的話，最重不能超過多少公噸？要走哪條路？
+          </p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="routes start" style="top: 41px; height: 41px">
+            <span
+              class="route"
+              rid="t1-b"
+              from="t1-b"
+              to="B"
+              ans="0"
+              style="left: 60px; top: 22px"
+              >B</span
+            >
+            <span
+              class="route"
+              rid="t1-c"
+              from="t1-c"
+              to="C"
+              ans="1"
+              style="left: 172px; top: 22px"
+              >C</span
+            >
+          </div>
+          <div class="routes" style="top: 81px; height: 41px">
+            <span class="route" rid="t1-b-c" from="t1-b" to="C" ans="0">C</span>
+            <span class="route" rid="t1-b-d" from="t1-b" to="D" ans="0">D</span>
+            <span class="route" rid="t1-c-d" from="t1-c" to="D" ans="1">D</span>
+            <span class="route" rid="t1-c-e" from="t1-c" to="E" ans="0">E</span>
+            <div class="route-checkbtn" onClick="checkRoute_PT4_5_1_5(this)">
+              <img src="./DATA/IMAGES/common/btn_check.png" />
+            </div>
+          </div>
+          <div class="routes" style="top: 122px; height: 41px">
+            <span class="route" rid="t1-cd-e" from="t1-c-d" to="E" ans="1"
+              >E</span
+            >
+            <span class="route" rid="t1-cd-f" from="t1-c-d" to="F" ans="0"
+              >F</span
+            >
+            <div class="route-checkbtn" onClick="checkRoute_PT4_5_1_5(this)">
+              <img src="./DATA/IMAGES/common/btn_check.png" />
+            </div>
+          </div>
+          <div class="routes" style="top: 162px; height: 41px">
+            <span class="route" rid="t1-cde-f" from="t1-cd-e" to="F" ans="1"
+              >F</span
+            >
+            <div class="route-checkbtn" onClick="checkRoute_PT4_5_1_5(this)">
+              <img src="./DATA/IMAGES/common/btn_check.png" />
+            </div>
+          </div>
+
+          <img
+            width="250px"
+            src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-5-1.png"
+            class="wow fadeIn"
+          />
+
+          <div class="sensors">
+            <span
+              class="sensor"
+              onclick="switchNumber_PT4_5_1_5(1, 9, $(this))"
+              style="width: 100px; height: 15px; top: 207px; left: 88px"
+              ans="4"
+            ></span>
+            <span
+              class="sensor route-answer"
+              style="width: 100px; height: 15px; top: 225px; left: 139px"
+              ans="A-C-D-E-F"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：3 公噸的車有哪些路徑可以到達 F 島？</p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="routes start" style="top: 41px; height: 41px">
+            <span
+              class="route"
+              rid="t2-b"
+              from="t2-b"
+              to="B"
+              ans="0"
+              style="left: 60px; top: 22px"
+              >B</span
+            >
+            <span
+              class="route"
+              rid="t2-c"
+              from="t2-c"
+              to="C"
+              ans="1"
+              style="left: 172px; top: 22px"
+              >C</span
+            >
+          </div>
+          <div class="routes" style="top: 81px; height: 41px">
+            <span class="route" rid="t2-b-c" from="t2-b" to="C" ans="0">C</span>
+            <span class="route" rid="t2-b-d" from="t2-b" to="D" ans="1">D</span>
+            <span class="route" rid="t2-c-d" from="t2-c" to="D" ans="1">D</span>
+            <span class="route" rid="t2-c-e" from="t2-c" to="E" ans="0">E</span>
+            <div class="route-checkbtn" onClick="checkRoute_PT4_5_1_5(this)">
+              <img src="./DATA/IMAGES/common/btn_check.png" />
+            </div>
+          </div>
+          <!-- 兩個 D(ans=1) 各長出 E/F，用 rid 分開 -->
+          <div class="routes" style="top: 122px; height: 41px">
+            <span class="route" rid="t2-bd-e" from="t2-b-d" to="E" ans="1"
+              >E</span
+            >
+            <span class="route" rid="t2-bd-f" from="t2-b-d" to="F" ans="1"
+              >F</span
+            >
+            <span class="route" rid="t2-cd-e" from="t2-c-d" to="E" ans="1"
+              >E</span
+            >
+            <span class="route" rid="t2-cd-f" from="t2-c-d" to="F" ans="1"
+              >F</span
+            >
+            <div class="route-checkbtn" onClick="checkRoute_PT4_5_1_5(this)">
+              <img src="./DATA/IMAGES/common/btn_check.png" />
+            </div>
+          </div>
+          <!-- 兩個 E 各長出 F -->
+          <div class="routes" style="top: 162px; height: 41px">
+            <span class="route" rid="t2-bde-f" from="t2-bd-e" to="F" ans="1"
+              >F</span
+            >
+            <span class="route" rid="t2-cde-f" from="t2-cd-e" to="F" ans="1"
+              >F</span
+            >
+            <div class="route-checkbtn" onClick="checkRoute_PT4_5_1_5(this)">
+              <img src="./DATA/IMAGES/common/btn_check.png" />
+            </div>
+          </div>
+          <img
+            class="wow fadeIn"
+            width="250px"
+            src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-5-2.png"
+          />
+          <div class="sensors">
+            <span
+              class="sensor route-answer"
+              style="width: 68px; height: 15px; top: 212px; left: 99px"
+              ans="A-B-D-E-F"
+            ></span>
+            <span
+              class="sensor route-answer"
+              style="width: 68px; height: 15px; top: 212px; left: 178px"
+              ans="A-C-D-E-F"
+            ></span>
+            <span
+              class="sensor route-answer"
+              style="width: 68px; height: 15px; top: 231px; left: 99px"
+              ans="A-B-D-F"
+            ></span>
+            <span
+              class="sensor route-answer"
+              style="width: 68px; height: 15px; top: 231px; left: 178px"
+              ans="A-C-D-F"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：利用任務一和二的結果，判斷一下這些問題可以怎麼解決？
+          </p>
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-5-3-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors" style="margin-left: 200px">
+            <span
+              class="sensor route-guess"
+              style="width: 133px; height: 15px; top: 34px; left: 111px"
+              ans="A-C-D-E-F"
+              ><span class="guess-text"></span
+              ><span
+                class="btn-clear-guess"
+                onclick="clearRouteGuess_PT4_5_1_5(event, $(this))"
+              ></span
+            ></span>
+            <span
+              class="sensor route-guess"
+              style="width: 133px; height: 15px; top: 53px; left: 111px"
+              ans="A-B-D-F"
+              ><span class="guess-text"></span
+              ><span
+                class="btn-clear-guess"
+                onclick="clearRouteGuess_PT4_5_1_5(event, $(this))"
+              ></span
+            ></span>
+            <span
+              onclick="switchRestorePoints_PT4_5_1_5($(this))"
+              class="sensor restore-points"
+              style="width: 25px; height: 15px; top: 132px; left: 56px"
+              ans="D-E"
+            ></span>
+            <span
+              onclick="fillContent_PT4_5_1_5($(this))"
+              class="sensor reason"
+              style="width: 180px; height: 15px; top: 132px; left: 110px"
+              ans="3公噸的車可以有一條路通行。"
+            ></span>
+            <span
+              onclick="switchRestorePoints_PT4_5_1_5($(this))"
+              class="sensor restore-points"
+              style="width: 25px; height: 15px; top: 151px; left: 56px"
+              ans="A-C"
+            ></span>
+            <span
+              onclick="fillContent_PT4_5_1_5($(this))"
+              class="sensor reason"
+              style="width: 180px; height: 15px; top: 151px; left: 110px"
+              ans="4公噸的車可以通行，可運更多。"
+            ></span>
+            <span
+              onclick="switchRestorePoints_PT4_5_1_5($(this))"
+              class="sensor restore-points"
+              style="width: 25px; height: 15px; top: 168px; left: 56px"
+              ans="D-F"
+            ></span>
+            <span
+              onclick="fillContent_PT4_5_1_5($(this))"
+              class="sensor reason"
+              style="width: 180px; height: 15px; top: 168px; left: 110px"
+              ans="完全修復，可以同時通行2輛車。
+              "
+            ></span>
+          </div>
+          <img
+            class="wow fadeInRight"
+            width="250px"
+            style="margin-left: 200px"
+            src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-5-3.png"
+          />
+          <div
+            class="island-graph wow fadeIn"
+            style="position: absolute; top: 20px; left: 0px"
+          >
+            <div class="names">
+              <span style="top: 21px; left: 78px" ans="A">A</span>
+              <span style="top: 68px; left: 27px" ans="B">B</span>
+              <span style="top: 68px; left: 130px" ans="C">C</span>
+              <span style="top: 116px; left: 27px" ans="D">D</span>
+              <span style="top: 116px; left: 130px" ans="E">E</span>
+              <span style="top: 163px; left: 78px" ans="F">F</span>
+            </div>
+            <div class="lines"></div>
+            <img
+              width="180"
+              height="auto"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-4-1.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-1-5 .route-answer {
+    pointer-events: none;
+  }
+  .PT4-5-1-5 .routes {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    display: block;
+    opacity: 0;
+  }
+  .PT4-5-1-5 .routes.selected,
+  .PT4-5-1-5 .routes.done {
+    opacity: 1;
+  }
+
+  .PT4-5-1-5 .routes .route {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    /* 白底改放 ::after，才能蓋住 ::before 線 */
+    background: transparent;
+    border: none;
+    display: none;
+    place-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: transparent; /* 文字改由 ::after 顯示 */
+    box-sizing: border-box;
+    opacity: 0.3;
+  }
+  .PT4-5-1-5 .routes:not(.start) .route {
+    top: 50%;
+    margin-top: -10px;
+  }
+  .PT4-5-1-5 .routes .route::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: 3px;
+    height: var(--distance, 0px);
+    background-color: #1d5f9c;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%) rotate(var(--angle, 0deg));
+    transform-origin: bottom center;
+    pointer-events: none;
+  }
+  .PT4-5-1-5 .routes .route.self::before {
+    display: none;
+  }
+  /* 圓面 + 文字蓋在線上面 */
+  .PT4-5-1-5 .routes .route::after {
+    content: attr(to);
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 1px solid #1d5f9c;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  .PT4-5-1-5 .routes .route-checkbtn {
+    pointer-events: auto;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: calc(50% - 12.5px);
+    right: -40px;
+    animation: bounceIn 1s linear both;
+    display: none;
+  }
+  .PT4-5-1-5 .routes .route-checkbtn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .PT4-5-1-5 .routes.selected .route {
+    display: grid;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  /* start 固定顯示；left/top 吃 inline，JS 不改 */
+  .PT4-5-1-5 .routes.start .route {
+    display: grid;
+    pointer-events: none;
+  }
+  /* 可點的下一層（尚未 selected / done） */
+  .PT4-5-1-5 .routes:not(.start):not(.selected):not(.done) {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .PT4-5-1-5 .routes:has(.route.selected) .route {
+    opacity: 0.3;
+  }
+  .PT4-5-1-5 .routes:has(.route.selected) .route-checkbtn {
+    display: block;
+    pointer-events: auto;
+  }
+  .PT4-5-1-5 .routes .route.selected {
+    opacity: 1 !important;
+  }
+  .PT4-5-1-5 .routes.done .route {
+    display: grid;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+  .PT4-5-1-5 .routes.done .route.selected {
+    opacity: 1 !important;
+  }
+  .PT4-5-1-5 .routes.done .route-checkbtn {
+    display: none !important;
+  }
+  .PT4-5-1-5 .item.measuring .routes.start {
+    opacity: 1 !important;
+  }
+  .PT4-5-1-5 .item.measuring .routes .route {
+    display: grid !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .PT4-5-1-5 .sensors .sensor {
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .PT4-5-1-5 .sensors .sensor.route-guess {
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .PT4-5-1-5 .sensors .sensor.route-guess.selected {
+    outline: 2px dashed #333;
+    outline-offset: 1px;
+  }
+  .PT4-5-1-5 .sensors .sensor.route-guess.wrong {
+    outline: 2px solid #ff0000;
+    outline-offset: 1px;
+    color: #ff0000;
+  }
+  .PT4-5-1-5 .sensors .sensor.route-guess .guess-text {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .PT4-5-1-5 .sensors .sensor.route-guess .btn-clear-guess {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 11px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+    pointer-events: none;
+    display: none;
+  }
+  .PT4-5-1-5 .sensors .sensor.route-guess.selected .btn-clear-guess {
+    display: block;
+    pointer-events: auto;
+  }
+  .PT4-5-1-5 .sensors .sensor.route-guess .btn-clear-guess::before {
+    content: "×";
+  }
+
+  .PT4-5-1-5 .island-graph.is-scaled {
+    transform: scale(1.4) translate(-20px, 20px);
+  }
+  .PT4-5-1-5 .island-graph .names {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-5-1-5 .island-graph .names span {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    color: #000;
+    pointer-events: auto;
+    cursor: pointer;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    transform: scale(0.6);
+    font-weight: bold;
+    user-select: none;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .PT4-5-1-5 .island-graph .names span[ans="A"] {
+    color: #fff;
+    background: #fd5e5e;
+  }
+  .PT4-5-1-5 .island-graph .lines {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-5-1-5 .island-graph .lines .line {
+    position: absolute;
+    z-index: 1;
+    height: 3px;
+    background: #1d5f9c;
+    transform-origin: left center;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-5-1-5 .island-graph .lines .line.line-yellow {
+    background: #f5c518;
+  }
+  .PT4-5-1-5 .island-graph .lines .line.line-faded {
+    opacity: 0.3;
+  }
+  .PT4-5-1-5 .island-graph .lines .line .line-ui {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .PT4-5-1-5 .island-graph .lines .line .weight-limit {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    font-size: 10px;
+    display: grid;
+    place-items: center;
+    background: #1d5f9c;
+    border: 1px solid #1d5f9c;
+    color: #fff;
+    pointer-events: none;
+    font-weight: bold;
+    transform: scale(0.8);
+  }
+  .PT4-5-1-5 .island-graph .lines .line.line-yellow .weight-limit {
+    background: #f5c518;
+    border-color: #f5c518;
+    color: #333;
+  }
+</style>
+
+<script>
+  var ROUTE_SIZE_PT4_5_1_5 = 20;
+  var ROUTE_GAP_PT4_5_1_5 = 28;
+
+  // min~max 循環切換數字（空值從 min 起）
+  var switchNumber_PT4_5_1_5 = function (min, max, $el) {
+    var current = parseInt(($el.text() || "").trim(), 10);
+    var next;
+    if (isNaN(current) || current < min || current >= max) {
+      next = min;
+    } else {
+      next = current + 1;
+    }
+    $el.text(String(next));
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var RESTORE_POINTS_PT4_5_1_5 = ["D-E", "A-C", "D-F"];
+
+  // 在 D-E / A-C / D-F 之間輪替
+  var switchRestorePoints_PT4_5_1_5 = function ($el) {
+    var current = ($el.text() || "").trim();
+    var idx = RESTORE_POINTS_PT4_5_1_5.indexOf(current);
+    var next =
+      RESTORE_POINTS_PT4_5_1_5[(idx + 1) % RESTORE_POINTS_PT4_5_1_5.length];
+    if (idx < 0) next = RESTORE_POINTS_PT4_5_1_5[0];
+    $el.text(next);
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  // 任務三標準島圖（同 PT4-5-1-4）
+  var ANSWER_LINKS_PT4_5_1_5 = [
+    ["D", "E", "5"],
+    ["E", "F", "4"],
+    ["C", "E", "2"],
+    ["B", "D", "3"],
+    ["C", "D", "4"],
+    ["B", "C", "2"],
+    ["A", "B", "8"],
+    ["D", "F", "3"],
+    ["A", "C", "9"],
+  ];
+
+  // ---------- 任務三：島圖連線（純顯示） ----------
+  var getNameCenter_PT4_5_1_5 = function ($span, $graph) {
+    var ratio = stageRatioReal || 1;
+    var cOff = $graph.offset();
+    var r = $span[0].getBoundingClientRect();
+    return {
+      x: (r.left + r.width / 2 - cOff.left) / ratio,
+      y: (r.top + r.height / 2 - cOff.top) / ratio,
+    };
+  };
+
+  var setGraphLineGeom_PT4_5_1_5 = function ($line, start, end) {
+    var dx = end.x - start.x;
+    var dy = end.y - start.y;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var deg = (Math.atan2(dy, dx) * 180) / Math.PI;
+    $line.css({
+      left: start.x + "px",
+      top: start.y - 1.5 + "px",
+      width: Math.max(len, 0) + "px",
+      transform: "rotate(" + deg + "deg)",
+    });
+    // 限重數字反向旋轉，保持直立
+    $line.find(".line-ui").css({
+      transform: "translate(-50%, -50%) rotate(" + -deg + "deg)",
+    });
+  };
+
+  var appendGraphLine_PT4_5_1_5 = function ($graph, fromId, toId, weight) {
+    if (!$graph || !$graph.length || !fromId || !toId || fromId === toId) {
+      return;
+    }
+    var $names = $graph.find(".names");
+    var $lines = $graph.find(".lines");
+    var exists =
+      $lines.find(
+        '.line[from="' +
+          fromId +
+          '"][to="' +
+          toId +
+          '"], .line[from="' +
+          toId +
+          '"][to="' +
+          fromId +
+          '"]',
+      ).length > 0;
+    if (exists) return;
+
+    var $from = $names.find('span[ans="' + fromId + '"]');
+    var $to = $names.find('span[ans="' + toId + '"]');
+    if (!$from.length || !$to.length) return;
+
+    var $line = $(
+      '<div class="line"><div class="line-ui"><span class="weight-limit"></span></div></div>',
+    )
+      .attr({ from: fromId, to: toId })
+      .appendTo($lines);
+    if (weight != null && weight !== "") {
+      $line.find(".weight-limit").text(weight);
+    }
+    setGraphLineGeom_PT4_5_1_5(
+      $line,
+      getNameCenter_PT4_5_1_5($from, $graph),
+      getNameCenter_PT4_5_1_5($to, $graph),
+    );
+  };
+
+  var clearGraphLines_PT4_5_1_5 = function ($item) {
+    ($item && $item.length ? $item : $(".PT4-5-1-5"))
+      .find(".island-graph .lines")
+      .empty();
+  };
+
+  // 依 ANSWER_LINKS 一次畫好整張島圖（含限重），畫完再 scale
+  var drawAnswerGraph_PT4_5_1_5 = function ($item) {
+    if (!$item || !$item.length) return;
+    var $graph = $item.find(".island-graph");
+    if (!$graph.length) return;
+
+    // 先拿掉縮放，用原尺寸量測連線
+    $graph.removeClass("is-scaled");
+    clearGraphLines_PT4_5_1_5($item);
+    ANSWER_LINKS_PT4_5_1_5.forEach(function (link) {
+      appendGraphLine_PT4_5_1_5($graph, link[0], link[1], link[2]);
+    });
+    // 線畫好後再套 transform
+    void $graph[0].offsetHeight;
+    $graph.addClass("is-scaled");
+  };
+
+  // ---------- 任務三：route-guess 選取 + 點島名填入 ----------
+  var getRouteGuessText_PT4_5_1_5 = function ($guess) {
+    return ($guess.children(".guess-text").text() || "").trim();
+  };
+
+  var setRouteGuessText_PT4_5_1_5 = function ($guess, text) {
+    $guess.children(".guess-text").text(text || "");
+  };
+
+  var clearRouteGuess_PT4_5_1_5 = function (e, $btn) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    }
+    var $guess = $btn.closest(".route-guess");
+    setRouteGuessText_PT4_5_1_5($guess, "");
+    $guess.removeClass("wrong");
+    rootSoundEffect($show);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var onRouteGuessClick_PT4_5_1_5 = function (e) {
+    if ($(e.target).closest(".btn-clear-guess").length) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var $el = $(this);
+    $el.siblings(".route-guess").removeClass("selected");
+    $el.toggleClass("selected");
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var hasGraphEdge_PT4_5_1_5 = function (a, b) {
+    if (!a || !b || a === b) return false;
+    for (var i = 0; i < ANSWER_LINKS_PT4_5_1_5.length; i++) {
+      var link = ANSWER_LINKS_PT4_5_1_5[i];
+      if (
+        (link[0] === a && link[1] === b) ||
+        (link[0] === b && link[1] === a)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  var onNameSpanClick_PT4_5_1_5 = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var $item = $(this).closest(".item");
+    var $guess = $item.find(".sensors .route-guess.selected");
+    if (!$guess.length) return;
+
+    var letter = $(this).attr("ans");
+    if (!letter) return;
+
+    var cur = getRouteGuessText_PT4_5_1_5($guess);
+    if (!cur) {
+      setRouteGuessText_PT4_5_1_5($guess, letter);
+      rootSoundEffect($good);
+      $("#module_wrapper .sideTool .btn_replay").show();
+      $("#module_wrapper .sideTool .btn_check").show();
+      return;
+    }
+
+    var parts = cur.split("-");
+    // 重複經過同一島
+    if (parts.indexOf(letter) !== -1) {
+      showTaskAlert_PT4_5_1_5("這個島已經在路徑裡了，請選其他島。");
+      return;
+    }
+    // 與上一個島沒有連線
+    var prev = parts[parts.length - 1];
+    if (!hasGraphEdge_PT4_5_1_5(prev, letter)) {
+      showTaskAlert_PT4_5_1_5("這兩個島之間沒有連接，請選有橋的島。");
+      return;
+    }
+
+    setRouteGuessText_PT4_5_1_5($guess, cur + "-" + letter);
+    rootSoundEffect($good);
+    $("#module_wrapper .sideTool .btn_replay").show();
+    $("#module_wrapper .sideTool .btn_check").show();
+  };
+
+  var onGraphLineClick_PT4_5_1_5 = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var $line = $(this);
+    // 原色 → 黃 → 半透明 → 原色…
+    if ($line.hasClass("line-yellow")) {
+      $line.removeClass("line-yellow").addClass("line-faded");
+    } else if ($line.hasClass("line-faded")) {
+      $line.removeClass("line-faded");
+    } else {
+      $line.addClass("line-yellow");
+    }
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var bindTask3Interaction_PT4_5_1_5 = function () {
+    $(document)
+      .off(".pt4515task3")
+      .on(
+        "click.pt4515task3",
+        ".PT4-5-1-5 .sensors .route-guess",
+        onRouteGuessClick_PT4_5_1_5,
+      )
+      .on(
+        "click.pt4515task3",
+        ".PT4-5-1-5 .island-graph .names > span",
+        onNameSpanClick_PT4_5_1_5,
+      )
+      .on(
+        "click.pt4515task3",
+        ".PT4-5-1-5 .island-graph .lines .line",
+        onGraphLineClick_PT4_5_1_5,
+      );
+  };
+
+  var findFromRoute_PT4_5_1_5 = function ($route) {
+    var from = $route.attr("from");
+    var rid = $route.attr("rid");
+    // 起點：from === rid
+    if (!from || from === rid) return $();
+    var $found = $();
+    $route
+      .closest(".routes")
+      .prevAll(".routes")
+      .each(function () {
+        var $hit = $(this).children('.route[rid="' + from + '"]');
+        if ($hit.length) {
+          $found = $hit.eq(0);
+          return false;
+        }
+      });
+    return $found;
+  };
+
+  var layoutOneRoutesRow_PT4_5_1_5 = function ($row, ratio) {
+    var rowRect = $row[0].getBoundingClientRect();
+    var groups = {};
+    var order = [];
+
+    $row.children(".route").each(function () {
+      var from = $(this).attr("from") || "";
+      if (!groups[from]) {
+        groups[from] = [];
+        order.push(from);
+      }
+      groups[from].push($(this));
+    });
+
+    order.forEach(function (from) {
+      var $children = groups[from];
+      var $anchor = $();
+      $row.prevAll(".routes").each(function () {
+        var $hit = $(this).children('.route[rid="' + from + '"]');
+        if ($hit.length) {
+          $anchor = $hit.eq(0);
+          return false;
+        }
+      });
+      if (!$anchor.length) return;
+
+      var anchorRect = $anchor[0].getBoundingClientRect();
+      var anchorCenterX =
+        (anchorRect.left + anchorRect.width / 2 - rowRect.left) / ratio;
+
+      var n = $children.length;
+      var totalSpan = (n - 1) * ROUTE_GAP_PT4_5_1_5;
+      var startCenterX = anchorCenterX - totalSpan / 2;
+
+      $children.forEach(function ($child, i) {
+        var left =
+          startCenterX + i * ROUTE_GAP_PT4_5_1_5 - ROUTE_SIZE_PT4_5_1_5 / 2;
+        $child.css("left", left + "px");
+      });
+    });
+  };
+  var fillContent_PT4_5_1_5 = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+      $("#module_wrapper .sideTool .btn_replay").show();
+    }
+  };
+
+  var layoutRoutes_PT4_5_1_5 = function ($item, ratio) {
+    $item.find(".routes:not(.start)").each(function () {
+      layoutOneRoutesRow_PT4_5_1_5($(this), ratio);
+      void this.offsetHeight;
+    });
+  };
+
+  var setRouteLine_PT4_5_1_5 = function ($route, dist, angle) {
+    var el = $route[0];
+    if (!el) return;
+    el.style.setProperty("--distance", dist + "px");
+    el.style.setProperty("--angle", angle + "deg");
+  };
+
+  var initRouteGeometry_PT4_5_1_5 = function ($scope) {
+    var $item;
+    if ($scope && $scope.length) {
+      // 可傳 .item 本身，或傳上層容器再往下找
+      $item = $scope.hasClass("item") ? $scope : $scope.find(".group .item");
+    }
+    if (!$item || !$item.length) {
+      $item = $(".PT4-5-1-5 .contents > div.selected .group .item");
+    }
+    if (!$item.length) {
+      $item = $(".PT4-5-1-5 .contents > div:first-child .group .item");
+    }
+    if (!$item.length) return;
+
+    var ratio = stageRatioReal || 1;
+    $item.addClass("measuring");
+
+    // 上層 route 要蓋過下層畫出來的線（避免線壓到父節點文字）
+    $item.find(".routes").each(function (i) {
+      $(this).css("z-index", 20 - i);
+    });
+
+    // 逐列排位置（每列後 reflow，下一列才量得到正確父節點）
+    $item.find(".routes:not(.start)").each(function () {
+      layoutOneRoutesRow_PT4_5_1_5($(this), ratio);
+      void this.offsetHeight;
+    });
+
+    $item.find(".routes .route").each(function () {
+      var $route = $(this);
+      var from = $route.attr("from");
+      var rid = $route.attr("rid");
+      var to = $route.attr("to");
+
+      if (!from || from === rid || from === to) {
+        $route.addClass("self");
+        setRouteLine_PT4_5_1_5($route, 0, 0);
+        return;
+      }
+      $route.removeClass("self");
+
+      var $fromRoute = findFromRoute_PT4_5_1_5($route);
+      if (!$fromRoute.length) {
+        setRouteLine_PT4_5_1_5($route, 0, 0);
+        return;
+      }
+
+      var r1 = $route[0].getBoundingClientRect();
+      var r2 = $fromRoute[0].getBoundingClientRect();
+      var x1 = r1.left + r1.width / 2;
+      var y1 = r1.top + r1.height / 2;
+      var x2 = r2.left + r2.width / 2;
+      var y2 = r2.top + r2.height / 2;
+      var dx = (x2 - x1) / ratio;
+      var dy = (y2 - y1) / ratio;
+      var full = Math.sqrt(dx * dx + dy * dy);
+      var angle = (Math.atan2(dx, -dy) * 180) / Math.PI;
+      setRouteLine_PT4_5_1_5($route, full, angle);
+    });
+
+    $item.removeClass("measuring");
+  };
+
+  var showTaskAlert_PT4_5_1_5 = function (msg) {
+    $(".alert").remove();
+    $(".contents > div.selected").append(
+      '<div class="alert wow bounceInUp" onclick="$(this).remove()">' +
+        msg +
+        "</div>",
+    );
+    rootSoundEffect($stupid);
+  };
+
+  var getTask1Item_PT4_5_1_5 = function () {
+    var $item = $(".PT4-5-1-5 .contents > div.selected .group .item");
+    if (!$item.length) {
+      $item = $(".PT4-5-1-5 .contents > div:first-child .group .item");
+    }
+    return $item;
+  };
+
+  // 清空 sensors（route-guess 只清 .guess-text，保留清除鈕）
+  var clearSensors_PT4_5_1_5 = function ($item) {
+    $item.find(".sensors .sensor").removeClass("selected wrong");
+    $item.find(".sensors .sensor.route-guess").each(function () {
+      setRouteGuessText_PT4_5_1_5($(this), "");
+    });
+    $item.find(".sensors .sensor:not(.route-guess)").text("");
+  };
+
+  // 依 ans 填入 sensors
+  var fillSensorsAnswer_PT4_5_1_5 = function ($item) {
+    $item.find(".sensors .sensor").each(function () {
+      var ans = ($(this).attr("ans") || "").replace(/\s+/g, " ").trim();
+      if ($(this).hasClass("route-guess")) {
+        setRouteGuessText_PT4_5_1_5($(this), ans);
+      } else {
+        $(this).text(ans);
+      }
+    });
+  };
+
+  // 初始化：不給任何 routes selected
+  var initRoutePlay_PT4_5_1_5 = function ($item) {
+    $item = $item && $item.length ? $item : getTask1Item_PT4_5_1_5();
+    if (!$item.length) return;
+
+    $item.find(".routes").removeClass("done selected");
+    $item.find(".routes .route").removeClass("selected");
+    clearSensors_PT4_5_1_5($item);
+  };
+
+  // 由 done+selected(ans=1) 往上走，組出目前葉節點路徑（含 A）
+  var collectRoutePaths_PT4_5_1_5 = function ($item) {
+    var $selected = $item.find('.routes.done .route.selected[ans="1"]');
+    var paths = [];
+
+    $selected.each(function () {
+      var $leaf = $(this);
+      var rid = $leaf.attr("rid");
+      var hasChild = false;
+      $selected.each(function () {
+        if ($(this).attr("from") === rid) {
+          hasChild = true;
+          return false;
+        }
+      });
+      if (hasChild) return;
+
+      var parts = [];
+      var $cur = $leaf;
+      var guard = 0;
+      while ($cur.length && guard++ < 20) {
+        parts.unshift($cur.attr("to"));
+        var from = $cur.attr("from");
+        var curRid = $cur.attr("rid");
+        if (!from || from === curRid) break;
+        $cur = $item.find('.route[rid="' + from + '"]').first();
+      }
+      parts.unshift("A");
+      paths.push(parts.join("-"));
+    });
+
+    return paths;
+  };
+
+  // 路徑走到 F 才填入對應 .route-answer（完整 ans）
+  var fillRouteAnswers_PT4_5_1_5 = function ($item) {
+    var paths = collectRoutePaths_PT4_5_1_5($item).filter(function (p) {
+      return /(?:^|-)F$/.test(p);
+    });
+    $item.find(".sensors .route-answer").each(function () {
+      var ans = $(this).attr("ans") || "";
+      if (paths.indexOf(ans) !== -1) {
+        $(this).text(ans);
+      }
+    });
+  };
+
+  // 是否為「下一層可點」的 routes（前面非 start 都已 done）
+  var canSelectRoutes_PT4_5_1_5 = function ($row) {
+    if ($row.hasClass("start") || $row.hasClass("done")) return false;
+    var blocked = false;
+    $row.prevAll(".routes:not(.start)").each(function () {
+      if (!$(this).hasClass("done")) {
+        blocked = true;
+        return false;
+      }
+    });
+    return !blocked;
+  };
+
+  // 點選 routes 層 → selected（一層一層，需手動點）
+  var onRoutesRowClick_PT4_5_1_5 = function (e) {
+    if ($(e.target).closest(".route-checkbtn").length) return;
+    var $row = $(this);
+    if ($row.hasClass("done")) return;
+    // 已是當前層：點 route 交給 route handler
+    if ($row.hasClass("selected")) {
+      if ($(e.target).closest(".route").length) return;
+      return;
+    }
+    if (!canSelectRoutes_PT4_5_1_5($row)) {
+      showTaskAlert_PT4_5_1_5("請一層一層決定路線");
+      return;
+    }
+
+    var $item = $row.closest(".item");
+    $item.find(".routes:not(.start)").removeClass("selected");
+    $row.addClass("selected");
+    // 顯示後再重算座標（避免隱藏時 rect=0）
+    requestAnimationFrame(function () {
+      initRouteGeometry_PT4_5_1_5($item);
+    });
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  // 點選 route → 可多選（不拿掉兄弟 selected，可能多條 ans=1）
+  var onRouteClick_PT4_5_1_5 = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var $route = $(this);
+    var $row = $route.closest(".routes");
+    if (!$row.hasClass("selected") || $row.hasClass("done")) return;
+    if ($row.hasClass("start")) return;
+
+    $route.toggleClass("selected");
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  // 點選 route-checkbtn → 判斷 ans；答對只標 done，下一層要再手動點
+  var checkRoute_PT4_5_1_5 = function (btn) {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var $row = $(btn).closest(".routes");
+    if (!$row.hasClass("selected") || $row.hasClass("done")) return;
+
+    var $picked = $row.children(".route.selected");
+    if (!$picked.length) {
+      showTaskAlert_PT4_5_1_5("請先選擇一條路徑");
+      return;
+    }
+
+    // 所有已選都必須 ans=1，且所有 ans=1 都必須被選到
+    var allPickedCorrect = true;
+    $picked.each(function () {
+      if ($(this).attr("ans") !== "1") {
+        allPickedCorrect = false;
+        return false;
+      }
+    });
+    var $answers = $row.children('.route[ans="1"]');
+    var allAnswersPicked =
+      $answers.length > 0 &&
+      $answers.filter(".selected").length === $answers.length;
+
+    if (allPickedCorrect && allAnswersPicked) {
+      $row.removeClass("selected").addClass("done");
+      fillRouteAnswers_PT4_5_1_5($row.closest(".item"));
+      rootSoundEffect($correct);
+      $("#module_wrapper .sideTool .btn_replay").show();
+
+      if (!$row.nextAll(".routes").length) {
+        bingo();
+      }
+    } else {
+      showTaskAlert_PT4_5_1_5("路徑沒有全對，再確認一下。");
+    }
+  };
+
+  var bindRouteInteraction_PT4_5_1_5 = function () {
+    $(document)
+      .off(".pt4515route")
+      .on(
+        "click.pt4515route",
+        ".PT4-5-1-5 .routes:not(.start)",
+        onRoutesRowClick_PT4_5_1_5,
+      )
+      .on(
+        "click.pt4515route",
+        ".PT4-5-1-5 .routes:not(.start).selected:not(.done) > .route",
+        onRouteClick_PT4_5_1_5,
+      );
+  };
+
+  var showAnswer_PT4_5_1_5 = function (btn) {
+    $(".alert").remove();
+    if (!btn.hasClass("active")) {
+      var $item = getTask1Item_PT4_5_1_5();
+      if (!$item.length) return;
+
+      // 任務一、二：秀正確路線樹
+      if ($item.find(".routes").length) {
+        $item
+          .find(".routes:not(.start)")
+          .removeClass("selected")
+          .addClass("done");
+        $item.find(".routes .route").removeClass("selected");
+        $item.find('.routes .route[ans="1"]').addClass("selected");
+        requestAnimationFrame(function () {
+          initRouteGeometry_PT4_5_1_5($item);
+        });
+      }
+
+      // 三個任務共用：sensors 依 ans 填入
+      // 任務一：噸數 + route-answer
+      // 任務二：四組 route-answer
+      // 任務三：route-guess / restore-points / reason
+      fillSensorsAnswer_PT4_5_1_5($item);
+
+      // 任務三：標準島圖連線
+      if ($item.find(".island-graph").length) {
+        requestAnimationFrame(function () {
+          drawAnswerGraph_PT4_5_1_5($item);
+        });
+      }
+
+      rootSoundEffect($help);
+      $("#module_wrapper .sideTool .btn_replay").show();
+      $("#module_wrapper .sideTool .btn_check").hide();
+    } else {
+      resetElem_PT4_5_1_5();
+    }
+  };
+  // 確認任務三的 route-guess 是否與 ans 一致；回傳是否全對
+  var clearAnswerGraph_PT4_5_1_5 = function ($item) {
+    $item = $item && $item.length ? $item : getTask1Item_PT4_5_1_5();
+    if (!$item || !$item.length) return true;
+
+    var $guesses = $item.find(".sensors .route-guess");
+    if (!$guesses.length) return true;
+
+    var allOk = true;
+    $guesses.removeClass("wrong");
+    $guesses.each(function () {
+      var ans = ($(this).attr("ans") || "").replace(/\s+/g, " ").trim();
+      var text = getRouteGuessText_PT4_5_1_5($(this));
+      if (text !== ans) {
+        $(this).addClass("wrong");
+        allOk = false;
+      }
+    });
+    return allOk;
+  };
+
+  var checkAnswer_PT4_5_1_5 = function () {
+    $(".alert").remove();
+    var $item = getTask1Item_PT4_5_1_5();
+    if (!$item.length) return;
+
+    // 任務三：檢查 route-guess
+    if ($item.find(".sensors .route-guess").length) {
+      if (!clearAnswerGraph_PT4_5_1_5($item)) {
+        showTaskAlert_PT4_5_1_5("路徑不正確，再確認一下。");
+        return;
+      }
+      $item.find(".sensors .route-guess").removeClass("wrong selected");
+      rootSoundEffect($correct);
+      bingo();
+      return;
+    }
+  };
+
+  var resetElem_PT4_5_1_5 = function () {
+    $(".alert").remove();
+    var $item = getTask1Item_PT4_5_1_5();
+    if (!$item.length) return;
+
+    // 任務一、二：重置路線狀態
+    $item.find(".routes").removeClass("done selected");
+    $item.find(".routes .route").removeClass("selected");
+
+    // 三個任務共用：清空 sensors
+    // 任務一：噸數 + route-answer
+    // 任務二：四組 route-answer
+    // 任務三：route-guess / restore-points / reason
+    clearSensors_PT4_5_1_5($item);
+
+    if ($item.find(".routes").length) {
+      bindRouteInteraction_PT4_5_1_5();
+      // 等 tab/selected 真正顯示後再量位置
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          initRouteGeometry_PT4_5_1_5($item);
+        });
+      });
+    }
+
+    // 任務三：一開始就畫好標準島圖
+    if ($item.find(".island-graph").length) {
+      bindTask3Interaction_PT4_5_1_5();
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          drawAnswerGraph_PT4_5_1_5($item);
+        });
+      });
+    }
+
+    rootSoundEffect($show);
+    $("#module_wrapper .sideTool .btn_check").hide();
+  };
+
+  var withinResetElem_PT4_5_1_5 = function () {
+    resetElem_PT4_5_1_5();
+  };
+
+  // keep 回來：重掛 hook + 事件（不清遊戲狀態）
+  window.reactivate_PT4_5_1_5 = function () {
+    withinResetElem = withinResetElem_PT4_5_1_5;
+    bindRouteInteraction_PT4_5_1_5();
+    bindTask3Interaction_PT4_5_1_5();
+  };
+
+  $(function () {
+    window.reactivate_PT4_5_1_5();
+    setTimeout(function () {
+      var $item = getTask1Item_PT4_5_1_5();
+      initRoutePlay_PT4_5_1_5($item);
+      initRouteGeometry_PT4_5_1_5($item);
+      // 任務三若已在畫面上也先畫線
+      $(".PT4-5-1-5 .group .item").each(function () {
+        var $it = $(this);
+        if ($it.find(".island-graph").length) {
+          drawAnswerGraph_PT4_5_1_5($it);
+        }
+      });
+    }, 300);
+  });
+</script>

@@ -456,8 +456,12 @@ var showAnswer = function (boolean) {
         $(this).offset().top / stageRatioReal -
         deltaContainerY / stageRatioReal;
       var oriH = $(this).height() / stageRatioReal;
+
       for (var i = 0; i < toys.length; i++) {
-        var hasAp = toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto";
+        var hasAp = !!(
+          toys.eq(i).attr("ap") && toys.eq(i).attr("ap") != "auto"
+        );
+
         //取得物件所屬groups
         var toyGroups = [];
         if (toys.eq(i).attr("group")) {
@@ -470,7 +474,7 @@ var showAnswer = function (boolean) {
           $(this).attr("group") &&
           toyGroups.indexOf($(this).attr("group")) != -1;
         var apOnly = hasAp;
-        // apOnly 只跑一次，但依 ap 座標分配到正確的 container(index)
+        // apOnly 只跑一次，但依 ap 座標分配到正確的 container(index) 這裡是為了避免重複把答案貼兩次，所以若要重複貼到不同的group就只能用ap。group只是用來判斷他在哪些group裡面都算對。
         if (matchGroup) {
           if (usedToys[i]) continue;
           usedToys[i] = true;
@@ -495,7 +499,7 @@ var showAnswer = function (boolean) {
           var ansLeft = oriX + oX;
           if (hasAp) {
             var aps = toys.eq(i).attr("ap").split("^");
-            console.log(aps.length);
+
             for (var a = 0; a < aps.length; a++) {
               var ap = aps[a].split(",");
               ansTop = parseFloat(ap[0]);
@@ -530,6 +534,7 @@ var showAnswer = function (boolean) {
             }
           } else {
             //
+
             ansArray[index].push(
               `<div class="cardAvatar cardAvatarDie simplyDrag s${index}" style="width:${caWidth}px;height:${caHeight}px;top:${ansTop}px;left:${ansLeft}px;">${toys
                 .eq(i)
@@ -546,6 +551,7 @@ var showAnswer = function (boolean) {
 
     for (var i = 0; i < ansArray.length; i++) {
       var itemsArr = ansArray[i];
+
       for (var k = 0; k < itemsArr.length; k++) {
         $("#module_wrapper").append(itemsArr[k]);
       }
@@ -563,6 +569,7 @@ var showAnswer = function (boolean) {
       .find(".arrowArea.fixed > span")
       .removeClass("active disabled");
   }
+
   withinShowAnswer(boolean);
 };
 

@@ -1,0 +1,566 @@
+<div id="module_wrapper" class="module_basic PT4-5-1-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer" onclick="showAnswer_PT4_5_1_4($(this))"></div>
+    <div class="btn_replay" onclick="resetElem_PT4_5_1_4()"></div>
+    <div class="btn_check" onclick="checkAnswer_PT4_5_1_4()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：畫出每個島之間連接的圖，需要標記出島名和橋的載重限制。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="position: relative" class="tti">
+        <div class="names">
+          <span style="top: 32px; left: 112px" init="A" ans="A">A</span>
+          <span style="top: 98px; left: 41px" ans="B"></span>
+          <span style="top: 98px; left: 185px" ans="C"></span>
+          <span style="top: 165px; left: 41px" ans="D"></span>
+          <span style="top: 165px; left: 185px" ans="E"></span>
+          <span style="top: 231px; left: 112px" ans="F"></span>
+        </div>
+        <div class="lines"></div>
+        <img
+          width="250"
+          height="auto"
+          src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-4-1.png"
+        />
+      </div>
+      <div class="ref simplyDrag wow bounceInUp">
+        <img
+          width="auto"
+          height="150"
+          src="./DATA/PT4/BOOK5/IMAGES/PT4-5-1-4-1-chart.png"
+        />
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-1-4 .names {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+  .PT4-5-1-4 .names span {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    color: #000;
+    pointer-events: auto;
+    cursor: pointer;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    transform: scale(0.8);
+    font-weight: bold;
+    touch-action: none;
+    user-select: none;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .PT4-5-1-4 .names span.wrong {
+    color: #ff0000;
+  }
+
+  .PT4-5-1-4 .names span[init="A"] {
+    color: #fff;
+    background: #fd5e5e;
+  }
+  .PT4-5-1-4 .lines {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-5-1-4 .lines .line {
+    position: absolute;
+    z-index: 1;
+    height: 3px;
+    background: #1d5f9c;
+    transform-origin: left center;
+    pointer-events: none;
+  }
+  .PT4-5-1-4 .lines .line:not(.drafting) {
+    pointer-events: auto;
+  }
+  .PT4-5-1-4 .tti.drawing .lines .line {
+    pointer-events: none;
+  }
+  .PT4-5-1-4 .lines .line.drafting {
+    opacity: 0.5;
+  }
+  .PT4-5-1-4 .lines .line.drafting .line-ui {
+    display: none;
+  }
+  .PT4-5-1-4 .lines .line .line-ui {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+  }
+  .PT4-5-1-4 .lines .line .weight-limit {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border: 1px solid #1d5f9c;
+    color: #4c8dca;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+  .PT4-5-1-4 .lines .line .btn-del {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 3;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0;
+    animation: bounceIn 1s ease-in-out forwards 1s;
+    overflow: hidden;
+  }
+  .PT4-5-1-4 .lines .line .btn-del::before {
+    content: "×";
+  }
+  .PT4-5-1-4 .lines .line.wrong {
+    background: #ff0000;
+  }
+  .PT4-5-1-4 .lines .line.wrong .weight-limit {
+    border-color: #ff0000;
+    color: #ff0000;
+  }
+  .PT4-5-1-4 .lines .line.drafting .line-ui {
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  var nameLinkState = null;
+
+  var getPointer_PT4_5_1_4 = function (e) {
+    var oe = e.originalEvent || e;
+    var t =
+      (oe.touches && oe.touches[0]) ||
+      (oe.changedTouches && oe.changedTouches[0]);
+    if (t) {
+      return {
+        pageX: t.pageX,
+        pageY: t.pageY,
+        clientX: t.clientX,
+        clientY: t.clientY,
+        which: 1,
+      };
+    }
+    return {
+      pageX: e.pageX,
+      pageY: e.pageY,
+      clientX: e.clientX,
+      clientY: e.clientY,
+      which: e.which,
+    };
+  };
+
+  var getNameCenter_PT4_5_1_4 = function ($span, $tti) {
+    var ratio = stageRatioReal || 1;
+    var cOff = $tti.offset();
+    var r = $span[0].getBoundingClientRect();
+    return {
+      x: (r.left + r.width / 2 - cOff.left) / ratio,
+      y: (r.top + r.height / 2 - cOff.top) / ratio,
+    };
+  };
+
+  var getLocalXY_PT4_5_1_4 = function (ptr, $tti) {
+    var ratio = stageRatioReal || 1;
+    var offset = $tti.offset();
+    return {
+      x: (ptr.pageX - offset.left) / ratio,
+      y: (ptr.pageY - offset.top) / ratio,
+    };
+  };
+
+  var getNameAtPoint_PT4_5_1_4 = function (clientX, clientY, $names) {
+    var hit = null;
+    $names.find("span").each(function () {
+      var r = this.getBoundingClientRect();
+      if (
+        clientX >= r.left &&
+        clientX <= r.right &&
+        clientY >= r.top &&
+        clientY <= r.bottom
+      ) {
+        hit = $(this);
+        return false;
+      }
+    });
+    return hit;
+  };
+
+  // 只動 width / rotate；left/top 在建立時設一次
+  var updateLineGeometry_PT4_5_1_4 = function ($line, start, end, setOrigin) {
+    var dx = end.x - start.x;
+    var dy = end.y - start.y;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var deg = (Math.atan2(dy, dx) * 180) / Math.PI;
+    var css = {
+      width: Math.max(len, 0) + "px",
+      transform: "rotate(" + deg + "deg)",
+    };
+    if (setOrigin) {
+      css.left = start.x + "px";
+      css.top = start.y - 1.5 + "px";
+    }
+    $line.css(css);
+    $line.find(".line-ui").css({
+      transform: "translate(-50%, -50%) rotate(" + -deg + "deg)",
+    });
+  };
+
+  var fillContent = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入載重限制：", item.text() || "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return;
+    }
+    item.html(text);
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var removeLine_PT4_5_1_4 = function (item) {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    item.closest(".line").remove();
+    rootSoundEffect($show);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var switchName_PT4_5_1_4 = function (item) {
+    if (item.attr("init") === "A") return;
+    var names = ["B", "C", "D", "E", "F"];
+    var index = names.indexOf(item.text());
+    var next = names[(index + 1) % names.length];
+    item.text(next);
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+    $("#module_wrapper .sideTool .btn_check").show();
+  };
+
+  var moveNameLink_PT4_5_1_4 = function (e) {
+    if (!nameLinkState) return;
+    var ptr = getPointer_PT4_5_1_4(e);
+    var end = getLocalXY_PT4_5_1_4(ptr, nameLinkState.$tti);
+    updateLineGeometry_PT4_5_1_4(
+      nameLinkState.$line,
+      nameLinkState.start,
+      end,
+      false,
+    );
+    e.preventDefault();
+  };
+
+  var endNameLink_PT4_5_1_4 = function (e) {
+    if (!nameLinkState) return;
+
+    var state = nameLinkState;
+    nameLinkState = null;
+    $(document).off(".pt4514link");
+    state.$tti.removeClass("drawing");
+    state.$names.find("span.selected").removeClass("selected");
+
+    var ptr = getPointer_PT4_5_1_4(e);
+    if (e.type === "mouseup" && ptr.which !== 1) {
+      state.$line.remove();
+      return;
+    }
+
+    var $end = getNameAtPoint_PT4_5_1_4(ptr.clientX, ptr.clientY, state.$names);
+
+    // 同一點放開 → 當成點擊切換島名
+    if (!$end || !$end.length || $end.get(0) === state.$start.get(0)) {
+      state.$line.remove();
+      if ($end && $end.length && $end.get(0) === state.$start.get(0)) {
+        switchName_PT4_5_1_4(state.$start);
+      } else {
+        rootSoundEffect($show);
+      }
+      return;
+    }
+
+    var end = getNameCenter_PT4_5_1_4($end, state.$tti);
+    updateLineGeometry_PT4_5_1_4(state.$line, state.start, end, false);
+
+    var fromId = state.$start.index();
+    var toId = $end.index();
+    // 避免同對重複連線
+    var exists =
+      state.$lines.find(
+        '.line[from="' +
+          fromId +
+          '"][to="' +
+          toId +
+          '"], .line[from="' +
+          toId +
+          '"][to="' +
+          fromId +
+          '"]',
+      ).length > 0;
+    if (exists) {
+      state.$line.remove();
+      rootSoundEffect($stupid);
+      return;
+    }
+
+    state.$line.removeClass("drafting").attr({ from: fromId, to: toId });
+    rootSoundEffect($pop);
+    $("#module_wrapper .sideTool .btn_replay").show();
+    $("#module_wrapper .sideTool .btn_check").show();
+  };
+
+  var onNamePointerDown_PT4_5_1_4 = function (e) {
+    if (nameLinkState) return;
+    if (e.type === "mousedown" && e.which !== 1) return;
+
+    var $start = $(e.currentTarget);
+    var $tti = $start.closest(".tti");
+    var $names = $tti.find(".names");
+    var $lines = $tti.find(".lines");
+    var start = getNameCenter_PT4_5_1_4($start, $tti);
+
+    var $line = $(
+      '<div class="line drafting"><div class="line-ui"><span class="weight-limit" onclick="fillContent($(this))"></span><span class="btn-del" onclick="removeLine_PT4_5_1_4($(this))"></span></div></div>',
+    ).appendTo($lines);
+    updateLineGeometry_PT4_5_1_4($line, start, start, true);
+
+    $names.find("span.selected").removeClass("selected");
+    $start.addClass("selected");
+
+    nameLinkState = {
+      $tti: $tti,
+      $names: $names,
+      $lines: $lines,
+      $start: $start,
+      $line: $line,
+      start: start,
+    };
+    $tti.addClass("drawing");
+
+    $(document)
+      .off(".pt4514link")
+      .on("mousemove.pt4514link touchmove.pt4514link", moveNameLink_PT4_5_1_4)
+      .on(
+        "mouseup.pt4514link touchend.pt4514link touchcancel.pt4514link",
+        endNameLink_PT4_5_1_4,
+      );
+
+    e.preventDefault();
+  };
+
+  var initNameLink_PT4_5_1_4 = function () {
+    $(document).off(".pt4514link");
+    nameLinkState = null;
+    $(".PT4-5-1-4 .tti")
+      .removeClass("drawing")
+      .off(".pt4514link")
+      .on(
+        "mousedown.pt4514link touchstart.pt4514link",
+        ".names > span",
+        onNamePointerDown_PT4_5_1_4,
+      );
+  };
+
+  var ANSWER_LINKS_PT4_5_1_4 = [
+    ["D", "E", "5"],
+    ["E", "F", "4"],
+    ["C", "E", "2"],
+    ["B", "D", "3"],
+    ["C", "D", "4"],
+    ["B", "C", "2"],
+    ["A", "B", "8"],
+    ["D", "F", "3"],
+    ["A", "C", "9"],
+  ];
+
+  var pairKey_PT4_5_1_4 = function (a, b) {
+    return a < b ? a + "-" + b : b + "-" + a;
+  };
+
+  var appendLine_PT4_5_1_4 = function (fromId, toId, weight) {
+    var $tti = $(".PT4-5-1-4 .tti");
+    var $names = $tti.find(".names");
+    var $lines = $tti.find(".lines");
+    var $from = $names.find('span[ans="' + fromId + '"]');
+    var $to = $names.find('span[ans="' + toId + '"]');
+    if (!$from.length || !$to.length) return;
+
+    var start = getNameCenter_PT4_5_1_4($from, $tti);
+    var end = getNameCenter_PT4_5_1_4($to, $tti);
+    var $line = $(
+      '<div class="line"><div class="line-ui"><span class="weight-limit" onclick="fillContent($(this))"></span><span class="btn-del" onclick="removeLine_PT4_5_1_4($(this))"></span></div></div>',
+    )
+      .attr({ from: $from.index(), to: $to.index() })
+      .appendTo($lines);
+    if (weight != null && weight !== "") {
+      $line.find(".weight-limit").text(weight);
+    }
+    updateLineGeometry_PT4_5_1_4($line, start, end, true);
+  };
+
+  var showTaskAlert = function (msg) {
+    $(".alert").remove();
+    $(".contents > div.selected").append(
+      '<div class="alert wow bounceInUp" onclick="$(this).remove()">' +
+        msg +
+        "</div>",
+    );
+    rootSoundEffect($stupid);
+  };
+
+  var checkAnswer_PT4_5_1_4 = function () {
+    $(".alert").remove();
+    $(".PT4-5-1-4 .names span").removeClass("wrong");
+    $(".PT4-5-1-4 .lines .line").removeClass("wrong");
+
+    // 1. 點的名稱沒有重複且都有名稱
+    var nameWrong = false;
+    var nameCount = {};
+    $(".PT4-5-1-4 .names span").each(function () {
+      var $span = $(this);
+      var name = $.trim($span.text());
+      if (!name) {
+        $span.addClass("wrong");
+        nameWrong = true;
+        return;
+      }
+      if ($span.attr("init") === "A" && name !== "A") {
+        $span.addClass("wrong");
+        nameWrong = true;
+      }
+      if (!nameCount[name]) nameCount[name] = [];
+      nameCount[name].push($span);
+    });
+    Object.keys(nameCount).forEach(function (name) {
+      if (nameCount[name].length > 1) {
+        nameCount[name].forEach(function ($span) {
+          $span.addClass("wrong");
+        });
+        nameWrong = true;
+      }
+    });
+    if (nameWrong) {
+      showTaskAlert("島名填寫重複或未填完，請先完成。");
+      return;
+    }
+
+    // 2. 依照安排的島名（不看 ans）檢查線以及限重
+    var expected = {};
+    ANSWER_LINKS_PT4_5_1_4.forEach(function (link) {
+      expected[pairKey_PT4_5_1_4(link[0], link[1])] = String(link[2]);
+    });
+
+    var $nameSpans = $(".PT4-5-1-4 .names span");
+    var getWrong = false;
+    var seen = {};
+    $(".PT4-5-1-4 .lines .line").each(function () {
+      var fromIdx = parseInt($(this).attr("from"), 10);
+      var toIdx = parseInt($(this).attr("to"), 10);
+      var fromName = $.trim($nameSpans.eq(fromIdx).text());
+      var toName = $.trim($nameSpans.eq(toIdx).text());
+      var key = pairKey_PT4_5_1_4(fromName, toName);
+      var weight = $.trim($(this).find(".weight-limit").text());
+      if (!expected[key] || expected[key] !== weight) {
+        $(this).addClass("wrong");
+        getWrong = true;
+      } else {
+        seen[key] = true;
+      }
+    });
+
+    Object.keys(expected).forEach(function (key) {
+      if (!seen[key]) getWrong = true;
+    });
+
+    if (getWrong) {
+      showTaskAlert("錯誤連線或限重填錯");
+    } else {
+      rootSoundEffect($correct);
+      bingo();
+    }
+  };
+
+  var showAnswer_PT4_5_1_4 = function (btn) {
+    $(".alert").remove();
+    if (!btn.hasClass("active")) {
+      //填上每個點的代號
+      $(".PT4-5-1-4 .names span").each(function () {
+        $(this).removeClass("wrong").text($(this).attr("ans"));
+      });
+      //依照標準答案,畫出每條線並填上正確的限重
+      $(".PT4-5-1-4 .lines").empty();
+      ANSWER_LINKS_PT4_5_1_4.forEach(function (link) {
+        appendLine_PT4_5_1_4(link[0], link[1], link[2]);
+      });
+      rootSoundEffect($help);
+      $("#module_wrapper .sideTool .btn_replay").show();
+      $("#module_wrapper .sideTool .btn_check").hide();
+    } else {
+      resetElem_PT4_5_1_4();
+    }
+  };
+
+  var resetElem_PT4_5_1_4 = function () {
+    $(document).off(".pt4514link");
+    nameLinkState = null;
+    $(".PT4-5-1-4 .tti").removeClass("drawing");
+    $(".PT4-5-1-4 .names span").removeClass("wrong selected").html("");
+    $(".PT4-5-1-4 .names span[init='A']").html("A");
+    $(".PT4-5-1-4 .lines").empty();
+    initNameLink_PT4_5_1_4();
+    rootSoundEffect($show);
+  };
+
+  // keep 回來：重綁拉線事件（不清遊戲狀態）
+  window.reactivate_PT4_5_1_4 = function () {
+    initNameLink_PT4_5_1_4();
+  };
+
+  window.reactivate_PT4_5_1_4();
+</script>

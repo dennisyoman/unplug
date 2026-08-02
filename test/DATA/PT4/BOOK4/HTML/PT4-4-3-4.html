@@ -404,6 +404,7 @@
   }
 </style>
 <script>
+(function () {
   var updateMission3 = function () {
     //秀出mission3 gem
     $(".PT4-4-3-4 .mission3").removeClass("mission3");
@@ -418,4 +419,11 @@
     console.log("已經任務三");
     updateMission3();
   }
+
+  window.reactivate_PT4_4_3_4 = function () {
+    if (window.PT4_4_3_mission3) {
+      updateMission3();
+    }
+  };
+})();
 </script>

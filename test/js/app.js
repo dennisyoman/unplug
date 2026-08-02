@@ -432,6 +432,10 @@ let loadContainer = function (id, section) {
               .find("#module_wrapper .tabs > span.selected")
               .index();
 
+            // keep 頁 inline script 不會重跑：先清全域 hook，再還原該頁
+            resetDynamicFunctions();
+            reactivateKeepModule(sectionDiv);
+
             //重新載入JS
             $.getMultiScripts(script_arr, "./DATA/").done(function () {
               // all scripts loaded
@@ -481,6 +485,23 @@ let loadContainer = function (id, section) {
       }
     });
 };
+////202512: keep 頁回來時呼叫頁面自訂 reactivate_PT4_x_x_x（若有）
+let reactivateKeepModule = function (sectionDiv) {
+  var $wrap = $("#" + sectionDiv).find("#module_wrapper");
+  if (!$wrap.length) return;
+  var classes = ($wrap.attr("class") || "").split(/\s+/);
+  for (var i = 0; i < classes.length; i++) {
+    var c = classes[i];
+    if (!/^PT[\w-]/.test(c)) continue;
+    var fnName = "reactivate_" + c.replace(/-/g, "_");
+    if (typeof window[fnName] === "function") {
+      window[fnName]();
+      console.log(fnName + " called");
+      return;
+    }
+  }
+};
+
 ////202512:固定頁元素樣式
 let keeplizeElement = function (name) {
   $(name).find("#module_wrapper").attr("id", "module_wrapper_keep");

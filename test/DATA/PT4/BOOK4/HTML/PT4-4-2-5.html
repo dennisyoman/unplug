@@ -619,6 +619,7 @@
 </style>
 
 <script>
+(function () {
   var isCapsuleEmpty = function ($capsule) {
     return (
       $capsule
@@ -722,7 +723,7 @@
     }
   };
 
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_4_2_5 = function (boolean) {
     if (boolean) {
       $(".PT4-4-2-5 .contents > div.selected .bags > div")
         .removeClass("selected")
@@ -737,11 +738,8 @@
     }
   };
 
-  var withinResetElem = function () {
-    $(".PT4-4-2-5 .contents > div.selected .bags > div").each(function () {
-      $(this).removeClass("disabled");
-      var ans = $(this).attr("ans");
-      $(this).find("span").html(ans);
+  var bindBagsClick_PT4_4_2_5 = function () {
+    $(".PT4-4-2-5 .bags > div").each(function () {
       $(this)
         .unbind("click")
         .bind("click", function () {
@@ -756,6 +754,15 @@
           }
         });
     });
+  };
+
+  var withinResetElem_PT4_4_2_5 = function () {
+    $(".PT4-4-2-5 .contents > div.selected .bags > div").each(function () {
+      $(this).removeClass("disabled");
+      var ans = $(this).attr("ans");
+      $(this).find("span").html(ans);
+    });
+    bindBagsClick_PT4_4_2_5();
 
     $(".PT4-4-2-5 .contents > div.selected .sensors .sensor")
       .removeClass("disabled")
@@ -770,13 +777,25 @@
         //已經玩過文生圖了
         window.PT4_4_2_mission3 = true;
         console.log("已經任務三");
-        if (typeof updateMission3 === "undefined") {
+        if (typeof window.updateMission3 !== "function") {
           console.log("還沒有updateMission3");
         } else {
           console.log("已經有updateMission3");
-          updateMission3();
+          window.updateMission3();
         }
       }
     }
   };
+
+  window.reactivate_PT4_4_2_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_4_2_5;
+    withinResetElem = withinResetElem_PT4_4_2_5;
+    window.fillContent = fillContent;
+    window.takeBag = takeBag;
+    window.recordOrder = recordOrder;
+    bindBagsClick_PT4_4_2_5();
+  };
+
+  window.reactivate_PT4_4_2_5();
+})();
 </script>

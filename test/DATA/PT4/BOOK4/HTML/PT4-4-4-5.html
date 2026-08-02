@@ -866,6 +866,7 @@
 </style>
 
 <script>
+(function () {
   var switchNumber = function (tar, e) {
     e = e || window.event;
     if (e) {
@@ -1031,7 +1032,7 @@
     }
   };
 
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_4_4_5 = function (boolean) {
     if (boolean) {
       $(".PT4-4-4-5 .contents > div.selected .itemlist > div")
         .removeClass("selected")
@@ -1088,13 +1089,8 @@
     }
   };
 
-  var withinResetElem = function () {
-    $(
-      ".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div > span",
-    ).text("");
-
-    $(".PT4-4-4-5 .contents > div.selected .itemlist > div").each(function () {
-      $(this).removeClass("disabled");
+  var bindItemlistClick_PT4_4_4_5 = function () {
+    $(".PT4-4-4-5 .itemlist > div").each(function () {
       $(this)
         .unbind("click")
         .bind("click", function () {
@@ -1124,6 +1120,17 @@
           }
         });
     });
+  };
+
+  var withinResetElem_PT4_4_4_5 = function () {
+    $(
+      ".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div > span",
+    ).text("");
+
+    $(".PT4-4-4-5 .contents > div.selected .itemlist > div").each(function () {
+      $(this).removeClass("disabled");
+    });
+    bindItemlistClick_PT4_4_4_5();
 
     $(".PT4-4-4-5 .contents > div.selected .sensors .capsule")
       .removeClass("disabled")
@@ -1142,4 +1149,16 @@
     }
     rootSoundEffect($click);
   };
+
+  window.reactivate_PT4_4_4_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_4_4_5;
+    withinResetElem = withinResetElem_PT4_4_4_5;
+    window.switchNumber = switchNumber;
+    window.takeItem = takeItem;
+    window.toggleMe = toggleMe;
+    bindItemlistClick_PT4_4_4_5();
+  };
+
+  window.reactivate_PT4_4_4_5();
+})();
 </script>

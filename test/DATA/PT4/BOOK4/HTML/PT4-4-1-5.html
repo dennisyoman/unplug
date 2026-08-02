@@ -635,6 +635,7 @@
 </style>
 
 <script>
+(function () {
   var autoAssign = false; //自動分配數字
   var compareCount = 0; //比較次數
   var compareTarget = ""; //比較目標
@@ -982,7 +983,7 @@
     }
   };
 
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_4_1_5 = function (boolean) {
     if (boolean) {
       $(".alert").remove();
       /* 任務一 */
@@ -1027,7 +1028,7 @@
     }
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_4_1_5 = function () {
     /* 任務一 */
     $(".PT4-4-1-5 .contents > div.selected .sensors .sensor").each(function () {
       $(this).text("");
@@ -1075,4 +1076,18 @@
       }
     });
   };
+
+  window.reactivate_PT4_4_1_5 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_4_1_5;
+    withinResetElem = withinResetElem_PT4_4_1_5;
+    window.prepareNumber = prepareNumber;
+    window.switching = switching;
+    window.nextRound = nextRound;
+    window.fillContent = fillContent;
+    window.divideTo = divideTo;
+    window.assignTo = assignTo;
+  };
+
+  window.reactivate_PT4_4_1_5();
+})();
 </script>

@@ -140,6 +140,7 @@
 </style>
 
 <script>
+(function () {
   var roomLinkState = null;
 
   var getRoomLocalXY = function (e, $rooms) {
@@ -284,7 +285,7 @@
     e.preventDefault();
   };
 
-  var initRoomLink = function () {
+  var initRoomLink_PT4_5_3_4 = function () {
     $(document).off(".pt4534link");
     roomLinkState = null;
     $(".PT4-5-3-4 .rooms")
@@ -396,22 +397,30 @@
     appendAnswerLink($paths, "room3", "room4", 2);
   };
 
-  var withinShowAnswer = function (boolean) {
+  var withinShowAnswer_PT4_5_3_4 = function (boolean) {
     if (boolean) {
       correctRoomLink();
       rootSoundEffect($help);
     }
   };
 
-  var withinResetElem = function () {
+  var withinResetElem_PT4_5_3_4 = function () {
     rootSoundEffect($show);
     $(document).off(".pt4534link");
     roomLinkState = null;
     $(".PT4-5-3-4 .rooms").removeClass("drawing");
     $(".PT4-5-3-4 .rooms .room").removeClass("selected");
     $(".PT4-5-3-4 .paths").empty();
-    initRoomLink();
+    initRoomLink_PT4_5_3_4();
   };
 
-  initRoomLink();
+  // keep 回來：重掛全域 hook + 事件（不清遊戲狀態）
+  window.reactivate_PT4_5_3_4 = function () {
+    withinShowAnswer = withinShowAnswer_PT4_5_3_4;
+    withinResetElem = withinResetElem_PT4_5_3_4;
+    initRoomLink_PT4_5_3_4();
+  };
+
+  window.reactivate_PT4_5_3_4();
+})();
 </script>

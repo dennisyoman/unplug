@@ -1,0 +1,768 @@
+<div id="module_wrapper" class="module_basic PT4-5-4-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer" onclick="showAnswer_PT4_5_4_5($(this))"></div>
+    <div class="btn_check" onclick="checkAnswer_PT4_5_4_5()"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_5_4_5()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：將正確的狀態貼紙貼在每個圓圈裡，再參考文生圖，把每一個箭頭代表的說明，填寫在方框中。<br />1.先點選箭頭<br />2.從右邊選擇正確的貼紙
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="display: flex; gap: 30px; align-items: center">
+          <div class="sensors" style="margin-top: 100px">
+            <!-- arrow + inputs -->
+            <span
+              class="sensor filling"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 79px;
+                height: 39px;
+                top: 13px;
+                left: 30px;
+                transform: rotate(-26deg);
+              "
+              sid="2"
+              tid="D"
+              ans="不夠買飲料"
+            ></span>
+            <span
+              class="sensor filling low"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 79px;
+                height: 39px;
+                top: 50px;
+                left: 46px;
+                transform: rotate(-26deg);
+              "
+              sid="1"
+              tid="D"
+              ans="投入硬幣"
+            ></span>
+            <span
+              class="sensor filling"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 79px;
+                height: 39px;
+                top: 18px;
+                left: 148px;
+                transform: rotate(31deg);
+              "
+              sid="3"
+              tid="B^D"
+              ans="夠買飲料了"
+            ></span>
+            <span
+              class="sensor filling low mission1"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 79px;
+                height: 39px;
+                top: 53px;
+                left: 131px;
+                transform: rotate(31deg);
+              "
+              sid="7"
+              tid="B^D"
+              ans="投入硬幣"
+            ></span>
+            <span
+              class="sensor filling low"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 59px;
+                height: 39px;
+                top: 109px;
+                left: 190px;
+                transform: rotate(-63deg);
+              "
+              sid="4"
+              tid="B^C"
+              ans="按下飲料"
+            ></span>
+            <span
+              class="sensor filling low"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 68px;
+                height: 41px;
+                top: 165px;
+                left: 92px;
+                transform: rotate(0deg);
+              "
+              sid="5"
+              tid="C^E"
+              ans="飲料掉進取用區"
+            ></span>
+            <span
+              class="sensor filling low"
+              onclick="toggleClass($(this), 'selected')"
+              style="
+                width: 63px;
+                height: 41px;
+                top: 112px;
+                left: -4px;
+                transform: rotate(64deg);
+              "
+              sid="6"
+              tid="C^E"
+              ans="找完零錢了"
+            ></span>
+
+            <!-- tokens -->
+            <span class="sensor token" style="top: 64px; left: 215px" tid="B"
+              ><img
+                style="width: 30px; height: 30px"
+                src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-B.png"
+            /></span>
+            <span class="sensor token" style="top: 156px; left: 169px" tid="C"
+              ><img
+                style="width: 30px; height: 30px"
+                src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-C.png"
+            /></span>
+            <span class="sensor token" style="top: 7px; left: 119px" tid="D"
+              ><img
+                style="width: 30px; height: 30px"
+                src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-D.png"
+            /></span>
+            <span class="sensor token" style="top: 156px; left: 52px" tid="E"
+              ><img
+                style="width: 30px; height: 30px"
+                src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-E.png"
+            /></span>
+          </div>
+
+          <img
+            class="wow fadeIn"
+            style="width: 250px; margin-top: 100px"
+            src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-5-chart.png"
+          />
+
+          <div class="wow fadeInRight" style="margin-top: 40px">
+            <div class="stickers">
+              <span class="sticker" onClick="pasteMe(1,$(this))"></span>
+              <span class="sticker" onClick="pasteMe(2,$(this))"></span>
+              <span class="sticker" onClick="pasteMe(3,$(this))"></span>
+              <span class="sticker" onClick="pasteMe(4,$(this))"></span>
+              <span class="sticker" onClick="pasteMe(5,$(this))"></span>
+              <span class="sticker" onClick="pasteMe(6,$(this))"></span>
+              <span
+                class="sticker mission1"
+                onClick="pasteMe(7,$(this))"
+              ></span>
+            </div>
+            <img
+              style="width: 150px"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-5-sticker.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：現在的販賣機有個問題，如果不想買了卻沒有辦法退錢，應該有一個退幣的「事件」讓機器更聰明，想想看哪些狀態應該可以接退幣呢？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="1"
+              style="width: 24px; height: 20px; top: 30px; left: -3px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="1"
+              style="width: 31px; height: 20px; top: 30px; left: 21px"
+              ans="0"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="2"
+              style="width: 24px; height: 20px; top: 91px; left: -3px"
+              ans="0"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="2"
+              style="width: 31px; height: 20px; top: 91px; left: 21px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="3"
+              style="width: 24px; height: 20px; top: 153px; left: -3px"
+              ans="1"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="3"
+              style="width: 31px; height: 20px; top: 153px; left: 21px"
+              ans="0"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="4"
+              style="width: 24px; height: 20px; top: 215px; left: -3px"
+              ans="0"
+            ></span>
+            <span
+              class="sensor yn"
+              onclick="switchYN($(this))"
+              group="4"
+              style="width: 31px; height: 20px; top: 215px; left: 21px"
+              ans="1"
+            ></span>
+            <!-- input -->
+            <span
+              class="sensor paragraph"
+              onclick="fillContent($(this))"
+              style="width: 300px; height: 20px; top: 25px; left: 83px"
+              ans="應該讓投幣後不想買的人可以退回硬幣"
+            ></span>
+            <span
+              class="sensor paragraph"
+              onclick="fillContent($(this))"
+              style="width: 300px; height: 20px; top: 87px; left: 83px"
+              ans="正在計算剩餘的錢，按退幣可能會算錯"
+            ></span>
+            <span
+              class="sensor paragraph"
+              onclick="fillContent($(this))"
+              style="width: 300px; height: 20px; top: 149px; left: 83px"
+              ans="應該讓投幣後不想買的人可以退回硬幣"
+            ></span>
+            <span
+              class="sensor paragraph"
+              onclick="fillContent($(this))"
+              style="width: 300px; height: 20px; top: 211px; left: 83px"
+              ans="出貨後會退回硬幣，不需要再增加一個觸發條件"
+            ></span>
+          </div>
+
+          <img
+            class="wow fadeIn"
+            style="width: 220px"
+            src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-5-2.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>挑戰主題</b>：用你的有限狀態機，檢查這幾位同學操作的流程。</p>
+
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div
+          class="item"
+          style="
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 30px;
+          "
+        >
+          <div class="chart wow fadeInLeft">
+            <div class="chart-btns">
+              <span
+                class="chart-btn"
+                style="top: 46px; left: 7px"
+                onclick="addToken($(this))"
+                tid="A"
+                ><img
+                  width="20px"
+                  height="20px"
+                  src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-A.png"
+              /></span>
+              <span
+                class="chart-btn"
+                style="top: 47px; left: 179px"
+                onclick="addToken($(this))"
+                tid="B"
+                ><img
+                  width="20px"
+                  height="20px"
+                  src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-B.png"
+              /></span>
+              <span
+                class="chart-btn"
+                style="top: 123px; left: 141px"
+                onclick="addToken($(this))"
+                tid="C"
+                ><img
+                  width="20px"
+                  height="20px"
+                  src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-C.png"
+              /></span>
+              <span
+                class="chart-btn"
+                style="top: 0px; left: 100px"
+                onclick="addToken($(this))"
+                tid="D"
+                ><img
+                  width="20px"
+                  height="20px"
+                  src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-D.png"
+              /></span>
+              <span
+                class="chart-btn"
+                style="top: 123px; left: 45px"
+                onclick="addToken($(this))"
+                tid="E"
+                ><img
+                  width="20px"
+                  height="20px"
+                  src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-E.png"
+              /></span>
+            </div>
+            <img
+              style="width: 200px"
+              src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-5-chart-A.png"
+            />
+          </div>
+          <div class="sensors">
+            <span
+              class="sensor filling"
+              onclick="toggleClass($(this), 'selected')"
+              style="width: 205px; height: 21px; top: 108px; left: 236px"
+              kid="F"
+              ans="ADBCEA"
+            ></span>
+            <span
+              class="sensor filling"
+              onclick="toggleClass($(this), 'selected')"
+              style="width: 205px; height: 21px; top: 148px; left: 236px"
+              kid="G"
+              ans="ADBDBDBCEA"
+            ></span>
+            <span
+              class="sensor filling"
+              onclick="toggleClass($(this), 'selected')"
+              style="width: 205px; height: 21px; top: 189px; left: 236px"
+              kid="H"
+              ans="ADADBEA"
+            ></span>
+            <span
+              class="sensor kids"
+              style="width: 205px; height: 21px; top: 223px; left: 236px"
+              ans="FG"
+            ></span>
+          </div>
+          <img
+            class="wow fadeIn"
+            style="width: 220px"
+            src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-5-3.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-4-5 .sensors .sensor.photo {
+    pointer-events: none !important;
+  }
+  .PT4-5-4-5 .sensors .sensor.token {
+    pointer-events: none !important;
+    opacity: 0;
+  }
+  .PT4-5-4-5 .sensors .sensor.token.active {
+    opacity: 1;
+  }
+  .PT4-5-4-5 .sensors .sensor.filling {
+    background-color: transparent;
+    font-size: 10px;
+    color: #000;
+  }
+  .PT4-5-4-5 .sensors .sensor.paragraph {
+    font-size: 10px;
+  }
+  .PT4-5-4-5 .sensors .sensor.paragraph:not(:empty) {
+    opacity: 1;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(1) .sensors .sensor.filling {
+    padding-top: 5px;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(1) .sensors .sensor.filling.mission1 {
+    pointer-events: none !important;
+    background: #ffedbc !important;
+    opacity: 1 !important;
+    color: transparent;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(1) .sensors .sensor.filling.low {
+    padding-top: 20px;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(1) .sensors .sensor.filling:not(:empty) {
+    opacity: 1;
+  }
+  .PT4-5-4-5
+    .contents
+    > div:nth-child(1)
+    .sensors
+    .sensor.filling:not(.selected) {
+    background: none;
+  }
+  .PT4-5-4-5 .sensors .sensor.yn {
+    border-radius: 100%;
+    border: 2px solid transparent;
+  }
+  .PT4-5-4-5 .sensors .sensor.yn.active {
+    border-color: #ff0000;
+    opacity: 1;
+  }
+  .PT4-5-4-5 .stickers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    z-index: 1;
+  }
+  .PT4-5-4-5 .stickers .sticker {
+    pointer-events: auto;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .PT4-5-4-5 .stickers .sticker:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .PT4-5-4-5 .stickers .sticker.mission1 {
+    pointer-events: none !important;
+    background: #ffedbc !important;
+  }
+
+  .PT4-5-4-5 .contents > div:nth-child(3) .sensors .sensor.filling {
+    text-align: left;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(3) .sensors .sensor.filling:not(:empty) {
+    opacity: 1;
+  }
+  .PT4-5-4-5
+    .contents
+    > div:nth-child(3)
+    .sensors
+    .sensor.filling:not(.selected):not(.incorrect) {
+    background: none;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(3) .sensors .sensor.filling.incorrect {
+    background: none;
+    opacity: 1;
+    border: 2px dashed #ff0000;
+  }
+  .PT4-5-4-5 .contents > div:nth-child(3) .sensors .sensor.filling img {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-5-4-5 .chart-btns {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .PT4-5-4-5 .chart-btn {
+    position: absolute;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0;
+  }
+</style>
+
+<script>
+  var switchYN = (item) => {
+    var group = item.attr("group");
+    var groupItems = $(".PT4-5-4-5 .sensors .sensor.yn[group='" + group + "']");
+    groupItems.removeClass("active");
+    item.addClass("active");
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var pasteMe = (id, item) => {
+    var filling_target = item
+      .closest(".item.selected")
+      .find(".sensors .sensor.filling.selected");
+
+    if (filling_target.length > 0) {
+      if (filling_target.attr("sid") == id) {
+        filling_target.removeClass("selected");
+        filling_target.html(filling_target.attr("ans"));
+        //顯示token
+        var tidArray = filling_target.attr("tid").split("^");
+        tidArray.forEach(function (tid) {
+          filling_target
+            .closest(".sensors")
+            .find(".sensor.token[tid='" + tid + "']")
+            .addClass("active");
+        });
+        $("#module_wrapper .sideTool .btn_replay").show();
+        rootSoundEffect($chimes);
+      } else {
+        rootSoundEffect($stupid);
+        showTaskAlert("選錯貼紙了，再考慮一下。");
+      }
+    } else {
+      showTaskAlert("請先選擇一個箭頭");
+    }
+  };
+
+  var addToken = (item) => {
+    var kid_target = item
+      .closest(".item.selected")
+      .find(".sensors .sensor.kids");
+    var filling_target = item
+      .closest(".item.selected")
+      .find(".sensors .sensor.filling.selected");
+
+    if (filling_target.length > 0) {
+      var token = item.find("img").clone();
+      token.on("click", function () {
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        rootSoundEffect($show);
+        $(this).remove();
+      });
+      filling_target.append(token);
+      $("#module_wrapper .sideTool .btn_replay").show();
+      rootSoundEffect($pop);
+      //確認誰拿到飲料
+      if (item.attr("tid") == "C") {
+        var kidSrc =
+          "./DATA/PT4/BOOK5/IMAGES/kid-" + filling_target.attr("kid") + ".png";
+        if (kid_target.find('img[src="' + kidSrc + '"]').length === 0) {
+          kid_target.append(
+            '<img width="20px" height="20px" src="' + kidSrc + '" />',
+          );
+          rootSoundEffect($chimes);
+        }
+      }
+      $("#module_wrapper .sideTool .btn_check").show();
+    } else {
+      showTaskAlert("請先選擇一個問題區塊");
+    }
+  };
+
+  var updateMission1_PT4_5_4_5 = function () {
+    $(".alert").remove();
+    $(".PT4-5-4-5 .mission1").removeClass("mission1");
+  };
+
+  //共用
+  var showTaskAlert = function (msg) {
+    $(".alert").remove();
+    $(".contents > div.selected").append(
+      '<div class="alert wow bounceInUp" onclick="$(this).remove()">' +
+        msg +
+        "</div>",
+    );
+    rootSoundEffect($stupid);
+  };
+
+  var toggleClass = (item, className) => {
+    item.siblings("." + className).removeClass(className);
+    item.toggleClass(className);
+    item.removeClass("incorrect");
+    rootSoundEffect($key);
+    $("#module_wrapper .sideTool .btn_replay").show();
+  };
+
+  var fillContent = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入正確答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      item.html(text);
+      rootSoundEffect($key);
+      $("#module_wrapper .sideTool .btn_replay").show();
+    }
+  };
+
+  var showAnswer_PT4_5_4_5 = function (btn) {
+    $(".alert").remove();
+    if (!btn.hasClass("active")) {
+      //任務一
+      if ($(".PT4-5-4-5 .contents > div:nth-child(1).selected").length > 0) {
+        var currentContainer = $(
+          ".PT4-5-4-5 .contents > div:nth-child(1).selected",
+        );
+        currentContainer.find(".sensors .sensor.filling").each(function () {
+          $(this).html($(this).attr("ans"));
+        });
+        currentContainer.find(".sensors .sensor.token").addClass("active");
+      }
+      //任務二
+      if ($(".PT4-5-4-5 .contents > div:nth-child(2).selected").length > 0) {
+        var currentContainer = $(
+          ".PT4-5-4-5 .contents > div:nth-child(2).selected",
+        );
+        currentContainer.find(".sensors .sensor.yn").each(function () {
+          if ($(this).attr("ans") == "1") {
+            $(this).addClass("active");
+          } else {
+            $(this).removeClass("active");
+          }
+        });
+        currentContainer.find(".sensors .sensor.paragraph").each(function () {
+          $(this).html($(this).attr("ans"));
+        });
+      }
+      //任務三
+      if ($(".PT4-5-4-5 .contents > div:nth-child(3).selected").length > 0) {
+        var currentContainer = $(
+          ".PT4-5-4-5 .contents > div:nth-child(3).selected",
+        );
+        currentContainer.find(".sensors .sensor.filling").each(function () {
+          $(this).empty();
+          var ansArray = $(this).attr("ans").split("");
+          var tokenContainer = $(this);
+          ansArray.forEach(function (ans) {
+            tokenContainer.append(
+              `<img width="20px" height="20px" src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-${ans}.png" />`,
+            );
+          });
+        });
+        currentContainer.find(".sensors .sensor.kids").each(function () {
+          $(this).empty();
+          var ansArray = $(this).attr("ans").split("");
+          var tokenContainer = $(this);
+          ansArray.forEach(function (ans) {
+            tokenContainer.append(
+              `<img width="20px" height="20px" src="./DATA/PT4/BOOK5/IMAGES/kid-${ans}.png" />`,
+            );
+          });
+        });
+      }
+      $("#module_wrapper .sideTool .btn_replay").show();
+    } else {
+      resetElem_PT4_5_4_5();
+    }
+  };
+
+  var resetElem_PT4_5_4_5 = function () {
+    $(".alert").remove();
+    //任務一
+    if ($(".PT4-5-4-5 .contents > div:nth-child(1).selected").length > 0) {
+      $(".PT4-5-4-5 .contents .sensors .sensor.filling").html("");
+      $(".PT4-5-4-5 .contents .sensors .sensor.token").removeClass("active");
+    }
+    //任務一
+    if ($(".PT4-5-4-5 .contents > div:nth-child(2).selected").length > 0) {
+      $(".PT4-5-4-5 .contents .sensors .sensor.yn").removeClass("active");
+      $(".PT4-5-4-5 .contents .sensors .sensor.paragraph").html("");
+    }
+    //任務三
+    if ($(".PT4-5-4-5 .contents > div:nth-child(3).selected").length > 0) {
+      $(".PT4-5-4-5 .contents .sensors .sensor.filling").html("");
+      $(".PT4-5-4-5 .contents .sensors .sensor.kids").html("");
+    }
+  };
+
+  var checkAnswer_PT4_5_4_5 = function () {
+    $(".alert").remove();
+    //任務三
+    if ($(".PT4-5-4-5 .contents > div:nth-child(3).selected").length > 0) {
+      var getWrong = false;
+      var currentContainer = $(
+        ".PT4-5-4-5 .contents > div:nth-child(3).selected",
+      );
+      currentContainer.find(".sensors .sensor.filling").each(function () {
+        $(this).removeClass("incorrect");
+        var ans = $(this).attr("ans");
+        var yourAns = "";
+        var tokens = $(this).find("img");
+        tokens.each(function () {
+          yourAns += $(this).attr("src").split("/").pop().split(".")[0];
+        });
+        if (ans != yourAns) {
+          getWrong = true;
+          $(this).addClass("incorrect");
+          rootSoundEffect($stupid);
+        }
+      });
+      if (!getWrong) {
+        bingo();
+      }
+    }
+  };
+
+  var withinResetElem_PT4_5_4_5 = function () {
+    //判斷任務一玩過了沒
+    if ($(".PT4-5-4-5 .contents > div:nth-child(1).selected").length > 0) {
+      if (typeof window.PT4_5_4_4_mission1 === "undefined") {
+        //表示還沒有玩過文生圖
+        window.PT4_5_4_4_mission1 = true;
+        console.log("還沒文生圖");
+      } else {
+        //已經玩過文生圖了
+        window.PT4_5_4_4_mission1 = true;
+        console.log("已經任務一");
+        if (typeof updateMission1_PT4_5_4_4 === "undefined") {
+          console.log("還沒有updateMission1_PT4_5_4_4");
+        } else {
+          console.log("已經有updateMission1_PT4_5_4_4");
+          updateMission1_PT4_5_4_4();
+        }
+      }
+    }
+  };
+
+  // keep 回來：重掛 hook
+  window.reactivate_PT4_5_4_5 = function () {
+    withinResetElem = withinResetElem_PT4_5_4_5;
+  };
+
+  window.reactivate_PT4_5_4_5();
+</script>

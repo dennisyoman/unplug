@@ -1,0 +1,307 @@
+<div id="module_wrapper" class="module_box PT4-5-4-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer" onclick="showAnswer_PT4_5_4_4($(this))"></div>
+    <div class="btn_replay" onclick="resetElem_PT4_5_4_4()"></div>
+    <div class="btn_check"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：圖片有提供狀態轉移的規則，請在對應的狀態圓圈中貼上狀態貼紙。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div style="margin-right: 100px; position: relative" class="tti mission1">
+        <div
+          class="sensorArea"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: -2px;
+              left: 152px;
+            "
+            group="a"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 42px;
+              left: 152px;
+            "
+            group="b"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 87px;
+              left: 152px;
+            "
+            group="c"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 132px;
+              left: 152px;
+            "
+            group="d"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 177px;
+              left: 152px;
+            "
+            group="e"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 222px;
+              left: 152px;
+            "
+            group="f"
+          ></span>
+        </div>
+
+        <div
+          class="sensors mission1"
+          style="position: absolute; z-index: 2; height: 100%"
+        >
+          <!-- 填文字 -->
+          <span
+            class="sensor"
+            onclick="fillContent($(this))"
+            style="width: 79px; height: 21px; top: 254px; left: 50px"
+            ans="投入硬幣"
+          ></span>
+        </div>
+
+        <img
+          width="180"
+          height="auto"
+          src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-4-1.png"
+        />
+      </div>
+
+      <div
+        class="toys toys_rectangle noShuffle wow slideInRight"
+        style="width: 50px; left: auto; right: 200px; bottom: auto"
+      >
+        <div
+          class="toy cards repeat"
+          sp="11,332^55,332^100,332^145,332^190,332^235,332^280,178^280,332"
+          ap="55,332^235,332"
+          group="b^f"
+          style="width: 30px; height: 30px"
+        >
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-A.png" />
+        </div>
+        <div
+          class="toy cards repeat"
+          sp="11,332^55,332^100,332^145,332^190,332^235,332^280,178^280,332"
+          ap="100,332"
+          group="c"
+          style="width: 30px; height: 30px"
+        >
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-B.png" />
+        </div>
+        <div
+          class="toy cards repeat"
+          sp="11,332^55,332^100,332^145,332^190,332^235,332^280,178^280,332"
+          ap="145,332"
+          group="d"
+          style="width: 30px; height: 30px"
+        >
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-C.png" />
+        </div>
+        <div
+          class="toy cards repeat"
+          sp="11,332^55,332^100,332^145,332^190,332^235,332^280,178^280,332"
+          ap="11,332"
+          group="a"
+          style="width: 30px; height: 30px"
+        >
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-D.png" />
+        </div>
+        <div
+          class="toy cards repeat"
+          sp="11,332^55,332^100,332^145,332^190,332^235,332^280,178^280,332"
+          ap="190,332"
+          group="e"
+          style="width: 30px; height: 30px"
+        >
+          <img src="./DATA/PT4/BOOK5/IMAGES/PT4-5-4-token-E.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-5-4-4 .tti {
+    padding: 8px;
+    background: #ffffff;
+  }
+  .PT4-5-4-4 .toys .toy {
+    margin: 5px auto;
+  }
+  .PT4-5-4-4 .sensors {
+    position: absolute;
+  }
+  .PT4-5-4-4 .sensors.mission1 {
+    display: none;
+  }
+  .PT4-5-4-4 .sensors > .sensor {
+    position: absolute;
+    font-size: 12px;
+    line-height: 12px;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .PT4-5-4-4 .tti.mission1::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    background: #fff;
+  }
+</style>
+
+<script>
+  var fillContent = (item) => {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    var text = window.prompt("請輸入正確答案：", "");
+    if (text === null) {
+      rootSoundEffect($show);
+      return; // 取消則不處理
+    } else {
+      rootSoundEffect($pop);
+      item.html(text);
+      rootSoundEffect($key);
+      $("#module_wrapper .sideTool .btn_replay").show();
+    }
+  };
+
+  var showAnswer_PT4_5_4_4 = function (btn) {
+    if (!btn.hasClass("active")) {
+      $(".PT4-5-4-4 .contents .sensors:not(.mission1) .sensor").each(
+        function () {
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+        },
+      );
+    } else {
+      resetElem_PT4_5_4_4();
+    }
+  };
+  var resetElem_PT4_5_4_4 = function () {
+    $(".PT4-5-4-4 .contents .sensors .sensor").html("");
+  };
+
+  var updateMission1_PT4_5_4_4 = function () {
+    var mission1Span = `<span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 267px;
+              left: -2px;
+            "
+            group="g"
+          ></span>
+          <span
+            ox="0"
+            oy="0"
+            style="
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 267px;
+              left: 152px;
+            "
+            group="h"
+          ></span>`;
+    //秀出mission1物件
+    if ($(".PT4-5-4-4 .toy[group='a']").length > 0) {
+      $(".PT4-5-4-4 .toy[group='a']")
+        .attr("group", "a^h")
+        .attr("ap", "11,332^280,332");
+      $(".PT4-5-4-4 .toy[group='c']")
+        .attr("group", "c^g")
+        .attr("ap", "100,332^280,178");
+      $(".PT4-5-4-4 .sensorArea").append(mission1Span);
+      $(".PT4-5-4-4 .mission1").removeClass("mission1");
+    }
+    //能到這裡表示任務一玩過了
+    updateMission1_PT4_5_4_5();
+  };
+  // global flag: keep existing value if already defined
+  if (typeof window.PT4_5_4_4_mission1 === "undefined") {
+    //表示還沒有玩過任務一
+    window.PT4_5_4_4_mission1 = false;
+    console.log("還沒任務一");
+  } else {
+    //已經玩過任務一了
+    console.log("已經任務一");
+    updateMission1_PT4_5_4_4();
+  }
+
+  // keep 回來：若任務一已玩過，再同步一次
+  window.reactivate_PT4_5_4_4 = function () {
+    if (window.PT4_5_4_4_mission1) {
+      updateMission1_PT4_5_4_4();
+    }
+  };
+</script>

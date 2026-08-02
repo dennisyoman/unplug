@@ -353,11 +353,20 @@ var checkStatus = function () {
   if ($(".contents > div.selected .sensorArea").hasClass("checkonchange")) {
     $(".sideTool > div.btn_check").click();
   }
+  if ($(".contents > div.selected .sensors").hasClass("checkonchange")) {
+    $(".sideTool > div.btn_check").click();
+  }
   //
   $(".sideTool > div.btn_replay").show();
   if (
     !$(".contents > div.selected .sensorArea").hasClass("checkonchange") &&
     !$(".contents > div.selected .sensorArea").hasClass("nocheckbtn")
+  ) {
+    $(".sideTool > div.btn_check").show();
+  }
+  if (
+    !$(".contents > div.selected .sensors").hasClass("checkonchange") &&
+    !$(".contents > div.selected .sensors").hasClass("nocheckbtn")
   ) {
     $(".sideTool > div.btn_check").show();
   }
