@@ -1337,11 +1337,9 @@
   window.reactivate_PT4_5_3_5 = function () {
     withinResetElem = withinResetElem_PT4_5_3_5;
     initRoomLink_PT4_5_3_5();
+    window.showAnswer_PT4_5_3_5 = showAnswer_PT4_5_3_5;
+    window.resetElem_PT4_5_3_5 = resetElem_PT4_5_3_5;
   };
-
-  // onclick 需掛到 window（IIFE 內的 var 不是全域）
-  window.showAnswer_PT4_5_3_5 = showAnswer_PT4_5_3_5;
-  window.resetElem_PT4_5_3_5 = resetElem_PT4_5_3_5;
 
   window.reactivate_PT4_5_3_5();
 })();

@@ -994,9 +994,18 @@
 
   var withinCheckAnswer_PT4_5_2_5 = function () {};
 
-  // keep 回來：重掛 hook
+  // keep 回來：重掛 hook + HTML onClick
   window.reactivate_PT4_5_2_5 = function () {
     withinCheckAnswer = withinCheckAnswer_PT4_5_2_5;
+    window.toggleYN_PT4_5_2_5 = toggleYN_PT4_5_2_5;
+    window.addRoute_PT4_5_2_5 = addRoute_PT4_5_2_5;
+    window.resetRoute_PT4_5_2_5 = resetRoute_PT4_5_2_5;
+    window.addArrow_PT4_5_2_5 = addArrow_PT4_5_2_5;
+    window.modifyCondition_PT4_5_2_5 = modifyCondition_PT4_5_2_5;
+    window.modifyText_PT4_5_2_5 = modifyText_PT4_5_2_5;
+    window.checkAnswer_PT4_5_2_5 = checkAnswer_PT4_5_2_5;
+    window.showAnswer_PT4_5_2_5 = showAnswer_PT4_5_2_5;
+    window.resetElem_PT4_5_2_5 = resetElem_PT4_5_2_5;
   };
 
   window.reactivate_PT4_5_2_5();

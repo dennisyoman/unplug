@@ -300,8 +300,13 @@
 
   // keep 回來：若任務一已玩過，再同步一次
   window.reactivate_PT4_5_4_4 = function () {
+    window.fillContent = fillContent;
+    window.showAnswer_PT4_5_4_4 = showAnswer_PT4_5_4_4;
+    window.resetElem_PT4_5_4_4 = resetElem_PT4_5_4_4;
     if (window.PT4_5_4_4_mission1) {
       updateMission1_PT4_5_4_4();
     }
   };
+
+  window.reactivate_PT4_5_4_4();
 </script>

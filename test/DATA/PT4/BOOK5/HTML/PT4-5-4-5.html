@@ -759,9 +759,17 @@
     }
   };
 
-  // keep 回來：重掛 hook
+  // keep 回來：重掛 hook + HTML onclick
   window.reactivate_PT4_5_4_5 = function () {
     withinResetElem = withinResetElem_PT4_5_4_5;
+    window.switchYN = switchYN;
+    window.addToken = addToken;
+    window.toggleClass = toggleClass;
+    window.fillContent = fillContent;
+    window.pasteMe = pasteMe;
+    window.showAnswer_PT4_5_4_5 = showAnswer_PT4_5_4_5;
+    window.checkAnswer_PT4_5_4_5 = checkAnswer_PT4_5_4_5;
+    window.resetElem_PT4_5_4_5 = resetElem_PT4_5_4_5;
   };
 
   window.reactivate_PT4_5_4_5();
