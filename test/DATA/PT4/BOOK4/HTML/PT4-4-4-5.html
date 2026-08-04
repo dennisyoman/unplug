@@ -689,7 +689,7 @@
   }
 
   .PT4-4-4-5 .contents .sensors .capsule {
-    pointer-events: none !important;
+    pointer-events: auto !important;
   }
   .PT4-4-4-5 .contents .sensors .capsule > img {
     width: 100%;
@@ -866,299 +866,437 @@
 </style>
 
 <script>
-(function () {
-  var switchNumber = function (tar, e) {
-    e = e || window.event;
-    if (e) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-
-    var current = parseInt(tar.text().trim(), 10) || 0;
-    var next = current >= 6 ? 1 : current + 1;
-    tar.text(next);
-    rootSoundEffect($key);
-  };
-
-  var getItemWeight = function ($item) {
-    var $span = $item.children("span").first();
-    if ($span.length) {
-      var text = $span
-        .text()
-        .replace(/\u00a0/g, " ")
-        .trim();
-      if (text !== "" && /^\d+$/.test(text)) {
-        return parseInt(text, 10);
+  (function () {
+    var switchNumber = function (tar, e) {
+      e = e || window.event;
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
       }
-    }
-    return parseInt($item.attr("weight"), 10) || 0;
-  };
 
-  var getBoxMaxCapacity = function (boxID) {
-    var $progress = $(
-      `.PT4-4-4-5 .contents > div.selected .capacity .progress[progressID="${boxID}"]`,
-    );
-    if (!$progress.length) return 10;
+      var current = parseInt(tar.text().trim(), 10) || 0;
+      var next = current >= 6 ? 1 : current + 1;
+      tar.text(next);
+      rootSoundEffect($key);
+    };
 
-    var $fixed = $progress.find(".progressBar > span.fixed");
-    if ($fixed.length) {
-      return parseInt($fixed.last().text().trim(), 10) || 10;
-    }
-    return 10;
-  };
-
-  var checkAvailableCapacity = function (boxID) {
-    if (!boxID) return;
-
-    var $box = $(
-      `.PT4-4-4-5 .contents > div.selected .sensors .capsule[boxID="${boxID}"]`,
-    );
-    var boxTotalWeight = 0;
-    $box.each(function () {
-      boxTotalWeight += parseInt($(this).find("span").text().trim(), 10) || 0;
-    });
-    var remaining = getBoxMaxCapacity(boxID) - boxTotalWeight;
-
-    var $progress = $(
-      `.PT4-4-4-5 .contents > div.selected .capacity .progress[progressID="${boxID}"]`,
-    );
-    var $spans = $progress.find(".progressBar > span:not(.fixed)");
-    for (var i = 0; i < $spans.length; i++) {
-      var $span = $spans.eq(i);
-      if (
-        $span
+    var getItemWeight = function ($item) {
+      var $span = $item.children("span").first();
+      if ($span.length) {
+        var text = $span
           .text()
           .replace(/\u00a0/g, " ")
-          .trim() === ""
-      ) {
-        $span.text(remaining);
-        break;
-      }
-    }
-  };
-  var isCapsuleEmpty = function ($capsule) {
-    return (
-      $capsule
-        .text()
-        .replace(/\u00a0/g, " ")
-        .trim() === ""
-    );
-  };
-
-  var indicateAvailableCapsule = function () {
-    var $capsules = $(".PT4-4-4-5 .contents > div.selected .sensors .capsule");
-    $capsules.addClass("disabled");
-
-    var groups = [];
-    for (var i = 0; i < $capsules.length; i += 4) {
-      groups.push($capsules.slice(i, i + 4));
-    }
-
-    var $activeGroup = null;
-    for (var g = 0; g < groups.length; g++) {
-      var allFilled = true;
-      groups[g].each(function () {
-        if (isCapsuleEmpty($(this))) {
-          allFilled = false;
+          .trim();
+        if (text !== "" && /^\d+$/.test(text)) {
+          return parseInt(text, 10);
         }
-      });
-      if (!allFilled) {
-        $activeGroup = groups[g];
-        break;
       }
-    }
+      return parseInt($item.attr("weight"), 10) || 0;
+    };
 
-    if ($activeGroup) {
-      $activeGroup.each(function () {
-        if (isCapsuleEmpty($(this))) {
-          $(this).removeClass("disabled");
-        }
-      });
-    }
-  };
-  /* 共用 */
-  var takeItem = function (tar) {
-    $(".alert").remove();
-    var itemSelected = tar.parent().siblings(".itemlist").find(".selected");
-    if (itemSelected.length > 0) {
-      rootSoundEffect($pop);
-      //把item貼到capsule裡面
-      var iid = itemSelected.attr("iid");
-      var weight = getItemWeight(itemSelected);
-      //確認同個box裡面總重量沒有超過剩餘容量
-      var boxID = tar.attr("boxID");
-      var boxMaxCapacity = getBoxMaxCapacity(boxID);
+    var getBoxMaxCapacity = function (boxID) {
+      var $progress = $(
+        `.PT4-4-4-5 .contents > div.selected .capacity .progress[progressID="${boxID}"]`,
+      );
+      if (!$progress.length) return 10;
+
+      var $fixed = $progress.find(".progressBar > span.fixed");
+      if ($fixed.length) {
+        return parseInt($fixed.last().text().trim(), 10) || 10;
+      }
+      return 10;
+    };
+
+    var checkAvailableCapacity = function (boxID) {
+      if (!boxID) return;
+
       var $box = $(
         `.PT4-4-4-5 .contents > div.selected .sensors .capsule[boxID="${boxID}"]`,
       );
       var boxTotalWeight = 0;
-      for (var i = 0; i < $box.length; i++) {
-        var theWeight = parseInt($box.eq(i).find("span").text() || 0, 10);
-        boxTotalWeight += theWeight;
+      $box.each(function () {
+        boxTotalWeight += parseInt($(this).find("span").text().trim(), 10) || 0;
+      });
+      var remaining = getBoxMaxCapacity(boxID) - boxTotalWeight;
+
+      var $progress = $(
+        `.PT4-4-4-5 .contents > div.selected .capacity .progress[progressID="${boxID}"]`,
+      );
+      var $spans = $progress.find(".progressBar > span:not(.fixed)");
+      for (var i = 0; i < $spans.length; i++) {
+        var $span = $spans.eq(i);
+        if (
+          $span
+            .text()
+            .replace(/\u00a0/g, " ")
+            .trim() === ""
+        ) {
+          $span.text(remaining);
+          break;
+        }
+      }
+    };
+    var getBoxCurrentWeight = function (boxID) {
+      var total = 0;
+      $(
+        `.PT4-4-4-5 .contents > div.selected .sensors .capsule[boxID="${boxID}"]`,
+      ).each(function () {
+        total += parseInt($(this).find("span").text().trim(), 10) || 0;
+      });
+      return total;
+    };
+
+    var indicateCapacityCapsules = function ($selectedItem) {
+      var $capsules = $(
+        ".PT4-4-4-5 .contents > div.selected .sensors .capsule",
+      );
+      $capsules.addClass("disabled");
+      if (!$selectedItem || !$selectedItem.length) return;
+
+      var weight = getItemWeight($selectedItem);
+      if (weight <= 0) return;
+
+      // 一律依 capacity 順序從頭算（任務二 box1→4；任務三 box3→5→6）
+      var boxOrder = [];
+      $(
+        ".PT4-4-4-5 .contents > div.selected .capacity .progress",
+      ).each(function () {
+        var id = $(this).attr("progressID");
+        if (id) boxOrder.push(id);
+      });
+      if (!boxOrder.length) {
+        $capsules.each(function () {
+          var id = $(this).attr("boxID");
+          if (id && boxOrder.indexOf(id) === -1) boxOrder.push(id);
+        });
       }
 
-      if (boxTotalWeight + weight > boxMaxCapacity) {
+      for (var i = 0; i < boxOrder.length; i++) {
+        var boxID = boxOrder[i];
+        var remaining = getBoxMaxCapacity(boxID) - getBoxCurrentWeight(boxID);
+        if (remaining < weight) continue;
+
+        var $boxCapsules = $capsules.filter('[boxID="' + boxID + '"]');
+        var hasEmpty = false;
+        $boxCapsules.each(function () {
+          if (isCapsuleEmpty($(this))) hasEmpty = true;
+        });
+        if (!hasEmpty) continue;
+
+        // 一次只開放第一個夠重、且還有空格的 box
+        $boxCapsules.each(function () {
+          if (isCapsuleEmpty($(this))) {
+            $(this).removeClass("disabled");
+          }
+        });
+        break;
+      }
+    };
+
+    var enableAllCapsules = function () {
+      $(".PT4-4-4-5 .contents > div.selected .sensors .capsule").removeClass(
+        "disabled",
+      );
+    };
+
+    var isCapsuleEmpty = function ($capsule) {
+      return (
+        $capsule
+          .text()
+          .replace(/\u00a0/g, " ")
+          .trim() === ""
+      );
+    };
+
+    var indicateAvailableCapsule = function () {
+      var $capsules = $(
+        ".PT4-4-4-5 .contents > div.selected .sensors .capsule",
+      );
+      $capsules.addClass("disabled");
+
+      var groups = [];
+      for (var i = 0; i < $capsules.length; i += 4) {
+        groups.push($capsules.slice(i, i + 4));
+      }
+
+      var $activeGroup = null;
+      for (var g = 0; g < groups.length; g++) {
+        var allFilled = true;
+        groups[g].each(function () {
+          if (isCapsuleEmpty($(this))) {
+            allFilled = false;
+          }
+        });
+        if (!allFilled) {
+          $activeGroup = groups[g];
+          break;
+        }
+      }
+
+      if ($activeGroup) {
+        $activeGroup.each(function () {
+          if (isCapsuleEmpty($(this))) {
+            $(this).removeClass("disabled");
+          }
+        });
+      }
+    };
+    /* 共用 */
+    var takeItem = function (tar) {
+      $(".alert").remove();
+
+      var $itemlist = tar.parent().siblings(".itemlist");
+      var itemSelected = $itemlist.find(".selected");
+
+      // 沒選物品 + capsule 已有東西 → 清掉並還原 itemlist
+      if (itemSelected.length === 0 && !isCapsuleEmpty(tar)) {
+        var placedIid = tar.attr("data-placed-iid");
+        if (placedIid) {
+          $itemlist
+            .find("div[iid='" + placedIid + "']")
+            .removeClass("disabled");
+        } else {
+          var imgSrc = tar.find("img").attr("src");
+          if (imgSrc) {
+            $itemlist.find("div").each(function () {
+              if ($(this).find("img").attr("src") === imgSrc) {
+                $(this).removeClass("disabled");
+                return false;
+              }
+            });
+          }
+        }
+        tar.empty().removeAttr("data-placed-iid");
+        if ($itemlist.hasClass("limited")) {
+          indicateAvailableCapsule();
+        } else if ($itemlist.hasClass("withCapacityChart")) {
+          enableAllCapsules();
+        }
+        rootSoundEffect($show);
+        $(".sideTool > div.btn_answer").removeClass("active");
+        $(".sideTool > div.btn_replay").show();
+        return;
+      }
+
+      if (itemSelected.length > 0) {
+        if (!isCapsuleEmpty(tar)) {
+          rootSoundEffect($stupid);
+          var alertmsg = "這裡已經有物品了";
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          return;
+        }
+        rootSoundEffect($pop);
+        //把item貼到capsule裡面
+        var iid = itemSelected.attr("iid");
+        var weight = getItemWeight(itemSelected);
+        //確認同個box裡面總重量沒有超過剩餘容量
+        var boxID = tar.attr("boxID");
+        var boxMaxCapacity = getBoxMaxCapacity(boxID);
+        var $box = $(
+          `.PT4-4-4-5 .contents > div.selected .sensors .capsule[boxID="${boxID}"]`,
+        );
+        var boxTotalWeight = 0;
+        for (var i = 0; i < $box.length; i++) {
+          var theWeight = parseInt($box.eq(i).find("span").text() || 0, 10);
+          boxTotalWeight += theWeight;
+        }
+
+        if (boxTotalWeight + weight > boxMaxCapacity) {
+          rootSoundEffect($stupid);
+          var alertmsg = `總重量會超過10公斤，換一個箱子`;
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          return;
+        }
+        //貼到capsule裡面
+        var img = itemSelected.find("img").attr("src");
+        tar
+          .attr("data-placed-iid", iid || "")
+          .html(`<span>${weight}</span><img src="${img}" />`);
+        //
+        itemSelected.removeClass("selected").addClass("disabled");
+
+        if (itemSelected.parent().hasClass("withCapacityChart")) {
+          checkAvailableCapacity(boxID);
+          enableAllCapsules();
+        }
+
+        if (itemSelected.parent().hasClass("limited")) {
+          indicateAvailableCapsule();
+        }
+        $(".sideTool > div.btn_answer").removeClass("active");
+        $(".sideTool > div.btn_replay").show();
+      } else {
+        //先選擇物品
         rootSoundEffect($stupid);
-        var alertmsg = `總重量會超過10公斤，換一個箱子`;
+        var alertmsg = "請先選擇物品";
         $(".alert").remove();
         $(".contents > div.selected").append(
           `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
         );
-        return;
       }
-      //貼到capsule裡面
-      var img = itemSelected.find("img").attr("src");
-      tar.html(`<span>${weight}</span><img src="${img}" />`);
-      //
-      itemSelected.removeClass("selected").addClass("disabled");
+    };
 
-      if (itemSelected.parent().hasClass("withCapacityChart")) {
-        checkAvailableCapacity(boxID);
-      }
-
-      if (itemSelected.parent().hasClass("limited")) {
-        indicateAvailableCapsule();
-      }
-      $(".sideTool > div.btn_answer").removeClass("active");
-      $(".sideTool > div.btn_replay").show();
-    } else {
-      //先選擇物品
-      rootSoundEffect($stupid);
-      var alertmsg = "請先選擇物品";
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
-      );
-    }
-  };
-
-  var withinShowAnswer_PT4_4_4_5 = function (boolean) {
-    if (boolean) {
-      $(".PT4-4-4-5 .contents > div.selected .itemlist > div")
-        .removeClass("selected")
-        .addClass("disabled");
-      $(".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div").each(
-        function () {
-          $(this)
-            .children("span")
-            .text($(this).attr("weight") || "");
-        },
-      );
-      $(".alert").remove();
-      //
-      $(".PT4-4-4-5 .contents > div.selected .sensors .checkbox").each(
-        function () {
-          var ans = $(this).attr("ans");
-          if (!ans || ans === "") {
-            $(this).html("");
-            return;
-          }
-          $(this).text(ans);
-        },
-      );
-      //
-      $(".PT4-4-4-5 .contents > div.selected .sensors .capsule").each(
-        function () {
-          var ans = $(this).attr("ans");
-          if (!ans || ans === "") {
-            $(this).html("");
-            return;
-          }
-          var itemSelected = $(
-            `.PT4-4-4-5 .contents > div.selected .itemlist > div[iid='${ans}']`,
-          );
-          var weight = itemSelected.attr("weight");
-          var img = itemSelected.find("img").attr("src");
-          $(this).html(`<span>${weight}</span><img src="${img}" />`);
-        },
-      );
-
-      if (
-        $(".PT4-4-4-5 .contents > div.selected .itemlist.withCapacityChart")
-          .length > 0
-      ) {
-        $(
-          ".PT4-4-4-5 .contents > div.selected .capacity .progressBar > span",
-        ).each(function () {
-          var ans = $(this).attr("ans");
-          if (ans !== undefined && ans !== "") {
+    var withinShowAnswer_PT4_4_4_5 = function (boolean) {
+      if (boolean) {
+        $(".PT4-4-4-5 .contents > div.selected .itemlist > div")
+          .removeClass("selected")
+          .addClass("disabled");
+        $(".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div").each(
+          function () {
+            $(this)
+              .children("span")
+              .text($(this).attr("weight") || "");
+          },
+        );
+        $(".alert").remove();
+        //
+        $(".PT4-4-4-5 .contents > div.selected .sensors .checkbox").each(
+          function () {
+            var ans = $(this).attr("ans");
+            if (!ans || ans === "") {
+              $(this).html("");
+              return;
+            }
             $(this).text(ans);
-          }
-        });
-      }
-    }
-  };
-
-  var bindItemlistClick_PT4_4_4_5 = function () {
-    $(".PT4-4-4-5 .itemlist > div").each(function () {
-      $(this)
-        .unbind("click")
-        .bind("click", function () {
-          var $span = $(this).children("span");
-          if (
-            $span.length &&
-            $span
-              .text()
-              .replace(/\u00a0/g, " ")
-              .trim() === ""
-          ) {
-            rootSoundEffect($stupid);
-            $(".alert").remove();
-            $(".contents > div.selected").append(
-              `<div class="alert wow bounceInUp" onclick="$(this).remove()">請先設定此物品的重量</div>`,
+          },
+        );
+        //
+        $(".PT4-4-4-5 .contents > div.selected .sensors .capsule").each(
+          function () {
+            var ans = $(this).attr("ans");
+            if (!ans || ans === "") {
+              $(this).html("");
+              return;
+            }
+            var itemSelected = $(
+              `.PT4-4-4-5 .contents > div.selected .itemlist > div[iid='${ans}']`,
             );
-            return;
-          }
-          $(this)
-            .addClass("selected")
-            .siblings(".selected")
-            .removeClass("selected");
-          rootSoundEffect($pop);
-          //limited itemlist
-          if ($(this).parent().hasClass("limited")) {
-            indicateAvailableCapsule();
-          }
-        });
-    });
-  };
+            var weight = itemSelected.attr("weight");
+            var img = itemSelected.find("img").attr("src");
+            $(this).html(`<span>${weight}</span><img src="${img}" />`);
+          },
+        );
 
-  var withinResetElem_PT4_4_4_5 = function () {
-    $(
-      ".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div > span",
-    ).text("");
+        if (
+          $(".PT4-4-4-5 .contents > div.selected .itemlist.withCapacityChart")
+            .length > 0
+        ) {
+          $(
+            ".PT4-4-4-5 .contents > div.selected .capacity .progressBar > span",
+          ).each(function () {
+            var ans = $(this).attr("ans");
+            if (ans !== undefined && ans !== "") {
+              $(this).text(ans);
+            }
+          });
+        }
+      }
+    };
 
-    $(".PT4-4-4-5 .contents > div.selected .itemlist > div").each(function () {
-      $(this).removeClass("disabled");
-    });
-    bindItemlistClick_PT4_4_4_5();
+    var bindItemlistClick_PT4_4_4_5 = function () {
+      $(".PT4-4-4-5 .itemlist > div").each(function () {
+        $(this)
+          .unbind("click")
+          .bind("click", function () {
+            var $span = $(this).children("span");
+            if (
+              $span.length &&
+              $span
+                .text()
+                .replace(/\u00a0/g, " ")
+                .trim() === ""
+            ) {
+              rootSoundEffect($stupid);
+              $(".alert").remove();
+              $(".contents > div.selected").append(
+                `<div class="alert wow bounceInUp" onclick="$(this).remove()">請先設定此物品的重量</div>`,
+              );
+              return;
+            }
+            if ($(this).hasClass("selected")) {
+              $(this).removeClass("selected");
+              rootSoundEffect($show);
+              if ($(this).parent().hasClass("limited")) {
+                enableAllCapsules();
+              } else if ($(this).parent().hasClass("withCapacityChart")) {
+                enableAllCapsules();
+              }
+              return;
+            }
+            // 任務二／三：必須由上往下依序選，不能跳
+            var $list = $(this).parent();
+            if ($list.hasClass("withCapacityChart")) {
+              var $nextAllowed = $list.children("div").not(".disabled").first();
+              if (!$nextAllowed.length || $nextAllowed[0] !== this) {
+                rootSoundEffect($stupid);
+                $(".alert").remove();
+                $(".contents > div.selected").append(
+                  `<div class="alert wow bounceInUp" onclick="$(this).remove()">請依照順序，從最上方的物品開始放入</div>`,
+                );
+                return;
+              }
+            }
+            $(this)
+              .addClass("selected")
+              .siblings(".selected")
+              .removeClass("selected");
+            rootSoundEffect($pop);
+            //limited itemlist
+            if ($(this).parent().hasClass("limited")) {
+              indicateAvailableCapsule();
+            } else if ($(this).parent().hasClass("withCapacityChart")) {
+              // 任務二／三：依剩餘容量只開放夠放的空格
+              indicateCapacityCapsules($(this));
+            }
+          });
+      });
+    };
 
-    $(".PT4-4-4-5 .contents > div.selected .sensors .capsule")
-      .removeClass("disabled")
-      .html("");
-    $(".PT4-4-4-5 .contents > div.selected .sensors .checkbox").text("");
-    $(
-      ".PT4-4-4-5 .contents > div.selected .capacity .progress .progressBar > span:not(.fixed)",
-    ).text("");
-  };
+    var withinResetElem_PT4_4_4_5 = function () {
+      $(
+        ".PT4-4-4-5 .contents > div.selected .itemlist.mission3 > div > span",
+      ).text("");
 
-  var toggleMe = function (tar) {
-    if (tar.html() === "v") {
-      tar.html("");
-    } else {
-      tar.html("v");
-    }
-    rootSoundEffect($click);
-  };
+      $(".PT4-4-4-5 .contents > div.selected .itemlist > div").each(
+        function () {
+          $(this).removeClass("disabled");
+        },
+      );
+      bindItemlistClick_PT4_4_4_5();
 
-  window.reactivate_PT4_4_4_5 = function () {
-    withinShowAnswer = withinShowAnswer_PT4_4_4_5;
-    withinResetElem = withinResetElem_PT4_4_4_5;
-    window.switchNumber = switchNumber;
-    window.takeItem = takeItem;
-    window.toggleMe = toggleMe;
-    bindItemlistClick_PT4_4_4_5();
-  };
+      $(".PT4-4-4-5 .contents > div.selected .sensors .capsule")
+        .removeClass("disabled")
+        .html("");
+      $(".PT4-4-4-5 .contents > div.selected .sensors .checkbox").text("");
+      $(
+        ".PT4-4-4-5 .contents > div.selected .capacity .progress .progressBar > span:not(.fixed)",
+      ).text("");
+    };
 
-  window.reactivate_PT4_4_4_5();
-})();
+    var toggleMe = function (tar) {
+      if (tar.html() === "v") {
+        tar.html("");
+      } else {
+        tar.html("v");
+      }
+      rootSoundEffect($click);
+    };
+
+    window.reactivate_PT4_4_4_5 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_4_4_5;
+      withinResetElem = withinResetElem_PT4_4_4_5;
+      window.switchNumber = switchNumber;
+      window.takeItem = takeItem;
+      window.toggleMe = toggleMe;
+      bindItemlistClick_PT4_4_4_5();
+    };
+
+    window.reactivate_PT4_4_4_5();
+  })();
 </script>

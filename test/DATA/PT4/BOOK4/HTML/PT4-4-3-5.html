@@ -244,6 +244,7 @@
 
           <div class="btn_map" onClick="toggleMap()">
             <img src="./DATA/IMAGES/common/btn_check.png" />
+            <p>地圖</p>
           </div>
 
           <img
@@ -417,6 +418,7 @@
 
           <div class="btn_map" onClick="toggleMap()">
             <img src="./DATA/IMAGES/common/btn_check.png" />
+            <p>地圖</p>
           </div>
 
           <img
@@ -455,6 +457,13 @@
     cursor: pointer;
     animation: bounceIn 1s both;
   }
+  .PT4-4-3-5 .btn_map p {
+    font-size: 10px;
+    color: #000;
+    white-space: nowrap;
+    text-align: center;
+  }
+
   .PT4-4-3-5 .btn_resetMapGrid {
     display: none;
   }
@@ -569,679 +578,692 @@
 </style>
 
 <script>
-(function () {
-  var PT4_4_3_5_STEP_MS = 500;
-  var toggleMap = function () {
-    $(".PT4-4-3-5 .contents > div.selected .mapContainer").toggleClass(
-      "active",
-    );
-  };
-  var getFeyGridPos = function ($fey) {
-    var col = parseInt($fey.data("col"), 10);
-    var row = parseInt($fey.data("row"), 10);
-    if (Number.isFinite(col) && Number.isFinite(row)) {
-      return { col: col, row: row };
-    }
-    return parseCellAttr($fey.attr("startPosition"));
-  };
+  (function () {
+    var PT4_4_3_5_STEP_MS = 500;
+    var toggleMap = function () {
+      $(".PT4-4-3-5 .contents > div.selected .mapContainer").toggleClass(
+        "active",
+      );
+    };
+    var getFeyGridPos = function ($fey) {
+      var col = parseInt($fey.data("col"), 10);
+      var row = parseInt($fey.data("row"), 10);
+      if (Number.isFinite(col) && Number.isFinite(row)) {
+        return { col: col, row: row };
+      }
+      return parseCellAttr($fey.attr("startPosition"));
+    };
 
-  var syncFeyToGrid = function ($fey, col, row, metrics) {
-    var $grid = $fey.closest(".mapGrid");
-    var center = getCellCenter($grid, col, row, metrics);
-    $fey.data({ col: col, row: row }).css({
-      left: center.left + "px",
-      top: center.top + "px",
-    });
-  };
+    var syncFeyToGrid = function ($fey, col, row, metrics) {
+      var $grid = $fey.closest(".mapGrid");
+      var center = getCellCenter($grid, col, row, metrics);
+      $fey.data({ col: col, row: row }).css({
+        left: center.left + "px",
+        top: center.top + "px",
+      });
+    };
 
-  var manhattanDist = function (c1, r1, c2, r2) {
-    return Math.abs(c2 - c1) + Math.abs(r2 - r1);
-  };
+    var manhattanDist = function (c1, r1, c2, r2) {
+      return Math.abs(c2 - c1) + Math.abs(r2 - r1);
+    };
 
-  var resetGridVisited = function ($grid) {
-    var start = getFeyGridPos($grid.find(".fey"));
-    var visited = {};
-    visited[cellKey(start.col, start.row)] = 1;
-    $grid.data("visited", visited);
-  };
+    var resetGridVisited = function ($grid) {
+      var start = getFeyGridPos($grid.find(".fey"));
+      var visited = {};
+      visited[cellKey(start.col, start.row)] = 1;
+      $grid.data("visited", visited);
+    };
 
-  var getGridVisited = function ($grid) {
-    var visited = $grid.data("visited");
-    if (!visited) {
-      resetGridVisited($grid);
-      visited = $grid.data("visited");
-    }
-    return visited;
-  };
+    var getGridVisited = function ($grid) {
+      var visited = $grid.data("visited");
+      if (!visited) {
+        resetGridVisited($grid);
+        visited = $grid.data("visited");
+      }
+      return visited;
+    };
 
-  var isSensorEmpty = function ($el) {
-    if ($el.children().length) {
-      return false;
-    }
-    return !$el.text().replace(/\u00a0/g, " ").trim();
-  };
-
-  var getFirstEmptySensor = function ($root, selector) {
-    var $empty = null;
-    $root.find(selector).each(function () {
-      if (isSensorEmpty($(this))) {
-        $empty = $(this);
+    var isSensorEmpty = function ($el) {
+      if ($el.children().length) {
         return false;
       }
-    });
-    return $empty;
-  };
-
-  var animateFeyOnPath = function ($grid, path, fromCol, fromRow, onDone) {
-    var $fey = $grid.find(".fey");
-    var metrics = getGridMetrics($grid);
-    var timers = [];
-    $grid.data("moveTimers", timers);
-    $fey.addClass("moving");
-
-    var stepIdx = 0;
-    var moveNext = function () {
-      if (!$grid.data("moving") || stepIdx >= path.length) {
-        $fey.removeClass("moving");
-        $grid.removeData("moving");
-        clearFeyMoveTimers($grid);
-        if (onDone) {
-          onDone();
-        }
-        return;
-      }
-
-      var cell = path[stepIdx];
-      var segFromCol = stepIdx === 0 ? fromCol : path[stepIdx - 1].col;
-      var segFromRow = stepIdx === 0 ? fromRow : path[stepIdx - 1].row;
-      appendPathSegment(
-        $grid,
-        segFromCol,
-        segFromRow,
-        cell.col,
-        cell.row,
-        metrics,
-      );
-      syncFeyToGrid($fey, cell.col, cell.row, metrics);
-      rootSoundEffect($beep);
-      stepIdx++;
-      timers.push(setTimeout(moveNext, PT4_4_3_5_STEP_MS));
+      return !$el
+        .text()
+        .replace(/\u00a0/g, " ")
+        .trim();
     };
 
-    moveNext();
-  };
-
-  var checkNearestDistance = function (tar) {
-    if (tar.hasClass("disabled")) {
-      return;
-    }
-    var $grid = tar.closest(".mapGrid");
-    if ($grid.data("moving")) {
-      return;
-    }
-
-    var $fey = $grid.find(".fey");
-    var $item = $grid.closest(".item");
-    var $sensors = $item.find(".sensors");
-    var feyPos = getFeyGridPos($fey);
-    var tarCol = parseInt(tar.attr("data-col"), 10) || 0;
-    var tarRow = parseInt(tar.attr("data-row"), 10) || 0;
-    var tarDist = manhattanDist(feyPos.col, feyPos.row, tarCol, tarRow);
-    var minDist = Infinity;
-
-    getGemCells($grid)
-      .not(".disabled")
-      .each(function () {
-        var c = parseInt($(this).attr("data-col"), 10) || 0;
-        var r = parseInt($(this).attr("data-row"), 10) || 0;
-        var d = manhattanDist(feyPos.col, feyPos.row, c, r);
-        if (d < minDist) {
-          minDist = d;
+    var getFirstEmptySensor = function ($root, selector) {
+      var $empty = null;
+      $root.find(selector).each(function () {
+        if (isSensorEmpty($(this))) {
+          $empty = $(this);
+          return false;
         }
       });
+      return $empty;
+    };
 
-    if (tarDist > minDist) {
-      rootSoundEffect($stupid);
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">這不是最近的寶石，請重新選擇</div>`,
-      );
-      return;
-    }
+    var animateFeyOnPath = function ($grid, path, fromCol, fromRow, onDone) {
+      var $fey = $grid.find(".fey");
+      var metrics = getGridMetrics($grid);
+      var timers = [];
+      $grid.data("moveTimers", timers);
+      $fey.addClass("moving");
 
-    var path = buildManhattanPath(
-      feyPos.col,
-      feyPos.row,
-      tarCol,
-      tarRow,
-      getGridVisited($grid),
-    );
-    var steps = path.length;
-    var gemId = ((tar.attr("gem") || "").match(/\d+/) || [""])[0];
+      var stepIdx = 0;
+      var moveNext = function () {
+        if (!$grid.data("moving") || stepIdx >= path.length) {
+          $fey.removeClass("moving");
+          $grid.removeData("moving");
+          clearFeyMoveTimers($grid);
+          if (onDone) {
+            onDone();
+          }
+          return;
+        }
 
-    $grid.data("moving", true);
-    getGemCells($grid).addClass("disabled");
-
-    animateFeyOnPath($grid, path, feyPos.col, feyPos.row, function () {
-      syncFeyToGrid($fey, tarCol, tarRow, getGridMetrics($grid));
-      tar.addClass("disabled gotit");
-      getGemCells($grid).not(".gotit").removeClass("disabled");
-
-      var $stepSlot = getFirstEmptySensor($sensors, ".sensor.step");
-      var $gemSlot = getFirstEmptySensor($sensors, ".sensor.gemGot");
-      if ($stepSlot) {
-        $stepSlot.text(steps);
-      }
-      if ($gemSlot) {
-        $gemSlot.html(
-          `<img src="./DATA/PT4/BOOK4/IMAGES/gem_${gemId}.png" alt="" />`,
+        var cell = path[stepIdx];
+        var segFromCol = stepIdx === 0 ? fromCol : path[stepIdx - 1].col;
+        var segFromRow = stepIdx === 0 ? fromRow : path[stepIdx - 1].row;
+        appendPathSegment(
+          $grid,
+          segFromCol,
+          segFromRow,
+          cell.col,
+          cell.row,
+          metrics,
         );
-      }
+        syncFeyToGrid($fey, cell.col, cell.row, metrics);
+        rootSoundEffect($beep);
+        stepIdx++;
+        timers.push(setTimeout(moveNext, PT4_4_3_5_STEP_MS));
+      };
 
-      var $totalSteps = $sensors.find(".sensor.totalSteps");
-      var total =
-        parseInt(
-          $totalSteps
-            .text()
-            .replace(/\u00a0/g, " ")
-            .trim(),
-          10,
-        ) || 0;
-      $totalSteps.text(total + steps);
-
-      rootSoundEffect($right);
-      $(".sideTool > div.btn_replay").show();
-    });
-  };
-
-  var getMarkerNum = function ($el) {
-    return (
-      parseInt(
-        $el
-          .text()
-          .replace(/\u00a0/g, " ")
-          .trim(),
-        10,
-      ) || 0
-    );
-  };
-
-  var parseCellAttr = function (val) {
-    var p = (val || "0,0").split(",");
-    return {
-      col: parseInt(p[0], 10) || 0,
-      row: parseInt(p[1], 10) || 0,
+      moveNext();
     };
-  };
 
-  var getGridMetrics = function ($grid) {
-    var rows = parseInt($grid.attr("row"), 10) || 1;
-    var cols = parseInt($grid.attr("col"), 10) || 1;
-    var gridW = parseFloat($grid.get(0).style.width) || $grid.width() || 0;
-    var gridH = parseFloat($grid.get(0).style.height) || $grid.height() || 0;
-    return {
-      rows: rows,
-      cols: cols,
-      cellW: gridW / cols,
-      cellH: gridH / rows,
-    };
-  };
-
-  var getCellCenter = function ($grid, col, row, metrics) {
-    var m = metrics || getGridMetrics($grid);
-    return {
-      left: col * m.cellW + m.cellW / 2,
-      top: row * m.cellH + m.cellH / 2,
-    };
-  };
-
-  var findGridCell = function ($grid, col, row) {
-    return $grid.find(`.cell[data-col="${col}"][data-row="${row}"]`);
-  };
-
-  var cellKey = function (col, row) {
-    return col + "," + row;
-  };
-
-  var buildManhattanPath = function (fromCol, fromRow, toCol, toRow, visited) {
-    var path = [];
-    var c = fromCol;
-    var r = fromRow;
-    visited = visited || {};
-
-    while (c !== toCol || r !== toRow) {
-      var candidates = [];
-      if (c !== toCol) {
-        candidates.push({ col: c + (c < toCol ? 1 : -1), row: r, axis: "h" });
-      }
-      if (r !== toRow) {
-        candidates.push({ col: c, row: r + (r < toRow ? 1 : -1), axis: "v" });
-      }
-
-      var best = candidates[0];
-      var bestVisits = visited[cellKey(best.col, best.row)] || 0;
-      var bestAxisSpan =
-        best.axis === "h" ? Math.abs(toCol - c) : Math.abs(toRow - r);
-
-      for (var i = 1; i < candidates.length; i++) {
-        var cand = candidates[i];
-        var candVisits = visited[cellKey(cand.col, cand.row)] || 0;
-        var candAxisSpan =
-          cand.axis === "h" ? Math.abs(toCol - c) : Math.abs(toRow - r);
-
-        if (
-          candVisits < bestVisits ||
-          (candVisits === bestVisits && candAxisSpan > bestAxisSpan)
-        ) {
-          best = cand;
-          bestVisits = candVisits;
-          bestAxisSpan = candAxisSpan;
-        }
-      }
-
-      c = best.col;
-      r = best.row;
-      path.push({ col: c, row: r });
-      var key = cellKey(c, r);
-      visited[key] = (visited[key] || 0) + 1;
-    }
-
-    return path;
-  };
-
-  var getGemMap = function ($grid) {
-    var gemMap = {};
-    $grid
-      .closest(".item")
-      .find(".sensors .marker")
-      .each(function () {
-        var $marker = $(this);
-        var cell = parseCellAttr($marker.attr("cell"));
-        gemMap[cellKey(cell.col, cell.row)] = {
-          gem: $marker.attr("gem") || "",
-          oc: $marker.attr("oc") || "",
-        };
-      });
-    return gemMap;
-  };
-
-  var runCellOc = function ($cell) {
-    var fnName = $cell.attr("oc");
-    if (fnName && typeof window[fnName] === "function") {
-      window[fnName]($cell);
-    }
-  };
-
-  var getGemCells = function ($grid) {
-    return $grid.find(".cell.gem");
-  };
-
-  var getMarkerOrderKey = function ($grid) {
-    var items = [];
-    getGemCells($grid).each(function () {
-      var n = getMarkerNum($(this));
-      if (n > 0) {
-        items.push({ order: n, gem: $(this).attr("gem") || "" });
-      }
-    });
-    items.sort(function (a, b) {
-      return a.order - b.order;
-    });
-    var key = "";
-    for (var i = 0; i < items.length; i++) {
-      key += items[i].gem;
-    }
-    return key;
-  };
-
-  var clearMovePath = function ($grid) {
-    $grid.find(".pathLayer").remove();
-  };
-
-  var PT4_4_3_5_SVG_NS = "http://www.w3.org/2000/svg";
-
-  var ensurePathLayer = function ($grid, metrics) {
-    var $svg = $grid.find(".pathLayer");
-    if ($svg.length) {
-      return $svg;
-    }
-    var w = metrics.cellW * metrics.cols;
-    var h = metrics.cellH * metrics.rows;
-    var svg = document.createElementNS(PT4_4_3_5_SVG_NS, "svg");
-    svg.setAttribute("class", "pathLayer");
-    svg.setAttribute("width", String(w));
-    svg.setAttribute("height", String(h));
-    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
-
-    var defs = document.createElementNS(PT4_4_3_5_SVG_NS, "defs");
-    var marker = document.createElementNS(PT4_4_3_5_SVG_NS, "marker");
-    marker.setAttribute("id", "PT4-4-3-5-arrow");
-    marker.setAttribute("viewBox", "0 0 10 10");
-    marker.setAttribute("refX", "8");
-    marker.setAttribute("refY", "5");
-    marker.setAttribute("markerWidth", "6");
-    marker.setAttribute("markerHeight", "6");
-    marker.setAttribute("orient", "auto");
-
-    var arrowPath = document.createElementNS(PT4_4_3_5_SVG_NS, "path");
-    arrowPath.setAttribute("d", "M 0 0 L 10 5 L 0 10 z");
-    arrowPath.setAttribute("fill", "#66bf97");
-    marker.appendChild(arrowPath);
-    defs.appendChild(marker);
-    svg.appendChild(defs);
-
-    var g = document.createElementNS(PT4_4_3_5_SVG_NS, "g");
-    g.setAttribute("class", "pathLines");
-    svg.appendChild(g);
-
-    $grid.append(svg);
-    return $grid.find(".pathLayer");
-  };
-
-  var appendPathSegment = function (
-    $grid,
-    fromCol,
-    fromRow,
-    toCol,
-    toRow,
-    metrics,
-  ) {
-    var $svg = ensurePathLayer($grid, metrics);
-    var from = getCellCenter($grid, fromCol, fromRow, metrics);
-    var to = getCellCenter($grid, toCol, toRow, metrics);
-    var line = document.createElementNS(PT4_4_3_5_SVG_NS, "line");
-    line.setAttribute("x1", String(from.left));
-    line.setAttribute("y1", String(from.top));
-    line.setAttribute("x2", String(to.left));
-    line.setAttribute("y2", String(to.top));
-    line.setAttribute("stroke", "#66bf97");
-    line.setAttribute("stroke-width", "2");
-    line.setAttribute("marker-end", "url(#PT4-4-3-5-arrow)");
-    $svg.find("g.pathLines").get(0).appendChild(line);
-  };
-
-  var clearFeyMoveTimers = function ($grid) {
-    var timers = $grid.data("moveTimers");
-    if (Array.isArray(timers)) {
-      for (var i = 0; i < timers.length; i++) {
-        clearTimeout(timers[i]);
-      }
-    }
-    $grid.removeData("moveTimers").removeData("moving");
-  };
-
-  var startFeyMove = function ($grid) {
-    var $selected = $(".PT4-4-3-5 .contents > div.selected");
-    var $fey = $grid.find(".fey");
-    if (!$grid.length || !$fey.length || $grid.data("moving")) {
-      return;
-    }
-
-    var metrics = getGridMetrics($grid);
-    var targets = [];
-    getGemCells($grid).each(function () {
-      var col = parseInt($(this).attr("data-col"), 10) || 0;
-      var row = parseInt($(this).attr("data-row"), 10) || 0;
-      targets.push({
-        order: getMarkerNum($(this)),
-        col: col,
-        row: row,
-      });
-    });
-    targets.sort(function (a, b) {
-      return a.order - b.order;
-    });
-
-    var markerCells = {};
-    for (var j = 0; j < targets.length; j++) {
-      markerCells[cellKey(targets[j].col, targets[j].row)] = true;
-    }
-
-    var start = parseCellAttr($fey.attr("startPosition"));
-    var visited = {};
-    visited[cellKey(start.col, start.row)] = 1;
-    var fullPath = [];
-    var curCol = start.col;
-    var curRow = start.row;
-    for (var i = 0; i < targets.length; i++) {
-      var segment = buildManhattanPath(
-        curCol,
-        curRow,
-        targets[i].col,
-        targets[i].row,
-        visited,
-      );
-      fullPath = fullPath.concat(segment);
-      curCol = targets[i].col;
-      curRow = targets[i].row;
-    }
-
-    if (!fullPath.length) {
-      return;
-    }
-
-    var orderKey = getMarkerOrderKey($grid);
-    var $stepSensor = $selected.find(
-      '.sensors .sensor[order="' + orderKey + '"]',
-    );
-
-    clearFeyMoveTimers($grid);
-    $grid.data("moving", true);
-    $selected.find(".btn_play").hide();
-    $selected.find(".btn_resetMapGrid").hide();
-    getGemCells($grid).addClass("disabled");
-    $stepSensor.text("");
-    $(".sideTool > div.btn_replay").show();
-
-    var timers = [];
-    $grid.data("moveTimers", timers);
-    $fey.addClass("moving");
-    clearMovePath($grid);
-
-    var stepIdx = 0;
-    var moveNext = function () {
-      if (!$grid.data("moving") || stepIdx >= fullPath.length) {
-        $fey.removeClass("moving");
-        $grid.removeData("moving");
-        if (stepIdx >= fullPath.length) {
-          $selected.find(".btn_resetMapGrid").show();
-        }
+    var checkNearestDistance = function (tar) {
+      if (tar.hasClass("disabled")) {
         return;
       }
-      rootSoundEffect($beep);
-
-      var cell = fullPath[stepIdx];
-      var fromCol = stepIdx === 0 ? start.col : fullPath[stepIdx - 1].col;
-      var fromRow = stepIdx === 0 ? start.row : fullPath[stepIdx - 1].row;
-      appendPathSegment($grid, fromCol, fromRow, cell.col, cell.row, metrics);
-      var center = getCellCenter($grid, cell.col, cell.row, metrics);
-      if (markerCells[cellKey(cell.col, cell.row)]) {
-        findGridCell($grid, cell.col, cell.row).addClass("gotit");
-        rootSoundEffect($right);
+      var $grid = tar.closest(".mapGrid");
+      if ($grid.data("moving")) {
+        return;
       }
-      $fey.css({ left: center.left + "px", top: center.top + "px" });
-      var stepCount =
+
+      var $fey = $grid.find(".fey");
+      var $item = $grid.closest(".item");
+      var $sensors = $item.find(".sensors");
+      var feyPos = getFeyGridPos($fey);
+      var tarCol = parseInt(tar.attr("data-col"), 10) || 0;
+      var tarRow = parseInt(tar.attr("data-row"), 10) || 0;
+      var tarDist = manhattanDist(feyPos.col, feyPos.row, tarCol, tarRow);
+      var minDist = Infinity;
+
+      getGemCells($grid)
+        .not(".disabled")
+        .each(function () {
+          var c = parseInt($(this).attr("data-col"), 10) || 0;
+          var r = parseInt($(this).attr("data-row"), 10) || 0;
+          var d = manhattanDist(feyPos.col, feyPos.row, c, r);
+          if (d < minDist) {
+            minDist = d;
+          }
+        });
+
+      if (tarDist > minDist) {
+        rootSoundEffect($stupid);
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">這不是最近的寶石，請重新選擇</div>`,
+        );
+        return;
+      }
+
+      var path = buildManhattanPath(
+        feyPos.col,
+        feyPos.row,
+        tarCol,
+        tarRow,
+        getGridVisited($grid),
+      );
+      var steps = path.length;
+      var gemId = ((tar.attr("gem") || "").match(/\d+/) || [""])[0];
+
+      $grid.data("moving", true);
+      getGemCells($grid).addClass("disabled");
+
+      animateFeyOnPath($grid, path, feyPos.col, feyPos.row, function () {
+        syncFeyToGrid($fey, tarCol, tarRow, getGridMetrics($grid));
+        tar.addClass("disabled gotit");
+        getGemCells($grid).not(".gotit").removeClass("disabled");
+
+        var $stepSlot = getFirstEmptySensor($sensors, ".sensor.step");
+        var $gemSlot = getFirstEmptySensor($sensors, ".sensor.gemGot");
+        if ($stepSlot) {
+          $stepSlot.text(steps);
+        }
+        if ($gemSlot) {
+          $gemSlot.html(
+            `<img src="./DATA/PT4/BOOK4/IMAGES/gem_${gemId}.png" alt="" />`,
+          );
+        }
+
+        var $totalSteps = $sensors.find(".sensor.totalSteps");
+        var total =
+          parseInt(
+            $totalSteps
+              .text()
+              .replace(/\u00a0/g, " ")
+              .trim(),
+            10,
+          ) || 0;
+        $totalSteps.text(total + steps);
+
+        rootSoundEffect($right);
+        $(".sideTool > div.btn_replay").show();
+      });
+    };
+
+    var getMarkerNum = function ($el) {
+      return (
         parseInt(
-          $stepSensor
+          $el
             .text()
             .replace(/\u00a0/g, " ")
             .trim(),
           10,
-        ) || 0;
-      $stepSensor.text(stepCount + 1);
-
-      stepIdx++;
-      timers.push(setTimeout(moveNext, PT4_4_3_5_STEP_MS));
+        ) || 0
+      );
     };
 
-    moveNext();
-  };
+    var parseCellAttr = function (val) {
+      var p = (val || "0,0").split(",");
+      return {
+        col: parseInt(p[0], 10) || 0,
+        row: parseInt(p[1], 10) || 0,
+      };
+    };
 
-  var checkCanMove = function () {
-    var $grid = $(".PT4-4-3-5 .contents > div.selected .mapGrid");
-    if ($grid.data("moving")) {
-      return;
-    }
-    var $gems = getGemCells($grid);
-    var max = $gems.length;
-    var allFilled = true;
-    var hasDup = false;
-    var seen = {};
+    var getGridMetrics = function ($grid) {
+      var rows = parseInt($grid.attr("row"), 10) || 1;
+      var cols = parseInt($grid.attr("col"), 10) || 1;
+      var gridW = parseFloat($grid.get(0).style.width) || $grid.width() || 0;
+      var gridH = parseFloat($grid.get(0).style.height) || $grid.height() || 0;
+      return {
+        rows: rows,
+        cols: cols,
+        cellW: gridW / cols,
+        cellH: gridH / rows,
+      };
+    };
 
-    $gems.each(function () {
-      var n = getMarkerNum($(this));
-      if (n < 1 || n > max) {
-        allFilled = false;
-      } else if (seen[n]) {
-        hasDup = true;
-      } else {
-        seen[n] = true;
-      }
-    });
+    var getCellCenter = function ($grid, col, row, metrics) {
+      var m = metrics || getGridMetrics($grid);
+      return {
+        left: col * m.cellW + m.cellW / 2,
+        top: row * m.cellH + m.cellH / 2,
+      };
+    };
 
-    if (!allFilled) {
-      rootSoundEffect($stupid);
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">請點選寶石，設定移動的先後順序</div>`,
-      );
-      return;
-    }
+    var findGridCell = function ($grid, col, row) {
+      return $grid.find(`.cell[data-col="${col}"][data-row="${row}"]`);
+    };
 
-    if (hasDup) {
-      rootSoundEffect($stupid);
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">順序不能重複，請調整順序</div>`,
-      );
-      return;
-    }
+    var cellKey = function (col, row) {
+      return col + "," + row;
+    };
 
-    startFeyMove($grid);
-  };
+    var buildManhattanPath = function (
+      fromCol,
+      fromRow,
+      toCol,
+      toRow,
+      visited,
+    ) {
+      var path = [];
+      var c = fromCol;
+      var r = fromRow;
+      visited = visited || {};
 
-  var resetMission1Playfield = function ($selected, clearAllSensors) {
-    var $grid = $selected.find(".mapGrid");
-    clearFeyMoveTimers($grid);
-    $grid.find(".fey").removeClass("moving");
-    if (clearAllSensors) {
-      $selected.find(".sensors .sensor").text("");
-    }
-    $grid.removeData("markSeq");
-    getGemCells($grid).removeClass("disabled gotit");
-    $selected.find(".btn_resetMapGrid").hide();
-    $selected.find(".btn_play").show();
-    initMapGrid($grid);
-  };
+      while (c !== toCol || r !== toRow) {
+        var candidates = [];
+        if (c !== toCol) {
+          candidates.push({ col: c + (c < toCol ? 1 : -1), row: r, axis: "h" });
+        }
+        if (r !== toRow) {
+          candidates.push({ col: c, row: r + (r < toRow ? 1 : -1), axis: "v" });
+        }
 
-  var resetMapGrid = function () {
-    resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), false);
-    rootSoundEffect($show);
-  };
+        var best = candidates[0];
+        var bestVisits = visited[cellKey(best.col, best.row)] || 0;
+        var bestAxisSpan =
+          best.axis === "h" ? Math.abs(toCol - c) : Math.abs(toRow - r);
 
-  var markOrder = function (tar) {
-    if (tar.hasClass("disabled")) {
-      return;
-    }
-    var $grid = tar.closest(".mapGrid");
-    var max = getGemCells($grid).length;
-    var seq = parseInt($grid.data("markSeq"), 10) || 0;
-    var next = seq >= max ? 1 : seq + 1;
-    $grid.data("markSeq", next);
-    tar.text(next);
-    rootSoundEffect($key);
-    $(".sideTool > div.btn_replay").show();
-  };
+        for (var i = 1; i < candidates.length; i++) {
+          var cand = candidates[i];
+          var candVisits = visited[cellKey(cand.col, cand.row)] || 0;
+          var candAxisSpan =
+            cand.axis === "h" ? Math.abs(toCol - c) : Math.abs(toRow - r);
 
-  var initMapGrid = function ($mapGrid) {
-    ($mapGrid || $(".PT4-4-3-5 .contents > div.selected .mapGrid")).each(
-      function () {
-        var $grid = $(this);
-        var rows = parseInt($grid.attr("row"), 10) || 1;
-        var cols = parseInt($grid.attr("col"), 10) || 1;
-        var gridW = parseFloat($grid.get(0).style.width) || $grid.width() || 0;
-        var gridH =
-          parseFloat($grid.get(0).style.height) || $grid.height() || 0;
-        var cellW = gridW / cols;
-        var cellH = gridH / rows;
-        var gemMap = getGemMap($grid);
-
-        $grid.find(".cell").remove();
-        clearMovePath($grid);
-
-        for (var r = 0; r < rows; r++) {
-          for (var c = 0; c < cols; c++) {
-            var $cell = $("<span></span>")
-              .addClass("cell")
-              .attr({ "data-row": r, "data-col": c })
-              .css({
-                width: cellW + "px",
-                height: cellH + "px",
-                left: c * cellW + "px",
-                top: r * cellH + "px",
-              });
-            var meta = gemMap[cellKey(c, r)];
-            if (meta) {
-              $cell.addClass("gem");
-              if (meta.gem) {
-                $cell.addClass(meta.gem).attr("gem", meta.gem);
-              }
-              if (meta.oc) {
-                $cell.attr("oc", meta.oc);
-              }
-            }
-            $grid.append($cell);
+          if (
+            candVisits < bestVisits ||
+            (candVisits === bestVisits && candAxisSpan > bestAxisSpan)
+          ) {
+            best = cand;
+            bestVisits = candVisits;
+            bestAxisSpan = candAxisSpan;
           }
         }
 
-        $grid
-          .off("click.pt4435celloc")
-          .on("click.pt4435celloc", ".cell[oc]", function () {
-            runCellOc($(this));
-          });
+        c = best.col;
+        r = best.row;
+        path.push({ col: c, row: r });
+        var key = cellKey(c, r);
+        visited[key] = (visited[key] || 0) + 1;
+      }
 
-        var $fey = $grid.find(".fey");
-        if ($fey.length) {
-          var pos = ($fey.attr("startPosition") || "0,0").split(",");
-          var col = parseInt(pos[0], 10) || 0;
-          var row = parseInt(pos[1], 10) || 0;
-          col = Math.min(Math.max(col, 0), cols - 1);
-          row = Math.min(Math.max(row, 0), rows - 1);
-          syncFeyToGrid($fey, col, row, {
-            rows: rows,
-            cols: cols,
-            cellW: cellW,
-            cellH: cellH,
-          });
-          resetGridVisited($grid);
+      return path;
+    };
+
+    var getGemMap = function ($grid) {
+      var gemMap = {};
+      $grid
+        .closest(".item")
+        .find(".sensors .marker")
+        .each(function () {
+          var $marker = $(this);
+          var cell = parseCellAttr($marker.attr("cell"));
+          gemMap[cellKey(cell.col, cell.row)] = {
+            gem: $marker.attr("gem") || "",
+            oc: $marker.attr("oc") || "",
+          };
+        });
+      return gemMap;
+    };
+
+    var runCellOc = function ($cell) {
+      var fnName = $cell.attr("oc");
+      if (fnName && typeof window[fnName] === "function") {
+        window[fnName]($cell);
+      }
+    };
+
+    var getGemCells = function ($grid) {
+      return $grid.find(".cell.gem");
+    };
+
+    var getMarkerOrderKey = function ($grid) {
+      var items = [];
+      getGemCells($grid).each(function () {
+        var n = getMarkerNum($(this));
+        if (n > 0) {
+          items.push({ order: n, gem: $(this).attr("gem") || "" });
         }
-      },
-    );
-  };
-
-  var bindMapCellClick_PT4_4_3_5 = function () {
-    $(".PT4-4-3-5 .contents .mapGrid")
-      .off("click.pt4435celloc")
-      .on("click.pt4435celloc", ".cell[oc]", function () {
-        runCellOc($(this));
       });
-  };
+      items.sort(function (a, b) {
+        return a.order - b.order;
+      });
+      var key = "";
+      for (var i = 0; i < items.length; i++) {
+        key += items[i].gem;
+      }
+      return key;
+    };
 
-  var withinShowAnswer_PT4_4_3_5 = function () {};
+    var clearMovePath = function ($grid) {
+      $grid.find(".pathLayer").remove();
+    };
 
-  var withinResetElem_PT4_4_3_5 = function () {
-    resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), true);
-  };
+    var PT4_4_3_5_SVG_NS = "http://www.w3.org/2000/svg";
 
-  window.reactivate_PT4_4_3_5 = function () {
-    withinShowAnswer = withinShowAnswer_PT4_4_3_5;
-    withinResetElem = withinResetElem_PT4_4_3_5;
-    window.toggleMap = toggleMap;
-    window.checkCanMove = checkCanMove;
-    window.resetMapGrid = resetMapGrid;
-    bindMapCellClick_PT4_4_3_5();
-  };
+    var ensurePathLayer = function ($grid, metrics) {
+      var $svg = $grid.find(".pathLayer");
+      if ($svg.length) {
+        return $svg;
+      }
+      var w = metrics.cellW * metrics.cols;
+      var h = metrics.cellH * metrics.rows;
+      var svg = document.createElementNS(PT4_4_3_5_SVG_NS, "svg");
+      svg.setAttribute("class", "pathLayer");
+      svg.setAttribute("width", String(w));
+      svg.setAttribute("height", String(h));
+      svg.setAttribute("viewBox", "0 0 " + w + " " + h);
 
-  window.reactivate_PT4_4_3_5();
-})();
+      var defs = document.createElementNS(PT4_4_3_5_SVG_NS, "defs");
+      var marker = document.createElementNS(PT4_4_3_5_SVG_NS, "marker");
+      marker.setAttribute("id", "PT4-4-3-5-arrow");
+      marker.setAttribute("viewBox", "0 0 10 10");
+      marker.setAttribute("refX", "8");
+      marker.setAttribute("refY", "5");
+      marker.setAttribute("markerWidth", "6");
+      marker.setAttribute("markerHeight", "6");
+      marker.setAttribute("orient", "auto");
+
+      var arrowPath = document.createElementNS(PT4_4_3_5_SVG_NS, "path");
+      arrowPath.setAttribute("d", "M 0 0 L 10 5 L 0 10 z");
+      arrowPath.setAttribute("fill", "#66bf97");
+      marker.appendChild(arrowPath);
+      defs.appendChild(marker);
+      svg.appendChild(defs);
+
+      var g = document.createElementNS(PT4_4_3_5_SVG_NS, "g");
+      g.setAttribute("class", "pathLines");
+      svg.appendChild(g);
+
+      $grid.append(svg);
+      return $grid.find(".pathLayer");
+    };
+
+    var appendPathSegment = function (
+      $grid,
+      fromCol,
+      fromRow,
+      toCol,
+      toRow,
+      metrics,
+    ) {
+      var $svg = ensurePathLayer($grid, metrics);
+      var from = getCellCenter($grid, fromCol, fromRow, metrics);
+      var to = getCellCenter($grid, toCol, toRow, metrics);
+      var line = document.createElementNS(PT4_4_3_5_SVG_NS, "line");
+      line.setAttribute("x1", String(from.left));
+      line.setAttribute("y1", String(from.top));
+      line.setAttribute("x2", String(to.left));
+      line.setAttribute("y2", String(to.top));
+      line.setAttribute("stroke", "#66bf97");
+      line.setAttribute("stroke-width", "2");
+      line.setAttribute("marker-end", "url(#PT4-4-3-5-arrow)");
+      $svg.find("g.pathLines").get(0).appendChild(line);
+    };
+
+    var clearFeyMoveTimers = function ($grid) {
+      var timers = $grid.data("moveTimers");
+      if (Array.isArray(timers)) {
+        for (var i = 0; i < timers.length; i++) {
+          clearTimeout(timers[i]);
+        }
+      }
+      $grid.removeData("moveTimers").removeData("moving");
+    };
+
+    var startFeyMove = function ($grid) {
+      var $selected = $(".PT4-4-3-5 .contents > div.selected");
+      var $fey = $grid.find(".fey");
+      if (!$grid.length || !$fey.length || $grid.data("moving")) {
+        return;
+      }
+
+      var metrics = getGridMetrics($grid);
+      var targets = [];
+      getGemCells($grid).each(function () {
+        var col = parseInt($(this).attr("data-col"), 10) || 0;
+        var row = parseInt($(this).attr("data-row"), 10) || 0;
+        targets.push({
+          order: getMarkerNum($(this)),
+          col: col,
+          row: row,
+        });
+      });
+      targets.sort(function (a, b) {
+        return a.order - b.order;
+      });
+
+      var markerCells = {};
+      for (var j = 0; j < targets.length; j++) {
+        markerCells[cellKey(targets[j].col, targets[j].row)] = true;
+      }
+
+      var start = parseCellAttr($fey.attr("startPosition"));
+      var visited = {};
+      visited[cellKey(start.col, start.row)] = 1;
+      var fullPath = [];
+      var curCol = start.col;
+      var curRow = start.row;
+      for (var i = 0; i < targets.length; i++) {
+        var segment = buildManhattanPath(
+          curCol,
+          curRow,
+          targets[i].col,
+          targets[i].row,
+          visited,
+        );
+        fullPath = fullPath.concat(segment);
+        curCol = targets[i].col;
+        curRow = targets[i].row;
+      }
+
+      if (!fullPath.length) {
+        return;
+      }
+
+      var orderKey = getMarkerOrderKey($grid);
+      var $stepSensor = $selected.find(
+        '.sensors .sensor[order="' + orderKey + '"]',
+      );
+
+      clearFeyMoveTimers($grid);
+      $grid.data("moving", true);
+      $selected.find(".btn_play").hide();
+      $selected.find(".btn_resetMapGrid").hide();
+      getGemCells($grid).addClass("disabled");
+      $stepSensor.text("");
+      $(".sideTool > div.btn_replay").show();
+
+      var timers = [];
+      $grid.data("moveTimers", timers);
+      $fey.addClass("moving");
+      clearMovePath($grid);
+
+      var stepIdx = 0;
+      var moveNext = function () {
+        if (!$grid.data("moving") || stepIdx >= fullPath.length) {
+          $fey.removeClass("moving");
+          $grid.removeData("moving");
+          if (stepIdx >= fullPath.length) {
+            $selected.find(".btn_resetMapGrid").show();
+          }
+          return;
+        }
+        rootSoundEffect($beep);
+
+        var cell = fullPath[stepIdx];
+        var fromCol = stepIdx === 0 ? start.col : fullPath[stepIdx - 1].col;
+        var fromRow = stepIdx === 0 ? start.row : fullPath[stepIdx - 1].row;
+        appendPathSegment($grid, fromCol, fromRow, cell.col, cell.row, metrics);
+        var center = getCellCenter($grid, cell.col, cell.row, metrics);
+        if (markerCells[cellKey(cell.col, cell.row)]) {
+          findGridCell($grid, cell.col, cell.row).addClass("gotit");
+          rootSoundEffect($right);
+        }
+        $fey.css({ left: center.left + "px", top: center.top + "px" });
+        var stepCount =
+          parseInt(
+            $stepSensor
+              .text()
+              .replace(/\u00a0/g, " ")
+              .trim(),
+            10,
+          ) || 0;
+        $stepSensor.text(stepCount + 1);
+
+        stepIdx++;
+        timers.push(setTimeout(moveNext, PT4_4_3_5_STEP_MS));
+      };
+
+      moveNext();
+    };
+
+    var checkCanMove = function () {
+      var $grid = $(".PT4-4-3-5 .contents > div.selected .mapGrid");
+      if ($grid.data("moving")) {
+        return;
+      }
+      var $gems = getGemCells($grid);
+      var max = $gems.length;
+      var allFilled = true;
+      var hasDup = false;
+      var seen = {};
+
+      $gems.each(function () {
+        var n = getMarkerNum($(this));
+        if (n < 1 || n > max) {
+          allFilled = false;
+        } else if (seen[n]) {
+          hasDup = true;
+        } else {
+          seen[n] = true;
+        }
+      });
+
+      if (!allFilled) {
+        rootSoundEffect($stupid);
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">請點選寶石，設定移動的先後順序</div>`,
+        );
+        return;
+      }
+
+      if (hasDup) {
+        rootSoundEffect($stupid);
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:90px;" onclick="$(this).remove()">順序不能重複，請調整順序</div>`,
+        );
+        return;
+      }
+
+      startFeyMove($grid);
+    };
+
+    var resetMission1Playfield = function ($selected, clearAllSensors) {
+      var $grid = $selected.find(".mapGrid");
+      clearFeyMoveTimers($grid);
+      $grid.find(".fey").removeClass("moving");
+      if (clearAllSensors) {
+        $selected.find(".sensors .sensor").text("");
+      }
+      $grid.removeData("markSeq");
+      getGemCells($grid).removeClass("disabled gotit");
+      $selected.find(".btn_resetMapGrid").hide();
+      $selected.find(".btn_play").show();
+      initMapGrid($grid);
+    };
+
+    var resetMapGrid = function () {
+      resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), false);
+      rootSoundEffect($show);
+    };
+
+    var markOrder = function (tar) {
+      if (tar.hasClass("disabled")) {
+        return;
+      }
+      var $grid = tar.closest(".mapGrid");
+      var max = getGemCells($grid).length;
+      var seq = parseInt($grid.data("markSeq"), 10) || 0;
+      var next = seq >= max ? 1 : seq + 1;
+      $grid.data("markSeq", next);
+      tar.text(next);
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var initMapGrid = function ($mapGrid) {
+      ($mapGrid || $(".PT4-4-3-5 .contents > div.selected .mapGrid")).each(
+        function () {
+          var $grid = $(this);
+          var rows = parseInt($grid.attr("row"), 10) || 1;
+          var cols = parseInt($grid.attr("col"), 10) || 1;
+          var gridW =
+            parseFloat($grid.get(0).style.width) || $grid.width() || 0;
+          var gridH =
+            parseFloat($grid.get(0).style.height) || $grid.height() || 0;
+          var cellW = gridW / cols;
+          var cellH = gridH / rows;
+          var gemMap = getGemMap($grid);
+
+          $grid.find(".cell").remove();
+          clearMovePath($grid);
+
+          for (var r = 0; r < rows; r++) {
+            for (var c = 0; c < cols; c++) {
+              var $cell = $("<span></span>")
+                .addClass("cell")
+                .attr({ "data-row": r, "data-col": c })
+                .css({
+                  width: cellW + "px",
+                  height: cellH + "px",
+                  left: c * cellW + "px",
+                  top: r * cellH + "px",
+                });
+              var meta = gemMap[cellKey(c, r)];
+              if (meta) {
+                $cell.addClass("gem");
+                if (meta.gem) {
+                  $cell.addClass(meta.gem).attr("gem", meta.gem);
+                }
+                if (meta.oc) {
+                  $cell.attr("oc", meta.oc);
+                }
+              }
+              $grid.append($cell);
+            }
+          }
+
+          $grid
+            .off("click.pt4435celloc")
+            .on("click.pt4435celloc", ".cell[oc]", function () {
+              runCellOc($(this));
+            });
+
+          var $fey = $grid.find(".fey");
+          if ($fey.length) {
+            var pos = ($fey.attr("startPosition") || "0,0").split(",");
+            var col = parseInt(pos[0], 10) || 0;
+            var row = parseInt(pos[1], 10) || 0;
+            col = Math.min(Math.max(col, 0), cols - 1);
+            row = Math.min(Math.max(row, 0), rows - 1);
+            syncFeyToGrid($fey, col, row, {
+              rows: rows,
+              cols: cols,
+              cellW: cellW,
+              cellH: cellH,
+            });
+            resetGridVisited($grid);
+          }
+        },
+      );
+    };
+
+    var bindMapCellClick_PT4_4_3_5 = function () {
+      $(".PT4-4-3-5 .contents .mapGrid")
+        .off("click.pt4435celloc")
+        .on("click.pt4435celloc", ".cell[oc]", function () {
+          runCellOc($(this));
+        });
+    };
+
+    var withinShowAnswer_PT4_4_3_5 = function () {};
+
+    var withinResetElem_PT4_4_3_5 = function () {
+      resetMission1Playfield($(".PT4-4-3-5 .contents > div.selected"), true);
+    };
+
+    window.reactivate_PT4_4_3_5 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_4_3_5;
+      withinResetElem = withinResetElem_PT4_4_3_5;
+      window.toggleMap = toggleMap;
+      window.checkCanMove = checkCanMove;
+      window.resetMapGrid = resetMapGrid;
+      // runCellOc 用 window[oc] 呼叫這些
+      window.markOrder = markOrder;
+      window.checkNearestDistance = checkNearestDistance;
+      bindMapCellClick_PT4_4_3_5();
+    };
+
+    window.reactivate_PT4_4_3_5();
+  })();
 </script>

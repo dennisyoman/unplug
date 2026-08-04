@@ -65,54 +65,54 @@
               class="sensor capsule"
               onclick="takeBag($(this), 'sum1')"
               style="width: 71px; height: 37px; top: 114px; left: 209px"
-              ans="4"
+              ans="7"
             ></span>
             <span
               class="sensor capsule"
               onclick="takeBag($(this), 'sum2')"
               style="width: 71px; height: 37px; top: 114px; left: 283px"
-              ans="7"
+              ans="6"
             ></span>
             <span
               class="sensor capsule"
               onclick="takeBag($(this), 'sum3')"
               style="width: 71px; height: 37px; top: 114px; left: 357px"
-              ans="5"
+              ans="7"
             ></span>
             <span
               class="sensor capsule"
               onclick="takeBag($(this), 'sum1')"
               style="width: 71px; height: 37px; top: 154px; left: 209px"
-              ans="4"
+              ans="10"
             ></span>
             <span
               class="sensor capsule"
               onclick="takeBag($(this), 'sum2')"
               style="width: 71px; height: 37px; top: 154px; left: 283px"
-              ans="7"
+              ans="8"
             ></span>
             <span
               class="sensor capsule"
               onclick="takeBag($(this), 'sum3')"
               style="width: 71px; height: 37px; top: 154px; left: 357px"
-              ans="5"
+              ans="9"
             ></span>
 
             <!-- sum -->
             <span
               class="sensor sum1"
               style="width: 71px; height: 15px; top: 211px; left: 209px"
-              ans="4"
+              ans="21"
             ></span>
             <span
               class="sensor sum2"
               style="width: 71px; height: 15px; top: 211px; left: 283px"
-              ans="7"
+              ans="21"
             ></span>
             <span
               class="sensor sum3"
               style="width: 71px; height: 15px; top: 211px; left: 357px"
-              ans="5"
+              ans="21"
             ></span>
           </div>
 
@@ -619,183 +619,225 @@
 </style>
 
 <script>
-(function () {
-  var isCapsuleEmpty = function ($capsule) {
-    return (
-      $capsule
-        .text()
-        .replace(/\u00a0/g, " ")
-        .trim() === ""
-    );
-  };
-
-  var recordOrder = function (order) {
-    var $orderSensor = $(".PT4-4-2-5 .contents > div.selected .sensors .order");
-    $orderSensor.text($orderSensor.text() + order);
-  };
-
-  var indicateAvailableCapsule = function () {
-    var $capsules = $(".PT4-4-2-5 .contents > div.selected .sensors .capsule");
-    $capsules.addClass("disabled");
-
-    var groups = [];
-    for (var i = 0; i < $capsules.length; i += 3) {
-      groups.push($capsules.slice(i, i + 3));
-    }
-
-    var $activeGroup = null;
-    for (var g = 0; g < groups.length; g++) {
-      var allFilled = true;
-      groups[g].each(function () {
-        if (isCapsuleEmpty($(this))) {
-          allFilled = false;
-        }
-      });
-      if (!allFilled) {
-        $activeGroup = groups[g];
-        break;
-      }
-    }
-
-    if ($activeGroup) {
-      $activeGroup.each(function () {
-        if (isCapsuleEmpty($(this))) {
-          $(this).removeClass("disabled");
-        }
-      });
-    }
-  };
-  /* 共用 */
-  var takeBag = function (tar, sum) {
-    $(".alert").remove();
-    var bagSelected = tar.parent().siblings(".bags").find(".selected");
-    if (bagSelected.length > 0) {
-      rootSoundEffect($pop);
-
-      var bag = bagSelected.attr("ans");
-      tar.text(bag);
-      bagSelected.removeClass("selected").addClass("disabled");
-      //sumup
-      var $sumSensor = $(
-        `.PT4-4-2-5 .contents > div.selected .sensors .${sum}`,
+  (function () {
+    var isCapsuleEmpty = function ($capsule) {
+      return (
+        $capsule
+          .text()
+          .replace(/\u00a0/g, " ")
+          .trim() === ""
       );
-      var currentSum = parseInt($sumSensor.text().trim(), 10) || 0;
-      $sumSensor.text(currentSum + (parseInt(bag, 10) || 0));
-      //
-      if (bagSelected.parent().hasClass("limited")) {
-        indicateAvailableCapsule();
+    };
+
+    var recordOrder = function (order) {
+      var $orderSensor = $(
+        ".PT4-4-2-5 .contents > div.selected .sensors .order",
+      );
+      $orderSensor.text($orderSensor.text() + order);
+    };
+
+    var indicateAvailableCapsule = function () {
+      var $capsules = $(
+        ".PT4-4-2-5 .contents > div.selected .sensors .capsule",
+      );
+      $capsules.addClass("disabled");
+
+      var groups = [];
+      for (var i = 0; i < $capsules.length; i += 3) {
+        groups.push($capsules.slice(i, i + 3));
       }
-      $(".sideTool > div.btn_answer").removeClass("active");
-      $(".sideTool > div.btn_replay").show();
-    } else {
-      //先選擇袋子
-      rootSoundEffect($stupid);
-      var alertmsg = "請先選擇盲盒";
+
+      var $activeGroup = null;
+      for (var g = 0; g < groups.length; g++) {
+        var allFilled = true;
+        groups[g].each(function () {
+          if (isCapsuleEmpty($(this))) {
+            allFilled = false;
+          }
+        });
+        if (!allFilled) {
+          $activeGroup = groups[g];
+          break;
+        }
+      }
+
+      if ($activeGroup) {
+        $activeGroup.each(function () {
+          if (isCapsuleEmpty($(this))) {
+            $(this).removeClass("disabled");
+          }
+        });
+      }
+    };
+    /* 共用 */
+    var takeBag = function (tar, sum) {
       $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
-      );
-    }
-  };
+      var bagSelected = tar.parent().siblings(".bags").find(".selected");
+      if (bagSelected.length > 0) {
+        rootSoundEffect($pop);
 
-  var fillContent = function (tar) {
-    $(".alert").remove();
-    var text = window.prompt("請輸入答案：", tar.text() ?? "");
-    tar.removeClass("wrong");
-    if (text === null) {
-      rootSoundEffect($show);
-      return; // 取消則不處理
-    } else {
-      // only digits, no spaces/symbols/letters
-      if (!/^\d+$/.test(text)) {
+        var bag = bagSelected.attr("ans");
+        tar.text(bag);
+        bagSelected.removeClass("selected").addClass("disabled");
+        //sumup
+        var $sumSensor = $(
+          `.PT4-4-2-5 .contents > div.selected .sensors .${sum}`,
+        );
+        var currentSum = parseInt($sumSensor.text().trim(), 10) || 0;
+        $sumSensor.text(currentSum + (parseInt(bag, 10) || 0));
+        //
+        if (bagSelected.parent().hasClass("limited")) {
+          indicateAvailableCapsule();
+        }
+        $(".sideTool > div.btn_answer").removeClass("active");
+        $(".sideTool > div.btn_replay").show();
+      } else {
+        //先選擇袋子
         rootSoundEffect($stupid);
-        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+        var alertmsg = "請先選擇盲盒";
         $(".alert").remove();
         $(".contents > div.selected").append(
           `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
         );
-        return;
       }
-      tar.html(text);
-      rootSoundEffect($key);
-      //
-      $(".sideTool > div.btn_replay").show();
-    }
-  };
+    };
 
-  var withinShowAnswer_PT4_4_2_5 = function (boolean) {
-    if (boolean) {
-      $(".PT4-4-2-5 .contents > div.selected .bags > div")
-        .removeClass("selected")
-        .addClass("disabled");
+    var fillContent = function (tar) {
       $(".alert").remove();
-      $(".PT4-4-2-5 .contents > div.selected .sensors .sensor").each(
-        function () {
-          var ans = $(this).attr("ans");
-          $(this).html(ans);
-        },
-      );
-    }
-  };
-
-  var bindBagsClick_PT4_4_2_5 = function () {
-    $(".PT4-4-2-5 .bags > div").each(function () {
-      $(this)
-        .unbind("click")
-        .bind("click", function () {
-          $(this)
-            .addClass("selected")
-            .siblings(".selected")
-            .removeClass("selected");
-          rootSoundEffect($pop);
-          //limited bags
-          if ($(this).parent().hasClass("limited")) {
-            indicateAvailableCapsule();
-          }
-        });
-    });
-  };
-
-  var withinResetElem_PT4_4_2_5 = function () {
-    $(".PT4-4-2-5 .contents > div.selected .bags > div").each(function () {
-      $(this).removeClass("disabled");
-      var ans = $(this).attr("ans");
-      $(this).find("span").html(ans);
-    });
-    bindBagsClick_PT4_4_2_5();
-
-    $(".PT4-4-2-5 .contents > div.selected .sensors .sensor")
-      .removeClass("disabled")
-      .html("");
-
-    if ($(".PT4-4-2-5 .contents > div:nth-child(3).selected").length > 0) {
-      if (typeof window.PT4_4_2_mission3 === "undefined") {
-        //表示還沒有玩過文生圖
-        window.PT4_4_2_mission3 = true;
-        console.log("還沒文生圖");
+      var text = window.prompt("請輸入答案：", tar.text() ?? "");
+      tar.removeClass("wrong");
+      if (text === null) {
+        rootSoundEffect($show);
+        return; // 取消則不處理
       } else {
-        //已經玩過文生圖了
-        window.PT4_4_2_mission3 = true;
-        console.log("已經任務三");
-        if (typeof window.updateMission3 !== "function") {
-          console.log("還沒有updateMission3");
+        // only digits, no spaces/symbols/letters
+        if (!/^\d+$/.test(text)) {
+          rootSoundEffect($stupid);
+          var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          return;
+        }
+        tar.html(text);
+        rootSoundEffect($key);
+        //
+        $(".sideTool > div.btn_replay").show();
+      }
+    };
+
+    var applyBagOrderFrom2_4_PT4_4_2_5 = function () {
+      var order = window.PT4_4_2_bagOrder;
+      // 沒玩過／沒載入過 2-4 → 維持 2-5 HTML 預設順序
+      if (!order || !order.length) {
+        if (!$(".PT4-4-2-4 .contents .bags").length) return;
+        order = [];
+        $(".PT4-4-2-4 .contents .bags > div").each(function () {
+          var src = $(this).find("img").attr("src") || "";
+          order.push(($(this).attr("ans") || "") + "|" + src.split("/").pop());
+        });
+        if (!order.length) return;
+      }
+
+      $(".PT4-4-2-5 .bags").each(function () {
+        var $bags = $(this);
+        var $items = $bags.children("div").toArray();
+        var used = {};
+        for (var o = 0; o < order.length; o++) {
+          var key = order[o];
+          for (var i = 0; i < $items.length; i++) {
+            if (used[i]) continue;
+            var $el = $($items[i]);
+            var src = $el.find("img").attr("src") || "";
+            var elKey = ($el.attr("ans") || "") + "|" + src.split("/").pop();
+            if (elKey === key) {
+              $bags.append($el);
+              used[i] = true;
+              break;
+            }
+          }
+        }
+        for (var j = 0; j < $items.length; j++) {
+          if (!used[j]) $bags.append($items[j]);
+        }
+      });
+    };
+
+    var withinShowAnswer_PT4_4_2_5 = function (boolean) {
+      if (boolean) {
+        $(".PT4-4-2-5 .contents > div.selected .bags > div")
+          .removeClass("selected")
+          .addClass("disabled");
+        $(".alert").remove();
+        $(".PT4-4-2-5 .contents > div.selected .sensors .sensor").each(
+          function () {
+            var ans = $(this).attr("ans");
+            $(this).html(ans);
+          },
+        );
+      }
+    };
+
+    var bindBagsClick_PT4_4_2_5 = function () {
+      $(".PT4-4-2-5 .bags > div").each(function () {
+        $(this)
+          .unbind("click")
+          .bind("click", function () {
+            $(this)
+              .addClass("selected")
+              .siblings(".selected")
+              .removeClass("selected");
+            rootSoundEffect($pop);
+            //limited bags
+            if ($(this).parent().hasClass("limited")) {
+              indicateAvailableCapsule();
+            }
+          });
+      });
+    };
+
+    var withinResetElem_PT4_4_2_5 = function () {
+      $(".PT4-4-2-5 .contents > div.selected .bags > div").each(function () {
+        $(this).removeClass("disabled");
+        var ans = $(this).attr("ans");
+        $(this).find("span").html(ans);
+      });
+      bindBagsClick_PT4_4_2_5();
+
+      $(".PT4-4-2-5 .contents > div.selected .sensors .sensor")
+        .removeClass("disabled")
+        .html("");
+
+      if ($(".PT4-4-2-5 .contents > div:nth-child(3).selected").length > 0) {
+        if (typeof window.PT4_4_2_mission3 === "undefined") {
+          //表示還沒有玩過文生圖
+          window.PT4_4_2_mission3 = true;
+          console.log("還沒文生圖");
         } else {
-          console.log("已經有updateMission3");
-          window.updateMission3();
+          //已經玩過文生圖了
+          window.PT4_4_2_mission3 = true;
+          console.log("已經任務三");
+          if (typeof window.updateMission3 !== "function") {
+            console.log("還沒有updateMission3");
+          } else {
+            console.log("已經有updateMission3");
+            window.updateMission3();
+          }
         }
       }
-    }
-  };
+    };
 
-  window.reactivate_PT4_4_2_5 = function () {
-    withinShowAnswer = withinShowAnswer_PT4_4_2_5;
-    withinResetElem = withinResetElem_PT4_4_2_5;
-    window.fillContent = fillContent;
-    window.takeBag = takeBag;
-    window.recordOrder = recordOrder;
-    bindBagsClick_PT4_4_2_5();
-  };
+    window.reactivate_PT4_4_2_5 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_4_2_5;
+      withinResetElem = withinResetElem_PT4_4_2_5;
+      window.fillContent = fillContent;
+      window.takeBag = takeBag;
+      window.recordOrder = recordOrder;
+      applyBagOrderFrom2_4_PT4_4_2_5();
+      bindBagsClick_PT4_4_2_5();
+    };
 
-  window.reactivate_PT4_4_2_5();
-})();
+    window.reactivate_PT4_4_2_5();
+  })();
 </script>

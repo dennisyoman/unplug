@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="wow slideInLeft tti" style="margin-right: 100px">
+      <div class="tti" style="margin-right: 100px">
         <div
           class="sensorArea"
           style="position: absolute; z-index: 2; height: 100%"
@@ -404,26 +404,26 @@
   }
 </style>
 <script>
-(function () {
-  var updateMission3 = function () {
-    //秀出mission3 gem
-    $(".PT4-4-3-4 .mission3").removeClass("mission3");
-  };
-  // global flag: keep existing value if already defined
-  if (typeof window.PT4_4_3_mission3 === "undefined") {
-    //表示還沒有玩過任務三
-    window.PT4_4_3_mission3 = false;
-    console.log("還沒任務三");
-  } else {
-    //已經玩過任務三了
-    console.log("已經任務三");
-    updateMission3();
-  }
-
-  window.reactivate_PT4_4_3_4 = function () {
-    if (window.PT4_4_3_mission3) {
+  (function () {
+    var updateMission3 = function () {
+      //秀出mission3 gem
+      $(".PT4-4-3-4 .mission3").removeClass("mission3");
+    };
+    // global flag: keep existing value if already defined
+    if (typeof window.PT4_4_3_mission3 === "undefined") {
+      //表示還沒有玩過任務三
+      window.PT4_4_3_mission3 = false;
+      console.log("還沒任務三");
+    } else {
+      //已經玩過任務三了
+      console.log("已經任務三");
       updateMission3();
     }
-  };
-})();
+
+    window.reactivate_PT4_4_3_4 = function () {
+      if (window.PT4_4_3_mission3) {
+        updateMission3();
+      }
+    };
+  })();
 </script>
