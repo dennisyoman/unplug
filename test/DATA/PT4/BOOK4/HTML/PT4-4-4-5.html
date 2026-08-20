@@ -520,7 +520,7 @@
                 left: 28px;
                 z-index: 5;
               "
-              ans="v"
+              ans=""
             ></span>
             <span
               class="sensor checkbox"
@@ -532,7 +532,7 @@
                 left: 28px;
                 z-index: 5;
               "
-              ans=""
+              ans="v"
             ></span>
             <div class="parent">
               <img src="./DATA/PT4/BOOK4/IMAGES/parent.png" />
@@ -958,12 +958,12 @@
 
       // 一律依 capacity 順序從頭算（任務二 box1→4；任務三 box3→5→6）
       var boxOrder = [];
-      $(
-        ".PT4-4-4-5 .contents > div.selected .capacity .progress",
-      ).each(function () {
-        var id = $(this).attr("progressID");
-        if (id) boxOrder.push(id);
-      });
+      $(".PT4-4-4-5 .contents > div.selected .capacity .progress").each(
+        function () {
+          var id = $(this).attr("progressID");
+          if (id) boxOrder.push(id);
+        },
+      );
       if (!boxOrder.length) {
         $capsules.each(function () {
           var id = $(this).attr("boxID");
