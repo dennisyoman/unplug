@@ -340,7 +340,7 @@
               class="sensor"
               onclick="fillContent($(this))"
               style="width: 24px; height: 15px; top: 283px; left: 139px"
-              ans="17"
+              ans="16"
             ></span>
           </div>
 
@@ -635,459 +635,463 @@
 </style>
 
 <script>
-(function () {
-  var autoAssign = false; //自動分配數字
-  var compareCount = 0; //比較次數
-  var compareTarget = ""; //比較目標
-  var hasSwitched = false; //本次是否交換過
-  var prepareNumber = function (item) {
-    //確認是否換數字
-    if (compareTarget != item.text()) {
-      hasSwitched = false;
-      compareTarget = item.text();
-    }
-
-    //如果已經有選擇的數字，則不處理
-    if (item.siblings("span.selected").length > 0) {
-      return;
-    }
-
-    //reset all
-    item
-      .removeClass("selected")
-      .siblings("span.selected")
-      .removeClass("selected");
-    var switcher = item.siblings(".switcher");
-    switcher.hide();
-    var nextItem = item.next("span");
-    if (nextItem.length > 0) {
-      item.addClass("selected");
-      nextItem.addClass("selected");
-      switcher
-        .css("left", nextItem.position().left / stageRatioReal + "px")
-        .css("display", "flex");
-    } else {
-      //後面沒有數字不能換，檢查下一個組合
-      if (autoAssign) {
-        checkIfHasNextComparison(item.index());
+  (function () {
+    var autoAssign = false; //自動分配數字
+    var compareCount = 0; //比較次數
+    var compareTarget = ""; //比較目標
+    var hasSwitched = false; //本次是否交換過
+    var prepareNumber = function (item) {
+      //確認是否換數字
+      if (compareTarget != item.text()) {
+        hasSwitched = false;
+        compareTarget = item.text();
       }
-    }
-    $(".sideTool > div.btn_replay").show();
-    $(".alert").remove();
-  };
 
-  var switching = function (goSwitch) {
-    var numbers = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span.selected",
-    );
+      //如果已經有選擇的數字，則不處理
+      if (item.siblings("span.selected").length > 0) {
+        return;
+      }
 
-    var switcher = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .switcher",
-    );
-
-    var nextRound = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
-    );
-
-    if (goSwitch) {
-      if (parseInt(numbers.eq(0).text()) < parseInt(numbers.eq(1).text())) {
-        //不能換
-        var alertmsg = "左邊的分數比較小，不能換";
-        $(".alert").remove();
-        $(".contents > div.selected").append(
-          `<div class="alert wow bounceInUp" style="bottom:216px" onclick="$(this).remove()">${alertmsg}</div>`,
-        );
-        rootSoundEffect($stupid);
+      //reset all
+      item
+        .removeClass("selected")
+        .siblings("span.selected")
+        .removeClass("selected");
+      var switcher = item.siblings(".switcher");
+      switcher.hide();
+      var nextItem = item.next("span");
+      if (nextItem.length > 0) {
+        item.addClass("selected");
+        nextItem.addClass("selected");
+        switcher
+          .css("left", nextItem.position().left / stageRatioReal + "px")
+          .css("display", "flex");
       } else {
-        var tempNumber = numbers.eq(0).text();
-        numbers.eq(0).text(numbers.eq(1).text());
-        numbers.eq(1).text(tempNumber);
-        numbers.removeClass("selected");
-        switcher.hide();
-        rootSoundEffect($show);
-
-        //成功執行一次替換
-        if (!hasSwitched) {
-          hasSwitched = true;
-        }
-        compareCount++;
-        //
+        //後面沒有數字不能換，檢查下一個組合
         if (autoAssign) {
-          numbers.eq(1).click();
-        } else {
-          nextRound.css("display", "flex");
+          checkIfHasNextComparison(item.index());
         }
-        checkIfGameOver();
       }
-    } else {
-      if (parseInt(numbers.eq(0).text()) < parseInt(numbers.eq(1).text())) {
-        //正確的順序，不換
-        numbers.removeClass("selected");
-        switcher.hide();
-        //nextRound.css("display", "flex");
-        rootSoundEffect($pop);
-        //確認是否替換過
-        if (hasSwitched) {
-          compareCount++;
-        }
-        //確認後面還有沒有可以比較的數字
-        if (autoAssign) {
-          checkIfHasNextComparison(numbers.eq(1).index());
-        } else {
-          nextRound.css("display", "flex");
-        }
-      } else {
-        //後面的比較小，必須換
-        var alertmsg = "左邊的分數比較大，需要交換";
-        $(".alert").remove();
-        $(".contents > div.selected").append(
-          `<div class="alert wow bounceInUp"  style="bottom:216px" onclick="$(this).remove()">${alertmsg}</div>`,
-        );
-        rootSoundEffect($stupid);
-      }
-    }
-    console.log("compareCount:", compareCount);
-  };
+      $(".sideTool > div.btn_replay").show();
+      $(".alert").remove();
+    };
 
-  var nextRound = function () {
-    //記錄本輪的結果
-    updateRecord();
-    //
-    var nextRound = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
-    );
-    nextRound.hide();
-    //
-    compareCount = 0;
-    compareTarget = "";
-    hasSwitched = false;
-    if (autoAssign) {
-      checkIfHasNextComparison(0);
-    }
-  };
-
-  var updateRecord = function () {
-    var numbers = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
-    );
-    var records = $(".PT4-4-1-5 .contents > div.selected .sensors .record");
-    records.each(function () {
-      if ($(this).find("span").length == 0) {
-        rootSoundEffect($pop);
-        //空紀錄,記錄在這裡
-        for (var i = 0; i < numbers.length; i++) {
-          $(this).append(`<span>${numbers.eq(i).text()}</span>`);
-        }
-        return false;
-      }
-    });
-
-    if (autoAssign) {
-      //填入比較次數
-      var countSensor = $(
-        ".PT4-4-1-5 .contents > div.selected .sensors .sensor",
+    var switching = function (goSwitch) {
+      var numbers = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span.selected",
       );
-      countSensor.each(function () {
-        if ($(this).text() == "") {
-          $(this).text(compareCount);
+
+      var switcher = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .switcher",
+      );
+
+      var nextRound = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
+      );
+
+      if (goSwitch) {
+        if (parseInt(numbers.eq(0).text()) < parseInt(numbers.eq(1).text())) {
+          //不能換
+          var alertmsg = "左邊的分數比較小，不能換";
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" style="bottom:216px" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          rootSoundEffect($stupid);
+        } else {
+          var tempNumber = numbers.eq(0).text();
+          numbers.eq(0).text(numbers.eq(1).text());
+          numbers.eq(1).text(tempNumber);
+          numbers.removeClass("selected");
+          switcher.hide();
+          rootSoundEffect($show);
+
+          //成功執行一次替換
+          if (!hasSwitched) {
+            hasSwitched = true;
+          }
+          compareCount++;
+          //
+          if (autoAssign) {
+            numbers.eq(1).click();
+          } else {
+            nextRound.css("display", "flex");
+          }
+          checkIfGameOver();
+        }
+      } else {
+        if (parseInt(numbers.eq(0).text()) < parseInt(numbers.eq(1).text())) {
+          //正確的順序，不換
+          numbers.removeClass("selected");
+          switcher.hide();
+          //nextRound.css("display", "flex");
+          rootSoundEffect($pop);
+          //確認是否替換過
+          if (hasSwitched) {
+            compareCount++;
+          }
+          //確認後面還有沒有可以比較的數字
+          if (autoAssign) {
+            checkIfHasNextComparison(numbers.eq(1).index());
+          } else {
+            nextRound.css("display", "flex");
+          }
+        } else {
+          //後面的比較小，必須換
+          var alertmsg = "左邊的分數比較大，需要交換";
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp"  style="bottom:216px" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          rootSoundEffect($stupid);
+        }
+      }
+      console.log("compareCount:", compareCount);
+    };
+
+    var nextRound = function () {
+      //記錄本輪的結果
+      updateRecord();
+      //
+      var nextRound = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
+      );
+      nextRound.hide();
+      //
+      compareCount = 0;
+      compareTarget = "";
+      hasSwitched = false;
+      if (autoAssign) {
+        checkIfHasNextComparison(0);
+      }
+    };
+
+    var updateRecord = function () {
+      var numbers = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+      );
+      var records = $(".PT4-4-1-5 .contents > div.selected .sensors .record");
+      records.each(function () {
+        if ($(this).find("span").length == 0) {
+          rootSoundEffect($pop);
+          //空紀錄,記錄在這裡
+          for (var i = 0; i < numbers.length; i++) {
+            $(this).append(`<span>${numbers.eq(i).text()}</span>`);
+          }
           return false;
         }
       });
-      //找到下一個起始點
-      checkIfHasNextComparison(0);
-    }
-  };
 
-  var checkIfHasNextComparison = function (index) {
-    var numbers = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
-    );
-    var isComparison = false;
-    for (var i = index; i < numbers.length; i++) {
-      var currentItem = numbers.eq(i);
-      var nextItem = currentItem.next("span");
-      if (
-        nextItem.length > 0 &&
-        parseInt(currentItem.text()) > parseInt(nextItem.text())
-      ) {
-        isComparison = true;
-        currentItem.click();
-        break;
-      }
-    }
-    if (!isComparison) {
-      //沒有可以比較的數字，結束一輪
-      if (index == 0) {
-        //從0開始計算都沒有可以比較的對，則不處理
-      } else {
-        //本輪結束，可以進行下一輪
-        rootSoundEffect($correct);
-
-        var nextRound = $(
-          ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
-        );
-        nextRound.css("display", "flex");
-      }
-    }
-  };
-
-  var checkIfGameOver = function () {
-    var numbers = $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
-    );
-    var isGameOver = true;
-    for (var i = 0; i < numbers.length; i++) {
-      var currentItem = numbers.eq(i);
-      var nextItem = currentItem.next("span");
-      if (
-        nextItem.length > 0 &&
-        parseInt(currentItem.text()) > parseInt(nextItem.text())
-      ) {
-        isGameOver = false;
-        break;
-      }
-    }
-    if (isGameOver) {
-      numbers.removeClass("selected");
-      numbers.eq(0).closest(".numbers").addClass("gameover");
-      numbers.eq(0).siblings(".switcher").hide();
-      numbers.eq(0).siblings(".nextRound").css("display", "flex");
-      rootSoundEffect($chimes);
       if (autoAssign) {
-        setTimeout(function () {
-          nextRound();
-          //填入總次數
-          var countSensor = $(
-            ".PT4-4-1-5 .contents > div.selected .sensors .sensor",
-          );
-          var countSensorSumItem = countSensor.eq(countSensor.length - 1);
-          countSensorSumItem.text(countSensorSumItem.attr("ans"));
-        }, 100);
-      }
-    }
-  };
-
-  /* 任務2,3 */
-  var divideTo = function (targetsName) {
-    var source = $(event.currentTarget || event.target);
-    if (!source.hasClass("numbers")) {
-      source = source.closest(".numbers");
-    }
-
-    var allFilled = true;
-    source.find("span").each(function () {
-      if ($(this).text().trim() === "") {
-        allFilled = false;
-        return false;
-      }
-    });
-    if (!allFilled) {
-      var alertmsg = "還沒有數字可以分配";
-      var $selected = $(".contents > div.selected");
-      var sourceTop = source.offset().top - $selected.offset().top;
-      var alertTop = Math.round(sourceTop);
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
-      );
-      rootSoundEffect($stupid);
-      return;
-    }
-
-    var targets = targetsName.split(",");
-    for (var i = 0; i < targets.length; i++) {
-      var target = $(
-        `.PT4-4-1-5 .contents > div.selected .sensors .numbers.${targets[i]}`,
-      );
-      target.find("span").each(function () {
-        $(this).text($(this).attr("ans"));
-      });
-    }
-    rootSoundEffect($pop);
-  };
-  var assignTo = function (targetName) {
-    //先找到被點擊的span的數字
-    //確認target裡面還有空的span且數字沒有跟target span裡面已存在的數字重複，如果重複則不處理
-    var clicked = $(event.currentTarget || event.target);
-    var value = clicked.text().trim();
-    if (!value) return;
-
-    var target = $(
-      `.PT4-4-1-5 .contents > div.selected .sensors .numbers.${targetName}`,
-    );
-
-    var isDuplicate = false;
-    var $emptySlot = null;
-    target.find("span").each(function () {
-      // treat whitespace / NBSP as empty
-      var text = $(this)
-        .text()
-        .replace(/\u00a0/g, " ")
-        .trim();
-      if (text === value) {
-        isDuplicate = true;
-      }
-      if ($emptySlot === null && text === "") {
-        $emptySlot = $(this);
-      }
-    });
-
-    var $selected = $(".contents > div.selected");
-    var sourceTop = target.offset().top - $selected.offset().top;
-    var alertTop = Math.round(sourceTop);
-    if (!$emptySlot) {
-      var alertmsg = "沒有空位";
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
-      );
-      rootSoundEffect($stupid);
-      return;
-    }
-    if (isDuplicate) {
-      var alertmsg = "數字重複了，請選擇其他數字";
-      $(".alert").remove();
-      $(".contents > div.selected").append(
-        `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
-      );
-      rootSoundEffect($stupid);
-      return;
-    }
-
-    $emptySlot.text(value);
-    rootSoundEffect($pop);
-  };
-  /* 共用 */
-  var fillContent = function (tar) {
-    $(".alert").remove();
-    var text = window.prompt("請輸入答案：", tar.text() ?? "");
-    tar.removeClass("wrong");
-    if (text === null) {
-      rootSoundEffect($show);
-      return; // 取消則不處理
-    } else {
-      // only digits, no spaces/symbols/letters
-      if (!/^\d+$/.test(text)) {
-        rootSoundEffect($stupid);
-        var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
-        $(".alert").remove();
-        $(".contents > div.selected").append(
-          `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+        //填入比較次數
+        var countSensor = $(
+          ".PT4-4-1-5 .contents > div.selected .sensors .sensor",
         );
-        return;
+        countSensor.each(function () {
+          if ($(this).text() == "") {
+            $(this).text(compareCount);
+            return false;
+          }
+        });
+        //找到下一個起始點
+        checkIfHasNextComparison(0);
       }
-      tar.html(text);
-      rootSoundEffect($key);
-      //
-      $(".sideTool > div.btn_replay").show();
-    }
-  };
+    };
 
-  var withinShowAnswer_PT4_4_1_5 = function (boolean) {
-    if (boolean) {
-      $(".alert").remove();
-      /* 任務一 */
-      $(
-        ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers",
-      ).addClass("gameover");
-      $(
-        ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers .switcher",
-      ).hide();
-      $(
-        ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers .nextRound",
-      ).hide();
-      $(
+    var checkIfHasNextComparison = function (index) {
+      var numbers = $(
         ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
-      ).removeClass("selected");
-      $(".PT4-4-1-5 .contents .sensors .sensor").each(function () {
-        var ans = $(this).attr("ans");
-        $(this).html(ans);
-      });
-      $(".PT4-4-1-5 .contents .sensors .record").each(function () {
-        var ans = $(this).attr("ans");
-        $(this).empty();
-        var spans = ans.split(",");
-        for (var i = 0; i < spans.length; i++) {
-          $(this).append(`<span>${spans[i]}</span>`).click();
+      );
+      var isComparison = false;
+      for (var i = index; i < numbers.length; i++) {
+        var currentItem = numbers.eq(i);
+        var nextItem = currentItem.next("span");
+        if (
+          nextItem.length > 0 &&
+          parseInt(currentItem.text()) > parseInt(nextItem.text())
+        ) {
+          isComparison = true;
+          currentItem.click();
+          break;
+        }
+      }
+      if (!isComparison) {
+        //沒有可以比較的數字，結束一輪
+        if (index == 0) {
+          //從0開始計算都沒有可以比較的對，則不處理
+        } else {
+          //本輪結束，可以進行下一輪
+          rootSoundEffect($correct);
+
+          var nextRound = $(
+            ".PT4-4-1-5 .contents > div.selected .sensors .numbers > .nextRound",
+          );
+          nextRound.css("display", "flex");
+        }
+      }
+    };
+
+    var checkIfGameOver = function () {
+      var numbers = $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+      );
+      var isGameOver = true;
+      for (var i = 0; i < numbers.length; i++) {
+        var currentItem = numbers.eq(i);
+        var nextItem = currentItem.next("span");
+        if (
+          nextItem.length > 0 &&
+          parseInt(currentItem.text()) > parseInt(nextItem.text())
+        ) {
+          isGameOver = false;
+          break;
+        }
+      }
+      if (isGameOver) {
+        numbers.removeClass("selected");
+        numbers.eq(0).closest(".numbers").addClass("gameover");
+        numbers.eq(0).siblings(".switcher").hide();
+        numbers.eq(0).siblings(".nextRound").css("display", "flex");
+        rootSoundEffect($chimes);
+        if (autoAssign) {
+          setTimeout(function () {
+            nextRound();
+            //填入總次數
+            var countSensor = $(
+              ".PT4-4-1-5 .contents > div.selected .sensors .sensor",
+            );
+            var countSensorSumItem = countSensor.eq(countSensor.length - 1);
+            countSensorSumItem.text(countSensorSumItem.attr("ans"));
+          }, 100);
+        }
+      }
+    };
+
+    /* 任務2,3 */
+    var divideTo = function (targetsName) {
+      var source = $(event.currentTarget || event.target);
+      if (!source.hasClass("numbers")) {
+        source = source.closest(".numbers");
+      }
+
+      var allFilled = true;
+      source.find("span").each(function () {
+        if ($(this).text().trim() === "") {
+          allFilled = false;
+          return false;
         }
       });
+      if (!allFilled) {
+        var alertmsg = "還沒有數字可以分配";
+        var $selected = $(".contents > div.selected");
+        var sourceTop = source.offset().top - $selected.offset().top;
+        var alertTop = Math.round(sourceTop);
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        rootSoundEffect($stupid);
+        return;
+      }
+
+      var targets = targetsName.split(",");
+      for (var i = 0; i < targets.length; i++) {
+        var target = $(
+          `.PT4-4-1-5 .contents > div.selected .sensors .numbers.${targets[i]}`,
+        );
+        target.find("span").each(function () {
+          $(this).text($(this).attr("ans"));
+        });
+      }
+      rootSoundEffect($pop);
+    };
+    var assignTo = function (targetName) {
+      //先找到被點擊的span的數字
+      //確認target裡面還有空的span且數字沒有跟target span裡面已存在的數字重複，如果重複則不處理
+      var clicked = $(event.currentTarget || event.target);
+      var value = clicked.text().trim();
+      if (!value) return;
+
+      var target = $(
+        `.PT4-4-1-5 .contents > div.selected .sensors .numbers.${targetName}`,
+      );
+
+      var isDuplicate = false;
+      var $emptySlot = null;
+      target.find("span").each(function () {
+        // treat whitespace / NBSP as empty
+        var text = $(this)
+          .text()
+          .replace(/\u00a0/g, " ")
+          .trim();
+        if (text === value) {
+          isDuplicate = true;
+        }
+        if ($emptySlot === null && text === "") {
+          $emptySlot = $(this);
+        }
+      });
+
+      var $selected = $(".contents > div.selected");
+      var sourceTop = target.offset().top - $selected.offset().top;
+      var alertTop = Math.round(sourceTop);
+      if (!$emptySlot) {
+        var alertmsg = "沒有空位";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        rootSoundEffect($stupid);
+        return;
+      }
+      if (isDuplicate) {
+        var alertmsg = "數字重複了，請選擇其他數字";
+        $(".alert").remove();
+        $(".contents > div.selected").append(
+          `<div class="alert wow bounceInUp" style="bottom:unset;top:${alertTop / stageRatioReal + 20}px" onclick="$(this).remove()">${alertmsg}</div>`,
+        );
+        rootSoundEffect($stupid);
+        return;
+      }
+
+      $emptySlot.text(value);
+      rootSoundEffect($pop);
+    };
+    /* 共用 */
+    var fillContent = function (tar) {
+      $(".alert").remove();
+      var text = window.prompt("請輸入答案：", tar.text() ?? "");
+      tar.removeClass("wrong");
+      if (text === null) {
+        rootSoundEffect($show);
+        return; // 取消則不處理
+      } else {
+        // only digits, no spaces/symbols/letters
+        if (!/^\d+$/.test(text)) {
+          rootSoundEffect($stupid);
+          var alertmsg = "只能輸入數字，不能有空白、符號或其他文字。";
+          $(".alert").remove();
+          $(".contents > div.selected").append(
+            `<div class="alert wow bounceInUp" onclick="$(this).remove()">${alertmsg}</div>`,
+          );
+          return;
+        }
+        tar.html(text);
+        rootSoundEffect($key);
+        //
+        $(".sideTool > div.btn_replay").show();
+      }
+    };
+
+    var withinShowAnswer_PT4_4_1_5 = function (boolean) {
+      if (boolean) {
+        $(".alert").remove();
+        /* 任務一 */
+        $(
+          ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers",
+        ).addClass("gameover");
+        $(
+          ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers .switcher",
+        ).hide();
+        $(
+          ".PT4-4-1-5 .contents > div:nth-child(1).selected .sensors .numbers .nextRound",
+        ).hide();
+        $(
+          ".PT4-4-1-5 .contents > div.selected .sensors .numbers > span",
+        ).removeClass("selected");
+        $(".PT4-4-1-5 .contents .sensors .sensor").each(function () {
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+        });
+        $(".PT4-4-1-5 .contents .sensors .record").each(function () {
+          var ans = $(this).attr("ans");
+          $(this).empty();
+          var spans = ans.split(",");
+          for (var i = 0; i < spans.length; i++) {
+            $(this).append(`<span>${spans[i]}</span>`).click();
+          }
+        });
+        /* 任務二 */
+        $(
+          ".PT4-4-1-5 .contents > div:nth-child(2).selected .sensors .numbers span",
+        ).each(function () {
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+        });
+        /* 任務三 */
+        $(
+          ".PT4-4-1-5 .contents > div:nth-child(3).selected .sensors .numbers span",
+        ).each(function () {
+          var ans = $(this).attr("ans");
+          $(this).html(ans);
+        });
+      }
+    };
+
+    var withinResetElem_PT4_4_1_5 = function () {
+      /* 任務一 */
+      $(".PT4-4-1-5 .contents > div.selected .sensors .sensor").each(
+        function () {
+          $(this).text("");
+        },
+      );
+      $(".PT4-4-1-5 .contents > div.selected .sensors .numbers > span").each(
+        function () {
+          $(this).text($(this).attr("default"));
+        },
+      );
+      $(".PT4-4-1-5 .contents > div.selected .sensors .numbers").removeClass(
+        "gameover",
+      );
+      $(".PT4-4-1-5 .contents > div.selected .sensors .record").empty();
+      $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers .switcher",
+      ).hide();
+      $(
+        ".PT4-4-1-5 .contents > div.selected .sensors .numbers .nextRound",
+      ).hide();
+
+      //
+      compareCount = 0;
+      compareTarget = "";
+      hasSwitched = false;
+      if (autoAssign) {
+        checkIfHasNextComparison(0);
+      }
+
       /* 任務二 */
       $(
         ".PT4-4-1-5 .contents > div:nth-child(2).selected .sensors .numbers span",
       ).each(function () {
-        var ans = $(this).attr("ans");
-        $(this).html(ans);
+        if ($(this).attr("default")) {
+          $(this).text($(this).attr("default"));
+        } else {
+          $(this).text("");
+        }
       });
       /* 任務三 */
       $(
         ".PT4-4-1-5 .contents > div:nth-child(3).selected .sensors .numbers span",
       ).each(function () {
-        var ans = $(this).attr("ans");
-        $(this).html(ans);
+        if ($(this).attr("default")) {
+          $(this).text($(this).attr("default"));
+        } else {
+          $(this).text("");
+        }
       });
-    }
-  };
+    };
 
-  var withinResetElem_PT4_4_1_5 = function () {
-    /* 任務一 */
-    $(".PT4-4-1-5 .contents > div.selected .sensors .sensor").each(function () {
-      $(this).text("");
-    });
-    $(".PT4-4-1-5 .contents > div.selected .sensors .numbers > span").each(
-      function () {
-        $(this).text($(this).attr("default"));
-      },
-    );
-    $(".PT4-4-1-5 .contents > div.selected .sensors .numbers").removeClass(
-      "gameover",
-    );
-    $(".PT4-4-1-5 .contents > div.selected .sensors .record").empty();
-    $(".PT4-4-1-5 .contents > div.selected .sensors .numbers .switcher").hide();
-    $(
-      ".PT4-4-1-5 .contents > div.selected .sensors .numbers .nextRound",
-    ).hide();
+    window.reactivate_PT4_4_1_5 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_4_1_5;
+      withinResetElem = withinResetElem_PT4_4_1_5;
+      window.prepareNumber = prepareNumber;
+      window.switching = switching;
+      window.nextRound = nextRound;
+      window.fillContent = fillContent;
+      window.divideTo = divideTo;
+      window.assignTo = assignTo;
+    };
 
-    //
-    compareCount = 0;
-    compareTarget = "";
-    hasSwitched = false;
-    if (autoAssign) {
-      checkIfHasNextComparison(0);
-    }
-
-    /* 任務二 */
-    $(
-      ".PT4-4-1-5 .contents > div:nth-child(2).selected .sensors .numbers span",
-    ).each(function () {
-      if ($(this).attr("default")) {
-        $(this).text($(this).attr("default"));
-      } else {
-        $(this).text("");
-      }
-    });
-    /* 任務三 */
-    $(
-      ".PT4-4-1-5 .contents > div:nth-child(3).selected .sensors .numbers span",
-    ).each(function () {
-      if ($(this).attr("default")) {
-        $(this).text($(this).attr("default"));
-      } else {
-        $(this).text("");
-      }
-    });
-  };
-
-  window.reactivate_PT4_4_1_5 = function () {
-    withinShowAnswer = withinShowAnswer_PT4_4_1_5;
-    withinResetElem = withinResetElem_PT4_4_1_5;
-    window.prepareNumber = prepareNumber;
-    window.switching = switching;
-    window.nextRound = nextRound;
-    window.fillContent = fillContent;
-    window.divideTo = divideTo;
-    window.assignTo = assignTo;
-  };
-
-  window.reactivate_PT4_4_1_5();
-})();
+    window.reactivate_PT4_4_1_5();
+  })();
 </script>
