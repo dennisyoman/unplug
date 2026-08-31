@@ -73,6 +73,8 @@ $(document).ready(function () {
         $("#widget").empty();
         //clean canvas
         $("#canvas-board .canvas").remove();
+        //202508 clear box
+        clearBox();
 
         // pause audio tracker
         if (currentAudioTrack) {

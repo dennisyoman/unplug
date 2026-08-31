@@ -850,9 +850,12 @@ var boxAddMe = function (tar) {
   var contentKey = "content";
   var text = tar.attr(contentKey).trim();
   tar.addClass("selected");
-  tar.siblings().filter(function () {
-    return $(this).attr(contentKey).trim() === text;
-  }).addClass("selected");
+  tar
+    .siblings()
+    .filter(function () {
+      return $(this).attr(contentKey).trim() === text;
+    })
+    .addClass("selected");
   var $item = $("<div>").addClass("canvas_item custom_canvas_item");
   $item.append(`<p>${text}</p>`);
   var $button_remove = $("<span>").addClass("button_remove");
@@ -992,6 +995,11 @@ var addCustomCanvas = function () {
     //新增到某處
     cloneItemFromBox($(this));
   });
+};
+
+///202608:清除box裡的內容
+var clearBox = function () {
+  $(".canvas_list").empty();
 };
 
 //painting
