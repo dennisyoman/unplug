@@ -250,6 +250,18 @@
     $(".sideTool > div.btn_answer").removeClass("active");
   };
 
+  var onPathClick = function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    if (roomLinkState) return;
+    var $path = $(e.currentTarget);
+    if ($path.hasClass("drafting")) return;
+    $path.remove();
+    rootSoundEffect($show);
+    $(".sideTool > div.btn_replay").show();
+    $(".sideTool > div.btn_answer").removeClass("active");
+  };
+
   var onRoomPointerDown = function (e) {
     if (e.type === "mousedown" && e.which !== 1) return;
 
@@ -291,7 +303,8 @@
     $(".PT4-5-3-4 .rooms")
       .removeClass("drawing")
       .off(".pt4534link")
-      .on("mousedown.pt4534link", ".room", onRoomPointerDown);
+      .on("mousedown.pt4534link", ".room", onRoomPointerDown)
+      .on("click.pt4534link", ".paths .path", onPathClick);
   };
 
   var ROOM_W = 100;

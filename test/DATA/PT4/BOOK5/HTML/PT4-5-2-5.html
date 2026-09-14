@@ -8,7 +8,10 @@
   <div class="units-title wow bounceInRight"></div>
 
   <div class="sideTool">
-    <div class="btn_answer" onClick="showAnswer_PT4_5_2_5($(this))"></div>
+    <div
+      class="btn_answer"
+      onClick="event.stopImmediatePropagation();showAnswer_PT4_5_2_5($(this))"
+    ></div>
     <div class="btn_replay" onClick="resetElem_PT4_5_2_5()"></div>
     <div class="btn_check" onClick="checkAnswer_PT4_5_2_5()"></div>
     <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
@@ -976,11 +979,17 @@
         });
       }
 
+      // decode 被 stop 後要自己掛 active（trigMe 也會清掉，放最後）
+      btn.addClass("active");
       rootSoundEffect($help);
       $("#module_wrapper .sideTool .btn_replay").show();
       $("#module_wrapper .sideTool .btn_check").hide();
     } else {
+      btn.removeClass("active");
       resetElem_PT4_5_2_5();
+      // decode 被 stop，puzzle items 也要清
+      resetElem($(".contents > div.selected"));
+      $("#module_wrapper .sideTool .btn_check").show();
     }
   };
 
