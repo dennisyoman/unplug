@@ -1,0 +1,850 @@
+<div id="module_wrapper" class="module_basic PT4-6-3-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_6_3_4()"></div>
+    <div class="btn_check"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>文生圖</b>：請依照故事提到的順序完成關係網路圖。</p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-3-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti">
+          <div class="sensors">
+            <!-- row1 點選可依序切換三種年齡層 -->
+            <span
+              class="sensor row-age"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'age')"
+              style="width: 69px; height: 28px; top: 65px; left: 9px"
+            ></span>
+            <span
+              class="sensor row-age"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'age')"
+              style="width: 69px; height: 28px; top: 65px; left: 91px"
+            ></span>
+            <span
+              class="sensor row-age"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'age')"
+              style="width: 69px; height: 28px; top: 65px; left: 172px"
+            ></span>
+
+            <!-- row2 點選可依序切換四種玩具的分類 -->
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'toy')"
+              style="width: 35px; height: 31px; top: 125px; left: 4px"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'toy')"
+              style="width: 35px; height: 31px; top: 125px; left: 45px"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'toy')"
+              style="width: 35px; height: 31px; top: 125px; left: 87px"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'toy')"
+              style="width: 35px; height: 31px; top: 125px; left: 128px"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'toy')"
+              style="width: 35px; height: 31px; top: 125px; left: 170px"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_4($(this), 'toy')"
+              style="width: 35px; height: 31px; top: 125px; left: 212px"
+            ></span>
+
+            <!-- row4 點選會跳出可輸入數字的 prompt -->
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 3px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 23px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 44px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 65px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 86px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 106px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 126px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 147px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 168px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 188px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 209px"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_4($(this))"
+              style="width: 17px; height: 20px; top: 248px; left: 230px"
+            ></span>
+          </div>
+
+          <!-- row3：basic.js cards 投放區（碰撞 + sp 黏附） -->
+          <div class="sensorArea nocheckbtn">
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 3px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 23px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 44px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 65px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 86px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 106px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 126px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 147px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 168px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 188px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 209px"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 17px; height: 44px; top: 190px; left: 230px"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-3-4-1.png"
+          />
+
+          <!-- basic.js Hammer 拖曳：.cards 會產生 #cardAvatar，放開黏到 sp -->
+          <div
+            class="toys noShuffle"
+            style="width: 100px; left: -130px; top: 118px"
+          >
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t1.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t2.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t3.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t4.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t5.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t6.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t7.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t8.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t9.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t10.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t11.png" />
+            </div>
+            <div class="toy cards" style="width: 17px; height: 44px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t12.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-3-4 .item {
+    overflow: visible;
+  }
+  .PT4-6-3-4 .contents .sensors .sensor {
+    font-size: 12px;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #222;
+    cursor: pointer;
+    word-break: break-all;
+  }
+  .PT4-6-3-4 .contents .sensors .sensor.row-toy {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+  .PT4-6-3-4 .contents .sensors .sensor.row-num {
+    font-size: 12px;
+  }
+  .PT4-6-3-4 .contents .sensors .sensor.wrong,
+  .PT4-6-3-4 .sensorArea > span.wrong,
+  #module_wrapper.PT4-6-3-4 .cardAvatarDie.wrong {
+    outline: 2px solid #e74c3c;
+    outline-offset: 1px;
+  }
+
+  .PT4-6-3-4 .sensorArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-6-3-4 .sensorArea > span {
+    position: absolute;
+    pointer-events: auto;
+  }
+
+  .PT4-6-3-4 .toys {
+    position: absolute;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    min-height: 0;
+    width: 100px;
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+  .PT4-6-3-4 .toys .toy {
+    width: 17px;
+    height: 44px;
+    flex: none;
+    margin: 0;
+    pointer-events: auto;
+  }
+  .PT4-6-3-4 .toys .toy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    -webkit-user-drag: none;
+  }
+  .PT4-6-3-4 .toys .toy.cached,
+  .PT4-6-3-4 .toys .toy.disable {
+    pointer-events: none !important;
+    cursor: default;
+  }
+  .PT4-6-3-4 .toys .toy.semiTransparent {
+    opacity: 0.1;
+  }
+  .PT4-6-3-4 .cardAvatar,
+  .PT4-6-3-4 ~ .cardAvatar,
+  #module_wrapper .cardAvatar {
+    z-index: 200;
+  }
+  #module_wrapper.PT4-6-3-4 .cardAvatarDie {
+    z-index: 6;
+  }
+</style>
+
+<script>
+  (function () {
+    /*年齡層 : 5~8歲 / 9~12歲 / 13~16歲 */
+    /*玩具分類 : 手工創作 / 戶外運動 / 公仔模型 / 電子玩具 */
+    /*數字 : 用填的；piece 用 basic.js cards + sensorArea + sp */
+
+    var OPTIONS = {
+      age: ["5~8歲", "9~12歲", "13~16歲"],
+      toy: ["手工創作", "戶外運動", "公仔模型", "電子玩具"],
+    };
+    /* 標準答案；檢查時年齡欄 / 分類欄 / 同組 piece 左右順序皆可不同 */
+    var GROUPS = {
+      "5~8歲": [
+        ["手工創作", ["t11", "t9"], [25, 16]],
+        ["戶外運動", ["t12", "t10"], [15, 17]],
+      ],
+      "9~12歲": [
+        ["手工創作", ["t4", "t2"], [30, 8]],
+        ["公仔模型", ["t3", "t1"], [18, 7]],
+      ],
+      "13~16歲": [
+        ["戶外運動", ["t6", "t5"], [12, 19]],
+        ["電子玩具", ["t7", "t8"], [10, 20]],
+      ],
+    };
+    var AGE_ORDER = ["5~8歲", "9~12歲", "13~16歲"];
+
+    var toyBySrc = function (src) {
+      var $hit = $();
+      if (!src) return $hit;
+      $(".PT4-6-3-4 .toys .toy").each(function () {
+        if ($(this).find("img").attr("src") == src) $hit = $(this);
+      });
+      return $hit;
+    };
+
+    var hideToySrc = function (src) {
+      toyBySrc(src).addClass("cached disable semiTransparent");
+    };
+
+    var showToySrc = function (src) {
+      toyBySrc(src).removeClass("cached semiTransparent positionBingo disable");
+    };
+
+    // 依目前 .sensorArea > span 位置，寫入 cards 的 sp（相對 #module_wrapper）
+    var syncCardSp_PT4_6_3_4 = function () {
+      var $wrap = $("#module_wrapper");
+      var $slots = $(".PT4-6-3-4 .sensorArea > span");
+      if (!$wrap.length || !$slots.length) return;
+      var wOff = $wrap.offset();
+      var ratio = stageRatioReal || 1;
+      var pts = [];
+      $slots.each(function () {
+        var r = this.getBoundingClientRect();
+        var top = Math.round((r.top - wOff.top) / ratio);
+        var left = Math.round((r.left - wOff.left) / ratio);
+        pts.push(top + "," + left);
+      });
+      $(".PT4-6-3-4 .toys .cards").attr("sp", pts.join("^"));
+    };
+
+    // 投放後：來源 toy 隱藏+disabled；同格已有牌則替換（舊牌回庫）
+    var bindDieClick_PT4_6_3_4 = function ($die) {
+      $die
+        .unbind()
+        .bind("click", function () {
+          showToySrc($(this).find("img").attr("src"));
+          $(this).remove();
+          rootSoundEffect($show);
+        })
+        .css("pointer-events", "auto")
+        .css("cursor", "pointer");
+    };
+
+    // die 屬於哪一格：優先 sN class；否則算離哪個 sp 最近（相鄰格約 20px，門檻要緊）
+    var slotIndexOfDie_PT4_6_3_4 = function (el) {
+      var m = (el.className || "").match(/\bs(\d+)\b/);
+      if (m) return parseInt(m[1], 10);
+
+      var sp = ($(".PT4-6-3-4 .toys .cards").first().attr("sp") || "").split(
+        "^",
+      );
+      var t = parseInt(el.style.top, 10) || 0;
+      var l = parseInt(el.style.left, 10) || 0;
+      var best = -1;
+      var bestDist = Infinity;
+      for (var i = 0; i < sp.length; i++) {
+        if (!sp[i]) continue;
+        var p = sp[i].split(",");
+        var st = parseInt(p[0], 10) || 0;
+        var sl = parseInt(p[1], 10) || 0;
+        var d = Math.abs(t - st) + Math.abs(l - sl);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      }
+      // 半格寬以內才算同一格（格距 ~20）
+      return bestDist <= 10 ? best : -1;
+    };
+
+    // 貼上前：只清「這一格」上的舊 die，還原對應 toy（勿誤清隔壁）
+    var clearOccupiedSlot_PT4_6_3_4 = function () {
+      var $sel = $(
+        ".contents > div.selected .sensorArea > .selected, .PT4-6-3-4 .sensorArea > span.selected",
+      ).first();
+      var slotIdx = $sel.length ? $sel.index() : -1;
+      if (slotIdx < 0) {
+        console.log("無");
+        return;
+      }
+
+      var $found = $();
+      $("#module_wrapper .cardAvatarDie").each(function () {
+        if (slotIndexOfDie_PT4_6_3_4(this) === slotIdx) {
+          $found = $found.add(this);
+        }
+      });
+
+      if (!$found.length) {
+        console.log("無");
+        return;
+      }
+
+      var names = [];
+      $found.each(function () {
+        var src = $(this).find("img").attr("src") || "";
+        var id = (src.match(/\/(t\d+)\.png/i) || [])[1] || src;
+        names.push(id);
+        if (src) showToySrc(src);
+        $(this).remove();
+      });
+      console.log(
+        "有:slot" + slotIdx + " → " + names.join(" | ") + " → 已移除並還原",
+      );
+    };
+
+    var wrapDragHooks_PT4_6_3_4 = function () {
+      // HTML 比 basic.js 先跑：此時 checkStatus 可能还不存在，要等 compLoaded / retry
+      if (typeof checkStatus !== "function") {
+        return false;
+      }
+      if (
+        !window._PT4_6_3_4_origCheckStatus ||
+        (checkStatus !== window._PT4_6_3_4_checkStatus &&
+          checkStatus !== window._PT4_6_3_4_origCheckStatus)
+      ) {
+        window._PT4_6_3_4_origCheckStatus = checkStatus;
+      }
+      window._PT4_6_3_4_checkStatus = function () {
+        if (!$("#module_wrapper").hasClass("PT4-6-3-4")) {
+          return window._PT4_6_3_4_origCheckStatus.apply(this, arguments);
+        }
+        var $sel = $(
+          ".contents > div.selected .sensorArea > .selected, .PT4-6-3-4 .sensorArea > span.selected",
+        ).first();
+        var slotIdx = $sel.length ? $sel.index() : -1;
+
+        clearOccupiedSlot_PT4_6_3_4();
+        window._PT4_6_3_4_origCheckStatus.apply(this, arguments);
+
+        // 投放後：校正 sN（只留正確格），清掉 sensor selected，避免下次誤判
+        var $die =
+          slotIdx >= 0
+            ? $("#module_wrapper .cardAvatarDie.s" + slotIdx).last()
+            : $("#module_wrapper .cardAvatarDie").last();
+        if (!$die.length) $die = $("#module_wrapper .cardAvatarDie").last();
+        if ($die.length) {
+          $die.removeClass(function (i, c) {
+            return (c.match(/\bs\d+\b/g) || []).join(" ");
+          });
+          if (slotIdx >= 0) $die.addClass("s" + slotIdx);
+          var src = $die.find("img").attr("src");
+          if (src) hideToySrc(src);
+          bindDieClick_PT4_6_3_4($die);
+        }
+        $(".PT4-6-3-4 .sensorArea > span").removeClass("selected");
+      };
+      checkStatus = window._PT4_6_3_4_checkStatus;
+      window.checkStatus = window._PT4_6_3_4_checkStatus;
+
+      if (typeof handleDrag === "function") {
+        if (
+          !window._PT4_6_3_4_origHandleDrag ||
+          (handleDrag !== window._PT4_6_3_4_handleDrag &&
+            handleDrag !== window._PT4_6_3_4_origHandleDrag)
+        ) {
+          window._PT4_6_3_4_origHandleDrag = handleDrag;
+        }
+        window._PT4_6_3_4_handleDrag = function (ev) {
+          return window._PT4_6_3_4_origHandleDrag.apply(this, arguments);
+        };
+        handleDrag = window._PT4_6_3_4_handleDrag;
+        window.handleDrag = window._PT4_6_3_4_handleDrag;
+      }
+
+      return true;
+    };
+
+    var ensureWrap_PT4_6_3_4 = function () {
+      if (checkStatus === window._PT4_6_3_4_checkStatus) return;
+      wrapDragHooks_PT4_6_3_4();
+    };
+
+    var clearWrong_PT4_6_3_4 = function () {
+      $(".PT4-6-3-4 .sensors .sensor").removeClass("wrong");
+      $(".PT4-6-3-4 .sensorArea > span").removeClass("wrong");
+      $("#module_wrapper .cardAvatarDie").removeClass("wrong");
+    };
+
+    var pieceIdFromSrc = function (src) {
+      var m = (src || "").match(/\/(t\d+)\.png/i);
+      return m ? m[1] : "";
+    };
+
+    var getPieceAtSlot = function (idx) {
+      var $die = $("#module_wrapper .cardAvatarDie.s" + idx);
+      if (!$die.length) {
+        var sp = ($(".PT4-6-3-4 .toys .cards").first().attr("sp") || "").split(
+          "^",
+        );
+        if (sp[idx]) {
+          var parts = sp[idx].split(",");
+          var top = parseInt(parts[0], 10) || 0;
+          var left = parseInt(parts[1], 10) || 0;
+          $("#module_wrapper .cardAvatarDie").each(function () {
+            var t = parseInt(this.style.top, 10) || 0;
+            var l = parseInt(this.style.left, 10) || 0;
+            if (Math.abs(t - top) <= 8 && Math.abs(l - left) <= 8) {
+              $die = $(this);
+            }
+          });
+        }
+      }
+      return {
+        id: pieceIdFromSrc($die.find("img").attr("src")),
+        $die: $die,
+      };
+    };
+
+    var placePieceAtSlot = function (slotIdx, tid) {
+      var $srcToy = $();
+      $(".PT4-6-3-4 .toys .toy").each(function () {
+        if (pieceIdFromSrc($(this).find("img").attr("src")) === tid) {
+          $srcToy = $(this);
+        }
+      });
+      if (!$srcToy.length) return;
+
+      $("#module_wrapper .cardAvatarDie.s" + slotIdx).each(function () {
+        showToySrc($(this).find("img").attr("src"));
+        $(this).remove();
+      });
+
+      var sp = ($(".PT4-6-3-4 .toys .cards").first().attr("sp") || "").split(
+        "^",
+      );
+      var pos = (sp[slotIdx] || "0,0").split(",");
+      var w = parseInt($srcToy.css("width"), 10) / (stageRatioReal || 1) || 17;
+      var h = parseInt($srcToy.css("height"), 10) / (stageRatioReal || 1) || 44;
+      var $avatar = $(
+        '<div class="cardAvatar cardAvatarDie s' + slotIdx + '"></div>',
+      );
+      $srcToy
+        .clone()
+        .removeClass("cached disable semiTransparent")
+        .appendTo($avatar);
+      $avatar.css({
+        width: w + "px",
+        height: h + "px",
+        top: (parseInt(pos[0], 10) || 0) + "px",
+        left: (parseInt(pos[1], 10) || 0) + "px",
+        position: "absolute",
+        "pointer-events": "auto",
+        cursor: "pointer",
+      });
+      $("#module_wrapper").append($avatar);
+      hideToySrc($srcToy.find("img").attr("src"));
+      bindDieClick_PT4_6_3_4($avatar);
+    };
+
+    // 由上往下分層檢查：只標該層錯誤；年齡重複 → 第二組錯；同組 piece/num 左右順序不計
+    var withinCheckAnswer_PT4_6_3_4 = function () {
+      clearWrong_PT4_6_3_4();
+      var $ages = $(".PT4-6-3-4 .sensors .sensor.row-age");
+      var $toys = $(".PT4-6-3-4 .sensors .sensor.row-toy");
+      var $nums = $(".PT4-6-3-4 .sensors .sensor.row-num");
+      var $slots = $(".PT4-6-3-4 .sensorArea > span");
+      var wrong = false;
+      var ageOk = [false, false, false];
+      var toyOk = [false, false, false, false, false, false];
+      var seenAge = {};
+
+      // row1 age
+      for (var ai = 0; ai < 3; ai++) {
+        var age = ($ages.eq(ai).text() || "").trim();
+        if (!age || !GROUPS[age]) {
+          $ages.eq(ai).addClass("wrong");
+          wrong = true;
+          continue;
+        }
+        if (seenAge[age]) {
+          // 重複年齡：第二組錯
+          $ages.eq(ai).addClass("wrong");
+          wrong = true;
+          continue;
+        }
+        seenAge[age] = true;
+        ageOk[ai] = true;
+      }
+      // 少填某一年齡
+      AGE_ORDER.forEach(function (a) {
+        if (!seenAge[a]) wrong = true;
+      });
+
+      // row2 toy（僅年齡正確的欄位往下查；兩欄分類順序不計）
+      for (var aj = 0; aj < 3; aj++) {
+        if (!ageOk[aj]) continue;
+        var ageName = ($ages.eq(aj).text() || "").trim();
+        var expectedToys = (GROUPS[ageName] || []).map(function (p) {
+          return p[0];
+        });
+        var usedToy = {};
+        for (var ti = 0; ti < 2; ti++) {
+          var toyIdx = aj * 2 + ti;
+          var toy = ($toys.eq(toyIdx).text() || "").trim();
+          var hit = -1;
+          for (var ej = 0; ej < expectedToys.length; ej++) {
+            if (usedToy[ej]) continue;
+            if (expectedToys[ej] === toy) {
+              hit = ej;
+              break;
+            }
+          }
+          if (hit >= 0) {
+            usedToy[hit] = true;
+            toyOk[toyIdx] = true;
+          } else {
+            $toys.eq(toyIdx).addClass("wrong");
+            wrong = true;
+          }
+        }
+      }
+
+      // row3 piece + row4 num（僅分類正確的組；piece↔num 成對，左右順序不計）
+      for (var tj = 0; tj < 6; tj++) {
+        if (!toyOk[tj]) continue;
+        var ageIdx = Math.floor(tj / 2);
+        var ageN = ($ages.eq(ageIdx).text() || "").trim();
+        var toyN = ($toys.eq(tj).text() || "").trim();
+        var pair = null;
+        (GROUPS[ageN] || []).forEach(function (p) {
+          if (p[0] === toyN) pair = p;
+        });
+        if (!pair) continue;
+
+        var expectedPairs = [];
+        for (var k = 0; k < pair[1].length; k++) {
+          expectedPairs.push({
+            id: pair[1][k],
+            num: String(pair[2][k]),
+          });
+        }
+        var usedPair = {};
+        for (var pi = 0; pi < 2; pi++) {
+          var slotIdx = tj * 2 + pi;
+          var piece = getPieceAtSlot(slotIdx);
+          var numText = ($nums.eq(slotIdx).text() || "").trim();
+          var pHit = -1;
+          for (var ep = 0; ep < expectedPairs.length; ep++) {
+            if (usedPair[ep]) continue;
+            if (expectedPairs[ep].id === piece.id) {
+              pHit = ep;
+              break;
+            }
+          }
+          if (pHit < 0) {
+            wrong = true;
+            $slots.eq(slotIdx).addClass("wrong");
+            if (piece.$die && piece.$die.length) piece.$die.addClass("wrong");
+            // piece 錯時仍可單獨看數字是否對得上某預期值
+            var numOkAlone = expectedPairs.some(function (ep) {
+              return ep.num === numText;
+            });
+            if (!numOkAlone) $nums.eq(slotIdx).addClass("wrong");
+          } else {
+            usedPair[pHit] = true;
+            if (expectedPairs[pHit].num !== numText) {
+              $nums.eq(slotIdx).addClass("wrong");
+              wrong = true;
+            }
+          }
+        }
+      }
+
+      if (wrong) {
+        rootSoundEffect($fail);
+      } else {
+        rootSoundEffect($correct);
+        bingo();
+      }
+    };
+
+    var withinShowAnswer_PT4_6_3_4 = function (boolean) {
+      if (!boolean) {
+        withinResetElem_PT4_6_3_4();
+        return;
+      }
+      clearWrong_PT4_6_3_4();
+      syncCardSp_PT4_6_3_4();
+      $("#module_wrapper .cardAvatarDie").remove();
+      $(".PT4-6-3-4 .toys .toy").removeClass(
+        "cached semiTransparent positionBingo disable",
+      );
+
+      var $ages = $(".PT4-6-3-4 .sensors .sensor.row-age");
+      var $toys = $(".PT4-6-3-4 .sensors .sensor.row-toy");
+      var $nums = $(".PT4-6-3-4 .sensors .sensor.row-num");
+      AGE_ORDER.forEach(function (age, ai) {
+        $ages.eq(ai).text(age);
+        (GROUPS[age] || []).forEach(function (pair, ti) {
+          var toyIdx = ai * 2 + ti;
+          $toys.eq(toyIdx).text(pair[0]);
+          pair[1].forEach(function (tid, pi) {
+            var slotIdx = toyIdx * 2 + pi;
+            placePieceAtSlot(slotIdx, tid);
+            $nums.eq(slotIdx).text(String(pair[2][pi]));
+          });
+        });
+      });
+      rootSoundEffect($help);
+      $(".sideTool > div.btn_check").hide();
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var cycleSensor_PT4_6_3_4 = function ($el, kind) {
+      var list = OPTIONS[kind];
+      if (!list || !$el || !$el.length) return;
+      $el.removeClass("wrong");
+      var cur = ($el.text() || "").trim();
+      var idx = list.indexOf(cur);
+      var next = list[(idx + 1) % list.length];
+      $el.text(next);
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_check").show();
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var fillNumber_PT4_6_3_4 = function ($el) {
+      if (!$el || !$el.length) return;
+      $el.removeClass("wrong");
+      var text = window.prompt("請輸入數字：", $el.text() || "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return;
+      }
+      text = String(text).trim();
+      if (text !== "" && !/^\d+(\.\d+)?$/.test(text)) {
+        rootSoundEffect($fail);
+        return;
+      }
+      $el.text(text);
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_check").show();
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var withinResetElem_PT4_6_3_4 = function () {
+      clearWrong_PT4_6_3_4();
+      $(
+        ".PT4-6-3-4 .sensors .sensor.row-age, .PT4-6-3-4 .sensors .sensor.row-toy, .PT4-6-3-4 .sensors .sensor.row-num",
+      ).text("");
+      $(".PT4-6-3-4 .toys .toy").removeClass(
+        "cached semiTransparent positionBingo disable",
+      );
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      syncCardSp_PT4_6_3_4();
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_check").hide();
+    };
+
+    window.resetElem_PT4_6_3_4 = function () {
+      withinResetElem_PT4_6_3_4();
+      rootSoundEffect($show);
+    };
+
+    window.reactivate_PT4_6_3_4 = function () {
+      withinResetElem = withinResetElem_PT4_6_3_4;
+      withinCheckAnswer = withinCheckAnswer_PT4_6_3_4;
+      withinShowAnswer = withinShowAnswer_PT4_6_3_4;
+      window.cycleSensor_PT4_6_3_4 = cycleSensor_PT4_6_3_4;
+      window.fillNumber_PT4_6_3_4 = fillNumber_PT4_6_3_4;
+      ensureWrap_PT4_6_3_4();
+      // basic.js 在 HTML 之後才載入，必須延遲重掛
+      setTimeout(ensureWrap_PT4_6_3_4, 100);
+      setTimeout(ensureWrap_PT4_6_3_4, 500);
+      setTimeout(ensureWrap_PT4_6_3_4, 1200);
+      setTimeout(syncCardSp_PT4_6_3_4, 50);
+      setTimeout(syncCardSp_PT4_6_3_4, 400);
+    };
+
+    window.cycleSensor_PT4_6_3_4 = cycleSensor_PT4_6_3_4;
+    window.fillNumber_PT4_6_3_4 = fillNumber_PT4_6_3_4;
+
+    // basic.js trigHammer 之後再掛
+    $(document)
+      .off("compLoaded.pt4634")
+      .on("compLoaded.pt4634", "#module_wrapper", function () {
+        console.log("[PT4-6-3-4] compLoaded → wrap");
+        ensureWrap_PT4_6_3_4();
+        setTimeout(ensureWrap_PT4_6_3_4, 200);
+      });
+
+    window.reactivate_PT4_6_3_4();
+  })();
+</script>

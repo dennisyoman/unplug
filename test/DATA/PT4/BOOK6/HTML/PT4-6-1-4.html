@@ -1,0 +1,66 @@
+<div id="module_wrapper" class="module_decode PT4-6-1-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>想一想</b
+            >：請把各種自駕車的動作改成圖式。<br />*使用筆畫工具，在道路上畫上正確的路線。
+          </p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="puzzle wow fadeInUp tti" style="width: 220px">
+        <div class="subject">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-4-1.png"
+          />
+        </div>
+        <div class="ans">
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-4-1-A.png"
+          />
+        </div>
+      </div>
+      <div
+        class="ref wow bounceInUp"
+        onclick="
+          $('#main-panel .btn_paletton').click();
+          $(this).remove();
+        "
+      >
+        <img width="30" src="./DATA/IMAGES/common/btn_paletton.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-1-4 .ref {
+    position: absolute;
+    top: 265px;
+    left: 130px;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,1286 @@
+<div id="module_wrapper" class="module_basic PT4-6-4-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_6_4_5()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b
+            >：小亦正在闖關，灰色格子是小亦預計走的路線，同學們可以看到整張替圖，也可以知道寶藏在哪裡。<br />
+            如果走一步後離寶藏更遠，就貼上<img
+              width="28"
+              height="28"
+              src="./DATA/PT4/BOOK6/IMAGES/face_further.png"
+            />。<br />
+            如果走一步後更接近寶藏，就貼上<img
+              width="28"
+              height="28"
+              src="./DATA/PT4/BOOK6/IMAGES/face_closer.png"
+            />。
+          </p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-5-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 5px; left: 107px"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 5px; left: 134px"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 5px; left: 162px"
+              fid="1"
+              ans="4"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 5px; left: 190px"
+              fid="2"
+              ans="5"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 32px; left: 190px"
+              fid="1"
+              ans="4"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 60px; left: 190px"
+              fid="1"
+              ans="3"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 60px; left: 162px"
+              fid="1"
+              ans="2"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 60px; left: 134px"
+              fid="2"
+              ans="3"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 60px; left: 107px"
+              fid="2"
+              ans="4"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 88px; left: 107px"
+              fid="1"
+              ans="3"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 116px; left: 107px"
+              fid="1"
+              ans="2"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 116px; left: 134px"
+              fid="1"
+              ans="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_5($(this))"
+              style="width: 26px; height: 26px; top: 116px; left: 162px"
+              fid="1"
+              ans="0"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-5-1.png"
+          />
+
+          <!-- basic.js Hammer 拖曳：.cards 會產生 #cardAvatar，放開黏到 sp -->
+          <div
+            class="toys noShuffle wow bounceInLeft"
+            style="left: -50px; top: 88px"
+          >
+            <div class="toy cards repeat" style="width: 26px; height: 26px">
+              <img
+                mt="1"
+                src="./DATA/PT4/BOOK6/IMAGES/face_further.png"
+                kid="2"
+              />
+            </div>
+            <div class="toy cards repeat" style="width: 26px; height: 26px">
+              <img
+                mt="1"
+                src="./DATA/PT4/BOOK6/IMAGES/face_closer.png"
+                kid="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：小亦破關了，現在比情符號提示也恢復正常了～他想邀請大家一起挑戰新關卡。這是請大家根據地圖上的表情符號，來猜猜看，哪一格才是寶藏的地方呢？
+          </p>
+          <img width="80" src="./DATA/PT4/BOOK6/IMAGES/icon-treasure.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 132px"
+              fid="3"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 132px"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-5-2.png"
+          />
+
+          <div class="toys wow bounceInDown" style="left: 190px; top: 70px">
+            <div class="toy cards norepeat" style="width: 45px; height: 45px">
+              <img
+                mt="1"
+                src="./DATA/PT4/BOOK6/IMAGES/icon-treasure.png"
+                kid="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：螢幕上會出現一張地圖，上面有「起點」，寶藏藏在某一格，從「起點」出發，每當你走一步，螢幕會告訴你這一步的表情符號提示，請你在你走的那一格上面貼上表情貼紙，並根據每一次的表情符號來猜一猜：「寶藏大概在哪一格？」，最後請標示寶藏的位置。
+          </p>
+          <img width="80" src="./DATA/PT4/BOOK6/IMAGES/icon-treasure.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors" style="top: -6px; left: 87px">
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 8px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 40px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 71px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 103px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 134px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 166px; left: 132px"
+            ></span>
+
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 5px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 37px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 69px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 100px"
+            ></span>
+            <span
+              class="sensor"
+              style="width: 29px; height: 29px; top: 197px; left: 132px"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-5-3.png"
+          />
+          <div class="toys wow bounceInDown" style="left: 285px; top: 71px">
+            <div class="toy cards norepeat" style="width: 45px; height: 45px">
+              <img
+                mt="1"
+                src="./DATA/PT4/BOOK6/IMAGES/icon-treasure.png"
+                kid="4"
+              />
+            </div>
+          </div>
+
+          <div class="joystick">
+            <span class="joystick-up"> </span>
+            <span class="joystick-down"> </span>
+            <span class="joystick-left"> </span>
+            <span class="joystick-right"> </span>
+            <img src="./DATA/PT4/BOOK6/IMAGES/joystick.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-4-5 .joystick {
+    position: absolute;
+    left: 265px;
+    top: 142px;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    animation: bounceInUp 1s both 1s;
+  }
+  .PT4-6-4-5 .joystick img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .PT4-6-4-5 .joystick > span {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    pointer-events: auto;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .PT4-6-4-5 .joystick > span.joystick-up {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .PT4-6-4-5 .joystick > span.joystick-down {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .PT4-6-4-5 .joystick > span.joystick-left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .PT4-6-4-5 .joystick > span.joystick-right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .PT4-6-4-5 .item {
+    overflow: visible;
+  }
+  .PT4-6-4-5 .contents .sensors .sensor {
+    line-height: 1.1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    color: #222;
+    cursor: pointer;
+    word-break: break-all;
+    pointer-events: auto;
+  }
+
+  .PT4-6-4-5 .contents .sensors .sensor[start]::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background: url("./DATA/PT4/BOOK6/IMAGES/starter.png") no-repeat center
+      center;
+    background-size: contain;
+    z-index: 5;
+    pointer-events: none;
+    animation: bounceInDown 1s both 0.4s;
+  }
+
+  .PT4-6-4-5 .contents .sensors .sensor.further::after,
+  .PT4-6-4-5 .contents .sensors .sensor.closer::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70% 70%;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    animation: bounceIn 1s both;
+  }
+  .PT4-6-4-5 .contents .sensors .sensor.further::after {
+    background-image: url("./DATA/PT4/BOOK6/IMAGES/face_further.png");
+  }
+  .PT4-6-4-5 .contents .sensors .sensor.closer::after {
+    background-image: url("./DATA/PT4/BOOK6/IMAGES/face_closer.png");
+  }
+
+  .PT4-6-4-5 .sensors > svg.route {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 260px;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .PT4-6-4-5 .sensors > svg.route line {
+    stroke: #ea5e88;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .PT4-6-4-5 .contents .sensors .sensor.row-num {
+    font-size: 10px;
+    padding: 2px;
+  }
+
+  .PT4-6-4-5 .contents .sensors .sensor.row-num[ans] {
+    pointer-events: auto;
+  }
+  .PT4-6-4-5 .contents .sensors .sensor.wrong,
+  #module_wrapper.PT4-6-4-5 .cardAvatarDie.wrong {
+    outline: 2px solid #e74c3c;
+    outline-offset: 1px;
+  }
+
+  .PT4-6-4-5 .toys {
+    position: absolute;
+    z-index: 5;
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 15px;
+    min-height: 0;
+    width: 35px;
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+  .PT4-6-4-5 .toys .toy {
+    flex: none;
+    margin: 0;
+    pointer-events: auto;
+  }
+  .PT4-6-4-5 .toys .toy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    -webkit-user-drag: none;
+  }
+  .PT4-6-4-5 .toys .toy.norepeat.cached {
+    pointer-events: none;
+  }
+  .PT4-6-4-5 .toys .toy.norepeat.cached img {
+    opacity: 0.3;
+  }
+  .PT4-6-4-5 .cardAvatar {
+    z-index: 200;
+  }
+  .PT4-6-4-5 .cardAvatarDie > * {
+    transform: scale(0.7);
+    transform-origin: left top;
+  }
+  #module_wrapper.PT4-6-4-5 .cardAvatarDie {
+    z-index: 6;
+  }
+</style>
+
+<script>
+  (function () {
+    var dropSensors_PT4_6_4_5 = function () {
+      return $(".contents > div.selected .sensors > .sensor");
+    };
+
+    var sensorIndex_PT4_6_4_5 = function ($sensor) {
+      if (!$sensor || !$sensor.length) return -1;
+      return $sensor.parent().children(".sensor").index($sensor);
+    };
+
+    var clearWrong_PT4_6_4_5 = function () {
+      $(".PT4-6-4-5 .contents > div.selected .sensors > .sensor").removeClass(
+        "wrong",
+      );
+    };
+
+    // 依目前 .sensors > .sensor 位置，寫入 cards 的 sp（相對 #module_wrapper）
+    var syncCardSp_PT4_6_4_5 = function () {
+      var $wrap = $("#module_wrapper");
+      var $slots = dropSensors_PT4_6_4_5();
+      if (!$wrap.length || !$slots.length) return;
+      var wOff = $wrap.offset();
+      var ratio = stageRatioReal || 1;
+      var pts = [];
+      $slots.each(function () {
+        var r = this.getBoundingClientRect();
+        var top = Math.round((r.top - wOff.top) / ratio);
+        var left = Math.round((r.left - wOff.left) / ratio);
+        pts.push(top + "," + left);
+      });
+      $(".PT4-6-4-5 .toys .cards").attr("sp", pts.join("^"));
+    };
+
+    var syncNorepeat_PT4_6_4_5 = function () {
+      var used = {};
+      $("#module_wrapper .cardAvatarDie").each(function () {
+        var kid = $(this).find("img").attr("kid") || "";
+        if (kid) used[kid] = true;
+      });
+      $(".contents > div.selected .toys .toy.norepeat").each(function () {
+        var $toy = $(this);
+        var kid = $toy.find("img").attr("kid") || "";
+        if (kid && used[kid]) $toy.addClass("cached");
+        else $toy.removeClass("cached");
+      });
+    };
+
+    var bindDieClick_PT4_6_4_5 = function ($die) {
+      $die
+        .unbind()
+        .bind("click", function () {
+          $(this).remove();
+          clearWrong_PT4_6_4_5();
+          syncNorepeat_PT4_6_4_5();
+          rootSoundEffect($show);
+        })
+        .css("pointer-events", "auto")
+        .css("cursor", "pointer");
+    };
+
+    // die 屬於哪一格：優先 sN class；否則算離哪個 sp 最近（相鄰格約 20px，門檻要緊）
+    var slotIndexOfDie_PT4_6_4_5 = function (el) {
+      var m = (el.className || "").match(/\bs(\d+)\b/);
+      if (m) return parseInt(m[1], 10);
+
+      var sp = ($(".PT4-6-4-5 .toys .cards").first().attr("sp") || "").split(
+        "^",
+      );
+      var t = parseInt(el.style.top, 10) || 0;
+      var l = parseInt(el.style.left, 10) || 0;
+      var best = -1;
+      var bestDist = Infinity;
+      for (var i = 0; i < sp.length; i++) {
+        if (!sp[i]) continue;
+        var p = sp[i].split(",");
+        var st = parseInt(p[0], 10) || 0;
+        var sl = parseInt(p[1], 10) || 0;
+        var d = Math.abs(t - st) + Math.abs(l - sl);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      }
+      // 半格寬以內才算同一格（格距 ~20）
+      return bestDist <= 10 ? best : -1;
+    };
+
+    var checkCollisionSensors_PT4_6_4_5 = function (ev) {
+      var lastX = ev.center.x;
+      var lastY = ev.center.y;
+      dropSensors_PT4_6_4_5().each(function () {
+        var oriX = $(this).offset().left;
+        var oriW = oriX + $(this).width();
+        var oriY = $(this).offset().top;
+        var oriH = oriY + $(this).height();
+        if (lastX >= oriX && lastX <= oriW && lastY >= oriY && lastY <= oriH) {
+          $(this).addClass("selected");
+        } else {
+          $(this).removeClass("selected");
+        }
+      });
+    };
+
+    var clearOccupiedSlot_PT4_6_4_5 = function () {
+      var $sel = dropSensors_PT4_6_4_5().filter(".selected").first();
+      var slotIdx = sensorIndex_PT4_6_4_5($sel);
+      if (slotIdx < 0) return;
+
+      var $found = $();
+      $("#module_wrapper .cardAvatarDie").each(function () {
+        if (slotIndexOfDie_PT4_6_4_5(this) === slotIdx) {
+          $found = $found.add(this);
+        }
+      });
+      $found.remove();
+    };
+
+    var peelHook_PT4_6_4_5 = function (fn) {
+      var n = 0;
+      while (typeof fn === "function" && n < 6) {
+        n += 1;
+        if (fn === window._PT4_6_4_4_checkStatus) {
+          fn = window._PT4_6_4_4_origCheckStatus;
+          continue;
+        }
+        if (fn === window._PT4_6_4_5_checkStatus) {
+          fn = window._PT4_6_4_5_origCheckStatus;
+          continue;
+        }
+        if (fn === window._PT4_6_4_4_handleDrag) {
+          fn = window._PT4_6_4_4_origHandleDrag;
+          continue;
+        }
+        if (fn === window._PT4_6_4_5_handleDrag) {
+          fn = window._PT4_6_4_5_origHandleDrag;
+          continue;
+        }
+        return fn;
+      }
+      return null;
+    };
+
+    var wrapDragHooks_PT4_6_4_5 = function () {
+      // HTML 比 basic.js 先跑：此時 checkStatus 可能还不存在，要等 compLoaded / retry
+      if (typeof window.checkStatus !== "function") return false;
+      if (!$("#module_wrapper").hasClass("PT4-6-4-5")) return false;
+      var rootCheck = peelHook_PT4_6_4_5(window.checkStatus);
+      if (
+        typeof rootCheck === "function" &&
+        rootCheck !== window._PT4_6_4_4_checkStatus &&
+        rootCheck !== window._PT4_6_4_5_checkStatus
+      ) {
+        window._PT4_cardRootCheckStatus = rootCheck;
+      }
+      if (typeof window._PT4_cardRootCheckStatus !== "function") return false;
+      window._PT4_6_4_5_origCheckStatus = window._PT4_cardRootCheckStatus;
+      window._PT4_6_4_5_checkStatus = function () {
+        if (!$("#module_wrapper").hasClass("PT4-6-4-5")) {
+          return window._PT4_6_4_5_origCheckStatus.apply(this, arguments);
+        }
+        var $sel = dropSensors_PT4_6_4_5().filter(".selected").first();
+        var slotIdx = sensorIndex_PT4_6_4_5($sel);
+
+        clearOccupiedSlot_PT4_6_4_5();
+        window._PT4_6_4_5_origCheckStatus.apply(this, arguments);
+
+        // 投放後：校正 sN（只留正確格），清掉 sensor selected，避免下次誤判
+        var $die =
+          slotIdx >= 0
+            ? $("#module_wrapper .cardAvatarDie.s" + slotIdx).last()
+            : $("#module_wrapper .cardAvatarDie").last();
+        if (!$die.length) $die = $("#module_wrapper .cardAvatarDie").last();
+        if ($die.length) {
+          $die.removeClass(function (i, c) {
+            return (c.match(/\bs\d+\b/g) || []).join(" ");
+          });
+          if (slotIdx >= 0) $die.addClass("s" + slotIdx);
+          bindDieClick_PT4_6_4_5($die);
+        }
+        dropSensors_PT4_6_4_5().removeClass("selected");
+        clearWrong_PT4_6_4_5();
+        syncNorepeat_PT4_6_4_5();
+      };
+      window.checkStatus = window._PT4_6_4_5_checkStatus;
+      try {
+        checkStatus = window._PT4_6_4_5_checkStatus;
+      } catch (e) {}
+
+      if (typeof window.handleDrag !== "function") return true;
+      var rootDrag = peelHook_PT4_6_4_5(window.handleDrag);
+      if (
+        typeof rootDrag === "function" &&
+        rootDrag !== window._PT4_6_4_4_handleDrag &&
+        rootDrag !== window._PT4_6_4_5_handleDrag
+      ) {
+        window._PT4_cardRootHandleDrag = rootDrag;
+      }
+      if (typeof window._PT4_cardRootHandleDrag !== "function") return true;
+      window._PT4_6_4_5_origHandleDrag = window._PT4_cardRootHandleDrag;
+      window._PT4_6_4_5_handleDrag = function (ev) {
+        if (!$("#module_wrapper").hasClass("PT4-6-4-5")) {
+          return window._PT4_6_4_5_origHandleDrag.apply(this, arguments);
+        }
+        if (!isDragging && $elem != null) {
+          if ($($elem).hasClass("norepeat") && $($elem).hasClass("cached")) {
+            $elem = null;
+            return;
+          }
+          isDragging = true;
+          if ($($elem).hasClass("cards")) {
+            $("#module_wrapper").append(
+              '<div id="cardAvatar" class="cardAvatar"></div>',
+            );
+            $($elem).clone().appendTo("#cardAvatar");
+            if ($($elem).hasClass("norepeat")) $($elem).addClass("cached");
+            var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
+            var caHeight = parseInt($($elem).css("height")) / stageRatioReal;
+            $("#cardAvatar").css("width", caWidth + "px");
+            $("#cardAvatar").css("height", caHeight + "px");
+          }
+        }
+        if (isDragging && $elem) {
+          if ($($elem).hasClass("cards")) {
+            var deltaContainerX = $("#module_wrapper").offset().left;
+            var deltaContainerY = $("#module_wrapper").offset().top;
+            $("#cardAvatar").get(0).style.top =
+              Math.round(
+                ev.center.y / stageRatioReal -
+                  deltaContainerY / stageRatioReal -
+                  $("#cardAvatar").height() / stageRatioReal / 2,
+              ) + "px";
+            $("#cardAvatar").get(0).style.left =
+              Math.round(
+                ev.center.x / stageRatioReal -
+                  deltaContainerX / stageRatioReal -
+                  $("#cardAvatar").width() / stageRatioReal / 2,
+              ) + "px";
+            checkCollisionSensors_PT4_6_4_5(ev);
+          }
+        }
+        if (ev.isFinal) {
+          if ($elem && $($elem).hasClass("cards")) {
+            var $src = $($elem);
+            var gotit = dropSensors_PT4_6_4_5().filter(".selected").length > 0;
+            if (gotit) window.checkStatus();
+            else {
+              $("#cardAvatar").remove();
+              if ($src.hasClass("norepeat")) $src.removeClass("cached");
+            }
+          }
+          isDragging = false;
+          $elem = null;
+        }
+      };
+      window.handleDrag = window._PT4_6_4_5_handleDrag;
+      try {
+        handleDrag = window._PT4_6_4_5_handleDrag;
+      } catch (e) {}
+
+      return true;
+    };
+
+    var ensureWrap_PT4_6_4_5 = function () {
+      if (!$("#module_wrapper").hasClass("PT4-6-4-5")) return;
+      if (
+        window.checkStatus === window._PT4_6_4_5_checkStatus &&
+        window.handleDrag === window._PT4_6_4_5_handleDrag
+      ) {
+        return;
+      }
+      wrapDragHooks_PT4_6_4_5();
+    };
+
+    var withinCheckAnswer_PT4_6_4_5 = function () {
+      var $sensors = dropSensors_PT4_6_4_5();
+      $sensors.removeClass("wrong");
+      $("#module_wrapper .cardAvatarDie").removeClass("wrong");
+      var wrong = false;
+      var taskIdx = $(".contents > div.selected").index();
+      var skipEmpty = taskIdx === 1 || taskIdx === 2;
+      $sensors.each(function (i) {
+        var $sensor = $(this);
+        var $die = $("#module_wrapper .cardAvatarDie.s" + i);
+        if (skipEmpty && !($sensor.text() || "").trim() && !$die.length) {
+          if ($sensor.is("[ans]") || $sensor.attr("fid")) wrong = true;
+          return;
+        }
+        if ($sensor.is("[ans]")) {
+          var ans = ($sensor.attr("ans") || "").trim();
+          var cur = ($sensor.text() || "").trim();
+          if (cur !== ans) {
+            $sensor.addClass("wrong");
+            wrong = true;
+          }
+        }
+        var fid = $sensor.attr("fid");
+        if (!fid) {
+          if ($die.length) {
+            $sensor.addClass("wrong");
+            wrong = true;
+          }
+          return;
+        }
+        var kid = $die.find("img").attr("kid") || "";
+        if (!$die.length || kid !== fid) {
+          $sensor.addClass("wrong");
+          wrong = true;
+        }
+      });
+      if (wrong) {
+        rootSoundEffect($fail);
+      } else {
+        rootSoundEffect($correct);
+        bingo();
+      }
+    };
+
+    var toyByKid = function (kid) {
+      var $hit = $();
+      if (!kid) return $hit;
+      $(".PT4-6-4-5 .toys .toy").each(function () {
+        if ($(this).find("img").attr("kid") == kid) $hit = $(this);
+      });
+      return $hit;
+    };
+
+    var placeToyAtSlot_PT4_6_4_5 = function (slotIdx, $srcToy) {
+      if (!$srcToy || !$srcToy.length) return;
+      var sp = ($(".PT4-6-4-5 .toys .cards").first().attr("sp") || "").split(
+        "^",
+      );
+      var pos = (sp[slotIdx] || "0,0").split(",");
+      var w = parseInt($srcToy[0].style.width, 10) || 26;
+      var h = parseInt($srcToy[0].style.height, 10) || 26;
+      var $avatar = $(
+        '<div class="cardAvatar cardAvatarDie s' + slotIdx + '"></div>',
+      );
+      $srcToy.clone().appendTo($avatar);
+      $avatar.css({
+        width: w + "px",
+        height: h + "px",
+        top: (parseInt(pos[0], 10) || 0) + "px",
+        left: (parseInt(pos[1], 10) || 0) + "px",
+        position: "absolute",
+      });
+      $("#module_wrapper").append($avatar);
+      bindDieClick_PT4_6_4_5($avatar);
+    };
+
+    var withinShowAnswer_PT4_6_4_5 = function (boolean) {
+      if (!boolean) return;
+      dropSensors_PT4_6_4_5().removeClass("wrong");
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      syncCardSp_PT4_6_4_5();
+      dropSensors_PT4_6_4_5().each(function (i) {
+        var $sensor = $(this);
+        if ($sensor.is("[ans]")) $sensor.text($sensor.attr("ans") || "");
+        var fid = $sensor.attr("fid");
+        if (fid) placeToyAtSlot_PT4_6_4_5(i, toyByKid(fid));
+      });
+      syncNorepeat_PT4_6_4_5();
+    };
+
+    var fillNumber_PT4_6_4_5 = function ($el) {
+      if (!$el || !$el.length) return;
+      var text = window.prompt("請輸入數字：", $el.text() || "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return;
+      }
+      text = String(text).trim();
+      if (text !== "" && !/^\d+(\.\d+)?$/.test(text)) {
+        rootSoundEffect($fail);
+        return;
+      }
+      $el.text(text);
+      clearWrong_PT4_6_4_5();
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_check").show();
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var task3Cursor = null;
+    var task3Walked = [];
+
+    var task3RouteSvg_PT4_6_4_5 = function () {
+      var $sensors = $(".PT4-6-4-5 .contents > div")
+        .eq(2)
+        .children(".group")
+        .find(".sensors")
+        .first();
+      var $svg = $sensors.children("svg.route");
+      if ($svg.length) return $svg;
+      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("class", "route");
+      $sensors.prepend(svg);
+      $svg = $(svg);
+      return $svg;
+    };
+
+    var cellCenter_PT4_6_4_5 = function (el) {
+      var w = parseInt(el.style.width, 10) || 0;
+      var h = parseInt(el.style.height, 10) || 0;
+      return {
+        x: (parseInt(el.style.left, 10) || 0) + w * 0.1,
+        y: (parseInt(el.style.top, 10) || 0) + h * 0.1,
+      };
+    };
+
+    var clearRoute_PT4_6_4_5 = function () {
+      $(".PT4-6-4-5 .sensors > svg.route").each(function () {
+        while (this.firstChild) this.removeChild(this.firstChild);
+      });
+    };
+
+    var addRoute_PT4_6_4_5 = function (fromEl, toEl) {
+      var a = cellCenter_PT4_6_4_5(fromEl);
+      var b = cellCenter_PT4_6_4_5(toEl);
+      var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", a.x);
+      line.setAttribute("y1", a.y);
+      line.setAttribute("x2", b.x);
+      line.setAttribute("y2", b.y);
+      task3RouteSvg_PT4_6_4_5().get(0).appendChild(line);
+    };
+
+    var task3Grid_PT4_6_4_5 = function ($sensors) {
+      var tops = [];
+      var lefts = [];
+      var cells = [];
+      $sensors.each(function () {
+        var t = parseInt(this.style.top, 10) || 0;
+        var l = parseInt(this.style.left, 10) || 0;
+        cells.push({ el: this, t: t, l: l });
+        if (tops.indexOf(t) < 0) tops.push(t);
+        if (lefts.indexOf(l) < 0) lefts.push(l);
+      });
+      tops.sort(function (a, b) {
+        return a - b;
+      });
+      lefts.sort(function (a, b) {
+        return a - b;
+      });
+      for (var i = 0; i < cells.length; i++) {
+        cells[i].r = tops.indexOf(cells[i].t);
+        cells[i].c = lefts.indexOf(cells[i].l);
+      }
+      return cells;
+    };
+
+    var task3Steps_PT4_6_4_5 = function (a, b) {
+      return Math.abs(a.r - b.r) + Math.abs(a.c - b.c);
+    };
+
+    var rollTask3_PT4_6_4_5 = function () {
+      if ($(".PT4-6-4-5 .contents > div.selected").index() !== 2) return;
+      var $sensors = $(
+        ".PT4-6-4-5 .contents > div.selected .sensors > .sensor",
+      );
+      if ($sensors.length < 2) return;
+      $sensors.removeAttr("start").removeAttr("fid");
+      var startIdx = Math.floor(Math.random() * $sensors.length);
+      var endIdx = Math.floor(Math.random() * ($sensors.length - 1));
+      if (endIdx >= startIdx) endIdx += 1;
+      $sensors.eq(startIdx).attr("start", "");
+      $sensors.eq(endIdx).attr("fid", "4");
+      task3Cursor = $sensors.get(startIdx);
+      task3Walked = [task3Cursor];
+    };
+
+    var moveTask3_PT4_6_4_5 = function (dir) {
+      if ($(".PT4-6-4-5 .contents > div.selected").index() !== 2) return;
+      clearWrong_PT4_6_4_5();
+      var $sensors = $(
+        ".PT4-6-4-5 .contents > div.selected .sensors > .sensor",
+      );
+      if (!task3Cursor) {
+        task3Cursor = $sensors.filter("[start]").get(0) || null;
+        task3Walked = task3Cursor ? [task3Cursor] : [];
+      }
+      var cells = task3Grid_PT4_6_4_5($sensors);
+      var cur = null;
+      var goal = null;
+      var i;
+      for (i = 0; i < cells.length; i++) {
+        if (cells[i].el === task3Cursor) cur = cells[i];
+        if ($(cells[i].el).is("[fid]")) goal = cells[i];
+      }
+      if (!cur || !goal) return;
+      var dr = dir === "up" ? -1 : dir === "down" ? 1 : 0;
+      var dc = dir === "left" ? -1 : dir === "right" ? 1 : 0;
+      var next = null;
+      for (i = 0; i < cells.length; i++) {
+        if (cells[i].r === cur.r + dr && cells[i].c === cur.c + dc) {
+          next = cells[i];
+        }
+      }
+      if (!next || task3Walked.indexOf(next.el) >= 0) {
+        rootSoundEffect($wrong);
+        return;
+      }
+      var before = task3Steps_PT4_6_4_5(cur, goal);
+      var after = task3Steps_PT4_6_4_5(next, goal);
+      $(next.el)
+        .removeClass("further closer")
+        .addClass(after < before ? "closer" : "further");
+      addRoute_PT4_6_4_5(cur.el, next.el);
+      task3Walked.push(next.el);
+      task3Cursor = next.el;
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var bindJoystick_PT4_6_4_5 = function () {
+      var map = {
+        "joystick-up": "up",
+        "joystick-down": "down",
+        "joystick-left": "left",
+        "joystick-right": "right",
+      };
+      $(".PT4-6-4-5 .joystick > span").each(function () {
+        var dir = "";
+        var names = (this.className || "").split(/\s+/);
+        for (var n = 0; n < names.length; n++) {
+          if (map[names[n]]) dir = map[names[n]];
+        }
+        if (!dir) return;
+        $(this)
+          .off("click.pt4645joy")
+          .on("click.pt4645joy", function () {
+            moveTask3_PT4_6_4_5(dir);
+          });
+      });
+    };
+
+    var withinResetElem_PT4_6_4_5 = function () {
+      $(".PT4-6-4-5 .sensors .sensor")
+        .removeClass("wrong further closer")
+        .text("");
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      clearRoute_PT4_6_4_5();
+      $(".contents > div.selected .toys .toy.norepeat").removeClass("cached");
+      rollTask3_PT4_6_4_5();
+      syncCardSp_PT4_6_4_5();
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_check").hide();
+    };
+
+    window.resetElem_PT4_6_4_5 = function () {
+      withinResetElem_PT4_6_4_5();
+      rootSoundEffect($show);
+    };
+
+    window.reactivate_PT4_6_4_5 = function () {
+      withinResetElem = withinResetElem_PT4_6_4_5;
+      withinCheckAnswer = withinCheckAnswer_PT4_6_4_5;
+      withinShowAnswer = withinShowAnswer_PT4_6_4_5;
+      window.fillNumber_PT4_6_4_5 = fillNumber_PT4_6_4_5;
+      bindJoystick_PT4_6_4_5();
+      ensureWrap_PT4_6_4_5();
+      // basic.js 在 HTML 之後才載入，必須延遲重掛
+      setTimeout(ensureWrap_PT4_6_4_5, 100);
+      setTimeout(ensureWrap_PT4_6_4_5, 500);
+      setTimeout(ensureWrap_PT4_6_4_5, 1200);
+      setTimeout(syncCardSp_PT4_6_4_5, 50);
+      setTimeout(syncCardSp_PT4_6_4_5, 400);
+    };
+
+    window.fillNumber_PT4_6_4_5 = fillNumber_PT4_6_4_5;
+
+    $(document)
+      .off("compLoaded.pt4644")
+      .on("compLoaded.pt4644", "#module_wrapper", function () {
+        ensureWrap_PT4_6_4_5();
+        setTimeout(ensureWrap_PT4_6_4_5, 200);
+      });
+
+    window.reactivate_PT4_6_4_5();
+  })();
+</script>

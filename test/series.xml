@@ -143,5 +143,11 @@
       <lesson lid="3">流量螞蟻建築師</lesson>
       <lesson lid="4">有限狀態販賣機</lesson>
     </book>
+    <book name="Book 6" bid="6" img="PT4_book6.jpg">
+      <lesson lid="1">碼路自駕車</lesson>
+      <lesson lid="2">UI腦洞大賽</lesson>
+      <lesson lid="3">小推手機器人</lesson>
+      <lesson lid="4">AI訓練逃脫王</lesson>
+    </book>
   </series>
 </root>

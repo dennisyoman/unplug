@@ -1,0 +1,609 @@
+<div id="module_wrapper" class="module_basic PT4-6-4-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+    <div class="btn_check"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_6_4_4()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>文生圖</b>：在灰色格子上貼上對應的表情貼紙。<br />
+            如果走一步後離寶藏更遠，就貼上<img
+              width="28"
+              height="28"
+              src="./DATA/PT4/BOOK6/IMAGES/face_further.png"
+            />。<br />
+            如果走一步後更接近寶藏，就貼上<img
+              width="28"
+              height="28"
+              src="./DATA/PT4/BOOK6/IMAGES/face_closer.png"
+            />。
+          </p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti">
+          <div class="sensors">
+            <!-- chart1 -->
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 9px; left: 19px"
+              fid="2"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 9px; left: 42px"
+              fid="2"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 33px; left: 19px"
+              fid="1"
+            ></span>
+            <!-- chart2 -->
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 9px; left: 180px"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 9px; left: 203px"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 9px; left: 227px"
+              fid="2"
+            ></span>
+            <!-- chart3 -->
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 117px; left: 89px"
+              ans="4"
+              fid="2"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 141px; left: 89px"
+              ans="3"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 165px; left: 89px"
+              ans="2"
+              fid="1"
+            ></span>
+            <!-- chart4 -->
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 141px; left: 157px"
+              ans="3"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 165px; left: 157px"
+              ans="2"
+              fid="1"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_4_4($(this))"
+              style="width: 23px; height: 24px; top: 188px; left: 157px"
+              ans="3"
+              fid="2"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-4-1.png"
+          />
+
+          <!-- basic.js Hammer 拖曳：.cards 會產生 #cardAvatar，放開黏到 sp -->
+          <div
+            class="toys noShuffle wow bounceInLeft"
+            style="left: -50px; top: 88px"
+          >
+            <div class="toy cards repeat" style="width: 20px; height: 20px">
+              <img
+                mt="1"
+                src="./DATA/PT4/BOOK6/IMAGES/face_further.png"
+                kid="2"
+              />
+            </div>
+            <div class="toy cards repeat" style="width: 20px; height: 20px">
+              <img
+                mt="1"
+                src="./DATA/PT4/BOOK6/IMAGES/face_closer.png"
+                kid="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-4-4 .item {
+    overflow: visible;
+  }
+  .PT4-6-4-4 .contents .sensors .sensor {
+    line-height: 1.1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    color: #222;
+    cursor: pointer;
+    word-break: break-all;
+    pointer-events: none;
+  }
+
+  .PT4-6-4-4 .contents .sensors .sensor.row-num {
+    font-size: 10px;
+    padding: 2px;
+  }
+
+  .PT4-6-4-4 .contents .sensors .sensor.row-num[ans] {
+    pointer-events: auto;
+  }
+  .PT4-6-4-4 .contents .sensors .sensor.wrong,
+  #module_wrapper.PT4-6-4-4 .cardAvatarDie.wrong {
+    outline: 2px solid #e74c3c;
+    outline-offset: 1px;
+  }
+
+  .PT4-6-4-4 .toys {
+    position: absolute;
+    z-index: 5;
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    min-height: 0;
+    width: 25px;
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+  .PT4-6-4-4 .toys .toy {
+    flex: none;
+    margin: 0;
+    pointer-events: auto;
+  }
+  .PT4-6-4-4 .toys .toy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    -webkit-user-drag: none;
+  }
+  .PT4-6-4-4 .cardAvatar {
+    z-index: 200;
+  }
+  .PT4-6-4-4 .cardAvatarDie > * {
+    transform: scale(0.8);
+    transform-origin: left top;
+  }
+  #module_wrapper.PT4-6-4-4 .cardAvatarDie {
+    z-index: 6;
+  }
+</style>
+
+<script>
+  (function () {
+    var dropSensors_PT4_6_4_4 = function () {
+      return $(".contents > div.selected .sensors > .sensor");
+    };
+
+    var clearWrong_PT4_6_4_4 = function () {
+      $(".PT4-6-4-4 .contents > div.selected .sensors > .sensor").removeClass(
+        "wrong",
+      );
+    };
+
+    // 依目前 .sensors > .sensor 位置，寫入 cards 的 sp（相對 #module_wrapper）
+    var syncCardSp_PT4_6_4_4 = function () {
+      var $wrap = $("#module_wrapper");
+      var $slots = dropSensors_PT4_6_4_4();
+      if (!$wrap.length || !$slots.length) return;
+      var wOff = $wrap.offset();
+      var ratio = stageRatioReal || 1;
+      var pts = [];
+      $slots.each(function () {
+        var r = this.getBoundingClientRect();
+        var top = Math.round((r.top - wOff.top) / ratio);
+        var left = Math.round((r.left - wOff.left) / ratio);
+        pts.push(top + "," + left);
+      });
+      $(".PT4-6-4-4 .toys .cards").attr("sp", pts.join("^"));
+    };
+
+    var bindDieClick_PT4_6_4_4 = function ($die) {
+      $die
+        .unbind()
+        .bind("click", function () {
+          $(this).remove();
+          clearWrong_PT4_6_4_4();
+          rootSoundEffect($show);
+        })
+        .css("pointer-events", "auto")
+        .css("cursor", "pointer");
+    };
+
+    // die 屬於哪一格：優先 sN class；否則算離哪個 sp 最近（相鄰格約 20px，門檻要緊）
+    var slotIndexOfDie_PT4_6_4_4 = function (el) {
+      var m = (el.className || "").match(/\bs(\d+)\b/);
+      if (m) return parseInt(m[1], 10);
+
+      var sp = ($(".PT4-6-4-4 .toys .cards").first().attr("sp") || "").split(
+        "^",
+      );
+      var t = parseInt(el.style.top, 10) || 0;
+      var l = parseInt(el.style.left, 10) || 0;
+      var best = -1;
+      var bestDist = Infinity;
+      for (var i = 0; i < sp.length; i++) {
+        if (!sp[i]) continue;
+        var p = sp[i].split(",");
+        var st = parseInt(p[0], 10) || 0;
+        var sl = parseInt(p[1], 10) || 0;
+        var d = Math.abs(t - st) + Math.abs(l - sl);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      }
+      // 半格寬以內才算同一格（格距 ~20）
+      return bestDist <= 10 ? best : -1;
+    };
+
+    var checkCollisionSensors_PT4_6_4_4 = function (ev) {
+      var lastX = ev.center.x;
+      var lastY = ev.center.y;
+      dropSensors_PT4_6_4_4().each(function () {
+        var oriX = $(this).offset().left;
+        var oriW = oriX + $(this).width();
+        var oriY = $(this).offset().top;
+        var oriH = oriY + $(this).height();
+        if (lastX >= oriX && lastX <= oriW && lastY >= oriY && lastY <= oriH) {
+          $(this).addClass("selected");
+        } else {
+          $(this).removeClass("selected");
+        }
+      });
+    };
+
+    var clearOccupiedSlot_PT4_6_4_4 = function () {
+      var $sel = dropSensors_PT4_6_4_4().filter(".selected").first();
+      var slotIdx = $sel.length ? $sel.index() : -1;
+      if (slotIdx < 0) return;
+
+      var $found = $();
+      $("#module_wrapper .cardAvatarDie").each(function () {
+        if (slotIndexOfDie_PT4_6_4_4(this) === slotIdx) {
+          $found = $found.add(this);
+        }
+      });
+      $found.remove();
+    };
+
+    var peelHook_PT4_6_4_4 = function (fn) {
+      var n = 0;
+      while (typeof fn === "function" && n < 6) {
+        n += 1;
+        if (fn === window._PT4_6_4_4_checkStatus) {
+          fn = window._PT4_6_4_4_origCheckStatus;
+          continue;
+        }
+        if (fn === window._PT4_6_4_5_checkStatus) {
+          fn = window._PT4_6_4_5_origCheckStatus;
+          continue;
+        }
+        if (fn === window._PT4_6_4_4_handleDrag) {
+          fn = window._PT4_6_4_4_origHandleDrag;
+          continue;
+        }
+        if (fn === window._PT4_6_4_5_handleDrag) {
+          fn = window._PT4_6_4_5_origHandleDrag;
+          continue;
+        }
+        return fn;
+      }
+      return null;
+    };
+
+    var wrapDragHooks_PT4_6_4_4 = function () {
+      // HTML 比 basic.js 先跑：此時 checkStatus 可能还不存在，要等 compLoaded / retry
+      if (typeof window.checkStatus !== "function") return false;
+      if (!$("#module_wrapper").hasClass("PT4-6-4-4")) return false;
+      var rootCheck = peelHook_PT4_6_4_4(window.checkStatus);
+      if (
+        typeof rootCheck === "function" &&
+        rootCheck !== window._PT4_6_4_4_checkStatus &&
+        rootCheck !== window._PT4_6_4_5_checkStatus
+      ) {
+        window._PT4_cardRootCheckStatus = rootCheck;
+      }
+      if (typeof window._PT4_cardRootCheckStatus !== "function") return false;
+      window._PT4_6_4_4_origCheckStatus = window._PT4_cardRootCheckStatus;
+      window._PT4_6_4_4_checkStatus = function () {
+        if (!$("#module_wrapper").hasClass("PT4-6-4-4")) {
+          return window._PT4_6_4_4_origCheckStatus.apply(this, arguments);
+        }
+        var $sel = dropSensors_PT4_6_4_4().filter(".selected").first();
+        var slotIdx = $sel.length ? $sel.index() : -1;
+
+        clearOccupiedSlot_PT4_6_4_4();
+        window._PT4_6_4_4_origCheckStatus.apply(this, arguments);
+
+        // 投放後：校正 sN（只留正確格），清掉 sensor selected，避免下次誤判
+        var $die =
+          slotIdx >= 0
+            ? $("#module_wrapper .cardAvatarDie.s" + slotIdx).last()
+            : $("#module_wrapper .cardAvatarDie").last();
+        if (!$die.length) $die = $("#module_wrapper .cardAvatarDie").last();
+        if ($die.length) {
+          $die.removeClass(function (i, c) {
+            return (c.match(/\bs\d+\b/g) || []).join(" ");
+          });
+          if (slotIdx >= 0) $die.addClass("s" + slotIdx);
+          bindDieClick_PT4_6_4_4($die);
+        }
+        dropSensors_PT4_6_4_4().removeClass("selected");
+        clearWrong_PT4_6_4_4();
+      };
+      window.checkStatus = window._PT4_6_4_4_checkStatus;
+      try {
+        checkStatus = window._PT4_6_4_4_checkStatus;
+      } catch (e) {}
+
+      if (typeof window.handleDrag !== "function") return true;
+      var rootDrag = peelHook_PT4_6_4_4(window.handleDrag);
+      if (
+        typeof rootDrag === "function" &&
+        rootDrag !== window._PT4_6_4_4_handleDrag &&
+        rootDrag !== window._PT4_6_4_5_handleDrag
+      ) {
+        window._PT4_cardRootHandleDrag = rootDrag;
+      }
+      if (typeof window._PT4_cardRootHandleDrag !== "function") return true;
+      window._PT4_6_4_4_origHandleDrag = window._PT4_cardRootHandleDrag;
+      window._PT4_6_4_4_handleDrag = function (ev) {
+        if (!$("#module_wrapper").hasClass("PT4-6-4-4")) {
+          return window._PT4_6_4_4_origHandleDrag.apply(this, arguments);
+        }
+        if (!isDragging && $elem != null) {
+          isDragging = true;
+          if ($($elem).hasClass("cards")) {
+            $("#module_wrapper").append(
+              '<div id="cardAvatar" class="cardAvatar"></div>',
+            );
+            $($elem).clone().appendTo("#cardAvatar");
+            var caWidth = parseInt($($elem).css("width")) / stageRatioReal;
+            var caHeight = parseInt($($elem).css("height")) / stageRatioReal;
+            $("#cardAvatar").css("width", caWidth + "px");
+            $("#cardAvatar").css("height", caHeight + "px");
+          }
+        }
+        if (isDragging && $elem) {
+          if ($($elem).hasClass("cards")) {
+            var deltaContainerX = $("#module_wrapper").offset().left;
+            var deltaContainerY = $("#module_wrapper").offset().top;
+            $("#cardAvatar").get(0).style.top =
+              Math.round(
+                ev.center.y / stageRatioReal -
+                  deltaContainerY / stageRatioReal -
+                  $("#cardAvatar").height() / stageRatioReal / 2,
+              ) + "px";
+            $("#cardAvatar").get(0).style.left =
+              Math.round(
+                ev.center.x / stageRatioReal -
+                  deltaContainerX / stageRatioReal -
+                  $("#cardAvatar").width() / stageRatioReal / 2,
+              ) + "px";
+            checkCollisionSensors_PT4_6_4_4(ev);
+          }
+        }
+        if (ev.isFinal) {
+          if ($elem && $($elem).hasClass("cards")) {
+            var gotit = dropSensors_PT4_6_4_4().filter(".selected").length > 0;
+            if (gotit) window.checkStatus();
+            else $("#cardAvatar").remove();
+          }
+          isDragging = false;
+          $elem = null;
+        }
+      };
+      window.handleDrag = window._PT4_6_4_4_handleDrag;
+      try {
+        handleDrag = window._PT4_6_4_4_handleDrag;
+      } catch (e) {}
+
+      return true;
+    };
+
+    var ensureWrap_PT4_6_4_4 = function () {
+      if (!$("#module_wrapper").hasClass("PT4-6-4-4")) return;
+      if (
+        window.checkStatus === window._PT4_6_4_4_checkStatus &&
+        window.handleDrag === window._PT4_6_4_4_handleDrag
+      ) {
+        return;
+      }
+      wrapDragHooks_PT4_6_4_4();
+    };
+
+    var withinCheckAnswer_PT4_6_4_4 = function () {
+      var $sensors = dropSensors_PT4_6_4_4();
+      $sensors.removeClass("wrong");
+      $("#module_wrapper .cardAvatarDie").removeClass("wrong");
+      var wrong = false;
+      $sensors.each(function (i) {
+        var $sensor = $(this);
+        if ($sensor.is("[ans]")) {
+          var ans = ($sensor.attr("ans") || "").trim();
+          var cur = ($sensor.text() || "").trim();
+          if (cur !== ans) {
+            $sensor.addClass("wrong");
+            wrong = true;
+          }
+        }
+        var fid = $sensor.attr("fid");
+        var $die = $("#module_wrapper .cardAvatarDie.s" + i);
+        if (!fid) {
+          if ($die.length) {
+            $sensor.addClass("wrong");
+            wrong = true;
+          }
+          return;
+        }
+        var kid = $die.find("img").attr("kid") || "";
+        if (!$die.length || kid !== fid) {
+          $sensor.addClass("wrong");
+          wrong = true;
+        }
+      });
+      if (wrong) {
+        rootSoundEffect($fail);
+      } else {
+        rootSoundEffect($correct);
+        bingo();
+      }
+    };
+
+    var toyByKid = function (kid) {
+      var $hit = $();
+      if (!kid) return $hit;
+      $(".PT4-6-4-4 .toys .toy").each(function () {
+        if ($(this).find("img").attr("kid") == kid) $hit = $(this);
+      });
+      return $hit;
+    };
+
+    var placeToyAtSlot_PT4_6_4_4 = function (slotIdx, $srcToy) {
+      if (!$srcToy || !$srcToy.length) return;
+      var sp = ($(".PT4-6-4-4 .toys .cards").first().attr("sp") || "").split(
+        "^",
+      );
+      var pos = (sp[slotIdx] || "0,0").split(",");
+      var ratio = stageRatioReal || 1;
+      var w = parseInt($srcToy.css("width"), 10) / ratio || 20;
+      var h = parseInt($srcToy.css("height"), 10) / ratio || 20;
+      var $avatar = $(
+        '<div class="cardAvatar cardAvatarDie s' + slotIdx + '"></div>',
+      );
+      $srcToy.clone().appendTo($avatar);
+      $avatar.css({
+        width: w + "px",
+        height: h + "px",
+        top: (parseInt(pos[0], 10) || 0) + "px",
+        left: (parseInt(pos[1], 10) || 0) + "px",
+        position: "absolute",
+      });
+      $("#module_wrapper").append($avatar);
+      bindDieClick_PT4_6_4_4($avatar);
+    };
+
+    var withinShowAnswer_PT4_6_4_4 = function (boolean) {
+      if (!boolean) return;
+      dropSensors_PT4_6_4_4().removeClass("wrong");
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      syncCardSp_PT4_6_4_4();
+      dropSensors_PT4_6_4_4().each(function (i) {
+        var $sensor = $(this);
+        if ($sensor.is("[ans]")) $sensor.text($sensor.attr("ans") || "");
+        var fid = $sensor.attr("fid");
+        if (fid) placeToyAtSlot_PT4_6_4_4(i, toyByKid(fid));
+      });
+    };
+
+    var fillNumber_PT4_6_4_4 = function ($el) {
+      if (!$el || !$el.length) return;
+      var text = window.prompt("請輸入數字：", $el.text() || "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return;
+      }
+      text = String(text).trim();
+      if (text !== "" && !/^\d+(\.\d+)?$/.test(text)) {
+        rootSoundEffect($fail);
+        return;
+      }
+      $el.text(text);
+      clearWrong_PT4_6_4_4();
+      rootSoundEffect($key);
+      $(".sideTool > div.btn_check").show();
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    var withinResetElem_PT4_6_4_4 = function () {
+      $(".PT4-6-4-4 .sensors .sensor").removeClass("wrong").text("");
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      syncCardSp_PT4_6_4_4();
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_check").hide();
+    };
+
+    window.resetElem_PT4_6_4_4 = function () {
+      withinResetElem_PT4_6_4_4();
+      rootSoundEffect($show);
+    };
+
+    window.reactivate_PT4_6_4_4 = function () {
+      withinResetElem = withinResetElem_PT4_6_4_4;
+      withinCheckAnswer = withinCheckAnswer_PT4_6_4_4;
+      withinShowAnswer = withinShowAnswer_PT4_6_4_4;
+      window.fillNumber_PT4_6_4_4 = fillNumber_PT4_6_4_4;
+      ensureWrap_PT4_6_4_4();
+      // basic.js 在 HTML 之後才載入，必須延遲重掛
+      setTimeout(ensureWrap_PT4_6_4_4, 100);
+      setTimeout(ensureWrap_PT4_6_4_4, 500);
+      setTimeout(ensureWrap_PT4_6_4_4, 1200);
+      setTimeout(syncCardSp_PT4_6_4_4, 50);
+      setTimeout(syncCardSp_PT4_6_4_4, 400);
+    };
+
+    window.fillNumber_PT4_6_4_4 = fillNumber_PT4_6_4_4;
+
+    $(document)
+      .off("compLoaded.pt4644")
+      .on("compLoaded.pt4644", "#module_wrapper", function () {
+        ensureWrap_PT4_6_4_4();
+        setTimeout(ensureWrap_PT4_6_4_4, 200);
+      });
+
+    window.reactivate_PT4_6_4_4();
+  })();
+</script>

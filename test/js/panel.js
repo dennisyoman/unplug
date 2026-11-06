@@ -845,15 +845,82 @@ var captureTTI = function () {
   }
 };
 
-//////202512:新增字串(attr:content)到box裡
+//////202611:依 style 範圍從底圖裁切 → cloneCanvasIntoBox
+var boxAddCaptureMe = function (tar) {
+  tar.addClass("selected");
+  var captureKey = tar.attr("capture");
+  if (captureKey != null && String(captureKey).trim() !== "") {
+    tar
+      .siblings()
+      .filter(function () {
+        return $(this).attr("capture") === captureKey;
+      })
+      .addClass("selected");
+  }
+
+  var $img = tar.closest(".subject").find("img").first();
+  if (!$img.length) {
+    console.warn("boxAddCaptureMe: no img in .subject");
+    rootSoundEffect($stupid);
+    return;
+  }
+
+  var run = function () {
+    var img = $img[0];
+    if (!img.naturalWidth || !img.clientWidth) {
+      console.warn("boxAddCaptureMe: img not ready");
+      rootSoundEffect($stupid);
+      return;
+    }
+
+    var el = tar[0];
+    var left = parseFloat(el.style.left) || 0;
+    var top = parseFloat(el.style.top) || 0;
+    var w = parseFloat(el.style.width) || tar.outerWidth();
+    var h = parseFloat(el.style.height) || tar.outerHeight();
+
+    // 裁切來源：style → 底圖 natural 像素
+    var scaleX = img.naturalWidth / img.clientWidth;
+    var scaleY = img.naturalHeight / img.clientHeight;
+    var sx = left * scaleX;
+    var sy = top * scaleY;
+    var sw = Math.max(1, w * scaleX);
+    var sh = Math.max(1, h * scaleY);
+
+    // cloneCanvasIntoBox 顯示 = canvas / 10 → 輸出用 style 尺寸 ×10，進箱子才是擷取範圍大小
+    var outW = Math.max(1, Math.round(w * 10));
+    var outH = Math.max(1, Math.round(h * 10));
+
+    var canvas = document.createElement("canvas");
+    canvas.width = outW;
+    canvas.height = outH;
+    canvas.getContext("2d").drawImage(img, sx, sy, sw, sh, 0, 0, outW, outH);
+
+    cloneCanvasIntoBox(canvas);
+  };
+
+  if ($img[0].complete && $img[0].naturalWidth) {
+    run();
+  } else {
+    $img.one("load", run);
+  }
+};
+
+//////202611:新增字串(attr:content)到box裡；有 capture 則改裁圖
 var boxAddMe = function (tar) {
+  if (tar.is("[capture]")) {
+    boxAddCaptureMe(tar);
+    return;
+  }
+
   var contentKey = "content";
-  var text = tar.attr(contentKey).trim();
+  var text = (tar.attr(contentKey) || "").trim();
+  if (!text) return;
   tar.addClass("selected");
   tar
     .siblings()
     .filter(function () {
-      return $(this).attr(contentKey).trim() === text;
+      return ($(this).attr(contentKey) || "").trim() === text;
     })
     .addClass("selected");
   var $item = $("<div>").addClass("canvas_item custom_canvas_item");

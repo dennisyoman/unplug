@@ -1,0 +1,1037 @@
+<div id="module_wrapper" class="module_basic PT4-6-3-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div
+      class="btn_answer"
+      onClick="event.stopImmediatePropagation();showAnswer_PT4_6_3_5($(this))"
+    ></div>
+    <div class="btn_check" onClick="checkAnswer_PT4_6_3_5()"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_6_3_5()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：使用文生圖的結果，設定機器人幫客人推薦玩具的時候要做的事。<br />
+            1.點擊格子切換到正確答案<br />
+            2.拖曳玩具到正確的位子
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- row1 點選可輸入文字 -->
+            <span
+              class="sensor row-text"
+              onClick="fillText_PT4_6_3_5($(this))"
+              style="width: 171px; height: 17px; top: 30px; left: 45px"
+              ans="「小朋友幾歲呀？」"
+            ></span>
+            <span
+              class="sensor row-text"
+              onClick="fillText_PT4_6_3_5($(this))"
+              style="width: 171px; height: 17px; top: 55px; left: 45px"
+              ans="「想找哪一類玩具呢？」"
+            ></span>
+
+            <!-- row2 點選可依序切換四種玩具的分類 -->
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'cat')"
+              style="width: 51px; height: 35px; top: 135px; left: 90px"
+              ans="手工創作"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'cat')"
+              style="width: 51px; height: 35px; top: 172px; left: 90px"
+              ans="電子玩具"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'cat')"
+              style="width: 51px; height: 35px; top: 210px; left: 90px"
+              ans="公仔模型"
+            ></span>
+
+            <!-- row4 點選會跳出可輸入數字的 prompt -->
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_5($(this))"
+              style="width: 51px; height: 35px; top: 135px; left: 36px"
+              ans="8"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_5($(this))"
+              style="width: 51px; height: 35px; top: 172px; left: 36px"
+              ans="15"
+            ></span>
+            <span
+              class="sensor row-num"
+              onClick="fillNumber_PT4_6_3_5($(this))"
+              style="width: 51px; height: 35px; top: 210px; left: 36px"
+              ans="12"
+            ></span>
+          </div>
+
+          <!-- row3：可放多個，放下後重排 -->
+          <div class="sensorArea multi-piece">
+            <span
+              class="row-piece"
+              style="width: 105px; height: 35px; top: 135px; left: 144px"
+              ans="t9,t11"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 105px; height: 35px; top: 172px; left: 144px"
+              ans="t7,t8"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 105px; height: 35px; top: 210px; left: 144px"
+              ans="t1,t3"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-3-5-1.png"
+          />
+
+          <!-- basic.js Hammer 拖曳：.cards 會產生 #cardAvatar，放開黏到 sp -->
+          <div class="toys" style="width: 100px; left: -130px; top: 118px">
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t1.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t2.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t3.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t4.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t5.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t6.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t7.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t8.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t9.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t10.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t11.png" />
+            </div>
+            <div class="toy cards" style="width: 15px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/t12.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：把同類的玩具全部推薦給客人，客人還是很難決定。有什麼好方法嗎？
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-left: 200px">
+          <div class="sensors">
+            <!-- row1 點選可輸入文字 -->
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'toy')"
+              style="width: 123px; height: 15px; top: 236px; left: 104px"
+              ans="動物公仔"
+            ></span>
+          </div>
+
+          <!-- row3：一格只能一個，保持原尺寸 -->
+          <div class="sensorArea single-piece">
+            <span
+              class="row-piece"
+              style="width: 242px; height: 46px; top: 1px; left: 2px"
+              ans="a2"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 242px; height: 46px; top: 55px; left: 2px"
+              ans="a4"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 242px; height: 46px; top: 110px; left: 2px"
+              ans="a3"
+            ></span>
+            <span
+              class="row-piece"
+              style="width: 242px; height: 46px; top: 165px; left: 2px"
+              ans="a1"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-3-5-2.png"
+          />
+
+          <!-- basic.js Hammer 拖曳：.cards 會產生 #cardAvatar，放開黏到 sp -->
+          <div
+            class="toys"
+            style="
+              width: 250px;
+              left: -250px;
+              top: 50px;
+              grid-template-columns: 1fr;
+            "
+          >
+            <div class="toy cards" style="width: 214px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/a1.png" />
+            </div>
+            <div class="toy cards" style="width: 214px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/a2.png" />
+            </div>
+            <div class="toy cards" style="width: 214px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/a3.png" />
+            </div>
+            <div class="toy cards" style="width: 214px; height: 40px">
+              <img mt="1" src="./DATA/PT4/BOOK6/IMAGES/a4.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：爸爸又找出一本筆記本，上面有每次客人買東西的紀錄，小龍和春莉看了大吃一驚。
+          </p>
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="sensors">
+            <!-- row1 點選可輸入文字 -->
+            <span
+              class="sensor row-text"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'text')"
+              style="width: 140px; height: 16px; top: 108px; left: 104px"
+              ans="買滑板車的都有買拼圖"
+            ></span>
+
+            <!-- row2 點選可依序切換四種玩具的分類 -->
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'toy')"
+              style="width: 29px; height: 30px; top: 143px; left: 171px"
+              ans="滑板車"
+            ></span>
+            <span
+              class="sensor row-toy"
+              onClick="cycleSensor_PT4_6_3_5($(this), 'toy')"
+              style="width: 29px; height: 30px; top: 199px; left: 171px"
+              ans="拼圖"
+            ></span>
+          </div>
+
+          <img
+            style="width: 250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-3-5-3.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-3-5 .item {
+    overflow: visible;
+  }
+  .PT4-6-3-5 .contents .sensors .sensor {
+    font-size: 12px;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #222;
+    cursor: pointer;
+    word-break: break-all;
+  }
+  .PT4-6-3-5 .contents .sensors .sensor.row-text {
+    font-size: 11px;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0 4px;
+  }
+  .PT4-6-3-5 .contents .sensors .sensor.row-toy {
+    font-size: 11px;
+    padding: 0 2px;
+  }
+  .PT4-6-3-5 .contents .sensors .sensor.row-num {
+    font-size: 12px;
+  }
+  .PT4-6-3-5 .contents .sensors .sensor.wrong,
+  .PT4-6-3-5 .sensorArea > span.wrong,
+  #module_wrapper.PT4-6-3-5 .cardAvatarDie.wrong {
+    outline: 2px solid #e74c3c;
+    outline-offset: 1px;
+  }
+
+  .PT4-6-3-5 .sensorArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .PT4-6-3-5 .sensorArea > span {
+    position: absolute;
+    pointer-events: auto;
+  }
+
+  .PT4-6-3-5 .toys {
+    position: absolute;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    min-height: 0;
+    width: 100px;
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+  .PT4-6-3-5 .toys .toy {
+    flex: none;
+    margin: 0;
+    pointer-events: auto;
+  }
+  .PT4-6-3-5 .toys .toy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    -webkit-user-drag: none;
+  }
+  .PT4-6-3-5 .toys .toy.cached,
+  .PT4-6-3-5 .toys .toy.disable {
+    pointer-events: none !important;
+    cursor: default;
+  }
+  .PT4-6-3-5 .toys .toy.semiTransparent {
+    opacity: 0.3;
+  }
+  .PT4-6-3-5 .cardAvatar,
+  .PT4-6-3-5 ~ .cardAvatar,
+  #module_wrapper .cardAvatar {
+    z-index: 200;
+  }
+  #module_wrapper.PT4-6-3-5 .cardAvatarDie {
+    z-index: 6;
+  }
+</style>
+
+<script>
+  (function () {
+    /* 任務一：文字 / cat 循環 / 數字；一格可放多個 toy，放下後重排 */
+
+    var OPTIONS = {
+      cat: ["手工創作", "戶外運動", "公仔模型", "電子玩具"],
+      toy: [
+        "恐龍模型",
+        "娃娃屋",
+        "動物公仔",
+        "史萊姆膠",
+        "滑板車",
+        "遙控車",
+        "籃球",
+        "電子鼓",
+        "拼圖",
+        "跳繩",
+        "拼豆",
+        "飛盤",
+      ],
+    };
+
+    var pieceIdFromSrc = function (src) {
+      var m = (src || "").match(/\/([a-z]+\d+)\.png/i);
+      return m ? m[1] : "";
+    };
+
+    var toyBySrc = function (src) {
+      var $hit = $();
+      if (!src) return $hit;
+      $(".contents > div.selected .toys .toy").each(function () {
+        if ($(this).find("img").attr("src") == src) $hit = $(this);
+      });
+      return $hit;
+    };
+
+    var toyById = function (tid) {
+      var $hit = $();
+      if (!tid) return $hit;
+      $(".contents > div.selected .toys .toy").each(function () {
+        if (pieceIdFromSrc($(this).find("img").attr("src")) === tid) {
+          $hit = $(this);
+        }
+      });
+      return $hit;
+    };
+
+    var hideToySrc = function (src) {
+      toyBySrc(src).addClass("cached disable semiTransparent");
+    };
+
+    var showToySrc = function (src) {
+      toyBySrc(src).removeClass("cached semiTransparent positionBingo disable");
+    };
+
+    var syncCardSp_PT4_6_3_5 = function () {
+      var $wrap = $("#module_wrapper");
+      var $slots = $(".contents > div.selected .sensorArea > span");
+      if (!$wrap.length || !$slots.length) return;
+      var wOff = $wrap.offset();
+      var ratio = stageRatioReal || 1;
+      var pts = [];
+      $slots.each(function () {
+        var r = this.getBoundingClientRect();
+        var top = Math.round((r.top - wOff.top) / ratio);
+        var left = Math.round((r.left - wOff.left) / ratio);
+        pts.push(top + "," + left);
+      });
+      $(".contents > div.selected .toys .cards").attr("sp", pts.join("^"));
+    };
+
+    var isMultiPieceMode_PT4_6_3_5 = function () {
+      return $(".contents > div.selected .sensorArea").hasClass("multi-piece");
+    };
+
+    var getToyNaturalSize_PT4_6_3_5 = function (src) {
+      var $toy = toyBySrc(src);
+      var ratio = stageRatioReal || 1;
+      if ($toy.length) {
+        return {
+          w:
+            parseInt($toy.get(0).style.width, 10) ||
+            Math.round(parseInt($toy.css("width"), 10) / ratio) ||
+            15,
+          h:
+            parseInt($toy.get(0).style.height, 10) ||
+            Math.round(parseInt($toy.css("height"), 10) / ratio) ||
+            40,
+        };
+      }
+      return { w: 15, h: 40 };
+    };
+
+    var slotRect_PT4_6_3_5 = function (slotIdx) {
+      var $slot = $(".contents > div.selected .sensorArea > span").eq(slotIdx);
+      if (!$slot.length) return null;
+      var ratio = stageRatioReal || 1;
+      var wOff = $("#module_wrapper").offset();
+      var r = $slot[0].getBoundingClientRect();
+      return {
+        top: Math.round((r.top - wOff.top) / ratio),
+        left: Math.round((r.left - wOff.left) / ratio),
+        w: Math.round(r.width / ratio),
+        h: Math.round(r.height / ratio),
+      };
+    };
+
+    // 單格模式：置中貼上，維持 toy 原尺寸
+    var snapDieToSlot_PT4_6_3_5 = function ($die, slotIdx) {
+      if (slotIdx < 0 || !$die || !$die.length) return;
+      var rect = slotRect_PT4_6_3_5(slotIdx);
+      if (!rect) return;
+      var src = $die.find("img").attr("src");
+      var size = getToyNaturalSize_PT4_6_3_5(src);
+      var top = rect.top + Math.max(0, Math.floor((rect.h - size.h) / 2));
+      var left = rect.left + Math.max(0, Math.floor((rect.w - size.w) / 2));
+      $die.css({
+        width: size.w + "px",
+        height: size.h + "px",
+        top: top + "px",
+        left: left + "px",
+        position: "absolute",
+      });
+    };
+
+    // 多格模式：同一 row-piece 內水平重排（任務一小圖）
+    var rearrangeSlot_PT4_6_3_5 = function (slotIdx) {
+      if (slotIdx < 0) return;
+      if (!isMultiPieceMode_PT4_6_3_5()) {
+        var $one = $("#module_wrapper .cardAvatarDie.s" + slotIdx).last();
+        if ($one.length) snapDieToSlot_PT4_6_3_5($one, slotIdx);
+        return;
+      }
+
+      var rect = slotRect_PT4_6_3_5(slotIdx);
+      if (!rect) return;
+
+      var $dies = $("#module_wrapper .cardAvatarDie").filter(function () {
+        return $(this).hasClass("s" + slotIdx);
+      });
+      if (!$dies.length) return;
+
+      var n = $dies.length;
+      var pad = 2;
+      var gap = 2;
+      var availW = Math.max(rect.w - pad * 2, 1);
+      var baseW = 15;
+      var baseH = 40;
+      var pieceW = Math.min(baseW, Math.floor((availW - gap * (n - 1)) / n));
+      if (pieceW < 8) pieceW = 8;
+      var pieceH = Math.min(baseH, rect.h);
+      var totalW = n * pieceW + (n - 1) * gap;
+      var startLeft =
+        rect.left + pad + Math.max(0, Math.floor((availW - totalW) / 2));
+      var top = rect.top + Math.max(0, Math.floor((rect.h - pieceH) / 2));
+
+      $dies.each(function (i) {
+        $(this).css({
+          width: pieceW + "px",
+          height: pieceH + "px",
+          top: top + "px",
+          left: startLeft + i * (pieceW + gap) + "px",
+          position: "absolute",
+        });
+      });
+    };
+
+    // 單格：投放前清掉該格舊牌並還原 toy
+    var clearOccupiedSingle_PT4_6_3_5 = function (slotIdx, exceptEl) {
+      if (isMultiPieceMode_PT4_6_3_5() || slotIdx < 0) return;
+      $("#module_wrapper .cardAvatarDie.s" + slotIdx).each(function () {
+        if (exceptEl && this === exceptEl) return;
+        var src = $(this).find("img").attr("src");
+        if (src) showToySrc(src);
+        $(this).remove();
+      });
+    };
+
+    var relocateState_PT4_6_3_5 = null;
+    var dieDragging_PT4_6_3_5 = false;
+    var $dieElem_PT4_6_3_5 = null;
+
+    var bindDieClick_PT4_6_3_5 = function ($die) {
+      $die
+        .unbind("click")
+        .bind("click", function () {
+          if ($(this).data("suppressClick")) {
+            $(this).removeData("suppressClick");
+            return;
+          }
+          var src = $(this).find("img").attr("src");
+          var m = ((this.className || "").match(/\bs(\d+)\b/) || [])[1];
+          var slotIdx = m != null ? parseInt(m, 10) : -1;
+          showToySrc(src);
+          $(this).remove();
+          if (slotIdx >= 0) rearrangeSlot_PT4_6_3_5(slotIdx);
+          rootSoundEffect($show);
+        })
+        .css("pointer-events", "auto")
+        .css("cursor", "grab");
+    };
+
+    // cardAvatarDie 在 #module_wrapper；改拖用獨立 #dieRelocateAvatar，勿動 basic 的 #cardAvatar
+    var handleRelocateDie_PT4_6_3_5 = function (ev) {
+      if (!dieDragging_PT4_6_3_5 && $dieElem_PT4_6_3_5 != null) {
+        dieDragging_PT4_6_3_5 = true;
+        var $die = $($dieElem_PT4_6_3_5);
+        var m = ($die.attr("class") || "").match(/\bs(\d+)\b/);
+        relocateState_PT4_6_3_5 = {
+          fromSlot: m ? parseInt(m[1], 10) : -1,
+          $die: $die,
+          moved: false,
+        };
+        $("#dieRelocateAvatar").remove();
+        var caW =
+          parseInt($die.get(0).style.width, 10) ||
+          Math.round(parseInt($die.css("width"), 10) / (stageRatioReal || 1)) ||
+          15;
+        var caH =
+          parseInt($die.get(0).style.height, 10) ||
+          Math.round(
+            parseInt($die.css("height"), 10) / (stageRatioReal || 1),
+          ) ||
+          35;
+        var $av = $(
+          '<div id="dieRelocateAvatar" class="cardAvatar"></div>',
+        ).css({
+          width: caW + "px",
+          height: caH + "px",
+          "z-index": 210,
+        });
+        $die.children().clone().appendTo($av);
+        $("#module_wrapper").append($av);
+        $die.css({ opacity: 0, "pointer-events": "none" });
+      }
+
+      if (dieDragging_PT4_6_3_5 && $dieElem_PT4_6_3_5) {
+        var deltaContainerX = $("#module_wrapper").offset().left;
+        var deltaContainerY = $("#module_wrapper").offset().top;
+        var $av = $("#dieRelocateAvatar");
+        if ($av.length) {
+          $av.get(0).style.top =
+            Math.round(
+              ev.center.y / stageRatioReal -
+                deltaContainerY / stageRatioReal -
+                $av.height() / stageRatioReal / 2,
+            ) + "px";
+          $av.get(0).style.left =
+            Math.round(
+              ev.center.x / stageRatioReal -
+                deltaContainerX / stageRatioReal -
+                $av.width() / stageRatioReal / 2,
+            ) + "px";
+        }
+        if (typeof checkCollision === "function") checkCollision(ev);
+        if (
+          relocateState_PT4_6_3_5 &&
+          (Math.abs(ev.deltaX) > 6 || Math.abs(ev.deltaY) > 6)
+        ) {
+          relocateState_PT4_6_3_5.moved = true;
+        }
+      }
+
+      if (ev.isFinal) {
+        var st = relocateState_PT4_6_3_5;
+        var $die = st && st.$die;
+        var fromSlot = st ? st.fromSlot : -1;
+        var $sel = $(
+          ".contents > div.selected .sensorArea > .selected",
+        ).first();
+        var toSlot = $sel.length ? $sel.index() : -1;
+
+        $("#dieRelocateAvatar").remove();
+        $(".contents > div.selected .sensorArea > span").removeClass(
+          "selected",
+        );
+
+        if ($die && $die.length) {
+          $die.css({ opacity: 1, "pointer-events": "auto" });
+          if (st && st.moved) $die.data("suppressClick", true);
+
+          if (toSlot >= 0) {
+            $die.removeClass(function (i, c) {
+              return (c.match(/\bs\d+\b/g) || []).join(" ");
+            });
+            clearOccupiedSingle_PT4_6_3_5(toSlot, $die.get(0));
+            $die.addClass("s" + toSlot);
+            if (fromSlot >= 0 && fromSlot !== toSlot) {
+              rearrangeSlot_PT4_6_3_5(fromSlot);
+            }
+            rearrangeSlot_PT4_6_3_5(toSlot);
+            rootSoundEffect($pop);
+          } else if (fromSlot >= 0) {
+            rearrangeSlot_PT4_6_3_5(fromSlot);
+          }
+          bindDieClick_PT4_6_3_5($die);
+        }
+
+        relocateState_PT4_6_3_5 = null;
+        dieDragging_PT4_6_3_5 = false;
+        $dieElem_PT4_6_3_5 = null;
+      }
+    };
+
+    var initDieHammer_PT4_6_3_5 = function () {
+      var el = document.getElementById("module_wrapper");
+      if (!el || typeof Hammer === "undefined") return;
+      if (el._pt4635DieHammer) return;
+
+      var mc = new Hammer(el);
+      el._pt4635DieHammer = mc;
+      mc.get("pan").set({ direction: Hammer.DIRECTION_ALL, threshold: 1 });
+      mc.get("press").set({ time: 1 });
+
+      mc.on("press", function (ev) {
+        if (!$("#module_wrapper").hasClass("PT4-6-3-5")) return;
+        // basic 正在從 toys 拖 #cardAvatar 時绝不搶
+        if ($("#cardAvatar").length) return;
+        if ($(ev.target).closest("#cardAvatar, #dieRelocateAvatar").length)
+          return;
+        var $die = $(ev.target).closest(".cardAvatarDie");
+        if (!$die.length) return;
+        $dieElem_PT4_6_3_5 = $die.get(0);
+      });
+
+      mc.on("pressup", function () {
+        if (!dieDragging_PT4_6_3_5) $dieElem_PT4_6_3_5 = null;
+      });
+
+      mc.on("pan", function (ev) {
+        if (!$("#module_wrapper").hasClass("PT4-6-3-5")) return;
+        // 手勢必須從 die 開始；勿在 pan 途中改抓其他 die（會誤刪 #cardAvatar）
+        if (!$dieElem_PT4_6_3_5) return;
+        if ($("#cardAvatar").length && !dieDragging_PT4_6_3_5) {
+          $dieElem_PT4_6_3_5 = null;
+          return;
+        }
+        if (ev.srcEvent && ev.srcEvent.stopPropagation) {
+          ev.srcEvent.stopPropagation();
+        }
+        handleRelocateDie_PT4_6_3_5(ev);
+      });
+    };
+
+    var wrapDragHooks_PT4_6_3_5 = function () {
+      // HTML 可能早於 basic.js；用 window 避免 ReferenceError
+      if (typeof window.checkStatus !== "function") return false;
+
+      if (
+        !window._PT4_6_3_5_origCheckStatus ||
+        (window.checkStatus !== window._PT4_6_3_5_checkStatus &&
+          window.checkStatus !== window._PT4_6_3_5_origCheckStatus)
+      ) {
+        window._PT4_6_3_5_origCheckStatus = window.checkStatus;
+      }
+      window._PT4_6_3_5_checkStatus = function () {
+        if (!$("#module_wrapper").hasClass("PT4-6-3-5")) {
+          return window._PT4_6_3_5_origCheckStatus.apply(this, arguments);
+        }
+        var $sel = $(
+          ".contents > div.selected .sensorArea > .selected",
+        ).first();
+        var slotIdx = $sel.length ? $sel.index() : -1;
+
+        // 任務二 single：投放前清掉該格舊牌
+        clearOccupiedSingle_PT4_6_3_5(slotIdx, null);
+
+        window._PT4_6_3_5_origCheckStatus.apply(this, arguments);
+
+        var $die =
+          slotIdx >= 0
+            ? $("#module_wrapper .cardAvatarDie.s" + slotIdx).last()
+            : $("#module_wrapper .cardAvatarDie").last();
+        if (!$die.length) $die = $("#module_wrapper .cardAvatarDie").last();
+        if ($die.length) {
+          $die.removeClass(function (i, c) {
+            return (c.match(/\bs\d+\b/g) || []).join(" ");
+          });
+          if (slotIdx >= 0) $die.addClass("s" + slotIdx);
+          var src = $die.find("img").attr("src");
+          if (src) hideToySrc(src);
+          bindDieClick_PT4_6_3_5($die);
+          // multi → 重排縮小並排；single → 原尺寸置中
+          rearrangeSlot_PT4_6_3_5(slotIdx);
+        }
+        $(".contents > div.selected .sensorArea > span").removeClass(
+          "selected",
+        );
+        maybeShowCheck_PT4_6_3_5();
+      };
+      window.checkStatus = window._PT4_6_3_5_checkStatus;
+      // basic.js 的 var checkStatus 與 window 同步
+      try {
+        checkStatus = window._PT4_6_3_5_checkStatus;
+      } catch (e) {}
+
+      initDieHammer_PT4_6_3_5();
+      return true;
+    };
+
+    var ensureWrap_PT4_6_3_5 = function () {
+      initDieHammer_PT4_6_3_5();
+      if (typeof window.checkStatus !== "function") return;
+      if (window.checkStatus === window._PT4_6_3_5_checkStatus) return;
+      wrapDragHooks_PT4_6_3_5();
+    };
+
+    var isTask1_PT4_6_3_5 = function () {
+      return $(".contents > div.selected").index() === 0;
+    };
+
+    // 任務一不顯示 check
+    var maybeShowCheck_PT4_6_3_5 = function () {
+      $(".sideTool > div.btn_replay").show();
+      if (isTask1_PT4_6_3_5()) {
+        $(".sideTool > div.btn_check").hide();
+      } else {
+        $(".sideTool > div.btn_check").show();
+      }
+    };
+
+    var fillText_PT4_6_3_5 = function ($el) {
+      if (!$el || !$el.length) return;
+      $el.removeClass("wrong");
+      var text = window.prompt("請輸入文字：", $el.text() || "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return;
+      }
+      $el.text(String(text).trim());
+      rootSoundEffect($key);
+      maybeShowCheck_PT4_6_3_5();
+    };
+
+    var cycleSensor_PT4_6_3_5 = function ($el, kind) {
+      var list = OPTIONS[kind];
+      if (!list || !$el || !$el.length) return;
+      $el.removeClass("wrong");
+      var cur = ($el.text() || "").trim();
+      var idx = list.indexOf(cur);
+      $el.text(list[(idx + 1) % list.length]);
+      rootSoundEffect($key);
+      maybeShowCheck_PT4_6_3_5();
+    };
+
+    var fillNumber_PT4_6_3_5 = function ($el) {
+      if (!$el || !$el.length) return;
+      $el.removeClass("wrong");
+      var text = window.prompt("請輸入數字：", $el.text() || "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return;
+      }
+      text = String(text).trim();
+      if (text !== "" && !/^\d+(\.\d+)?$/.test(text)) {
+        rootSoundEffect($fail);
+        return;
+      }
+      $el.text(text);
+      rootSoundEffect($key);
+      maybeShowCheck_PT4_6_3_5();
+    };
+
+    var withinResetElem_PT4_6_3_5 = function () {
+      $(".contents > div.selected .sensors .sensor")
+        .text("")
+        .removeClass("wrong");
+      $(".contents > div.selected .sensorArea > span").removeClass(
+        "wrong selected",
+      );
+      $(".contents > div.selected .toys .toy").removeClass(
+        "cached semiTransparent positionBingo disable",
+      );
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      $("#dieRelocateAvatar").remove();
+      syncCardSp_PT4_6_3_5();
+      $(".sideTool > div.btn_answer").removeClass("active");
+      $(".sideTool > div.btn_check").hide();
+    };
+
+    window.resetElem_PT4_6_3_5 = function () {
+      withinResetElem_PT4_6_3_5();
+      rootSoundEffect($show);
+    };
+
+    // 依 ans 把 toy 放到指定 row-piece
+    var placePieceAtSlot_PT4_6_3_5 = function (slotIdx, tid) {
+      var $srcToy = toyById(tid);
+      if (!$srcToy.length) return;
+
+      var size = getToyNaturalSize_PT4_6_3_5($srcToy.find("img").attr("src"));
+      var $avatar = $(
+        '<div class="cardAvatar cardAvatarDie s' + slotIdx + '"></div>',
+      );
+      $srcToy
+        .clone()
+        .removeClass("cached disable semiTransparent positionBingo")
+        .appendTo($avatar);
+      $avatar.css({
+        width: size.w + "px",
+        height: size.h + "px",
+        position: "absolute",
+      });
+      $("#module_wrapper").append($avatar);
+      hideToySrc($srcToy.find("img").attr("src"));
+      bindDieClick_PT4_6_3_5($avatar);
+    };
+
+    var fillAnswerFromAns_PT4_6_3_5 = function () {
+      syncCardSp_PT4_6_3_5();
+
+      // 清掉目前任務已放的牌
+      $("#module_wrapper .cardAvatarDie").remove();
+      $("#cardAvatar").remove();
+      $("#dieRelocateAvatar").remove();
+      $(".contents > div.selected .toys .toy").removeClass(
+        "cached semiTransparent positionBingo disable",
+      );
+      $(".contents > div.selected .sensors .sensor").removeClass("wrong");
+      $(".contents > div.selected .sensorArea > span").removeClass(
+        "wrong selected",
+      );
+
+      // sensor 文字 / 數字 / 分類
+      $(".contents > div.selected .sensors .sensor[ans]").each(function () {
+        $(this).text($(this).attr("ans") || "");
+      });
+
+      // row-piece：ans="t9,t11" 或 ans="a2"
+      $(".contents > div.selected .sensorArea > span[ans]").each(function () {
+        var slotIdx = $(this).index();
+        var raw = ($(this).attr("ans") || "").trim();
+        if (!raw) return;
+        raw.split(",").forEach(function (tid) {
+          tid = String(tid).trim();
+          if (tid) placePieceAtSlot_PT4_6_3_5(slotIdx, tid);
+        });
+        rearrangeSlot_PT4_6_3_5(slotIdx);
+      });
+    };
+
+    window.showAnswer_PT4_6_3_5 = function ($btn) {
+      if ($btn && $btn.hasClass("active")) {
+        withinResetElem_PT4_6_3_5();
+        $btn.removeClass("active");
+        return;
+      }
+      fillAnswerFromAns_PT4_6_3_5();
+      if ($btn) $btn.addClass("active");
+      rootSoundEffect($help);
+      $(".sideTool > div.btn_check").hide();
+      $(".sideTool > div.btn_replay").show();
+    };
+
+    window.checkAnswer_PT4_6_3_5 = function () {
+      $(".contents > div.selected .sensors .sensor").removeClass("wrong");
+      $(".contents > div.selected .sensorArea > span").removeClass("wrong");
+      $("#module_wrapper .cardAvatarDie").removeClass("wrong");
+
+      var wrong = false;
+
+      // sensor：有 ans 但未填／填錯（略過 row-text）
+      $(".contents > div.selected .sensors .sensor[ans]")
+        .not(".row-text")
+        .each(function () {
+          var ans = ($(this).attr("ans") || "").trim();
+          if (!ans) return;
+          var cur = ($(this).text() || "").trim();
+          if (!cur || cur !== ans) {
+            $(this).addClass("wrong");
+            wrong = true;
+          }
+        });
+
+      // row-piece：有 ans 但未放／放錯（順序不計）
+      $(".contents > div.selected .sensorArea > span[ans]").each(function () {
+        var slotIdx = $(this).index();
+        var expectedList = ($(this).attr("ans") || "")
+          .split(",")
+          .map(function (s) {
+            return String(s).trim();
+          })
+          .filter(Boolean);
+        if (!expectedList.length) return;
+        var expected = expectedList.slice().sort().join(",");
+        var $dies = $("#module_wrapper .cardAvatarDie.s" + slotIdx);
+        var actual = [];
+        $dies.each(function () {
+          var id = pieceIdFromSrc($(this).find("img").attr("src"));
+          if (id) actual.push(id);
+        });
+        actual.sort();
+        if (actual.join(",") !== expected) {
+          wrong = true;
+          if ($dies.length) {
+            $dies.addClass("wrong");
+          } else {
+            // 完全沒填：沒有 cardAvatar 可標，改標格子
+            $(this).addClass("wrong");
+          }
+        }
+      });
+
+      if (wrong) {
+        rootSoundEffect($fail);
+      } else {
+        rootSoundEffect($correct);
+        bingo();
+      }
+    };
+
+    window.reactivate_PT4_6_3_5 = function () {
+      withinResetElem = withinResetElem_PT4_6_3_5;
+      window.fillText_PT4_6_3_5 = fillText_PT4_6_3_5;
+      window.cycleSensor_PT4_6_3_5 = cycleSensor_PT4_6_3_5;
+      window.fillNumber_PT4_6_3_5 = fillNumber_PT4_6_3_5;
+      window.resetElem_PT4_6_3_5 = window.resetElem_PT4_6_3_5;
+      window.showAnswer_PT4_6_3_5 = window.showAnswer_PT4_6_3_5;
+      window.checkAnswer_PT4_6_3_5 = window.checkAnswer_PT4_6_3_5;
+      ensureWrap_PT4_6_3_5();
+      setTimeout(ensureWrap_PT4_6_3_5, 100);
+      setTimeout(ensureWrap_PT4_6_3_5, 500);
+      setTimeout(ensureWrap_PT4_6_3_5, 1200);
+      setTimeout(syncCardSp_PT4_6_3_5, 50);
+      setTimeout(syncCardSp_PT4_6_3_5, 400);
+      setTimeout(function () {
+        if (isTask1_PT4_6_3_5()) $(".sideTool > div.btn_check").hide();
+      }, 100);
+    };
+
+    window.fillText_PT4_6_3_5 = fillText_PT4_6_3_5;
+    window.cycleSensor_PT4_6_3_5 = cycleSensor_PT4_6_3_5;
+    window.fillNumber_PT4_6_3_5 = fillNumber_PT4_6_3_5;
+
+    $(document)
+      .off("compLoaded.pt4635")
+      .on("compLoaded.pt4635", "#module_wrapper", function () {
+        ensureWrap_PT4_6_3_5();
+        setTimeout(ensureWrap_PT4_6_3_5, 200);
+      });
+
+    // 切 tab 後重算 sp；任務一隱藏 check
+    $(document)
+      .off("click.pt4635tabs")
+      .on("click.pt4635tabs", ".PT4-6-3-5 .tabs > span", function () {
+        setTimeout(function () {
+          syncCardSp_PT4_6_3_5();
+          ensureWrap_PT4_6_3_5();
+          if (isTask1_PT4_6_3_5()) {
+            $(".sideTool > div.btn_check").hide();
+          }
+        }, 80);
+      });
+
+    window.reactivate_PT4_6_3_5();
+  })();
+</script>

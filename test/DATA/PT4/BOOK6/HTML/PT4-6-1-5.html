@@ -1,0 +1,1153 @@
+<div id="module_wrapper" class="module_basic PT4-6-1-5">
+  <div class="tabs">
+    <span>任務一</span>
+    <span>任務二</span>
+    <span>任務三</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div
+      class="btn_answer"
+      onClick="event.stopImmediatePropagation();showAnswer_PT4_6_1_5($(this))"
+    ></div>
+    <div class="btn_check" onClick="checkAnswer_PT4_6_1_5()"></div>
+    <div class="btn_replay" onClick="resetElem_PT4_6_1_5()"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Chal', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b>：自駕車由START出發<br />
+            1.應該會到達哪裡呢？<br />
+            2.自駕車傳回來的log應該是甚麼呢？
+          </p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-car.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="guidance fixed">
+            <span class="texi" style="top: 35px; left: 88px">
+              <img
+                width="35px"
+                src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-car.png"
+              />
+            </span>
+            <span
+              class="start"
+              sid="s1"
+              direction="down"
+              style="top: 35px; left: 88px"
+            ></span>
+            <span
+              class="signal"
+              signal="red"
+              style="top: 61px; left: 88px"
+            ></span>
+            <span
+              class="signal"
+              signal="man"
+              style="top: 61px; left: 63px"
+            ></span>
+            <span
+              class="signal"
+              signal="yellow"
+              style="top: 91px; left: 63px"
+            ></span>
+            <span
+              class="signal"
+              signal="man"
+              style="top: 138px; left: 63px"
+            ></span>
+            <span
+              class="signal"
+              signal="dog"
+              style="top: 138px; left: 114px"
+            ></span>
+            <span
+              class="signal"
+              signal="green"
+              style="top: 168px; left: 114px"
+            ></span>
+            <span
+              class="exit"
+              eid="VIII"
+              style="top: 168px; left: 150px"
+            ></span>
+          </div>
+          <div class="custom-inputs">
+            <div
+              class="exit-id"
+              onClick="selectExit_PT4_6_1_5($(this))"
+              style="top: 138px; left: 180px; width: 98px; text-align: center"
+              ans="VIII
+            "
+            ></div>
+            <div
+              class="signal-sequence"
+              style="top: 219px; left: 180px; width: 98px; text-align: center"
+              ans="a-d-b-d-e-c
+            "
+            >
+              <span></span>-<span></span>-<span></span>-<span></span>-<span
+              ></span>-<span></span>
+            </div>
+          </div>
+          <img
+            width="250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-1.png"
+            class="wow fadeIn"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--任務二-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：自駕車由START出發，應該要到達(VII)，但最後自駕車跑到了(II)，傳回來的log是a-d-a，你能查出哪裡出錯了？
+          </p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-car.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item">
+          <div class="guidance fixed">
+            <span class="texi" style="top: 35px; left: 88px">
+              <img
+                width="35px"
+                src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-car.png"
+              />
+            </span>
+            <span
+              class="start"
+              sid="s1"
+              direction="down"
+              style="top: 35px; left: 63px"
+            ></span>
+            <span
+              class="signal"
+              signal="yellow"
+              style="top: 89px; left: 63px"
+            ></span>
+            <span
+              class="signal"
+              signal="man"
+              style="top: 166px; left: 63px"
+            ></span>
+            <span
+              class="signal"
+              signal="green"
+              style="top: 166px; left: 112px"
+            ></span>
+            <span
+              class="signal"
+              signal="dog"
+              style="top: 136px; left: 112px"
+            ></span>
+            <span class="exit" eid="VII" style="top: 136px; left: 150px"></span>
+          </div>
+          <div class="custom-inputs">
+            <div
+              onClick="modifyAnswer_PT4_6_1_5($(this))"
+              style="top: 28px; left: 162px; width: 121px; min-height: 100px"
+              ans="在黃色圓環，車應該從第2路口出去，但是卻從第1路口出去了。"
+            ></div>
+            <div
+              onClick="modifyAnswer_PT4_6_1_5($(this))"
+              style="top: 126px; left: 162px; width: 121px; min-height: 100px"
+              ans="感應器把黃色辨認成紅色"
+            ></div>
+            <div
+              class="signal-sequence"
+              style="top: 228px; left: 180px; width: 98px; text-align: center"
+              ans="b-d-c-e"
+            >
+              <span></span>-<span></span>-<span></span>-<span></span>
+            </div>
+          </div>
+          <img
+            width="250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-2.png"
+            class="wow fadeIn"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--任務三-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>挑戰主題</b
+            >：新的任務場地來了，設計你自己的場地與同伴測試自駕車吧！<br />
+            1. 重複點擊交叉路口，決定類型。<br />
+            2. 選擇自駕車的起點<br />
+            3. 出發！
+          </p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-car.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item" style="margin-top: 50px">
+          <div class="guidance">
+            <span class="texi" style="top: 35px; left: 88px">
+              <img
+                width="25px"
+                src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-car.png"
+              />
+            </span>
+            <span
+              class="start"
+              sid="s1"
+              direction="down"
+              style="top: -10px; left: 38px"
+            ></span>
+            <span
+              class="start"
+              sid="s2"
+              direction="down"
+              style="top: -10px; left: 57px"
+            ></span>
+            <span
+              class="start"
+              sid="s3"
+              direction="down"
+              style="top: -10px; left: 76px"
+            ></span>
+            <span
+              class="start"
+              sid="s4"
+              direction="down"
+              style="top: -10px; left: 114px"
+            ></span>
+
+            <span class="signal" signal style="top: 16px; left: 38px"></span>
+            <span class="signal" signal style="top: 16px; left: 57px"></span>
+            <span class="signal" signal style="top: 16px; left: 76px"></span>
+            <span class="signal" signal style="top: 16px; left: 114px"></span>
+            <span class="signal" signal style="top: 62px; left: 38px"></span>
+            <span class="signal" signal style="top: 62px; left: 76px"></span>
+            <span class="signal" signal style="top: 62px; left: 114px"></span>
+            <span class="signal" signal style="top: 92px; left: 38px"></span>
+            <span class="signal" signal style="top: 122px; left: 38px"></span>
+            <span class="signal" signal style="top: 122px; left: 76px"></span>
+            <span class="signal" signal style="top: 122px; left: 114px"></span>
+            <span class="signal" signal style="top: 152px; left: 76px"></span>
+            <span class="signal" signal style="top: 152px; left: 114px"></span>
+            <span class="signal" signal style="top: 182px; left: 38px"></span>
+            <span class="signal" signal style="top: 182px; left: 76px"></span>
+            <span class="signal" signal style="top: 182px; left: 114px"></span>
+
+            <span class="exit" eid="I" style="top: 16px; left: -5px"></span>
+            <span class="exit" eid="II" style="top: 63px; left: -5px"></span>
+            <span class="exit" eid="III" style="top: 93px; left: -5px"></span>
+            <span class="exit" eid="IV" style="top: 123px; left: -5px"></span>
+            <span class="exit" eid="V" style="top: 183px; left: -5px"></span>
+            <span class="exit" eid="VI" style="top: 16px; left: 150px"></span>
+            <span class="exit" eid="VII" style="top: 63px; left: 150px"></span>
+            <span
+              class="exit"
+              eid="VIII"
+              style="top: 123px; left: 150px"
+            ></span>
+            <span
+              class="exit"
+              eid="VIIII"
+              style="top: 153px; left: 150px"
+            ></span>
+            <span class="exit" eid="X" style="top: 183px; left: 150px"></span>
+
+            <span class="deadend" style="top: 210px; left: 38px"></span>
+            <span class="deadend" style="top: 210px; left: 76px"></span>
+            <span class="deadend" style="top: 50px; left: 57px"></span>
+            <span class="deadend" style="top: 92px; left: 57px"></span>
+            <span class="deadend" style="top: 152px; left: 57px"></span>
+          </div>
+          <img
+            width="250px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-3.png"
+            class="wow fadeIn"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-1-5 .guidance {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .PT4-6-1-5 .guidance > svg.texi-trail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: visible;
+    pointer-events: none;
+  }
+  .PT4-6-1-5 .guidance > svg.texi-trail polyline {
+    fill: none;
+    stroke: #f8b62d;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .PT4-6-1-5 .guidance.fixed > span[signal],
+  .PT4-6-1-5 .guidance.fixed > span.exit,
+  .PT4-6-1-5 .guidance.fixed > span.deadend,
+  .PT4-6-1-5 .guidance.fixed > span.start {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .PT4-6-1-5 .guidance > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+  }
+  .PT4-6-1-5 .guidance > span.texi {
+    z-index: 15;
+  }
+  .PT4-6-1-5 .guidance > span.texi > img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: ignition 0.3s infinite;
+    transform-origin: bottom center;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-6-1-5 .guidance > span.texi.active > img {
+    pointer-events: none;
+  }
+  @keyframes ignition {
+    0% {
+      transform: translate(-50%, 0) scaleY(1);
+    }
+    50% {
+      transform: translate(-50%, 1px) scaleY(1.05);
+    }
+  }
+
+  .PT4-6-1-5 .guidance > span.start,
+  .PT4-6-1-5 .guidance > span[signal] {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .PT4-6-1-5 .guidance > span.start::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    background-color: #f8b62d;
+    transform: translate(-50%, 0%);
+    pointer-events: auto;
+  }
+  .PT4-6-1-5 .guidance.started > span.start,
+  .PT4-6-1-5 .guidance.started > span.start::after {
+    pointer-events: none;
+    cursor: default;
+  }
+  .PT4-6-1-5 .guidance > span.exit::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(46, 224, 255);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  .PT4-6-1-5 .guidance > span.deadend::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 0, 0);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  .PT4-6-1-5 .guidance > span[signal]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    transform: translate(-50%, -50%);
+  }
+  .PT4-6-1-5 .guidance > span[signal="red"]::after {
+    background-color: #ea5514;
+    box-shadow: 0 0 0 5px #898989;
+  }
+  .PT4-6-1-5 .guidance > span[signal="yellow"]::after {
+    background-color: #f8b62d;
+    box-shadow: 0 0 0 5px #898989;
+  }
+  .PT4-6-1-5 .guidance > span[signal="green"]::after {
+    background-color: #8fc31f;
+    box-shadow: 0 0 0 5px #898989;
+  }
+  .PT4-6-1-5 .guidance > span[signal="man"]::after {
+    width: 10px;
+    height: 10px;
+  }
+  .PT4-6-1-5 .guidance > span[signal="man"]::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 10px;
+    height: 15px;
+    background: url(./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-man.png) no-repeat bottom
+      left;
+    background-size: contain;
+    transform: translate(4px, -5px);
+    pointer-events: none;
+  }
+  .PT4-6-1-5 .guidance > span[signal="dog"]::after {
+    width: 10px;
+    height: 10px;
+  }
+  .PT4-6-1-5 .guidance > span[signal="dog"]::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    background: url(./DATA/PT4/BOOK6/IMAGES/PT4-6-1-5-dog.png) no-repeat bottom
+      left;
+    background-size: contain;
+    transform: translate(4px, -5px);
+    pointer-events: none;
+  }
+
+  .PT4-6-1-5 .custom-inputs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .PT4-6-1-5 .custom-inputs > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    pointer-events: auto;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #000;
+    transform: scale(0.7);
+    transform-origin: top left;
+    line-height: 2.3;
+    cursor: pointer;
+    min-height: 20px;
+  }
+  .PT4-6-1-5 .custom-inputs > div.wrong,
+  .PT4-6-1-5 .custom-inputs > div.signal-sequence > span.wrong {
+    color: #ff0000;
+  }
+  .PT4-6-1-5 .custom-inputs > div.signal-sequence {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .PT4-6-1-5 .custom-inputs > div.signal-sequence > span {
+    background: #ffffff55;
+    height: 15px;
+    line-height: 15px;
+    pointer-events: auto;
+    border: 2px;
+  }
+  .PT4-6-1-5 .custom-inputs > div.signal-sequence > * {
+    width: 100%;
+  }
+</style>
+
+<script>
+  (function () {
+    var MOVE_MS = 500;
+    var SIGNAL_PAUSE_MS = 1600;
+    var ARC_PAUSE_MS = 300;
+    var ALIGN = 6;
+    var ARC_R = 8;
+    var moving = false;
+    var currentDir = null;
+    var pauseTimer = null;
+    var moveTimer = null;
+    var arcRaf = null;
+    var trailRaf = null;
+    var moveGen = 0;
+    var $selectedStart = null;
+    var $tripGuidance = null;
+
+    var turnRight = { up: "right", right: "down", down: "left", left: "up" };
+    var turnLeft = { up: "left", left: "down", down: "right", right: "up" };
+
+    // 僅紅／黃／綠繞圓；順時針弧角（紅→右、黃→直行、綠→左）
+    var arcCwDeg = {
+      red: 90,
+      yellow: 180,
+      green: 270,
+    };
+    var entryOffset = {
+      down: { left: 0, top: -ARC_R },
+      up: { left: 0, top: ARC_R },
+      right: { left: -ARC_R, top: 0 },
+      left: { left: ARC_R, top: 0 },
+    };
+    var exitOffset = {
+      down: { left: 0, top: ARC_R },
+      up: { left: 0, top: -ARC_R },
+      right: { left: ARC_R, top: 0 },
+      left: { left: -ARC_R, top: 0 },
+    };
+    // 標準數學角：0=東、CCW+；順時針掃掠時角度遞減
+    var entryAngle = {
+      right: Math.PI,
+      down: -Math.PI / 2,
+      left: 0,
+      up: Math.PI / 2,
+    };
+
+    var getActiveGuidance = function () {
+      return $(".PT4-6-1-5 .contents > div.selected").find(".guidance").first();
+    };
+
+    var getTripGuidance = function () {
+      if ($tripGuidance && $tripGuidance.length) return $tripGuidance;
+      return getActiveGuidance();
+    };
+
+    var getPos = function ($el) {
+      return {
+        left: parseFloat($el[0].style.left) || 0,
+        top: parseFloat($el[0].style.top) || 0,
+      };
+    };
+
+    // transition 進行中讀實際位置（style 會先跳到終點）
+    var getVisualPos = function ($el) {
+      var cs = window.getComputedStyle($el[0]);
+      return {
+        left: parseFloat(cs.left) || 0,
+        top: parseFloat(cs.top) || 0,
+      };
+    };
+
+    var clearMotion = function () {
+      moveGen += 1;
+      if (pauseTimer) {
+        clearTimeout(pauseTimer);
+        pauseTimer = null;
+      }
+      if (moveTimer) {
+        clearTimeout(moveTimer);
+        moveTimer = null;
+      }
+      if (arcRaf) {
+        cancelAnimationFrame(arcRaf);
+        arcRaf = null;
+      }
+      if (trailRaf) {
+        cancelAnimationFrame(trailRaf);
+        trailRaf = null;
+      }
+    };
+
+    var getTrailPolyline = function ($guidance) {
+      var $svg = $guidance.children("svg.texi-trail");
+      if (!$svg.length) {
+        var NS = "http://www.w3.org/2000/svg";
+        var svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("class", "texi-trail");
+        svg.setAttribute("width", "1");
+        svg.setAttribute("height", "1");
+        var poly = document.createElementNS(NS, "polyline");
+        poly.setAttribute("points", "");
+        svg.appendChild(poly);
+        $guidance.prepend(svg);
+        $svg = $(svg);
+      }
+      return $svg.children("polyline");
+    };
+
+    var appendTrailPoint = function ($guidance, x, y) {
+      if (!$guidance || !$guidance.length) return;
+      var $poly = getTrailPolyline($guidance);
+      var next = x + "," + y;
+      var pts = ($poly.attr("points") || "").trim();
+      if (pts) {
+        var parts = pts.split(/\s+/);
+        if (parts[parts.length - 1] === next) return;
+        $poly.attr("points", pts + " " + next);
+      } else {
+        $poly.attr("points", next);
+      }
+    };
+
+    var clearTrail = function ($guidance) {
+      if ($guidance && $guidance.length) {
+        $guidance.children("svg.texi-trail").remove();
+      } else {
+        $(".PT4-6-1-5 .guidance > svg.texi-trail").remove();
+      }
+    };
+
+    var trackTrailWhile = function ($el, $guidance, gen, durationMs) {
+      var t0 = null;
+      var step = function (now) {
+        if (gen !== moveGen) {
+          trailRaf = null;
+          return;
+        }
+        if (t0 === null) t0 = now;
+        var p = getVisualPos($el);
+        appendTrailPoint($guidance, p.left, p.top);
+        if (now - t0 < durationMs) {
+          trailRaf = requestAnimationFrame(step);
+        } else {
+          trailRaf = null;
+          p = getVisualPos($el);
+          appendTrailPoint($guidance, p.left, p.top);
+        }
+      };
+      trailRaf = requestAnimationFrame(step);
+    };
+
+    var setPos = function ($el, left, top, animate, done) {
+      if (animate) {
+        var gen = moveGen;
+        var $guidance = $el.closest(".guidance");
+        var drawTrail = $el.hasClass("active") && $guidance.length;
+        if (drawTrail) {
+          var from = getPos($el);
+          appendTrailPoint($guidance, from.left, from.top);
+          trackTrailWhile($el, $guidance, gen, MOVE_MS);
+        }
+        $el.css({
+          transition:
+            "left " + MOVE_MS + "ms linear, top " + MOVE_MS + "ms linear",
+        });
+        $el[0].offsetHeight;
+        $el.css({ left: left + "px", top: top + "px" });
+        moveTimer = setTimeout(function () {
+          moveTimer = null;
+          $el.css({ transition: "" });
+          if (gen !== moveGen) return;
+          if (drawTrail) appendTrailPoint($guidance, left, top);
+          if (done) done();
+        }, MOVE_MS);
+      } else {
+        $el.css({ transition: "", left: left + "px", top: top + "px" });
+        if (done) done();
+      }
+    };
+
+    var animateArc = function ($el, cx, cy, startAng, cwDeg, done) {
+      var gen = moveGen;
+      var duration = Math.max(200, (cwDeg / 90) * MOVE_MS);
+      var endAng = startAng - (cwDeg * Math.PI) / 180;
+      var t0 = null;
+      var $guidance = $el.closest(".guidance");
+      var drawTrail = $el.hasClass("active") && $guidance.length;
+      $el.css({ transition: "" });
+      var frame = function (now) {
+        if (gen !== moveGen) {
+          arcRaf = null;
+          return;
+        }
+        if (t0 === null) t0 = now;
+        var t = Math.min(1, (now - t0) / duration);
+        var ang = startAng + (endAng - startAng) * t;
+        var x = cx + ARC_R * Math.cos(ang);
+        var y = cy + ARC_R * Math.sin(ang);
+        $el[0].style.left = x + "px";
+        $el[0].style.top = y + "px";
+        if (drawTrail) appendTrailPoint($guidance, x, y);
+        if (t < 1) {
+          arcRaf = requestAnimationFrame(frame);
+        } else {
+          arcRaf = null;
+          if (done) done();
+        }
+      };
+      arcRaf = requestAnimationFrame(frame);
+    };
+
+    var applySignal = function (dir, signal) {
+      if (signal === "yellow") return dir;
+      if (signal === "red" || signal === "dog") return turnRight[dir];
+      if (signal === "green" || signal === "man") return turnLeft[dir];
+      return dir;
+    };
+
+    // 沿 direction 找下一個節點（signal / exit / deadend / start）
+    var findNext = function ($guidance, fromLeft, fromTop, dir, $except) {
+      var $nodes = $guidance.find(".signal, .exit, .deadend, .start");
+      var best = null;
+      var bestDist = Infinity;
+      var exceptEl = $except && $except[0];
+      $nodes.each(function () {
+        if (exceptEl && this === exceptEl) return;
+        var p = getPos($(this));
+        var ok = false;
+        var dist = 0;
+        if (
+          dir === "down" &&
+          Math.abs(p.left - fromLeft) <= ALIGN &&
+          p.top > fromTop + ALIGN
+        ) {
+          ok = true;
+          dist = p.top - fromTop;
+        } else if (
+          dir === "up" &&
+          Math.abs(p.left - fromLeft) <= ALIGN &&
+          p.top < fromTop - ALIGN
+        ) {
+          ok = true;
+          dist = fromTop - p.top;
+        } else if (
+          dir === "right" &&
+          Math.abs(p.top - fromTop) <= ALIGN &&
+          p.left > fromLeft + ALIGN
+        ) {
+          ok = true;
+          dist = p.left - fromLeft;
+        } else if (
+          dir === "left" &&
+          Math.abs(p.top - fromTop) <= ALIGN &&
+          p.left < fromLeft - ALIGN
+        ) {
+          ok = true;
+          dist = fromLeft - p.left;
+        }
+        if (ok && dist < bestDist) {
+          bestDist = dist;
+          best = $(this);
+        }
+      });
+      return best;
+    };
+
+    var placeTexiAtStart = function ($guidance, keepSelection) {
+      $guidance =
+        $guidance && $guidance.length ? $guidance : getActiveGuidance();
+      if (!$guidance.length) return;
+      var $texi = $guidance.find(".texi");
+      var $start =
+        keepSelection &&
+        $selectedStart &&
+        $selectedStart.length &&
+        $guidance[0] &&
+        $.contains($guidance[0], $selectedStart[0])
+          ? $selectedStart
+          : $guidance.find(".start").first();
+      $guidance.removeClass("started");
+      $texi.removeClass("active seeing").css({ transition: "" });
+      clearTrail($guidance);
+      if ($start.length && $texi.length) {
+        var p = getPos($start);
+        setPos($texi, p.left, p.top, false);
+      }
+      if (keepSelection) $selectedStart = $start.length ? $start : null;
+    };
+
+    var stopAndResetAll = function () {
+      clearMotion();
+      moving = false;
+      currentDir = null;
+      $tripGuidance = null;
+      $selectedStart = null;
+      $(".PT4-6-1-5 .guidance").each(function () {
+        placeTexiAtStart($(this), false);
+      });
+    };
+
+    var moveStep = function () {
+      var $guidance = getTripGuidance();
+      var $texi = $guidance.find(".texi");
+      if (!$guidance.length || !$texi.length) {
+        moving = false;
+        return;
+      }
+      var pos = getPos($texi);
+      var $next = findNext($guidance, pos.left, pos.top, currentDir);
+      if (!$next || !$next.length) {
+        moving = false;
+        return;
+      }
+      var dest = getPos($next);
+      moving = true;
+      rootSoundEffect($show);
+
+      if ($next.hasClass("signal")) {
+        var enterDir = currentDir;
+        var signal = $next.attr("signal");
+        var cwDeg = arcCwDeg[signal];
+        // 紅／黃／綠：以該點 top/left 為圓心，半徑 ARC_R 繞行
+        if (cwDeg) {
+          var off = entryOffset[enterDir] || entryOffset.down;
+          var startAng = entryAngle[enterDir] || entryAngle.down;
+          setPos(
+            $texi,
+            dest.left + off.left,
+            dest.top + off.top,
+            true,
+            function () {
+              $texi.addClass("seeing");
+              pauseTimer = setTimeout(function () {
+                pauseTimer = null;
+                $texi.removeClass("seeing");
+                animateArc(
+                  $texi,
+                  dest.left,
+                  dest.top,
+                  startAng,
+                  cwDeg,
+                  function () {
+                    currentDir = applySignal(enterDir, signal);
+                    var out = exitOffset[currentDir] || { left: 0, top: 0 };
+                    setPos(
+                      $texi,
+                      dest.left + out.left,
+                      dest.top + out.top,
+                      false,
+                    );
+                    pauseTimer = setTimeout(function () {
+                      pauseTimer = null;
+                      moveStep();
+                    }, ARC_PAUSE_MS);
+                  },
+                );
+              }, SIGNAL_PAUSE_MS);
+            },
+          );
+          return;
+        }
+        // 空 signal：過點不停；man / dog：到點、轉向、暫停
+        setPos($texi, dest.left, dest.top, true, function () {
+          currentDir = applySignal(enterDir, signal);
+          if (!signal) {
+            moveStep();
+            return;
+          }
+          $texi.addClass("seeing");
+          pauseTimer = setTimeout(function () {
+            pauseTimer = null;
+            $texi.removeClass("seeing");
+            moveStep();
+          }, SIGNAL_PAUSE_MS);
+        });
+        return;
+      }
+
+      setPos($texi, dest.left, dest.top, true, function () {
+        // exit 或再次走到 start：行程結束
+        if ($next.hasClass("exit") || $next.hasClass("start")) {
+          moving = false;
+          rootSoundEffect($correct);
+          $("#module_wrapper .sideTool .btn_replay").show();
+          return;
+        }
+        if ($next.hasClass("deadend")) {
+          moving = false;
+          rootSoundEffect($fail);
+          $("#module_wrapper .sideTool .btn_replay").show();
+          return;
+        }
+        moving = false;
+      });
+    };
+
+    var SIGNAL_CYCLE = ["red", "yellow", "green", "man", "dog", ""];
+
+    var onSignalClick = function (e) {
+      e.stopPropagation();
+      var $signal = $(this);
+      var $guidance = $signal.closest(".guidance");
+      var $texi = $guidance.find(".texi");
+      if (
+        !$guidance.length ||
+        $guidance.hasClass("fixed") ||
+        $guidance.hasClass("started") ||
+        $texi.hasClass("active") ||
+        moving
+      )
+        return;
+
+      var cur = $signal.attr("signal");
+      if (cur == null) cur = "";
+      var idx = SIGNAL_CYCLE.indexOf(cur);
+      var next = SIGNAL_CYCLE[(idx < 0 ? 0 : idx + 1) % SIGNAL_CYCLE.length];
+      $signal.attr("signal", next);
+      rootSoundEffect($key);
+    };
+
+    var onStartClick = function (e) {
+      e.stopPropagation();
+      var $start = $(this);
+      var $guidance = $start.closest(".guidance");
+      var $texi = $guidance.find(".texi");
+      if (
+        !$guidance.length ||
+        $guidance.hasClass("started") ||
+        $texi.hasClass("active") ||
+        moving
+      )
+        return;
+
+      $selectedStart = $start;
+      var p = getPos($start);
+      setPos($texi, p.left, p.top, true);
+      rootSoundEffect($key);
+    };
+
+    var onTexiClick = function (e) {
+      e.stopPropagation();
+      var $texi = $(this).closest(".texi");
+      if (!$texi.length || $texi.hasClass("active") || moving) return;
+
+      var $guidance = $texi.closest(".guidance");
+      var $start =
+        $selectedStart &&
+        $selectedStart.length &&
+        $guidance[0] &&
+        $.contains($guidance[0], $selectedStart[0])
+          ? $selectedStart
+          : $guidance.find(".start").first();
+      if (!$start.length) return;
+
+      $tripGuidance = $guidance;
+      currentDir = $start.attr("direction") || "down";
+      $guidance.addClass("started");
+      $texi.addClass("active");
+      $("#module_wrapper .sideTool .btn_replay").hide();
+      rootSoundEffect($pop);
+      moveStep();
+    };
+
+    var SEQ_LETTERS = ["a", "b", "c", "d", "e"];
+
+    var clearCustomInputs = function ($scope) {
+      var $root = $scope && $scope.length ? $scope : $(".PT4-6-1-5");
+      $root.find(".custom-inputs > div").each(function () {
+        var $el = $(this);
+        $el.removeClass("wrong");
+        if ($el.hasClass("signal-sequence")) {
+          $el.children("span").removeClass("wrong").text("");
+        } else {
+          $el.text("");
+        }
+      });
+    };
+
+    var fillCustomInputs = function ($scope) {
+      var $root = $scope && $scope.length ? $scope : $(".PT4-6-1-5");
+      $root.find(".custom-inputs > div").each(function () {
+        var $el = $(this);
+        $el.removeClass("wrong");
+        var ans = ($el.attr("ans") || "").trim();
+        if ($el.hasClass("signal-sequence")) {
+          var parts = ans.split("-");
+          $el.children("span").each(function (i) {
+            $(this)
+              .removeClass("wrong")
+              .text(parts[i] || "");
+          });
+        } else {
+          $el.text(ans);
+        }
+      });
+    };
+
+    var onSignalSequenceClick = function (e) {
+      e.stopPropagation();
+      var $span = $(this);
+      $span.removeClass("wrong");
+      var cur = ($span.text() || "").trim();
+      var idx = SEQ_LETTERS.indexOf(cur);
+      $span.text(SEQ_LETTERS[(idx + 1) % SEQ_LETTERS.length]);
+      rootSoundEffect($key);
+    };
+
+    var syncSideTools_PT4_6_1_5 = function () {
+      var isTask3 = $(".PT4-6-1-5 .contents > div.selected").index() === 2;
+      var $answer = $("#module_wrapper .sideTool .btn_answer");
+      var $check = $("#module_wrapper .sideTool .btn_check");
+      if (isTask3) {
+        $answer.removeClass("active").hide();
+        $check.hide();
+      } else {
+        $answer.removeClass("active").show();
+        $check.show();
+      }
+    };
+
+    var withinResetElem_PT4_6_1_5 = function () {
+      stopAndResetAll();
+      clearCustomInputs($(".PT4-6-1-5 .contents > div.selected"));
+      syncSideTools_PT4_6_1_5();
+    };
+
+    window.resetElem_PT4_6_1_5 = function () {
+      withinResetElem_PT4_6_1_5();
+      rootSoundEffect($show);
+    };
+
+    var EXIT_LABELS = [
+      "I",
+      "II",
+      "III",
+      "IV",
+      "V",
+      "VI",
+      "VII",
+      "VIII",
+      "IX",
+      "X",
+    ];
+
+    var selectExit_PT4_6_1_5 = function (item) {
+      item.removeClass("wrong");
+      var cur = (item.text() || "").trim();
+      var idx = EXIT_LABELS.indexOf(cur);
+      var next = EXIT_LABELS[(idx + 1) % EXIT_LABELS.length];
+      item.text(next);
+      rootSoundEffect($key);
+    };
+
+    var modifyAnswer_PT4_6_1_5 = function (item) {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      var text = window.prompt("請輸入答案：", item.text() || "");
+      if (text === null) {
+        rootSoundEffect($show);
+        return;
+      }
+      item.text(text);
+      rootSoundEffect($key);
+    };
+
+    window.showAnswer_PT4_6_1_5 = function (btn) {
+      var $panel = $(".PT4-6-1-5 .contents > div.selected");
+      if (!btn.hasClass("active")) {
+        fillCustomInputs($panel);
+        btn.addClass("active");
+        rootSoundEffect($help);
+        $("#module_wrapper .sideTool .btn_replay").show();
+        $("#module_wrapper .sideTool .btn_check").hide();
+      } else {
+        btn.removeClass("active");
+        clearCustomInputs($panel);
+        $("#module_wrapper .sideTool .btn_check").show();
+      }
+    };
+
+    window.checkAnswer_PT4_6_1_5 = function () {
+      var $panel = $(".PT4-6-1-5 .contents > div.selected");
+      var $targets = $panel.find(
+        ".custom-inputs > .exit-id, .custom-inputs > .signal-sequence",
+      );
+      var wrong = false;
+
+      $targets.removeClass("wrong");
+      $targets.find("span").removeClass("wrong");
+      $targets.each(function () {
+        var $el = $(this);
+        var ans = ($el.attr("ans") || "").trim();
+        if ($el.hasClass("signal-sequence")) {
+          var parts = ans.split("-");
+          $el.children("span").each(function (i) {
+            var got = ($(this).text() || "").trim();
+            var expect = parts[i] || "";
+            if (got !== expect) {
+              $(this).addClass("wrong");
+              wrong = true;
+            }
+          });
+        } else {
+          var got = ($el.text() || "").trim();
+          if (got !== ans) {
+            $el.addClass("wrong");
+            wrong = true;
+          }
+        }
+      });
+
+      if (wrong) {
+        rootSoundEffect($fail);
+      } else {
+        rootSoundEffect($correct);
+        bingo();
+      }
+    };
+
+    var bindAllGuidance = function () {
+      $(".PT4-6-1-5 .guidance")
+        .off(".pt615")
+        .on("click.pt615", ".texi", onTexiClick)
+        .on("click.pt615", ".start", onStartClick)
+        .on("click.pt615", "[signal]", onSignalClick);
+      $(".PT4-6-1-5 .custom-inputs")
+        .off(".pt615seq")
+        .on("click.pt615seq", ".signal-sequence > span", onSignalSequenceClick);
+    };
+
+    window.reactivate_PT4_6_1_5 = function () {
+      withinResetElem = withinResetElem_PT4_6_1_5;
+      window.selectExit_PT4_6_1_5 = selectExit_PT4_6_1_5;
+      window.modifyAnswer_PT4_6_1_5 = modifyAnswer_PT4_6_1_5;
+      bindAllGuidance();
+    };
+
+    $(function () {
+      window.reactivate_PT4_6_1_5();
+      stopAndResetAll();
+      clearCustomInputs($(".PT4-6-1-5"));
+    });
+  })();
+</script>

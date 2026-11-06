@@ -1,0 +1,60 @@
+<div id="module_wrapper" class="module_story module_has_box">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_answer"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!-- 任務一 -->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p>
+            <b>情境故事</b>：從故事中找出關鍵訊息，並使用小工具擷取下來保存。
+          </p>
+          <img
+            src="./DATA/IMAGES/common/btn_box.png"
+            height="100"
+            width="auto"
+          />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="storyboard wow fadeIn" style="width: 510px; margin-top: 20px">
+        <div class="subject">
+          <div class="sensors">
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 130px; left: 157px; width: 78px; height: 9px"
+              content="只能往上下左右移動"
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 147px; left: 33px; width: 60px; height: 36px"
+              content=""
+              capture
+            ></span>
+            <span
+              onClick="boxAddMe($(this))"
+              style="top: 194px; left: 62px; width: 102px; height: 16px"
+              content="距離寶藏最近距離的格子數"
+            ></span>
+          </div>
+
+          <img
+            height="auto"
+            width="100%"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-4-2-1.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="assetsPreload"></div>
+</div>

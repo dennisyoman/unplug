@@ -1,0 +1,169 @@
+<div id="module_wrapper" class="module_basic PT4-6-2-4">
+  <div class="tabs">
+    <span>任務一</span>
+  </div>
+
+  <div class="units-title wow bounceInRight"></div>
+
+  <div class="sideTool">
+    <div class="btn_replay"></div>
+    <div class="btn_discover" onClick="toggleAttachment('Graph', this)"></div>
+  </div>
+
+  <div id="contents" class="contents">
+    <!--任務一-->
+    <div>
+      <div class="intro">
+        <div>
+          <h3>How to play?</h3>
+          <p><b>文生圖</b>：請點擊按鈕，把按鈕代表字母的方式填上。</p>
+          <img src="./DATA/PT4/BOOK6/IMAGES/PT4-6-2-4-intro.png" />
+          <span class="cta" onClick="switchIntro()">START</span>
+        </div>
+      </div>
+      <div class="group">
+        <div class="item tti">
+          <div style="position: relative; display: inline-block">
+            <div class="keys">
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans=",.?!"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="abc"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="def"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="ghi"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="jkl"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="mno"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="pqrs"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="tuv"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="wxyz"></span>
+            </div>
+            <img
+              style="width: 220px"
+              src="./DATA/PT4/BOOK6/IMAGES/PT4-6-2-4-1.png"
+            />
+          </div>
+          <div
+            class="mission2"
+            style="position: relative; display: inline-block"
+          >
+            <div class="keys sync-PT4-6-2-5">
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans=",.?!"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="erg"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="tdy"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="alp"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="ocb"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="iuv"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="nmkq"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="swj"></span>
+              <span onclick="toggleAnswer_PT4_6_2_4($(this))" ans="hfxz"></span>
+            </div>
+            <img
+              style="width: 220px"
+              src="./DATA/PT4/BOOK6/IMAGES/PT4-6-2-4-2.png"
+            />
+          </div>
+        </div>
+
+        <div class="simplyDrag wow bounceInUp prefer mission2">
+          <img
+            style="width: 180px"
+            src="./DATA/PT4/BOOK6/IMAGES/PT4-6-2-4-3.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="assetsPreload"></div>
+  </div>
+</div>
+
+<style>
+  .PT4-6-2-4 .contents .simplyDrag.prefer {
+    pointer-events: auto;
+    top: 210px;
+    left: 345px;
+  }
+
+  .PT4-6-2-4 .mission2 {
+    display: none !important;
+  }
+  .PT4-6-2-4 .keys {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 45px 20px 14px 22px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 25px 17px;
+    z-index: 2;
+  }
+  .PT4-6-2-4 .keys span {
+    pointer-events: auto;
+    cursor: pointer;
+    line-height: 12px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<script>
+  (function () {
+    var withinShowAnswer_PT4_6_2_4 = function () {};
+
+    var withinResetElem_PT4_6_2_4 = function () {
+      $(".PT4-6-2-4 .keys > span").removeClass("active").text("");
+      $(".sideTool > div.btn_replay").hide();
+      soundEffect($show);
+    };
+
+    var updateMission2 = function () {
+      $(".PT4-6-2-4 .mission2").removeClass("mission2");
+    };
+
+    var toggleAnswer_PT4_6_2_4 = function (elem) {
+      var ans = elem.attr("ans");
+      elem.toggleClass("active");
+      if (elem.hasClass("active")) {
+        elem.text(ans);
+        rootSoundEffect($pop);
+      } else {
+        elem.text("");
+        rootSoundEffect($show);
+      }
+      $(".sideTool > div.btn_replay").show();
+
+      var $keys = elem.parent();
+      if (!$keys.hasClass("sync-PT4-6-2-5")) return;
+      var $page = $(".PT4-6-2-5");
+      if (!$page.length) return;
+      var idx = $keys.children("span").index(elem);
+      $page.find(".keys.sync-PT4-6-2-4 > span").eq(idx).text(elem.text());
+    };
+
+    if (typeof window.PT4_6_2_mission2 === "undefined") {
+      //表示還沒有玩過任務三
+      window.PT4_6_2_mission2 = false;
+      console.log("還沒任務二");
+    } else {
+      //已經玩過任務三了
+      console.log("還沒任務二");
+      updateMission2();
+    }
+
+    window.reactivate_PT4_6_2_4 = function () {
+      withinShowAnswer = withinShowAnswer_PT4_6_2_4;
+      withinResetElem = withinResetElem_PT4_6_2_4;
+      window.updateMission2 = updateMission2;
+      window.toggleAnswer_PT4_6_2_4 = toggleAnswer_PT4_6_2_4;
+      if (window.PT4_6_2_mission2) {
+        updateMission2();
+      }
+    };
+
+    window.toggleAnswer_PT4_6_2_4 = toggleAnswer_PT4_6_2_4;
+    window.reactivate_PT4_6_2_4();
+  })();
+</script>
